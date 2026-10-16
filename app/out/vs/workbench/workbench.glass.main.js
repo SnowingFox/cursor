@@ -12401,7 +12401,16 @@ var e_t, OOe, FOe, pZu, mZu, II, nW, c7, dZn, xI, Ake, Emr, hZn, ZE, AI, Yu, Adn
   IC = Sve;
 } }), vl, wm = L({ "buildFlags.js"() {
   "use strict";
-  E(), vl = { extensionIsDev: false, developmentTooling: false, enableTraceSpanCollection: true, enableEmbeddingsModelToggle: false, enableCPPControlTokenToggle: false, cursorPredictionOptions: false, localMode: false };
+  E(), vl = { extensionIsDev: false, developmentTooling: false, enableTraceSpanCollection: true, enableEmbeddingsModelToggle: false, enableCPPControlTokenToggle: false, cursorPredictionOptions: false, localMode: (() => {
+    try {
+      const e = globalThis.vscode?.process?.env?.CURSOR_LOCAL_MODE?.trim().toLowerCase();
+      if (e === "1" || e === "true") return true;
+      if (e === "0" || e === "false") return false;
+      return globalThis.vscode?.context?.configuration?.()?.product?.cursorLocalMode === true;
+    } catch {
+      return false;
+    }
+  })() };
 } });
 function eR() {
   return globalThis._CURSOR_SENTRY;
@@ -194376,7 +194385,7 @@ function y_a(t) {
     let V;
     e[19] !== u || e[20] !== q || e[21] !== n ? (V = q && n && BFr(dT, { normalized: true, isStreaming: true, shouldFade: true, copyText: u, className: N.className, style: N.style, children: n }), e[19] = u, e[20] = q, e[21] = n, e[22] = V) : V = e[22];
     let Y;
-    return e[23] !== G || e[24] !== q || e[25] !== K || e[26] !== V ? (Y = BFr(zY, { className: M.className, action: "Thinking", expandable: G, open: q, onOpenChange: K, loading: true, children: V }), e[23] = G, e[24] = q, e[25] = K, e[26] = V, e[27] = Y) : Y = e[27], Y;
+    return e[23] !== G || e[24] !== q || e[25] !== K || e[26] !== V ? (Y = BFr(zY, { className: M.className, action: "Thinking", details: vl.localMode ? __lcpTurnJsx(__lcpThinkingDetails, {}) : void 0, expandable: G, open: q, onOpenChange: K, loading: true, children: V }), e[23] = G, e[24] = q, e[25] = K, e[26] = V, e[27] = Y) : Y = e[27], Y;
   }
   const U = y && I;
   let j;
@@ -199956,7 +199965,7 @@ function Nmi(t) {
     A.preventDefault(), A.stopPropagation(), n.onCancel?.();
   }, type: "button", children: "Cancel" }) : null, e[20] = n, e[21] = T) : T = e[21];
   let I;
-  return e[22] !== a.className || e[23] !== a.style || e[24] !== n.priority || e[25] !== k || e[26] !== C || e[27] !== T || e[28] !== b || e[29] !== y || e[30] !== S ? (I = tOS("div", { className: a.className, style: a.style, "data-priority": n.priority, role: "status", tabIndex: b, "aria-label": y, onClick: S, onKeyDown: k, children: [C, T] }), e[22] = a.className, e[23] = a.style, e[24] = n.priority, e[25] = k, e[26] = C, e[27] = T, e[28] = b, e[29] = y, e[30] = S, e[31] = I) : I = e[31], I;
+  return e[22] !== a.className || e[23] !== a.style || e[24] !== n.priority || e[25] !== k || e[26] !== C || e[27] !== T || e[28] !== b || e[29] !== y || e[30] !== S ? (I = tOS("div", { className: a.className, style: a.style, "data-priority": n.priority, role: "status", tabIndex: b, "aria-label": y, onClick: S, onKeyDown: k, children: [C, n.loading && typeof n.lcpTurnKey === "string" ? __lcpTurnJsx(__lcpTurnStatusSuffix, { turnKey: n.lcpTurnKey }) : null, T] }), e[22] = a.className, e[23] = a.style, e[24] = n.priority, e[25] = k, e[26] = C, e[27] = T, e[28] = b, e[29] = y, e[30] = S, e[31] = I) : I = e[31], I;
 }
 var Lmi, $6r = L({ "AgentTranscriptTailStatus.js"() {
   "use strict";
@@ -201435,7 +201444,7 @@ function nXh(t) {
   let ct;
   e[62] !== d || e[63] !== n.trailingPlanningStatus || e[64] !== H ? (ct = d ? v2e(L5S, { items: H, trailingPlanningStatus: n.trailingPlanningStatus }) : null, e[62] = d, e[63] = n.trailingPlanningStatus, e[64] = H, e[65] = ct) : ct = e[65];
   let Ye;
-  e[66] !== $e.className || e[67] !== j || e[68] !== De || e[69] !== Pe.action || e[70] !== d || e[71] !== Oe || e[72] !== ct ? (Ye = v2e(zY, { action: Pe.action, className: $e.className, details: De, detailsRef: T, expandable: true, headerRef: k, loading: Oe, open: d, onOpenChange: j, chevronRef: A, tabularNums: true, tone: "muted", children: ct }), e[66] = $e.className, e[67] = j, e[68] = De, e[69] = Pe.action, e[70] = d, e[71] = Oe, e[72] = ct, e[73] = Ye) : Ye = e[73];
+  e[66] !== $e.className || e[67] !== j || e[68] !== De || e[69] !== Pe.action || e[70] !== d || e[71] !== Oe || e[72] !== ct ? (Ye = v2e(zY, { action: Pe.action, className: $e.className, details: vl.localMode && Oe && Pe.action === "Thinking" ? __lcpTurnJsx(__lcpThinkingDetails, {}) : De, detailsRef: T, expandable: true, headerRef: k, loading: Oe, open: d, onOpenChange: j, chevronRef: A, tabularNums: true, tone: "muted", children: ct }), e[66] = $e.className, e[67] = j, e[68] = De, e[69] = Pe.action, e[70] = d, e[71] = Oe, e[72] = ct, e[73] = Ye) : Ye = e[73];
   let Ve;
   return e[74] !== xe || e[75] !== Ye ? (Ve = v2e("div", { children: v2e("div", { className: `ui-step-group-header ${Ge.className}`, style: xe, children: Ye }) }), e[74] = xe, e[75] = Ye, e[76] = Ve) : Ve = e[76], Ve;
 }
@@ -207080,6 +207089,152 @@ var hka, ptp, pka = L({ "AgentTranscriptUnreadDivider.js"() {
 import { jsx as p6, jsxs as Crt, Fragment as mka } from "./react-runtime/react/esm-jsx-runtime-production.js";
 import { c as Vkt } from "./react-runtime/react/esm-compiler-runtime-production.js";
 import { useState as Kgi, useRef as mtp, Fragment as Y8S, useLayoutEffect as X8S, useEffect as gtp } from "./react-runtime/react/esm-index-production.js";
+import { useEffect as __lcpTurnUseEffect, useState as __lcpTurnUseState, useSyncExternalStore as __lcpTurnUseStore } from "./react-runtime/react/esm-index-production.js";
+import { jsx as __lcpTurnJsx } from "./react-runtime/react/esm-jsx-runtime-production.js";
+// [cursor-re local mode] Live turn stats, modelled on Claude Code's spinner:
+// "Working  12s · ↓ 1.2k tokens · thinking with high effort" while a turn runs,
+// "Worked  for 34s · ↓ 2.3k tokens" once it ends. Fed from the local agent's
+// interaction stream (AgentClientService), keyed by the turn's user message id.
+var __lcpTurnStorageKey = "cursorLocalMode.turnStats", __lcpTurns = __lcpTurnLoad(), __lcpTurnByConversation = /* @__PURE__ */ new Map(), __lcpTurnListeners = /* @__PURE__ */ new Set(), __lcpTurnNotifyPending = false;
+// Finished turns are kept in localStorage so "Worked for 34s · ↓ 2.3k tokens"
+// survives reloads; only the most recent 300 are retained.
+function __lcpTurnLoad() {
+  try {
+    const v = JSON.parse(globalThis.localStorage?.getItem(__lcpTurnStorageKey) ?? "[]");
+    return new Map(Array.isArray(v) ? v.filter((e) => Array.isArray(e) && typeof e[0] === "string" && e[1] && typeof e[1] === "object") : []);
+  } catch {
+    return /* @__PURE__ */ new Map();
+  }
+}
+function __lcpTurnSave() {
+  try {
+    globalThis.localStorage?.setItem(__lcpTurnStorageKey, JSON.stringify([...__lcpTurns].filter(([, s]) => s.endedAt !== void 0).slice(-300)));
+  } catch {
+  }
+}
+function __lcpTurnNotify() {
+  __lcpTurnNotifyPending || (__lcpTurnNotifyPending = true, queueMicrotask(() => {
+    __lcpTurnNotifyPending = false;
+    for (const l of __lcpTurnListeners) l();
+  }));
+}
+function __lcpTurnSubscribe(listener) {
+  return __lcpTurnListeners.add(listener), () => __lcpTurnListeners.delete(listener);
+}
+function __lcpTurnSet(key, patch) {
+  const prev = __lcpTurns.get(key);
+  prev !== void 0 && (__lcpTurns.set(key, { ...prev, ...patch }), __lcpTurnNotify());
+}
+// Called once per local run; resumes and retries keep counting into the turn
+// that the conversation's last user message started.
+function __lcpTurnBegin(conversationId, action, requestedModel) {
+  const messageId = action?.action?.case === "userMessageAction" ? action.action.value.userMessage?.messageId : void 0;
+  const key = messageId || __lcpTurnByConversation.get(conversationId);
+  if (!key) return;
+  __lcpTurnByConversation.set(conversationId, key);
+  const effort = requestedModel?.parameters?.find((p) => p.id === "reasoning" || p.id === "effort")?.value || void 0, prev = __lcpTurns.get(key);
+  __lcpTurns.set(key, prev !== void 0 && messageId === void 0 ? { ...prev, effort: effort ?? prev.effort, endedAt: void 0 } : { startedAt: Date.now(), firstByteAt: void 0, chars: 0, effort, thinkingSince: void 0, endedAt: void 0, outputTokens: void 0 });
+  for (const k of __lcpTurns.keys()) {
+    if (__lcpTurns.size <= 300) break;
+    __lcpTurns.delete(k);
+  }
+  return __lcpTurnNotify(), key;
+}
+function __lcpTurnUpdate(key, update) {
+  const s = key === void 0 ? void 0 : __lcpTurns.get(key);
+  if (s === void 0) return;
+  const m = update.message, now = Date.now(), first = s.firstByteAt ?? now;
+  switch (m.case) {
+    case "textDelta":
+      return __lcpTurnSet(key, { chars: s.chars + m.value.text.length, firstByteAt: first, thinkingSince: void 0 });
+    case "thinkingDelta":
+      return __lcpTurnSet(key, { chars: s.chars + m.value.text.length, firstByteAt: first, thinkingSince: s.thinkingSince ?? now });
+    case "thinkingCompleted":
+      return __lcpTurnSet(key, { firstByteAt: first, thinkingSince: void 0 });
+    case "partialToolCall":
+      return __lcpTurnSet(key, { chars: s.chars + (m.value.argsTextDelta?.length ?? 0), firstByteAt: first, thinkingSince: void 0 });
+    case "toolCallStarted":
+      return __lcpTurnSet(key, { firstByteAt: first, thinkingSince: void 0 });
+    case "turnEnded": {
+      const out = m.value.outputTokens === void 0 ? void 0 : Number(m.value.outputTokens);
+      return __lcpTurnSet(key, { endedAt: now, thinkingSince: void 0, outputTokens: out !== void 0 && out > 0 ? out : void 0 }), __lcpTurnSave();
+    }
+  }
+}
+// formatDuration / formatNumber from Claude Code (src/utils/format.ts).
+function __lcpFormatDuration(ms) {
+  if (ms < 6e4) return `${Math.floor(ms / 1e3)}s`;
+  let h = Math.floor(ms / 36e5), m = Math.floor(ms % 36e5 / 6e4), s = Math.round(ms % 6e4 / 1e3);
+  return s === 60 && (s = 0, m++), m === 60 && (m = 0, h++), h > 0 ? `${h}h ${m}m ${s}s` : `${m}m ${s}s`;
+}
+var __lcpCompact = { short: new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1, minimumFractionDigits: 0 }), long: new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1, minimumFractionDigits: 1 }) };
+function __lcpFormatTokens(n) {
+  return (n >= 1e3 ? __lcpCompact.long : __lcpCompact.short).format(n).toLowerCase();
+}
+function __lcpTurnText(s, active, durationMs) {
+  const now = Date.now(), parts = [];
+  if (active) {
+    parts.push(__lcpFormatDuration(now - s.startedAt));
+    const tokens = Math.round(s.chars / 4);
+    tokens > 0 ? parts.push(`${s.firstByteAt === void 0 ? "↑" : "↓"} ${__lcpFormatTokens(tokens)} tokens`) : s.firstByteAt === void 0 && now - s.startedAt > 3e3 && parts.push("waiting for the model");
+    s.thinkingSince !== void 0 && parts.push(s.effort ? `thinking with ${s.effort} effort` : "thinking");
+  } else {
+    const ms = durationMs ?? (s.endedAt === void 0 ? void 0 : s.endedAt - s.startedAt);
+    ms !== void 0 && ms > 0 && parts.push(`for ${__lcpFormatDuration(ms)}`);
+    const tokens = s.outputTokens ?? Math.round(s.chars / 4);
+    tokens > 0 && parts.push(`↓ ${__lcpFormatTokens(tokens)} tokens`);
+  }
+  return parts.join(" · ");
+}
+// The transcript's tail status ("Planning next moves", "Running …") has no turn
+// id of its own; it belongs to the conversation's last user message.
+function __lcpTurnKeyFromRows(rows) {
+  for (let i = rows.length - 1; i >= 0; i--) {
+    const r = rows[i];
+    if (r?.kind === "human") return r.rowId;
+    if (typeof r?.turnHumanRowId === "string") return r.turnHumanRowId;
+  }
+}
+function __lcpTurnStatusSuffix({ turnKey }) {
+  const key = turnKey.replace(/^human:/u, ""), stats = __lcpTurnUseStore(__lcpTurnSubscribe, () => __lcpTurns.get(key)), [, tick] = __lcpTurnUseState(0), live = stats !== void 0 && stats.endedAt === void 0;
+  __lcpTurnUseEffect(() => {
+    if (!live) return;
+    const h = setInterval(() => tick((x) => x + 1), 1e3);
+    return () => clearInterval(h);
+  }, [live]);
+  const text = live ? __lcpTurnText(stats, true) : "";
+  return text ? __lcpTurnJsx("span", { "data-slot": "local-turn-stats", style: { flexShrink: 0, marginRight: "auto", color: "var(--cursor-text-quaternary)", fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" }, children: `· ${text}` }) : null;
+}
+// Details for the native "Thinking" row: "4s · high effort". The row has no
+// turn id, so it follows the most recently started turn that is thinking.
+function __lcpThinkingStats() {
+  let best;
+  for (const s of __lcpTurns.values()) s.thinkingSince !== void 0 && s.endedAt === void 0 && (best === void 0 || s.startedAt > best.startedAt) && (best = s);
+  return best;
+}
+function __lcpThinkingDetails() {
+  const stats = __lcpTurnUseStore(__lcpTurnSubscribe, __lcpThinkingStats), [, tick] = __lcpTurnUseState(0), live = stats !== void 0;
+  __lcpTurnUseEffect(() => {
+    if (!live) return;
+    const h = setInterval(() => tick((x) => x + 1), 1e3);
+    return () => clearInterval(h);
+  }, [live]);
+  if (!live) return null;
+  const parts = [__lcpFormatDuration(Date.now() - stats.thinkingSince)];
+  stats.effort && parts.push(`${stats.effort} effort`);
+  return __lcpTurnJsx("span", { style: { fontVariantNumeric: "tabular-nums" }, children: parts.join(" · ") });
+}
+function __lcpTurnDetails({ turnKey, active, durationMs, fallback }) {
+  const key = typeof turnKey === "string" ? turnKey.replace(/^human:/u, "") : void 0, stats = __lcpTurnUseStore(__lcpTurnSubscribe, () => key === void 0 ? void 0 : __lcpTurns.get(key)), [, tick] = __lcpTurnUseState(0);
+  __lcpTurnUseEffect(() => {
+    if (!active || stats === void 0) return;
+    const h = setInterval(() => tick((x) => x + 1), 1e3);
+    return () => clearInterval(h);
+  }, [active, stats === void 0]);
+  if (stats === void 0 || !active && typeof fallback !== "string" && fallback != null) return fallback ?? null;
+  const text = __lcpTurnText(stats, active, durationMs);
+  return text ? __lcpTurnJsx("span", { style: { fontVariantNumeric: "tabular-nums" }, children: text }) : fallback ?? null;
+}
 function ftp(t) {
   const e = Vkt(65), { row: n, renderRow: i, open: r, onOpenChange: s, loading: o, childrenVirtualized: a, hasRenderableChildren: l } = t, c = a === void 0 ? false : a, u = r !== void 0, [d, h] = Kgi(void 0), [p, g] = Kgi(false), f = mtp(0), _ = uR(), b = u ? r : d ?? n.defaultOpen === true, y = u ? o === true : p;
   let S;
@@ -207124,7 +207279,7 @@ function ftp(t) {
     let pe;
     e[40] !== ge || e[41] !== oe || e[42] !== de || e[43] !== n.runningTaskStatus || e[44] !== n.state.kind ? (pe = n.state.kind === "completed" && oe ? n.runningTaskStatus : n.state.kind === "completed" ? de === void 0 ? ge : Crt(mka, { children: [ge === void 0 ? "" : `${ge} · `, Crt("span", { className: "ui-j8fevo", children: ["Routed to ", de] })] }) : void 0, e[40] = ge, e[41] = oe, e[42] = de, e[43] = n.runningTaskStatus, e[44] = n.state.kind, e[45] = pe) : pe = e[45];
     const ve = pe, fe = n.state.kind === "active" ? oe ? `${n.runningTaskCount} Working` : "Working" : oe ? `${n.runningTaskCount} working` : "Worked", Te = se ? null : fe, _e = se ? ae : ve;
-    H = T.className, G = T.style, $ = "ui-step-group-header", P = zY, q = Te, K = "ui-step-group-collapsible agent-transcript-work-group-collapsible", V = _e, Y = ie, J = y, M = b, O = k, N = true, U = "tertiary", j = b && !c ? p6("div", { className: A.className, style: A.style, children: re.map((Ce) => p6(Y8S, { children: i(Ce) }, Ce.rowId)) }) : null, e[7] = c, e[8] = k, e[9] = l, e[10] = b, e[11] = y, e[12] = i, e[13] = n, e[14] = P, e[15] = M, e[16] = O, e[17] = N, e[18] = U, e[19] = j, e[20] = $, e[21] = H, e[22] = G, e[23] = q, e[24] = K, e[25] = V, e[26] = Y, e[27] = J;
+    H = T.className, G = T.style, $ = "ui-step-group-header", P = zY, q = Te, K = "ui-step-group-collapsible agent-transcript-work-group-collapsible", V = vl.localMode && !se ? __lcpTurnJsx(__lcpTurnDetails, { turnKey: n.turnHumanRowId, active: n.state.kind === "active", durationMs: n.state.durationMs, fallback: _e }) : _e, Y = ie, J = y, M = b, O = k, N = true, U = "tertiary", j = b && !c ? p6("div", { className: A.className, style: A.style, children: re.map((Ce) => p6(Y8S, { children: i(Ce) }, Ce.rowId)) }) : null, e[7] = c, e[8] = k, e[9] = l, e[10] = b, e[11] = y, e[12] = i, e[13] = n, e[14] = P, e[15] = M, e[16] = O, e[17] = N, e[18] = U, e[19] = j, e[20] = $, e[21] = H, e[22] = G, e[23] = q, e[24] = K, e[25] = V, e[26] = Y, e[27] = J;
   } else P = e[14], M = e[15], O = e[16], N = e[17], U = e[18], j = e[19], $ = e[20], H = e[21], G = e[22], q = e[23], K = e[24], V = e[25], Y = e[26], J = e[27];
   let Q;
   e[46] !== P || e[47] !== M || e[48] !== O || e[49] !== N || e[50] !== U || e[51] !== j || e[52] !== q || e[53] !== K || e[54] !== V || e[55] !== Y || e[56] !== J ? (Q = p6(P, { action: q, className: K, details: V, expandable: Y, loading: J, open: M, onOpenChange: O, tabularNums: N, tone: U, children: j }), e[46] = P, e[47] = M, e[48] = O, e[49] = N, e[50] = U, e[51] = j, e[52] = q, e[53] = K, e[54] = V, e[55] = Y, e[56] = J, e[57] = Q) : Q = e[57];
@@ -208634,6 +208789,8 @@ function fnp(t) {
 function AUS({ rows: t, status: e, expandedActivityGroupRowIds: n }) {
   const i = NUS(t.filter((l) => l.kind !== "tailStatus").map(RUS), e?.isReconnecting === true);
   if (e === void 0) return BUS(i);
+  const __lcpTailKey = vl.localMode ? __lcpTurnKeyFromRows(i) : void 0;
+  __lcpTailKey !== void 0 && (e = { ...e, lcpTurnKey: __lcpTailKey });
   const r = Nka({ rows: i, status: e, expandedActivityGroupRowIds: n }), s = nfi(i), o = DUS(i, n), a = { ...vnp(e), ...s === void 0 ? {} : { activatesWorkGroup: _np(s) }, ...o === void 0 ? {} : { activatesActivityGroup: _np(o) } };
   switch (r.kind) {
     case "suppressed":
@@ -208653,7 +208810,7 @@ function AUS({ rows: t, status: e, expandedActivityGroupRowIds: n }) {
   }
 }
 function vnp(t) {
-  return { action: t.action, loading: true, priority: t.priority, ...t.detail === void 0 ? {} : { detail: t.detail }, ...t.awaitCountdown === void 0 ? {} : { awaitCountdown: t.awaitCountdown } };
+  return { action: t.action, loading: true, priority: t.priority, ...t.lcpTurnKey === void 0 ? {} : { lcpTurnKey: t.lcpTurnKey }, ...t.detail === void 0 ? {} : { detail: t.detail }, ...t.awaitCountdown === void 0 ? {} : { awaitCountdown: t.awaitCountdown } };
 }
 function _np(t) {
   return { rowId: t.rowId, sourceIds: t.sourceIds };
@@ -336659,6 +336816,138 @@ var Pug = L({ "ideClientCapabilities.js"() {
   "use strict";
   E();
 } });
+// [cursor-re local mode] Custom providers configured on Settings > Models.
+//
+// Stored (application scope) as { version: 1, providers: [{ name, prefix,
+// apiType, baseUrl, apiKey, headers, models: [{ id, enabled, contextWindow }] }] }.
+// A model shows up in the picker as "<prefix>/<id>"; the prefix keeps custom
+// models apart from Cursor's catalog and is stripped before the request goes out.
+var __lcpStorageKey = "cursorLocalMode.customProviders";
+var __lcpApiTypes = ["openai-chat", "openai-responses", "anthropic"];
+function __lcpRead(storageService) {
+  try {
+    const v = JSON.parse(storageService.get(__lcpStorageKey, -1) ?? "null");
+    return Array.isArray(v?.providers) ? v.providers.filter((p) => p !== null && typeof p === "object") : [];
+  } catch {
+    return [];
+  }
+}
+function __lcpWrite(storageService, providers) {
+  storageService.store(__lcpStorageKey, JSON.stringify({ version: 1, providers }), -1, 1);
+}
+function __lcpModelId(provider, model) {
+  const prefix = String(provider.prefix ?? "").trim();
+  return prefix ? `${prefix}/${model.id}` : model.id;
+}
+function __lcpEnabledModels(providers) {
+  return providers.flatMap((p) => p.enabled === false ? [] : (p.models ?? []).filter((m) => m?.id && m.enabled !== false).map((m) => ({ provider: p, model: m, id: __lcpModelId(p, m) })));
+}
+function __lcpResolve(providers, modelId) {
+  const id = typeof modelId === "string" ? modelId.trim() : "";
+  return id ? __lcpEnabledModels(providers).find((e) => e.id === id) : void 0;
+}
+// Explicit setting, else what /models reported, else 1M for current Claude
+// models (200K for the Claude 3 / early Claude 4 generations).
+function __lcpContextWindow(model) {
+  const n = Number(model.contextWindow);
+  if (Number.isFinite(n) && n > 0) return Math.floor(n);
+  if (!/^claude-/i.test(model.id)) return;
+  return /^claude-(?:3|(?:opus|sonnet|haiku)-4(?:-[0-5])?(?:-\d{8})?$|(?:opus|sonnet|haiku)-4-[0-5]-)/i.test(model.id) ? 2e5 : 1e6;
+}
+function __lcpEndpoint(provider) {
+  let baseUrl = String(provider.baseUrl ?? "").trim().replace(/\/+$/u, "");
+  if (provider.apiType === "anthropic") {
+    baseUrl = baseUrl.replace(/\/messages$/u, ""), /\/v\d+$/u.test(baseUrl) || (baseUrl += "/v1");
+  } else baseUrl = baseUrl.replace(/\/(?:chat\/completions|responses)$/u, "");
+  const headers = {};
+  for (const line of String(provider.headers ?? "").split(/\r?\n/u)) {
+    const i = line.indexOf(":");
+    i > 0 && (headers[line.slice(0, i).trim()] = line.slice(i + 1).trim());
+  }
+  return { baseUrl, apiKey: String(provider.apiKey ?? "").trim() || void 0, headers };
+}
+function __lcpMaxOutputTokens(model) {
+  const n = Number(model.maxOutputTokens);
+  return Number.isFinite(n) && n > 0 ? Math.floor(n) : void 0;
+}
+function __lcpDescriptor(provider) {
+  const contextLengths = {}, maxOutputTokens = {};
+  for (const m of provider.models ?? []) {
+    if (!m?.id) continue;
+    const context = __lcpContextWindow(m), output = __lcpMaxOutputTokens(m);
+    context !== void 0 && (contextLengths[m.id] = context), output !== void 0 && (maxOutputTokens[m.id] = output);
+  }
+  return { apiType: __lcpApiTypes.includes(provider.apiType) ? provider.apiType : "openai-chat", contextLengths, maxOutputTokens };
+}
+// Reasoning-effort tiers the local runtime applies per model (mirrors the
+// model table in cursor-agent-exec): Anthropic models take output_config.effort
+// (adaptive thinking), OpenAI-compatible ones reasoning_effort.
+var __lcpEffortLabels = { none: "Off", minimal: "Minimal", low: "Low", medium: "Medium", high: "High", xhigh: "Extra High", max: "Max" };
+function __lcpEffortTiers(provider, modelId) {
+  const id = String(modelId).trim().toLowerCase().replace(/^.*\//u, "").replace(/@.*$/u, ""), anthropic = provider.apiType === "anthropic", all = ["low", "medium", "high", "xhigh", "max"];
+  if (anthropic) {
+    if (/^claude-(?:opus|haiku)-5[-.]5$/u.test(id)) return { values: all, default: "medium" };
+    if (/^claude-(?:opus-5|opus-4[-.][78]|sonnet-5(?:[-.]5)?)$/u.test(id)) return { values: all, default: "high" };
+    if (/^claude-(?:opus-4[-.][56]|sonnet-4[-.]6)$/u.test(id)) return { values: ["low", "medium", "high", "max"], default: "high" };
+    return;
+  }
+  if (/^grok-4[.-](?:3|[56](?:-(?:batch|build|nocomp))?)$|^grok-build-latest$/u.test(id)) return { values: ["minimal", "low", "medium", "high", "xhigh"], default: "high" };
+  if (/^grok-4[.-]7$|^gpt-5[.-]6-(?:luna|sol|terra)$|^gpt-5(?:\.\d+)?$/u.test(id)) return { values: ["low", "medium", "high", "xhigh"], default: "medium" };
+}
+// Rewrites one agent turn onto the custom provider that owns its model.
+function __lcpRouteTurn(storageService, modelDetails, runOptions) {
+  const providers = __lcpRead(storageService), models = __lcpEnabledModels(providers);
+  if (models.length === 0) return;
+  const requested = runOptions.requestedModel?.modelId?.trim() || modelDetails?.modelId?.trim() || void 0;
+  let hit = __lcpResolve(providers, runOptions.requestedModel?.modelId) ?? __lcpResolve(providers, modelDetails?.modelId);
+  if (hit === void 0) {
+    if (requested !== void 0 && requested !== "default") throw new Error(`Model "${requested}" is not configured. Add it under Settings > Models > Custom Providers, or pick one of: ${models.map((e) => e.id).join(", ")}.`);
+    hit = models[0];
+  }
+  const bare = hit.model.id, endpoint = __lcpEndpoint(hit.provider);
+  let requestedModel = runOptions.requestedModel;
+  requestedModel !== void 0 && (requestedModel = requestedModel.clone(), requestedModel.modelId = bare);
+  let details = modelDetails;
+  details !== void 0 ? (details = details.clone(), details.modelId = bare) : requestedModel === void 0 && (details = new Ove({ modelId: bare, displayModelId: bare, displayName: bare, displayNameShort: bare }));
+  return { modelDetails: details, runOptions: { ...runOptions, requestedModel }, providerConfig: { baseUrl: endpoint.baseUrl, apiKey: endpoint.apiKey, customHeaders: endpoint.headers }, availableModelIds: (hit.provider.models ?? []).filter((m) => m?.id && m.enabled !== false).map((m) => m.id), cursorLocalProvider: __lcpDescriptor(hit.provider) };
+}
+// Provider for one-shot local inference (chat titles, commit messages): the
+// composer's selected custom model, else the first enabled one.
+function __lcpInferenceConfig(storageService, modelConfigService, userAgent) {
+  const providers = __lcpRead(storageService), models = __lcpEnabledModels(providers);
+  if (models.length === 0) return;
+  let selected;
+  try {
+    selected = modelConfigService.getModelConfig("composer")?.selectedModels?.[0]?.modelId;
+  } catch {
+  }
+  const hit = __lcpResolve(providers, selected) ?? models[0], endpoint = __lcpEndpoint(hit.provider);
+  return { baseUrl: endpoint.baseUrl, apiKey: endpoint.apiKey, userAgent, customHeaders: endpoint.headers, modelId: hit.model.id, cursorLocalProvider: __lcpDescriptor(hit.provider) };
+}
+// Local mode's model catalog: the enabled custom models, no backend round trip.
+async function __lcpRefreshModels(aiService) {
+  const entries = __lcpEnabledModels(__lcpRead(aiService._storageService));
+  const rows = entries.map(({ provider, model, id }) => {
+    const context = __lcpContextWindow(model), source = provider.name || provider.prefix || "custom provider", effort = __lcpEffortTiers(provider, model.id);
+    const parameterDefinitions = effort === void 0 ? [] : [{ id: "reasoning", name: "Reasoning", markdownTooltip: "How much the model thinks before answering.", parameterType: { enumParameter: { values: effort.values.map((v) => ({ value: v, displayName: __lcpEffortLabels[v] ?? v })) } }, isCycleableByHotkey: true }];
+    const variants = effort === void 0 ? [{ parameterValues: [], displayName: id, displayNameOutsidePicker: id, isMaxMode: false, isDefaultNonMaxConfig: true, isDefaultMaxConfig: true }] : effort.values.map((v) => ({ parameterValues: [{ id: "reasoning", value: v }], displayName: `${id} ${__lcpEffortLabels[v] ?? v}`, displayNameOutsidePicker: `${id} ${__lcpEffortLabels[v] ?? v}`, isMaxMode: false, isDefaultNonMaxConfig: v === effort.default, isDefaultMaxConfig: v === effort.default }));
+    return { name: id, serverModelName: id, clientDisplayName: id, inputboxShortModelName: id, defaultOn: true, supportsAgent: true, supportsPlanMode: true, supportsSandboxing: true, supportsMaxMode: false, supportsNonMaxMode: true, supportsCmdK: false, supportsThinking: effort !== void 0, supportsImages: model.vision !== false, tagline: source, namedModelSectionIndex: 1, legacySlugs: [], idAliases: [], parameterDefinitions, variants, tooltipData: { markdownContent: [`Served by ${source} (${__lcpEndpoint(provider).baseUrl}).`, context === void 0 ? void 0 : `Context: ${context.toLocaleString()} tokens.`, effort === void 0 ? void 0 : `Reasoning: ${effort.values.map((v) => __lcpEffortLabels[v] ?? v).join(", ")}.`].filter(Boolean).join("\n\n") } };
+  });
+  const models = aiService.deserializePickerModels(rows).map((m) => Ipn(m)), ids = models.map((m) => m.name);
+  Qm(() => {
+    aiService.persistAvailableDefaultModels(models), aiService._reactiveStorageService.setApplicationUserPersistentStorage("localProviderModelIds", ids), aiService._reactiveStorageService.setApplicationUserPersistentStorage("localProviderAgentModelIds", ids);
+  });
+  try {
+    aiService._modelConfigService.triggerParameterizedModelConfigMigration();
+  } catch {
+  }
+  const stored = aiService._modelConfigService.getStoredModelConfig("composer"), current = stored?.selectedModels?.[0]?.modelId ?? stored?.modelName?.split(",")[0]?.trim();
+  if (ids.length > 0 && !ids.includes(current)) {
+    const first = entries.find((e) => e.id === ids[0]), effort = first === void 0 ? void 0 : __lcpEffortTiers(first.provider, first.model.id);
+    aiService._modelConfigService.setModelConfig("composer", { modelName: ids[0], selectedModels: [{ modelId: ids[0], parameters: effort === void 0 ? [] : [{ id: "reasoning", value: effort.default }] }], maxMode: false });
+  }
+  aiService._aiSettingsService.handleAvailableModelsChange();
+}
 function nMe(t) {
   const e = t?.trim();
   return e || void 0;
@@ -336692,7 +336981,7 @@ function E_k() {
 }
 var Kal, Yal, Xal, zss, VTt = L({ "localAgentProviderConfig.js"() {
   "use strict";
-  E(), hX(), Hu(), Kal = "cursor.openLocalAgentConfigurationModal", Yal = "cursor.openLocalAgentLogs", Xal = "Local Agent Not Configured", zss = `Configure your API key and base URL to use the local agent. [Open configuration](command:${Kal}) · [Open logs](command:${Yal})`;
+  E(), hX(), Hu(), Kal = "cursor.openLocalAgentConfigurationModal", Yal = "cursor.openLocalAgentLogs", Xal = "Local Agent Not Configured", zss = `Add a provider under Settings > Models > Custom Providers, then pick one of its models. [Open configuration](command:${Kal}) · [Open logs](command:${Yal})`;
 } });
 function Zal(t) {
   return t.isLocalMode || t.useOpenAIKey === true ? t.rawStoredOpenAIKey : void 0;
@@ -337011,11 +337300,15 @@ var ill, rll, w$, Xug, Zug, Q4e, Qug, Jug, edg, tdg, VEi, $ze = L({ "agentClient
       return new Ove({ modelId: e, displayModelId: e, displayName: e, displayNameShort: e, maxMode: t.requestedModel?.maxMode, credentials: t.requestedModel?.credentials });
     }
     async runLocalAgentInExtensionHost(t, e, n, i, r, s, o, a, l, c) {
-      const u = await this.getLocalAgentProviderConfig(i, c), d = this.reactiveStorageService.applicationUserPersistentStorage.localProviderAgentModelIds ?? [], h = i ?? this.createDefaultLocalModel(c), p = nMe(c.requestedModel?.modelId) ?? nMe(i?.modelId) ?? h.modelId;
+      const __lcp = __lcpRouteTurn(this.storageService, i, c);
+      __lcp !== void 0 && (i = __lcp.modelDetails, c = __lcp.runOptions);
+      const __lcpTurnKey = __lcpTurnBegin(c.conversationId, n, c.requestedModel);
+      const u = __lcp?.providerConfig ?? await this.getLocalAgentProviderConfig(i, c), d = __lcp?.availableModelIds ?? this.reactiveStorageService.applicationUserPersistentStorage.localProviderAgentModelIds ?? [], h = i ?? this.createDefaultLocalModel(c), p = nMe(c.requestedModel?.modelId) ?? nMe(i?.modelId) ?? h.modelId;
       this.logService.info("[AgentClientService] Running agent turn through local agent-exec runtime", { conversationId: c.conversationId, modelId: p, baseUrl: u.baseUrl }), await this.agentExecProviderService.waitForProviderRegistration(t.signal, t);
       try {
-        const g = { baseUrl: u.baseUrl, apiKey: u.apiKey, userAgent: `Cursor/${this.productService.version}`, customHeaders: u.customHeaders, urlProtocol: this.productService.urlProtocol, privacyMode: this.cursorAuthenticationService.granularPrivacyModeRawEnum(), defaultModel: Tr.wrap(h.toBinary()), modelDetails: i ? Tr.wrap(i.toBinary()) : void 0, availableModelIds: d, conversationState: Tr.wrap(e.toBinary()), action: Tr.wrap(n.toBinary()), runOptions: { conversationId: c.conversationId, conversationGroupId: c.conversationGroupId, generationUUID: c.generationUUID, customSystemPrompt: c.customSystemPrompt, excludeWorkspaceContext: c.excludeWorkspaceContext, isRunningInTest: c.isRunningInTest, clientSupportsInlineImages: c.clientSupportsInlineImages, clientSupportsPreviewCard: c.clientSupportsPreviewCard, clientSupportsSendToUser: c.clientSupportsSendToUser, serializeSubagentStatesAsBlobRefs: this.experimentService.checkFeatureGate("local_agent_subagent_state_blob_refs", { disableExposureLog: false }), requestedModel: c.requestedModel ? Tr.wrap(c.requestedModel.toBinary()) : void 0, subagentModelOverrides: c.subagentModelOverrides?.map((b) => Tr.wrap(b.toBinary())), subagentTypeName: c.subagentTypeName }, mcpTools: a, agentExecOptions: { composerId: c.conversationId, workspacePaths: this.workspaceContextService.getWorkspace().folders.map((b) => KR(b.uri, true, this.environmentService.remoteAuthority !== void 0)) } }, f = { sendInteractionUpdate: async (b) => {
+        const g = { ...__lcp === void 0 ? {} : { cursorLocalProvider: __lcp.cursorLocalProvider }, baseUrl: u.baseUrl, apiKey: u.apiKey, userAgent: `Cursor/${this.productService.version}`, customHeaders: u.customHeaders, urlProtocol: this.productService.urlProtocol, privacyMode: this.cursorAuthenticationService.granularPrivacyModeRawEnum(), defaultModel: Tr.wrap(h.toBinary()), modelDetails: i ? Tr.wrap(i.toBinary()) : void 0, availableModelIds: d, conversationState: Tr.wrap(e.toBinary()), action: Tr.wrap(n.toBinary()), runOptions: { conversationId: c.conversationId, conversationGroupId: c.conversationGroupId, generationUUID: c.generationUUID, customSystemPrompt: c.customSystemPrompt, excludeWorkspaceContext: c.excludeWorkspaceContext, isRunningInTest: c.isRunningInTest, clientSupportsInlineImages: c.clientSupportsInlineImages, clientSupportsPreviewCard: c.clientSupportsPreviewCard, clientSupportsSendToUser: c.clientSupportsSendToUser, serializeSubagentStatesAsBlobRefs: this.experimentService.checkFeatureGate("local_agent_subagent_state_blob_refs", { disableExposureLog: false }), requestedModel: c.requestedModel ? Tr.wrap(c.requestedModel.toBinary()) : void 0, subagentModelOverrides: c.subagentModelOverrides?.map((b) => Tr.wrap(b.toBinary())), subagentTypeName: c.subagentTypeName }, mcpTools: a, agentExecOptions: { composerId: c.conversationId, workspacePaths: this.workspaceContextService.getWorkspace().folders.map((b) => KR(b.uri, true, this.environmentService.remoteAuthority !== void 0)) } }, f = { sendInteractionUpdate: async (b) => {
           const y = ok.fromBinary(b.buffer);
+          __lcpTurnUpdate(__lcpTurnKey, y);
           if (y.message.case === "turnEnded") {
             const S = j_k(y.message.value, { requestId: c.generationUUID, conversationId: c.conversationId, modelIntent: p });
             if (S !== void 0) try {
@@ -495113,7 +495406,112 @@ function AVw({ settingsWorkspace: t }) {
     c({ useBedrock: true }), a(false);
   } })] });
 }
+import { useState as __lcpUseState } from "./react-runtime/react/esm-index-production.js";
+import { jsx as __lcpJsx, jsxs as __lcpJsxs } from "./react-runtime/react/esm-jsx-runtime-production.js";
+// [cursor-re local mode] Settings > Models > Custom Providers.
+var __lcpApiTypeLabels = { "openai-chat": "OpenAI Chat Completions", "openai-responses": "OpenAI Responses", anthropic: "Anthropic Messages" };
+var __lcpBaseUrlHints = { "openai-chat": "https://api.openai.com/v1", "openai-responses": "https://api.openai.com/v1", anthropic: "https://api.anthropic.com" };
+var __lcpInputStyle = { width: "min(340px, 100%)", boxSizing: "border-box", padding: "4px 8px", fontSize: "12px", fontFamily: "inherit", color: "var(--vscode-input-foreground)", background: "var(--vscode-input-background)", border: "1px solid var(--vscode-settings-dropdownBorder, var(--vscode-input-border, transparent))", borderRadius: "4px", outline: "none" };
+function __lcpNewProvider(existing) {
+  let n = existing.length + 1, prefix = "custom-provider";
+  for (const used = new Set(existing.map((p) => p.prefix)); used.has(prefix); ) prefix = `custom-provider-${++n}`;
+  return { name: prefix, prefix, apiType: "openai-chat", baseUrl: "", apiKey: "", headers: "", models: [] };
+}
+function __lcpValidate(providers) {
+  const prefixes = /* @__PURE__ */ new Set();
+  for (const p of providers) {
+    const label = p.name?.trim() || "(unnamed provider)";
+    if (!p.name?.trim()) return "Every provider needs a name.";
+    if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/u.test(p.prefix ?? "")) return `${label}: the prefix may only contain letters, digits, ".", "_" and "-".`;
+    if (prefixes.has(p.prefix)) return `Prefix "${p.prefix}" is used by more than one provider.`;
+    prefixes.add(p.prefix);
+    try {
+      const u = new URL(__lcpEndpoint(p).baseUrl);
+      if (u.protocol !== "http:" && u.protocol !== "https:") throw new Error();
+    } catch {
+      return `${label}: base URL must be an http(s) URL.`;
+    }
+    const ids = /* @__PURE__ */ new Set();
+    for (const m of p.models ?? []) {
+      if (ids.has(m.id)) return `${label}: model "${m.id}" is listed twice.`;
+      ids.add(m.id);
+    }
+  }
+}
+function __lcpField(label, description, control) {
+  return __lcpJsx(Hs.Entry, { label, description, layout: "row", children: control });
+}
+function __lcpTextInput(value, onChange, opts = {}) {
+  return __lcpJsx("input", { type: opts.type ?? "text", value: value ?? "", placeholder: opts.placeholder, "aria-label": opts.ariaLabel, spellCheck: false, autoComplete: "off", style: { ...__lcpInputStyle, ...opts.style }, onChange: (e) => onChange(e.target.value) });
+}
+function __lcpProviderCard({ provider: p, index, busy, onChange, onRemove, onFetch }) {
+  const [newModel, setNewModel] = __lcpUseState("");
+  const models = p.models ?? [], setModels = (next) => onChange({ models: next }), patchModel = (i, patch) => setModels(models.map((m, j) => j === i ? { ...m, ...patch } : m));
+  const addModel = () => {
+    const id = newModel.trim();
+    id && !models.some((m) => m.id === id) && setModels([...models, { id, enabled: true }]), setNewModel("");
+  };
+  const modelRows = models.map((m, i) => {
+    const auto = __lcpContextWindow({ id: m.id });
+    return __lcpJsxs("div", { style: { display: "flex", alignItems: "center", gap: "8px", padding: "4px 0" }, children: [__lcpJsx(qx, { checked: m.enabled !== false, onCheckedChange: (v) => patchModel(i, { enabled: v }) }), __lcpJsx("span", { title: m.id, style: { flex: "1 1 auto", minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontSize: "12px", fontFamily: "var(--monaco-monospace-font)", opacity: m.enabled === false ? 0.6 : 1 }, children: `${p.prefix || "?"}/${m.id}` }), __lcpTextInput(m.contextWindow === void 0 ? "" : String(m.contextWindow), (v) => {
+      const n = Number(v.replace(/[_,\s]/gu, ""));
+      patchModel(i, { contextWindow: v.trim() === "" || !Number.isFinite(n) || n <= 0 ? void 0 : Math.floor(n) });
+    }, { placeholder: auto === void 0 ? "context (auto)" : `context ${auto.toLocaleString()}`, ariaLabel: `Context window for ${m.id}`, style: { width: "150px" } }), __lcpJsx(An, { size: "sm", variant: "ghost", onClick: () => setModels(models.filter((_, j) => j !== i)), children: "Remove" })] }, m.id);
+  });
+  return __lcpJsx(Tf, { title: p.name?.trim() || "Untitled provider", description: `${__lcpApiTypeLabels[p.apiType] ?? p.apiType} · models appear as "${p.prefix || "?"}/<model>"`, trailing: __lcpJsx(qx, { checked: p.enabled !== false, onCheckedChange: (v) => onChange({ enabled: v }) }), children: __lcpJsxs(Hs.Root, { accessibleLabel: `Custom provider ${p.name}`, children: [
+    __lcpField("Name", "Shown in the model picker tooltip.", __lcpTextInput(p.name, (v) => onChange({ name: v }), { ariaLabel: "Provider name" })),
+    __lcpField("Prefix", "Model IDs become <prefix>/<model>, so they never collide with Cursor's models. Stripped before the request is sent.", __lcpTextInput(p.prefix, (v) => onChange({ prefix: v.trim() }), { ariaLabel: "Model prefix" })),
+    __lcpField("API", "Wire format the endpoint speaks.", __lcpJsx("select", { value: p.apiType, "aria-label": "API type", style: __lcpInputStyle, onChange: (e) => onChange({ apiType: e.target.value }), children: __lcpApiTypes.map((t) => __lcpJsx("option", { value: t, children: __lcpApiTypeLabels[t] }, t)) })),
+    __lcpField("Base URL", p.apiType === "anthropic" ? "Like ANTHROPIC_BASE_URL: /v1 is appended when missing." : "OpenAI-compatible base, usually ending in /v1.", __lcpTextInput(p.baseUrl, (v) => onChange({ baseUrl: v }), { placeholder: __lcpBaseUrlHints[p.apiType], ariaLabel: "Base URL" })),
+    __lcpField("API Key", p.apiType === "anthropic" ? "Sent as x-api-key." : "Sent as Authorization: Bearer.", __lcpTextInput(p.apiKey, (v) => onChange({ apiKey: v }), { type: "password", ariaLabel: "API key" })),
+    __lcpField("Extra headers", "Optional, one \"Name: value\" per line.", __lcpJsx("textarea", { value: p.headers ?? "", rows: 2, spellCheck: false, "aria-label": "Extra headers", style: { ...__lcpInputStyle, resize: "vertical" }, onChange: (e) => onChange({ headers: e.target.value }) })),
+    __lcpField("Models", models.length === 0 ? "Fetch the endpoint's /models list or add model IDs by hand." : `${models.filter((m) => m.enabled !== false).length} of ${models.length} shown in the model picker.`, __lcpJsxs("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", justifyContent: "flex-end" }, children: [__lcpJsx(An, { size: "sm", variant: "secondary", disabled: busy, onClick: onFetch, children: busy ? "Fetching…" : "Fetch models" }), models.length > 0 ? __lcpJsx(An, { size: "sm", variant: "ghost", onClick: () => setModels(models.map((m) => ({ ...m, enabled: true }))), children: "Enable all" }) : null, models.length > 0 ? __lcpJsx(An, { size: "sm", variant: "ghost", onClick: () => setModels(models.map((m) => ({ ...m, enabled: false }))), children: "Disable all" }) : null] })),
+    __lcpJsxs("div", { style: { padding: "4px 12px 8px" }, children: [...modelRows, __lcpJsxs("div", { style: { display: "flex", alignItems: "center", gap: "8px", paddingTop: "6px" }, children: [__lcpJsx("input", { type: "text", value: newModel, placeholder: "Add model ID, e.g. claude-opus-5-5", spellCheck: false, "aria-label": "New model ID", style: { ...__lcpInputStyle, flex: "1 1 auto", width: "auto" }, onChange: (e) => setNewModel(e.target.value), onKeyDown: (e) => e.key === "Enter" && addModel() }), __lcpJsx(An, { size: "sm", variant: "secondary", disabled: newModel.trim() === "", onClick: addModel, children: "Add model" })] })] }),
+    __lcpField("Remove provider", void 0, __lcpJsx(An, { size: "sm", variant: "ghost", onClick: onRemove, children: "Remove" }))
+  ] }) }, index);
+}
+function __lcpProvidersSettings() {
+  const storage = et(ki), aiService = et(jl), inference = et(VW_);
+  const [providers, setProviders] = __lcpUseState(() => __lcpRead(storage)), [dirty, setDirty] = __lcpUseState(false), [busy, setBusy] = __lcpUseState(-1), [status, setStatus] = __lcpUseState(void 0);
+  const update = (i, patch) => {
+    setProviders((ps) => ps.map((p, j) => j === i ? { ...p, ...patch } : p)), setDirty(true), setStatus(void 0);
+  };
+  const save = async () => {
+    const cleaned = providers.map((p) => ({ ...p, name: p.name.trim(), prefix: (p.prefix ?? "").trim(), baseUrl: p.baseUrl.trim(), apiKey: p.apiKey.trim() })), error = __lcpValidate(cleaned);
+    if (error !== void 0) return setStatus({ error: true, text: error });
+    __lcpWrite(storage, cleaned), setProviders(cleaned), setDirty(false);
+    try {
+      await aiService.refreshDefaultModels(), setStatus({ error: false, text: `Saved. ${__lcpEnabledModels(cleaned).length} custom model(s) in the model picker.` });
+    } catch (e) {
+      setStatus({ error: true, text: `Saved, but refreshing the model picker failed: ${e instanceof Error ? e.message : String(e)}` });
+    }
+  };
+  const fetchModels = async (i) => {
+    const p = providers[i], endpoint = __lcpEndpoint(p);
+    setBusy(i), setStatus(void 0);
+    try {
+      const result = await inference.fetchLocalProviderModels({ baseUrl: endpoint.baseUrl, apiKey: endpoint.apiKey, customHeaders: endpoint.headers, userAgent: "Cursor", cursorLocalProvider: { apiType: p.apiType, listing: true } }), listed = result?.cursorLocalModels;
+      if (!Array.isArray(listed)) throw new Error("the agent runtime did not return a model list");
+      const known = new Map((p.models ?? []).map((m) => [m.id, m])), merged = [...p.models ?? []];
+      for (const m of listed) {
+        const fetched = { ...m.contextWindow === void 0 ? {} : { contextWindow: m.contextWindow }, ...m.maxOutputTokens === void 0 ? {} : { maxOutputTokens: m.maxOutputTokens } }, existing = known.get(m.id);
+        existing === void 0 ? merged.push({ id: m.id, enabled: false, ...fetched }) : merged[merged.indexOf(existing)] = { ...fetched, ...existing, ...existing.contextWindow === void 0 ? {} : { contextWindow: existing.contextWindow } };
+      }
+      update(i, { models: merged }), setStatus({ error: false, text: `${p.name}: ${listed.length} model(s) from ${endpoint.baseUrl}/models. Turn on the ones you want, then Save.` });
+    } catch (e) {
+      setStatus({ error: true, text: `${p.name}: ${e instanceof Error ? e.message.replace(/^Error invoking remote method '[^']*': (Error: )?/u, "") : String(e)}` });
+    } finally {
+      setBusy(-1);
+    }
+  };
+  return __lcpJsxs("div", { style: { display: "flex", flexDirection: "column", gap: "12px" }, children: [__lcpJsx(Tf, { title: "Custom Providers", description: "Run agents against your own OpenAI- or Anthropic-compatible endpoints. The agent harness runs locally; requests go straight from this machine to the endpoint.", trailing: __lcpJsxs("div", { style: { display: "flex", gap: "6px" }, children: [__lcpJsx(An, { size: "sm", variant: "secondary", onClick: () => {
+    setProviders((ps) => [...ps, __lcpNewProvider(ps)]), setDirty(true);
+  }, children: "Add provider" }), __lcpJsx(An, { size: "sm", variant: "primary", disabled: !dirty, onClick: save, children: "Save" })] }), children: status === void 0 && providers.length > 0 ? null : __lcpJsx("div", { style: { padding: "8px 12px", fontSize: "12px", color: status?.error ? "var(--vscode-errorForeground)" : "var(--vscode-descriptionForeground)" }, children: status?.text ?? "No providers yet. Add one to get started." }) }), ...providers.map((p, i) => __lcpJsx(__lcpProviderCard, { provider: p, index: i, busy: busy === i, onChange: (patch) => update(i, patch), onRemove: () => {
+    setProviders((ps) => ps.filter((_, j) => j !== i)), setDirty(true);
+  }, onFetch: () => fetchModels(i) }, i))] });
+}
 function RVw(t) {
+  if (vl.localMode) return __lcpJsx(__lcpProvidersSettings, {});
   const e = tLn(10), n = et(ss), i = et(Z_), r = et(sa), s = NL(r, PVw), o = knv(n);
   if (!vl.localMode) return null;
   const a = s ?? "Not configured";
@@ -710355,6 +710753,7 @@ var CoE = "gpt-5.5", ToE = 0, EoE = 6e4, IoE = 0, xoE = 6e4, AoE = 6e4, RoE = 4,
     }
   }
   async refreshDefaultModels() {
+    if (vl.localMode) return __lcpRefreshModels(this);
     if (this.trySeedCatalogFromOwnKey(), !this._cursorAuthenticationService.isAuthenticated()) {
       this._aiSettingsService.handleAvailableModelsChange();
       return;
@@ -711009,6 +711408,8 @@ ${k}`;
     return await e.getPages(n, { headers: vh(Ai()) });
   }
   async getLocalInferenceProviderConfig() {
+    const __lcp = vl.localMode ? __lcpInferenceConfig(this._storageService, this._modelConfigService, `Cursor/${this.productService.version}`) : void 0;
+    if (__lcp !== void 0) return __lcp;
     const t = vl.localMode ? await this._shellEnvironmentService.getShellEnv() : {}, e = await this.getModelDetails({ specificModelField: "composer" }), n = this._modelConfigService.getModelConfig("composer"), i = [nMe(n.selectedModels?.[0]?.modelId), nMe(e.modelName)].find((u) => u !== void 0 && u !== "default") ?? CoE, r = this._reactiveStorageService.applicationUserPersistentStorage, s = this._cursorAuthenticationService.openAIKey() ?? void 0, o = Zal({ rawStoredOpenAIKey: s, useOpenAIKey: r.useOpenAIKey, isLocalMode: vl.localMode }), a = Qal({ shellEnvironment: t, storedOpenAIKey: o, openAIBaseUrl: r.openAIBaseUrl, modelProvidedApiKey: e.apiKey, modelProvidedBaseUrl: e.openaiApiBaseUrl });
     let l;
     try {
@@ -744871,6 +745272,7 @@ var OWi = class {
     this.contextKeyService = t, this.environmentService = e, this.uiOverlayService = n, this.reactiveStorageService = i, this.cursorAuthenticationService = r, this.storageService = s, this.localModeDataImportService = o, vl.localMode && (this.environmentService.skipOnboarding || this.maybeShowAfterOnboarding());
   }
   async maybeShowAfterOnboarding() {
+    return;
     const t = Date.now() + K_E;
     for (; Date.now() < t && !this.isReadyToShowLocalAgentConfigurationModal(); ) await new Promise((i) => $t.setTimeout(i, V_E));
     if (!this.isReadyToShowLocalAgentConfigurationModal()) return;
@@ -788637,7 +789039,7 @@ var A7c = class extends st {
     super(), this.storageService = t, this.environmentService = e, this._reactiveStorageService = n, this.openAIKeyChangedListeners = [], this.claudeKeyChangedListeners = [], this.googleKeyChangedListeners = [], this.loginChangedListeners = [], this.subscriptionChangedListeners = [], this.subscriptionStatusChangedListeners = [], this.refreshTokenTimeout = this._register(new Vn()), this._stripeProfileFetch = this._register(new dTt({ cacheTtlMs: esb, timeoutMs: E5E, defaultBackoffMs: x7c })), this._getMeInFlight = /* @__PURE__ */ new Map(), this._onDidChangeSubscription = this._register(new tt()), this._onDidChangeTeamIds = this._register(new tt()), this._onDidChangeActiveTeamId = this._register(new tt()), this._onDidChangeAccessToken = this._register(new tt()), this._onDidObserveAccountClosed = this._register(new tt()), this.cachedExpirationResult = null, this._repoBlocklistPoller = this._register(new Vn()), this._privacyEligibilityRefreshTimer = this._register(new AI()), this._teamUserPrivacyRefreshTimer = this._register(new AI()), this.onDidChangeSubscription = this._onDidChangeSubscription.event, this.onDidChangeTeamIds = this._onDidChangeTeamIds.event, this.onDidChangeActiveTeamId = this._onDidChangeActiveTeamId.event, this.onDidChangeAccessToken = this._onDidChangeAccessToken.event, this.onDidObserveAccountClosed = this._onDidObserveAccountClosed.event, this.localOverrideAccessToken = void 0, this.refreshToken = () => this.storageService.get("cursorAuth/refreshToken", -1), this.accessToken = () => this.localOverrideAccessToken ? this.localOverrideAccessToken : this.environmentService.overrideCursorAuthToken ? this.environmentService.overrideCursorAuthToken : this.storageService.get("cursorAuth/accessToken", -1), this.getCurrentAuthId = () => {
       const s = this.accessToken();
       return s ? this.getAuthIdFromToken(s) : void 0;
-    }, this._membershipType = () => this.storageService.get(_Tn, -1), this._subscriptionStatus = () => this.storageService.get(xKr, -1), this.subscriptionStatus = () => this._subscriptionStatus(), this.membershipType = () => GBp(this._membershipType()), this.openAIKey = () => this.byokProviderKeyStorage.openAIKey(), this.claudeKey = () => this.byokProviderKeyStorage.claudeKey(), this.googleKey = () => this.byokProviderKeyStorage.googleKey(), this.whenByokProviderKeysHydrated = () => this.byokProviderKeyStorage.whenHydrated(), this.overrideAccessToken = (s) => {
+    }, this._membershipType = () => this.storageService.get(_Tn, -1), this._subscriptionStatus = () => this.storageService.get(xKr, -1), this.subscriptionStatus = () => this._subscriptionStatus(), this.membershipType = () => vl.localMode ? Fr.ULTRA : GBp(this._membershipType()), this.openAIKey = () => this.byokProviderKeyStorage.openAIKey(), this.claudeKey = () => this.byokProviderKeyStorage.claudeKey(), this.googleKey = () => this.byokProviderKeyStorage.googleKey(), this.whenByokProviderKeysHydrated = () => this.byokProviderKeyStorage.whenHydrated(), this.overrideAccessToken = (s) => {
       this.localOverrideAccessToken = s, this.notifyAccessTokenChangedEmitter(s), this.notifyLoginChangedListeners(true);
     }, this.storeAccessRefreshToken = (s, o) => {
       const a = this.accessToken();
@@ -788977,7 +789379,7 @@ var jDt = class extends A7c {
     }, this.getTeamId = () => {
       const j = this._reactiveStorageService.applicationUserPersistentStorage.aiSettings;
       return j.teamId !== void 0 && (j.teamIds === void 0 || j.teamIds.includes(j.teamId)) ? j.teamId : j.teamIds?.[0];
-    }, this.hasResolvedTeamMembership = () => this.hasRefreshedMembership, this.setTeamId = (j) => {
+    }, this.hasResolvedTeamMembership = () => vl.localMode || this.hasRefreshedMembership, this.setTeamId = (j) => {
       const $ = this._reactiveStorageService.applicationUserPersistentStorage.aiSettings.teamId;
       $ !== j && (this.authDebugLog("setTeamId: updating active team", { previousTeamId: $, nextTeamId: j }), this._reactiveStorageService.setApplicationUserPersistentStorage("aiSettings", "teamId", j)), this.refreshRepoBlocklistIfActiveTeamChanged();
     }, this.createGetMeRequest = () => {
@@ -789039,6 +789441,7 @@ var jDt = class extends A7c {
         this.refreshingAccessToken = false, this.refreshingAccessTokenForced = false, this.refreshingAccessTokenPromise = void 0;
       }
     }, this.refreshMembership = async (j) => {
+      if (vl.localMode) return this._reactiveStorageService.applicationUserPersistentStorage.membershipType !== Fr.ULTRA && this._reactiveStorageService.setApplicationUserPersistentStorage("membershipType", Fr.ULTRA), void 0;
       this.authDebugLog("refreshMembership: called"), j?.throwIfAborted();
       try {
         await this.refreshMembershipCore(j);
@@ -789632,6 +790035,7 @@ var jDt = class extends A7c {
     await this.getAccessToken() || await this.refreshAccessToken(), await this.refreshMembership();
   }
   isAuthenticated() {
+    if (vl.localMode) return true;
     const t = this.accessToken(), e = this.refreshToken();
     return this.scheduleTeamPolicyCheck(), !!(t && e);
   }
