@@ -1,0 +1,10 @@
+version: 1
+policies:
+  - paths:
+      - "**"
+    team: connectors-manager
+    self_review: true
+  - paths:
+      - .agentic-owners/**
+    team: connectors-manager
+    human_review_required: true

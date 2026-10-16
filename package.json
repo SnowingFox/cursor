@@ -1,0 +1,21 @@
+{
+  "name": "cursor-re",
+  "version": "3.24.18",
+  "private": true,
+  "description": "Runnable, readable reconstruction of the Cursor desktop app (macOS arm64)",
+  "type": "module",
+  "engines": {
+    "node": ">=22.19"
+  },
+  "scripts": {
+    "extract": "node scripts/extract.mjs",
+    "build": "node scripts/package-app.mjs",
+    "build:standalone": "node scripts/package-app.mjs --copy",
+    "start": "node scripts/start.mjs",
+    "split": "node scripts/split-modules.mjs"
+  },
+  "devDependencies": {
+    "electron": "42.10.0",
+    "esbuild": "0.28.2"
+  }
+}

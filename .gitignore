@@ -1,0 +1,7 @@
+# Tooling for this repo (NOT app/node_modules, which is part of the application)
+/node_modules/
+/dist/
+/.cursor-dev/
+/.modules/
+.DS_Store
+*.log

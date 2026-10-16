@@ -1,0 +1,11 @@
+version: 1
+policies:
+  - paths:
+      - "src/**/*[Cc]anvas*"
+    team: extensibility
+    self_review: true
+
+  - paths:
+      - .agentic-owners/**
+    team: extensibility
+    human_review_required: true

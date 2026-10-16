@@ -1,0 +1,142 @@
+#!/usr/bin/env bash
+#
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See License.txt in the project root for license information.
+
+function app_realpath() {
+	SOURCE=$1
+	while [ -h "$SOURCE" ]; do
+		DIR=$(dirname "$SOURCE")
+		SOURCE=$(readlink "$SOURCE")
+		[[ $SOURCE != /* ]] && SOURCE=$DIR/$SOURCE
+	done
+	SOURCE_DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+	echo "${SOURCE_DIR%%${SOURCE_DIR#*.app}}"
+}
+
+function use_cursor_cli() {
+	if [ -n "$CURSOR_CLI" ]; then
+		# Use the CLI found by find_cursor_cli.
+		# Avoid eval so arguments with spaces (e.g. "foo bar.sh") are preserved.
+		if [ "$CURSOR_CLI_MODE" = "remote" ]; then
+			exec "$CURSOR_CLI" "$@"
+		else
+			# Local mode: ELECTRON and CLI are set by find_cursor_cli
+			ELECTRON_RUN_AS_NODE=1 "$ELECTRON" "$CLI" "$@"
+		fi
+		exit $?
+	else
+		echo "Error: Cursor CLI not found. Please install Cursor properly." 1>&2
+		exit 1
+	fi
+}
+
+function find_cursor_cli() {
+	# Clear the output variables
+	CURSOR_CLI=""
+	CURSOR_CLI_MODE=""
+
+	# when run in remote terminal, use the remote cli
+	if [ -n "$VSCODE_IPC_HOOK_CLI" ]; then
+		REMOTE_CLI="$(which -a 'cursor' | grep /remote-cli/)"
+		if [ -n "$REMOTE_CLI" ]; then
+			CURSOR_CLI="$REMOTE_CLI"
+			CURSOR_CLI_MODE="remote"
+			return 0
+		fi
+	fi
+
+	# Otherwise, use the electron app
+	APP_PATH="$(app_realpath "${BASH_SOURCE[0]}")"
+	if [ -z "$APP_PATH" ]; then
+		echo "Unable to determine app path from symlink : ${BASH_SOURCE[0]}" >&2
+		return 1
+	fi
+	CONTENTS="$APP_PATH/Contents"
+	ELECTRON="$CONTENTS/MacOS/Cursor"
+	CLI="$CONTENTS/Resources/app/out/cli.js"
+	CURSOR_CLI="ELECTRON_RUN_AS_NODE=1 \"$ELECTRON\" \"$CLI\""
+	CURSOR_CLI_MODE="local"
+	return 0
+}
+
+# Main execution
+export VSCODE_NODE_OPTIONS=$NODE_OPTIONS
+export VSCODE_NODE_REPL_EXTERNAL_MODULE=$NODE_REPL_EXTERNAL_MODULE
+unset NODE_OPTIONS
+unset NODE_REPL_EXTERNAL_MODULE
+
+# Check if cursor-agent is blocked but user is trying to use it
+if [ "$1" = "agent" ] && [ "$CURSOR_CLI_BLOCK_CURSOR_AGENT" = "true" ]; then
+	echo "cursor-agent is blocked in your environment due to the CURSOR_CLI_BLOCK_CURSOR_AGENT environment variable" 1>&2
+	echo "Please remove the block to use cursor-agent command." 1>&2
+	exit 1
+fi
+
+if ! find_cursor_cli && [ "$1" != "agent" ]; then
+	echo "Error: Cursor CLI not found. Please install Cursor properly." 1>&2
+	exit 1
+fi
+
+# Export variables for compatibility
+# These variables are needed even in cursor-agent, to know that we are routing from 'cursor' command
+if [ -n "$CURSOR_CLI" ]; then
+	export CURSOR_CLI
+	export CURSOR_CLI_MODE
+fi
+
+
+# Simplified routing logic
+if [ "$1" = "editor" ]; then
+	# Route to Cursor CLI, removing the 'editor' argument
+	# cursor editor is equivalent to cursor, just explicitly stating that
+	# editor is being used (instead of agent being used)
+	shift
+	use_cursor_cli "$@"
+elif [ "$1" = "agent" ] && [ "$CURSOR_CLI_BLOCK_CURSOR_AGENT" != "true" ]; then
+	# Route to cursor-agent
+	if ! command -v ~/.local/bin/cursor-agent >/dev/null 2>&1; then
+		echo "cursor-agent not found, installing via https://cursor.com/install ..."
+		curl -sS https://cursor.com/install | bash >/dev/null 2>&1
+		# Remove the previous log line from the terminal output
+		if command -v tput >/dev/null 2>&1; then
+			tput cuu1 && tput el
+		fi
+		# Check if installation succeeded
+		if ! command -v ~/.local/bin/cursor-agent >/dev/null 2>&1; then
+			echo "Error: Could not install cursor-agent." 1>&2
+			echo "Please install manually by running 'curl -sS https://cursor.com/install | bash >/dev/null'" 1>&2
+			echo "" 1>&2
+			echo "To open IDE, use 'cursor' or 'cursor editor' command." 1>&2
+			exit 1
+		fi
+	fi
+
+	# Check current cursor-agent version meets minimum version requirement
+	OUTPUT=$({ ~/.local/bin/cursor-agent --min-version=2025.10.01 status; } 2>&1)
+	EXIT_CODE=$?
+
+	# Update and retry if version is too old or doesn't support --min-version
+	if { [ "$EXIT_CODE" -eq 2 ] || { [ "$EXIT_CODE" -eq 1 ] && echo "$OUTPUT" | grep -qi "unknown option"; }; }; then
+		echo "cursor-agent version is outdated, updating..."
+		~/.local/bin/cursor-agent update >/dev/null 2>&1
+		# Remove the previous log line from the terminal output
+		if command -v tput >/dev/null 2>&1; then
+			tput cuu1 && tput el
+		fi
+		# Check new version to see if minimum version requirement is met
+		OUTPUT2=$({ ~/.local/bin/cursor-agent --min-version=2025.10.01 status; } 2>&1)
+		EXIT_CODE2=$?
+		if { [ "$EXIT_CODE2" -eq 2 ] || { [ "$EXIT_CODE2" -eq 1 ] && echo "$OUTPUT2" | grep -qi "unknown option"; }; }; then
+			echo "Error: cursor-agent version is too old. Please update with 'cursor-agent update'" 1>&2
+			exit 1
+		fi
+	fi
+
+	# Version is sufficient, run cursor-agent
+	export CURSOR_CLI_COMPAT=1
+	exec ~/.local/bin/cursor-agent "$@"
+else
+	# Route to Cursor CLI
+	use_cursor_cli "$@"
+fi

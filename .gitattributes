@@ -1,0 +1,15 @@
+# Native binaries shipped with Cursor are stored in Git LFS.
+*.node filter=lfs diff=lfs merge=lfs -text
+*.dylib filter=lfs diff=lfs merge=lfs -text
+*.wasm filter=lfs diff=lfs merge=lfs -text
+/app/bin/cursor-tunnel filter=lfs diff=lfs merge=lfs -text
+/app/resources/helpers/cursorsandbox filter=lfs diff=lfs merge=lfs -text
+/app/resources/helpers/cursor-update-supervisor filter=lfs diff=lfs merge=lfs -text
+/app/resources/helpers/crepectl filter=lfs diff=lfs merge=lfs -text
+/app/resources/helpers/node filter=lfs diff=lfs merge=lfs -text
+/app/node_modules/node-pty/build/Release/spawn-helper filter=lfs diff=lfs merge=lfs -text
+/app/node_modules/@vscode/ripgrep/bin/rg filter=lfs diff=lfs merge=lfs -text
+# Keep the app tree out of language stats.
+app/** linguist-vendored
+# Store the app tree byte-for-byte (no EOL normalization).
+app/** -text

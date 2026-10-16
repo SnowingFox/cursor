@@ -1,0 +1,15 @@
+{
+  "source": "Cursor-darwin-arm64 (1).dmg",
+  "name": "Cursor",
+  "version": "3.24.18",
+  "commit": "be4c9e5350d77747b42cd467cbd3370a753d4640",
+  "date": "2026-10-13T18:12:58.182Z",
+  "vscodeVersion": "1.128.0",
+  "electronVersion": "42.10.0",
+  "dmgSha256": "0043463fbbb1c0222ff10cfd62a86286791a74c2ede89875719d7113ec0c32bd",
+  "fileCount": 15015,
+  "beautify": {
+    "formatted": 300,
+    "unformatted": []
+  }
+}

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>pfm_app_url</key>
+    <string>https://cursor.com/</string>
+    <key>pfm_description</key>
+    <string>Cursor Managed Settings</string>
+    <key>pfm_documentation_url</key>
+    <string>https://cursor.com/docs/enterprise</string>
+    <key>pfm_domain</key>
+    <string>com.todesktop.230313mzl4w4u92</string>
+    <key>pfm_format_version</key>
+    <integer>1</integer>
+    <key>pfm_interaction</key>
+    <string>combined</string>
+    <key>pfm_last_modified</key>
+    <date>2026-10-13T18:36:38Z</date>
+    <key>pfm_platforms</key>
+    <array>
+        <string>macOS</string>
+    </array>
+    <key>pfm_subkeys</key>
+    <array>
+	
+		<dict>
+			<key>pfm_default</key>
+			<string>Configure Cursor</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Cursor</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.todesktop.230313mzl4w4u92</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.todesktop.230313mzl4w4u92</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_range_list</key>
+			<array>
+				<integer>1</integer>
+			</array>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Anysphere</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+	<dict>
+<key>pfm_default</key>
+<string></string>
+<key>pfm_description</key>
+<string>Specify the required team id that a user must belong to in order to use Cursor. If set and the signed-in user is not part of the team, Cursor will automatically sign the user out.</string>
+<key>pfm_name</key>
+<string>AllowedTeamId</string>
+<key>pfm_title</key>
+<string>AllowedTeamId</string>
+<key>pfm_type</key>
+<string>string</string>
+</dict><dict>
+<key>pfm_default</key>
+<false/>
+<key>pfm_description</key>
+<string>When enabled via device management (MDM), Cursor's backend refuses to issue or refresh sign-in sessions for accounts that match none of the configured allowed organizations, teams, emails, or email domains.</string>
+<key>pfm_name</key>
+<string>SignInEnforcement</string>
+<key>pfm_title</key>
+<string>SignInEnforcement</string>
+<key>pfm_type</key>
+<string>boolean</string>
+</dict><dict>
+<key>pfm_default</key>
+<string></string>
+<key>pfm_description</key>
+<string>Comma-separated list of Cursor organization ids whose members are allowed to sign in on this device (set via device management).</string>
+<key>pfm_name</key>
+<string>AllowedOrganizationIds</string>
+<key>pfm_title</key>
+<string>AllowedOrganizationIds</string>
+<key>pfm_type</key>
+<string>string</string>
+</dict><dict>
+<key>pfm_default</key>
+<string></string>
+<key>pfm_description</key>
+<string>Comma-separated list of Cursor team ids whose members are allowed to sign in on this device (set via device management). Supersedes the singular AllowedTeamId policy; both are honored.</string>
+<key>pfm_name</key>
+<string>AllowedTeamIds</string>
+<key>pfm_title</key>
+<string>AllowedTeamIds</string>
+<key>pfm_type</key>
+<string>string</string>
+</dict><dict>
+<key>pfm_default</key>
+<string></string>
+<key>pfm_description</key>
+<string>Comma-separated list of exact account emails allowed to sign in on this device (set via device management). Compared case-insensitively.</string>
+<key>pfm_name</key>
+<string>AllowedLoginEmails</string>
+<key>pfm_title</key>
+<string>AllowedLoginEmails</string>
+<key>pfm_type</key>
+<string>string</string>
+</dict><dict>
+<key>pfm_default</key>
+<string></string>
+<key>pfm_description</key>
+<string>Comma-separated list of email domains (e.g. example.com) whose accounts are allowed to sign in on this device (set via device management). Exact domain match only; subdomains are not implicitly included.</string>
+<key>pfm_name</key>
+<string>AllowedLoginDomains</string>
+<key>pfm_title</key>
+<string>AllowedLoginDomains</string>
+<key>pfm_type</key>
+<string>string</string>
+</dict><dict>
+<key>pfm_default</key>
+<false/>
+<key>pfm_description</key>
+<string>When enabled via device management (MDM), Cursor signs in through xAI (auth.x.ai) instead of a Cursor account, and verifies the xAI tokens on this device.</string>
+<key>pfm_name</key>
+<string>XaiIdentityEnabled</string>
+<key>pfm_title</key>
+<string>XaiIdentityEnabled</string>
+<key>pfm_type</key>
+<string>boolean</string>
+</dict><dict>
+<key>pfm_default</key>
+<string>none</string>
+<key>pfm_description</key>
+<string>Configure whether you receive automatic updates. Requires a restart after change. The updates are fetched from a Microsoft online service.</string>
+<key>pfm_name</key>
+<string>UpdateMode</string>
+<key>pfm_title</key>
+<string>UpdateMode</string>
+<key>pfm_type</key>
+<string>string</string>
+<key>pfm_range_list</key>
+<array>
+	<string>none</string>
+	<string>manual</string>
+	<string>start</string>
+	<string>default</string>
+	<string>silentlyApplyOnQuit</string>
+</array>
+</dict><dict>
+<key>pfm_default</key>
+<false/>
+<key>pfm_description</key>
+<string>Controls whether or not Workspace Trust is enabled within VS Code.</string>
+<key>pfm_name</key>
+<string>WorkspaceTrustEnabled</string>
+<key>pfm_title</key>
+<string>WorkspaceTrustEnabled</string>
+<key>pfm_type</key>
+<string>boolean</string>
+</dict><dict>
+<key>pfm_default</key>
+<string>default</string>
+<key>pfm_description</key>
+<string>Controls whether the agent that runs local agent turns can be updated between Cursor releases. Updates are downloaded from a Cursor service and applied at the next agent turn.</string>
+<key>pfm_name</key>
+<string>AgentHostUpdateMode</string>
+<key>pfm_title</key>
+<string>AgentHostUpdateMode</string>
+<key>pfm_type</key>
+<string>string</string>
+<key>pfm_range_list</key>
+<array>
+	<string>default</string>
+	<string>on</string>
+	<string>none</string>
+</array>
+</dict><dict>
+<key>pfm_default</key>
+<string></string>
+<key>pfm_description</key>
+<string>Require Agent to run in a remote workspace, optionally restricted to comma-separated remote authority patterns. An empty value allows every remote authority.</string>
+<key>pfm_name</key>
+<string>AgentRemoteWorkspaceAuthorities</string>
+<key>pfm_title</key>
+<string>AgentRemoteWorkspaceAuthorities</string>
+<key>pfm_type</key>
+<string>string</string>
+</dict><dict>
+<key>pfm_default</key>
+<false/>
+<key>pfm_description</key>
+<string>Disable HTTP/2 for all requests, and use HTTP/1.1 instead. This increases resource utilization and latency, but is useful behind a corporate proxy that blocks HTTP/2.</string>
+<key>pfm_name</key>
+<string>NetworkDisableHttp2</string>
+<key>pfm_title</key>
+<string>NetworkDisableHttp2</string>
+<key>pfm_type</key>
+<string>boolean</string>
+</dict><dict>
+<key>pfm_default</key>
+<false/>
+<key>pfm_description</key>
+<string>Controls whether Cursor indexes repositories locally for Instant Grep. Disable this policy to prevent repository indexing on managed devices.</string>
+<key>pfm_name</key>
+<string>IndexRepositoriesForInstantGrep</string>
+<key>pfm_title</key>
+<string>IndexRepositoriesForInstantGrep</string>
+<key>pfm_type</key>
+<string>boolean</string>
+</dict><dict>
+<key>pfm_default</key>
+<string></string>
+<key>pfm_description</key>
+<string>Configure the Marketplace service URL to connect to</string>
+<key>pfm_name</key>
+<string>ExtensionGalleryServiceUrl</string>
+<key>pfm_title</key>
+<string>ExtensionGalleryServiceUrl</string>
+<key>pfm_type</key>
+<string>string</string>
+</dict><dict>
+<key>pfm_default</key>
+<string></string>
+<key>pfm_description</key>
+<string>Specify a list of extensions that are allowed to use. This helps maintain a secure and consistent development environment by restricting the use of unauthorized extensions. More information: https://code.visualstudio.com/docs/setup/enterprise#_configure-allowed-extensions</string>
+<key>pfm_name</key>
+<string>AllowedExtensions</string>
+<key>pfm_title</key>
+<string>AllowedExtensions</string>
+<key>pfm_type</key>
+<string>string</string>
+
+</dict>
+    </array>
+    <key>pfm_title</key>
+    <string>Cursor</string>
+    <key>pfm_unique</key>
+    <true/>
+    <key>pfm_version</key>
+    <integer>1</integer>
+</dict>
+</plist>

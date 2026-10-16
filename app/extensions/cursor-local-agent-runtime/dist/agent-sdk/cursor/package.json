@@ -1,0 +1,1 @@
+{"name":"cursor","private":true,"version":"0.0.0","description":"Shipped Cursor SDK declarations for agent-authored canvases.","exports":{"./canvas":{"types":"./canvas/index.d.ts"}}}

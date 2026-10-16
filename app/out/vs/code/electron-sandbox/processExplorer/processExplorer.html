@@ -1,0 +1,73 @@
+<!-- Copyright (C) Microsoft Corporation. All rights reserved. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="
+				default-src
+					'none'
+				;
+				img-src
+					'self'
+					data:
+				;
+				script-src
+					'self'
+					blob:
+					'nonce-0c6a828f1297'
+				;
+				style-src
+					'self'
+					'unsafe-inline'
+				;
+				connect-src
+					'self'
+					https:
+					file:
+				;
+				font-src
+					'self'
+				;
+		">
+		<link rel="stylesheet" href="./processExplorerMain.css">
+	</head>
+
+	<body aria-label="">
+		<div id="tabs" class="process-explorer-tabs">
+			<button id="tab-live" class="tab-button">Live</button>
+			<button id="tab-history-mem" class="tab-button">History (Mem)</button>
+			<button id="tab-history-cpu" class="tab-button">History (CPU)</button>
+			<button id="tab-history-net" class="tab-button">History (Net)</button>
+		</div>
+		<div id="process-list"></div>
+		<div id="history-mem" class="history-view" style="display:none;">
+			<div id="analysis-bar-mem" class="analysis-bar"></div>
+			<div class="history-chart-wrapper">
+				<canvas id="history-mem-chart" class="history-chart-canvas"></canvas>
+				<div id="time-range-controls-mem" class="time-range-controls"></div>
+			</div>
+			<div id="history-mem-legend" class="history-legend"></div>
+		</div>
+		<div id="history-cpu" class="history-view" style="display:none;">
+			<div id="analysis-bar-cpu" class="analysis-bar"></div>
+			<div class="history-chart-wrapper">
+				<canvas id="history-cpu-chart" class="history-chart-canvas"></canvas>
+				<div id="time-range-controls-cpu" class="time-range-controls"></div>
+			</div>
+			<div id="history-cpu-legend" class="history-legend"></div>
+		</div>
+		<div id="history-net" class="history-view" style="display:none;">
+			<div id="analysis-bar-net" class="analysis-bar"></div>
+			<div class="history-chart-wrapper">
+				<canvas id="history-net-chart" class="history-chart-canvas"></canvas>
+				<div id="time-range-controls-net" class="time-range-controls"></div>
+			</div>
+			<div id="history-net-legend" class="history-legend"></div>
+		</div>
+	</body>
+
+	<!-- Startup (do not modify order of script tags!) -->
+	<script src="./processExplorer.js" type="module"></script>
+</html>

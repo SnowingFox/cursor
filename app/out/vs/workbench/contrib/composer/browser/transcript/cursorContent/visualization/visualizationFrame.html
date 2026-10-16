@@ -1,0 +1,63 @@
+<!-- Copyright (C) Microsoft Corporation. All rights reserved. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; object-src 'none'; worker-src 'none'; media-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'"
+		/>
+		<meta charset="utf-8" />
+		<style>
+			html,
+			body {
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			(() => {
+				const params = new URL(location.href).searchParams;
+				// Match the host theme's color-scheme before any guard can bail;
+				// a scheme mismatch makes Chromium paint an opaque canvas over
+				// the transparent frame. Backgrounds stay transparent.
+				document.documentElement.style.colorScheme =
+					params.get('theme') === 'dark' ? 'dark' : 'light';
+				const parentOrigin = params.get('parentOrigin');
+				// Sandbox/CSP and event.source === window.parent (down) /
+				// event.source === iframe.contentWindow (up) are the security boundary.
+				// frameInstanceId is a non-secret stale/misrouted generation fence.
+				const frameInstanceId = params.get('frameInstanceId');
+				if (!parentOrigin || !frameInstanceId || window.parent === window) {
+					return;
+				}
+				try {
+					void window.parent.document;
+					return;
+				} catch {
+					// The host deliberately omits allow-same-origin.
+				}
+				const handleRender = (event) => {
+					const originMatches =
+						event.origin === parentOrigin ||
+						(parentOrigin === 'file://' && event.origin === 'null');
+					if (
+						event.source !== window.parent ||
+						!originMatches ||
+						event.data?.type !== 'visualization-render' ||
+						event.data?.frameInstanceId !== frameInstanceId ||
+						typeof event.data?.html !== 'string'
+					) {
+						return;
+					}
+					window.removeEventListener('message', handleRender);
+					document.open();
+					document.write(event.data.html);
+					document.close();
+				};
+				window.addEventListener('message', handleRender);
+			})();
+		</script>
+	</body>
+</html>

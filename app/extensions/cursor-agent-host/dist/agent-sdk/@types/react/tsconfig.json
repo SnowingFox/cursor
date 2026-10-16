@@ -1,0 +1,1 @@
+{"compilerOptions":{"strict":true,"noEmit":true,"skipLibCheck":true,"lib":["ESNext"],"module":"ESNext","moduleResolution":"bundler","jsx":"react-jsx"},"include":["*.d.ts"]}

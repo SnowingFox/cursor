@@ -1,0 +1,1 @@
+{"name":"cursor-computer-use","displayName":"Cursor Computer Use","description":"Computer use in Cursor","version":"1.0.0","publisher":"cursor","engines":{"vscode":"^1.74.0"},"extensionKind":["ui"],"categories":["Other"],"main":"./dist/extension.js","activationEvents":["onStartupFinished"],"contributes":{},"enabledApiProposals":["cursor","cursorPublic"]}

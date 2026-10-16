@@ -1,0 +1,50 @@
+/*!
+ * Bowser - a browser detector
+ * https://github.com/bowser-js/bowser
+ * MIT License | (c) Dustin Diaz 2012-2015
+ * MIT License | (c) Denis Demchenko 2015-2019
+ */
+
+/*!
+ * is-extendable <https://github.com/jonschlinkert/is-extendable>
+ *
+ * Copyright (c) 2015, Jon Schlinkert.
+ * Licensed under the MIT License.
+ */
+
+/*!
+ * mime-db
+ * Copyright(c) 2014 Jonathan Ong
+ * Copyright(c) 2015-2022 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+/*!
+ * mime-types
+ * Copyright(c) 2014 Jonathan Ong
+ * Copyright(c) 2015 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+/*!
+ * re2js
+ * RE2JS is the JavaScript port of RE2, a regular expression engine that provides linear time matching
+ *
+ * @version v1.2.2
+ * @author Alexey Vasiliev
+ * @homepage https://github.com/le0pard/re2js#readme
+ * @repository github:le0pard/re2js
+ * @license MIT
+ */
+
+/*!
+ * strip-bom-string <https://github.com/jonschlinkert/strip-bom-string>
+ *
+ * Copyright (c) 2015, 2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+/**
+ * @license MIT <https://opensource.org/licenses/MIT>
+ * @copyright Michael Hart 2024
+ */
