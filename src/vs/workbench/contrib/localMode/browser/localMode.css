@@ -1,0 +1,111 @@
+/* --- Transcript ------------------------------------------------------------ */
+
+/* Models often open a reply with a newline, which renders as an empty line
+   under the work-group header. */
+.ui-markdown > * > br:first-child {
+	display: none;
+}
+
+/* Keep the live turn stats right after the tail status text instead of
+   pushed to the far end of the row. */
+.agent-transcript-tail-status:has(> [data-slot="local-turn-stats"]) > :first-child {
+	flex: 0 1 auto;
+	width: auto;
+}
+
+.local-mode-turn-stats {
+	flex-shrink: 0;
+	margin-right: auto;
+	color: var(--cursor-text-quaternary);
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+
+.local-mode-tabular {
+	font-variant-numeric: tabular-nums;
+}
+
+/* --- Settings > Models > Custom Providers ---------------------------------- */
+
+.local-mode-settings {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.local-mode-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: 6px;
+}
+
+.local-mode-status {
+	padding: 8px 12px;
+	font-size: 12px;
+	color: var(--vscode-descriptionForeground);
+}
+
+.local-mode-status[data-error] {
+	color: var(--vscode-errorForeground);
+}
+
+.local-mode-input {
+	width: min(340px, 100%);
+	box-sizing: border-box;
+	padding: 4px 8px;
+	font-size: 12px;
+	font-family: inherit;
+	color: var(--vscode-input-foreground);
+	background: var(--vscode-input-background);
+	border: 1px solid var(--vscode-settings-dropdownBorder, var(--vscode-input-border, transparent));
+	border-radius: 4px;
+	outline: none;
+}
+
+.local-mode-input:focus {
+	border-color: var(--vscode-focusBorder);
+}
+
+.local-mode-textarea {
+	resize: vertical;
+}
+
+.local-mode-input-context {
+	width: 150px;
+}
+
+.local-mode-input-grow {
+	flex: 1 1 auto;
+	width: auto;
+}
+
+.local-mode-models {
+	padding: 4px 12px 8px;
+}
+
+.local-mode-model-row,
+.local-mode-add-model {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 4px 0;
+}
+
+.local-mode-add-model {
+	padding-top: 6px;
+}
+
+.local-mode-model-id {
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 12px;
+	font-family: var(--monaco-monospace-font);
+}
+
+.local-mode-model-id[data-disabled] {
+	opacity: 0.6;
+}

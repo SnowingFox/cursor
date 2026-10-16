@@ -4,9 +4,9 @@
 // By default the app runs with an isolated profile under ./.cursor-dev so it
 // never touches an installed Cursor's settings, extensions, keychain or login state:
 //
-//   npm start                       # isolated profile
-//   npm start -- --real-profile     # use ~/Library/Application Support/Cursor + ~/.cursor/extensions
-//   npm start -- /path/to/folder    # any other args are passed through to Cursor
+//   bun run start                       # isolated profile
+//   bun run start -- --real-profile     # use ~/Library/Application Support/Cursor + ~/.cursor/extensions
+//   bun run start -- /path/to/folder    # any other args are passed through to Cursor
 
 import { spawn } from 'node:child_process';
 import { existsSync } from 'node:fs';

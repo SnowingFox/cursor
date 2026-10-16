@@ -1,21 +1,37 @@
 {
-  "name": "cursor-re",
-  "version": "3.24.18",
-  "private": true,
-  "description": "Runnable, readable reconstruction of the Cursor desktop app (macOS arm64)",
-  "type": "module",
-  "engines": {
-    "node": ">=22.19"
-  },
-  "scripts": {
-    "extract": "node scripts/extract.mjs",
-    "build": "node scripts/package-app.mjs",
-    "build:standalone": "node scripts/package-app.mjs --copy",
-    "start": "node scripts/start.mjs",
-    "split": "node scripts/split-modules.mjs"
-  },
-  "devDependencies": {
-    "electron": "42.10.0",
-    "esbuild": "0.28.2"
-  }
+	"name": "cursor-re",
+	"version": "3.24.18",
+	"private": true,
+	"description": "Runnable, readable reconstruction of the Cursor desktop app (macOS arm64)",
+	"type": "module",
+	"engines": {
+		"bun": ">=1.3"
+	},
+	"scripts": {
+		"dev": "bun scripts/dev.ts",
+		"build": "bun scripts/build.ts",
+		"start": "bun scripts/start.mjs",
+		"package": "bun scripts/package-app.mjs",
+		"package:standalone": "bun scripts/package-app.mjs --copy",
+		"apply": "bun build/patches/apply.mjs",
+		"apply:check": "bun build/patches/apply.mjs --check",
+		"typecheck": "tsc -p tsconfig.json",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"lint": "biome check .",
+		"format": "biome check --write .",
+		"extract": "bun scripts/extract.mjs",
+		"split": "bun scripts/split-modules.mjs"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.5.15",
+		"@types/node": "26.6.5",
+		"@types/react": "19.3.0",
+		"electron": "42.10.0",
+		"esbuild": "0.28.2",
+		"typescript": "7.0.2",
+		"vite": "8.3.4",
+		"vitest": "5.0.5"
+	},
+	"packageManager": "bun@1.4.2"
 }

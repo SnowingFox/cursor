@@ -1,61 +1,25 @@
 /*! For license information please see main.js.LICENSE.txt */
 (() => {
-  // [cursor-re local mode] Custom providers.
-  // The renderer attaches `cursorLocalProvider` ({ apiType, contextLengths }) to
-  // every local agent / local inference request it routes to a custom provider.
-  // The descriptor is remembered per base URL so that every helper that later
-  // resolves the same endpoint (agent loop, smart-mode classifier, chat titles,
-  // commit messages) speaks the provider's wire format.
-  const __lcpProviders = new Map();
-  function __lcpKey(baseUrl) {
-    return "string" == typeof baseUrl ? baseUrl.trim().replace(/\/+$/u, "") : "";
-  }
-  function __lcpRegister(request) {
-    const descriptor = request?.cursorLocalProvider;
-    if (null === descriptor || "object" != typeof descriptor || "string" != typeof request.baseUrl) return;
-    __lcpProviders.set(__lcpKey(request.baseUrl), descriptor);
-  }
-  function __lcpKind(baseUrl) {
-    return __lcpProviders.get(__lcpKey(baseUrl));
-  }
-  function __lcpContextLength(baseUrl, modelId) {
-    const n = __lcpKind(baseUrl)?.contextLengths?.[modelId];
-    return "number" == typeof n && Number.isFinite(n) && n > 0 ? n : void 0;
-  }
-  function __lcpMaxOutputTokens(baseUrl, modelId) {
-    const n = __lcpKind(baseUrl)?.maxOutputTokens?.[modelId];
-    return "number" == typeof n && Number.isFinite(n) && n > 0 ? n : void 0;
-  }
-  // GET <baseUrl>/models for the Settings page, with the auth scheme of the
-  // provider's API type. Understands OpenAI, Anthropic and OpenRouter-style rows.
-  async function __lcpListModels(request) {
-    const descriptor = request.cursorLocalProvider, baseUrl = __lcpKey(request.baseUrl), anthropic = "anthropic" === descriptor.apiType;
-    const headers = { accept: "application/json", ...request.customHeaders ?? {} };
-    if (request.apiKey) anthropic ? headers["x-api-key"] = request.apiKey : headers.authorization = `Bearer ${request.apiKey}`;
-    anthropic && (headers["anthropic-version"] ??= "2023-06-01");
-    const url = `${baseUrl}/models${anthropic ? "?limit=1000" : ""}`;
-    let response;
-    try {
-      response = await fetch(url, { headers, signal: AbortSignal.timeout(2e4) });
-    } catch (e) {
-      throw new Error(`Could not reach ${url}: ${e instanceof Error ? e.cause?.message ?? e.message : String(e)}`);
+  // [cursor-re local mode] Custom provider support, implemented in
+  // extensions/cursor-agent-exec/src/localMode.ts and built next to this file.
+  // Under `bun run dev` (CURSOR_LOCAL_MODE_DEV) it is reloaded whenever the
+  // build changes, without restarting the extension host.
+  const __lcpExt = (() => {
+    const file = require("path").join(__dirname, "localMode.js");
+    let mod = require(file);
+    if (process.env.CURSOR_LOCAL_MODE_DEV) {
+      require("fs").watchFile(file, { interval: 300 }, () => {
+        try {
+          delete require.cache[file];
+          mod = require(file);
+          console.log("[local mode] reloaded", file);
+        } catch (e) {
+          console.error("[local mode] reload failed", e);
+        }
+      });
     }
-    const text = await response.text();
-    if (!response.ok) throw new Error(`GET ${url} returned HTTP ${response.status}: ${text.slice(0, 300)}`);
-    let body;
-    try {
-      body = JSON.parse(text);
-    } catch {
-      throw new Error(`GET ${url} did not return JSON`);
-    }
-    const rows = Array.isArray(body?.data) ? body.data : Array.isArray(body?.models) ? body.models : Array.isArray(body) ? body : [];
-    const num = (v) => "number" == typeof v && Number.isFinite(v) && v > 0 ? Math.floor(v) : void 0;
-    return { cursorLocalModels: rows.flatMap((row) => {
-      const id = "string" == typeof row ? row : row?.id ?? row?.name;
-      if ("string" != typeof id || "" === id.trim()) return [];
-      return [{ id: id.trim(), contextWindow: num(row?.max_input_tokens) ?? num(row?.context_length) ?? num(row?.context_window) ?? num(row?.capabilities?.context_length) ?? num(row?.top_provider?.context_length), maxOutputTokens: num(row?.max_tokens) ?? num(row?.max_output_tokens) ?? num(row?.capabilities?.max_output_tokens) }];
-    }) };
-  }
+    return new Proxy({}, { get: (_, name) => mod[name] });
+  })();
   var __webpack_modules__ = { 202: (e, t, r) => {
     "use strict";
     r.d(t, { $M: () => a, Ag: () => c, Nl: () => u, zw: () => l });
@@ -185866,7 +185830,7 @@ ${e11.content}`).join("\n\n")) })] }), r10.length > 0 && cG(aG, { children: [iG(
       return "number" == typeof e10 && Number.isFinite(e10) && e10 > 0 ? Math.floor(e10) : void 0;
     }
     function ZIe(e10) {
-      const __lcp = __lcpKind(e10);
+      const __lcp = __lcpExt.kind(e10);
       if (void 0 !== __lcp) return "anthropic" === __lcp.apiType;
       try {
         return new URL(e10).pathname.replace(/\/+$/u, "").endsWith("/messages");
@@ -188469,7 +188433,7 @@ ${r11}:`] };
     }
     yRe({ compatibility: "strict" });
     function wRe(e10, t10) {
-      const __lcp = void 0 === t10?.endpoint ? __lcpKind(t10?.baseUrl) : void 0;
+      const __lcp = void 0 === t10?.endpoint ? __lcpExt.kind(t10?.baseUrl) : void 0;
       if (void 0 !== __lcp && "anthropic" !== __lcp.apiType) return "openai-responses" === __lcp.apiType ? "responses" : "chat_completions";
       return void 0 !== t10?.endpoint ? t10.endpoint : (function(e11, t11) {
         const r10 = (function(e12) {
@@ -188513,7 +188477,7 @@ ${r11}:`] };
         if (void 0 !== l11) return { endpoint: l11.endpoint, metadata: jIe(l11.endpoint, l11.entry, o11, l11.extendedCapabilitiesDetected) };
         const u11 = a11.find(({ endpoint: e12 }) => e12 === i11)?.probe;
         return ZIe(i11.baseUrl) ? { endpoint: i11, metadata: { apiType: "anthropic_messages" } } : { endpoint: i11, metadata: zIe(u11?.entry, o11, u11?.extendedCapabilitiesDetected ?? false) };
-      })({ endpoints: t10.endpoints, modelId: e10.modelId, userAgent: e10.userAgent, customHeaders: e10.customHeaders, fetchImpl: _Ie(e10.requestLogMetadata) }), s10 = { modelId: e10.modelId, modelParameters: e10.modelParameters, baseUrl: r10.baseUrl, apiKey: r10.apiKey, apiKeyHelper: r10.apiKeyHelper, userAgent: e10.userAgent, customHeaders: e10.customHeaders, apiType: e10.apiType, openAICompatibleEndpoint: e10.openAICompatibleEndpoint, defaultOpenAICompatibleEndpoint: e10.defaultOpenAICompatibleEndpoint, configuredEffortValues: e10.configuredEffortValues, requestLogMetadata: e10.requestLogMetadata, reasoningReplay: e10.reasoningReplay, reasoningReplayLatch: e10.reasoningReplayLatch, gatewayTiming: e10.gatewayTiming }, o10 = void 0 !== n10.remappedModelId ? { ...s10, modelId: n10.remappedModelId } : s10, i10 = s10.apiType ?? n10.apiType, a10 = void 0 !== __lcpKind(r10.baseUrl) || (n10.extendedCapabilitiesDetected ?? false), c10 = "anthropic_messages" === i10 ? (function(e11, t11, r11) {
+      })({ endpoints: t10.endpoints, modelId: e10.modelId, userAgent: e10.userAgent, customHeaders: e10.customHeaders, fetchImpl: _Ie(e10.requestLogMetadata) }), s10 = { modelId: e10.modelId, modelParameters: e10.modelParameters, baseUrl: r10.baseUrl, apiKey: r10.apiKey, apiKeyHelper: r10.apiKeyHelper, userAgent: e10.userAgent, customHeaders: e10.customHeaders, apiType: e10.apiType, openAICompatibleEndpoint: e10.openAICompatibleEndpoint, defaultOpenAICompatibleEndpoint: e10.defaultOpenAICompatibleEndpoint, configuredEffortValues: e10.configuredEffortValues, requestLogMetadata: e10.requestLogMetadata, reasoningReplay: e10.reasoningReplay, reasoningReplayLatch: e10.reasoningReplayLatch, gatewayTiming: e10.gatewayTiming }, o10 = void 0 !== n10.remappedModelId ? { ...s10, modelId: n10.remappedModelId } : s10, i10 = s10.apiType ?? n10.apiType, a10 = void 0 !== __lcpExt.kind(r10.baseUrl) || (n10.extendedCapabilitiesDetected ?? false), c10 = "anthropic_messages" === i10 ? (function(e11, t11, r11) {
         const n11 = (function(e12) {
           const t12 = process.env.CURSOR_LOCAL_AGENT_ALLOW_CURSOR_HOST;
           if (void 0 === t12 || "" === t12.trim()) return e12;
@@ -188528,7 +188492,7 @@ ${r11}:`] };
           return e12.replace(/\/messages\/?$/u, "");
         })(e11.baseUrl), s11 = DCe({ baseURL: n11, apiKey: e11.apiKey ?? "local-agent", fetch: xRe({ modelId: e11.modelId, userAgent: e11.userAgent, modelParameters: e11.modelParameters, apiType: "anthropic_messages", extendedCapabilitiesDetected: t11, apiKeyHelperConfig: e11.apiKeyHelper, maxOutputTokens: r11, requestLogMetadata: e11.requestLogMetadata, customHeaders: e11.customHeaders, gatewayTiming: e11.gatewayTiming }) });
         return new Xi(EAe(s11(e11.modelId))).getSession();
-      })(o10, a10, P({ modelId: o10.modelId, advertisedMaxOutputTokens: __lcpMaxOutputTokens(r10.baseUrl, e10.modelId) ?? n10.maxOutputTokens, extendedCapabilitiesDetected: a10 })) : (function(e11, t11, r11) {
+      })(o10, a10, P({ modelId: o10.modelId, advertisedMaxOutputTokens: __lcpExt.maxOutputTokens(r10.baseUrl, e10.modelId) ?? n10.maxOutputTokens, extendedCapabilitiesDetected: a10 })) : (function(e11, t11, r11) {
         const n11 = e11.openAICompatibleEndpoint ?? t11.openAICompatibleEndpoint ?? e11.defaultOpenAICompatibleEndpoint, s11 = wRe(e11.modelId, { baseUrl: e11.baseUrl, ...void 0 !== n11 ? { endpoint: n11 } : {} }), o11 = dPe(), i11 = "chat_completions" === s11 && YCe(e11.reasoningReplay, "chat"), a11 = "responses" === s11 && YCe(e11.reasoningReplay, "responses"), c11 = EAe((function(e12, t12, r12) {
           if (!t12) return e12;
           const n12 = async (t13) => {
@@ -188553,7 +188517,7 @@ ${r11}:`] };
           return "responses" === wRe(e12, { baseUrl: t12.baseUrl, ...void 0 !== t12.endpoint ? { endpoint: t12.endpoint } : {} }) ? r12.responses(e12) : r12(e12);
         })(e11.modelId, { baseUrl: e11.baseUrl, apiKey: e11.apiKey ?? "local-agent", endpoint: s11, fetch: xRe({ modelId: e11.modelId, userAgent: e11.userAgent, modelParameters: e11.modelParameters, apiType: "openai_compatible", openAICompatibleEndpoint: s11, extendedCapabilitiesDetected: r11, apiKeyHelperConfig: e11.apiKeyHelper, requestLogMetadata: e11.requestLogMetadata, customHeaders: e11.customHeaders, configuredEffortValues: e11.configuredEffortValues, responsesStore: o11, chatReasoningReplay: i11, responsesReasoningReplay: a11, reasoningReplayLatch: e11.reasoningReplayLatch, gatewayTiming: e11.gatewayTiming }) }), i11), a11, o11));
         return new _a(c11, void 0, "responses" === s11 ? { openai: { strictSchemas: false, store: false } } : { openai: { store: false } }).getSession();
-      })(o10, n10, a10), l10 = __lcpContextLength(r10.baseUrl, e10.modelId) ?? n10.contextLength ?? (function(e11) {
+      })(o10, n10, a10), l10 = __lcpExt.contextLength(r10.baseUrl, e10.modelId) ?? n10.contextLength ?? (function(e11) {
         const t11 = e11.trim();
         for (const e12 of lAe.values()) for (const r11 of e12) if (r11.id === t11) return r11.contextLength;
       })(e10.modelId), u10 = (function(e11) {
@@ -214309,7 +214273,7 @@ export default function CanvasCompileError() {
         return this.sessions.set(i2, v2), v2;
       }
       async runLocalAgent(t2, r2, n2) {
-        __lcpRegister(t2);
+        __lcpExt.register(t2);
         const s2 = crypto.randomUUID(), o2 = new H.EventEmitter();
         let i2, a2, c2, l2;
         void 0 !== r2.getPermissions || iu.warn((0, f.q6)().with(g._O, this.loggerBackend), "runLocalAgent: no bridged exec session for local run; failing closed (tools require approval and are denied)", { conversationId: t2.runOptions.conversationId, conversationGroupId: t2.runOptions.conversationGroupId });
@@ -214400,7 +214364,7 @@ export default function CanvasCompileError() {
         }
       }
       async runLocalInference(e2) {
-        __lcpRegister(e2);
+        __lcpExt.register(e2);
         const t2 = await uu();
         switch (e2.kind) {
           case "agentName":
@@ -214416,7 +214380,7 @@ export default function CanvasCompileError() {
         }
       }
       async fetchLocalProviderModels(e2) {
-        if (true === e2?.cursorLocalProvider?.listing) return __lcpListModels(e2);
+        if (true === e2?.cursorLocalProvider?.listing) return __lcpExt.listModels(e2);
         const t2 = await uu(), r2 = await t2.fetchLocalProviderModels({ baseUrl: e2.baseUrl, apiKey: e2.apiKey, userAgent: e2.userAgent, customHeaders: e2.customHeaders }), n2 = t2.buildBottlerocketPickerModels(r2.models, { defaultEffortTier: "curated" }).map((e3) => e3.toJson()), s2 = t2.findUnsupportedReasoningModelIds(r2.models);
         return { allProviderModelIds: r2.allModelIds, pickerModels: n2, unsupportedReasoningModelIds: s2 };
       }

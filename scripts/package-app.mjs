@@ -32,7 +32,7 @@ async function checkElectronVersion() {
     throw new Error(
       `node_modules/electron is ${installed} but upstream Cursor ${upstream.version} ships Electron ` +
         `${upstream.electronVersion}. Native modules in app/ are built for that ABI; run ` +
-        `\`npm install electron@${upstream.electronVersion}\`.`,
+        `\`bun add -d electron@${upstream.electronVersion}\`.`,
     );
   }
   return upstream;
@@ -62,10 +62,10 @@ async function main() {
     throw new Error('Only macOS bundles are supported for now.');
   }
   if (!existsSync(path.join(APP_DIR, 'package.json'))) {
-    throw new Error('app/ is missing. Run `npm run extract -- <Cursor.dmg>` first.');
+    throw new Error('app/ is missing. Run `bun run extract -- <Cursor.dmg>` first.');
   }
   if (!existsSync(path.join(ROOT, 'node_modules/electron'))) {
-    throw new Error('Electron package not found. Run `npm install` first.');
+    throw new Error('Electron package not found. Run `bun install` first.');
   }
   if (!existsSync(ELECTRON_APP)) {
     // The electron package downloads its binary lazily (no postinstall), so fetch it now.

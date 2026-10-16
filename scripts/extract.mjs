@@ -10,7 +10,7 @@
 //   app/                     the runnable application tree (Contents/Resources/app)
 //   upstream/upstream.json   version / commit / electron metadata of the source build
 //   upstream/manifest.json   sha256 of every original file (before reformatting)
-//   upstream/darwin/         original Info.plist and .icns resources used by `npm run build`
+//   upstream/darwin/         original Info.plist and .icns resources used by `bun run package`
 
 import { existsSync } from 'node:fs';
 import { cp, mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises';
@@ -163,7 +163,7 @@ async function main() {
 
   await writeFile(path.join(UPSTREAM_DIR, 'upstream.json'), JSON.stringify(meta, null, 2) + '\n');
   log(`done: ${meta.name} ${meta.version} (commit ${meta.commit}, Electron ${meta.electronVersion})`);
-  log('next: npm run build && npm start');
+  log('next: bun run build && bun run start');
 }
 
 main().catch((err) => {

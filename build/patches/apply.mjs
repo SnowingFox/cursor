@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // Applies the "local mode" patches to ./app.
 //
-//   node scripts/local-mode/apply.mjs           # apply every patch
-//   node scripts/local-mode/apply.mjs --check   # verify every anchor, change nothing
+//   bun build/patches/apply.mjs           # apply every patch (bun run apply)
+//   bun build/patches/apply.mjs --check   # verify every anchor, change nothing
+//   bun build/patches/apply.mjs --dev     # also apply `dev` patches (bun run dev)
 //
 // Each patched file is rebuilt from its pristine copy in the latest
 // "Import Cursor ..." commit (what scripts/extract.mjs produced), so re-running
@@ -15,14 +16,25 @@ import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { APP_DIR, ROOT, log } from '../lib/util.mjs';
+import { APP_DIR, ROOT, log } from '../../scripts/lib/util.mjs';
 import { patches } from './patches.mjs';
 
 const check = process.argv.includes('--check');
+const dev = process.argv.includes('--dev');
+// Every file any patch touches is rebuilt, so dropping --dev restores the
+// pristine version of files that only have `dev` patches.
 const byFile = new Map();
 for (const p of patches) {
   if (!byFile.has(p.file)) byFile.set(p.file, []);
-  byFile.get(p.file).push(p);
+  if (dev || !p.dev) byFile.get(p.file).push(p);
+}
+
+// Vite outputs the patched bundles load (bun run build).
+for (const built of [
+  'out/vs/workbench/contrib/localMode/browser/localMode.js',
+  'extensions/cursor-agent-exec/dist/localMode.js',
+]) {
+  if (!existsSync(path.join(APP_DIR, built))) log(`! app/${built} is missing; run \`bun run build\``);
 }
 
 const git = (...args) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 30 });

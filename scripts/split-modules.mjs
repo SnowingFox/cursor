@@ -3,8 +3,8 @@
 // they are easier to browse/grep. The output in ./.modules is a read-only view
 // (gitignored); edit the bundles under app/ — those are what actually runs.
 //
-//   npm run split                                   # default bundles
-//   npm run split -- app/out/vs/workbench/workbench.desktop.main.js
+//   bun run split                                   # default bundles
+//   bun run split -- app/out/vs/workbench/workbench.desktop.main.js
 //
 // esbuild wraps every lazily-initialized module as
 //   var X = __esm({ "moduleBasename.js"() { ... } });

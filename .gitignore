@@ -5,3 +5,6 @@
 /.modules/
 .DS_Store
 *.log
+
+# Local reference checkouts
+/submodule/
