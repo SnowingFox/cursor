@@ -336722,13 +336722,12 @@ var __lcpAccountPlans = ["free", "pro", "pro_plus", "ultra"];
 var __lcpAccountListeners = /* @__PURE__ */ new Set();
 var __lcpAccountValue;
 function __lcpAccountClean(value) {
-  const user = globalThis.vscode?.process?.env?.USER || "local";
   const o = value !== null && typeof value === "object" ? value : {};
   const text = (v, fallback) => typeof v === "string" && v.trim() !== "" ? v.trim() : fallback;
   return {
     signedIn: typeof o.signedIn === "boolean" ? o.signedIn : true,
-    name: text(o.name, user),
-    email: text(o.email, `${user}@localhost`),
+    name: text(o.name, "cursor"),
+    email: text(o.email, "cursor@localhost"),
     plan: __lcpAccountPlans.includes(o.plan) ? o.plan : "ultra"
   };
 }
