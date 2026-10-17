@@ -99,5 +99,13 @@ for (const [id, files] of Object.entries(expected)) {
 }
 log(`+ extension hashes: ${rehashed} file(s) differ from upstream`);
 if (!check) {
-  await writeFile(EXT_HOST, extHostSrc.replace(table[0], () => `var kde = ${JSON.stringify(expected)};`));
+  // Patches may have changed extensionHostProcess.js too: swap the table in the
+  // patched file on disk, not in the pristine copy.
+  const patched = await readFile(EXT_HOST, 'utf8');
+  const current = /^var kde = (\{.*\});$/m.exec(patched);
+  if (!current) {
+    console.error('extension hash table (var kde) not found in the patched extensionHostProcess.js');
+    process.exit(1);
+  }
+  await writeFile(EXT_HOST, patched.replace(current[0], () => `var kde = ${JSON.stringify(expected)};`));
 }

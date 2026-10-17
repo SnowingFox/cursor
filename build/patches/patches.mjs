@@ -61,6 +61,48 @@ export const patches = [
     replace: '',
   },
 
+  // --- local first: no Cursor backend, telemetry or update traffic ----------
+  {
+    id: 'main/net-guard',
+    file: 'out/main.js',
+    find: 'var CLe = Object.create, Ab = Object.defineProperty,',
+    replace: `${inject('net-guard.js')}var CLe = Object.create, Ab = Object.defineProperty,`,
+  },
+  {
+    // Before app ready, once product.json is known: Chromium (renderers, the
+    // network service) gets the same block list.
+    id: 'main/net-guard-chromium',
+    file: 'out/main.js',
+    find: 'globalThis._VSCODE_PRODUCT_JSON = { ...Ar }, process.env.VSCODE_DEV)',
+    replace:
+      'globalThis._VSCODE_PRODUCT_JSON = { ...Ar }, __lcpLocalMode() && Fb.commandLine.appendSwitch("host-resolver-rules", __lcpChromiumRules()), process.env.VSCODE_DEV)',
+  },
+  {
+    // Polls downloads.cursor.com for a new agent host build every 5 minutes.
+    id: 'main/no-agent-host-updater',
+    file: 'out/main.js',
+    find: 'function vst(e, t, n = process.env) {\n',
+    replace: 'function vst(e, t, n = process.env) {\n  if (__lcpLocalMode()) return void e.get(Z).info(`${Vu} not started: local mode`);\n',
+  },
+  {
+    id: 'shared-process/net-guard',
+    file: 'out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js',
+    find: 'var zv = Object.create, dd = Object.defineProperty,',
+    replace: `${inject('net-guard.js')}var zv = Object.create, dd = Object.defineProperty,`,
+  },
+  {
+    id: 'extension-host/net-guard',
+    file: 'out/vs/workbench/api/node/extensionHostProcess.js',
+    find: 'var X_e = Object.create, JI = Object.defineProperty,',
+    replace: `${inject('net-guard.js')}var X_e = Object.create, JI = Object.defineProperty,`,
+  },
+  {
+    id: 'mcp-process/net-guard',
+    file: 'out/vs/code/electron-utility/mcpProcess/mcpProcessMain.js',
+    find: 'var H2 = Object.create, ba = Object.defineProperty,',
+    replace: `${inject('net-guard.js')}var H2 = Object.create, ba = Object.defineProperty,`,
+  },
+
   // --- agent window (glass) renderer ---------------------------------------
   {
     id: 'glass/build-flag',
