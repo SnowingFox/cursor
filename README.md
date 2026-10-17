@@ -62,7 +62,6 @@ extensions/<ext>/src/      our extension-host sources (VS Code's extensions/ lay
 build/patches/             glue patches into the upstream bundles + apply.mjs
 upstream/                  version metadata, sha256 manifest, Info.plist/.icns of the extracted build
 scripts/                   dev / build / start / package / extract tooling
-docs/rea/                  REA evidence (Electron fuses, main-process/IPC boundaries)
 ```
 
 Cursor's bundles are minified upstream output, so our code is not compiled
@@ -95,7 +94,7 @@ source changes.
 ## How it runs
 
 REA's `inspect-electron-fuses` shows upstream ships with `OnlyLoadAppFromAsar`
-and `EmbeddedAsarIntegrityValidation` **disabled** (`docs/rea/electron-fuses.json`),
+and `EmbeddedAsarIntegrityValidation` **disabled**,
 so the stock Electron 42.10.0 binary from npm loads `Resources/app` as a plain
 directory, exactly like the official build. Because the Electron version is
 identical, the prebuilt native modules in `app/` (`node-pty`, `sqlite3`,

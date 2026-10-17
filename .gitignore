@@ -8,3 +8,6 @@
 
 # Local reference checkouts
 /submodule/
+
+# Reverse-engineering notes and tool output (machine-specific)
+/docs/rea/
