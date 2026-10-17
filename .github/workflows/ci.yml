@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Lint, typecheck, test, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      # Full history: build/patches/apply.mjs rebuilds patched files from the
+      # "Import Cursor ..." commit. LFS (native binaries) is not needed here.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
+
+      - run: bun install --frozen-lockfile
+
+      - run: bun run lint
+      - run: bun run typecheck
+      - run: bun run test
+      - run: bun run apply:check
+
+      # app/ is committed in its built state; make sure it matches the sources.
+      - run: bun run build
+      - name: Built app/ is up to date
+        run: |
+          if ! git diff --quiet -- app || [ -n "$(git ls-files --others --exclude-standard -- app)" ]; then
+            git status --short -- app
+            echo "::error::app/ is out of date with src/, extensions/*/src or build/patches. Run 'bun run build' and commit the result."
+            exit 1
+          fi

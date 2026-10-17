@@ -21,7 +21,7 @@ diffable and **runs as-is**.
 git lfs install           # native binaries (.node, helpers) are stored in LFS
 git clone https://github.com/SnowingFox/cursor.git && cd cursor
 bun install               # Electron 42.10.0 (matches the ABI of app/'s native modules), Vite, TypeScript, …
-bun run start             # builds dist/Cursor.app on first run, then launches it
+bun run start             # builds "dist/Cursor RE.app" on first run, then launches it
 ```
 
 `bun run start` runs with an isolated profile in `./.cursor-dev` (user data,
@@ -80,10 +80,10 @@ is idempotent and an upstream update shows exactly which anchors moved.
 |---|---|
 | `bun run dev` | Hot-reload loop: Vite dev server for the agent window (edits under `src/` swap in without reloading), watch build for extension-host code (reloaded in place), launches the app. Reverts dev-only patches on exit |
 | `bun run build` | Vite-build `src/` and `extensions/*/src` into `app/`, then apply `build/patches` |
-| `bun run start` | Build `dist/Cursor.app` if needed and launch it |
+| `bun run start` | Build `dist/Cursor RE.app` if needed and launch it |
 | `bun run typecheck` / `test` / `lint` / `format` | TypeScript, Vitest, Biome |
 | `bun run apply` / `apply:check` | (Re)apply the bundle patches / only verify their anchors |
-| `bun run package` | Assemble `dist/Cursor.app`; `Resources/app` is a symlink to `./app`, so edits take effect on relaunch |
+| `bun run package` | Assemble `dist/Cursor RE.app`; `Resources/app` is a symlink to `./app`, so edits take effect on relaunch |
 | `bun run package:standalone` | Same, but copies `./app` into the bundle (movable `.app`) |
 | `bun run extract -- <Cursor.dmg\|Cursor.app>` | Re-extract from an upstream build (e.g. to update versions) |
 | `bun run split` | Split the big bundles into one file per module under `.modules/` (read-only browsing aid) |
@@ -101,9 +101,11 @@ directory, exactly like the official build. Because the Electron version is
 identical, the prebuilt native modules in `app/` (`node-pty`, `sqlite3`,
 `spdlog`, `@parcel/watcher`, …) load without rebuilding.
 
-`dist/Cursor.app` uses upstream's `Info.plist` (document types, `cursor://`
-scheme) with its own bundle id (`dev.snowingfox.cursor-re`) and an ad-hoc
-signature.
+`dist/Cursor RE.app` uses upstream's `Info.plist` (document types, `cursor://`
+scheme) with its own name and bundle id (`dev.snowingfox.cursor-re`); the
+executable and Electron's helper apps are renamed to match (`Cursor RE Helper
+(Renderer)`, …) and everything is signed ad-hoc. `product.json` is unchanged,
+so the app still uses Cursor's data folder and URL scheme.
 
 ## Notes
 

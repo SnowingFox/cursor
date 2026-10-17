@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Launches dist/Cursor.app (building it first if needed).
+// Launches "dist/Cursor RE.app" (building it first if needed).
 //
 // By default the app runs with an isolated profile under ./.cursor-dev so it
 // never touches an installed Cursor's settings, extensions, keychain or login state:
@@ -13,7 +13,7 @@ import { existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { DIST_DIR, ROOT, log, run } from './lib/util.mjs';
-import { EXECUTABLE } from './package-app.mjs';
+import { EXECUTABLE, PRODUCT_NAME } from './package-app.mjs';
 
 const PROFILE_DIR = process.env.CURSOR_RE_PROFILE || path.join(ROOT, '.cursor-dev');
 
@@ -23,7 +23,11 @@ async function needsBuild() {
   }
   const build = JSON.parse(await readFile(path.join(DIST_DIR, 'build.json'), 'utf8'));
   const upstream = JSON.parse(await readFile(path.join(ROOT, 'upstream/upstream.json'), 'utf8'));
-  return build.version !== upstream.version || build.electronVersion !== upstream.electronVersion;
+  return (
+    build.version !== upstream.version ||
+    build.electronVersion !== upstream.electronVersion ||
+    build.productName !== PRODUCT_NAME
+  );
 }
 
 async function main() {

@@ -1,0 +1,98 @@
+name: Release
+
+# Push a tag like v3.24.18-re.1 (upstream Cursor version + "-re.N"), or run
+# manually with an existing tag.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag to build and release (must already exist)
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  macos-arm64:
+    name: Cursor RE (macOS arm64)
+    runs-on: macos-latest
+    timeout-minutes: 45
+    env:
+      TAG: ${{ inputs.tag || github.ref_name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+          fetch-depth: 0
+          lfs: false
+
+      # Native binaries (.node, helpers) live in Git LFS; cache them between
+      # releases instead of downloading ~300 MB every time.
+      - name: List LFS objects
+        run: git lfs ls-files --long | cut -d ' ' -f1 | sort > .lfs-objects
+      - uses: actions/cache@v4
+        with:
+          path: .git/lfs
+          key: lfs-${{ hashFiles('.lfs-objects') }}
+          restore-keys: lfs-
+      - name: Fetch LFS objects
+        run: |
+          git lfs pull
+          rm .lfs-objects
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
+
+      - run: bun install --frozen-lockfile
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/Library/Caches/electron
+          key: electron-${{ hashFiles('bun.lock') }}
+
+      - run: bun run test
+      - run: bun run build
+      - name: Built app/ is up to date
+        run: git diff --exit-code --stat -- app
+
+      - name: Package Cursor RE.app
+        run: bun run package:standalone
+
+      - name: Zip
+        id: zip
+        run: |
+          version="${TAG#v}"
+          zip="Cursor-RE-${version}-darwin-arm64.zip"
+          ditto -c -k --sequesterRsrc --keepParent "dist/Cursor RE.app" "$zip"
+          shasum -a 256 "$zip" > "$zip.sha256"
+          echo "zip=$zip" >> "$GITHUB_OUTPUT"
+          ls -lh "$zip"
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ZIP: ${{ steps.zip.outputs.zip }}
+        run: |
+          upstream=$(jq -r '"Cursor \(.version) (commit \(.commit[0:8])), VS Code \(.vscodeVersion), Electron \(.electronVersion)"' upstream/upstream.json)
+          cat > notes.md <<EOF
+          **Cursor RE** for macOS (Apple silicon), built from \`${GITHUB_SHA::8}\`.
+
+          Based on ${upstream}. Local mode is on: add your own OpenAI / Anthropic compatible endpoints under Settings > Models > Custom Providers; no Cursor account needed.
+
+          ### Install
+          1. Unzip and move **Cursor RE.app** to /Applications.
+          2. The app is signed ad-hoc (not notarized), so clear the download quarantine once:
+             \`\`\`
+             xattr -dr com.apple.quarantine "/Applications/Cursor RE.app"
+             \`\`\`
+
+          Note: it shares the official Cursor's data folder (~/.cursor) and \`cursor://\` links.
+          EOF
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$ZIP" "$ZIP.sha256" --clobber
+          else
+            gh release create "$TAG" "$ZIP" "$ZIP.sha256" --title "Cursor RE ${TAG#v}" --notes-file notes.md --latest
+          fi
