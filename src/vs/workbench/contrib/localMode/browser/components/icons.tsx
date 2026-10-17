@@ -13,6 +13,8 @@ const PATHS = {
 	alert: 'M12 8v4M12 16h.01M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z',
 	chevron: 'm9 18 6-6-6-6',
 	trash: 'M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6',
+	copy: 'M10 8h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2zM4 16a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2',
+	external: 'M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6',
 } as const;
 
 export type IconName = keyof typeof PATHS;

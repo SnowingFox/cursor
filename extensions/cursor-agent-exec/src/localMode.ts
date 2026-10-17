@@ -11,6 +11,9 @@
  * the patched dist/main.js (build/patches/inject/agent-exec-host.js).
  */
 import type { ListedModel, ProviderDescriptor } from '../../../src/vs/workbench/contrib/localMode/common/localMode.js';
+import type { SubscriptionsRequest } from '../../../src/vs/workbench/contrib/localMode/common/subscriptions.js';
+import { ensureSidecar } from './sidecar.js';
+import { handle } from './subscriptions.js';
 
 export interface ProviderRequest {
 	baseUrl?: unknown;
@@ -35,12 +38,21 @@ function positive(value: unknown): number | undefined {
 	return typeof value === 'number' && Number.isFinite(value) && value > 0 ? Math.floor(value) : undefined;
 }
 
-export function register(request: ProviderRequest | undefined): void {
+/** Remembers the request's provider; a subscriptions provider's sidecar is started first. */
+export async function register(request: ProviderRequest | undefined): Promise<void> {
 	const descriptor = request?.cursorLocalProvider;
 	if (descriptor === null || typeof descriptor !== 'object' || typeof request?.baseUrl !== 'string') {
 		return;
 	}
 	providers.set(key(request.baseUrl), descriptor);
+	if (descriptor.sidecar !== undefined) {
+		await ensureSidecar(descriptor.sidecar);
+	}
+}
+
+/** A Settings page request for the Subscriptions provider (see subscriptions.ts). */
+export function subscriptions(request: SubscriptionsRequest): Promise<unknown> {
+	return handle(request);
 }
 
 export function kind(baseUrl: unknown): ProviderDescriptor | undefined {

@@ -5,9 +5,10 @@ import {
 	type RequestedModel,
 	type StorageService,
 } from '../../../../glass/host/cursorHost.js';
-import type { ProviderDescriptor } from '../common/localMode.js';
-import { descriptor, enabledModels, endpoint, resolveModel } from '../common/providers.js';
+import type { CustomProvider, ProviderDescriptor } from '../common/localMode.js';
+import { descriptor, enabledModels, endpoint, resolveModel, routableProviders } from '../common/providers.js';
 import { readProviders } from './providerStorage.js';
+import { userDataDir } from './subscriptionsClient.js';
 import type { RouteInfo } from './usageStore.js';
 
 export interface RunOptions {
@@ -26,6 +27,10 @@ export interface RoutedTurn {
 	usage: RouteInfo;
 }
 
+function routedDescriptor(provider: CustomProvider): ProviderDescriptor {
+	return descriptor(provider, provider.kind === 'subscriptions' ? userDataDir() : undefined);
+}
+
 /**
  * Rewrites one agent turn onto the custom provider that owns its model:
  * `<prefix>/<model>` becomes the bare model ID plus that provider's endpoint.
@@ -36,7 +41,7 @@ export function routeTurn(
 	modelDetails: ModelDetails | undefined,
 	runOptions: RunOptions,
 ): RoutedTurn | undefined {
-	const providers = readProviders(storage);
+	const providers = routableProviders(readProviders(storage));
 	const models = enabledModels(providers);
 	if (models.length === 0) {
 		return undefined;
@@ -73,7 +78,7 @@ export function routeTurn(
 		runOptions: { ...runOptions, requestedModel },
 		providerConfig: { baseUrl: target.baseUrl, apiKey: target.apiKey, customHeaders: target.headers },
 		availableModelIds: (hit.provider.models ?? []).filter((m) => m?.id && m.enabled !== false).map((m) => m.id),
-		cursorLocalProvider: descriptor(hit.provider),
+		cursorLocalProvider: routedDescriptor(hit.provider),
 		usage: { provider: hit.provider.name, model: bare, apiType: hit.provider.apiType },
 	};
 }
@@ -83,7 +88,7 @@ export function routeTurn(
  * composer's selected custom model, else the first enabled one.
  */
 export function inferenceConfig(storage: StorageService, modelConfigService: ModelConfigService, userAgent: string) {
-	const providers = readProviders(storage);
+	const providers = routableProviders(readProviders(storage));
 	const models = enabledModels(providers);
 	if (models.length === 0) {
 		return undefined;
@@ -100,6 +105,6 @@ export function inferenceConfig(storage: StorageService, modelConfigService: Mod
 		userAgent,
 		customHeaders: target.headers,
 		modelId: hit.model.id,
-		cursorLocalProvider: descriptor(hit.provider),
+		cursorLocalProvider: routedDescriptor(hit.provider),
 	};
 }

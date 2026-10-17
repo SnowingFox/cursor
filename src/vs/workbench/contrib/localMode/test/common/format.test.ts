@@ -1,11 +1,23 @@
 import { describe, expect, it } from 'vitest';
 import {
 	formatContextWindow,
+	formatCountdown,
 	formatDuration,
 	formatTokenCount,
 	formatTokens,
 	parseTokenCount,
 } from '../../common/format.js';
+
+describe('formatCountdown', () => {
+	it('rounds down to the two largest units', () => {
+		expect(formatCountdown(30_000)).toBe('<1m');
+		expect(formatCountdown(12 * 60_000 + 59_000)).toBe('12m');
+		expect(formatCountdown(3 * 3_600_000)).toBe('3h');
+		expect(formatCountdown(3 * 3_600_000 + 12 * 60_000)).toBe('3h 12m');
+		expect(formatCountdown(2 * 86_400_000 + 4 * 3_600_000 + 5 * 60_000)).toBe('2d 4h');
+		expect(formatCountdown(7 * 86_400_000)).toBe('7d');
+	});
+});
 
 describe('formatDuration', () => {
 	it('shows seconds under a minute', () => {

@@ -42,6 +42,31 @@ Turns show live stats in the style of Claude Code
 Local mode is on by default (`"cursorLocalMode": true` in `app/product.json`);
 `CURSOR_LOCAL_MODE=0` turns it off for one launch.
 
+### Subscriptions (Claude Code, Codex, Grok)
+
+The built-in *Subscriptions* provider (first card under "Add provider") runs
+models on your own Claude Pro/Max, ChatGPT (Codex) and SuperGrok accounts.
+Sign in from the card; each account shows its plan and remaining usage
+(5-hour / weekly windows with reset times), can be switched off, signed out or
+routed through its own proxy (http, https, socks5, socks5h). The models of the
+signed-in accounts appear as `<prefix>/<model>` (default prefix `sub`), with the
+reasoning-effort levels each model supports.
+
+It is backed by [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI),
+which the extension host starts on demand on `127.0.0.1` (random port, local
+API key) with its data under `<user data>/cliproxyapi` (accounts in `auths/`,
+log in `sidecar.log`). The sidecar exits by itself within 10 seconds of Cursor
+going away. Claude models are served over Anthropic Messages, Codex and Grok
+models over OpenAI Responses. Install the binary once:
+
+```bash
+bun run cliproxyapi                       # pinned release (darwin-arm64), sha256-checked
+bun run cliproxyapi -- --source <dir>     # or build a CLIProxyAPI checkout with Go
+```
+
+`CURSOR_CLIPROXYAPI_BIN`, or a `cli-proxy-api` / `cliproxyapi` on `PATH`
+(`brew install cliproxyapi`), works as well.
+
 ## Layout
 
 ```
@@ -84,6 +109,7 @@ is idempotent and an upstream update shows exactly which anchors moved.
 | `bun run apply` / `apply:check` | (Re)apply the bundle patches / only verify their anchors |
 | `bun run package` | Assemble `dist/Cursor RE.app`; `Resources/app` is a symlink to `./app`, so edits take effect on relaunch |
 | `bun run package:standalone` | Same, but copies `./app` into the bundle (movable `.app`) |
+| `bun run cliproxyapi` | Install the CLIProxyAPI sidecar behind *Subscriptions* to `app/resources/cliproxyapi/` (not committed) |
 | `bun run extract -- <Cursor.dmg\|Cursor.app>` | Re-extract from an upstream build (e.g. to update versions) |
 | `bun run split` | Split the big bundles into one file per module under `.modules/` (read-only browsing aid) |
 

@@ -1,12 +1,22 @@
 import {
 	API_TYPES,
+	type ApiType,
 	type CustomModel,
 	type CustomProvider,
+	type Effort,
 	type EffortTiers,
 	type ListedModel,
 	type ProviderDescriptor,
 	type ProviderPreset,
 } from './localMode.js';
+import {
+	randomKey,
+	randomPort,
+	type SidecarConfig,
+	sidecarBaseUrl,
+	sidecarDataDir,
+	validateProxyUrl,
+} from './subscriptions.js';
 
 export interface EnabledModel {
 	provider: CustomProvider;
@@ -105,7 +115,48 @@ export function endpoint(provider: Pick<CustomProvider, 'apiType' | 'baseUrl' | 
 	return { baseUrl, apiKey: String(provider.apiKey ?? '').trim() || undefined, headers };
 }
 
-export function descriptor(provider: CustomProvider): ProviderDescriptor {
+/** Wire format of one of a subscriptions provider's models. */
+export function subscriptionApiType(model: Pick<CustomModel, 'id' | 'apiType'>): ApiType {
+	return model.apiType ?? (/^claude-/iu.test(model.id) ? 'anthropic' : 'openai-responses');
+}
+
+/**
+ * The providers turns are routed to. A subscriptions provider becomes one
+ * provider per wire format (Claude models on Anthropic Messages, Codex and
+ * Grok models on OpenAI Responses), each on its own sidecar base URL; prefix,
+ * name and key stay shared, so picker IDs don't change.
+ */
+export function routableProviders(providers: CustomProvider[]): CustomProvider[] {
+	return providers.flatMap((p) => {
+		if (p.kind !== 'subscriptions') {
+			return [p];
+		}
+		return (['anthropic', 'openai-responses'] as const).map((apiType) => ({
+			...p,
+			apiType,
+			baseUrl: sidecarBaseUrl(Number(p.port), apiType),
+			headers: '',
+			models: (p.models ?? []).filter((m) => m?.id && subscriptionApiType(m) === apiType),
+		}));
+	});
+}
+
+/** How the extension host runs a subscriptions provider's sidecar. */
+export function sidecarConfig(
+	provider: Pick<CustomProvider, 'port' | 'apiKey' | 'strategy' | 'proxyUrl'>,
+	userDataDir: string,
+): SidecarConfig {
+	return {
+		port: Number(provider.port),
+		apiKey: String(provider.apiKey ?? '').trim(),
+		dataDir: sidecarDataDir(userDataDir),
+		strategy: provider.strategy ?? 'round-robin',
+		proxyUrl: String(provider.proxyUrl ?? '').trim(),
+	};
+}
+
+/** `userDataDir` is required for subscriptions providers (the sidecar's data lives there). */
+export function descriptor(provider: CustomProvider, userDataDir?: string): ProviderDescriptor {
 	const contextLengths: Record<string, number> = {};
 	const maxOutput: Record<string, number> = {};
 	for (const m of provider.models ?? []) {
@@ -125,6 +176,9 @@ export function descriptor(provider: CustomProvider): ProviderDescriptor {
 		apiType: API_TYPES.includes(provider.apiType) ? provider.apiType : 'openai-chat',
 		contextLengths,
 		maxOutputTokens: maxOutput,
+		...(provider.kind === 'subscriptions' && userDataDir !== undefined
+			? { sidecar: sidecarConfig(provider, userDataDir) }
+			: {}),
 	};
 }
 
@@ -156,6 +210,22 @@ export function effortTiers(provider: Pick<CustomProvider, 'apiType'>, modelId: 
 	return undefined;
 }
 
+/**
+ * Effort tiers for one model: the levels the provider reported (subscriptions),
+ * else the built-in table.
+ */
+export function modelEffortTiers(
+	provider: Pick<CustomProvider, 'apiType'>,
+	model: Pick<CustomModel, 'id' | 'efforts'>,
+): EffortTiers | undefined {
+	const values = model.efforts ?? [];
+	if (values.length === 0) {
+		return effortTiers(provider, model.id);
+	}
+	const preferred: Effort[] = provider.apiType === 'anthropic' ? ['high', 'medium'] : ['medium', 'high'];
+	return { values, default: preferred.find((e) => values.includes(e)) ?? values[values.length - 1] };
+}
+
 export function newProvider(existing: CustomProvider[], preset?: ProviderPreset): CustomProvider {
 	const base = preset?.prefix ?? 'custom-provider';
 	const used = new Set(existing.map((p) => p.prefix));
@@ -163,6 +233,22 @@ export function newProvider(existing: CustomProvider[], preset?: ProviderPreset)
 	let prefix = base;
 	while (used.has(prefix)) {
 		prefix = `${base}-${++n}`;
+	}
+	if (preset?.kind === 'subscriptions') {
+		return {
+			name: preset.name,
+			prefix,
+			kind: 'subscriptions',
+			apiType: 'anthropic',
+			baseUrl: '',
+			// Required by the sidecar on its inference routes; it accepts any
+			// local process otherwise, including web pages via CORS.
+			apiKey: randomKey('sk-local-'),
+			headers: '',
+			models: [],
+			port: randomPort(),
+			strategy: 'round-robin',
+		};
 	}
 	return {
 		name: preset === undefined || preset.id === 'custom' ? prefix : preset.name,
@@ -190,6 +276,13 @@ export function validateProviders(providers: CustomProvider[]): string | undefin
 			return `Prefix "${p.prefix}" is used by more than one provider.`;
 		}
 		prefixes.add(p.prefix);
+		if (p.kind === 'subscriptions') {
+			const error = validateSubscriptions(p, providers);
+			if (error !== undefined) {
+				return `${label}: ${error}`;
+			}
+			continue;
+		}
 		let url: URL | undefined;
 		try {
 			url = new URL(endpoint(p).baseUrl);
@@ -208,6 +301,21 @@ export function validateProviders(providers: CustomProvider[]): string | undefin
 	return undefined;
 }
 
+function validateSubscriptions(p: CustomProvider, providers: CustomProvider[]): string | undefined {
+	if (providers.filter((x) => x.kind === 'subscriptions').length > 1) {
+		return 'only one Subscriptions provider is supported.';
+	}
+	const port = Number(p.port);
+	if (!Number.isInteger(port) || port < 1024 || port > 65_535) {
+		return 'the port must be a number from 1024 to 65535.';
+	}
+	if (!String(p.apiKey ?? '').trim()) {
+		return 'the local API key is missing.';
+	}
+	const proxy = validateProxyUrl(p.proxyUrl ?? '');
+	return proxy === undefined ? undefined : `default proxy: ${proxy}`;
+}
+
 /** Trims the free-text fields before a save. */
 export function cleanProviders(providers: CustomProvider[]): CustomProvider[] {
 	return providers.map((p) => ({
@@ -216,6 +324,7 @@ export function cleanProviders(providers: CustomProvider[]): CustomProvider[] {
 		prefix: (p.prefix ?? '').trim(),
 		baseUrl: p.baseUrl.trim(),
 		apiKey: p.apiKey.trim(),
+		...(p.proxyUrl === undefined ? {} : { proxyUrl: p.proxyUrl.trim() }),
 	}));
 }
 
@@ -231,15 +340,22 @@ export function mergeListedModels(current: CustomModel[], listed: ListedModel[])
 		const fetched: Partial<CustomModel> = {
 			...(m.contextWindow === undefined ? {} : { contextWindow: m.contextWindow }),
 			...(m.maxOutputTokens === undefined ? {} : { maxOutputTokens: m.maxOutputTokens }),
+			...(m.vision === undefined ? {} : { vision: m.vision }),
+		};
+		// What the provider says about how to talk to the model always wins.
+		const facts: Partial<CustomModel> = {
+			...(m.apiType === undefined ? {} : { apiType: m.apiType }),
+			...(m.efforts === undefined ? {} : { efforts: m.efforts }),
 		};
 		const existing = known.get(m.id);
 		if (existing === undefined) {
-			merged.push({ id: m.id, enabled: false, ...fetched });
+			merged.push({ id: m.id, enabled: false, ...fetched, ...facts });
 		} else {
 			merged[merged.indexOf(existing)] = {
 				...fetched,
 				...existing,
 				...(existing.contextWindow === undefined ? {} : { contextWindow: existing.contextWindow }),
+				...facts,
 			};
 		}
 	}

@@ -5,6 +5,7 @@
  * Shared by the agent window (renderer) and the cursor-agent-exec extension
  * host, so this file must stay free of DOM and Node APIs.
  */
+import type { RoutingStrategy, SidecarConfig } from './subscriptions.js';
 
 export const API_TYPES = ['openai-chat', 'openai-responses', 'anthropic'] as const;
 export type ApiType = (typeof API_TYPES)[number];
@@ -36,9 +37,19 @@ export interface ProviderPreset {
 	prefix: string;
 	apiType: ApiType;
 	baseUrl: string;
+	kind?: ProviderKind;
 }
 
 export const PROVIDER_PRESETS: ProviderPreset[] = [
+	{
+		id: 'subscriptions',
+		name: 'Subscriptions',
+		description: 'Sign in to Claude Code, Codex or Grok',
+		prefix: 'sub',
+		apiType: 'anthropic',
+		baseUrl: '',
+		kind: 'subscriptions',
+	},
 	{
 		id: 'anthropic',
 		name: 'Anthropic',
@@ -96,7 +107,18 @@ export interface CustomModel {
 	contextWindow?: number;
 	maxOutputTokens?: number;
 	vision?: boolean;
+	/** Overrides the provider's API format (subscriptions mix Claude, Codex and Grok models). */
+	apiType?: ApiType;
+	/** Reasoning-effort levels, when the provider reports them (subscriptions). */
+	efforts?: Effort[];
 }
+
+/**
+ * Built-in providers. `subscriptions`: the user's own Claude Code, Codex and
+ * Grok accounts, served by the bundled CLIProxyAPI (common/subscriptions.ts);
+ * base URL and wire format are derived per model.
+ */
+export type ProviderKind = 'subscriptions';
 
 export interface CustomProvider {
 	name: string;
@@ -109,6 +131,13 @@ export interface CustomProvider {
 	headers: string;
 	enabled?: boolean;
 	models: CustomModel[];
+	kind?: ProviderKind;
+	/** Subscriptions: the sidecar's local port. */
+	port?: number;
+	/** Subscriptions: which account serves a request when several of the same type are signed in. */
+	strategy?: RoutingStrategy;
+	/** Subscriptions: default proxy (sign-in, token refresh, accounts without their own). */
+	proxyUrl?: string;
 }
 
 /** Application-scoped storage key holding `{ version: 1, providers }`. */
@@ -124,6 +153,8 @@ export interface ProviderDescriptor {
 	maxOutputTokens: Record<string, number>;
 	/** Set on the Settings page's model listing request. */
 	listing?: boolean;
+	/** Subscriptions: the extension host starts the sidecar before the request goes out. */
+	sidecar?: SidecarConfig;
 }
 
 /** One row of a provider's /models response, as returned to the Settings page. */
@@ -131,6 +162,9 @@ export interface ListedModel {
 	id: string;
 	contextWindow?: number;
 	maxOutputTokens?: number;
+	apiType?: ApiType;
+	efforts?: Effort[];
+	vision?: boolean;
 }
 
 export type Effort = 'none' | 'minimal' | 'low' | 'medium' | 'high' | 'xhigh' | 'max';

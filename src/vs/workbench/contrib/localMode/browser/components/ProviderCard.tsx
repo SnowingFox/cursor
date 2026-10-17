@@ -28,7 +28,7 @@ export function ProviderAvatar({ name, size = 'md' }: { name: string; size?: 'sm
 	);
 }
 
-function Field(props: { label: string; hint?: ReactNode; children: ReactNode }): ReactNode {
+export function Field(props: { label: string; hint?: ReactNode; children: ReactNode }): ReactNode {
 	return (
 		// biome-ignore lint/a11y/noLabelWithoutControl: the control is passed in as children.
 		<label className="local-mode-field">

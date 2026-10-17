@@ -105,13 +105,6 @@ function sampleUsage(now, days = 120, seed = 7) {
 var { Children, Component, Fragment: Fragment$1, PureComponent, StrictMode, Suspense, cloneElement, createContext, createElement, createRef, forwardRef, isValidElement, lazy, memo, startTransition, use, useCallback, useContext, useDebugValue, useDeferredValue, useEffect, useId, useImperativeHandle, useInsertionEffect, useLayoutEffect, useMemo, useReducer, useRef, useState, useSyncExternalStore, useTransition } = cursorHost().react;
 //#endregion
 //#region src/vs/workbench/contrib/localMode/common/localMode.ts
-/**
-* Local mode: run Cursor's agent harness against user-configured OpenAI /
-* Anthropic compatible endpoints, with no Cursor account or backend.
-*
-* Shared by the agent window (renderer) and the cursor-agent-exec extension
-* host, so this file must stay free of DOM and Node APIs.
-*/
 var API_TYPES = [
 	"openai-chat",
 	"openai-responses",
@@ -134,6 +127,15 @@ var API_TYPE_SHORT_LABELS = {
 	"openai-responses": "OpenAI Responses"
 };
 var PROVIDER_PRESETS = [
+	{
+		id: "subscriptions",
+		name: "Subscriptions",
+		description: "Sign in to Claude Code, Codex or Grok",
+		prefix: "sub",
+		apiType: "anthropic",
+		baseUrl: "",
+		kind: "subscriptions"
+	},
 	{
 		id: "anthropic",
 		name: "Anthropic",
@@ -194,6 +196,109 @@ var EFFORT_LABELS = {
 	xhigh: "Extra High",
 	max: "Max"
 };
+//#endregion
+//#region src/vs/workbench/contrib/localMode/common/subscriptions.ts
+var ACCOUNT_TYPES = [
+	"claude",
+	"codex",
+	"xai"
+];
+var ACCOUNT_TYPE_LABELS = {
+	claude: "Claude Code",
+	codex: "Codex",
+	xai: "Grok"
+};
+/** What signing in looks like for each account type. */
+var ACCOUNT_TYPE_HINTS = {
+	claude: "Claude Pro or Max, signed in with your Claude account",
+	codex: "ChatGPT Plus, Pro or Team, signed in with your ChatGPT account",
+	xai: "SuperGrok or X Premium, signed in with your xAI account"
+};
+function isAccountType(value) {
+	return typeof value === "string" && ACCOUNT_TYPES.includes(value);
+}
+/** Data directory under the app's user data folder. */
+function sidecarDataDir(userDataDir) {
+	return `${userDataDir.replace(/\/+$/u, "")}/cliproxyapi`;
+}
+/** The two endpoints the provider is exposed on (one wire format each). */
+function sidecarBaseUrl(port, apiType) {
+	return apiType === "anthropic" ? `http://127.0.0.1:${port}` : `http://127.0.0.1:${port}/backend-api/codex`;
+}
+function randomPort() {
+	return 18e3 + Math.floor(Math.random() * 1e3);
+}
+function randomKey(prefix) {
+	const bytes = /* @__PURE__ */ new Uint8Array(24);
+	globalThis.crypto.getRandomValues(bytes);
+	return prefix + Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join("");
+}
+var PROXY_SCHEMES = [
+	"http:",
+	"https:",
+	"socks5:",
+	"socks5h:"
+];
+/** User-facing error for a bad proxy URL; empty, `direct` and `none` are fine. */
+function validateProxyUrl(text) {
+	const value = text.trim();
+	if (value === "" || value === "direct" || value === "none") return;
+	let url;
+	try {
+		url = new URL(value);
+	} catch {
+		return "Use a proxy URL like socks5://127.0.0.1:1080 or http://user:pass@proxy:8080.";
+	}
+	if (!PROXY_SCHEMES.includes(url.protocol)) return "The proxy must be http://, https://, socks5:// or socks5h://.";
+	if (url.hostname === "") return "The proxy URL needs a host.";
+}
+/** Hides the password in a proxy URL for display. */
+function maskProxyUrl(text) {
+	try {
+		const url = new URL(text);
+		const user = url.username === "" ? "" : `${decodeURIComponent(url.username)}${url.password === "" ? "" : ":•••"}@`;
+		return `${url.protocol}//${user}${url.host}${url.pathname === "/" ? "" : url.pathname}`;
+	} catch {
+		return text;
+	}
+}
+/**
+* What the user pasted to finish a sign-in: the address the browser landed on
+* (with or without scheme, params in the query or fragment), `code#state`, or a
+* bare code. Undefined when there is nothing usable.
+*/
+function parseCallbackInput(text) {
+	const value = text.trim().replace(/^["'<]+|["'>]+$/gu, "");
+	if (value === "") return;
+	const urlish = /^https?:\/\//iu.test(value) ? value : /^(?:localhost|127\.0\.0\.1|\[::1\])(?::\d+)?\//iu.test(value) ? `http://${value}` : void 0;
+	if (urlish !== void 0) {
+		let url;
+		try {
+			url = new URL(urlish);
+		} catch {
+			return;
+		}
+		const params = new URLSearchParams(url.search);
+		for (const [k, v] of new URLSearchParams(url.hash.replace(/^#/u, ""))) params.has(k) || params.set(k, v);
+		if (!params.has("code") && !params.has("error")) return;
+		url.search = params.toString();
+		url.hash = "";
+		return { redirectUrl: url.toString() };
+	}
+	if (/(?:^|[?&])code=/u.test(value)) {
+		const params = new URLSearchParams(value.replace(/^.*?\?/u, ""));
+		const code = params.get("code")?.trim();
+		return code ? {
+			code,
+			state: params.get("state")?.trim() || void 0
+		} : void 0;
+	}
+	const [code, state] = value.split("#", 2).map((s) => s.trim());
+	return code ? {
+		code,
+		state: state || void 0
+	} : void 0;
+}
 //#endregion
 //#region src/vs/workbench/contrib/localMode/common/providers.ts
 function parseProviders(json) {
@@ -262,7 +367,40 @@ function endpoint(provider) {
 		headers
 	};
 }
-function descriptor(provider) {
+/** Wire format of one of a subscriptions provider's models. */
+function subscriptionApiType(model) {
+	return model.apiType ?? (/^claude-/iu.test(model.id) ? "anthropic" : "openai-responses");
+}
+/**
+* The providers turns are routed to. A subscriptions provider becomes one
+* provider per wire format (Claude models on Anthropic Messages, Codex and
+* Grok models on OpenAI Responses), each on its own sidecar base URL; prefix,
+* name and key stay shared, so picker IDs don't change.
+*/
+function routableProviders(providers) {
+	return providers.flatMap((p) => {
+		if (p.kind !== "subscriptions") return [p];
+		return ["anthropic", "openai-responses"].map((apiType) => ({
+			...p,
+			apiType,
+			baseUrl: sidecarBaseUrl(Number(p.port), apiType),
+			headers: "",
+			models: (p.models ?? []).filter((m) => m?.id && subscriptionApiType(m) === apiType)
+		}));
+	});
+}
+/** How the extension host runs a subscriptions provider's sidecar. */
+function sidecarConfig(provider, userDataDir) {
+	return {
+		port: Number(provider.port),
+		apiKey: String(provider.apiKey ?? "").trim(),
+		dataDir: sidecarDataDir(userDataDir),
+		strategy: provider.strategy ?? "round-robin",
+		proxyUrl: String(provider.proxyUrl ?? "").trim()
+	};
+}
+/** `userDataDir` is required for subscriptions providers (the sidecar's data lives there). */
+function descriptor(provider, userDataDir) {
 	const contextLengths = {};
 	const maxOutput = {};
 	for (const m of provider.models ?? []) {
@@ -275,7 +413,8 @@ function descriptor(provider) {
 	return {
 		apiType: API_TYPES.includes(provider.apiType) ? provider.apiType : "openai-chat",
 		contextLengths,
-		maxOutputTokens: maxOutput
+		maxOutputTokens: maxOutput,
+		...provider.kind === "subscriptions" && userDataDir !== void 0 ? { sidecar: sidecarConfig(provider, userDataDir) } : {}
 	};
 }
 /**
@@ -337,12 +476,36 @@ function effortTiers(provider, modelId) {
 		default: "medium"
 	};
 }
+/**
+* Effort tiers for one model: the levels the provider reported (subscriptions),
+* else the built-in table.
+*/
+function modelEffortTiers(provider, model) {
+	const values = model.efforts ?? [];
+	if (values.length === 0) return effortTiers(provider, model.id);
+	return {
+		values,
+		default: (provider.apiType === "anthropic" ? ["high", "medium"] : ["medium", "high"]).find((e) => values.includes(e)) ?? values[values.length - 1]
+	};
+}
 function newProvider(existing, preset) {
 	const base = preset?.prefix ?? "custom-provider";
 	const used = new Set(existing.map((p) => p.prefix));
 	let n = existing.length + 1;
 	let prefix = base;
 	while (used.has(prefix)) prefix = `${base}-${++n}`;
+	if (preset?.kind === "subscriptions") return {
+		name: preset.name,
+		prefix,
+		kind: "subscriptions",
+		apiType: "anthropic",
+		baseUrl: "",
+		apiKey: randomKey("sk-local-"),
+		headers: "",
+		models: [],
+		port: randomPort(),
+		strategy: "round-robin"
+	};
 	return {
 		name: preset === void 0 || preset.id === "custom" ? prefix : preset.name,
 		prefix,
@@ -362,6 +525,11 @@ function validateProviders(providers) {
 		if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/u.test(p.prefix ?? "")) return `${label}: the prefix may only contain letters, digits, ".", "_" and "-".`;
 		if (prefixes.has(p.prefix)) return `Prefix "${p.prefix}" is used by more than one provider.`;
 		prefixes.add(p.prefix);
+		if (p.kind === "subscriptions") {
+			const error = validateSubscriptions(p, providers);
+			if (error !== void 0) return `${label}: ${error}`;
+			continue;
+		}
 		let url;
 		try {
 			url = new URL(endpoint(p).baseUrl);
@@ -374,6 +542,14 @@ function validateProviders(providers) {
 		}
 	}
 }
+function validateSubscriptions(p, providers) {
+	if (providers.filter((x) => x.kind === "subscriptions").length > 1) return "only one Subscriptions provider is supported.";
+	const port = Number(p.port);
+	if (!Number.isInteger(port) || port < 1024 || port > 65535) return "the port must be a number from 1024 to 65535.";
+	if (!String(p.apiKey ?? "").trim()) return "the local API key is missing.";
+	const proxy = validateProxyUrl(p.proxyUrl ?? "");
+	return proxy === void 0 ? void 0 : `default proxy: ${proxy}`;
+}
 /** Trims the free-text fields before a save. */
 function cleanProviders(providers) {
 	return providers.map((p) => ({
@@ -381,7 +557,8 @@ function cleanProviders(providers) {
 		name: p.name.trim(),
 		prefix: (p.prefix ?? "").trim(),
 		baseUrl: p.baseUrl.trim(),
-		apiKey: p.apiKey.trim()
+		apiKey: p.apiKey.trim(),
+		...p.proxyUrl === void 0 ? {} : { proxyUrl: p.proxyUrl.trim() }
 	}));
 }
 /**
@@ -395,18 +572,25 @@ function mergeListedModels(current, listed) {
 	for (const m of listed) {
 		const fetched = {
 			...m.contextWindow === void 0 ? {} : { contextWindow: m.contextWindow },
-			...m.maxOutputTokens === void 0 ? {} : { maxOutputTokens: m.maxOutputTokens }
+			...m.maxOutputTokens === void 0 ? {} : { maxOutputTokens: m.maxOutputTokens },
+			...m.vision === void 0 ? {} : { vision: m.vision }
+		};
+		const facts = {
+			...m.apiType === void 0 ? {} : { apiType: m.apiType },
+			...m.efforts === void 0 ? {} : { efforts: m.efforts }
 		};
 		const existing = known.get(m.id);
 		if (existing === void 0) merged.push({
 			id: m.id,
 			enabled: false,
-			...fetched
+			...fetched,
+			...facts
 		});
 		else merged[merged.indexOf(existing)] = {
 			...fetched,
 			...existing,
-			...existing.contextWindow === void 0 ? {} : { contextWindow: existing.contextWindow }
+			...existing.contextWindow === void 0 ? {} : { contextWindow: existing.contextWindow },
+			...facts
 		};
 	}
 	return merged;
@@ -418,6 +602,64 @@ function readProviders(storage) {
 }
 function writeProviders(storage, providers) {
 	storage.store(STORAGE_KEY$2, serializeProviders(providers), StorageScope.APPLICATION, StorageTarget.MACHINE);
+}
+//#endregion
+//#region src/vs/workbench/contrib/localMode/browser/subscriptionsClient.ts
+/** The app's user data folder, from the window configuration the preload exposes. */
+function userDataDir() {
+	const dir = globalThis.vscode?.context?.configuration?.()?.userDataDir;
+	if (typeof dir !== "string" || dir === "") throw new Error("The user data folder is unknown: the window configuration is missing.");
+	return dir;
+}
+/** Requests go out with the provider as currently edited (port, key, proxy), saved or not. */
+function subscriptionsClient(inference, provider) {
+	const call = (body) => inference.fetchLocalProviderModels({ cursorLocalSubscriptions: {
+		...body,
+		sidecar: sidecarConfig(provider, userDataDir())
+	} });
+	return {
+		status: () => call({ op: "status" }),
+		login: (type) => call({
+			op: "login",
+			type
+		}),
+		loginStatus: (state) => call({
+			op: "login-status",
+			state
+		}),
+		loginCallback: (state, input) => call({
+			op: "login-callback",
+			state,
+			input
+		}),
+		loginCancel: (state) => call({
+			op: "login-cancel",
+			state
+		}),
+		update: (name, patch) => call({
+			op: "update",
+			name,
+			patch
+		}),
+		remove: (name) => call({
+			op: "remove",
+			name
+		}),
+		quota: (name) => call({
+			op: "quota",
+			name
+		}),
+		models: async () => {
+			const r = await call({ op: "models" });
+			if (!Array.isArray(r?.cursorLocalModels)) throw new Error("the agent runtime did not return a model list");
+			return r.cursorLocalModels;
+		},
+		checkProxy: (proxyUrl, type) => call({
+			op: "check-proxy",
+			proxyUrl,
+			type
+		})
+	};
 }
 var { Fragment, jsx, jsxs } = cursorHost().jsxRuntime;
 //#endregion
@@ -432,7 +674,9 @@ var PATHS = {
 	check: "M20 6 9 17l-5-5",
 	alert: "M12 8v4M12 16h.01M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z",
 	chevron: "m9 18 6-6-6-6",
-	trash: "M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"
+	trash: "M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6",
+	copy: "M10 8h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2zM4 16a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2",
+	external: "M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
 };
 function Icon({ name, size = 14 }) {
 	return /* @__PURE__ */ jsx("svg", {
@@ -509,6 +753,16 @@ function formatCost(usd) {
 	if (usd < .01) return "<$0.01";
 	return usd < 1e3 ? `$${usd.toFixed(2)}` : `$${Math.round(usd).toLocaleString("en-US")}`;
 }
+/** Coarse time until something happens: "<1m", "12m", "3h 12m", "2d 4h". */
+function formatCountdown(ms) {
+	if (ms < 6e4) return "<1m";
+	const m = Math.floor(ms / 6e4);
+	if (m < 60) return `${m}m`;
+	const h = Math.floor(m / 60);
+	if (h < 24) return m % 60 === 0 ? `${h}h` : `${h}h ${m % 60}m`;
+	const d = Math.floor(h / 24);
+	return h % 24 === 0 ? `${d}d` : `${d}d ${h % 24}h`;
+}
 //#endregion
 //#region src/vs/workbench/contrib/localMode/browser/components/ModelList.tsx
 var isOn = (m) => m.enabled !== false;
@@ -554,7 +808,7 @@ function ContextChip(props) {
 }
 function ModelList(props) {
 	const { Switch } = cursorHost().cursor.ui;
-	const { prefix, models, busy, onChange, onFetch } = props;
+	const { prefix, models, busy, onChange, onFetch, badge, note } = props;
 	const [query, setQuery] = useState("");
 	const [filter, setFilter] = useState("all");
 	const [newModel, setNewModel] = useState("");
@@ -593,7 +847,7 @@ function ModelList(props) {
 					children: "Models"
 				}), /* @__PURE__ */ jsx("div", {
 					className: "local-mode-hint",
-					children: models.length === 0 ? "Fetch the list from the endpoint, or add model IDs by hand." : `${onCount} of ${models.length} in the model picker, as ${prefix || "?"}/<model>`
+					children: models.length === 0 ? props.emptyHint ?? "Fetch the list from the endpoint, or add model IDs by hand." : `${onCount} of ${models.length} in the model picker, as ${prefix || "?"}/<model>`
 				})] }), /* @__PURE__ */ jsxs("button", {
 					type: "button",
 					className: "local-mode-link-button",
@@ -609,6 +863,7 @@ function ModelList(props) {
 					}), busy ? "Fetching…" : models.length === 0 ? "Fetch models" : "Refresh"]
 				})]
 			}),
+			note,
 			models.length > 0 ? /* @__PURE__ */ jsxs("div", {
 				className: "local-mode-model-toolbar",
 				children: [/* @__PURE__ */ jsxs("label", {
@@ -674,6 +929,10 @@ function ModelList(props) {
 							title: `${prefix}/${m.id}`,
 							children: m.id
 						}),
+						badge?.(m) ? /* @__PURE__ */ jsx("span", {
+							className: "lm-model-badge",
+							children: badge(m)
+						}) : null,
 						/* @__PURE__ */ jsx(ContextChip, {
 							model: m,
 							onChange: (contextWindow) => patch(m.id, { contextWindow })
@@ -968,6 +1227,1000 @@ function ProviderCard(props) {
 	});
 }
 //#endregion
+//#region src/vs/workbench/contrib/localMode/browser/components/SubscriptionSignIn.tsx
+var POLL_MS = 1500;
+var CALLBACK_EXAMPLES = {
+	claude: "http://localhost:54545/callback?code=…&state=…",
+	codex: "http://localhost:1455/auth/callback?code=…&state=…"
+};
+var ACCOUNT_HUES = {
+	claude: "orange",
+	codex: "green",
+	xai: "purple"
+};
+var ACCOUNT_LETTERS = {
+	claude: "A",
+	codex: "O",
+	xai: "X"
+};
+function AccountAvatar({ type, size = "md" }) {
+	const known = ACCOUNT_TYPES.includes(type) ? type : void 0;
+	return /* @__PURE__ */ jsx("span", {
+		className: "local-mode-avatar",
+		"data-size": size,
+		"data-hue": known ? ACCOUNT_HUES[known] : "blue",
+		children: known ? ACCOUNT_LETTERS[known] : (type[0] ?? "?").toUpperCase()
+	});
+}
+function errorText$1(e) {
+	return e instanceof Error ? e.message.replace(/^Error invoking remote method '[^']*': (Error: )?/u, "") : String(e);
+}
+function CopyButton({ text, label }) {
+	const [copied, setCopied] = useState(false);
+	return /* @__PURE__ */ jsxs("button", {
+		type: "button",
+		className: "local-mode-link-button",
+		onClick: () => {
+			navigator.clipboard.writeText(text).then(() => {
+				setCopied(true);
+				setTimeout(() => setCopied(false), 1500);
+			});
+		},
+		children: [/* @__PURE__ */ jsx(Icon, {
+			name: copied ? "check" : "copy",
+			size: 12
+		}), copied ? "Copied" : label]
+	});
+}
+/**
+* "Add account": one button per account type, then the sign-in in progress.
+* Browser flows (Claude, Codex) finish on their own when the browser comes
+* back to the sidecar; the address can be pasted when it can't. Grok uses a
+* device code.
+*/
+function SubscriptionSignIn(props) {
+	const { client, disabled, onSignedIn } = props;
+	const [phase, setPhase] = useState({ kind: "idle" });
+	const [paste, setPaste] = useState("");
+	const [showPaste, setShowPaste] = useState(false);
+	const [now, setNow] = useState(Date.now());
+	const pending = useRef(void 0);
+	const signedIn = useRef(onSignedIn);
+	signedIn.current = onSignedIn;
+	useEffect(() => () => {
+		pending.current !== void 0 && client.loginCancel(pending.current).catch(() => {});
+	}, [client]);
+	const waiting = phase.kind === "waiting" ? phase : void 0;
+	useEffect(() => {
+		if (waiting === void 0) return;
+		let stopped = false;
+		const tick = async () => {
+			setNow(Date.now());
+			if (waiting.login.expiresAt !== void 0 && Date.now() > waiting.login.expiresAt) {
+				pending.current = void 0;
+				setPhase({
+					kind: "error",
+					type: waiting.type,
+					text: "The sign-in link expired. Start again."
+				});
+				return;
+			}
+			try {
+				const s = await client.loginStatus(waiting.login.state);
+				if (stopped) return;
+				if (s.status === "ok") {
+					pending.current = void 0;
+					setPhase({
+						kind: "done",
+						type: waiting.type
+					});
+					signedIn.current();
+				} else if (s.status === "error") {
+					pending.current = void 0;
+					setPhase({
+						kind: "error",
+						type: waiting.type,
+						text: s.error ?? "Sign-in failed."
+					});
+				}
+			} catch {}
+		};
+		const timer = setInterval(tick, POLL_MS);
+		return () => {
+			stopped = true;
+			clearInterval(timer);
+		};
+	}, [waiting, client]);
+	const start = async (type) => {
+		setPhase({
+			kind: "starting",
+			type
+		});
+		setPaste("");
+		try {
+			const login = await client.login(type);
+			pending.current = login.state;
+			setShowPaste(login.manual === true);
+			setNow(Date.now());
+			setPhase({
+				kind: "waiting",
+				type,
+				login
+			});
+		} catch (e) {
+			setPhase({
+				kind: "error",
+				type,
+				text: errorText$1(e)
+			});
+		}
+	};
+	const cancel = () => {
+		pending.current !== void 0 && client.loginCancel(pending.current).catch(() => {});
+		pending.current = void 0;
+		setPhase({ kind: "idle" });
+	};
+	const submitPaste = async () => {
+		if (waiting === void 0) return;
+		try {
+			const s = await client.loginCallback(waiting.login.state, paste);
+			if (s.status === "error") {
+				pending.current = void 0;
+				setPhase({
+					kind: "error",
+					type: waiting.type,
+					text: s.error ?? "Sign-in failed."
+				});
+			}
+		} catch (e) {
+			setPhase({
+				kind: "error",
+				type: waiting.type,
+				text: errorText$1(e),
+				login: waiting.login
+			});
+		}
+	};
+	if (phase.kind === "idle" || phase.kind === "starting" || phase.kind === "done") return /* @__PURE__ */ jsxs("div", {
+		className: "lm-sub-add",
+		children: [phase.kind === "done" ? /* @__PURE__ */ jsxs("span", {
+			className: "local-mode-check",
+			"data-ok": true,
+			children: [/* @__PURE__ */ jsx(Icon, {
+				name: "check",
+				size: 13
+			}), /* @__PURE__ */ jsxs("span", { children: [ACCOUNT_TYPE_LABELS[phase.type], " account signed in."] })]
+		}) : null, /* @__PURE__ */ jsx("div", {
+			className: "lm-sub-add-grid",
+			children: ACCOUNT_TYPES.map((type) => /* @__PURE__ */ jsxs("button", {
+				type: "button",
+				className: "local-mode-preset",
+				disabled: disabled || phase.kind === "starting",
+				onClick: () => void start(type),
+				children: [/* @__PURE__ */ jsx(AccountAvatar, {
+					type,
+					size: "sm"
+				}), /* @__PURE__ */ jsxs("span", { children: [/* @__PURE__ */ jsx("span", {
+					className: "local-mode-preset-name",
+					children: phase.kind === "starting" && phase.type === type ? "Opening sign-in…" : `Sign in to ${ACCOUNT_TYPE_LABELS[type]}`
+				}), /* @__PURE__ */ jsx("span", {
+					className: "local-mode-hint",
+					children: ACCOUNT_TYPE_HINTS[type]
+				})] })]
+			}, type))
+		})]
+	});
+	const label = ACCOUNT_TYPE_LABELS[phase.type];
+	const login = phase.login;
+	const parsed = paste.trim() === "" ? void 0 : parseCallbackInput(paste);
+	return /* @__PURE__ */ jsxs("div", {
+		className: "lm-sub-signin",
+		"data-error": phase.kind === "error" || void 0,
+		children: [
+			/* @__PURE__ */ jsxs("div", {
+				className: "local-mode-block-header",
+				children: [/* @__PURE__ */ jsxs("div", {
+					className: "lm-sub-signin-title",
+					children: [/* @__PURE__ */ jsx(AccountAvatar, {
+						type: phase.type,
+						size: "sm"
+					}), /* @__PURE__ */ jsxs("span", { children: ["Sign in to ", label] })]
+				}), /* @__PURE__ */ jsx("button", {
+					type: "button",
+					className: "local-mode-icon-button",
+					"aria-label": "Cancel sign-in",
+					onClick: cancel,
+					children: /* @__PURE__ */ jsx(Icon, {
+						name: "x",
+						size: 14
+					})
+				})]
+			}),
+			phase.kind === "error" ? /* @__PURE__ */ jsxs("span", {
+				className: "local-mode-check",
+				children: [/* @__PURE__ */ jsx(Icon, {
+					name: "alert",
+					size: 13
+				}), /* @__PURE__ */ jsx("span", { children: phase.text })]
+			}) : null,
+			waiting?.login.flow === "device" ? /* @__PURE__ */ jsxs("div", {
+				className: "lm-sub-device",
+				children: [
+					/* @__PURE__ */ jsx("span", {
+						className: "local-mode-hint",
+						children: "Enter this code on the page that opened in your browser:"
+					}),
+					/* @__PURE__ */ jsx("span", {
+						className: "lm-sub-code",
+						children: waiting.login.userCode ?? "—"
+					}),
+					waiting.login.userCode ? /* @__PURE__ */ jsx(CopyButton, {
+						text: waiting.login.userCode,
+						label: "Copy code"
+					}) : null
+				]
+			}) : waiting !== void 0 ? /* @__PURE__ */ jsx("span", {
+				className: "local-mode-hint",
+				children: waiting.login.manual ? `Approve access in the browser. It then lands on a page that does not load (another app holds the sign-in port): copy that page's address and paste it below.` : `Your browser opened the ${label} sign-in page. Approve access there; this updates on its own.`
+			}) : null,
+			login !== void 0 ? /* @__PURE__ */ jsxs("div", {
+				className: "lm-sub-link",
+				children: [
+					/* @__PURE__ */ jsx("span", {
+						className: "lm-sub-link-url",
+						title: login.url,
+						children: login.url
+					}),
+					/* @__PURE__ */ jsx(CopyButton, {
+						text: login.url,
+						label: "Copy link"
+					}),
+					/* @__PURE__ */ jsxs("a", {
+						className: "local-mode-link-button",
+						href: login.url,
+						target: "_blank",
+						rel: "noreferrer",
+						children: [/* @__PURE__ */ jsx(Icon, {
+							name: "external",
+							size: 12
+						}), "Open again"]
+					})
+				]
+			}) : null,
+			waiting !== void 0 ? /* @__PURE__ */ jsxs("div", {
+				className: "local-mode-check-row",
+				children: [/* @__PURE__ */ jsx("span", {
+					className: "local-mode-spin",
+					"data-active": true,
+					children: /* @__PURE__ */ jsx(Icon, {
+						name: "refresh",
+						size: 13
+					})
+				}), /* @__PURE__ */ jsxs("span", {
+					className: "local-mode-hint",
+					children: ["Waiting for you to finish signing in", waiting.login.expiresAt === void 0 ? "…" : ` · expires in ${formatCountdown(Math.max(0, waiting.login.expiresAt - now))}`]
+				})]
+			}) : null,
+			waiting !== void 0 && waiting.login.flow === "browser" ? showPaste ? /* @__PURE__ */ jsxs("div", {
+				className: "lm-sub-paste",
+				children: [/* @__PURE__ */ jsx("input", {
+					value: paste,
+					placeholder: CALLBACK_EXAMPLES[phase.type] ?? "Address after sign-in",
+					"aria-label": "Address the browser landed on",
+					spellCheck: false,
+					className: "local-mode-input local-mode-mono",
+					onChange: (e) => setPaste(e.target.value),
+					onKeyDown: (e) => e.key === "Enter" && parsed !== void 0 && void submitPaste()
+				}), /* @__PURE__ */ jsx("button", {
+					type: "button",
+					className: "local-mode-button",
+					disabled: parsed === void 0,
+					onClick: () => void submitPaste(),
+					children: "Finish sign-in"
+				})]
+			}) : /* @__PURE__ */ jsxs("button", {
+				type: "button",
+				className: "local-mode-disclosure",
+				onClick: () => setShowPaste(true),
+				children: [/* @__PURE__ */ jsx(Icon, {
+					name: "chevron",
+					size: 12
+				}), "The page after sign-in didn't load?"]
+			}) : null,
+			phase.kind === "error" ? /* @__PURE__ */ jsxs("div", {
+				className: "local-mode-check-row",
+				children: [/* @__PURE__ */ jsx("button", {
+					type: "button",
+					className: "local-mode-button",
+					onClick: () => void start(phase.type),
+					children: "Try again"
+				}), /* @__PURE__ */ jsx("button", {
+					type: "button",
+					className: "local-mode-link-button",
+					onClick: cancel,
+					children: "Close"
+				})]
+			}) : null
+		]
+	});
+}
+//#endregion
+//#region src/vs/workbench/contrib/localMode/browser/components/SubscriptionsCard.tsx
+var STATUS_REFRESH_MS = 6e4;
+/** Usage fetched this recently (by the extension host) is not fetched again when the page opens. */
+var USAGE_FRESH_MS = 6e5;
+var STRATEGY_LABELS = {
+	"round-robin": {
+		label: "Round robin",
+		hint: "Spread requests over the accounts of a type."
+	},
+	"fill-first": {
+		label: "Fill first",
+		hint: "Use one account until it hits a limit, then the next."
+	}
+};
+function errorText(e) {
+	return e instanceof Error ? e.message.replace(/^Error invoking remote method '[^']*': (Error: )?/u, "") : String(e);
+}
+function ago(ms) {
+	return ms < 6e4 ? "just now" : `${formatCountdown(ms)} ago`;
+}
+/** "Claude", "Codex" or "Grok" for a subscriptions model. */
+function modelBadge(model) {
+	if (subscriptionApiType(model) === "anthropic") return "Claude";
+	return /^grok/iu.test(model.id) ? "Grok" : "Codex";
+}
+/** A text field that commits on Enter or blur, and only valid values; Escape reverts. */
+function CommitInput(props) {
+	const [draft, setDraft] = useState(void 0);
+	const error = draft === void 0 ? void 0 : props.validate?.(draft.trim());
+	const commit = () => {
+		if (draft !== void 0 && error === void 0) {
+			draft.trim() !== props.value && props.onCommit(draft.trim());
+			setDraft(void 0);
+		}
+	};
+	return /* @__PURE__ */ jsxs(Fragment, { children: [/* @__PURE__ */ jsx("input", {
+		value: draft ?? props.value,
+		placeholder: props.placeholder,
+		"aria-label": props.label,
+		"aria-invalid": error !== void 0,
+		spellCheck: false,
+		className: "local-mode-input local-mode-mono",
+		onChange: (e) => setDraft(e.target.value),
+		onBlur: commit,
+		onKeyDown: (e) => {
+			if (e.key === "Enter") commit();
+			else if (e.key === "Escape") setDraft(void 0);
+		}
+	}), error === void 0 ? null : /* @__PURE__ */ jsxs("span", {
+		className: "local-mode-check",
+		children: [/* @__PURE__ */ jsx(Icon, {
+			name: "alert",
+			size: 13
+		}), /* @__PURE__ */ jsx("span", { children: error })]
+	})] });
+}
+/** Proxy URL with "Test" (reaches the provider through it) and "Save". */
+function ProxyField(props) {
+	const [draft, setDraft] = useState(props.value);
+	const [check, setCheck] = useState(void 0);
+	const [testing, setTesting] = useState(false);
+	useEffect(() => setDraft(props.value), [props.value]);
+	const value = draft.trim();
+	const error = validateProxyUrl(value);
+	const changed = value !== props.value;
+	const test = async () => {
+		setTesting(true);
+		try {
+			setCheck(await props.onTest(value));
+		} catch (e) {
+			setCheck({
+				ok: false,
+				ms: 0,
+				text: errorText(e)
+			});
+		} finally {
+			setTesting(false);
+		}
+	};
+	return /* @__PURE__ */ jsxs("div", {
+		className: "lm-sub-proxy",
+		children: [/* @__PURE__ */ jsxs("div", {
+			className: "lm-sub-inline",
+			children: [
+				/* @__PURE__ */ jsx("input", {
+					value: draft,
+					placeholder: "socks5://127.0.0.1:1080",
+					"aria-label": "Proxy URL",
+					"aria-invalid": error !== void 0,
+					spellCheck: false,
+					autoComplete: "off",
+					className: "local-mode-input local-mode-mono",
+					onChange: (e) => {
+						setDraft(e.target.value);
+						setCheck(void 0);
+					},
+					onKeyDown: (e) => e.key === "Enter" && changed && error === void 0 && void props.onSave(value)
+				}),
+				/* @__PURE__ */ jsx("button", {
+					type: "button",
+					className: "local-mode-button",
+					disabled: testing || error !== void 0 || value === "" || value === "direct" || value === "none",
+					onClick: () => void test(),
+					children: testing ? "Testing…" : "Test"
+				}),
+				changed ? /* @__PURE__ */ jsx("button", {
+					type: "button",
+					className: "local-mode-button",
+					disabled: error !== void 0,
+					onClick: () => void props.onSave(value),
+					children: props.saveLabel
+				}) : null
+			]
+		}), error !== void 0 ? /* @__PURE__ */ jsxs("span", {
+			className: "local-mode-check",
+			children: [/* @__PURE__ */ jsx(Icon, {
+				name: "alert",
+				size: 13
+			}), /* @__PURE__ */ jsx("span", { children: error })]
+		}) : check !== void 0 ? /* @__PURE__ */ jsxs("span", {
+			className: "local-mode-check",
+			"data-ok": check.ok || void 0,
+			children: [/* @__PURE__ */ jsx(Icon, {
+				name: check.ok ? "check" : "alert",
+				size: 13
+			}), /* @__PURE__ */ jsx("span", { children: check.text })]
+		}) : null]
+	});
+}
+function QuotaView(props) {
+	const { quota, busy, error, now } = props;
+	return /* @__PURE__ */ jsxs("div", {
+		className: "lm-sub-quota",
+		children: [
+			quota?.windows.map((w) => {
+				const left = Math.round(100 - w.usedPercent);
+				return /* @__PURE__ */ jsxs("div", {
+					className: "lm-sub-quota-row",
+					"data-level": left <= 10 ? "low" : left <= 35 ? "mid" : void 0,
+					children: [
+						/* @__PURE__ */ jsx("span", {
+							className: "lm-sub-quota-label",
+							children: w.label
+						}),
+						/* @__PURE__ */ jsx("span", {
+							className: "lm-sub-quota-bar",
+							"aria-hidden": "true",
+							children: /* @__PURE__ */ jsx("span", { style: { width: `${left}%` } })
+						}),
+						/* @__PURE__ */ jsxs("span", {
+							className: "lm-sub-quota-value",
+							children: [left, "% left"]
+						}),
+						/* @__PURE__ */ jsx("span", {
+							className: "lm-sub-quota-reset",
+							title: w.resetsAt === void 0 ? void 0 : new Date(w.resetsAt).toLocaleString(),
+							children: w.resetsAt === void 0 ? "" : w.resetsAt > now ? `resets in ${formatCountdown(w.resetsAt - now)}` : "reset"
+						})
+					]
+				}, w.label);
+			}),
+			/* @__PURE__ */ jsxs("div", {
+				className: "lm-sub-quota-footer",
+				children: [/* @__PURE__ */ jsx("span", {
+					className: "local-mode-hint",
+					children: [...quota?.notes ?? [], quota === void 0 ? "No usage data yet" : quota.windows.length === 0 ? `No limits reported · checked ${ago(now - quota.checkedAt)}` : quota.source === "headers" ? `From the last response, ${ago(now - quota.checkedAt)}` : `Checked ${ago(now - quota.checkedAt)}`].join(" · ")
+				}), /* @__PURE__ */ jsxs("button", {
+					type: "button",
+					className: "local-mode-link-button",
+					disabled: busy,
+					onClick: props.onRefresh,
+					children: [/* @__PURE__ */ jsx("span", {
+						className: "local-mode-spin",
+						"data-active": busy || void 0,
+						children: /* @__PURE__ */ jsx(Icon, {
+							name: "refresh",
+							size: 12
+						})
+					}), busy ? "Checking…" : "Refresh usage"]
+				})]
+			}),
+			error === void 0 ? null : /* @__PURE__ */ jsxs("span", {
+				className: "local-mode-check",
+				children: [/* @__PURE__ */ jsx(Icon, {
+					name: "alert",
+					size: 13
+				}), /* @__PURE__ */ jsx("span", { children: error })]
+			})
+		]
+	});
+}
+function accountState(a, now) {
+	if (a.disabled) return {
+		text: "Off",
+		tone: "off"
+	};
+	if (a.coolingUntil !== void 0 && a.coolingUntil > now) return {
+		text: `Resumes in ${formatCountdown(a.coolingUntil - now)}`,
+		tone: "warn",
+		title: a.statusMessage
+	};
+	if (a.status === "error" || a.status === "unavailable") return {
+		text: "Error",
+		tone: "err",
+		title: a.statusMessage
+	};
+	if (a.quota?.windows.some((w) => w.usedPercent >= 100) || a.quota?.notes.includes("Limit reached")) return {
+		text: "Limit reached",
+		tone: "warn"
+	};
+	return {
+		text: "Active",
+		tone: "ok",
+		title: a.statusMessage
+	};
+}
+function AccountRow(props) {
+	const { Switch } = cursorHost().cursor.ui;
+	const { account: a, now } = props;
+	const [open, setOpen] = useState(false);
+	const [confirm, setConfirm] = useState(false);
+	const type = isAccountType(a.type) ? a.type : void 0;
+	const state = accountState(a, now);
+	const details = [
+		type === void 0 ? a.type : ACCOUNT_TYPE_LABELS[type],
+		a.plan,
+		a.proxyUrl ? `via ${maskProxyUrl(a.proxyUrl)}` : void 0
+	].filter(Boolean);
+	return /* @__PURE__ */ jsxs("li", {
+		className: "lm-sub-account",
+		"data-off": a.disabled || void 0,
+		children: [
+			/* @__PURE__ */ jsxs("div", {
+				className: "lm-sub-account-head",
+				children: [
+					/* @__PURE__ */ jsx(AccountAvatar, { type: a.type }),
+					/* @__PURE__ */ jsxs("div", {
+						className: "local-mode-card-title",
+						children: [/* @__PURE__ */ jsx("span", {
+							className: "lm-sub-account-name",
+							title: a.name,
+							children: a.email ?? a.name
+						}), /* @__PURE__ */ jsx("span", {
+							className: "local-mode-hint",
+							children: details.join(" · ")
+						})]
+					}),
+					/* @__PURE__ */ jsx("span", {
+						className: "lm-sub-pill",
+						"data-tone": state.tone,
+						title: state.title,
+						children: state.text
+					}),
+					/* @__PURE__ */ jsx(Switch, {
+						checked: !a.disabled,
+						onCheckedChange: (on) => void props.onUpdate({ disabled: !on })
+					}),
+					/* @__PURE__ */ jsx("button", {
+						type: "button",
+						className: "local-mode-icon-button lm-sub-expand",
+						"aria-expanded": open,
+						"aria-label": "Account settings",
+						title: "Account settings",
+						onClick: () => {
+							setOpen(!open);
+							setConfirm(false);
+						},
+						children: /* @__PURE__ */ jsx(Icon, {
+							name: "chevron",
+							size: 13
+						})
+					})
+				]
+			}),
+			a.disabled ? null : /* @__PURE__ */ jsx(QuotaView, {
+				quota: a.quota,
+				busy: props.quotaBusy,
+				error: props.quotaError,
+				now,
+				onRefresh: props.onQuota
+			}),
+			open ? /* @__PURE__ */ jsxs("div", {
+				className: "lm-sub-account-settings",
+				children: [/* @__PURE__ */ jsx(Field, {
+					label: "Proxy",
+					hint: "This account's requests, token refresh and usage checks go through it. Empty: the default proxy under Advanced, if any.",
+					children: /* @__PURE__ */ jsx(ProxyField, {
+						value: a.proxyUrl ?? "",
+						saveLabel: "Save proxy",
+						onSave: (proxyUrl) => props.onUpdate({ proxyUrl }),
+						onTest: (proxyUrl) => props.onCheckProxy(proxyUrl, type ?? "claude")
+					})
+				}), /* @__PURE__ */ jsxs("div", {
+					className: "local-mode-check-row lm-sub-account-footer",
+					children: [/* @__PURE__ */ jsxs("span", {
+						className: "local-mode-hint",
+						children: [
+							a.success.toLocaleString(),
+							" requests served",
+							a.failed > 0 ? `, ${a.failed.toLocaleString()} failed` : "",
+							a.statusMessage ? ` · ${a.statusMessage}` : ""
+						]
+					}), /* @__PURE__ */ jsxs("button", {
+						type: "button",
+						className: "local-mode-link-button",
+						"data-danger": true,
+						onClick: () => confirm ? void props.onRemove() : setConfirm(true),
+						children: [/* @__PURE__ */ jsx(Icon, {
+							name: "trash",
+							size: 12
+						}), confirm ? "Click again to sign out" : "Sign out"]
+					})]
+				})]
+			}) : null
+		]
+	});
+}
+/**
+* Settings > Models > Custom Providers, built-in "Subscriptions" provider: the
+* user's Claude Code, Codex and Grok accounts, served by the CLIProxyAPI
+* sidecar. Account changes apply right away (they live in the sidecar); the
+* provider's own fields go through the page's Save bar like any provider.
+*/
+function SubscriptionsCard(props) {
+	const { useService, services, ui } = cursorHost().cursor;
+	const { Switch } = ui;
+	const inference = useService(services.localInference);
+	const { provider: p, busy, check, onChange, onRemove, onFetch } = props;
+	const { port, apiKey, strategy, proxyUrl } = p;
+	const client = useMemo(() => subscriptionsClient(inference, {
+		port,
+		apiKey,
+		strategy,
+		proxyUrl
+	}), [
+		inference,
+		port,
+		apiKey,
+		strategy,
+		proxyUrl
+	]);
+	const [status, setStatus] = useState(void 0);
+	const [loading, setLoading] = useState(false);
+	const [actionError, setActionError] = useState(void 0);
+	const [quotaBusy, setQuotaBusy] = useState(/* @__PURE__ */ new Set());
+	const [quotaErrors, setQuotaErrors] = useState(/* @__PURE__ */ new Map());
+	const [now, setNow] = useState(Date.now());
+	const [advanced, setAdvanced] = useState(false);
+	const [showKey, setShowKey] = useState(false);
+	const refresh = useCallback(async () => {
+		setLoading(true);
+		try {
+			setStatus(await client.status());
+		} catch (e) {
+			setStatus({
+				running: false,
+				error: errorText(e),
+				accounts: []
+			});
+		} finally {
+			setLoading(false);
+			setNow(Date.now());
+		}
+	}, [client]);
+	useEffect(() => {
+		const t = setTimeout(() => void refresh(), 250);
+		return () => clearTimeout(t);
+	}, [refresh]);
+	useEffect(() => {
+		const timer = setInterval(() => void refresh(), STATUS_REFRESH_MS);
+		const onFocus = () => void refresh();
+		window.addEventListener("focus", onFocus);
+		return () => {
+			clearInterval(timer);
+			window.removeEventListener("focus", onFocus);
+		};
+	}, [refresh]);
+	const loadQuota = useCallback(async (name) => {
+		setQuotaBusy((s) => new Set(s).add(name));
+		setQuotaErrors((m) => {
+			const next = new Map(m);
+			next.delete(name);
+			return next;
+		});
+		try {
+			const quota = await client.quota(name);
+			setStatus((s) => s && {
+				...s,
+				accounts: s.accounts.map((a) => a.name === name ? {
+					...a,
+					quota,
+					plan: quota.plan ?? a.plan
+				} : a)
+			});
+		} catch (e) {
+			setQuotaErrors((m) => new Map(m).set(name, errorText(e)));
+		} finally {
+			setQuotaBusy((s) => {
+				const next = new Set(s);
+				next.delete(name);
+				return next;
+			});
+			setNow(Date.now());
+		}
+	}, [client]);
+	const checked = useRef(/* @__PURE__ */ new Set());
+	useEffect(() => {
+		for (const a of status?.accounts ?? []) {
+			const fresh = a.quota?.source === "usage" && Date.now() - a.quota.checkedAt < USAGE_FRESH_MS;
+			if (!a.disabled && !fresh && !checked.current.has(a.name)) {
+				checked.current.add(a.name);
+				loadQuota(a.name);
+			}
+		}
+	}, [status, loadQuota]);
+	const act = async (fn) => {
+		setActionError(void 0);
+		try {
+			setStatus(await fn());
+		} catch (e) {
+			setActionError(errorText(e));
+		}
+	};
+	const onSignedIn = useCallback(() => {
+		refresh();
+		onFetch();
+	}, [refresh, onFetch]);
+	const accounts = status?.accounts ?? [];
+	const models = p.models ?? [];
+	const on = p.enabled !== false;
+	const running = status?.running === true;
+	let dataDir = "";
+	try {
+		dataDir = sidecarDataDir(userDataDir());
+	} catch {}
+	return /* @__PURE__ */ jsxs("div", {
+		className: "local-mode-card",
+		"data-off": !on || void 0,
+		children: [
+			/* @__PURE__ */ jsxs("div", {
+				className: "local-mode-card-header",
+				children: [
+					/* @__PURE__ */ jsx(ProviderAvatar, { name: p.name }),
+					/* @__PURE__ */ jsxs("div", {
+						className: "local-mode-card-title",
+						children: [/* @__PURE__ */ jsx("input", {
+							value: p.name,
+							placeholder: "Provider name",
+							"aria-label": "Provider name",
+							spellCheck: false,
+							className: "local-mode-title-input",
+							onChange: (e) => onChange({ name: e.target.value })
+						}), /* @__PURE__ */ jsx("span", {
+							className: "local-mode-hint",
+							children: on ? `Claude Code, Codex and Grok · ${accounts.length} account(s) · ${models.filter((m) => m.enabled !== false).length} model(s) in the picker` : "Off: hidden from the model picker"
+						})]
+					}),
+					/* @__PURE__ */ jsx(Switch, {
+						checked: on,
+						onCheckedChange: (enabled) => onChange({ enabled })
+					}),
+					/* @__PURE__ */ jsx("button", {
+						type: "button",
+						className: "local-mode-icon-button",
+						"aria-label": "Remove provider",
+						title: "Remove provider (accounts stay signed in)",
+						onClick: onRemove,
+						children: /* @__PURE__ */ jsx(Icon, {
+							name: "trash",
+							size: 14
+						})
+					})
+				]
+			}),
+			/* @__PURE__ */ jsxs("div", {
+				className: "local-mode-block",
+				children: [
+					/* @__PURE__ */ jsxs("div", {
+						className: "local-mode-block-header",
+						children: [/* @__PURE__ */ jsxs("div", { children: [/* @__PURE__ */ jsx("div", {
+							className: "local-mode-block-title",
+							children: "Accounts"
+						}), /* @__PURE__ */ jsx("div", {
+							className: "local-mode-hint",
+							children: status === void 0 ? "Starting CLIProxyAPI…" : running ? `Served by CLIProxyAPI${status.version ? ` ${status.version}` : ""} on 127.0.0.1:${port}. Requests count against each account's own plan.` : "CLIProxyAPI is not running."
+						})] }), /* @__PURE__ */ jsxs("button", {
+							type: "button",
+							className: "local-mode-link-button",
+							disabled: loading,
+							onClick: () => void refresh(),
+							children: [/* @__PURE__ */ jsx("span", {
+								className: "local-mode-spin",
+								"data-active": loading || void 0,
+								children: /* @__PURE__ */ jsx(Icon, {
+									name: "refresh",
+									size: 13
+								})
+							}), "Refresh"]
+						})]
+					}),
+					status !== void 0 && !running ? /* @__PURE__ */ jsxs("div", {
+						className: "lm-sub-error",
+						children: [/* @__PURE__ */ jsxs("span", {
+							className: "local-mode-check",
+							children: [/* @__PURE__ */ jsx(Icon, {
+								name: "alert",
+								size: 13
+							}), /* @__PURE__ */ jsx("span", { children: status.error ?? "CLIProxyAPI is not running." })]
+						}), /* @__PURE__ */ jsx("button", {
+							type: "button",
+							className: "local-mode-button",
+							onClick: () => void refresh(),
+							children: "Retry"
+						})]
+					}) : null,
+					actionError === void 0 ? null : /* @__PURE__ */ jsxs("span", {
+						className: "local-mode-check",
+						children: [/* @__PURE__ */ jsx(Icon, {
+							name: "alert",
+							size: 13
+						}), /* @__PURE__ */ jsx("span", { children: actionError })]
+					}),
+					accounts.length > 0 ? /* @__PURE__ */ jsx("ul", {
+						className: "lm-sub-accounts",
+						children: accounts.map((a) => /* @__PURE__ */ jsx(AccountRow, {
+							account: a,
+							now,
+							quotaBusy: quotaBusy.has(a.name),
+							quotaError: quotaErrors.get(a.name),
+							onQuota: () => void loadQuota(a.name),
+							onUpdate: (patch) => act(() => client.update(a.name, patch)),
+							onRemove: () => act(() => client.remove(a.name)),
+							onCheckProxy: (url, type) => client.checkProxy(url, type)
+						}, a.name))
+					}) : running ? /* @__PURE__ */ jsx("span", {
+						className: "local-mode-hint",
+						children: "No accounts yet. Sign in to use your subscription's models here; tokens stay on this machine."
+					}) : null,
+					/* @__PURE__ */ jsx(SubscriptionSignIn, {
+						client,
+						disabled: !running,
+						onSignedIn
+					}),
+					/* @__PURE__ */ jsxs("button", {
+						type: "button",
+						className: "local-mode-disclosure",
+						"aria-expanded": advanced,
+						onClick: () => setAdvanced(!advanced),
+						children: [
+							/* @__PURE__ */ jsx(Icon, {
+								name: "chevron",
+								size: 12
+							}),
+							"Advanced",
+							advanced ? null : /* @__PURE__ */ jsxs("span", {
+								className: "local-mode-hint",
+								children: [
+									"prefix ",
+									p.prefix || "?",
+									", port ",
+									port,
+									", ",
+									STRATEGY_LABELS[strategy ?? "round-robin"].label.toLowerCase(),
+									proxyUrl ? ", default proxy" : ""
+								]
+							})
+						]
+					}),
+					advanced ? /* @__PURE__ */ jsxs("div", {
+						className: "local-mode-advanced",
+						children: [
+							/* @__PURE__ */ jsx(Field, {
+								label: "Model prefix",
+								hint: /* @__PURE__ */ jsxs(Fragment, { children: [
+									"Picker IDs become ",
+									/* @__PURE__ */ jsx("code", { children: `${p.prefix || "?"}/${models[0]?.id ?? "claude-opus-4-7"}` }),
+									". Stripped before the request is sent."
+								] }),
+								children: /* @__PURE__ */ jsx("input", {
+									value: p.prefix,
+									spellCheck: false,
+									className: "local-mode-input local-mode-mono",
+									onChange: (e) => onChange({ prefix: e.target.value.trim() })
+								})
+							}),
+							/* @__PURE__ */ jsx(Field, {
+								label: "Account selection",
+								hint: STRATEGY_LABELS[strategy ?? "round-robin"].hint,
+								children: /* @__PURE__ */ jsx("div", {
+									className: "local-mode-segmented local-mode-segmented-fill",
+									children: Object.keys(STRATEGY_LABELS).map((s) => /* @__PURE__ */ jsx("button", {
+										type: "button",
+										"aria-pressed": (strategy ?? "round-robin") === s,
+										"data-active": (strategy ?? "round-robin") === s || void 0,
+										onClick: () => onChange({ strategy: s }),
+										children: STRATEGY_LABELS[s].label
+									}, s))
+								})
+							}),
+							/* @__PURE__ */ jsx(Field, {
+								label: "Default proxy",
+								hint: "Sign-in, token refresh and every account without its own proxy. Empty: direct.",
+								children: /* @__PURE__ */ jsx(ProxyField, {
+									value: proxyUrl ?? "",
+									saveLabel: "Use proxy",
+									onSave: (url) => onChange({ proxyUrl: url }),
+									onTest: (url) => client.checkProxy(url, "claude")
+								})
+							}),
+							/* @__PURE__ */ jsx(Field, {
+								label: "Local port",
+								hint: "CLIProxyAPI listens on 127.0.0.1 only.",
+								children: /* @__PURE__ */ jsx(CommitInput, {
+									value: String(port ?? ""),
+									label: "Local port",
+									validate: (v) => /^\d+$/u.test(v) && Number(v) >= 1024 && Number(v) <= 65535 ? void 0 : "Use a port from 1024 to 65535.",
+									onCommit: (v) => onChange({ port: Number(v) })
+								})
+							}),
+							/* @__PURE__ */ jsx(Field, {
+								label: "Local API key",
+								hint: /* @__PURE__ */ jsxs(Fragment, { children: [
+									"Other apps on this machine can use the same endpoint with this key:",
+									" ",
+									/* @__PURE__ */ jsx("code", { children: `http://127.0.0.1:${port}/v1` }),
+									". Data: ",
+									/* @__PURE__ */ jsx("code", { children: dataDir || "?" })
+								] }),
+								children: /* @__PURE__ */ jsxs("span", {
+									className: "local-mode-input-group",
+									children: [/* @__PURE__ */ jsx("input", {
+										readOnly: true,
+										type: showKey ? "text" : "password",
+										value: apiKey,
+										"aria-label": "Local API key",
+										className: "local-mode-input local-mode-mono"
+									}), /* @__PURE__ */ jsx("button", {
+										type: "button",
+										className: "local-mode-icon-button",
+										"aria-label": showKey ? "Hide key" : "Show key",
+										onClick: (e) => {
+											e.preventDefault();
+											setShowKey(!showKey);
+										},
+										children: /* @__PURE__ */ jsx(Icon, {
+											name: showKey ? "eyeOff" : "eye",
+											size: 14
+										})
+									})]
+								})
+							})
+						]
+					}) : null
+				]
+			}),
+			/* @__PURE__ */ jsx(ModelList, {
+				prefix: p.prefix,
+				models,
+				busy,
+				badge: modelBadge,
+				emptyHint: "Sign in to an account, then fetch the models it can use.",
+				note: check === void 0 ? null : /* @__PURE__ */ jsxs("span", {
+					className: "local-mode-check",
+					"data-ok": check.ok || void 0,
+					children: [/* @__PURE__ */ jsx(Icon, {
+						name: check.ok ? "check" : "alert",
+						size: 13
+					}), /* @__PURE__ */ jsx("span", { children: check.text })]
+				}),
+				onChange: (next) => onChange({ models: next }),
+				onFetch
+			})
+		]
+	});
+}
+//#endregion
 //#region src/vs/workbench/contrib/localMode/browser/components/CustomProvidersSettings.tsx
 function errorMessage(e) {
 	return e instanceof Error ? e.message.replace(/^Error invoking remote method '[^']*': (Error: )?/u, "") : String(e);
@@ -1040,6 +2293,12 @@ function CustomProvidersSettings() {
 		...patch
 	} : p));
 	const add = (preset) => {
+		const existing = preset.kind === void 0 ? -1 : providers.findIndex((x) => x.kind === preset.kind);
+		if (existing >= 0) {
+			setSelected(existing);
+			setAdding(false);
+			return;
+		}
 		edit((ps) => [...ps, newProvider(ps, preset)]);
 		setSelected(providers.length);
 		setAdding(false);
@@ -1087,7 +2346,9 @@ function CustomProvidersSettings() {
 		const started = performance.now();
 		setBusy(i);
 		try {
-			const listed = (await inference.fetchLocalProviderModels({
+			let listed;
+			if (p.kind === "subscriptions") listed = await subscriptionsClient(inference, p).models();
+			else listed = (await inference.fetchLocalProviderModels({
 				baseUrl: target.baseUrl,
 				apiKey: target.apiKey,
 				customHeaders: target.headers,
@@ -1105,9 +2366,16 @@ function CustomProvidersSettings() {
 				models: mergeListedModels(x.models ?? [], listed)
 			} : x));
 			const ms = Math.round(performance.now() - started);
-			setChecks((c) => new Map(c).set(i, {
+			const counts = `${listed.length} models${fresh > 0 && known.size > 0 ? `, ${fresh} new` : ""}`;
+			setChecks((c) => new Map(c).set(i, p.kind === "subscriptions" ? listed.length === 0 ? {
+				ok: false,
+				text: "No models yet: sign in to an account first."
+			} : {
 				ok: true,
-				text: `Connected · ${listed.length} models${fresh > 0 && known.size > 0 ? `, ${fresh} new` : ""} · ${ms} ms`
+				text: `${counts} from your accounts${fresh > 0 ? ". Turn on the ones you want." : ""}`
+			} : {
+				ok: true,
+				text: `Connected · ${counts} · ${ms} ms`
 			}));
 		} catch (e) {
 			setChecks((c) => new Map(c).set(i, {
@@ -1185,7 +2453,14 @@ function CustomProvidersSettings() {
 					onPick: add,
 					onCancel: () => setAdding(false)
 				})
-			}) : p !== void 0 ? /* @__PURE__ */ jsx(ProviderCard, {
+			}) : p?.kind === "subscriptions" ? /* @__PURE__ */ jsx(SubscriptionsCard, {
+				provider: p,
+				busy: busy === current,
+				check: checks.get(current),
+				onChange: (patch) => update(current, patch),
+				onRemove: () => remove(current),
+				onFetch: () => fetchModels(current)
+			}, current) : p !== void 0 ? /* @__PURE__ */ jsx(ProviderCard, {
 				provider: p,
 				busy: busy === current,
 				check: checks.get(current),
@@ -2871,7 +4146,7 @@ function UsagePage() {
 }
 //#endregion
 //#region src/vs/workbench/contrib/localMode/browser/localMode.css?inline
-var localMode_default = "/* --- Transcript ------------------------------------------------------------ */\n\n/* Models often open a reply with a newline, which renders as an empty line\n   under the work-group header. */\n.ui-markdown > * > br:first-child {\n	display: none;\n}\n\n/* Keep the live turn stats right after the tail status text instead of\n   pushed to the far end of the row. */\n.agent-transcript-tail-status:has(> [data-slot=\"local-turn-stats\"]) > :first-child {\n	flex: 0 1 auto;\n	width: auto;\n}\n\n.local-mode-turn-stats {\n	flex-shrink: 0;\n	margin-right: auto;\n	color: var(--cursor-text-quaternary);\n	font-variant-numeric: tabular-nums;\n	white-space: nowrap;\n}\n\n.local-mode-tabular {\n	font-variant-numeric: tabular-nums;\n}\n\n/* --- Settings > Models > Custom Providers ---------------------------------- */\n\n.local-mode-settings {\n	--lm-radius: 12px;\n	--lm-fg: var(--cursor-text-primary, var(--vscode-foreground));\n	--lm-fg-2: var(--cursor-text-secondary, var(--vscode-descriptionForeground));\n	--lm-fg-3: var(--cursor-text-tertiary, var(--vscode-descriptionForeground));\n	--lm-bg: var(--cursor-bg-quinary, var(--vscode-editorWidget-background));\n	--lm-bg-hover: var(--cursor-bg-quaternary, var(--vscode-list-hoverBackground));\n	--lm-bg-track: var(--cursor-bg-tertiary, var(--vscode-list-hoverBackground));\n	--lm-bg-raised: var(--cursor-bg-elevated, var(--vscode-input-background));\n	--lm-line: var(--cursor-stroke-secondary, var(--vscode-widget-border, rgba(128, 128, 128, 0.2)));\n	--lm-line-2: var(--cursor-stroke-tertiary, rgba(128, 128, 128, 0.12));\n	--lm-focus: var(--cursor-stroke-focused, var(--vscode-focusBorder));\n	--lm-ok: var(--cursor-text-green-primary, var(--vscode-testing-iconPassed));\n	--lm-err: var(--cursor-text-red-primary, var(--vscode-errorForeground));\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	color: var(--lm-fg);\n	font-size: 13px;\n}\n\n.local-mode-settings :where(button) {\n	font: inherit;\n	color: inherit;\n	cursor: pointer;\n}\n\n.local-mode-settings :where(button:disabled) {\n	cursor: default;\n	opacity: 0.5;\n}\n\n.local-mode-icon {\n	flex-shrink: 0;\n	display: block;\n}\n\n.local-mode-hint {\n	display: block;\n	font-size: 12px;\n	line-height: 1.45;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-hint code {\n	padding: 0 4px;\n	border-radius: 4px;\n	background: var(--lm-bg-hover);\n	font-family: var(--monaco-monospace-font);\n	font-size: 11.5px;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-count {\n	margin-left: 6px;\n	font-size: 11px;\n	font-variant-numeric: tabular-nums;\n	color: var(--lm-fg-3);\n}\n\n/* Provider tabs */\n\n.local-mode-tabs {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 6px;\n}\n\n.local-mode-tab {\n	display: inline-flex;\n	align-items: center;\n	gap: 7px;\n	height: 30px;\n	max-width: 220px;\n	padding: 0 10px 0 5px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 8px;\n	background: transparent;\n	transition:\n		background-color 0.12s,\n		border-color 0.12s;\n}\n\n.local-mode-tab:hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-tab[data-active] {\n	background: var(--lm-bg-raised);\n	border-color: var(--lm-line);\n	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);\n}\n\n.local-mode-tab[data-off] .local-mode-tab-name {\n	color: var(--lm-fg-3);\n	text-decoration: line-through;\n	text-decoration-color: var(--lm-line);\n}\n\n.local-mode-tab-name {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-weight: 500;\n}\n\n.local-mode-tab .local-mode-count {\n	margin-left: 0;\n}\n\n.local-mode-tab-add {\n	padding-left: 9px;\n	border-style: dashed;\n	color: var(--lm-fg-2);\n}\n\n/* Avatar */\n\n.local-mode-avatar {\n	--hue: var(--cursor-blue, #3b82f6);\n	flex-shrink: 0;\n	display: inline-grid;\n	place-items: center;\n	width: 32px;\n	height: 32px;\n	border-radius: 8px;\n	font-weight: 600;\n	font-size: 14px;\n	color: var(--hue);\n	background: color-mix(in srgb, var(--hue) 16%, transparent);\n}\n\n.local-mode-avatar[data-size=\"sm\"] {\n	width: 20px;\n	height: 20px;\n	border-radius: 5px;\n	font-size: 11px;\n}\n\n.local-mode-avatar[data-hue=\"purple\"] {\n	--hue: var(--cursor-purple, #8b5cf6);\n}\n.local-mode-avatar[data-hue=\"orange\"] {\n	--hue: var(--cursor-orange, #f97316);\n}\n.local-mode-avatar[data-hue=\"green\"] {\n	--hue: var(--cursor-green, #22c55e);\n}\n.local-mode-avatar[data-hue=\"cyan\"] {\n	--hue: var(--cursor-cyan, #06b6d4);\n}\n.local-mode-avatar[data-hue=\"magenta\"] {\n	--hue: var(--cursor-magenta, #d946ef);\n}\n\n/* Card */\n\n.local-mode-card {\n	display: flex;\n	flex-direction: column;\n	border-radius: var(--lm-radius);\n	background: var(--lm-bg);\n}\n\n.local-mode-card > * + * {\n	border-top: 1px solid var(--lm-line-2);\n}\n\n.local-mode-card-header {\n	display: flex;\n	align-items: center;\n	gap: 12px;\n	padding: 14px 16px;\n}\n\n.local-mode-card[data-off] .local-mode-block {\n	opacity: 0.55;\n}\n\n.local-mode-card-title {\n	flex: 1 1 auto;\n	min-width: 0;\n	display: flex;\n	flex-direction: column;\n	gap: 1px;\n}\n\n.local-mode-title-input {\n	width: 100%;\n	margin-left: -4px;\n	padding: 1px 4px;\n	border: 1px solid transparent;\n	border-radius: 5px;\n	background: transparent;\n	color: var(--lm-fg);\n	font: inherit;\n	font-size: 14px;\n	font-weight: 600;\n	outline: none;\n}\n\n.local-mode-title-input:hover {\n	border-color: var(--lm-line-2);\n}\n\n.local-mode-title-input:focus {\n	border-color: var(--lm-focus);\n	background: var(--lm-bg-raised);\n}\n\n.local-mode-block {\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	padding: 14px 16px 16px;\n}\n\n.local-mode-block-header {\n	display: flex;\n	align-items: flex-start;\n	justify-content: space-between;\n	gap: 12px;\n}\n\n.local-mode-block-title {\n	font-size: 11px;\n	font-weight: 600;\n	letter-spacing: 0.04em;\n	text-transform: uppercase;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-block-header .local-mode-hint {\n	margin-top: 3px;\n}\n\n/* Fields */\n\n.local-mode-field {\n	display: flex;\n	flex-direction: column;\n	gap: 5px;\n}\n\n.local-mode-field-label {\n	font-size: 12px;\n	font-weight: 500;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-input {\n	width: 100%;\n	box-sizing: border-box;\n	height: 30px;\n	padding: 0 10px;\n	font: inherit;\n	font-size: 13px;\n	color: var(--vscode-input-foreground, var(--lm-fg));\n	background: var(--lm-bg-raised);\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	outline: none;\n	transition:\n		border-color 0.12s,\n		box-shadow 0.12s;\n}\n\n.local-mode-input:focus {\n	border-color: var(--lm-focus);\n	box-shadow: 0 0 0 3px color-mix(in srgb, var(--lm-focus) 18%, transparent);\n}\n\n.local-mode-input::placeholder,\n.local-mode-settings input::placeholder,\n.local-mode-settings textarea::placeholder {\n	color: var(--lm-fg-3);\n	opacity: 0.8;\n}\n\n.local-mode-mono {\n	font-family: var(--monaco-monospace-font);\n	font-size: 12px;\n}\n\n.local-mode-textarea {\n	height: auto;\n	padding: 6px 10px;\n	resize: vertical;\n}\n\n.local-mode-input-group {\n	position: relative;\n	display: block;\n}\n\n.local-mode-input-group .local-mode-input {\n	padding-right: 36px;\n}\n\n.local-mode-input-group .local-mode-icon-button {\n	position: absolute;\n	top: 3px;\n	right: 3px;\n}\n\n/* Buttons */\n\n.local-mode-icon-button {\n	display: inline-grid;\n	place-items: center;\n	width: 24px;\n	height: 24px;\n	padding: 0;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-icon-button:hover {\n	background: var(--lm-bg-hover);\n	color: var(--lm-fg);\n}\n\n.local-mode-button {\n	flex-shrink: 0;\n	height: 28px;\n	padding: 0 12px;\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	background: var(--lm-bg-raised);\n	font-weight: 500;\n}\n\n.local-mode-button:not(:disabled):hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-link-button {\n	display: inline-flex;\n	align-items: center;\n	gap: 5px;\n	height: 24px;\n	padding: 0 6px;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	font-size: 12px;\n	color: var(--lm-fg-2);\n	white-space: nowrap;\n}\n\n.local-mode-link-button:not(:disabled):hover {\n	background: var(--lm-bg-hover);\n	color: var(--lm-fg);\n}\n\n.local-mode-spin[data-active] .local-mode-icon {\n	animation: local-mode-spin 0.9s linear infinite;\n}\n\n@keyframes local-mode-spin {\n	to {\n		transform: rotate(360deg);\n	}\n}\n\n/* Segmented control */\n\n.local-mode-segmented {\n	display: inline-flex;\n	padding: 2px;\n	gap: 2px;\n	border-radius: 8px;\n	background: var(--lm-bg-track);\n}\n\n.local-mode-segmented button {\n	height: 24px;\n	padding: 0 10px;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	font-size: 12px;\n	color: var(--lm-fg-2);\n	white-space: nowrap;\n}\n\n.local-mode-segmented button[data-active] {\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg);\n	font-weight: 500;\n	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n\n.local-mode-segmented-fill {\n	display: flex;\n}\n\n.local-mode-segmented-fill button {\n	flex: 1 1 0;\n	height: 26px;\n}\n\n/* Connection check */\n\n.local-mode-check-row {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n	min-height: 28px;\n}\n\n.local-mode-check {\n	display: inline-flex;\n	align-items: flex-start;\n	gap: 6px;\n	min-width: 0;\n	font-size: 12px;\n	line-height: 1.45;\n	color: var(--lm-err);\n	overflow-wrap: anywhere;\n}\n\n.local-mode-check .local-mode-icon {\n	margin-top: 2px;\n}\n\n.local-mode-check[data-ok] {\n	color: var(--lm-ok);\n}\n\n.local-mode-disclosure {\n	display: inline-flex;\n	align-items: center;\n	align-self: flex-start;\n	gap: 6px;\n	margin-left: -6px;\n	padding: 3px 6px;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	font-size: 12px;\n	font-weight: 500;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-disclosure:hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-disclosure .local-mode-icon {\n	transition: transform 0.15s;\n}\n\n.local-mode-disclosure[aria-expanded=\"true\"] .local-mode-icon {\n	transform: rotate(90deg);\n}\n\n.local-mode-disclosure .local-mode-hint {\n	font-weight: 400;\n}\n\n.local-mode-advanced {\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	padding-left: 12px;\n	border-left: 2px solid var(--lm-line-2);\n}\n\n/* Models */\n\n.local-mode-model-toolbar {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n}\n\n.local-mode-search {\n	flex: 1 1 auto;\n	display: flex;\n	align-items: center;\n	gap: 6px;\n	height: 28px;\n	padding: 0 8px;\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg-3);\n}\n\n.local-mode-search:focus-within {\n	border-color: var(--lm-focus);\n}\n\n.local-mode-search input,\n.local-mode-add-model input {\n	flex: 1 1 auto;\n	min-width: 0;\n	padding: 0;\n	border: none;\n	outline: none;\n	background: transparent;\n	font: inherit;\n	font-size: 12.5px;\n	color: var(--lm-fg);\n}\n\n.local-mode-search button {\n	display: grid;\n	place-items: center;\n	padding: 2px;\n	border: none;\n	border-radius: 4px;\n	background: transparent;\n}\n\n.local-mode-model-list {\n	list-style: none;\n	max-height: 360px;\n	overflow-y: auto;\n	margin: 0 -6px;\n	padding: 0 6px;\n}\n\n.local-mode-model-row {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n	height: 34px;\n	margin: 0 -6px;\n	padding: 0 6px;\n	border-radius: 7px;\n}\n\n.local-mode-model-row:hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-model-name {\n	flex: 1 1 auto;\n	min-width: 0;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-family: var(--monaco-monospace-font);\n	font-size: 12.5px;\n}\n\n.local-mode-model-row[data-off] .local-mode-model-name {\n	color: var(--lm-fg-3);\n}\n\n.local-mode-row-action {\n	opacity: 0;\n}\n\n.local-mode-model-row:hover .local-mode-row-action,\n.local-mode-row-action:focus-visible {\n	opacity: 1;\n}\n\n.local-mode-context-chip,\n.local-mode-context-input {\n	box-sizing: border-box;\n	width: 64px;\n	height: 22px;\n	padding: 0 8px;\n	border-radius: 11px;\n	font-size: 11.5px;\n	font-variant-numeric: tabular-nums;\n	text-align: center;\n}\n\n.local-mode-context-chip {\n	border: 1px solid var(--lm-line);\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg-2);\n}\n\n.local-mode-context-chip[data-auto] {\n	border-color: transparent;\n	background: transparent;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-context-chip:hover {\n	border-color: var(--lm-line);\n	color: var(--lm-fg);\n}\n\n.local-mode-context-input {\n	border: 1px solid var(--lm-focus);\n	outline: none;\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg);\n	font-family: inherit;\n}\n\n.local-mode-context-input[aria-invalid=\"true\"] {\n	border-color: var(--lm-err);\n	color: var(--lm-err);\n}\n\n.local-mode-empty-row {\n	padding: 14px 0;\n	text-align: center;\n	font-size: 12px;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-model-footer {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n}\n\n.local-mode-add-model {\n	flex: 1 1 auto;\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	height: 28px;\n	padding: 0 8px;\n	border: 1px dashed var(--lm-line);\n	border-radius: 7px;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-add-model:focus-within {\n	border-style: solid;\n	border-color: var(--lm-focus);\n}\n\n.local-mode-bulk {\n	display: flex;\n	gap: 2px;\n}\n\n/* Presets and empty state */\n\n.local-mode-presets {\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	padding: 14px 16px 16px;\n}\n\n.local-mode-empty {\n	gap: 4px;\n	padding: 28px 24px;\n	align-items: stretch;\n	text-align: center;\n}\n\n.local-mode-empty > * + * {\n	border-top: none;\n}\n\n.local-mode-empty-title {\n	font-size: 15px;\n	font-weight: 600;\n}\n\n.local-mode-empty .local-mode-presets .local-mode-block-header {\n	display: none;\n}\n\n.local-mode-preset-grid {\n	display: grid;\n	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));\n	gap: 8px;\n}\n\n.local-mode-preset {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n	padding: 10px 12px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 8px;\n	background: var(--lm-bg-raised);\n	text-align: left;\n	transition:\n		border-color 0.12s,\n		transform 0.12s;\n}\n\n.local-mode-preset:hover {\n	border-color: var(--lm-focus);\n}\n\n.local-mode-preset .local-mode-avatar {\n	width: 28px;\n	height: 28px;\n	border-radius: 7px;\n	font-size: 13px;\n}\n\n.local-mode-preset-name {\n	display: block;\n	font-weight: 500;\n}\n\n/* Save bar */\n\n.local-mode-savebar {\n	position: sticky;\n	bottom: 12px;\n	z-index: 2;\n	display: flex;\n	align-items: center;\n	gap: 12px;\n	min-height: 40px;\n	padding: 6px 6px 6px 14px;\n	border: 1px solid var(--lm-line);\n	border-radius: var(--lm-radius);\n	background: var(--lm-bg-raised);\n	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);\n	animation: local-mode-rise 0.16s ease-out;\n}\n\n.local-mode-savebar-text {\n	flex: 1 1 auto;\n	display: flex;\n	align-items: center;\n	gap: 7px;\n	font-size: 12.5px;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-savebar[data-error] .local-mode-savebar-text {\n	color: var(--lm-err);\n}\n\n.local-mode-savebar-actions {\n	display: flex;\n	gap: 6px;\n}\n\n@keyframes local-mode-rise {\n	from {\n		opacity: 0;\n		transform: translateY(6px);\n	}\n}\n\n/* --- Settings > Usage ------------------------------------------------------ */\n\n.lm-usage {\n	--lm-input: rgb(14 165 233 / 0.85);\n	--lm-heat: var(--cursor-green, #22c55e);\n}\n\n.lm-muted {\n	font-size: 12px;\n	color: var(--lm-fg-3);\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-spacer {\n	flex: 1 1 auto;\n}\n\n.lm-toolbar {\n	display: flex;\n	flex-wrap: wrap;\n	align-items: center;\n	gap: 8px;\n}\n\n.lm-select {\n	position: relative;\n	display: inline-flex;\n	align-items: center;\n	gap: 6px;\n	height: 28px;\n	padding: 0 8px;\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	background: var(--lm-bg-raised);\n}\n\n.lm-select select {\n	appearance: none;\n	padding: 0 14px 0 0;\n	border: none;\n	outline: none;\n	background: transparent;\n	font: inherit;\n	font-size: 12.5px;\n	color: var(--lm-fg);\n	cursor: pointer;\n}\n\n.lm-select > .local-mode-icon {\n	position: absolute;\n	right: 7px;\n	transform: rotate(90deg);\n	color: var(--lm-fg-3);\n	pointer-events: none;\n}\n\n/* Stat cards */\n\n.lm-stats {\n	display: grid;\n	grid-template-columns: repeat(4, minmax(0, 1fr));\n	gap: 8px;\n}\n\n.lm-stat {\n	display: flex;\n	flex-direction: column;\n	gap: 2px;\n	min-width: 0;\n	padding: 12px 14px;\n	border-radius: var(--lm-radius);\n	background: var(--lm-bg);\n}\n\n.lm-stat-label {\n	font-size: 12px;\n	color: var(--lm-fg-3);\n}\n\n.lm-stat-value {\n	font-size: 22px;\n	font-weight: 600;\n	letter-spacing: -0.01em;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-stat-sub {\n	font-size: 11.5px;\n	line-height: 1.35;\n	color: var(--lm-fg-3);\n}\n\n/* Panels */\n\n.lm-panel-header {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 12px;\n	padding: 12px 16px 0;\n}\n\n.local-mode-card > .lm-panel-body {\n	display: flex;\n	flex-direction: column;\n	gap: 14px;\n	padding: 12px 16px 16px;\n	border-top: none;\n}\n\n/* Daily chart */\n\n.lm-daily {\n	display: flex;\n	flex-direction: column;\n	gap: 6px;\n}\n\n.lm-daily-readout {\n	display: flex;\n	flex-wrap: wrap;\n	align-items: center;\n	gap: 4px 12px;\n	min-height: 20px;\n	font-size: 12px;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-daily-bars {\n	display: flex;\n	align-items: flex-end;\n	gap: 2px;\n	height: 140px;\n	padding-bottom: 1px;\n	border-bottom: 1px solid var(--lm-line);\n	background-image: linear-gradient(to top, var(--lm-line-2) 1px, transparent 1px);\n	background-size: 100% 25%;\n}\n\n.lm-daily-col {\n	flex: 1 1 0;\n	display: flex;\n	align-items: flex-end;\n	height: 100%;\n	min-width: 0;\n	border-radius: 3px 3px 0 0;\n}\n\n.lm-daily-col[data-hover] {\n	background: var(--lm-bg-hover);\n}\n\n.lm-daily-stack {\n	display: flex;\n	flex-direction: column-reverse;\n	width: 100%;\n	min-height: 0;\n	overflow: hidden;\n	border-radius: 3px 3px 0 0;\n}\n\n.lm-daily-stack > span {\n	flex-basis: 0;\n	min-height: 1px;\n}\n\n.lm-daily-axis {\n	display: flex;\n	gap: 2px;\n}\n\n.lm-daily-axis > span {\n	flex: 1 1 0;\n	min-width: 0;\n	overflow: visible;\n	white-space: nowrap;\n	font-size: 10.5px;\n	color: var(--lm-fg-3);\n	font-variant-numeric: tabular-nums;\n}\n\n/* Token mix */\n\n.lm-mix {\n	display: flex;\n	flex-direction: column;\n	gap: 8px;\n}\n\n.lm-mix-bar {\n	display: flex;\n	gap: 2px;\n	height: 8px;\n	overflow: hidden;\n	border-radius: 4px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-mix-bar > span {\n	flex-basis: 0;\n}\n\n.lm-legend {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 4px 16px;\n}\n\n.lm-legend-item {\n	display: inline-flex;\n	align-items: center;\n	gap: 6px;\n	font-size: 12px;\n	color: var(--lm-fg-2);\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-legend-item i {\n	width: 8px;\n	height: 8px;\n	border-radius: 2px;\n}\n\n.lm-legend-item b {\n	font-weight: 600;\n	color: var(--lm-fg);\n}\n\n/* Provider tiles */\n\n.lm-tiles {\n	display: grid;\n	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));\n	gap: 8px;\n}\n\n.lm-tile {\n	display: flex;\n	flex-direction: column;\n	align-items: stretch;\n	gap: 4px;\n	min-width: 0;\n	padding: 10px 12px 12px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 9px;\n	background: var(--lm-bg-raised);\n	text-align: left;\n	transition: border-color 0.12s;\n}\n\n.lm-tile:hover,\n.lm-tile[data-active] {\n	border-color: var(--lm-focus);\n}\n\n.lm-tile-head {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	min-width: 0;\n}\n\n.lm-tile-head .lm-cell-main {\n	flex: 1 1 auto;\n}\n\n.lm-tile-value {\n	font-size: 18px;\n	font-weight: 600;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-share {\n	display: block;\n	height: 3px;\n	margin-top: 4px;\n	overflow: hidden;\n	border-radius: 2px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-share > span {\n	display: block;\n	height: 100%;\n	border-radius: 2px;\n	background: var(--lm-input);\n}\n\n/* Tables */\n\n.lm-table {\n	width: 100%;\n	border-collapse: collapse;\n	table-layout: fixed;\n	font-size: 12.5px;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-table th {\n	padding: 0 8px 8px;\n	border-bottom: 1px solid var(--lm-line);\n	text-align: left;\n	font-size: 11.5px;\n	font-weight: 500;\n	color: var(--lm-fg-3);\n}\n\n.lm-table td {\n	padding: 8px;\n	border-bottom: 1px solid var(--lm-line-2);\n	vertical-align: middle;\n}\n\n.lm-table tr:last-child td {\n	border-bottom: none;\n}\n\n.lm-table tbody tr:hover td {\n	background: var(--lm-bg-hover);\n}\n\n.lm-table th:first-child,\n.lm-table td:first-child {\n	padding-left: 0;\n}\n\n.lm-table th:last-child,\n.lm-table td:last-child {\n	padding-right: 0;\n}\n\n.lm-table .lm-num {\n	width: 84px;\n	text-align: right;\n	white-space: nowrap;\n}\n\n.lm-breakdown .lm-share {\n	max-width: 260px;\n}\n\n.lm-requests th:nth-child(1) {\n	width: 108px;\n}\n\n.lm-requests th:nth-child(2) {\n	width: 70px;\n}\n\n.lm-nowrap {\n	white-space: nowrap;\n}\n\n.lm-cell-main {\n	display: block;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-weight: 500;\n}\n\n.lm-breakdown .lm-cell-main {\n	display: inline;\n	font-family: var(--monaco-monospace-font);\n	font-size: 12px;\n	font-weight: 400;\n}\n\n.lm-requests .lm-cell-main {\n	font-family: var(--monaco-monospace-font);\n	font-size: 12px;\n	font-weight: 400;\n}\n\n.lm-cell-sub {\n	display: block;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-size: 11.5px;\n	color: var(--lm-fg-3);\n}\n\n.lm-badge {\n	display: inline-block;\n	padding: 1px 7px;\n	border-radius: 10px;\n	font-size: 11px;\n	font-weight: 500;\n	color: var(--lm-fg-2);\n	background: var(--lm-bg-hover);\n}\n\n.lm-badge[data-type=\"agent\"] {\n	color: rgb(14 165 233);\n	background: rgb(14 165 233 / 0.12);\n}\n\n.lm-pager {\n	display: flex;\n	align-items: center;\n	justify-content: flex-end;\n	gap: 4px;\n}\n\n.lm-pager .lm-muted {\n	margin-right: 8px;\n}\n\n/* Heatmap */\n\n.lm-heat {\n	display: flex;\n	gap: 6px;\n	overflow-x: auto;\n}\n\n.lm-heat-days {\n	display: grid;\n	grid-template-rows: 14px repeat(7, 11px);\n	row-gap: 3px;\n	font-size: 10px;\n	line-height: 11px;\n	color: var(--lm-fg-3);\n}\n\n.lm-heat-days > :first-child {\n	height: 14px;\n}\n\n.lm-heat-body {\n	display: flex;\n	flex-direction: column;\n	gap: 3px;\n	min-width: 0;\n}\n\n.lm-heat-months,\n.lm-heat-grid {\n	display: flex;\n	gap: 3px;\n}\n\n.lm-heat-months > span {\n	width: 11px;\n	height: 14px;\n	overflow: visible;\n	white-space: nowrap;\n	font-size: 10px;\n	color: var(--lm-fg-3);\n}\n\n.lm-heat-col {\n	display: flex;\n	flex-direction: column;\n	gap: 3px;\n}\n\n.lm-heat-cell {\n	display: inline-block;\n	width: 11px;\n	height: 11px;\n	border-radius: 3px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-heat-cell[data-level=\"1\"] {\n	background: color-mix(in srgb, var(--lm-heat) 30%, transparent);\n}\n\n.lm-heat-cell[data-level=\"2\"] {\n	background: color-mix(in srgb, var(--lm-heat) 52%, transparent);\n}\n\n.lm-heat-cell[data-level=\"3\"] {\n	background: color-mix(in srgb, var(--lm-heat) 76%, transparent);\n}\n\n.lm-heat-cell[data-level=\"4\"] {\n	background: var(--lm-heat);\n}\n\n.lm-heat-cell[data-future] {\n	visibility: hidden;\n}\n\n.lm-heat-cell[data-today] {\n	outline: 1px solid var(--lm-fg-3);\n	outline-offset: 1px;\n}\n\n.lm-heat-footer {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n}\n\n.lm-heat-legend {\n	display: inline-flex;\n	align-items: center;\n	gap: 3px;\n	font-size: 11px;\n	color: var(--lm-fg-3);\n}\n\n.lm-heat-legend > :first-of-type {\n	margin-left: 4px;\n}\n\n.lm-heat-legend > :last-of-type {\n	margin-right: 4px;\n}\n\n.lm-footer {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 12px;\n	padding: 0 4px 8px;\n}\n\n.local-mode-link-button[data-danger] {\n	color: var(--lm-err);\n}\n\n.local-mode-empty .local-mode-presets {\n	padding: 16px 0 0;\n}\n\n/* DevTool: DEV pill and panel (tweakpane-style, dark in every theme) */\n\n.lm-dev {\n	--dev-bg: rgb(32 33 38 / 0.97);\n	--dev-bg-2: rgb(255 255 255 / 0.06);\n	--dev-bg-3: rgb(255 255 255 / 0.11);\n	--dev-fg: rgb(240 241 245);\n	--dev-fg-2: rgb(240 241 245 / 0.62);\n	--dev-line: rgb(255 255 255 / 0.08);\n	--dev-accent: rgb(120 190 255);\n	font-family: var(--cursor-font-family-ui, system-ui), sans-serif;\n	font-size: 11.5px;\n	color: var(--dev-fg);\n}\n\n.lm-dev-pill {\n	position: fixed;\n	right: 0;\n	z-index: 100000;\n	padding: 6px 5px 6px 7px;\n	border: 1px solid var(--dev-line);\n	border-right: none;\n	border-radius: 8px 0 0 8px;\n	background: var(--dev-bg);\n	color: var(--dev-fg-2);\n	font:\n		600 10px / 1 ui-monospace,\n		SFMono-Regular,\n		Menlo,\n		monospace;\n	letter-spacing: 0.06em;\n	writing-mode: vertical-rl;\n	cursor: grab;\n	opacity: 0.55;\n	box-shadow: 0 2px 10px rgb(0 0 0 / 0.25);\n	transform: translateY(-50%);\n	transition:\n		opacity 120ms,\n		color 120ms;\n	touch-action: none;\n}\n\n.lm-dev-pill:hover,\n.lm-dev-pill[aria-expanded=\"true\"],\n.lm-dev-pill:focus-visible {\n	opacity: 1;\n	color: var(--dev-accent);\n}\n\n.lm-dev-pill:active {\n	cursor: grabbing;\n}\n\n.lm-dev-panel {\n	position: fixed;\n	top: 44px;\n	right: 34px;\n	z-index: 100000;\n	display: flex;\n	flex-direction: column;\n	width: 300px;\n	max-height: calc(100vh - 88px);\n	border: 1px solid var(--dev-line);\n	border-radius: 8px;\n	background: var(--dev-bg);\n	box-shadow: 0 12px 40px rgb(0 0 0 / 0.4);\n	backdrop-filter: blur(12px);\n}\n\n.lm-dev-header {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	padding: 7px 6px 7px 10px;\n	border-bottom: 1px solid var(--dev-line);\n	color: var(--dev-fg-2);\n	font-weight: 600;\n}\n\n.lm-dev-close {\n	display: grid;\n	place-items: center;\n	width: 22px;\n	height: 22px;\n	padding: 0;\n	border: none;\n	border-radius: 4px;\n	background: none;\n	color: var(--dev-fg-2);\n	cursor: pointer;\n}\n\n.lm-dev-close:hover {\n	background: var(--dev-bg-3);\n	color: var(--dev-fg);\n}\n\n.lm-dev-scroll {\n	overflow-y: auto;\n	padding: 4px;\n}\n\n.lm-dev-folder + .lm-dev-folder {\n	margin-top: 4px;\n}\n\n.lm-dev-folder-title {\n	display: flex;\n	align-items: center;\n	gap: 6px;\n	width: 100%;\n	padding: 5px 6px;\n	border: none;\n	border-radius: 4px;\n	background: var(--dev-bg-2);\n	color: var(--dev-fg);\n	font: inherit;\n	font-weight: 600;\n	text-align: left;\n	cursor: pointer;\n}\n\n.lm-dev-folder-title:hover {\n	background: var(--dev-bg-3);\n}\n\n.lm-dev-folder-title svg {\n	transition: transform 120ms;\n}\n\n.lm-dev-folder-title[aria-expanded=\"true\"] svg {\n	transform: rotate(90deg);\n}\n\n.lm-dev-folder-trailing {\n	margin-left: auto;\n	color: var(--dev-fg-2);\n	font-weight: 400;\n}\n\n.lm-dev-folder-body {\n	display: flex;\n	flex-direction: column;\n	gap: 3px;\n	padding: 6px 4px 4px 10px;\n}\n\n.lm-dev-row {\n	display: grid;\n	grid-template-columns: 76px minmax(0, 1fr);\n	align-items: center;\n	gap: 8px;\n	min-height: 22px;\n}\n\n.lm-dev-label {\n	overflow: hidden;\n	color: var(--dev-fg-2);\n	text-overflow: ellipsis;\n	white-space: nowrap;\n}\n\n.lm-dev-value {\n	overflow: hidden;\n	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;\n	font-size: 11px;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n}\n\n.lm-dev-muted {\n	color: var(--dev-fg-2);\n}\n\n.lm-dev-input {\n	box-sizing: border-box;\n	width: 100%;\n	height: 22px;\n	padding: 0 6px;\n	border: 1px solid transparent;\n	border-radius: 4px;\n	outline: none;\n	background: var(--dev-bg-2);\n	color: var(--dev-fg);\n	font: inherit;\n}\n\n.lm-dev-input:hover {\n	background: var(--dev-bg-3);\n}\n\n.lm-dev-input:focus {\n	border-color: var(--dev-accent);\n}\n\n.lm-dev-buttons {\n	display: flex;\n	gap: 4px;\n}\n\n.lm-dev-buttons .lm-dev-button {\n	flex: 1;\n}\n\n.lm-dev-button {\n	margin-top: 2px;\n	padding: 5px 8px;\n	border: none;\n	border-radius: 4px;\n	background: var(--dev-bg-3);\n	color: var(--dev-fg);\n	font: inherit;\n	cursor: pointer;\n}\n\n.lm-dev-button:hover:not(:disabled) {\n	background: rgb(255 255 255 / 0.17);\n}\n\n.lm-dev-button:disabled {\n	opacity: 0.45;\n	cursor: default;\n}\n\n.lm-dev-button[data-danger] {\n	color: rgb(255 140 140);\n}\n\n.lm-dev-status {\n	display: inline-flex;\n	align-items: center;\n	gap: 5px;\n}\n\n.lm-dev-status::before {\n	content: \"\";\n	width: 6px;\n	height: 6px;\n	border-radius: 50%;\n	background: var(--dev-fg-2);\n}\n\n.lm-dev-status[data-on]::before {\n	background: rgb(80 210 130);\n}\n\n.lm-dev-note {\n	margin: 2px 0 0;\n	color: var(--dev-fg-2);\n	font-size: 10.5px;\n	line-height: 1.4;\n}\n\n.lm-dev-requests {\n	display: flex;\n	flex-direction: column;\n	margin: 0;\n	padding: 0;\n	list-style: none;\n	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;\n	font-size: 10.5px;\n}\n\n.lm-dev-requests li {\n	display: grid;\n	grid-template-columns: auto minmax(0, 1fr) auto;\n	column-gap: 8px;\n	padding: 3px 0;\n	border-bottom: 1px solid var(--dev-line);\n}\n\n.lm-dev-requests li > :last-child {\n	grid-column: 2 / 4;\n}\n\n.lm-dev-request-model {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n}\n";
+var localMode_default = "/* --- Transcript ------------------------------------------------------------ */\n\n/* Models often open a reply with a newline, which renders as an empty line\n   under the work-group header. */\n.ui-markdown > * > br:first-child {\n	display: none;\n}\n\n/* Keep the live turn stats right after the tail status text instead of\n   pushed to the far end of the row. */\n.agent-transcript-tail-status:has(> [data-slot=\"local-turn-stats\"]) > :first-child {\n	flex: 0 1 auto;\n	width: auto;\n}\n\n.local-mode-turn-stats {\n	flex-shrink: 0;\n	margin-right: auto;\n	color: var(--cursor-text-quaternary);\n	font-variant-numeric: tabular-nums;\n	white-space: nowrap;\n}\n\n.local-mode-tabular {\n	font-variant-numeric: tabular-nums;\n}\n\n/* --- Settings > Models > Custom Providers ---------------------------------- */\n\n.local-mode-settings {\n	--lm-radius: 12px;\n	--lm-fg: var(--cursor-text-primary, var(--vscode-foreground));\n	--lm-fg-2: var(--cursor-text-secondary, var(--vscode-descriptionForeground));\n	--lm-fg-3: var(--cursor-text-tertiary, var(--vscode-descriptionForeground));\n	--lm-bg: var(--cursor-bg-quinary, var(--vscode-editorWidget-background));\n	--lm-bg-hover: var(--cursor-bg-quaternary, var(--vscode-list-hoverBackground));\n	--lm-bg-track: var(--cursor-bg-tertiary, var(--vscode-list-hoverBackground));\n	--lm-bg-raised: var(--cursor-bg-elevated, var(--vscode-input-background));\n	--lm-line: var(--cursor-stroke-secondary, var(--vscode-widget-border, rgba(128, 128, 128, 0.2)));\n	--lm-line-2: var(--cursor-stroke-tertiary, rgba(128, 128, 128, 0.12));\n	--lm-focus: var(--cursor-stroke-focused, var(--vscode-focusBorder));\n	--lm-ok: var(--cursor-text-green-primary, var(--vscode-testing-iconPassed));\n	--lm-err: var(--cursor-text-red-primary, var(--vscode-errorForeground));\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	color: var(--lm-fg);\n	font-size: 13px;\n}\n\n.local-mode-settings :where(button) {\n	font: inherit;\n	color: inherit;\n	cursor: pointer;\n}\n\n.local-mode-settings :where(button:disabled) {\n	cursor: default;\n	opacity: 0.5;\n}\n\n.local-mode-icon {\n	flex-shrink: 0;\n	display: block;\n}\n\n.local-mode-hint {\n	display: block;\n	font-size: 12px;\n	line-height: 1.45;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-hint code {\n	padding: 0 4px;\n	border-radius: 4px;\n	background: var(--lm-bg-hover);\n	font-family: var(--monaco-monospace-font);\n	font-size: 11.5px;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-count {\n	margin-left: 6px;\n	font-size: 11px;\n	font-variant-numeric: tabular-nums;\n	color: var(--lm-fg-3);\n}\n\n/* Provider tabs */\n\n.local-mode-tabs {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 6px;\n}\n\n.local-mode-tab {\n	display: inline-flex;\n	align-items: center;\n	gap: 7px;\n	height: 30px;\n	max-width: 220px;\n	padding: 0 10px 0 5px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 8px;\n	background: transparent;\n	transition:\n		background-color 0.12s,\n		border-color 0.12s;\n}\n\n.local-mode-tab:hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-tab[data-active] {\n	background: var(--lm-bg-raised);\n	border-color: var(--lm-line);\n	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);\n}\n\n.local-mode-tab[data-off] .local-mode-tab-name {\n	color: var(--lm-fg-3);\n	text-decoration: line-through;\n	text-decoration-color: var(--lm-line);\n}\n\n.local-mode-tab-name {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-weight: 500;\n}\n\n.local-mode-tab .local-mode-count {\n	margin-left: 0;\n}\n\n.local-mode-tab-add {\n	padding-left: 9px;\n	border-style: dashed;\n	color: var(--lm-fg-2);\n}\n\n/* Avatar */\n\n.local-mode-avatar {\n	--hue: var(--cursor-blue, #3b82f6);\n	flex-shrink: 0;\n	display: inline-grid;\n	place-items: center;\n	width: 32px;\n	height: 32px;\n	border-radius: 8px;\n	font-weight: 600;\n	font-size: 14px;\n	color: var(--hue);\n	background: color-mix(in srgb, var(--hue) 16%, transparent);\n}\n\n.local-mode-avatar[data-size=\"sm\"] {\n	width: 20px;\n	height: 20px;\n	border-radius: 5px;\n	font-size: 11px;\n}\n\n.local-mode-avatar[data-hue=\"purple\"] {\n	--hue: var(--cursor-purple, #8b5cf6);\n}\n.local-mode-avatar[data-hue=\"orange\"] {\n	--hue: var(--cursor-orange, #f97316);\n}\n.local-mode-avatar[data-hue=\"green\"] {\n	--hue: var(--cursor-green, #22c55e);\n}\n.local-mode-avatar[data-hue=\"cyan\"] {\n	--hue: var(--cursor-cyan, #06b6d4);\n}\n.local-mode-avatar[data-hue=\"magenta\"] {\n	--hue: var(--cursor-magenta, #d946ef);\n}\n\n/* Card */\n\n.local-mode-card {\n	display: flex;\n	flex-direction: column;\n	border-radius: var(--lm-radius);\n	background: var(--lm-bg);\n}\n\n.local-mode-card > * + * {\n	border-top: 1px solid var(--lm-line-2);\n}\n\n.local-mode-card-header {\n	display: flex;\n	align-items: center;\n	gap: 12px;\n	padding: 14px 16px;\n}\n\n.local-mode-card[data-off] .local-mode-block {\n	opacity: 0.55;\n}\n\n.local-mode-card-title {\n	flex: 1 1 auto;\n	min-width: 0;\n	display: flex;\n	flex-direction: column;\n	gap: 1px;\n}\n\n.local-mode-title-input {\n	width: 100%;\n	margin-left: -4px;\n	padding: 1px 4px;\n	border: 1px solid transparent;\n	border-radius: 5px;\n	background: transparent;\n	color: var(--lm-fg);\n	font: inherit;\n	font-size: 14px;\n	font-weight: 600;\n	outline: none;\n}\n\n.local-mode-title-input:hover {\n	border-color: var(--lm-line-2);\n}\n\n.local-mode-title-input:focus {\n	border-color: var(--lm-focus);\n	background: var(--lm-bg-raised);\n}\n\n.local-mode-block {\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	padding: 14px 16px 16px;\n}\n\n.local-mode-block-header {\n	display: flex;\n	align-items: flex-start;\n	justify-content: space-between;\n	gap: 12px;\n}\n\n.local-mode-block-title {\n	font-size: 11px;\n	font-weight: 600;\n	letter-spacing: 0.04em;\n	text-transform: uppercase;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-block-header .local-mode-hint {\n	margin-top: 3px;\n}\n\n/* Fields */\n\n.local-mode-field {\n	display: flex;\n	flex-direction: column;\n	gap: 5px;\n}\n\n.local-mode-field-label {\n	font-size: 12px;\n	font-weight: 500;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-input {\n	width: 100%;\n	box-sizing: border-box;\n	height: 30px;\n	padding: 0 10px;\n	font: inherit;\n	font-size: 13px;\n	color: var(--vscode-input-foreground, var(--lm-fg));\n	background: var(--lm-bg-raised);\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	outline: none;\n	transition:\n		border-color 0.12s,\n		box-shadow 0.12s;\n}\n\n.local-mode-input:focus {\n	border-color: var(--lm-focus);\n	box-shadow: 0 0 0 3px color-mix(in srgb, var(--lm-focus) 18%, transparent);\n}\n\n.local-mode-input::placeholder,\n.local-mode-settings input::placeholder,\n.local-mode-settings textarea::placeholder {\n	color: var(--lm-fg-3);\n	opacity: 0.8;\n}\n\n.local-mode-mono {\n	font-family: var(--monaco-monospace-font);\n	font-size: 12px;\n}\n\n.local-mode-textarea {\n	height: auto;\n	padding: 6px 10px;\n	resize: vertical;\n}\n\n.local-mode-input-group {\n	position: relative;\n	display: block;\n}\n\n.local-mode-input-group .local-mode-input {\n	padding-right: 36px;\n}\n\n.local-mode-input-group .local-mode-icon-button {\n	position: absolute;\n	top: 3px;\n	right: 3px;\n}\n\n/* Buttons */\n\n.local-mode-icon-button {\n	display: inline-grid;\n	place-items: center;\n	width: 24px;\n	height: 24px;\n	padding: 0;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-icon-button:hover {\n	background: var(--lm-bg-hover);\n	color: var(--lm-fg);\n}\n\n.local-mode-button {\n	flex-shrink: 0;\n	height: 28px;\n	padding: 0 12px;\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	background: var(--lm-bg-raised);\n	font-weight: 500;\n}\n\n.local-mode-button:not(:disabled):hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-link-button {\n	display: inline-flex;\n	align-items: center;\n	gap: 5px;\n	height: 24px;\n	padding: 0 6px;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	font-size: 12px;\n	color: var(--lm-fg-2);\n	white-space: nowrap;\n}\n\n.local-mode-link-button:not(:disabled):hover {\n	background: var(--lm-bg-hover);\n	color: var(--lm-fg);\n}\n\n.local-mode-spin[data-active] .local-mode-icon {\n	animation: local-mode-spin 0.9s linear infinite;\n}\n\n@keyframes local-mode-spin {\n	to {\n		transform: rotate(360deg);\n	}\n}\n\n/* Segmented control */\n\n.local-mode-segmented {\n	display: inline-flex;\n	padding: 2px;\n	gap: 2px;\n	border-radius: 8px;\n	background: var(--lm-bg-track);\n}\n\n.local-mode-segmented button {\n	height: 24px;\n	padding: 0 10px;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	font-size: 12px;\n	color: var(--lm-fg-2);\n	white-space: nowrap;\n}\n\n.local-mode-segmented button[data-active] {\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg);\n	font-weight: 500;\n	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n\n.local-mode-segmented-fill {\n	display: flex;\n}\n\n.local-mode-segmented-fill button {\n	flex: 1 1 0;\n	height: 26px;\n}\n\n/* Connection check */\n\n.local-mode-check-row {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n	min-height: 28px;\n}\n\n.local-mode-check {\n	display: inline-flex;\n	align-items: flex-start;\n	gap: 6px;\n	min-width: 0;\n	font-size: 12px;\n	line-height: 1.45;\n	color: var(--lm-err);\n	overflow-wrap: anywhere;\n}\n\n.local-mode-check .local-mode-icon {\n	margin-top: 2px;\n}\n\n.local-mode-check[data-ok] {\n	color: var(--lm-ok);\n}\n\n.local-mode-disclosure {\n	display: inline-flex;\n	align-items: center;\n	align-self: flex-start;\n	gap: 6px;\n	margin-left: -6px;\n	padding: 3px 6px;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	font-size: 12px;\n	font-weight: 500;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-disclosure:hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-disclosure .local-mode-icon {\n	transition: transform 0.15s;\n}\n\n.local-mode-disclosure[aria-expanded=\"true\"] .local-mode-icon {\n	transform: rotate(90deg);\n}\n\n.local-mode-disclosure .local-mode-hint {\n	font-weight: 400;\n}\n\n.local-mode-advanced {\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	padding-left: 12px;\n	border-left: 2px solid var(--lm-line-2);\n}\n\n/* Models */\n\n.local-mode-model-toolbar {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n}\n\n.local-mode-search {\n	flex: 1 1 auto;\n	display: flex;\n	align-items: center;\n	gap: 6px;\n	height: 28px;\n	padding: 0 8px;\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg-3);\n}\n\n.local-mode-search:focus-within {\n	border-color: var(--lm-focus);\n}\n\n.local-mode-search input,\n.local-mode-add-model input {\n	flex: 1 1 auto;\n	min-width: 0;\n	padding: 0;\n	border: none;\n	outline: none;\n	background: transparent;\n	font: inherit;\n	font-size: 12.5px;\n	color: var(--lm-fg);\n}\n\n.local-mode-search button {\n	display: grid;\n	place-items: center;\n	padding: 2px;\n	border: none;\n	border-radius: 4px;\n	background: transparent;\n}\n\n.local-mode-model-list {\n	list-style: none;\n	max-height: 360px;\n	overflow-y: auto;\n	margin: 0 -6px;\n	padding: 0 6px;\n}\n\n.local-mode-model-row {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n	height: 34px;\n	margin: 0 -6px;\n	padding: 0 6px;\n	border-radius: 7px;\n}\n\n.local-mode-model-row:hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-model-name {\n	flex: 1 1 auto;\n	min-width: 0;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-family: var(--monaco-monospace-font);\n	font-size: 12.5px;\n}\n\n.local-mode-model-row[data-off] .local-mode-model-name {\n	color: var(--lm-fg-3);\n}\n\n.local-mode-row-action {\n	opacity: 0;\n}\n\n.local-mode-model-row:hover .local-mode-row-action,\n.local-mode-row-action:focus-visible {\n	opacity: 1;\n}\n\n.local-mode-context-chip,\n.local-mode-context-input {\n	box-sizing: border-box;\n	width: 64px;\n	height: 22px;\n	padding: 0 8px;\n	border-radius: 11px;\n	font-size: 11.5px;\n	font-variant-numeric: tabular-nums;\n	text-align: center;\n}\n\n.local-mode-context-chip {\n	border: 1px solid var(--lm-line);\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg-2);\n}\n\n.local-mode-context-chip[data-auto] {\n	border-color: transparent;\n	background: transparent;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-context-chip:hover {\n	border-color: var(--lm-line);\n	color: var(--lm-fg);\n}\n\n.local-mode-context-input {\n	border: 1px solid var(--lm-focus);\n	outline: none;\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg);\n	font-family: inherit;\n}\n\n.local-mode-context-input[aria-invalid=\"true\"] {\n	border-color: var(--lm-err);\n	color: var(--lm-err);\n}\n\n.local-mode-empty-row {\n	padding: 14px 0;\n	text-align: center;\n	font-size: 12px;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-model-footer {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n}\n\n.local-mode-add-model {\n	flex: 1 1 auto;\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	height: 28px;\n	padding: 0 8px;\n	border: 1px dashed var(--lm-line);\n	border-radius: 7px;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-add-model:focus-within {\n	border-style: solid;\n	border-color: var(--lm-focus);\n}\n\n.local-mode-bulk {\n	display: flex;\n	gap: 2px;\n}\n\n/* Presets and empty state */\n\n.local-mode-presets {\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	padding: 14px 16px 16px;\n}\n\n.local-mode-empty {\n	gap: 4px;\n	padding: 28px 24px;\n	align-items: stretch;\n	text-align: center;\n}\n\n.local-mode-empty > * + * {\n	border-top: none;\n}\n\n.local-mode-empty-title {\n	font-size: 15px;\n	font-weight: 600;\n}\n\n.local-mode-empty .local-mode-presets .local-mode-block-header {\n	display: none;\n}\n\n.local-mode-preset-grid {\n	display: grid;\n	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));\n	gap: 8px;\n}\n\n.local-mode-preset {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n	padding: 10px 12px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 8px;\n	background: var(--lm-bg-raised);\n	text-align: left;\n	transition:\n		border-color 0.12s,\n		transform 0.12s;\n}\n\n.local-mode-preset:hover {\n	border-color: var(--lm-focus);\n}\n\n.local-mode-preset .local-mode-avatar {\n	width: 28px;\n	height: 28px;\n	border-radius: 7px;\n	font-size: 13px;\n}\n\n.local-mode-preset-name {\n	display: block;\n	font-weight: 500;\n}\n\n/* Save bar */\n\n.local-mode-savebar {\n	position: sticky;\n	bottom: 12px;\n	z-index: 2;\n	display: flex;\n	align-items: center;\n	gap: 12px;\n	min-height: 40px;\n	padding: 6px 6px 6px 14px;\n	border: 1px solid var(--lm-line);\n	border-radius: var(--lm-radius);\n	background: var(--lm-bg-raised);\n	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);\n	animation: local-mode-rise 0.16s ease-out;\n}\n\n.local-mode-savebar-text {\n	flex: 1 1 auto;\n	display: flex;\n	align-items: center;\n	gap: 7px;\n	font-size: 12.5px;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-savebar[data-error] .local-mode-savebar-text {\n	color: var(--lm-err);\n}\n\n.local-mode-savebar-actions {\n	display: flex;\n	gap: 6px;\n}\n\n@keyframes local-mode-rise {\n	from {\n		opacity: 0;\n		transform: translateY(6px);\n	}\n}\n\n/* Subscriptions provider (Claude Code, Codex, Grok accounts) */\n\n.lm-model-badge {\n	flex-shrink: 0;\n	padding: 0 6px;\n	border-radius: 9px;\n	font-size: 10.5px;\n	line-height: 17px;\n	color: var(--lm-fg-3);\n	background: var(--lm-bg-hover);\n}\n\n.lm-sub-accounts {\n	display: flex;\n	flex-direction: column;\n	gap: 8px;\n	margin: 0;\n	padding: 0;\n	list-style: none;\n}\n\n.lm-sub-account {\n	display: flex;\n	flex-direction: column;\n	gap: 10px;\n	padding: 12px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 10px;\n	background: var(--lm-bg-raised);\n}\n\n.lm-sub-account[data-off] .lm-sub-account-name {\n	color: var(--lm-fg-3);\n}\n\n.lm-sub-account-head {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n}\n\n.lm-sub-account-name {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-weight: 500;\n}\n\n.lm-sub-expand .local-mode-icon {\n	transform: rotate(90deg);\n	transition: transform 0.12s;\n}\n\n.lm-sub-expand[aria-expanded=\"true\"] .local-mode-icon {\n	transform: rotate(-90deg);\n}\n\n.lm-sub-pill {\n	flex-shrink: 0;\n	padding: 1px 8px;\n	border-radius: 10px;\n	font-size: 11px;\n	font-weight: 500;\n	white-space: nowrap;\n	color: var(--lm-fg-2);\n	background: var(--lm-bg-hover);\n}\n\n.lm-sub-pill[data-tone=\"ok\"] {\n	color: var(--lm-ok);\n	background: color-mix(in srgb, var(--lm-ok) 12%, transparent);\n}\n\n.lm-sub-pill[data-tone=\"warn\"] {\n	color: var(--cursor-text-yellow-primary, #ca8a04);\n	background: color-mix(in srgb, var(--cursor-text-yellow-primary, #ca8a04) 12%, transparent);\n}\n\n.lm-sub-pill[data-tone=\"err\"] {\n	color: var(--lm-err);\n	background: color-mix(in srgb, var(--lm-err) 12%, transparent);\n}\n\n.lm-sub-quota {\n	display: flex;\n	flex-direction: column;\n	gap: 6px;\n	padding-left: 42px;\n}\n\n.lm-sub-quota-row {\n	--lm-quota: var(--lm-ok);\n	display: grid;\n	grid-template-columns: 110px minmax(60px, 1fr) 64px 110px;\n	align-items: center;\n	gap: 10px;\n	font-size: 12px;\n}\n\n.lm-sub-quota-row[data-level=\"mid\"] {\n	--lm-quota: var(--cursor-text-yellow-primary, #ca8a04);\n}\n\n.lm-sub-quota-row[data-level=\"low\"] {\n	--lm-quota: var(--lm-err);\n}\n\n.lm-sub-quota-label {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	color: var(--lm-fg-2);\n}\n\n.lm-sub-quota-bar {\n	height: 6px;\n	border-radius: 3px;\n	overflow: hidden;\n	background: var(--lm-bg-track);\n}\n\n.lm-sub-quota-bar > span {\n	display: block;\n	height: 100%;\n	border-radius: 3px;\n	background: var(--lm-quota);\n	transition: width 0.3s;\n}\n\n.lm-sub-quota-value {\n	text-align: right;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-sub-quota-reset {\n	color: var(--lm-fg-3);\n	font-variant-numeric: tabular-nums;\n	white-space: nowrap;\n}\n\n.lm-sub-quota-footer {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 8px;\n}\n\n.lm-sub-account-settings {\n	display: flex;\n	flex-direction: column;\n	gap: 10px;\n	padding: 10px 0 0 42px;\n	border-top: 1px solid var(--lm-line-2);\n}\n\n.lm-sub-account-footer {\n	justify-content: space-between;\n}\n\n.lm-sub-proxy {\n	display: flex;\n	flex-direction: column;\n	gap: 6px;\n}\n\n.lm-sub-inline {\n	display: flex;\n	gap: 6px;\n}\n\n.lm-sub-inline .local-mode-button {\n	height: 30px;\n}\n\n.lm-sub-error {\n	display: flex;\n	align-items: flex-start;\n	justify-content: space-between;\n	gap: 10px;\n	padding: 10px 12px;\n	border-radius: 8px;\n	background: color-mix(in srgb, var(--lm-err) 8%, transparent);\n	white-space: pre-wrap;\n}\n\n.lm-sub-add {\n	display: flex;\n	flex-direction: column;\n	gap: 8px;\n}\n\n.lm-sub-add-grid {\n	display: grid;\n	grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));\n	gap: 8px;\n}\n\n.lm-sub-signin {\n	display: flex;\n	flex-direction: column;\n	gap: 10px;\n	padding: 12px;\n	border: 1px solid var(--lm-focus);\n	border-radius: 10px;\n	background: var(--lm-bg-raised);\n}\n\n.lm-sub-signin[data-error] {\n	border-color: var(--lm-line);\n}\n\n.lm-sub-signin-title {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	font-weight: 600;\n}\n\n.lm-sub-link {\n	display: flex;\n	align-items: center;\n	gap: 4px;\n	padding: 4px 4px 4px 10px;\n	border-radius: 7px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-sub-link-url {\n	flex: 1 1 auto;\n	min-width: 0;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-family: var(--monaco-monospace-font);\n	font-size: 11.5px;\n	color: var(--lm-fg-2);\n}\n\n.lm-sub-link a.local-mode-link-button {\n	text-decoration: none;\n}\n\n.lm-sub-device {\n	display: flex;\n	align-items: center;\n	flex-wrap: wrap;\n	gap: 10px;\n}\n\n.lm-sub-code {\n	padding: 4px 12px;\n	border-radius: 7px;\n	background: var(--lm-bg-hover);\n	font-family: var(--monaco-monospace-font);\n	font-size: 16px;\n	font-weight: 600;\n	letter-spacing: 0.12em;\n}\n\n.lm-sub-paste {\n	display: flex;\n	gap: 6px;\n}\n\n.lm-sub-paste .local-mode-button {\n	height: 30px;\n}\n\n/* --- Settings > Usage ------------------------------------------------------ */\n\n.lm-usage {\n	--lm-input: rgb(14 165 233 / 0.85);\n	--lm-heat: var(--cursor-green, #22c55e);\n}\n\n.lm-muted {\n	font-size: 12px;\n	color: var(--lm-fg-3);\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-spacer {\n	flex: 1 1 auto;\n}\n\n.lm-toolbar {\n	display: flex;\n	flex-wrap: wrap;\n	align-items: center;\n	gap: 8px;\n}\n\n.lm-select {\n	position: relative;\n	display: inline-flex;\n	align-items: center;\n	gap: 6px;\n	height: 28px;\n	padding: 0 8px;\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	background: var(--lm-bg-raised);\n}\n\n.lm-select select {\n	appearance: none;\n	padding: 0 14px 0 0;\n	border: none;\n	outline: none;\n	background: transparent;\n	font: inherit;\n	font-size: 12.5px;\n	color: var(--lm-fg);\n	cursor: pointer;\n}\n\n.lm-select > .local-mode-icon {\n	position: absolute;\n	right: 7px;\n	transform: rotate(90deg);\n	color: var(--lm-fg-3);\n	pointer-events: none;\n}\n\n/* Stat cards */\n\n.lm-stats {\n	display: grid;\n	grid-template-columns: repeat(4, minmax(0, 1fr));\n	gap: 8px;\n}\n\n.lm-stat {\n	display: flex;\n	flex-direction: column;\n	gap: 2px;\n	min-width: 0;\n	padding: 12px 14px;\n	border-radius: var(--lm-radius);\n	background: var(--lm-bg);\n}\n\n.lm-stat-label {\n	font-size: 12px;\n	color: var(--lm-fg-3);\n}\n\n.lm-stat-value {\n	font-size: 22px;\n	font-weight: 600;\n	letter-spacing: -0.01em;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-stat-sub {\n	font-size: 11.5px;\n	line-height: 1.35;\n	color: var(--lm-fg-3);\n}\n\n/* Panels */\n\n.lm-panel-header {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 12px;\n	padding: 12px 16px 0;\n}\n\n.local-mode-card > .lm-panel-body {\n	display: flex;\n	flex-direction: column;\n	gap: 14px;\n	padding: 12px 16px 16px;\n	border-top: none;\n}\n\n/* Daily chart */\n\n.lm-daily {\n	display: flex;\n	flex-direction: column;\n	gap: 6px;\n}\n\n.lm-daily-readout {\n	display: flex;\n	flex-wrap: wrap;\n	align-items: center;\n	gap: 4px 12px;\n	min-height: 20px;\n	font-size: 12px;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-daily-bars {\n	display: flex;\n	align-items: flex-end;\n	gap: 2px;\n	height: 140px;\n	padding-bottom: 1px;\n	border-bottom: 1px solid var(--lm-line);\n	background-image: linear-gradient(to top, var(--lm-line-2) 1px, transparent 1px);\n	background-size: 100% 25%;\n}\n\n.lm-daily-col {\n	flex: 1 1 0;\n	display: flex;\n	align-items: flex-end;\n	height: 100%;\n	min-width: 0;\n	border-radius: 3px 3px 0 0;\n}\n\n.lm-daily-col[data-hover] {\n	background: var(--lm-bg-hover);\n}\n\n.lm-daily-stack {\n	display: flex;\n	flex-direction: column-reverse;\n	width: 100%;\n	min-height: 0;\n	overflow: hidden;\n	border-radius: 3px 3px 0 0;\n}\n\n.lm-daily-stack > span {\n	flex-basis: 0;\n	min-height: 1px;\n}\n\n.lm-daily-axis {\n	display: flex;\n	gap: 2px;\n}\n\n.lm-daily-axis > span {\n	flex: 1 1 0;\n	min-width: 0;\n	overflow: visible;\n	white-space: nowrap;\n	font-size: 10.5px;\n	color: var(--lm-fg-3);\n	font-variant-numeric: tabular-nums;\n}\n\n/* Token mix */\n\n.lm-mix {\n	display: flex;\n	flex-direction: column;\n	gap: 8px;\n}\n\n.lm-mix-bar {\n	display: flex;\n	gap: 2px;\n	height: 8px;\n	overflow: hidden;\n	border-radius: 4px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-mix-bar > span {\n	flex-basis: 0;\n}\n\n.lm-legend {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 4px 16px;\n}\n\n.lm-legend-item {\n	display: inline-flex;\n	align-items: center;\n	gap: 6px;\n	font-size: 12px;\n	color: var(--lm-fg-2);\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-legend-item i {\n	width: 8px;\n	height: 8px;\n	border-radius: 2px;\n}\n\n.lm-legend-item b {\n	font-weight: 600;\n	color: var(--lm-fg);\n}\n\n/* Provider tiles */\n\n.lm-tiles {\n	display: grid;\n	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));\n	gap: 8px;\n}\n\n.lm-tile {\n	display: flex;\n	flex-direction: column;\n	align-items: stretch;\n	gap: 4px;\n	min-width: 0;\n	padding: 10px 12px 12px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 9px;\n	background: var(--lm-bg-raised);\n	text-align: left;\n	transition: border-color 0.12s;\n}\n\n.lm-tile:hover,\n.lm-tile[data-active] {\n	border-color: var(--lm-focus);\n}\n\n.lm-tile-head {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	min-width: 0;\n}\n\n.lm-tile-head .lm-cell-main {\n	flex: 1 1 auto;\n}\n\n.lm-tile-value {\n	font-size: 18px;\n	font-weight: 600;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-share {\n	display: block;\n	height: 3px;\n	margin-top: 4px;\n	overflow: hidden;\n	border-radius: 2px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-share > span {\n	display: block;\n	height: 100%;\n	border-radius: 2px;\n	background: var(--lm-input);\n}\n\n/* Tables */\n\n.lm-table {\n	width: 100%;\n	border-collapse: collapse;\n	table-layout: fixed;\n	font-size: 12.5px;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-table th {\n	padding: 0 8px 8px;\n	border-bottom: 1px solid var(--lm-line);\n	text-align: left;\n	font-size: 11.5px;\n	font-weight: 500;\n	color: var(--lm-fg-3);\n}\n\n.lm-table td {\n	padding: 8px;\n	border-bottom: 1px solid var(--lm-line-2);\n	vertical-align: middle;\n}\n\n.lm-table tr:last-child td {\n	border-bottom: none;\n}\n\n.lm-table tbody tr:hover td {\n	background: var(--lm-bg-hover);\n}\n\n.lm-table th:first-child,\n.lm-table td:first-child {\n	padding-left: 0;\n}\n\n.lm-table th:last-child,\n.lm-table td:last-child {\n	padding-right: 0;\n}\n\n.lm-table .lm-num {\n	width: 84px;\n	text-align: right;\n	white-space: nowrap;\n}\n\n.lm-breakdown .lm-share {\n	max-width: 260px;\n}\n\n.lm-requests th:nth-child(1) {\n	width: 108px;\n}\n\n.lm-requests th:nth-child(2) {\n	width: 70px;\n}\n\n.lm-nowrap {\n	white-space: nowrap;\n}\n\n.lm-cell-main {\n	display: block;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-weight: 500;\n}\n\n.lm-breakdown .lm-cell-main {\n	display: inline;\n	font-family: var(--monaco-monospace-font);\n	font-size: 12px;\n	font-weight: 400;\n}\n\n.lm-requests .lm-cell-main {\n	font-family: var(--monaco-monospace-font);\n	font-size: 12px;\n	font-weight: 400;\n}\n\n.lm-cell-sub {\n	display: block;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-size: 11.5px;\n	color: var(--lm-fg-3);\n}\n\n.lm-badge {\n	display: inline-block;\n	padding: 1px 7px;\n	border-radius: 10px;\n	font-size: 11px;\n	font-weight: 500;\n	color: var(--lm-fg-2);\n	background: var(--lm-bg-hover);\n}\n\n.lm-badge[data-type=\"agent\"] {\n	color: rgb(14 165 233);\n	background: rgb(14 165 233 / 0.12);\n}\n\n.lm-pager {\n	display: flex;\n	align-items: center;\n	justify-content: flex-end;\n	gap: 4px;\n}\n\n.lm-pager .lm-muted {\n	margin-right: 8px;\n}\n\n/* Heatmap */\n\n.lm-heat {\n	display: flex;\n	gap: 6px;\n	overflow-x: auto;\n}\n\n.lm-heat-days {\n	display: grid;\n	grid-template-rows: 14px repeat(7, 11px);\n	row-gap: 3px;\n	font-size: 10px;\n	line-height: 11px;\n	color: var(--lm-fg-3);\n}\n\n.lm-heat-days > :first-child {\n	height: 14px;\n}\n\n.lm-heat-body {\n	display: flex;\n	flex-direction: column;\n	gap: 3px;\n	min-width: 0;\n}\n\n.lm-heat-months,\n.lm-heat-grid {\n	display: flex;\n	gap: 3px;\n}\n\n.lm-heat-months > span {\n	width: 11px;\n	height: 14px;\n	overflow: visible;\n	white-space: nowrap;\n	font-size: 10px;\n	color: var(--lm-fg-3);\n}\n\n.lm-heat-col {\n	display: flex;\n	flex-direction: column;\n	gap: 3px;\n}\n\n.lm-heat-cell {\n	display: inline-block;\n	width: 11px;\n	height: 11px;\n	border-radius: 3px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-heat-cell[data-level=\"1\"] {\n	background: color-mix(in srgb, var(--lm-heat) 30%, transparent);\n}\n\n.lm-heat-cell[data-level=\"2\"] {\n	background: color-mix(in srgb, var(--lm-heat) 52%, transparent);\n}\n\n.lm-heat-cell[data-level=\"3\"] {\n	background: color-mix(in srgb, var(--lm-heat) 76%, transparent);\n}\n\n.lm-heat-cell[data-level=\"4\"] {\n	background: var(--lm-heat);\n}\n\n.lm-heat-cell[data-future] {\n	visibility: hidden;\n}\n\n.lm-heat-cell[data-today] {\n	outline: 1px solid var(--lm-fg-3);\n	outline-offset: 1px;\n}\n\n.lm-heat-footer {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n}\n\n.lm-heat-legend {\n	display: inline-flex;\n	align-items: center;\n	gap: 3px;\n	font-size: 11px;\n	color: var(--lm-fg-3);\n}\n\n.lm-heat-legend > :first-of-type {\n	margin-left: 4px;\n}\n\n.lm-heat-legend > :last-of-type {\n	margin-right: 4px;\n}\n\n.lm-footer {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 12px;\n	padding: 0 4px 8px;\n}\n\n.local-mode-link-button[data-danger] {\n	color: var(--lm-err);\n}\n\n.local-mode-empty .local-mode-presets {\n	padding: 16px 0 0;\n}\n\n/* DevTool: DEV pill and panel (tweakpane-style, dark in every theme) */\n\n.lm-dev {\n	--dev-bg: rgb(32 33 38 / 0.97);\n	--dev-bg-2: rgb(255 255 255 / 0.06);\n	--dev-bg-3: rgb(255 255 255 / 0.11);\n	--dev-fg: rgb(240 241 245);\n	--dev-fg-2: rgb(240 241 245 / 0.62);\n	--dev-line: rgb(255 255 255 / 0.08);\n	--dev-accent: rgb(120 190 255);\n	font-family: var(--cursor-font-family-ui, system-ui), sans-serif;\n	font-size: 11.5px;\n	color: var(--dev-fg);\n}\n\n.lm-dev-pill {\n	position: fixed;\n	right: 0;\n	z-index: 100000;\n	padding: 6px 5px 6px 7px;\n	border: 1px solid var(--dev-line);\n	border-right: none;\n	border-radius: 8px 0 0 8px;\n	background: var(--dev-bg);\n	color: var(--dev-fg-2);\n	font:\n		600 10px / 1 ui-monospace,\n		SFMono-Regular,\n		Menlo,\n		monospace;\n	letter-spacing: 0.06em;\n	writing-mode: vertical-rl;\n	cursor: grab;\n	opacity: 0.55;\n	box-shadow: 0 2px 10px rgb(0 0 0 / 0.25);\n	transform: translateY(-50%);\n	transition:\n		opacity 120ms,\n		color 120ms;\n	touch-action: none;\n}\n\n.lm-dev-pill:hover,\n.lm-dev-pill[aria-expanded=\"true\"],\n.lm-dev-pill:focus-visible {\n	opacity: 1;\n	color: var(--dev-accent);\n}\n\n.lm-dev-pill:active {\n	cursor: grabbing;\n}\n\n.lm-dev-panel {\n	position: fixed;\n	top: 44px;\n	right: 34px;\n	z-index: 100000;\n	display: flex;\n	flex-direction: column;\n	width: 300px;\n	max-height: calc(100vh - 88px);\n	border: 1px solid var(--dev-line);\n	border-radius: 8px;\n	background: var(--dev-bg);\n	box-shadow: 0 12px 40px rgb(0 0 0 / 0.4);\n	backdrop-filter: blur(12px);\n}\n\n.lm-dev-header {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	padding: 7px 6px 7px 10px;\n	border-bottom: 1px solid var(--dev-line);\n	color: var(--dev-fg-2);\n	font-weight: 600;\n}\n\n.lm-dev-close {\n	display: grid;\n	place-items: center;\n	width: 22px;\n	height: 22px;\n	padding: 0;\n	border: none;\n	border-radius: 4px;\n	background: none;\n	color: var(--dev-fg-2);\n	cursor: pointer;\n}\n\n.lm-dev-close:hover {\n	background: var(--dev-bg-3);\n	color: var(--dev-fg);\n}\n\n.lm-dev-scroll {\n	overflow-y: auto;\n	padding: 4px;\n}\n\n.lm-dev-folder + .lm-dev-folder {\n	margin-top: 4px;\n}\n\n.lm-dev-folder-title {\n	display: flex;\n	align-items: center;\n	gap: 6px;\n	width: 100%;\n	padding: 5px 6px;\n	border: none;\n	border-radius: 4px;\n	background: var(--dev-bg-2);\n	color: var(--dev-fg);\n	font: inherit;\n	font-weight: 600;\n	text-align: left;\n	cursor: pointer;\n}\n\n.lm-dev-folder-title:hover {\n	background: var(--dev-bg-3);\n}\n\n.lm-dev-folder-title svg {\n	transition: transform 120ms;\n}\n\n.lm-dev-folder-title[aria-expanded=\"true\"] svg {\n	transform: rotate(90deg);\n}\n\n.lm-dev-folder-trailing {\n	margin-left: auto;\n	color: var(--dev-fg-2);\n	font-weight: 400;\n}\n\n.lm-dev-folder-body {\n	display: flex;\n	flex-direction: column;\n	gap: 3px;\n	padding: 6px 4px 4px 10px;\n}\n\n.lm-dev-row {\n	display: grid;\n	grid-template-columns: 76px minmax(0, 1fr);\n	align-items: center;\n	gap: 8px;\n	min-height: 22px;\n}\n\n.lm-dev-label {\n	overflow: hidden;\n	color: var(--dev-fg-2);\n	text-overflow: ellipsis;\n	white-space: nowrap;\n}\n\n.lm-dev-value {\n	overflow: hidden;\n	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;\n	font-size: 11px;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n}\n\n.lm-dev-muted {\n	color: var(--dev-fg-2);\n}\n\n.lm-dev-input {\n	box-sizing: border-box;\n	width: 100%;\n	height: 22px;\n	padding: 0 6px;\n	border: 1px solid transparent;\n	border-radius: 4px;\n	outline: none;\n	background: var(--dev-bg-2);\n	color: var(--dev-fg);\n	font: inherit;\n}\n\n.lm-dev-input:hover {\n	background: var(--dev-bg-3);\n}\n\n.lm-dev-input:focus {\n	border-color: var(--dev-accent);\n}\n\n.lm-dev-buttons {\n	display: flex;\n	gap: 4px;\n}\n\n.lm-dev-buttons .lm-dev-button {\n	flex: 1;\n}\n\n.lm-dev-button {\n	margin-top: 2px;\n	padding: 5px 8px;\n	border: none;\n	border-radius: 4px;\n	background: var(--dev-bg-3);\n	color: var(--dev-fg);\n	font: inherit;\n	cursor: pointer;\n}\n\n.lm-dev-button:hover:not(:disabled) {\n	background: rgb(255 255 255 / 0.17);\n}\n\n.lm-dev-button:disabled {\n	opacity: 0.45;\n	cursor: default;\n}\n\n.lm-dev-button[data-danger] {\n	color: rgb(255 140 140);\n}\n\n.lm-dev-status {\n	display: inline-flex;\n	align-items: center;\n	gap: 5px;\n}\n\n.lm-dev-status::before {\n	content: \"\";\n	width: 6px;\n	height: 6px;\n	border-radius: 50%;\n	background: var(--dev-fg-2);\n}\n\n.lm-dev-status[data-on]::before {\n	background: rgb(80 210 130);\n}\n\n.lm-dev-note {\n	margin: 2px 0 0;\n	color: var(--dev-fg-2);\n	font-size: 10.5px;\n	line-height: 1.4;\n}\n\n.lm-dev-requests {\n	display: flex;\n	flex-direction: column;\n	margin: 0;\n	padding: 0;\n	list-style: none;\n	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;\n	font-size: 10.5px;\n}\n\n.lm-dev-requests li {\n	display: grid;\n	grid-template-columns: auto minmax(0, 1fr) auto;\n	column-gap: 8px;\n	padding: 3px 0;\n	border-bottom: 1px solid var(--dev-line);\n}\n\n.lm-dev-requests li > :last-child {\n	grid-column: 2 / 4;\n}\n\n.lm-dev-request-model {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n}\n";
 //#endregion
 //#region src/vs/workbench/contrib/localMode/browser/modelCatalog.ts
 /**
@@ -2880,11 +4155,11 @@ var localMode_default = "/* --- Transcript -------------------------------------
 */
 async function refreshModels(aiService) {
 	const { cursor } = cursorHost();
-	const entries = enabledModels(readProviders(aiService._storageService));
+	const entries = enabledModels(routableProviders(readProviders(aiService._storageService)));
 	const rows = entries.map(({ provider, model, id }) => {
 		const context = contextWindow(model);
 		const source = provider.name || provider.prefix || "custom provider";
-		const effort = effortTiers(provider, model.id);
+		const effort = modelEffortTiers(provider, model);
 		const label = (v) => EFFORT_LABELS[v] ?? v;
 		const parameterDefinitions = effort === void 0 ? [] : [{
 			id: "reasoning",
@@ -2956,7 +4231,7 @@ async function refreshModels(aiService) {
 	const current = stored?.selectedModels?.[0]?.modelId ?? stored?.modelName?.split(",")[0]?.trim();
 	if (ids.length > 0 && (current === void 0 || !ids.includes(current))) {
 		const first = entries.find((e) => e.id === ids[0]);
-		const effort = first === void 0 ? void 0 : effortTiers(first.provider, first.model.id);
+		const effort = first === void 0 ? void 0 : modelEffortTiers(first.provider, first.model);
 		aiService._modelConfigService.setModelConfig("composer", {
 			modelName: ids[0],
 			selectedModels: [{
@@ -2973,13 +4248,16 @@ async function refreshModels(aiService) {
 }
 //#endregion
 //#region src/vs/workbench/contrib/localMode/browser/turnRouting.ts
+function routedDescriptor(provider) {
+	return descriptor(provider, provider.kind === "subscriptions" ? userDataDir() : void 0);
+}
 /**
 * Rewrites one agent turn onto the custom provider that owns its model:
 * `<prefix>/<model>` becomes the bare model ID plus that provider's endpoint.
 * Returns undefined when no custom models are configured (upstream behavior).
 */
 function routeTurn(storage, modelDetails, runOptions) {
-	const providers = readProviders(storage);
+	const providers = routableProviders(readProviders(storage));
 	const models = enabledModels(providers);
 	if (models.length === 0) return;
 	const requested = runOptions.requestedModel?.modelId?.trim() || modelDetails?.modelId?.trim() || void 0;
@@ -3020,7 +4298,7 @@ function routeTurn(storage, modelDetails, runOptions) {
 			customHeaders: target.headers
 		},
 		availableModelIds: (hit.provider.models ?? []).filter((m) => m?.id && m.enabled !== false).map((m) => m.id),
-		cursorLocalProvider: descriptor(hit.provider),
+		cursorLocalProvider: routedDescriptor(hit.provider),
 		usage: {
 			provider: hit.provider.name,
 			model: bare,
@@ -3033,7 +4311,7 @@ function routeTurn(storage, modelDetails, runOptions) {
 * composer's selected custom model, else the first enabled one.
 */
 function inferenceConfig(storage, modelConfigService, userAgent) {
-	const providers = readProviders(storage);
+	const providers = routableProviders(readProviders(storage));
 	const models = enabledModels(providers);
 	if (models.length === 0) return;
 	let selected;
@@ -3048,7 +4326,7 @@ function inferenceConfig(storage, modelConfigService, userAgent) {
 		userAgent,
 		customHeaders: target.headers,
 		modelId: hit.model.id,
-		cursorLocalProvider: descriptor(hit.provider)
+		cursorLocalProvider: routedDescriptor(hit.provider)
 	};
 }
 //#endregion

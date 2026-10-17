@@ -78,6 +78,8 @@ export interface LocalInferenceService {
 		userAgent: string;
 		cursorLocalProvider: { apiType: string; listing: true };
 	}): Promise<{ cursorLocalModels?: unknown }>;
+	/** The same IPC channel, carrying a Subscriptions request to the extension host. */
+	fetchLocalProviderModels(request: { cursorLocalSubscriptions: unknown }): Promise<unknown>;
 }
 
 /** Cursor's authentication service (only what local sign-in touches). */

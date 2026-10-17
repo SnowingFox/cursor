@@ -67,3 +67,20 @@ export function formatCost(usd: number): string {
 	}
 	return usd < 1000 ? `$${usd.toFixed(2)}` : `$${Math.round(usd).toLocaleString('en-US')}`;
 }
+
+/** Coarse time until something happens: "<1m", "12m", "3h 12m", "2d 4h". */
+export function formatCountdown(ms: number): string {
+	if (ms < 60_000) {
+		return '<1m';
+	}
+	const m = Math.floor(ms / 60_000);
+	if (m < 60) {
+		return `${m}m`;
+	}
+	const h = Math.floor(m / 60);
+	if (h < 24) {
+		return m % 60 === 0 ? `${h}h` : `${h}h ${m % 60}m`;
+	}
+	const d = Math.floor(h / 24);
+	return h % 24 === 0 ? `${d}d` : `${d}d ${h % 24}h`;
+}

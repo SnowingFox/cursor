@@ -214273,7 +214273,7 @@ export default function CanvasCompileError() {
         return this.sessions.set(i2, v2), v2;
       }
       async runLocalAgent(t2, r2, n2) {
-        __lcpExt.register(t2);
+        await __lcpExt.register(t2);
         const s2 = crypto.randomUUID(), o2 = new H.EventEmitter();
         let i2, a2, c2, l2;
         void 0 !== r2.getPermissions || iu.warn((0, f.q6)().with(g._O, this.loggerBackend), "runLocalAgent: no bridged exec session for local run; failing closed (tools require approval and are denied)", { conversationId: t2.runOptions.conversationId, conversationGroupId: t2.runOptions.conversationGroupId });
@@ -214364,7 +214364,7 @@ export default function CanvasCompileError() {
         }
       }
       async runLocalInference(e2) {
-        __lcpExt.register(e2);
+        await __lcpExt.register(e2);
         const t2 = await uu();
         switch (e2.kind) {
           case "agentName":
@@ -214381,6 +214381,7 @@ export default function CanvasCompileError() {
       }
       async fetchLocalProviderModels(e2) {
         if (true === e2?.cursorLocalProvider?.listing) return __lcpExt.listModels(e2);
+        if (void 0 !== e2?.cursorLocalSubscriptions) return __lcpExt.subscriptions(e2.cursorLocalSubscriptions);
         const t2 = await uu(), r2 = await t2.fetchLocalProviderModels({ baseUrl: e2.baseUrl, apiKey: e2.apiKey, userAgent: e2.userAgent, customHeaders: e2.customHeaders }), n2 = t2.buildBottlerocketPickerModels(r2.models, { defaultEffortTier: "curated" }).map((e3) => e3.toJson()), s2 = t2.findUnsupportedReasoningModelIds(r2.models);
         return { allProviderModelIds: r2.allModelIds, pickerModels: n2, unsupportedReasoningModelIds: s2 };
       }

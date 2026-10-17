@@ -20,6 +20,7 @@
 		"test:watch": "vitest",
 		"lint": "biome check .",
 		"format": "biome check --write .",
+		"cliproxyapi": "bun scripts/cliproxyapi.mjs",
 		"extract": "bun scripts/extract.mjs",
 		"split": "bun scripts/split-modules.mjs"
 	},

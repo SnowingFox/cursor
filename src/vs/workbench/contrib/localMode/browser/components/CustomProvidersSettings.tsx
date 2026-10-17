@@ -15,8 +15,10 @@ import {
 	validateProviders,
 } from '../../common/providers.js';
 import { readProviders, writeProviders } from '../providerStorage.js';
+import { subscriptionsClient } from '../subscriptionsClient.js';
 import { Icon } from './icons.js';
 import { type ConnectionCheck, ProviderAvatar, ProviderCard } from './ProviderCard.js';
+import { SubscriptionsCard } from './SubscriptionsCard.js';
 
 interface Notice {
 	error: boolean;
@@ -92,6 +94,13 @@ export function CustomProvidersSettings(): ReactNode {
 		edit((ps) => ps.map((p, j) => (j === i ? { ...p, ...patch } : p)));
 
 	const add = (preset: ProviderPreset) => {
+		// One Subscriptions provider holds every signed-in account.
+		const existing = preset.kind === undefined ? -1 : providers.findIndex((x) => x.kind === preset.kind);
+		if (existing >= 0) {
+			setSelected(existing);
+			setAdding(false);
+			return;
+		}
 		edit((ps) => [...ps, newProvider(ps, preset)]);
 		setSelected(providers.length);
 		setAdding(false);
@@ -136,14 +145,20 @@ export function CustomProvidersSettings(): ReactNode {
 		const started = performance.now();
 		setBusy(i);
 		try {
-			const result = await inference.fetchLocalProviderModels({
-				baseUrl: target.baseUrl,
-				apiKey: target.apiKey,
-				customHeaders: target.headers,
-				userAgent: 'Cursor',
-				cursorLocalProvider: { apiType: p.apiType, listing: true },
-			});
-			const listed = result?.cursorLocalModels;
+			let listed: unknown;
+			if (p.kind === 'subscriptions') {
+				// The models of the signed-in accounts, from the sidecar.
+				listed = await subscriptionsClient(inference, p).models();
+			} else {
+				const result = await inference.fetchLocalProviderModels({
+					baseUrl: target.baseUrl,
+					apiKey: target.apiKey,
+					customHeaders: target.headers,
+					userAgent: 'Cursor',
+					cursorLocalProvider: { apiType: p.apiType, listing: true },
+				});
+				listed = result?.cursorLocalModels;
+			}
 			if (!Array.isArray(listed)) {
 				throw new Error('the agent runtime did not return a model list');
 			}
@@ -153,11 +168,16 @@ export function CustomProvidersSettings(): ReactNode {
 				ps.map((x, j) => (j === i ? { ...x, models: mergeListedModels(x.models ?? [], listed as ListedModel[]) } : x)),
 			);
 			const ms = Math.round(performance.now() - started);
+			const counts = `${listed.length} models${fresh > 0 && known.size > 0 ? `, ${fresh} new` : ''}`;
 			setChecks((c) =>
-				new Map(c).set(i, {
-					ok: true,
-					text: `Connected · ${listed.length} models${fresh > 0 && known.size > 0 ? `, ${fresh} new` : ''} · ${ms} ms`,
-				}),
+				new Map(c).set(
+					i,
+					p.kind === 'subscriptions'
+						? listed.length === 0
+							? { ok: false, text: 'No models yet: sign in to an account first.' }
+							: { ok: true, text: `${counts} from your accounts${fresh > 0 ? '. Turn on the ones you want.' : ''}` }
+						: { ok: true, text: `Connected · ${counts} · ${ms} ms` },
+				),
 			);
 		} catch (e) {
 			setChecks((c) => new Map(c).set(i, { ok: false, text: errorMessage(e) }));
@@ -221,6 +241,16 @@ export function CustomProvidersSettings(): ReactNode {
 				<div className="local-mode-card">
 					<PresetGrid onPick={add} onCancel={() => setAdding(false)} />
 				</div>
+			) : p?.kind === 'subscriptions' ? (
+				<SubscriptionsCard
+					key={current}
+					provider={p}
+					busy={busy === current}
+					check={checks.get(current)}
+					onChange={(patch) => update(current, patch)}
+					onRemove={() => remove(current)}
+					onFetch={() => fetchModels(current)}
+				/>
 			) : p !== undefined ? (
 				<ProviderCard
 					key={current}

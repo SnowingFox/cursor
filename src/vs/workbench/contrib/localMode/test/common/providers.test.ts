@@ -7,10 +7,13 @@ import {
 	enabledModels,
 	endpoint,
 	mergeListedModels,
+	modelEffortTiers,
 	newProvider,
 	parseProviders,
 	resolveModel,
+	routableProviders,
 	serializeProviders,
+	subscriptionApiType,
 	validateProviders,
 } from '../../common/providers.js';
 
@@ -173,5 +176,115 @@ describe('mergeListedModels', () => {
 			{ id: 'filled', enabled: true, contextWindow: 200_000 },
 			{ id: 'new', enabled: false, contextWindow: 128_000 },
 		]);
+	});
+
+	it('takes the reported wire format and efforts over earlier ones', () => {
+		const merged = mergeListedModels(
+			[{ id: 'gpt-5.5', enabled: true, apiType: 'openai-chat', efforts: ['low'] }],
+			[
+				{ id: 'gpt-5.5', apiType: 'openai-responses', efforts: ['low', 'medium', 'high'], vision: true },
+				{ id: 'claude-opus-4-7', apiType: 'anthropic', efforts: ['high'] },
+			],
+		);
+		expect(merged).toEqual([
+			{ id: 'gpt-5.5', enabled: true, apiType: 'openai-responses', efforts: ['low', 'medium', 'high'], vision: true },
+			{ id: 'claude-opus-4-7', enabled: false, apiType: 'anthropic', efforts: ['high'] },
+		]);
+	});
+});
+
+describe('subscriptions provider', () => {
+	const preset = PROVIDER_PRESETS.find((p) => p.kind === 'subscriptions')!;
+	const subs = (overrides: Partial<CustomProvider> = {}): CustomProvider => ({
+		...newProvider([], preset),
+		port: 18_317,
+		apiKey: 'sk-local-test',
+		models: [
+			{ id: 'claude-opus-4-7', enabled: true, apiType: 'anthropic', efforts: ['low', 'medium', 'high', 'max'] },
+			{ id: 'gpt-5.5', enabled: true, apiType: 'openai-responses', efforts: ['low', 'medium', 'high', 'xhigh'] },
+			{ id: 'grok-4.7', enabled: false },
+			{ id: 'claude-sonnet-4-6', enabled: true },
+		],
+		...overrides,
+	});
+
+	it('is created with a local port and key', () => {
+		const p = newProvider([], preset);
+		expect(p).toMatchObject({ kind: 'subscriptions', name: 'Subscriptions', prefix: 'sub', strategy: 'round-robin' });
+		expect(p.apiKey).toMatch(/^sk-local-[0-9a-f]{48}$/u);
+		expect(p.port).toBeGreaterThanOrEqual(18_000);
+		expect(p.port).toBeLessThan(19_000);
+	});
+
+	it('routes Claude models to Messages and the rest to Responses, on separate base URLs', () => {
+		const [anthropic, responses] = routableProviders([subs()]);
+		expect(anthropic).toMatchObject({ apiType: 'anthropic', baseUrl: 'http://127.0.0.1:18317', prefix: 'sub' });
+		expect(anthropic.models.map((m) => m.id)).toEqual(['claude-opus-4-7', 'claude-sonnet-4-6']);
+		expect(responses).toMatchObject({
+			apiType: 'openai-responses',
+			baseUrl: 'http://127.0.0.1:18317/backend-api/codex',
+		});
+		expect(responses.models.map((m) => m.id)).toEqual(['gpt-5.5', 'grok-4.7']);
+		expect(endpoint(anthropic).baseUrl).toBe('http://127.0.0.1:18317/v1');
+		expect(endpoint(responses)).toEqual({
+			baseUrl: 'http://127.0.0.1:18317/backend-api/codex',
+			apiKey: 'sk-local-test',
+			headers: {},
+		});
+		expect(enabledModels(routableProviders([subs()])).map((e) => e.id)).toEqual([
+			'sub/claude-opus-4-7',
+			'sub/claude-sonnet-4-6',
+			'sub/gpt-5.5',
+		]);
+		expect(resolveModel(routableProviders([subs()]), 'sub/gpt-5.5')?.provider.apiType).toBe('openai-responses');
+	});
+
+	it('leaves other providers alone', () => {
+		const other = provider();
+		expect(routableProviders([other])).toEqual([other]);
+	});
+
+	it('tells the extension host how to run the sidecar', () => {
+		const [anthropic] = routableProviders([subs({ proxyUrl: 'socks5://127.0.0.1:1080' })]);
+		expect(descriptor(anthropic, '/data/user').sidecar).toEqual({
+			port: 18_317,
+			apiKey: 'sk-local-test',
+			dataDir: '/data/user/cliproxyapi',
+			strategy: 'round-robin',
+			proxyUrl: 'socks5://127.0.0.1:1080',
+		});
+		expect(descriptor(provider(), '/data/user').sidecar).toBeUndefined();
+	});
+
+	it('uses the reported effort levels, with a per-format default', () => {
+		const [anthropic, responses] = routableProviders([subs()]);
+		expect(modelEffortTiers(anthropic, anthropic.models[0])).toEqual({
+			values: ['low', 'medium', 'high', 'max'],
+			default: 'high',
+		});
+		expect(modelEffortTiers(responses, responses.models[0])).toEqual({
+			values: ['low', 'medium', 'high', 'xhigh'],
+			default: 'medium',
+		});
+		expect(modelEffortTiers(responses, { id: 'grok-3-mini', efforts: ['none', 'low'] })?.default).toBe('low');
+		// Without reported levels, the built-in table.
+		expect(modelEffortTiers(anthropic, { id: 'claude-sonnet-4-6' })).toEqual(
+			effortTiers(anthropic, 'claude-sonnet-4-6'),
+		);
+	});
+
+	it('validates the port, key, proxy and that there is only one', () => {
+		expect(validateProviders([subs()])).toBeUndefined();
+		expect(validateProviders([subs({ port: 80 })])).toMatch(/port/u);
+		expect(validateProviders([subs({ apiKey: ' ' })])).toMatch(/API key/u);
+		expect(validateProviders([subs({ proxyUrl: 'ftp://x' })])).toMatch(/default proxy/u);
+		expect(validateProviders([subs(), subs({ prefix: 'sub2' })])).toMatch(/only one/u);
+		expect(validateProviders([subs({ prefix: 'gw' }), provider()])).toMatch(/used by more than one/u);
+	});
+
+	it('infers the wire format of hand-added models', () => {
+		expect(subscriptionApiType({ id: 'claude-haiku-4-5' })).toBe('anthropic');
+		expect(subscriptionApiType({ id: 'gpt-6-sol' })).toBe('openai-responses');
+		expect(subscriptionApiType({ id: 'claude-x', apiType: 'openai-responses' })).toBe('openai-responses');
 	});
 });

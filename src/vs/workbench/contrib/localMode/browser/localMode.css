@@ -775,6 +775,274 @@
 	}
 }
 
+/* Subscriptions provider (Claude Code, Codex, Grok accounts) */
+
+.lm-model-badge {
+	flex-shrink: 0;
+	padding: 0 6px;
+	border-radius: 9px;
+	font-size: 10.5px;
+	line-height: 17px;
+	color: var(--lm-fg-3);
+	background: var(--lm-bg-hover);
+}
+
+.lm-sub-accounts {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.lm-sub-account {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 12px;
+	border: 1px solid var(--lm-line-2);
+	border-radius: 10px;
+	background: var(--lm-bg-raised);
+}
+
+.lm-sub-account[data-off] .lm-sub-account-name {
+	color: var(--lm-fg-3);
+}
+
+.lm-sub-account-head {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.lm-sub-account-name {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight: 500;
+}
+
+.lm-sub-expand .local-mode-icon {
+	transform: rotate(90deg);
+	transition: transform 0.12s;
+}
+
+.lm-sub-expand[aria-expanded="true"] .local-mode-icon {
+	transform: rotate(-90deg);
+}
+
+.lm-sub-pill {
+	flex-shrink: 0;
+	padding: 1px 8px;
+	border-radius: 10px;
+	font-size: 11px;
+	font-weight: 500;
+	white-space: nowrap;
+	color: var(--lm-fg-2);
+	background: var(--lm-bg-hover);
+}
+
+.lm-sub-pill[data-tone="ok"] {
+	color: var(--lm-ok);
+	background: color-mix(in srgb, var(--lm-ok) 12%, transparent);
+}
+
+.lm-sub-pill[data-tone="warn"] {
+	color: var(--cursor-text-yellow-primary, #ca8a04);
+	background: color-mix(in srgb, var(--cursor-text-yellow-primary, #ca8a04) 12%, transparent);
+}
+
+.lm-sub-pill[data-tone="err"] {
+	color: var(--lm-err);
+	background: color-mix(in srgb, var(--lm-err) 12%, transparent);
+}
+
+.lm-sub-quota {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding-left: 42px;
+}
+
+.lm-sub-quota-row {
+	--lm-quota: var(--lm-ok);
+	display: grid;
+	grid-template-columns: 110px minmax(60px, 1fr) 64px 110px;
+	align-items: center;
+	gap: 10px;
+	font-size: 12px;
+}
+
+.lm-sub-quota-row[data-level="mid"] {
+	--lm-quota: var(--cursor-text-yellow-primary, #ca8a04);
+}
+
+.lm-sub-quota-row[data-level="low"] {
+	--lm-quota: var(--lm-err);
+}
+
+.lm-sub-quota-label {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: var(--lm-fg-2);
+}
+
+.lm-sub-quota-bar {
+	height: 6px;
+	border-radius: 3px;
+	overflow: hidden;
+	background: var(--lm-bg-track);
+}
+
+.lm-sub-quota-bar > span {
+	display: block;
+	height: 100%;
+	border-radius: 3px;
+	background: var(--lm-quota);
+	transition: width 0.3s;
+}
+
+.lm-sub-quota-value {
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+}
+
+.lm-sub-quota-reset {
+	color: var(--lm-fg-3);
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+
+.lm-sub-quota-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.lm-sub-account-settings {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 10px 0 0 42px;
+	border-top: 1px solid var(--lm-line-2);
+}
+
+.lm-sub-account-footer {
+	justify-content: space-between;
+}
+
+.lm-sub-proxy {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.lm-sub-inline {
+	display: flex;
+	gap: 6px;
+}
+
+.lm-sub-inline .local-mode-button {
+	height: 30px;
+}
+
+.lm-sub-error {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 10px 12px;
+	border-radius: 8px;
+	background: color-mix(in srgb, var(--lm-err) 8%, transparent);
+	white-space: pre-wrap;
+}
+
+.lm-sub-add {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.lm-sub-add-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+	gap: 8px;
+}
+
+.lm-sub-signin {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 12px;
+	border: 1px solid var(--lm-focus);
+	border-radius: 10px;
+	background: var(--lm-bg-raised);
+}
+
+.lm-sub-signin[data-error] {
+	border-color: var(--lm-line);
+}
+
+.lm-sub-signin-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 600;
+}
+
+.lm-sub-link {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	padding: 4px 4px 4px 10px;
+	border-radius: 7px;
+	background: var(--lm-bg-hover);
+}
+
+.lm-sub-link-url {
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-family: var(--monaco-monospace-font);
+	font-size: 11.5px;
+	color: var(--lm-fg-2);
+}
+
+.lm-sub-link a.local-mode-link-button {
+	text-decoration: none;
+}
+
+.lm-sub-device {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.lm-sub-code {
+	padding: 4px 12px;
+	border-radius: 7px;
+	background: var(--lm-bg-hover);
+	font-family: var(--monaco-monospace-font);
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+}
+
+.lm-sub-paste {
+	display: flex;
+	gap: 6px;
+}
+
+.lm-sub-paste .local-mode-button {
+	height: 30px;
+}
+
 /* --- Settings > Usage ------------------------------------------------------ */
 
 .lm-usage {

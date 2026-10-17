@@ -11,7 +11,9 @@
 //     overridden by CURSOR_LOCAL_MODE=1/0) and drop the account requirement;
 //   * add "Custom Providers" to the agent window's Settings > Models page: any
 //     number of providers (OpenAI Chat Completions, OpenAI Responses, Anthropic
-//     Messages), each with a model prefix and a model list fetched from /models;
+//     Messages), each with a model prefix and a model list fetched from /models,
+//     plus the built-in "Subscriptions" provider (Claude Code, Codex and Grok
+//     accounts served by a CLIProxyAPI sidecar the extension host runs);
 //   * build the model picker from those providers instead of the backend, and
 //     route every turn to the provider that owns the selected `<prefix>/<model>`.
 //
@@ -400,21 +402,24 @@ export const patches = [
     replace: 'privacyMode: t2.privacyMode, maxRetries: void 0 !== t2.cursorLocalProvider ? 1 : 10,',
   },
   {
+    // Awaited: a Subscriptions turn starts the CLIProxyAPI sidecar first.
     id: 'agent-exec/register-run',
     file: AGENT_EXEC,
     find: 'async runLocalAgent(t2, r2, n2) {\n',
-    replace: 'async runLocalAgent(t2, r2, n2) {\n        __lcpExt.register(t2);\n',
+    replace: 'async runLocalAgent(t2, r2, n2) {\n        await __lcpExt.register(t2);\n',
   },
   {
     id: 'agent-exec/register-inference',
     file: AGENT_EXEC,
     find: 'async runLocalInference(e2) {\n',
-    replace: 'async runLocalInference(e2) {\n        __lcpExt.register(e2);\n',
+    replace: 'async runLocalInference(e2) {\n        await __lcpExt.register(e2);\n',
   },
   {
+    // The Settings page's model listing; the same channel carries the
+    // Subscriptions provider's requests (sign-in, accounts, usage).
     id: 'agent-exec/list-models',
     file: AGENT_EXEC,
     find: 'async fetchLocalProviderModels(e2) {\n',
-    replace: 'async fetchLocalProviderModels(e2) {\n        if (true === e2?.cursorLocalProvider?.listing) return __lcpExt.listModels(e2);\n',
+    replace: 'async fetchLocalProviderModels(e2) {\n        if (true === e2?.cursorLocalProvider?.listing) return __lcpExt.listModels(e2);\n        if (void 0 !== e2?.cursorLocalSubscriptions) return __lcpExt.subscriptions(e2.cursorLocalSubscriptions);\n',
   },
 ];

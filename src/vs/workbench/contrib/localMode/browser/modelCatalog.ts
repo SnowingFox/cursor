@@ -1,6 +1,6 @@
 import { type AiService, cursorHost } from '../../../../glass/host/cursorHost.js';
 import { EFFORT_LABELS } from '../common/localMode.js';
-import { contextWindow, effortTiers, enabledModels, endpoint } from '../common/providers.js';
+import { contextWindow, enabledModels, endpoint, modelEffortTiers, routableProviders } from '../common/providers.js';
 import { readProviders } from './providerStorage.js';
 
 /**
@@ -9,12 +9,12 @@ import { readProviders } from './providerStorage.js';
  */
 export async function refreshModels(aiService: AiService): Promise<void> {
 	const { cursor } = cursorHost();
-	const entries = enabledModels(readProviders(aiService._storageService));
+	const entries = enabledModels(routableProviders(readProviders(aiService._storageService)));
 
 	const rows = entries.map(({ provider, model, id }) => {
 		const context = contextWindow(model);
 		const source = provider.name || provider.prefix || 'custom provider';
-		const effort = effortTiers(provider, model.id);
+		const effort = modelEffortTiers(provider, model);
 		const label = (v: keyof typeof EFFORT_LABELS) => EFFORT_LABELS[v] ?? v;
 		const parameterDefinitions =
 			effort === undefined
@@ -97,7 +97,7 @@ export async function refreshModels(aiService: AiService): Promise<void> {
 	const current = stored?.selectedModels?.[0]?.modelId ?? stored?.modelName?.split(',')[0]?.trim();
 	if (ids.length > 0 && (current === undefined || !ids.includes(current))) {
 		const first = entries.find((e) => e.id === ids[0]);
-		const effort = first === undefined ? undefined : effortTiers(first.provider, first.model.id);
+		const effort = first === undefined ? undefined : modelEffortTiers(first.provider, first.model);
 		aiService._modelConfigService.setModelConfig('composer', {
 			modelName: ids[0],
 			selectedModels: [

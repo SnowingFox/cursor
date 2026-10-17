@@ -75,9 +75,14 @@ export function ModelList(props: {
 	busy: boolean;
 	onChange: (models: CustomModel[]) => void;
 	onFetch: () => void;
+	/** Small label next to a model's name ("Claude", "Codex", …). */
+	badge?: (model: CustomModel) => string | undefined;
+	/** Shown under the header, e.g. the last fetch's result. */
+	note?: ReactNode;
+	emptyHint?: string;
 }): ReactNode {
 	const { Switch } = cursorHost().cursor.ui;
-	const { prefix, models, busy, onChange, onFetch } = props;
+	const { prefix, models, busy, onChange, onFetch, badge, note } = props;
 	const [query, setQuery] = useState('');
 	const [filter, setFilter] = useState<Filter>('all');
 	const [newModel, setNewModel] = useState('');
@@ -108,7 +113,7 @@ export function ModelList(props: {
 					<div className="local-mode-block-title">Models</div>
 					<div className="local-mode-hint">
 						{models.length === 0
-							? 'Fetch the list from the endpoint, or add model IDs by hand.'
+							? (props.emptyHint ?? 'Fetch the list from the endpoint, or add model IDs by hand.')
 							: `${onCount} of ${models.length} in the model picker, as ${prefix || '?'}/<model>`}
 					</div>
 				</div>
@@ -119,6 +124,7 @@ export function ModelList(props: {
 					{busy ? 'Fetching…' : models.length === 0 ? 'Fetch models' : 'Refresh'}
 				</button>
 			</div>
+			{note}
 
 			{models.length > 0 ? (
 				<div className="local-mode-model-toolbar">
@@ -166,6 +172,7 @@ export function ModelList(props: {
 								<span className="local-mode-model-name" title={`${prefix}/${m.id}`}>
 									{m.id}
 								</span>
+								{badge?.(m) ? <span className="lm-model-badge">{badge(m)}</span> : null}
 								<ContextChip model={m} onChange={(contextWindow) => patch(m.id, { contextWindow })} />
 								<button
 									type="button"
