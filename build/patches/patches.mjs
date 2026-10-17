@@ -52,6 +52,14 @@ export const patches = [
     find: '{\n\t"quality": "stable",',
     replace: '{\n\t"cursorLocalMode": true,\n\t"quality": "stable",',
   },
+  {
+    // Cursor's update feed serves the official Cursor build; Cursor RE must
+    // never download or install it. No updateUrl disables the update service.
+    id: 'product/no-cursor-updates',
+    file: 'product.json',
+    find: '\t"updateUrl": "https://api2.cursor.sh/updates",\n\t"backupUpdateUrl": "http://cursorapi.com/updates",\n',
+    replace: '',
+  },
 
   // --- agent window (glass) renderer ---------------------------------------
   {
@@ -76,14 +84,14 @@ export const patches = [
     replace: 'this.hasResolvedTeamMembership = () => vl.localMode || this.hasRefreshedMembership,',
   },
   {
-    // No Cursor plan in local mode: report the local account's plan, Ultra
-    // unless the devtool simulates another, so the client drops the free-plan
-    // model lock and upgrade prompts (usage is billed by the user's own
-    // provider, not Cursor).
+    // No Cursor plan in local mode: report the top tier so the client drops
+    // the free-plan model lock and upgrade prompts (usage is billed by the
+    // user's own provider, not Cursor). Lower tiers can't be simulated: Free
+    // pins the composer to a Cursor-hosted model.
     id: 'glass/auth-membership-type',
     file: GLASS,
     find: 'this.membershipType = () => GBp(this._membershipType())',
-    replace: 'this.membershipType = () => vl.localMode ? __lcpAccount().plan : GBp(this._membershipType())',
+    replace: 'this.membershipType = () => vl.localMode ? Fr.ULTRA : GBp(this._membershipType())',
   },
   {
     id: 'glass/auth-membership-refresh',
@@ -91,10 +99,7 @@ export const patches = [
     find: `this.refreshMembership = async (j) => {
       this.authDebugLog("refreshMembership: called"), j?.throwIfAborted();`,
     replace: `this.refreshMembership = async (j) => {
-      if (vl.localMode) {
-        const l = __lcpAccount().plan, o = this._reactiveStorageService.applicationUserPersistentStorage.membershipType;
-        return o !== l && (this._reactiveStorageService.setApplicationUserPersistentStorage("membershipType", l), this.notifySubscriptionChangedListeners(l, o, this.subscriptionStatus()), this._onDidChangeSubscription.fire(l)), void 0;
-      }
+      if (vl.localMode) return this._reactiveStorageService.applicationUserPersistentStorage.membershipType !== Fr.ULTRA && this._reactiveStorageService.setApplicationUserPersistentStorage("membershipType", Fr.ULTRA), void 0;
       this.authDebugLog("refreshMembership: called"), j?.throwIfAborted();`,
   },
   // Local sign-in: the profile, email, sign-in and sign-out all come from the
@@ -182,6 +187,24 @@ export const patches = [
     replace: `  async getLocalInferenceProviderConfig() {
     const __lcp = vl.localMode ? (await __lcpLoad()).inferenceConfig(this._storageService, this._modelConfigService, \`Cursor/\${this.productService.version}\`) : void 0;
     if (__lcp !== void 0) return __lcp;
+`,
+  },
+  {
+    // A chat whose saved model isn't one of the custom models (Auto, or a
+    // Cursor-hosted model picked while signed in) falls back to the composer
+    // default, which refreshModels keeps on a custom model. Otherwise the
+    // picker shows "Select model" and sends go nowhere.
+    id: 'glass/model-config-local-fallback',
+    file: GLASS,
+    find: '    fixupModelConfigForCurrentFlag(t) {\n',
+    replace: `    fixupModelConfigForCurrentFlag(t) {
+      if (vl.localMode && t !== void 0) {
+        const s = this.reactiveStorageService.applicationUserPersistentStorage, ids = s.localProviderModelIds ?? [], first = (c) => c?.selectedModels?.[0]?.modelId ?? c?.modelName?.split(",")[0]?.trim();
+        if (ids.length > 0 && !ids.includes(first(t))) {
+          const c = s.aiSettings?.modelConfig?.composer;
+          t = ids.includes(first(c)) ? c : { modelName: ids[0], selectedModels: [{ modelId: ids[0], parameters: [] }], maxMode: false };
+        }
+      }
 `,
   },
   {

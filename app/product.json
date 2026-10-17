@@ -26,8 +26,6 @@
 	"statsigClientKey": "client-Bm4HJ0aDjXHQVsoACMREyLNxm5p6zzuzhO50MgtoT5D",
 	"statsigLogEventProxyUrl": "https://api3.cursor.sh/tev1/v1",
 	"downloadUrl": "https://cursor.com/downloads",
-	"updateUrl": "https://api2.cursor.sh/updates",
-	"backupUpdateUrl": "http://cursorapi.com/updates",
 	"releaseNotesUrl": "https://www.cursor.com/changelog",
 	"extensionReplacementMapForImports": {
 		"ms-vscode-remote.remote-ssh": "anysphere.remote-ssh",

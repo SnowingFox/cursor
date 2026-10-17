@@ -5,7 +5,7 @@
  * from the sign-in screen.
  */
 import { type ReactNode, useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import { cursorHost, type LocalAccount, type Plan } from '../../../../../glass/host/cursorHost.js';
+import { cursorHost, type LocalAccount } from '../../../../../glass/host/cursorHost.js';
 import { formatCost, formatDuration, formatTokenCount } from '../../common/format.js';
 import { API_TYPE_SHORT_LABELS } from '../../common/localMode.js';
 import { sampleUsage } from '../../common/sampleUsage.js';
@@ -17,13 +17,6 @@ import { Icon } from './icons.js';
 const OPEN_KEY = 'cursorLocalMode.devtool.open';
 const POSITION_KEY = 'cursorLocalMode.devtool.top';
 const FOLDERS_KEY = 'cursorLocalMode.devtool.folders';
-
-const PLANS: { id: Plan; label: string }[] = [
-	{ id: 'free', label: 'Free' },
-	{ id: 'pro', label: 'Pro' },
-	{ id: 'pro_plus', label: 'Pro+' },
-	{ id: 'ultra', label: 'Ultra' },
-];
 
 interface ProductInfo {
 	nameLong?: string;
@@ -184,26 +177,12 @@ function AccountFolder(): ReactNode {
 			<TextField label="Name" value={account.name} onCommit={(name) => update({ name })} />
 			<TextField label="Email" value={account.email} onCommit={(email) => update({ email })} />
 			<Row label="Plan">
-				<span className="lm-dev-segmented">
-					{PLANS.map((p) => (
-						<button
-							key={p.id}
-							type="button"
-							aria-pressed={account.plan === p.id}
-							onClick={() => update({ plan: p.id })}
-						>
-							{p.label}
-						</button>
-					))}
-				</span>
+				Ultra <span className="lm-dev-muted">· local mode</span>
 			</Row>
 			<DevButton onClick={() => update({ signedIn: !account.signedIn })}>
 				{account.signedIn ? 'Sign out' : 'Sign in locally'}
 			</DevButton>
-			<p className="lm-dev-note">
-				Local sign-in: stays on this machine, nothing is sent to Cursor. Free and Pro bring back the plan's model
-				limits.
-			</p>
+			<p className="lm-dev-note">Local sign-in: stays on this machine, nothing is sent to Cursor.</p>
 		</Folder>
 	);
 }

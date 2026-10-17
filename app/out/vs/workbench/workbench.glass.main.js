@@ -323019,6 +323019,13 @@ var gig, YPe, fig, crs, $4e = L({ "modelConfigService.js"() {
       return n ? i : t;
     }
     fixupModelConfigForCurrentFlag(t) {
+      if (vl.localMode && t !== void 0) {
+        const s = this.reactiveStorageService.applicationUserPersistentStorage, ids = s.localProviderModelIds ?? [], first = (c) => c?.selectedModels?.[0]?.modelId ?? c?.modelName?.split(",")[0]?.trim();
+        if (ids.length > 0 && !ids.includes(first(t))) {
+          const c = s.aiSettings?.modelConfig?.composer;
+          t = ids.includes(first(c)) ? c : { modelName: ids[0], selectedModels: [{ modelId: ids[0], parameters: [] }], maxMode: false };
+        }
+      }
       if (!(this.isPrivateInferenceMode() ? this.getAvailableDefaultModels().length > 0 : (this.reactiveStorageService.applicationUserPersistentStorage.availableDefaultModels2?.length ?? 0) > 0)) return t;
       const n = this.getAvailableDefaultModels();
       if (t.modelName && (!t.selectedModels || t.selectedModels.length === 0)) {
@@ -336718,17 +336725,17 @@ var __lcpHost = globalThis.__cursorLocalMode = {
 // service reads it synchronously (isAuthenticated runs before the Vite module
 // loads), so it lives here; the devtool edits it through `account.set`.
 var __lcpAccountKey = "cursorLocalMode.account";
-var __lcpAccountPlans = ["free", "pro", "pro_plus", "ultra"];
 var __lcpAccountListeners = /* @__PURE__ */ new Set();
 var __lcpAccountValue;
 function __lcpAccountClean(value) {
   const o = value !== null && typeof value === "object" ? value : {};
-  const text = (v, fallback) => typeof v === "string" && v.trim() !== "" ? v.trim() : fallback;
+  // Version 1 saved the OS user name as the default; start over from "cursor".
+  const own = o.version === 2;
+  const text = (v, fallback) => own && typeof v === "string" && v.trim() !== "" ? v.trim() : fallback;
   return {
     signedIn: typeof o.signedIn === "boolean" ? o.signedIn : true,
     name: text(o.name, "cursor"),
-    email: text(o.email, "cursor@localhost"),
-    plan: __lcpAccountPlans.includes(o.plan) ? o.plan : "ultra"
+    email: text(o.email, "cursor@localhost")
   };
 }
 function __lcpAccount() {
@@ -336743,17 +336750,16 @@ function __lcpAccount() {
   return __lcpAccountValue;
 }
 // Updates the account; with `auth` (the authentication service) also tells the
-// workbench, which re-reads the profile, plan and signed-in state.
+// workbench, which re-reads the profile and signed-in state.
 function __lcpSetAccount(auth, patch) {
-  const prev = __lcpAccount(), next = __lcpAccountClean({ ...prev, ...patch });
+  const prev = __lcpAccount(), next = __lcpAccountClean({ ...prev, ...patch, version: 2 });
   __lcpAccountValue = next;
   try {
-    globalThis.localStorage?.setItem(__lcpAccountKey, JSON.stringify(next));
+    globalThis.localStorage?.setItem(__lcpAccountKey, JSON.stringify({ version: 2, ...next }));
   } catch {
   }
   for (const l of __lcpAccountListeners) l();
   if (auth !== void 0) {
-    next.plan !== prev.plan && auth.refreshMembership?.();
     (next.signedIn !== prev.signedIn || next.name !== prev.name || next.email !== prev.email) && auth.notifyLoginChangedListeners(next.signedIn);
   }
 }
@@ -788780,7 +788786,7 @@ var A7c = class extends st {
     super(), this.storageService = t, this.environmentService = e, this._reactiveStorageService = n, this.openAIKeyChangedListeners = [], this.claudeKeyChangedListeners = [], this.googleKeyChangedListeners = [], this.loginChangedListeners = [], this.subscriptionChangedListeners = [], this.subscriptionStatusChangedListeners = [], this.refreshTokenTimeout = this._register(new Vn()), this._stripeProfileFetch = this._register(new dTt({ cacheTtlMs: esb, timeoutMs: E5E, defaultBackoffMs: x7c })), this._getMeInFlight = /* @__PURE__ */ new Map(), this._onDidChangeSubscription = this._register(new tt()), this._onDidChangeTeamIds = this._register(new tt()), this._onDidChangeActiveTeamId = this._register(new tt()), this._onDidChangeAccessToken = this._register(new tt()), this._onDidObserveAccountClosed = this._register(new tt()), this.cachedExpirationResult = null, this._repoBlocklistPoller = this._register(new Vn()), this._privacyEligibilityRefreshTimer = this._register(new AI()), this._teamUserPrivacyRefreshTimer = this._register(new AI()), this.onDidChangeSubscription = this._onDidChangeSubscription.event, this.onDidChangeTeamIds = this._onDidChangeTeamIds.event, this.onDidChangeActiveTeamId = this._onDidChangeActiveTeamId.event, this.onDidChangeAccessToken = this._onDidChangeAccessToken.event, this.onDidObserveAccountClosed = this._onDidObserveAccountClosed.event, this.localOverrideAccessToken = void 0, this.refreshToken = () => this.storageService.get("cursorAuth/refreshToken", -1), this.accessToken = () => this.localOverrideAccessToken ? this.localOverrideAccessToken : this.environmentService.overrideCursorAuthToken ? this.environmentService.overrideCursorAuthToken : this.storageService.get("cursorAuth/accessToken", -1), this.getCurrentAuthId = () => {
       const s = this.accessToken();
       return s ? this.getAuthIdFromToken(s) : void 0;
-    }, this._membershipType = () => this.storageService.get(_Tn, -1), this._subscriptionStatus = () => this.storageService.get(xKr, -1), this.subscriptionStatus = () => this._subscriptionStatus(), this.membershipType = () => vl.localMode ? __lcpAccount().plan : GBp(this._membershipType()), this.openAIKey = () => this.byokProviderKeyStorage.openAIKey(), this.claudeKey = () => this.byokProviderKeyStorage.claudeKey(), this.googleKey = () => this.byokProviderKeyStorage.googleKey(), this.whenByokProviderKeysHydrated = () => this.byokProviderKeyStorage.whenHydrated(), this.overrideAccessToken = (s) => {
+    }, this._membershipType = () => this.storageService.get(_Tn, -1), this._subscriptionStatus = () => this.storageService.get(xKr, -1), this.subscriptionStatus = () => this._subscriptionStatus(), this.membershipType = () => vl.localMode ? Fr.ULTRA : GBp(this._membershipType()), this.openAIKey = () => this.byokProviderKeyStorage.openAIKey(), this.claudeKey = () => this.byokProviderKeyStorage.claudeKey(), this.googleKey = () => this.byokProviderKeyStorage.googleKey(), this.whenByokProviderKeysHydrated = () => this.byokProviderKeyStorage.whenHydrated(), this.overrideAccessToken = (s) => {
       this.localOverrideAccessToken = s, this.notifyAccessTokenChangedEmitter(s), this.notifyLoginChangedListeners(true);
     }, this.storeAccessRefreshToken = (s, o) => {
       const a = this.accessToken();
@@ -789185,10 +789191,7 @@ var jDt = class extends A7c {
         this.refreshingAccessToken = false, this.refreshingAccessTokenForced = false, this.refreshingAccessTokenPromise = void 0;
       }
     }, this.refreshMembership = async (j) => {
-      if (vl.localMode) {
-        const l = __lcpAccount().plan, o = this._reactiveStorageService.applicationUserPersistentStorage.membershipType;
-        return o !== l && (this._reactiveStorageService.setApplicationUserPersistentStorage("membershipType", l), this.notifySubscriptionChangedListeners(l, o, this.subscriptionStatus()), this._onDidChangeSubscription.fire(l)), void 0;
-      }
+      if (vl.localMode) return this._reactiveStorageService.applicationUserPersistentStorage.membershipType !== Fr.ULTRA && this._reactiveStorageService.setApplicationUserPersistentStorage("membershipType", Fr.ULTRA), void 0;
       this.authDebugLog("refreshMembership: called"), j?.throwIfAborted();
       try {
         await this.refreshMembershipCore(j);

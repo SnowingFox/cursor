@@ -6,8 +6,12 @@
 .DS_Store
 *.log
 
-# Local reference checkouts
+# Local reference checkouts and other projects cloned here
 /submodule/
+/CLIProxyAPI/
+
+# Claude Code (worktrees, local settings)
+/.claude/
 
 # Reverse-engineering notes and tool output (machine-specific)
 /docs/rea/

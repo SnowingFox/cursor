@@ -83,7 +83,6 @@ export interface LocalInferenceService {
 /** Cursor's authentication service (only what local sign-in touches). */
 export interface AuthService {
 	notifyLoginChangedListeners(signedIn: boolean): void;
-	refreshMembership(): Promise<void>;
 }
 
 /** The agent window's command service. */
@@ -91,15 +90,11 @@ export interface CommandService {
 	executeCommand(id: string, ...args: unknown[]): Promise<unknown>;
 }
 
-/** Cursor's membership types, as stored. */
-export type Plan = 'free' | 'pro' | 'pro_plus' | 'ultra';
-
 /** Who local mode is signed in as (local sign-in). */
 export interface LocalAccount {
 	signedIn: boolean;
 	name: string;
 	email: string;
-	plan: Plan;
 }
 
 export interface LocalAccountStore {

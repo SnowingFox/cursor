@@ -1499,34 +1499,6 @@
 	border-color: var(--dev-accent);
 }
 
-.lm-dev-segmented {
-	display: flex;
-	gap: 2px;
-	padding: 2px;
-	border-radius: 5px;
-	background: var(--dev-bg-2);
-}
-
-.lm-dev-segmented button {
-	flex: 1;
-	padding: 2px 0;
-	border: none;
-	border-radius: 3px;
-	background: none;
-	color: var(--dev-fg-2);
-	font: inherit;
-	cursor: pointer;
-}
-
-.lm-dev-segmented button:hover {
-	color: var(--dev-fg);
-}
-
-.lm-dev-segmented button[aria-pressed="true"] {
-	background: var(--dev-bg-3);
-	color: var(--dev-fg);
-}
-
 .lm-dev-buttons {
 	display: flex;
 	gap: 4px;
