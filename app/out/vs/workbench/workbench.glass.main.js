@@ -336694,10 +336694,17 @@ var __lcpHost = globalThis.__cursorLocalMode = {
     batch: (fn) => Qm(fn),
     useService: (id) => et(id),
     get services() {
-      return { storage: ki, ai: jl, localInference: VW_ };
+      return { storage: ki, ai: jl, localInference: VW_, auth: ss, commands: Vc };
     },
     get ui() {
-      return { Section: Tf, Entries: Hs, Button: An, Switch: qx };
+      return { Page: BV, Section: Tf, Entries: Hs, Button: An, Switch: qx };
+    }
+  },
+  account: {
+    get: () => __lcpAccount(),
+    set: (auth, patch) => __lcpSetAccount(auth, patch),
+    subscribe(listener) {
+      return __lcpAccountListeners.add(listener), () => __lcpAccountListeners.delete(listener);
     }
   },
   impl: void 0,
@@ -336707,6 +336714,56 @@ var __lcpHost = globalThis.__cursorLocalMode = {
     for (const l of __lcpListeners) l();
   }
 };
+// Local sign-in: the account local mode is signed in as. The patched auth
+// service reads it synchronously (isAuthenticated runs before the Vite module
+// loads), so it lives here; the devtool edits it through `account.set`.
+var __lcpAccountKey = "cursorLocalMode.account";
+var __lcpAccountPlans = ["free", "pro", "pro_plus", "ultra"];
+var __lcpAccountListeners = /* @__PURE__ */ new Set();
+var __lcpAccountValue;
+function __lcpAccountClean(value) {
+  const user = globalThis.vscode?.process?.env?.USER || "local";
+  const o = value !== null && typeof value === "object" ? value : {};
+  const text = (v, fallback) => typeof v === "string" && v.trim() !== "" ? v.trim() : fallback;
+  return {
+    signedIn: typeof o.signedIn === "boolean" ? o.signedIn : true,
+    name: text(o.name, user),
+    email: text(o.email, `${user}@localhost`),
+    plan: __lcpAccountPlans.includes(o.plan) ? o.plan : "ultra"
+  };
+}
+function __lcpAccount() {
+  if (__lcpAccountValue === void 0) {
+    let stored;
+    try {
+      stored = JSON.parse(globalThis.localStorage?.getItem(__lcpAccountKey) ?? "null");
+    } catch {
+    }
+    __lcpAccountValue = __lcpAccountClean(stored);
+  }
+  return __lcpAccountValue;
+}
+// Updates the account; with `auth` (the authentication service) also tells the
+// workbench, which re-reads the profile, plan and signed-in state.
+function __lcpSetAccount(auth, patch) {
+  const prev = __lcpAccount(), next = __lcpAccountClean({ ...prev, ...patch });
+  __lcpAccountValue = next;
+  try {
+    globalThis.localStorage?.setItem(__lcpAccountKey, JSON.stringify(next));
+  } catch {
+  }
+  for (const l of __lcpAccountListeners) l();
+  if (auth !== void 0) {
+    next.plan !== prev.plan && auth.refreshMembership?.();
+    (next.signedIn !== prev.signedIn || next.name !== prev.name || next.email !== prev.email) && auth.notifyLoginChangedListeners(next.signedIn);
+  }
+}
+// getScopedDashboardProfile's shape. authId stays empty: a non-empty one turns
+// on cloud features that would call Cursor's backend.
+function __lcpProfile() {
+  const a = __lcpAccount();
+  return a.signedIn ? { firstName: a.name, lastName: "", pictureUrl: void 0, teamName: "", authId: "", email: a.email, numericId: void 0, hasActiveMobileSession: false, createdAt: void 0 } : { teamName: "", authId: "", email: "", numericId: void 0 };
+}
 function __lcpSubscribe(listener) {
   return __lcpListeners.add(listener), () => __lcpListeners.delete(listener);
 }
@@ -337089,7 +337146,7 @@ var ill, rll, w$, Xug, Zug, Q4e, Qug, Jug, edg, tdg, VEi, $ze = L({ "agentClient
     async runLocalAgentInExtensionHost(t, e, n, i, r, s, o, a, l, c) {
       const __lcp = vl.localMode ? (await __lcpLoad()).routeTurn(this.storageService, i, c) : void 0;
       __lcp !== void 0 && (i = __lcp.modelDetails, c = __lcp.runOptions);
-      const __lcpTurnKey = vl.localMode ? __lcpHost.impl?.turnBegin(c.conversationId, n, c.requestedModel) : void 0;
+      const __lcpTurnKey = vl.localMode ? __lcpHost.impl?.turnBegin(c.conversationId, n, c.requestedModel, { requestId: c.generationUUID, route: __lcp?.usage, workspace: this.workspaceContextService?.getWorkspace?.()?.folders?.map((f) => f.uri.fsPath) }) : void 0;
       const u = __lcp?.providerConfig ?? await this.getLocalAgentProviderConfig(i, c), d = __lcp?.availableModelIds ?? this.reactiveStorageService.applicationUserPersistentStorage.localProviderAgentModelIds ?? [], h = i ?? this.createDefaultLocalModel(c), p = nMe(c.requestedModel?.modelId) ?? nMe(i?.modelId) ?? h.modelId;
       this.logService.info("[AgentClientService] Running agent turn through local agent-exec runtime", { conversationId: c.conversationId, modelId: p, baseUrl: u.baseUrl }), await this.agentExecProviderService.waitForProviderRegistration(t.signal, t);
       try {
@@ -482845,7 +482902,9 @@ function Tzf(t) {
 }
 var DUl, SLi, Ezf, NUl, Izf, xzf, Azf, Rzf, oCs, Pzf, Mzf, Dzf, Nzf, Lzf, Ozf, kLi, LUl, OUl, Fzf, TNn, Bzf, Uzf, jzf, wDe = L({ "settingsPaneShared.js"() {
   "use strict";
-  E(), dN(), DUl = "general", SLi = ["general", "profile", "vscode-settings", "appearance", "plan-usage", "chat", "background-composer", "models", "voice", "git-prs", "customize", "plugins", "rules", "mcp", "hooks", "browser", "indexing", "beta", "developer"], Ezf = ["docs"], NUl = ["appearance", "profile"], Izf = ["chat", "general", "plan-usage", "git-prs", "browser", "beta", "developer", "background-composer", "indexing", "models", "voice"], xzf = [...NUl, ...Izf], Azf = new Set(xzf), Rzf = new Set(NUl), oCs = /* @__PURE__ */ new Map([["vscode-settings", "workbench.action.openSettings"]]), Pzf = ["customize"], Mzf = new Set(Pzf), Dzf = ["plugins", "rules", "mcp", "hooks"], Nzf = ["fun", "network", "self-driving", "tab", "worktrees"], Lzf = new Set(Nzf), Ozf = new Set(SLi.filter((t) => !w6w(t) && !yLi(t) && !CNn(t) && !T6w(t) && !C6w(t))), kLi = { docs: "Docs", contact: "Contact" }, LUl = { docs: "https://cursor.com/docs", contact: "mailto:hi@cursor.com" }, OUl = /* @__PURE__ */ new Map([["background-composer", "https://cursor.com/dashboard/cloud-agents"]]), Fzf = () => "Rules, Skills, Subagents", TNn = { general: "General", profile: "Profile", "vscode-settings": "VS Code Settings", appearance: "Appearance", fun: "Fun", "plan-usage": "Plan & Usage", chat: "Agents", browser: "Browser & Network", tab: "Tab", models: "Models", voice: "Voice", "git-prs": "Source Control", rules: "Rules, Skills, Subagents", plugins: "Plugins", customize: "Customize", indexing: "Code Intelligence", mcp: "Tools & MCPs", hooks: "Hooks", beta: "Beta", network: "Network", "background-composer": "Cloud Agents", "self-driving": "Self-Driving PRs", worktrees: "Worktrees", developer: "Developer" }, Bzf = (t) => ({ ...TNn, rules: Fzf() }), Uzf = [["vscode-settings"], ["appearance"], ["background-composer", "models", "voice", "git-prs"]], jzf = { fun: "appearance", network: "browser", "self-driving": "git-prs", worktrees: "git-prs", tab: "indexing" };
+  E(), dN(), DUl = "general", SLi = ["general", "profile", "vscode-settings", "appearance", "plan-usage", "chat", "background-composer", "models", "voice", "git-prs", "customize", "plugins", "rules", "mcp", "hooks", "browser", "indexing", "beta", "developer"], Ezf = ["docs"], NUl = ["appearance", "profile"], Izf = ["chat", "general", "plan-usage", "git-prs", "browser", "beta", "developer", "background-composer", "indexing", "models", "voice"], xzf = [...NUl, ...Izf], Azf = new Set(xzf), Rzf = new Set(NUl), oCs = /* @__PURE__ */ new Map([["vscode-settings", "workbench.action.openSettings"]]), Pzf = ["customize"], Mzf = new Set(Pzf), Dzf = ["plugins", "rules", "mcp", "hooks"], Nzf = ["fun", "network", "self-driving", "tab", "worktrees"], Lzf = new Set(Nzf), Ozf = new Set(SLi.filter((t) => !w6w(t) && !yLi(t) && !CNn(t) && !T6w(t) && !C6w(t))), kLi = { docs: "Docs", contact: "Contact" }, LUl = { docs: "https://cursor.com/docs", contact: "mailto:hi@cursor.com" }, OUl = /* @__PURE__ */ new Map([["background-composer", "https://cursor.com/dashboard/cloud-agents"]]), Fzf = () => "Rules, Skills, Subagents", TNn = { general: "General", profile: "Profile", "vscode-settings": "VS Code Settings", appearance: "Appearance", fun: "Fun", get "plan-usage"() {
+    return vl.localMode ? "Usage" : "Plan & Usage";
+  }, chat: "Agents", browser: "Browser & Network", tab: "Tab", models: "Models", voice: "Voice", "git-prs": "Source Control", rules: "Rules, Skills, Subagents", plugins: "Plugins", customize: "Customize", indexing: "Code Intelligence", mcp: "Tools & MCPs", hooks: "Hooks", beta: "Beta", network: "Network", "background-composer": "Cloud Agents", "self-driving": "Self-Driving PRs", worktrees: "Worktrees", developer: "Developer" }, Bzf = (t) => ({ ...TNn, rules: Fzf() }), Uzf = [["vscode-settings"], ["appearance"], ["background-composer", "models", "voice", "git-prs"]], jzf = { fun: "appearance", network: "browser", "self-driving": "git-prs", worktrees: "git-prs", tab: "indexing" };
 } }), SAt, ENn, aCs = L({ "aiSettingsContextKeys.js"() {
   "use strict";
   E(), Hi(), SAt = new cn("isSettingsPaneOpen", false), ENn = new cn("isSettingsPaneFocused", false);
@@ -489336,7 +489395,7 @@ function EUw(t) {
   return t.membershipType !== Fr.FREE && t.useOpenAIKey && !t.dismissedOpenAIKeyWarning;
 }
 function IUw(t, e) {
-  return t === "plugins" || t === "rules" || t === "mcp" || t === "hooks" ? false : t === "customize" ? e.customizeSidebarTabEnabled : t === "appearance" ? e.appearanceEnabled : t === "fun" || t === "network" ? false : t === "vscode-settings" ? !e.appearanceEnabled : t === "plan-usage" ? e.signedIn ? e.hasTieredSelfServeTeamSpillover === true ? true : e.membershipType === Fr.ENTERPRISE ? e.isEnterpriseUser : e.hasAutoSpillover === true : false : t === "background-composer" ? true : t === "worktrees" || t === "tab" || t === "self-driving" ? false : t === "developer" ? e.developerToolsEnabled : t === "profile" ? e.signedIn && e.profileTabEnabled : t === "voice" ? e.voiceTabEnabled : true;
+  return t === "plugins" || t === "rules" || t === "mcp" || t === "hooks" ? false : t === "customize" ? e.customizeSidebarTabEnabled : t === "appearance" ? e.appearanceEnabled : t === "fun" || t === "network" ? false : t === "vscode-settings" ? !e.appearanceEnabled : t === "plan-usage" ? vl.localMode || (e.signedIn ? e.hasTieredSelfServeTeamSpillover === true ? true : e.membershipType === Fr.ENTERPRISE ? e.isEnterpriseUser : e.hasAutoSpillover === true : false) : t === "background-composer" ? true : t === "worktrees" || t === "tab" || t === "self-driving" ? false : t === "developer" ? e.developerToolsEnabled : t === "profile" ? e.signedIn && e.profileTabEnabled : t === "voice" ? e.voiceTabEnabled : true;
 }
 function xUw(t) {
   return SLi.filter((e) => IUw(e, t));
@@ -551364,7 +551423,7 @@ function D4v(t, e) {
     case "indexing":
       return lZ(Qtv, { settingsWorkspace: e });
     case "plan-usage":
-      return lZ(TG0, {});
+      return vl.localMode ? __lcpView("UsagePage", {}) : lZ(TG0, {});
     case "models":
       return lZ(Pnv, { settingsWorkspace: e });
     case "voice":
@@ -788722,7 +788781,7 @@ var A7c = class extends st {
     super(), this.storageService = t, this.environmentService = e, this._reactiveStorageService = n, this.openAIKeyChangedListeners = [], this.claudeKeyChangedListeners = [], this.googleKeyChangedListeners = [], this.loginChangedListeners = [], this.subscriptionChangedListeners = [], this.subscriptionStatusChangedListeners = [], this.refreshTokenTimeout = this._register(new Vn()), this._stripeProfileFetch = this._register(new dTt({ cacheTtlMs: esb, timeoutMs: E5E, defaultBackoffMs: x7c })), this._getMeInFlight = /* @__PURE__ */ new Map(), this._onDidChangeSubscription = this._register(new tt()), this._onDidChangeTeamIds = this._register(new tt()), this._onDidChangeActiveTeamId = this._register(new tt()), this._onDidChangeAccessToken = this._register(new tt()), this._onDidObserveAccountClosed = this._register(new tt()), this.cachedExpirationResult = null, this._repoBlocklistPoller = this._register(new Vn()), this._privacyEligibilityRefreshTimer = this._register(new AI()), this._teamUserPrivacyRefreshTimer = this._register(new AI()), this.onDidChangeSubscription = this._onDidChangeSubscription.event, this.onDidChangeTeamIds = this._onDidChangeTeamIds.event, this.onDidChangeActiveTeamId = this._onDidChangeActiveTeamId.event, this.onDidChangeAccessToken = this._onDidChangeAccessToken.event, this.onDidObserveAccountClosed = this._onDidObserveAccountClosed.event, this.localOverrideAccessToken = void 0, this.refreshToken = () => this.storageService.get("cursorAuth/refreshToken", -1), this.accessToken = () => this.localOverrideAccessToken ? this.localOverrideAccessToken : this.environmentService.overrideCursorAuthToken ? this.environmentService.overrideCursorAuthToken : this.storageService.get("cursorAuth/accessToken", -1), this.getCurrentAuthId = () => {
       const s = this.accessToken();
       return s ? this.getAuthIdFromToken(s) : void 0;
-    }, this._membershipType = () => this.storageService.get(_Tn, -1), this._subscriptionStatus = () => this.storageService.get(xKr, -1), this.subscriptionStatus = () => this._subscriptionStatus(), this.membershipType = () => vl.localMode ? Fr.ULTRA : GBp(this._membershipType()), this.openAIKey = () => this.byokProviderKeyStorage.openAIKey(), this.claudeKey = () => this.byokProviderKeyStorage.claudeKey(), this.googleKey = () => this.byokProviderKeyStorage.googleKey(), this.whenByokProviderKeysHydrated = () => this.byokProviderKeyStorage.whenHydrated(), this.overrideAccessToken = (s) => {
+    }, this._membershipType = () => this.storageService.get(_Tn, -1), this._subscriptionStatus = () => this.storageService.get(xKr, -1), this.subscriptionStatus = () => this._subscriptionStatus(), this.membershipType = () => vl.localMode ? __lcpAccount().plan : GBp(this._membershipType()), this.openAIKey = () => this.byokProviderKeyStorage.openAIKey(), this.claudeKey = () => this.byokProviderKeyStorage.claudeKey(), this.googleKey = () => this.byokProviderKeyStorage.googleKey(), this.whenByokProviderKeysHydrated = () => this.byokProviderKeyStorage.whenHydrated(), this.overrideAccessToken = (s) => {
       this.localOverrideAccessToken = s, this.notifyAccessTokenChangedEmitter(s), this.notifyLoginChangedListeners(true);
     }, this.storeAccessRefreshToken = (s, o) => {
       const a = this.accessToken();
@@ -788998,6 +789057,7 @@ var jDt = class extends A7c {
         return console.error("Failed to fetch has valid payment method:", $), false;
       }
     }, this.getDaysRemainingOnTrial = async () => (await this.getStripeProfile())?.daysRemainingOnTrial, this.logout = async () => {
+      if (vl.localMode) return __lcpSetAccount(this, { signedIn: false });
       this.authDebugLog("logout: called"), this.resetTeamPolicyEnforcementState();
       try {
         const j = await this.getAccessToken();
@@ -789081,6 +789141,7 @@ var jDt = class extends A7c {
       const j = this.getCurrentAuthId();
       return j !== void 0 && this._numericUserId?.authId === j ? this._numericUserId.numericId : (await this.getScopedDashboardProfile()).numericId;
     }, this.getScopedDashboardProfile = async (j) => {
+      if (vl.localMode) return __lcpProfile();
       if (!this.isAuthenticated()) return { teamName: "", authId: "", email: "", numericId: void 0 };
       const $ = this.getTeamId(), H = this.getCurrentAuthId();
       try {
@@ -789101,6 +789162,7 @@ var jDt = class extends A7c {
         return { teamName: "", authId: "", email: "", numericId: void 0 };
       }
     }, this.getCachedAccountProfile = () => {
+      if (vl.localMode) return __lcpAccount().signedIn ? { authId: "", displayName: __lcpAccount().name, pictureUrl: void 0 } : void 0;
       const j = this.storageService.getObject(RKr, -1), $ = typeof j?.authId == "string" ? j.authId : "", H = typeof j?.displayName == "string" ? j.displayName : "";
       if (!(H.length === 0 || $.length === 0 || $ !== this.getCurrentAuthId())) return { authId: $, displayName: H, pictureUrl: typeof j?.pictureUrl == "string" ? j.pictureUrl : void 0 };
     }, this.getCachedTeam = () => {
@@ -789124,7 +789186,10 @@ var jDt = class extends A7c {
         this.refreshingAccessToken = false, this.refreshingAccessTokenForced = false, this.refreshingAccessTokenPromise = void 0;
       }
     }, this.refreshMembership = async (j) => {
-      if (vl.localMode) return this._reactiveStorageService.applicationUserPersistentStorage.membershipType !== Fr.ULTRA && this._reactiveStorageService.setApplicationUserPersistentStorage("membershipType", Fr.ULTRA), void 0;
+      if (vl.localMode) {
+        const l = __lcpAccount().plan, o = this._reactiveStorageService.applicationUserPersistentStorage.membershipType;
+        return o !== l && (this._reactiveStorageService.setApplicationUserPersistentStorage("membershipType", l), this.notifySubscriptionChangedListeners(l, o, this.subscriptionStatus()), this._onDidChangeSubscription.fire(l)), void 0;
+      }
       this.authDebugLog("refreshMembership: called"), j?.throwIfAborted();
       try {
         await this.refreshMembershipCore(j);
@@ -789513,6 +789578,7 @@ var jDt = class extends A7c {
     }
   }
   async getEmailAndSignUpType() {
+    if (vl.localMode) return { email: __lcpAccount().signedIn ? __lcpAccount().email : void 0, signUpType: bpe.UNKNOWN };
     const t = this.storageService.get(iki, -1), e = this.storageService.get(AKr, -1);
     if (t && t !== "" && e) {
       const o = Object.values(bpe).includes(e) ? e : bpe.UNKNOWN;
@@ -789596,6 +789662,7 @@ var jDt = class extends A7c {
     this.telemetryService.publicLogCapture("$identify_cursordelimiter_" + t);
   }
   async login(t = "login") {
+    if (vl.localMode) return __lcpSetAccount(this, { signedIn: true });
     if (this.authDebugLog("login: called", { mode: t }), t === "dev" || t === "dev-trial" || t === "dev-free" || t === "dev-pro-plus-trial" || t === "dev-ultra" || t === "dev-pro" || t === "dev-enterprise" || t === "dev-pro-plus") {
       this.resetAuthFuture();
       const n = this.cursorCredsService.getBackendUrl(), i = A5E(this.cursorCredsService);
@@ -789718,7 +789785,7 @@ var jDt = class extends A7c {
     await this.getAccessToken() || await this.refreshAccessToken(), await this.refreshMembership();
   }
   isAuthenticated() {
-    if (vl.localMode) return true;
+    if (vl.localMode) return __lcpAccount().signedIn;
     const t = this.accessToken(), e = this.refreshToken();
     return this.scheduleTeamPolicyCheck(), !!(t && e);
   }
@@ -819688,7 +819755,7 @@ function UvI(t) {
   e[23] !== i || e[24] !== r || e[25] !== K ? (Y = hq(z_e, { "aria-label": K, tone: "tertiary", icon: "gear", onClick: r, pressed: i, size: "md", iconSize: "base" }), e[23] = i, e[24] = r, e[25] = K, e[26] = Y) : Y = e[26];
   let J;
   e[27] !== Y || e[28] !== V ? (J = hq(xs, { content: V, placement: "top", sameAxisOnly: true, children: Y }), e[27] = Y, e[28] = V, e[29] = J) : J = e[29];
-  const Q = J, te = b && s.planLabel.length > 0 ? s.planLabel : void 0;
+  const Q = J, te = (vl.localMode || b) && s.planLabel.length > 0 ? s.planLabel : void 0;
   let ee;
   e[30] !== s || e[31] !== n || e[32] !== g || e[33] !== te ? (ee = hq(hn.Trigger, { nativeButton: false, children: hq(CvI, { account: s, compact: n, description: te, privateInferenceEnabled: g }) }), e[30] = s, e[31] = n, e[32] = g, e[33] = te, e[34] = ee) : ee = e[34];
   let re;
@@ -827725,7 +827792,7 @@ function KTI(t) {
   let $e;
   e[65] !== Y || e[66] !== Ne ? ($e = Wf(U$v, { children: MUn($TI, { isWindowFullScreen: Y, portalRootRef: l, children: [Ne, be, je] }) }), e[65] = Y, e[66] = Ne, e[67] = $e) : $e = e[67];
   let Je;
-  e[68] !== ve || e[69] !== $e ? (Je = Wf($jr, { onStackSizeChange: V, children: MUn(xgb, { children: [ge, pe, Wf(cmb, { children: Wf(FNl, { children: Wf(UIf, { children: Wf(wRn, { children: Wf(paa, { variant: "cursor-mixed", children: MUn(dlI, { children: [ve, fe, Te, $e] }) }) }) }) }) })] }) }), e[68] = ve, e[69] = $e, e[70] = Je) : Je = e[70];
+  e[68] !== ve || e[69] !== $e ? (Je = Wf($jr, { onStackSizeChange: V, children: MUn(xgb, { children: [ge, pe, Wf(cmb, { children: Wf(FNl, { children: Wf(UIf, { children: Wf(wRn, { children: Wf(paa, { variant: "cursor-mixed", children: MUn(dlI, { children: [ve, fe, Te, $e, vl.localMode ? __lcpView("DevTool", {}) : null] }) }) }) }) }) })] }) }), e[68] = ve, e[69] = $e, e[70] = Je) : Je = e[70];
   let Ge;
   e[71] !== i || e[72] !== Je ? (Ge = Wf(mpv, { service: i, children: Je }), e[71] = i, e[72] = Je, e[73] = Ge) : Ge = e[73];
   let xe;

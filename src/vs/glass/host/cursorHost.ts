@@ -80,12 +80,43 @@ export interface LocalInferenceService {
 	}): Promise<{ cursorLocalModels?: unknown }>;
 }
 
+/** Cursor's authentication service (only what local sign-in touches). */
+export interface AuthService {
+	notifyLoginChangedListeners(signedIn: boolean): void;
+	refreshMembership(): Promise<void>;
+}
+
+/** The agent window's command service. */
+export interface CommandService {
+	executeCommand(id: string, ...args: unknown[]): Promise<unknown>;
+}
+
+/** Cursor's membership types, as stored. */
+export type Plan = 'free' | 'pro' | 'pro_plus' | 'ultra';
+
+/** Who local mode is signed in as (local sign-in). */
+export interface LocalAccount {
+	signedIn: boolean;
+	name: string;
+	email: string;
+	plan: Plan;
+}
+
+export interface LocalAccountStore {
+	get(): LocalAccount;
+	/** Updates the account; pass the auth service to make the workbench pick it up. */
+	set(auth: AuthService | undefined, patch: Partial<LocalAccount>): void;
+	subscribe(listener: () => void): () => void;
+}
+
 /** A dependency-injection service identifier (`createDecorator(...)`). */
 export type ServiceIdentifier<T> = { readonly __service?: T };
 
 type Component<P> = React.ComponentType<P>;
 
 export interface CursorUi {
+	/** A whole settings page: title, description and the constrained, padded column. */
+	Page: Component<{ title: React.ReactNode; description?: React.ReactNode; children?: React.ReactNode }>;
 	/** Settings section: titled card with optional trailing controls. */
 	Section: Component<{
 		title: React.ReactNode;
@@ -130,6 +161,8 @@ export interface CursorInternals {
 		storage: ServiceIdentifier<StorageService>;
 		ai: ServiceIdentifier<AiService>;
 		localInference: ServiceIdentifier<LocalInferenceService>;
+		auth: ServiceIdentifier<AuthService>;
+		commands: ServiceIdentifier<CommandService>;
 	};
 	readonly ui: CursorUi;
 }
@@ -144,6 +177,7 @@ export interface CursorHost {
 	readonly react: typeof React;
 	readonly jsxRuntime: typeof JsxRuntime;
 	readonly cursor: CursorInternals;
+	readonly account: LocalAccountStore;
 	impl: LocalModeImpl | undefined;
 	/** Installs (or hot-replaces) the implementation and re-renders mounted views. */
 	register(impl: LocalModeImpl): void;

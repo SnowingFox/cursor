@@ -1,5 +1,13 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { contextLength, kind, listModels, maxOutputTokens, parseModelList, register } from '../localMode.js';
+import {
+	contextLength,
+	describeFetchError,
+	kind,
+	listModels,
+	maxOutputTokens,
+	parseModelList,
+	register,
+} from '../localMode.js';
 
 const descriptor = {
 	apiType: 'anthropic' as const,
@@ -79,5 +87,25 @@ describe('listModels', () => {
 		).rejects.toThrow('GET https://o.example.com/v1/models returned HTTP 401: nope');
 		const [, init] = fetch.mock.calls[0] as unknown as [string, RequestInit];
 		expect(init.headers).toMatchObject({ authorization: 'Bearer k' });
+	});
+});
+
+describe('describeFetchError', () => {
+	it('explains the network error hidden in the cause', () => {
+		const refused = Object.assign(new AggregateError([Object.assign(new Error(''), { code: 'ECONNREFUSED' })], ''), {
+			code: 'ECONNREFUSED',
+		});
+		expect(describeFetchError(new TypeError('fetch failed', { cause: refused }))).toBe(
+			'connection refused. Is the server running?',
+		);
+		const nested = new AggregateError([Object.assign(new Error(''), { code: 'ENOTFOUND' })], '');
+		expect(describeFetchError(new TypeError('fetch failed', { cause: nested }))).toBe('host not found.');
+		expect(describeFetchError(Object.assign(new Error('x'), { name: 'TimeoutError' }))).toBe(
+			'no response within 20 seconds.',
+		);
+		expect(describeFetchError(new TypeError('fetch failed', { cause: new Error('self-signed certificate') }))).toBe(
+			'self-signed certificate',
+		);
+		expect(describeFetchError('boom')).toBe('boom');
 	});
 });

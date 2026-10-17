@@ -14,7 +14,11 @@ export interface TurnStats {
 	startedAt: number;
 	/** First streamed byte; until then the arrow points up ("↑ sending"). */
 	firstByteAt?: number;
-	/** Streamed text + thinking + tool-argument characters (tokens ≈ chars / 4). */
+	/**
+	 * Characters the model has streamed: text, thinking and tool-call arguments
+	 * (file contents for edits included), but not tool results. Tokens ≈ chars
+	 * / 4, the same count as Claude Code's spinner.
+	 */
 	chars: number;
 	effort?: string;
 	/** Set while the model is streaming a thinking block. */
@@ -35,6 +39,8 @@ const MAX_TURNS = 300;
 interface Store {
 	turns: Map<string, TurnStats>;
 	byConversation: Map<string, string>;
+	/** Argument characters already counted per tool call id. */
+	toolArgs: Map<string, number>;
 	listeners: Set<() => void>;
 	notifyPending: boolean;
 }
@@ -47,10 +53,12 @@ declare global {
 globalThis.__cursorLocalModeTurnStats ??= {
 	turns: load(),
 	byConversation: new Map(),
+	toolArgs: new Map(),
 	listeners: new Set(),
 	notifyPending: false,
 };
 const store: Store = globalThis.__cursorLocalModeTurnStats;
+store.toolArgs ??= new Map();
 
 function load(): Map<string, TurnStats> {
 	try {
@@ -120,6 +128,7 @@ export function turnBegin(
 	store.byConversation.set(conversationId, key);
 	const effort = requestedModel?.parameters?.find((p) => p.id === 'reasoning' || p.id === 'effort')?.value || undefined;
 	const prev = store.turns.get(key);
+	store.toolArgs.clear();
 	store.turns.set(
 		key,
 		prev !== undefined && messageId === undefined
@@ -155,15 +164,24 @@ export function turnUpdate(key: string | undefined, update: InteractionUpdate): 
 			patch(key, { firstByteAt, thinkingSince: undefined });
 			return;
 		case 'partialToolCall':
-			patch(key, {
-				chars: s.chars + (m.value.argsTextDelta?.length ?? 0),
-				firstByteAt,
-				thinkingSince: undefined,
-			});
-			return;
-		case 'toolCallStarted':
 			patch(key, { firstByteAt, thinkingSince: undefined });
 			return;
+		case 'toolCallDelta': {
+			// File contents of edit tools stream here while the model writes them.
+			const delta: unknown = m.value.toolCallDelta?.delta?.value?.streamContentDelta;
+			const n = typeof delta === 'string' ? delta.length : 0;
+			store.toolArgs.set(m.value.callId, (store.toolArgs.get(m.value.callId) ?? 0) + n);
+			patch(key, { chars: s.chars + n, firstByteAt, thinkingSince: undefined });
+			return;
+		}
+		case 'toolCallStarted': {
+			// The complete arguments; count whatever did not stream as a delta.
+			const total = argsLength(m.value.toolCall);
+			const counted = store.toolArgs.get(m.value.callId) ?? 0;
+			store.toolArgs.set(m.value.callId, Math.max(total, counted));
+			patch(key, { chars: s.chars + Math.max(0, total - counted), firstByteAt, thinkingSince: undefined });
+			return;
+		}
 		case 'turnEnded': {
 			const out = m.value.outputTokens === undefined ? undefined : Number(m.value.outputTokens);
 			patch(key, {
@@ -174,6 +192,21 @@ export function turnUpdate(key: string | undefined, update: InteractionUpdate): 
 			save();
 			return;
 		}
+	}
+}
+
+/** Length of a tool call's arguments as JSON (a protobuf ToolCall: `tool` is a oneof). */
+function argsLength(toolCall: any): number {
+	const args = toolCall?.tool?.value?.args;
+	if (args === undefined || args === null) {
+		return 0;
+	}
+	try {
+		return typeof args.toJsonString === 'function'
+			? args.toJsonString().length
+			: JSON.stringify(args, (_, v) => (typeof v === 'bigint' ? String(v) : v)).length;
+	} catch {
+		return 0;
 	}
 }
 
@@ -196,7 +229,9 @@ export function turnText(s: TurnStats, active: boolean, durationMs?: number, now
 		if (ms !== undefined && ms > 0) {
 			parts.push(`for ${formatDuration(ms)}`);
 		}
-		const tokens = s.outputTokens ?? Math.round(s.chars / 4);
+		// The provider's usage is exact, but some gateways under-report it; never
+		// show less than what visibly streamed.
+		const tokens = Math.max(s.outputTokens ?? 0, Math.round(s.chars / 4));
 		if (tokens > 0) {
 			parts.push(`↓ ${formatTokens(tokens)} tokens`);
 		}

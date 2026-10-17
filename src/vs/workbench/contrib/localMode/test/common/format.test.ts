@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { formatDuration, formatTokens } from '../../common/format.js';
+import {
+	formatContextWindow,
+	formatDuration,
+	formatTokenCount,
+	formatTokens,
+	parseTokenCount,
+} from '../../common/format.js';
 
 describe('formatDuration', () => {
 	it('shows seconds under a minute', () => {
@@ -26,5 +32,29 @@ describe('formatTokens', () => {
 		expect(formatTokens(1000)).toBe('1.0k');
 		expect(formatTokens(112_200)).toBe('112.2k');
 		expect(formatTokens(2_500_000)).toBe('2.5m');
+	});
+
+	it('has an upper-case form for the Usage page', () => {
+		expect(formatTokenCount(950)).toBe('950');
+		expect(formatTokenCount(166_600_000)).toBe('166.6M');
+	});
+});
+
+describe('context windows', () => {
+	it('formats like model cards', () => {
+		expect(formatContextWindow(1_000_000)).toBe('1M');
+		expect(formatContextWindow(200_000)).toBe('200K');
+		expect(formatContextWindow(128_000)).toBe('128K');
+		expect(formatContextWindow(32_768)).toBe('32.8K');
+	});
+
+	it('parses shorthand', () => {
+		expect(parseTokenCount('200000')).toBe(200_000);
+		expect(parseTokenCount('1_000_000')).toBe(1_000_000);
+		expect(parseTokenCount('200k')).toBe(200_000);
+		expect(parseTokenCount(' 1.5M ')).toBe(1_500_000);
+		expect(parseTokenCount('')).toBeUndefined();
+		expect(parseTokenCount('0')).toBeUndefined();
+		expect(parseTokenCount('lots')).toBeUndefined();
 	});
 });

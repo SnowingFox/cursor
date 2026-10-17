@@ -106,8 +106,7 @@ export async function listModels(request: ProviderRequest): Promise<{ cursorLoca
 	try {
 		response = await fetch(url, { headers, signal: AbortSignal.timeout(20_000) });
 	} catch (e) {
-		const cause = e instanceof Error ? ((e.cause as Error | undefined)?.message ?? e.message) : String(e);
-		throw new Error(`Could not reach ${url}: ${cause}`);
+		throw new Error(`Could not reach ${url}: ${describeFetchError(e)}`);
 	}
 	const text = await response.text();
 	if (!response.ok) {
@@ -120,4 +119,32 @@ export async function listModels(request: ProviderRequest): Promise<{ cursorLoca
 		throw new Error(`GET ${url} did not return JSON`);
 	}
 	return { cursorLocalModels: parseModelList(body) };
+}
+
+const NETWORK_ERRORS: Record<string, string> = {
+	ECONNREFUSED: 'connection refused. Is the server running?',
+	ENOTFOUND: 'host not found.',
+	EAI_AGAIN: 'DNS lookup failed. Check the network.',
+	ECONNRESET: 'the connection was reset.',
+	ETIMEDOUT: 'the connection timed out.',
+	UND_ERR_CONNECT_TIMEOUT: 'the connection timed out.',
+};
+
+/**
+ * Node's fetch throws "fetch failed" and hides the reason in `cause`, often an
+ * AggregateError with an empty message (one attempt per resolved address).
+ */
+export function describeFetchError(e: unknown): string {
+	if (!(e instanceof Error)) {
+		return String(e);
+	}
+	if (e.name === 'TimeoutError') {
+		return 'no response within 20 seconds.';
+	}
+	const cause = e.cause as (Error & { code?: string; errors?: (Error & { code?: string })[] }) | undefined;
+	const code = cause?.code ?? cause?.errors?.find((x) => x.code)?.code;
+	if (code !== undefined) {
+		return NETWORK_ERRORS[code] ?? (cause?.message || code);
+	}
+	return cause?.message || e.message;
 }

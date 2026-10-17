@@ -23,7 +23,10 @@
 		"rules": {
 			"preset": "recommended",
 			"suspicious": { "noExplicitAny": "off" },
-			"style": { "noNonNullAssertion": "off" }
+			"style": {
+				"noNonNullAssertion": "off",
+				"noDescendingSpecificity": "off"
+			}
 		}
 	},
 	"assist": { "actions": { "source": { "organizeImports": "on" } } }

@@ -21,6 +21,74 @@ export const BASE_URL_HINTS: Record<ApiType, string> = {
 	anthropic: 'https://api.anthropic.com',
 };
 
+/** Short names for the API-format switch. */
+export const API_TYPE_SHORT_LABELS: Record<ApiType, string> = {
+	anthropic: 'Anthropic',
+	'openai-chat': 'OpenAI Chat',
+	'openai-responses': 'OpenAI Responses',
+};
+
+/** Starting points offered by "Add provider". */
+export interface ProviderPreset {
+	id: string;
+	name: string;
+	description: string;
+	prefix: string;
+	apiType: ApiType;
+	baseUrl: string;
+}
+
+export const PROVIDER_PRESETS: ProviderPreset[] = [
+	{
+		id: 'anthropic',
+		name: 'Anthropic',
+		description: 'Claude via the Messages API',
+		prefix: 'anthropic',
+		apiType: 'anthropic',
+		baseUrl: 'https://api.anthropic.com',
+	},
+	{
+		id: 'openai',
+		name: 'OpenAI',
+		description: 'GPT via the Responses API',
+		prefix: 'openai',
+		apiType: 'openai-responses',
+		baseUrl: 'https://api.openai.com/v1',
+	},
+	{
+		id: 'openrouter',
+		name: 'OpenRouter',
+		description: 'Hundreds of models, one key',
+		prefix: 'openrouter',
+		apiType: 'openai-chat',
+		baseUrl: 'https://openrouter.ai/api/v1',
+	},
+	{
+		id: 'ollama',
+		name: 'Ollama',
+		description: 'Local models on port 11434',
+		prefix: 'ollama',
+		apiType: 'openai-chat',
+		baseUrl: 'http://localhost:11434/v1',
+	},
+	{
+		id: 'lmstudio',
+		name: 'LM Studio',
+		description: 'Local server on port 1234',
+		prefix: 'lmstudio',
+		apiType: 'openai-chat',
+		baseUrl: 'http://localhost:1234/v1',
+	},
+	{
+		id: 'custom',
+		name: 'Custom',
+		description: 'Any compatible endpoint or gateway',
+		prefix: 'custom-provider',
+		apiType: 'openai-chat',
+		baseUrl: '',
+	},
+];
+
 export interface CustomModel {
 	id: string;
 	enabled?: boolean;

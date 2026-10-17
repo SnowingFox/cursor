@@ -66,7 +66,7 @@ export const patches = [
     find: `  isAuthenticated() {
     const t = this.accessToken(), e = this.refreshToken();`,
     replace: `  isAuthenticated() {
-    if (vl.localMode) return true;
+    if (vl.localMode) return __lcpAccount().signedIn;
     const t = this.accessToken(), e = this.refreshToken();`,
   },
   {
@@ -76,13 +76,14 @@ export const patches = [
     replace: 'this.hasResolvedTeamMembership = () => vl.localMode || this.hasRefreshedMembership,',
   },
   {
-    // No Cursor plan in local mode: report the top tier so the client drops
-    // the free-plan model lock and upgrade prompts (usage is billed by the
-    // user's own provider, not Cursor).
+    // No Cursor plan in local mode: report the local account's plan, Ultra
+    // unless the devtool simulates another, so the client drops the free-plan
+    // model lock and upgrade prompts (usage is billed by the user's own
+    // provider, not Cursor).
     id: 'glass/auth-membership-type',
     file: GLASS,
     find: 'this.membershipType = () => GBp(this._membershipType())',
-    replace: 'this.membershipType = () => vl.localMode ? Fr.ULTRA : GBp(this._membershipType())',
+    replace: 'this.membershipType = () => vl.localMode ? __lcpAccount().plan : GBp(this._membershipType())',
   },
   {
     id: 'glass/auth-membership-refresh',
@@ -90,8 +91,61 @@ export const patches = [
     find: `this.refreshMembership = async (j) => {
       this.authDebugLog("refreshMembership: called"), j?.throwIfAborted();`,
     replace: `this.refreshMembership = async (j) => {
-      if (vl.localMode) return this._reactiveStorageService.applicationUserPersistentStorage.membershipType !== Fr.ULTRA && this._reactiveStorageService.setApplicationUserPersistentStorage("membershipType", Fr.ULTRA), void 0;
+      if (vl.localMode) {
+        const l = __lcpAccount().plan, o = this._reactiveStorageService.applicationUserPersistentStorage.membershipType;
+        return o !== l && (this._reactiveStorageService.setApplicationUserPersistentStorage("membershipType", l), this.notifySubscriptionChangedListeners(l, o, this.subscriptionStatus()), this._onDidChangeSubscription.fire(l)), void 0;
+      }
       this.authDebugLog("refreshMembership: called"), j?.throwIfAborted();`,
+  },
+  // Local sign-in: the profile, email, sign-in and sign-out all come from the
+  // local account (build/patches/inject/glass-host.js) instead of Cursor's
+  // backend. Log In on the sign-in screen signs in locally; Log Out signs out.
+  {
+    id: 'glass/auth-local-profile',
+    file: GLASS,
+    find: '}, this.getScopedDashboardProfile = async (j) => {\n',
+    replace: '}, this.getScopedDashboardProfile = async (j) => {\n      if (vl.localMode) return __lcpProfile();\n',
+  },
+  {
+    id: 'glass/auth-local-cached-profile',
+    file: GLASS,
+    find: '}, this.getCachedAccountProfile = () => {\n',
+    replace: `}, this.getCachedAccountProfile = () => {
+      if (vl.localMode) return __lcpAccount().signedIn ? { authId: "", displayName: __lcpAccount().name, pictureUrl: void 0 } : void 0;
+`,
+  },
+  {
+    id: 'glass/auth-local-email',
+    file: GLASS,
+    find: '  async getEmailAndSignUpType() {\n',
+    replace: '  async getEmailAndSignUpType() {\n    if (vl.localMode) return { email: __lcpAccount().signedIn ? __lcpAccount().email : void 0, signUpType: bpe.UNKNOWN };\n',
+  },
+  {
+    id: 'glass/auth-local-login',
+    file: GLASS,
+    find: '  async login(t = "login") {\n',
+    replace: '  async login(t = "login") {\n    if (vl.localMode) return __lcpSetAccount(this, { signedIn: true });\n',
+  },
+  {
+    id: 'glass/auth-local-logout',
+    file: GLASS,
+    find: 'this.logout = async () => {\n      this.authDebugLog("logout: called"),',
+    replace: 'this.logout = async () => {\n      if (vl.localMode) return __lcpSetAccount(this, { signedIn: false });\n      this.authDebugLog("logout: called"),',
+  },
+  {
+    // The sidebar account row only shows the plan to enterprise users.
+    id: 'glass/account-plan-label',
+    file: GLASS,
+    find: 'te = b && s.planLabel.length > 0 ? s.planLabel : void 0',
+    replace: 'te = (vl.localMode || b) && s.planLabel.length > 0 ? s.planLabel : void 0',
+  },
+  {
+    // The DEV pill and panel, mounted at the window root so it stays reachable
+    // on the sign-in screen too.
+    id: 'glass/devtool',
+    file: GLASS,
+    find: 'children: MUn(dlI, { children: [ve, fe, Te, $e] })',
+    replace: 'children: MUn(dlI, { children: [ve, fe, Te, $e, vl.localMode ? __lcpView("DevTool", {}) : null] })',
   },
   {
     id: 'glass/local-mode-host',
@@ -182,13 +236,34 @@ export const patches = [
     id: 'glass/turn-status-begin',
     file: GLASS,
     find: '      __lcp !== void 0 && (i = __lcp.modelDetails, c = __lcp.runOptions);\n',
-    replace: '      __lcp !== void 0 && (i = __lcp.modelDetails, c = __lcp.runOptions);\n      const __lcpTurnKey = vl.localMode ? __lcpHost.impl?.turnBegin(c.conversationId, n, c.requestedModel) : void 0;\n',
+    replace: '      __lcp !== void 0 && (i = __lcp.modelDetails, c = __lcp.runOptions);\n      const __lcpTurnKey = vl.localMode ? __lcpHost.impl?.turnBegin(c.conversationId, n, c.requestedModel, { requestId: c.generationUUID, route: __lcp?.usage, workspace: this.workspaceContextService?.getWorkspace?.()?.folders?.map((f) => f.uri.fsPath) }) : void 0;\n',
   },
   {
     id: 'glass/turn-status-updates',
     file: GLASS,
     find: 'f = { sendInteractionUpdate: async (b) => {\n          const y = ok.fromBinary(b.buffer);\n',
     replace: 'f = { sendInteractionUpdate: async (b) => {\n          const y = ok.fromBinary(b.buffer);\n          __lcpTurnKey !== void 0 && __lcpHost.impl?.turnUpdate(__lcpTurnKey, y);\n',
+  },
+  {
+    // Settings > Usage: the "Plan & Usage" page becomes the local usage
+    // dashboard. Upstream only shows it to signed-in team plans.
+    id: 'glass/settings-usage-visible',
+    file: GLASS,
+    find: 't === "plan-usage" ? e.signedIn ? e.hasTieredSelfServeTeamSpillover === true ? true : e.membershipType === Fr.ENTERPRISE ? e.isEnterpriseUser : e.hasAutoSpillover === true : false :',
+    replace: 't === "plan-usage" ? vl.localMode || (e.signedIn ? e.hasTieredSelfServeTeamSpillover === true ? true : e.membershipType === Fr.ENTERPRISE ? e.isEnterpriseUser : e.hasAutoSpillover === true : false) :',
+  },
+  {
+    id: 'glass/settings-usage-label',
+    file: GLASS,
+    find: 'fun: "Fun", "plan-usage": "Plan & Usage",',
+    // A getter: this table is built before the build flags module initializes.
+    replace: 'fun: "Fun", get "plan-usage"() {\n    return vl.localMode ? "Usage" : "Plan & Usage";\n  },',
+  },
+  {
+    id: 'glass/settings-usage-page',
+    file: GLASS,
+    find: '    case "plan-usage":\n      return lZ(TG0, {});',
+    replace: '    case "plan-usage":\n      return vl.localMode ? __lcpView("UsagePage", {}) : lZ(TG0, {});',
   },
   {
     // `bun run dev` serves local mode from the Vite dev server (hot reload).

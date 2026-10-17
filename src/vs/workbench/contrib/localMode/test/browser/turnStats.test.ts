@@ -51,10 +51,34 @@ describe('turn stats', () => {
 
 	it('keeps counting into the same turn on resume', () => {
 		turnBegin('conv-2', userMessage('msg-2'), model('low'));
-		turnUpdate('msg-2', update('partialToolCall', { argsTextDelta: 'abcd' }));
+		turnUpdate('msg-2', update('textDelta', { text: 'abcd' }));
 		expect(turnBegin('conv-2', { action: { case: 'resumeAction' } }, model('max'))).toBe('msg-2');
 		expect(getTurn('msg-2')).toMatchObject({ chars: 4, effort: 'max' });
 		expect(turnBegin('conv-unknown', undefined, undefined)).toBeUndefined();
+	});
+});
+
+describe('tool-call arguments', () => {
+	it('counts streamed file contents once and the rest of the arguments at start', () => {
+		const key = turnBegin('conv-3', userMessage('msg-3'), undefined);
+		const content = 'x'.repeat(4000);
+		turnUpdate(
+			key,
+			update('toolCallDelta', {
+				callId: 'c1',
+				toolCallDelta: { delta: { case: 'editToolCallDelta', value: { streamContentDelta: content } } },
+			}),
+		);
+		expect(getTurn('msg-3')!.chars).toBe(4000);
+		const args = { path: '/a.txt', streamContent: content };
+		turnUpdate(
+			key,
+			update('toolCallStarted', { callId: 'c1', toolCall: { tool: { case: 'editToolCall', value: { args } } } }),
+		);
+		expect(getTurn('msg-3')!.chars).toBe(JSON.stringify(args).length);
+		// Tool results are input, not output.
+		turnUpdate(key, update('toolCallCompleted', { callId: 'c1' }));
+		expect(getTurn('msg-3')!.chars).toBe(JSON.stringify(args).length);
 	});
 });
 

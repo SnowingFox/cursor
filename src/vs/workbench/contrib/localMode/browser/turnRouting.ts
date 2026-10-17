@@ -8,6 +8,7 @@ import {
 import type { ProviderDescriptor } from '../common/localMode.js';
 import { descriptor, enabledModels, endpoint, resolveModel } from '../common/providers.js';
 import { readProviders } from './providerStorage.js';
+import type { RouteInfo } from './usageStore.js';
 
 export interface RunOptions {
 	conversationId?: string;
@@ -21,6 +22,8 @@ export interface RoutedTurn {
 	providerConfig: { baseUrl: string; apiKey: string | undefined; customHeaders: Record<string, string> };
 	availableModelIds: string[];
 	cursorLocalProvider: ProviderDescriptor;
+	/** For the usage log. */
+	usage: RouteInfo;
 }
 
 /**
@@ -71,6 +74,7 @@ export function routeTurn(
 		providerConfig: { baseUrl: target.baseUrl, apiKey: target.apiKey, customHeaders: target.headers },
 		availableModelIds: (hit.provider.models ?? []).filter((m) => m?.id && m.enabled !== false).map((m) => m.id),
 		cursorLocalProvider: descriptor(hit.provider),
+		usage: { provider: hit.provider.name, model: bare, apiType: hit.provider.apiType },
 	};
 }
 

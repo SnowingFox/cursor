@@ -5,6 +5,7 @@ import {
 	type EffortTiers,
 	type ListedModel,
 	type ProviderDescriptor,
+	type ProviderPreset,
 } from './localMode.js';
 
 export interface EnabledModel {
@@ -155,14 +156,23 @@ export function effortTiers(provider: Pick<CustomProvider, 'apiType'>, modelId: 
 	return undefined;
 }
 
-export function newProvider(existing: CustomProvider[]): CustomProvider {
+export function newProvider(existing: CustomProvider[], preset?: ProviderPreset): CustomProvider {
+	const base = preset?.prefix ?? 'custom-provider';
 	const used = new Set(existing.map((p) => p.prefix));
 	let n = existing.length + 1;
-	let prefix = 'custom-provider';
+	let prefix = base;
 	while (used.has(prefix)) {
-		prefix = `custom-provider-${++n}`;
+		prefix = `${base}-${++n}`;
 	}
-	return { name: prefix, prefix, apiType: 'openai-chat', baseUrl: '', apiKey: '', headers: '', models: [] };
+	return {
+		name: preset === undefined || preset.id === 'custom' ? prefix : preset.name,
+		prefix,
+		apiType: preset?.apiType ?? 'openai-chat',
+		baseUrl: preset?.baseUrl ?? '',
+		apiKey: '',
+		headers: '',
+		models: [],
+	};
 }
 
 /** Returns a user-facing error for the first invalid provider, if any. */

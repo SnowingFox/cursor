@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { CustomProvider } from '../../common/localMode.js';
+import { type CustomProvider, PROVIDER_PRESETS } from '../../common/localMode.js';
 import {
 	contextWindow,
 	descriptor,
@@ -132,6 +132,17 @@ describe('newProvider / validateProviders', () => {
 	it('picks a free prefix', () => {
 		expect(newProvider([]).prefix).toBe('custom-provider');
 		expect(newProvider([provider({ prefix: 'custom-provider' })]).prefix).toBe('custom-provider-3');
+	});
+
+	it('starts from a preset', () => {
+		const ollama = PROVIDER_PRESETS.find((p) => p.id === 'ollama')!;
+		expect(newProvider([], ollama)).toMatchObject({
+			name: 'Ollama',
+			prefix: 'ollama',
+			apiType: 'openai-chat',
+			baseUrl: 'http://localhost:11434/v1',
+		});
+		expect(newProvider([provider({ prefix: 'ollama' })], ollama).prefix).toBe('ollama-3');
 	});
 
 	it('reports the first problem', () => {
