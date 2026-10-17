@@ -15,7 +15,9 @@
 //     plus the built-in "Subscriptions" provider (Claude Code, Codex and Grok
 //     accounts served by a CLIProxyAPI sidecar the extension host runs);
 //   * build the model picker from those providers instead of the backend, and
-//     route every turn to the provider that owns the selected `<prefix>/<model>`.
+//     route every turn to the provider that owns the selected `<prefix>/<model>`;
+//   * serve the Marketplace page from public git marketplaces (Cursor's and
+//     Claude Code's on GitHub) and keep plugin installs on this machine.
 //
 // The features themselves live in src/vs/workbench/contrib/localMode (agent
 // window) and extensions/cursor-agent-exec/src (extension host), built by Vite
@@ -245,8 +247,12 @@ export const patches = [
       if (vl.localMode && t !== void 0) {
         const s = this.reactiveStorageService.applicationUserPersistentStorage, ids = s.localProviderModelIds ?? [], first = (c) => c?.selectedModels?.[0]?.modelId ?? c?.modelName?.split(",")[0]?.trim();
         if (ids.length > 0 && !ids.includes(first(t))) {
-          const c = s.aiSettings?.modelConfig?.composer;
-          t = ids.includes(first(c)) ? c : { modelName: ids[0], selectedModels: [{ modelId: ids[0], parameters: [] }], maxMode: false };
+          const c = s.aiSettings?.modelConfig?.composer, m = first(t), prefix = first(c)?.split("/")[0];
+          // The agent runtime names models without the provider prefix (a
+          // subagent inherits "gpt-5.5", not "sub/gpt-5.5"): find it in the
+          // picker, on the composer's provider first.
+          const bare = m ? ids.filter((i) => i.slice(i.indexOf("/") + 1) === m) : [], id = bare.find((i) => i.split("/")[0] === prefix) ?? bare[0];
+          t = id !== void 0 ? { ...t, modelName: id, selectedModels: [{ modelId: id, parameters: t.selectedModels?.[0]?.parameters ?? [] }] } : ids.includes(first(c)) ? c : { modelName: ids[0], selectedModels: [{ modelId: ids[0], parameters: [] }], maxMode: false };
         }
       }
 `,
@@ -354,6 +360,64 @@ export const patches = [
     replace: 'zss = `Add a provider under Settings > Models > Custom Providers, then pick one of its models.',
   },
 
+  // --- Marketplace: plugins from public git marketplaces (marketplace.ts) -----
+  {
+    // The PluginsProviderService registers itself for the local marketplace.
+    id: 'glass/marketplace-plugins-service',
+    file: GLASS,
+    find: 'this._storageService = o, this._pluginsProvider = new Yz()',
+    replace: 'this._storageService = o, this._pluginsProvider = new Yz(), __lcpPluginsService = this',
+  },
+  {
+    // The Customize page's plugins backend: catalog, installs, marketplaces.
+    id: 'glass/marketplace-local-provider',
+    file: GLASS,
+    find: 'function hMn(t) {\n  return { async listMarketplacePlugins(e) {',
+    replace: 'function hMn(t) {\n  if (vl.localMode) return __lcpMarketplaceProvider;\n  return { async listMarketplacePlugins(e) {',
+  },
+  {
+    // The catalog warm-up at startup reads the same local catalog.
+    id: 'glass/marketplace-snapshot',
+    file: GLASS,
+    find: '    async _fetchMarketplaceSnapshotFromDashboard() {\n',
+    replace: `    async _fetchMarketplaceSnapshotFromDashboard() {
+      if (vl.localMode) {
+        const snapshot = await mq1(hMn(this._cursorAuthenticationService), KYa(this._experimentService));
+        return { snapshot, complete: snapshot.allMarketplacePlugins.length > 0 };
+      }
+`,
+  },
+  {
+    // A GitHub URL pasted into the page's search, or a local marketplace folder.
+    id: 'glass/marketplace-persist-parsed',
+    file: GLASS,
+    find: '    async _persistLocallyParsedMarketplace({ gitRef: t, parseResult: e }) {\n',
+    replace:
+      '    async _persistLocallyParsedMarketplace({ gitRef: t, parseResult: e }) {\n      if (vl.localMode) return __lcpMarketplace("persistParsed", { gitRef: t, parseResult: e });\n',
+  },
+  {
+    // Claude Code's marketplaces on this machine, imported once after sign-in.
+    id: 'glass/marketplace-import-claude',
+    file: GLASS,
+    find: '    async importClaudeMarketplaces() {\n',
+    replace: '    async importClaudeMarketplaces() {\n      if (vl.localMode) return __lcpMarketplace("importClaudeMarketplaces");\n',
+  },
+  {
+    // What the extension host clones and loads: the local installs.
+    id: 'glass/marketplace-effective-plugins',
+    file: GLASS,
+    find: '  async getEffectiveUserPlugins(t) {\n    if (!this.cursorAuthenticationService.isAuthenticated()) return z6_(new p8a({}));',
+    replace:
+      '  async getEffectiveUserPlugins(t) {\n    if (vl.localMode) return __lcpMarketplace("effectivePlugins");\n    if (!this.cursorAuthenticationService.isAuthenticated()) return z6_(new p8a({}));',
+  },
+  {
+    // Project installs (.cursor/settings.json) name catalog plugins.
+    id: 'glass/marketplace-project-plugins',
+    file: GLASS,
+    find: '  async $resolveProjectPlugins(t) {\n',
+    replace: '  async $resolveProjectPlugins(t) {\n    if (vl.localMode) return __lcpMarketplace("resolveProjectPlugins", t);\n',
+  },
+
   // --- cursor-agent-exec (local agent runtime) --------------------------------
   {
     id: 'agent-exec/local-mode-host',
@@ -392,6 +456,31 @@ export const patches = [
     file: AGENT_EXEC,
     find: 'P({ modelId: o10.modelId, advertisedMaxOutputTokens: n10.maxOutputTokens, extendedCapabilitiesDetected: a10 })',
     replace: 'P({ modelId: o10.modelId, advertisedMaxOutputTokens: __lcpExt.maxOutputTokens(r10.baseUrl, e10.modelId) ?? n10.maxOutputTokens, extendedCapabilitiesDetected: a10 })',
+  },
+  {
+    // The runtime's effort table only knows gpt-5.x and drops the effort of
+    // every other OpenAI-compatible model; a custom provider's models send the
+    // efforts the picker offered for them.
+    id: 'agent-exec/custom-provider-efforts',
+    file: AGENT_EXEC,
+    find: 'configuredEffortValues: e10.configuredEffortValues, requestLogMetadata: e10.requestLogMetadata',
+    replace: 'configuredEffortValues: __lcpExt.effortValues(r10.baseUrl, e10.modelId) ?? e10.configuredEffortValues, requestLogMetadata: e10.requestLogMetadata',
+  },
+  {
+    // Subscriptions models (Codex, Grok) with thinking on ask for reasoning
+    // summaries, which the transcript shows as thinking.
+    id: 'agent-exec/subscriptions-reasoning-summary',
+    file: AGENT_EXEC,
+    find: 'fetch: xRe({ modelId: e11.modelId, userAgent: e11.userAgent, modelParameters: e11.modelParameters, apiType: "openai_compatible", openAICompatibleEndpoint: s11, extendedCapabilitiesDetected: r11, apiKeyHelperConfig: e11.apiKeyHelper, requestLogMetadata: e11.requestLogMetadata, customHeaders: e11.customHeaders, configuredEffortValues: e11.configuredEffortValues, responsesStore: o11, chatReasoningReplay: i11, responsesReasoningReplay: a11, reasoningReplayLatch: e11.reasoningReplayLatch, gatewayTiming: e11.gatewayTiming })',
+    replace: 'fetch: __lcpExt.reasoningFetch(e11.baseUrl, e11.modelId, e11.modelParameters, xRe({ modelId: e11.modelId, userAgent: e11.userAgent, modelParameters: e11.modelParameters, apiType: "openai_compatible", openAICompatibleEndpoint: s11, extendedCapabilitiesDetected: r11, apiKeyHelperConfig: e11.apiKeyHelper, requestLogMetadata: e11.requestLogMetadata, customHeaders: e11.customHeaders, configuredEffortValues: e11.configuredEffortValues, responsesStore: o11, chatReasoningReplay: i11, responsesReasoningReplay: a11, reasoningReplayLatch: e11.reasoningReplayLatch, gatewayTiming: e11.gatewayTiming }))',
+  },
+  {
+    // GPT models fill the Task tool's optional `model` with "" ("New subagent ·
+    // Couldn't start": Invalid model selection ""). Empty means inherit.
+    id: 'agent-exec/subagent-empty-model',
+    file: AGENT_EXEC,
+    find: 'm10 = Hr.vk((e11) => null === e11 ? void 0 : e11, Hr.Yj().optional()).describe(i10)',
+    replace: 'm10 = Hr.vk((e11) => null === e11 || "string" == typeof e11 && "" === e11.trim() ? void 0 : e11, Hr.Yj().optional()).describe(i10)',
   },
   {
     // A custom provider that is down should fail the turn in seconds, not

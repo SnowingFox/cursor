@@ -5,7 +5,7 @@
  * Shared by the agent window (renderer) and the cursor-agent-exec extension
  * host, so this file must stay free of DOM and Node APIs.
  */
-import type { RoutingStrategy, SidecarConfig } from './subscriptions.js';
+import type { RoutingSettings, RoutingStrategy, SidecarConfig } from './subscriptions.js';
 
 export const API_TYPES = ['openai-chat', 'openai-responses', 'anthropic'] as const;
 export type ApiType = (typeof API_TYPES)[number];
@@ -138,6 +138,8 @@ export interface CustomProvider {
 	strategy?: RoutingStrategy;
 	/** Subscriptions: default proxy (sign-in, token refresh, accounts without their own). */
 	proxyUrl?: string;
+	/** Subscriptions: failover between accounts. */
+	routing?: RoutingSettings;
 }
 
 /** Application-scoped storage key holding `{ version: 1, providers }`. */
@@ -151,6 +153,8 @@ export interface ProviderDescriptor {
 	apiType: ApiType;
 	contextLengths: Record<string, number>;
 	maxOutputTokens: Record<string, number>;
+	/** Per model: the effort values the picker offers, which the runtime then sends as is. */
+	efforts?: Record<string, Effort[]>;
 	/** Set on the Settings page's model listing request. */
 	listing?: boolean;
 	/** Subscriptions: the extension host starts the sidecar before the request goes out. */

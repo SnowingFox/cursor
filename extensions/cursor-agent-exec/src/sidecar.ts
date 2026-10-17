@@ -15,7 +15,10 @@ import { closeSync, existsSync, openSync } from 'node:fs';
 import { chmod, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { connect } from 'node:net';
 import path from 'node:path';
-import type { SidecarConfig } from '../../../src/vs/workbench/contrib/localMode/common/subscriptions.js';
+import {
+	type SidecarConfig,
+	sidecarSettings,
+} from '../../../src/vs/workbench/contrib/localMode/common/subscriptions.js';
 
 export interface Sidecar {
 	config: SidecarConfig;
@@ -26,6 +29,8 @@ export interface Sidecar {
 	version?: string;
 	exited: boolean;
 	timer: ReturnType<typeof setInterval>;
+	/** The live settings (sidecarSettings) the sidecar runs with; unknown for an adopted one. */
+	applied?: string;
 }
 
 interface State {
@@ -77,6 +82,15 @@ export function findBinary(env: NodeJS.ProcessEnv = process.env, dir = __dirname
 
 const yaml = (value: string) => JSON.stringify(value);
 
+/** Block-style YAML for nested maps of scalars (JSON strings are valid YAML scalars). */
+function toYaml(map: Record<string, unknown>, indent = ''): string[] {
+	return Object.entries(map).flatMap(([k, v]) =>
+		v !== null && typeof v === 'object'
+			? [`${indent}${k}:`, ...toYaml(v as Record<string, unknown>, `${indent}  `)]
+			: [`${indent}${k}: ${JSON.stringify(v)}`],
+	);
+}
+
 /** config.yaml for one start (CLIProxyAPI v8 layout). */
 export function renderConfig(config: SidecarConfig, mgmtKey: string): string {
 	return [
@@ -94,12 +108,7 @@ export function renderConfig(config: SidecarConfig, mgmtKey: string): string {
 		'access:',
 		'  api-keys:',
 		`    - ${yaml(config.apiKey)}`,
-		'routing:',
-		`  strategy: ${yaml(config.strategy ?? 'round-robin')}`,
-		// Keeps a conversation on one account, so its prompt cache keeps hitting.
-		'  session-affinity: true',
-		'requests:',
-		`  proxy-url: ${yaml(config.proxyUrl ?? '')}`,
+		...toYaml(sidecarSettings(config)),
 		'oauth:',
 		`  auth-dir: ${yaml(path.join(config.dataDir, 'auths'))}`,
 		'observability:',
@@ -221,7 +230,7 @@ async function adopt(config: SidecarConfig): Promise<Sidecar | undefined> {
 	}
 	if (saved.port === config.port && saved.apiKey === config.apiKey) {
 		const sidecar: Sidecar = {
-			config: { ...config, strategy: undefined, proxyUrl: undefined },
+			config: { ...config },
 			mgmtKey: saved.mgmtKey,
 			pid: saved.pid,
 			binary: saved.binary,
@@ -324,6 +333,7 @@ async function start(config: SidecarConfig): Promise<Sidecar> {
 		version: await version(config.port, mgmtKey),
 		exited: false,
 		timer: undefined as never,
+		applied: JSON.stringify(sidecarSettings(config)),
 	};
 	sidecar.timer = keepAlive(sidecar);
 	const saved: Saved = { pid: sidecar.pid, port: config.port, apiKey: config.apiKey, mgmtKey, binary };
@@ -331,15 +341,15 @@ async function start(config: SidecarConfig): Promise<Sidecar> {
 	return sidecar;
 }
 
-/** Applies settings that don't need a restart (strategy, default proxy). */
+/** Applies the settings that don't need a restart (strategy, routing, default proxy). */
 async function apply(sidecar: Sidecar, config: SidecarConfig): Promise<void> {
-	const strategy = config.strategy ?? 'round-robin';
-	const proxyUrl = config.proxyUrl ?? '';
-	if (sidecar.config.strategy === strategy && (sidecar.config.proxyUrl ?? '') === proxyUrl) {
+	const settings = sidecarSettings(config);
+	if (sidecar.applied === JSON.stringify(settings)) {
 		return;
 	}
-	await management(sidecar, 'PATCH', '/config', { routing: { strategy }, requests: { 'proxy-url': proxyUrl } });
-	sidecar.config = { ...sidecar.config, strategy, proxyUrl };
+	await management(sidecar, 'PATCH', '/config', settings);
+	sidecar.config = { ...sidecar.config, strategy: config.strategy, proxyUrl: config.proxyUrl, routing: config.routing };
+	sidecar.applied = JSON.stringify(settings);
 }
 
 /** The running sidecar for `config`, started (or restarted) as needed. */

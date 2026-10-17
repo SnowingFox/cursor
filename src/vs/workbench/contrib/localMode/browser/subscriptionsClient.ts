@@ -36,15 +36,16 @@ export interface SubscriptionsClient {
 	loginCancel(state: string): Promise<LoginStatus>;
 	update(name: string, patch: AccountPatch): Promise<SubscriptionsStatus>;
 	remove(name: string): Promise<SubscriptionsStatus>;
+	resetCooldown(name: string): Promise<SubscriptionsStatus>;
 	quota(name: string): Promise<Quota>;
 	models(): Promise<ListedModel[]>;
 	checkProxy(proxyUrl: string, type: AccountType): Promise<ProxyCheck>;
 }
 
-/** Requests go out with the provider as currently edited (port, key, proxy), saved or not. */
+/** Requests go out with the provider as currently edited (port, key, proxy, routing), saved or not. */
 export function subscriptionsClient(
 	inference: LocalInferenceService,
-	provider: Pick<CustomProvider, 'port' | 'apiKey' | 'strategy' | 'proxyUrl'>,
+	provider: Pick<CustomProvider, 'port' | 'apiKey' | 'strategy' | 'proxyUrl' | 'routing'>,
 ): SubscriptionsClient {
 	const call = <T>(body: Body): Promise<T> =>
 		inference.fetchLocalProviderModels({
@@ -58,6 +59,7 @@ export function subscriptionsClient(
 		loginCancel: (state) => call({ op: 'login-cancel', state }),
 		update: (name, patch) => call({ op: 'update', name, patch }),
 		remove: (name) => call({ op: 'remove', name }),
+		resetCooldown: (name) => call({ op: 'reset-cooldown', name }),
 		quota: (name) => call({ op: 'quota', name }),
 		models: async () => {
 			const r = await call<{ cursorLocalModels?: ListedModel[] }>({ op: 'models' });

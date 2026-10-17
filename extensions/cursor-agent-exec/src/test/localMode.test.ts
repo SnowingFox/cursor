@@ -2,11 +2,15 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
 	contextLength,
 	describeFetchError,
+	effortValues,
 	kind,
 	listModels,
 	maxOutputTokens,
 	parseModelList,
+	reasoningFetch,
 	register,
+	requestedEffort,
+	withSummary,
 } from '../localMode.js';
 
 const descriptor = {
@@ -28,6 +32,51 @@ describe('provider registry', () => {
 		register({ baseUrl: 'https://plain.example.com/v1' });
 		register({ baseUrl: 42, cursorLocalProvider: descriptor });
 		expect(kind('https://plain.example.com/v1')).toBeUndefined();
+	});
+});
+
+describe('reasoning', () => {
+	const sidecar = { port: 18320, apiKey: 'sk-local', dataDir: '/tmp/none' };
+
+	it('hands the picker efforts to the runtime', () => {
+		register({
+			baseUrl: 'https://efforts.example.com/v1',
+			cursorLocalProvider: { ...descriptor, efforts: { 'gpt-6-astra': ['low', 'xhigh'], empty: [] } },
+		});
+		expect(effortValues('https://efforts.example.com/v1', 'gpt-6-astra')).toEqual(['low', 'xhigh']);
+		expect(effortValues('https://efforts.example.com/v1', 'empty')).toBeUndefined();
+		expect(effortValues('https://efforts.example.com/v1', 'other')).toBeUndefined();
+	});
+
+	it('asks for summaries without overriding what the request set', () => {
+		expect(JSON.parse(withSummary({ body: '{"model":"m"}' })?.body as string)).toEqual({
+			model: 'm',
+			reasoning: { summary: 'auto' },
+		});
+		expect(
+			JSON.parse(withSummary({ body: '{"reasoning":{"effort":"high","summary":"detailed"}}' })?.body as string),
+		).toEqual({ reasoning: { effort: 'high', summary: 'detailed' } });
+		const raw = { body: 'not json' };
+		expect(withSummary(raw)).toBe(raw);
+		expect(withSummary(undefined)).toBeUndefined();
+	});
+
+	it('only wraps sidecar models with thinking on', async () => {
+		const efforts = { 'gpt-6-astra': ['low' as const, 'high' as const] };
+		const local = 'http://127.0.0.1:18320/backend-api/codex';
+		const fetch = vi.fn(async (_input: unknown, init?: { body?: unknown }) => init?.body);
+		const high = [{ id: 'reasoning', value: 'high' }];
+		// Registered directly: register() would start the sidecar.
+		globalThis.__cursorLocalModeProviders?.set(local, { ...descriptor, efforts, sidecar });
+		register({ baseUrl: 'https://plain.example.com/v2', cursorLocalProvider: { ...descriptor, efforts } });
+		expect(reasoningFetch('https://plain.example.com/v2', 'gpt-6-astra', high, fetch)).toBe(fetch);
+		expect(reasoningFetch(local, 'gpt-7', high, fetch)).toBe(fetch);
+		expect(reasoningFetch(local, 'gpt-6-astra', [{ id: 'reasoning', value: 'none' }], fetch)).toBe(fetch);
+		expect(reasoningFetch(local, 'gpt-6-astra', [{ id: 'reasoning', value: 'xhigh' }], fetch)).toBe(fetch);
+		expect(reasoningFetch(local, 'gpt-6-astra', undefined, fetch)).toBe(fetch);
+		const wrapped = reasoningFetch(local, 'gpt-6-astra', high, fetch);
+		expect(JSON.parse((await wrapped('u', { body: '{}' })) as string)).toEqual({ reasoning: { summary: 'auto' } });
+		expect(requestedEffort([{ id: 'effort', value: 'low' }])).toBe('low');
 	});
 });
 

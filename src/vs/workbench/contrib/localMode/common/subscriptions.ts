@@ -34,8 +34,94 @@ export function isAccountType(value: unknown): value is AccountType {
 	return typeof value === 'string' && (ACCOUNT_TYPES as readonly string[]).includes(value);
 }
 
-export const ROUTING_STRATEGIES = ['round-robin', 'fill-first'] as const;
+export const ROUTING_STRATEGIES = ['round-robin', 'weighted-round-robin', 'fill-first'] as const;
 export type RoutingStrategy = (typeof ROUTING_STRATEGIES)[number];
+
+/**
+ * How requests fail over between accounts, on top of the strategy. Each field
+ * maps to one CLIProxyAPI setting (see sidecarSettings); unset means default.
+ */
+export interface RoutingSettings {
+	/** Keep a conversation on one account, so its prompt cache keeps hitting. */
+	sessionAffinity?: boolean;
+	/** Minutes an idle conversation stays on its account. */
+	affinityTtlMinutes?: number;
+	/** `quota`: only limits and auth errors move a conversation; brief upstream errors fail over just once. */
+	rebindOn?: 'any' | 'quota';
+	/** Extra rounds over the accounts once all of them failed (403, 408, 429, 5xx). */
+	retries?: number;
+	/** Seconds to wait for a cooling-down account before giving up; 0: don't wait. */
+	retryWaitSeconds?: number;
+	/** Bench an account for a while after a limit or an error. */
+	cooling?: boolean;
+	/** A limit on one model benches the account for that model only. */
+	modelCooling?: boolean;
+	/** Retries a stream that fails before its first byte. */
+	streamRetries?: number;
+}
+
+export const ROUTING_DEFAULTS: Required<RoutingSettings> = {
+	sessionAffinity: true,
+	affinityTtlMinutes: 60,
+	rebindOn: 'any',
+	retries: 2,
+	retryWaitSeconds: 30,
+	cooling: true,
+	modelCooling: true,
+	streamRetries: 1,
+};
+
+function bounded(value: unknown, min: number, max: number, fallback: number): number {
+	const n = Number(value);
+	return value === undefined || value === null || value === '' || !Number.isFinite(n)
+		? fallback
+		: Math.min(max, Math.max(min, Math.round(n)));
+}
+
+/** Fills in defaults and clamps out-of-range values. */
+export function routingSettings(r: RoutingSettings | undefined): Required<RoutingSettings> {
+	const d = ROUTING_DEFAULTS;
+	return {
+		sessionAffinity: typeof r?.sessionAffinity === 'boolean' ? r.sessionAffinity : d.sessionAffinity,
+		affinityTtlMinutes: bounded(r?.affinityTtlMinutes, 1, 7 * 24 * 60, d.affinityTtlMinutes),
+		rebindOn: r?.rebindOn === 'quota' || r?.rebindOn === 'any' ? r.rebindOn : d.rebindOn,
+		retries: bounded(r?.retries, 0, 10, d.retries),
+		retryWaitSeconds: bounded(r?.retryWaitSeconds, 0, 3600, d.retryWaitSeconds),
+		cooling: typeof r?.cooling === 'boolean' ? r.cooling : d.cooling,
+		modelCooling: typeof r?.modelCooling === 'boolean' ? r.modelCooling : d.modelCooling,
+		streamRetries: bounded(r?.streamRetries, 0, 5, d.streamRetries),
+	};
+}
+
+/**
+ * The sidecar settings that apply without a restart, in CLIProxyAPI's v8
+ * config layout: written to config.yaml on start, PATCHed in when they change.
+ */
+export function sidecarSettings(config: Pick<SidecarConfig, 'strategy' | 'proxyUrl' | 'routing'>): {
+	routing: Record<string, unknown>;
+	upstream: Record<string, unknown>;
+	requests: Record<string, unknown>;
+} {
+	const r = routingSettings(config.routing);
+	const strategy = (ROUTING_STRATEGIES as readonly string[]).includes(config.strategy ?? '')
+		? config.strategy
+		: 'round-robin';
+	return {
+		routing: {
+			strategy,
+			'session-affinity': r.sessionAffinity,
+			'session-affinity-ttl': `${r.affinityTtlMinutes}m`,
+			'session-affinity-rebind-on': r.rebindOn,
+			retry: { 'request-retry': r.retries, 'max-retry-interval': r.retryWaitSeconds },
+			cooldown: { 'disable-cooling': !r.cooling },
+		},
+		upstream: {
+			claude: { 'model-level-cooling': r.modelCooling },
+			codex: { 'model-level-cooling': r.modelCooling },
+		},
+		requests: { 'proxy-url': config.proxyUrl ?? '', streaming: { 'bootstrap-retries': r.streamRetries } },
+	};
+}
 
 /**
  * How the extension host runs the sidecar. Sent with every subscriptions
@@ -52,6 +138,7 @@ export interface SidecarConfig {
 	strategy?: RoutingStrategy;
 	/** Default proxy: sign-in, token refresh and accounts without their own proxy. */
 	proxyUrl?: string;
+	routing?: RoutingSettings;
 }
 
 export interface QuotaWindow {
@@ -88,7 +175,10 @@ export interface Account {
 	/** Epoch ms until which the account is cooling down after a limit or error. */
 	coolingUntil?: number;
 	proxyUrl?: string;
+	/** Higher wins: lower-priority accounts only serve when the higher ones can't. */
 	priority?: number;
+	/** Share of requests under weighted round robin (default 1, 0 skips the account). */
+	weight?: number;
 	success: number;
 	failed: number;
 	/** Limits reported on the account's last response, if any. */
@@ -131,6 +221,7 @@ export interface AccountPatch {
 	disabled?: boolean;
 	proxyUrl?: string;
 	priority?: number;
+	weight?: number;
 }
 
 export type SubscriptionsRequest = { sidecar: SidecarConfig } & (
@@ -141,6 +232,7 @@ export type SubscriptionsRequest = { sidecar: SidecarConfig } & (
 	| { op: 'login-cancel'; state: string }
 	| { op: 'update'; name: string; patch: AccountPatch }
 	| { op: 'remove'; name: string }
+	| { op: 'reset-cooldown'; name: string }
 	| { op: 'quota'; name: string }
 	| { op: 'models' }
 	| { op: 'check-proxy'; proxyUrl: string; type: AccountType }

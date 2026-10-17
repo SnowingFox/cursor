@@ -217,6 +217,34 @@ var ACCOUNT_TYPE_HINTS = {
 function isAccountType(value) {
 	return typeof value === "string" && ACCOUNT_TYPES.includes(value);
 }
+var ROUTING_DEFAULTS = {
+	sessionAffinity: true,
+	affinityTtlMinutes: 60,
+	rebindOn: "any",
+	retries: 2,
+	retryWaitSeconds: 30,
+	cooling: true,
+	modelCooling: true,
+	streamRetries: 1
+};
+function bounded(value, min, max, fallback) {
+	const n = Number(value);
+	return value === void 0 || value === null || value === "" || !Number.isFinite(n) ? fallback : Math.min(max, Math.max(min, Math.round(n)));
+}
+/** Fills in defaults and clamps out-of-range values. */
+function routingSettings(r) {
+	const d = ROUTING_DEFAULTS;
+	return {
+		sessionAffinity: typeof r?.sessionAffinity === "boolean" ? r.sessionAffinity : d.sessionAffinity,
+		affinityTtlMinutes: bounded(r?.affinityTtlMinutes, 1, 10080, d.affinityTtlMinutes),
+		rebindOn: r?.rebindOn === "quota" || r?.rebindOn === "any" ? r.rebindOn : d.rebindOn,
+		retries: bounded(r?.retries, 0, 10, d.retries),
+		retryWaitSeconds: bounded(r?.retryWaitSeconds, 0, 3600, d.retryWaitSeconds),
+		cooling: typeof r?.cooling === "boolean" ? r.cooling : d.cooling,
+		modelCooling: typeof r?.modelCooling === "boolean" ? r.modelCooling : d.modelCooling,
+		streamRetries: bounded(r?.streamRetries, 0, 5, d.streamRetries)
+	};
+}
 /** Data directory under the app's user data folder. */
 function sidecarDataDir(userDataDir) {
 	return `${userDataDir.replace(/\/+$/u, "")}/cliproxyapi`;
@@ -326,9 +354,16 @@ function enabledModels(providers) {
 		id: pickerModelId(provider, model)
 	})));
 }
+/**
+* The enabled model a picker ID names. An ID without the prefix (how the agent
+* runtime names a subagent's model) resolves when only one provider has it.
+*/
 function resolveModel(providers, modelId) {
 	const id = typeof modelId === "string" ? modelId.trim() : "";
-	return id ? enabledModels(providers).find((e) => e.id === id) : void 0;
+	if (!id) return;
+	const models = enabledModels(providers);
+	const bare = models.filter((e) => e.model.id === id);
+	return models.find((e) => e.id === id) ?? (bare.length === 1 ? bare[0] : void 0);
 }
 var CLAUDE_200K = /^claude-(?:3|(?:opus|sonnet|haiku)-4(?:-[0-5])?(?:-\d{8})?$|(?:opus|sonnet|haiku)-4-[0-5]-)/i;
 /**
@@ -396,24 +431,29 @@ function sidecarConfig(provider, userDataDir) {
 		apiKey: String(provider.apiKey ?? "").trim(),
 		dataDir: sidecarDataDir(userDataDir),
 		strategy: provider.strategy ?? "round-robin",
-		proxyUrl: String(provider.proxyUrl ?? "").trim()
+		proxyUrl: String(provider.proxyUrl ?? "").trim(),
+		routing: routingSettings(provider.routing)
 	};
 }
 /** `userDataDir` is required for subscriptions providers (the sidecar's data lives there). */
 function descriptor(provider, userDataDir) {
 	const contextLengths = {};
 	const maxOutput = {};
+	const efforts = {};
 	for (const m of provider.models ?? []) {
 		if (!m?.id) continue;
 		const context = contextWindow(m);
 		const output = maxOutputTokens(m);
+		const tiers = modelEffortTiers(provider, m);
 		if (context !== void 0) contextLengths[m.id] = context;
 		if (output !== void 0) maxOutput[m.id] = output;
+		if (tiers !== void 0) efforts[m.id] = tiers.values;
 	}
 	return {
 		apiType: API_TYPES.includes(provider.apiType) ? provider.apiType : "openai-chat",
 		contextLengths,
 		maxOutputTokens: maxOutput,
+		efforts,
 		...provider.kind === "subscriptions" && userDataDir !== void 0 ? { sidecar: sidecarConfig(provider, userDataDir) } : {}
 	};
 }
@@ -611,7 +651,7 @@ function userDataDir() {
 	if (typeof dir !== "string" || dir === "") throw new Error("The user data folder is unknown: the window configuration is missing.");
 	return dir;
 }
-/** Requests go out with the provider as currently edited (port, key, proxy), saved or not. */
+/** Requests go out with the provider as currently edited (port, key, proxy, routing), saved or not. */
 function subscriptionsClient(inference, provider) {
 	const call = (body) => inference.fetchLocalProviderModels({ cursorLocalSubscriptions: {
 		...body,
@@ -643,6 +683,10 @@ function subscriptionsClient(inference, provider) {
 		}),
 		remove: (name) => call({
 			op: "remove",
+			name
+		}),
+		resetCooldown: (name) => call({
+			op: "reset-cooldown",
 			name
 		}),
 		quota: (name) => call({
@@ -691,6 +735,25 @@ function Icon({ name, size = 14 }) {
 		"aria-hidden": "true",
 		className: "local-mode-icon",
 		children: /* @__PURE__ */ jsx("path", { d: PATHS[name] })
+	});
+}
+var BRANDS = {
+	claude: "m4.709 15.955 4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 0 1-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z",
+	codex: "M8.086.457a6.105 6.105 0 0 1 3.046-.415c1.333.153 2.521.72 3.564 1.7a.117.117 0 0 0 .107.029c1.408-.346 2.762-.224 4.061.366l.063.03.154.076c1.357.703 2.33 1.77 2.918 3.198a5.62 5.62 0 0 1 .421 2.126 5.655 5.655 0 0 1-.18 1.631.167.167 0 0 0 .04.155 5.982 5.982 0 0 1 1.578 2.891c.385 1.901-.01 3.615-1.183 5.14l-.182.22a6.063 6.063 0 0 1-2.934 1.851.162.162 0 0 0-.108.102c-.255.736-.511 1.364-.987 1.992-1.199 1.582-2.962 2.462-4.948 2.451-1.583-.008-2.986-.587-4.21-1.736a.145.145 0 0 0-.14-.032c-.518.167-1.04.191-1.604.185a5.924 5.924 0 0 1-2.595-.622 6.058 6.058 0 0 1-2.146-1.781c-.203-.269-.404-.522-.551-.821a7.74 7.74 0 0 1-.495-1.283 6.11 6.11 0 0 1-.017-3.064.166.166 0 0 0 .008-.074.115.115 0 0 0-.037-.064 5.958 5.958 0 0 1-1.38-2.202 5.196 5.196 0 0 1-.333-1.589 6.915 6.915 0 0 1 .188-2.132c.45-1.484 1.309-2.648 2.577-3.493.282-.188.55-.334.802-.438.286-.12.573-.22.861-.304a.129.129 0 0 0 .087-.087A6.016 6.016 0 0 1 5.635 2.31C6.315 1.464 7.132.846 8.086.457zm-.804 7.85a.848.848 0 0 0-1.473.842l1.694 2.965-1.688 2.848a.849.849 0 0 0 1.46.864l1.94-3.272a.849.849 0 0 0 .007-.854l-1.94-3.393zm5.446 6.24a.849.849 0 0 0 0 1.695h4.848a.849.849 0 0 0 0-1.696h-4.848z",
+	xai: "M9.27 15.29l7.978-5.897c.391-.29.95-.177 1.137.272.98 2.369.542 5.215-1.41 7.169-1.951 1.954-4.667 2.382-7.149 1.406l-2.711 1.257c3.889 2.661 8.611 2.003 11.562-.953 2.341-2.344 3.066-5.539 2.388-8.42l.006.007c-.983-4.232.242-5.924 2.75-9.383.06-.082.12-.164.179-.248l-3.301 3.305v-.01L9.267 15.292M7.623 16.723c-2.792-2.67-2.31-6.801.071-9.184 1.761-1.763 4.647-2.483 7.166-1.425l2.705-1.25a7.808 7.808 0 00-1.829-1A8.975 8.975 0 005.984 5.83c-2.533 2.536-3.33 6.436-1.962 9.764 1.022 2.487-.653 4.246-2.34 6.022-.599.63-1.199 1.259-1.682 1.925l7.62-6.815"
+};
+function BrandMark({ brand, size = 16 }) {
+	return /* @__PURE__ */ jsx("svg", {
+		width: size,
+		height: size,
+		viewBox: "0 0 24 24",
+		fill: "currentColor",
+		fillRule: "evenodd",
+		clipRule: "evenodd",
+		"aria-hidden": "true",
+		className: "local-mode-brand",
+		"data-brand": brand,
+		children: /* @__PURE__ */ jsx("path", { d: BRANDS[brand] })
 	});
 }
 //#endregion
@@ -994,262 +1057,42 @@ function ModelList(props) {
 	});
 }
 //#endregion
-//#region src/vs/workbench/contrib/localMode/browser/components/ProviderCard.tsx
-var API_FORMAT_ORDER = [
-	"anthropic",
-	"openai-chat",
-	"openai-responses"
-];
-var AVATAR_HUES = [
-	"blue",
-	"purple",
-	"orange",
-	"green",
-	"cyan",
-	"magenta"
-];
-function ProviderAvatar({ name, size = "md" }) {
-	const label = name.trim() || "?";
-	let h = 0;
-	for (const c of label) h = h * 31 + c.charCodeAt(0) >>> 0;
-	return /* @__PURE__ */ jsx("span", {
-		className: "local-mode-avatar",
-		"data-size": size,
-		"data-hue": AVATAR_HUES[h % AVATAR_HUES.length],
-		children: label[0].toUpperCase()
-	});
-}
-function Field(props) {
-	return /* @__PURE__ */ jsxs("label", {
-		className: "local-mode-field",
-		children: [
-			/* @__PURE__ */ jsx("span", {
-				className: "local-mode-field-label",
-				children: props.label
-			}),
-			props.children,
-			props.hint ? /* @__PURE__ */ jsx("span", {
-				className: "local-mode-hint",
-				children: props.hint
-			}) : null
-		]
-	});
-}
-function ProviderCard(props) {
-	const { Switch } = cursorHost().cursor.ui;
-	const { provider: p, busy, check, onChange, onRemove, onFetch } = props;
-	const [showKey, setShowKey] = useState(false);
-	const [advanced, setAdvanced] = useState(false);
-	const anthropic = p.apiType === "anthropic";
-	const on = p.enabled !== false;
-	const models = p.models ?? [];
-	const firstModel = models.find((m) => m.enabled !== false)?.id ?? models[0]?.id ?? "model";
-	return /* @__PURE__ */ jsxs("div", {
-		className: "local-mode-card",
-		"data-off": !on || void 0,
-		children: [
-			/* @__PURE__ */ jsxs("div", {
-				className: "local-mode-card-header",
-				children: [
-					/* @__PURE__ */ jsx(ProviderAvatar, { name: p.name }),
-					/* @__PURE__ */ jsxs("div", {
-						className: "local-mode-card-title",
-						children: [/* @__PURE__ */ jsx("input", {
-							value: p.name,
-							placeholder: "Provider name",
-							"aria-label": "Provider name",
-							spellCheck: false,
-							className: "local-mode-title-input",
-							onChange: (e) => onChange({ name: e.target.value })
-						}), /* @__PURE__ */ jsx("span", {
-							className: "local-mode-hint",
-							children: on ? `${API_TYPE_LABELS[p.apiType] ?? p.apiType} · ${models.filter((m) => m.enabled !== false).length} model(s) in the picker` : "Off: hidden from the model picker"
-						})]
-					}),
-					/* @__PURE__ */ jsx(Switch, {
-						checked: on,
-						onCheckedChange: (enabled) => onChange({ enabled })
-					}),
-					/* @__PURE__ */ jsx("button", {
-						type: "button",
-						className: "local-mode-icon-button",
-						"aria-label": "Remove provider",
-						title: "Remove provider",
-						onClick: onRemove,
-						children: /* @__PURE__ */ jsx(Icon, {
-							name: "trash",
-							size: 14
-						})
-					})
-				]
-			}),
-			/* @__PURE__ */ jsxs("div", {
-				className: "local-mode-block",
-				children: [
-					/* @__PURE__ */ jsx("div", {
-						className: "local-mode-block-title",
-						children: "Connection"
-					}),
-					/* @__PURE__ */ jsx(Field, {
-						label: "API format",
-						children: /* @__PURE__ */ jsx("div", {
-							className: "local-mode-segmented local-mode-segmented-fill",
-							children: API_FORMAT_ORDER.map((t) => /* @__PURE__ */ jsx("button", {
-								type: "button",
-								"aria-pressed": p.apiType === t,
-								"data-active": p.apiType === t || void 0,
-								title: API_TYPE_LABELS[t],
-								onClick: () => onChange({ apiType: t }),
-								children: API_TYPE_SHORT_LABELS[t]
-							}, t))
-						})
-					}),
-					/* @__PURE__ */ jsx(Field, {
-						label: "Base URL",
-						hint: anthropic ? "Like ANTHROPIC_BASE_URL: /v1 is added when missing." : "The OpenAI-compatible base, usually ending in /v1.",
-						children: /* @__PURE__ */ jsx("input", {
-							value: p.baseUrl,
-							placeholder: BASE_URL_HINTS[p.apiType],
-							spellCheck: false,
-							autoComplete: "off",
-							className: "local-mode-input",
-							onChange: (e) => onChange({ baseUrl: e.target.value })
-						})
-					}),
-					/* @__PURE__ */ jsx(Field, {
-						label: "API key",
-						hint: anthropic ? "Sent as the x-api-key header." : "Sent as Authorization: Bearer <key>.",
-						children: /* @__PURE__ */ jsxs("span", {
-							className: "local-mode-input-group",
-							children: [/* @__PURE__ */ jsx("input", {
-								type: showKey ? "text" : "password",
-								value: p.apiKey,
-								placeholder: anthropic ? "sk-ant-…" : "sk-…",
-								spellCheck: false,
-								autoComplete: "off",
-								className: "local-mode-input",
-								onChange: (e) => onChange({ apiKey: e.target.value })
-							}), /* @__PURE__ */ jsx("button", {
-								type: "button",
-								className: "local-mode-icon-button",
-								"aria-label": showKey ? "Hide key" : "Show key",
-								title: showKey ? "Hide key" : "Show key",
-								onClick: (e) => {
-									e.preventDefault();
-									setShowKey(!showKey);
-								},
-								children: /* @__PURE__ */ jsx(Icon, {
-									name: showKey ? "eyeOff" : "eye",
-									size: 14
-								})
-							})]
-						})
-					}),
-					/* @__PURE__ */ jsxs("div", {
-						className: "local-mode-check-row",
-						children: [/* @__PURE__ */ jsx("button", {
-							type: "button",
-							className: "local-mode-button",
-							disabled: busy || !p.baseUrl.trim(),
-							onClick: onFetch,
-							children: busy ? "Connecting…" : "Test connection"
-						}), check ? /* @__PURE__ */ jsxs("span", {
-							className: "local-mode-check",
-							"data-ok": check.ok || void 0,
-							children: [/* @__PURE__ */ jsx(Icon, {
-								name: check.ok ? "check" : "alert",
-								size: 13
-							}), /* @__PURE__ */ jsx("span", { children: check.text })]
-						}) : /* @__PURE__ */ jsx("span", {
-							className: "local-mode-hint",
-							children: "Lists the endpoint's models to check the URL and key."
-						})]
-					}),
-					/* @__PURE__ */ jsxs("button", {
-						type: "button",
-						className: "local-mode-disclosure",
-						"aria-expanded": advanced,
-						onClick: () => setAdvanced(!advanced),
-						children: [
-							/* @__PURE__ */ jsx(Icon, {
-								name: "chevron",
-								size: 12
-							}),
-							"Advanced",
-							advanced ? null : /* @__PURE__ */ jsxs("span", {
-								className: "local-mode-hint",
-								children: [
-									"prefix ",
-									p.prefix || "?",
-									", extra headers"
-								]
-							})
-						]
-					}),
-					advanced ? /* @__PURE__ */ jsxs("div", {
-						className: "local-mode-advanced",
-						children: [/* @__PURE__ */ jsx(Field, {
-							label: "Model prefix",
-							hint: /* @__PURE__ */ jsxs(Fragment, { children: [
-								"Picker IDs become ",
-								/* @__PURE__ */ jsx("code", { children: `${p.prefix || "?"}/${firstModel}` }),
-								" so they never collide with Cursor's models. Stripped before the request is sent."
-							] }),
-							children: /* @__PURE__ */ jsx("input", {
-								value: p.prefix,
-								spellCheck: false,
-								className: "local-mode-input local-mode-mono",
-								onChange: (e) => onChange({ prefix: e.target.value.trim() })
-							})
-						}), /* @__PURE__ */ jsx(Field, {
-							label: "Extra headers",
-							hint: "Optional, one \"Name: value\" per line.",
-							children: /* @__PURE__ */ jsx("textarea", {
-								value: p.headers ?? "",
-								rows: 2,
-								placeholder: "X-Team: platform",
-								spellCheck: false,
-								className: "local-mode-input local-mode-mono local-mode-textarea",
-								onChange: (e) => onChange({ headers: e.target.value })
-							})
-						})]
-					}) : null
-				]
-			}),
-			/* @__PURE__ */ jsx(ModelList, {
-				prefix: p.prefix,
-				models,
-				busy,
-				onChange: (next) => onChange({ models: next }),
-				onFetch
-			})
-		]
-	});
-}
-//#endregion
 //#region src/vs/workbench/contrib/localMode/browser/components/SubscriptionSignIn.tsx
 var POLL_MS = 1500;
 var CALLBACK_EXAMPLES = {
 	claude: "http://localhost:54545/callback?code=…&state=…",
 	codex: "http://localhost:1455/auth/callback?code=…&state=…"
 };
-var ACCOUNT_HUES = {
-	claude: "orange",
-	codex: "green",
-	xai: "purple"
-};
-var ACCOUNT_LETTERS = {
-	claude: "A",
-	codex: "O",
-	xai: "X"
-};
 function AccountAvatar({ type, size = "md" }) {
-	const known = ACCOUNT_TYPES.includes(type) ? type : void 0;
+	if (!ACCOUNT_TYPES.includes(type)) return /* @__PURE__ */ jsx("span", {
+		className: "local-mode-avatar",
+		"data-size": size,
+		children: (type[0] ?? "?").toUpperCase()
+	});
 	return /* @__PURE__ */ jsx("span", {
 		className: "local-mode-avatar",
 		"data-size": size,
-		"data-hue": known ? ACCOUNT_HUES[known] : "blue",
-		children: known ? ACCOUNT_LETTERS[known] : (type[0] ?? "?").toUpperCase()
+		"data-brand": type,
+		children: /* @__PURE__ */ jsx(BrandMark, {
+			brand: type,
+			size: size === "sm" ? 13 : 18
+		})
+	});
+}
+/** The Subscriptions provider's avatar: the three account types' marks, overlapped. */
+function SubscriptionsAvatar({ size = "md" }) {
+	return /* @__PURE__ */ jsx("span", {
+		className: "lm-sub-avatar",
+		"data-size": size,
+		"aria-hidden": "true",
+		children: ACCOUNT_TYPES.map((type) => /* @__PURE__ */ jsx("span", {
+			className: "lm-sub-avatar-mark",
+			"data-brand": type,
+			children: /* @__PURE__ */ jsx(BrandMark, {
+				brand: type,
+				size: size === "sm" ? 6 : 9
+			})
+		}, type))
 	});
 }
 function errorText$1(e) {
@@ -1545,6 +1388,241 @@ function SubscriptionSignIn(props) {
 	});
 }
 //#endregion
+//#region src/vs/workbench/contrib/localMode/browser/components/ProviderCard.tsx
+var API_FORMAT_ORDER = [
+	"anthropic",
+	"openai-chat",
+	"openai-responses"
+];
+var AVATAR_HUES = [
+	"blue",
+	"purple",
+	"orange",
+	"green",
+	"cyan",
+	"magenta"
+];
+function ProviderAvatar(props) {
+	const { name, kind, size = "md" } = props;
+	if (kind === "subscriptions") return /* @__PURE__ */ jsx(SubscriptionsAvatar, { size });
+	const label = name.trim() || "?";
+	let h = 0;
+	for (const c of label) h = h * 31 + c.charCodeAt(0) >>> 0;
+	return /* @__PURE__ */ jsx("span", {
+		className: "local-mode-avatar",
+		"data-size": size,
+		"data-hue": AVATAR_HUES[h % AVATAR_HUES.length],
+		children: label[0].toUpperCase()
+	});
+}
+function Field(props) {
+	return /* @__PURE__ */ jsxs("label", {
+		className: "local-mode-field",
+		children: [
+			/* @__PURE__ */ jsx("span", {
+				className: "local-mode-field-label",
+				children: props.label
+			}),
+			props.children,
+			props.hint ? /* @__PURE__ */ jsx("span", {
+				className: "local-mode-hint",
+				children: props.hint
+			}) : null
+		]
+	});
+}
+function ProviderCard(props) {
+	const { Switch } = cursorHost().cursor.ui;
+	const { provider: p, busy, check, onChange, onRemove, onFetch } = props;
+	const [showKey, setShowKey] = useState(false);
+	const [advanced, setAdvanced] = useState(false);
+	const anthropic = p.apiType === "anthropic";
+	const on = p.enabled !== false;
+	const models = p.models ?? [];
+	const firstModel = models.find((m) => m.enabled !== false)?.id ?? models[0]?.id ?? "model";
+	return /* @__PURE__ */ jsxs("div", {
+		className: "local-mode-card",
+		"data-off": !on || void 0,
+		children: [
+			/* @__PURE__ */ jsxs("div", {
+				className: "local-mode-card-header",
+				children: [
+					/* @__PURE__ */ jsx(ProviderAvatar, { name: p.name }),
+					/* @__PURE__ */ jsxs("div", {
+						className: "local-mode-card-title",
+						children: [/* @__PURE__ */ jsx("input", {
+							value: p.name,
+							placeholder: "Provider name",
+							"aria-label": "Provider name",
+							spellCheck: false,
+							className: "local-mode-title-input",
+							onChange: (e) => onChange({ name: e.target.value })
+						}), /* @__PURE__ */ jsx("span", {
+							className: "local-mode-hint",
+							children: on ? `${API_TYPE_LABELS[p.apiType] ?? p.apiType} · ${models.filter((m) => m.enabled !== false).length} model(s) in the picker` : "Off: hidden from the model picker"
+						})]
+					}),
+					/* @__PURE__ */ jsx(Switch, {
+						checked: on,
+						onCheckedChange: (enabled) => onChange({ enabled })
+					}),
+					/* @__PURE__ */ jsx("button", {
+						type: "button",
+						className: "local-mode-icon-button",
+						"aria-label": "Remove provider",
+						title: "Remove provider",
+						onClick: onRemove,
+						children: /* @__PURE__ */ jsx(Icon, {
+							name: "trash",
+							size: 14
+						})
+					})
+				]
+			}),
+			/* @__PURE__ */ jsxs("div", {
+				className: "local-mode-block",
+				children: [
+					/* @__PURE__ */ jsx("div", {
+						className: "local-mode-block-title",
+						children: "Connection"
+					}),
+					/* @__PURE__ */ jsx(Field, {
+						label: "API format",
+						children: /* @__PURE__ */ jsx("div", {
+							className: "local-mode-segmented local-mode-segmented-fill",
+							children: API_FORMAT_ORDER.map((t) => /* @__PURE__ */ jsx("button", {
+								type: "button",
+								"aria-pressed": p.apiType === t,
+								"data-active": p.apiType === t || void 0,
+								title: API_TYPE_LABELS[t],
+								onClick: () => onChange({ apiType: t }),
+								children: API_TYPE_SHORT_LABELS[t]
+							}, t))
+						})
+					}),
+					/* @__PURE__ */ jsx(Field, {
+						label: "Base URL",
+						hint: anthropic ? "Like ANTHROPIC_BASE_URL: /v1 is added when missing." : "The OpenAI-compatible base, usually ending in /v1.",
+						children: /* @__PURE__ */ jsx("input", {
+							value: p.baseUrl,
+							placeholder: BASE_URL_HINTS[p.apiType],
+							spellCheck: false,
+							autoComplete: "off",
+							className: "local-mode-input",
+							onChange: (e) => onChange({ baseUrl: e.target.value })
+						})
+					}),
+					/* @__PURE__ */ jsx(Field, {
+						label: "API key",
+						hint: anthropic ? "Sent as the x-api-key header." : "Sent as Authorization: Bearer <key>.",
+						children: /* @__PURE__ */ jsxs("span", {
+							className: "local-mode-input-group",
+							children: [/* @__PURE__ */ jsx("input", {
+								type: showKey ? "text" : "password",
+								value: p.apiKey,
+								placeholder: anthropic ? "sk-ant-…" : "sk-…",
+								spellCheck: false,
+								autoComplete: "off",
+								className: "local-mode-input",
+								onChange: (e) => onChange({ apiKey: e.target.value })
+							}), /* @__PURE__ */ jsx("button", {
+								type: "button",
+								className: "local-mode-icon-button",
+								"aria-label": showKey ? "Hide key" : "Show key",
+								title: showKey ? "Hide key" : "Show key",
+								onClick: (e) => {
+									e.preventDefault();
+									setShowKey(!showKey);
+								},
+								children: /* @__PURE__ */ jsx(Icon, {
+									name: showKey ? "eyeOff" : "eye",
+									size: 14
+								})
+							})]
+						})
+					}),
+					/* @__PURE__ */ jsxs("div", {
+						className: "local-mode-check-row",
+						children: [/* @__PURE__ */ jsx("button", {
+							type: "button",
+							className: "local-mode-button",
+							disabled: busy || !p.baseUrl.trim(),
+							onClick: onFetch,
+							children: busy ? "Connecting…" : "Test connection"
+						}), check ? /* @__PURE__ */ jsxs("span", {
+							className: "local-mode-check",
+							"data-ok": check.ok || void 0,
+							children: [/* @__PURE__ */ jsx(Icon, {
+								name: check.ok ? "check" : "alert",
+								size: 13
+							}), /* @__PURE__ */ jsx("span", { children: check.text })]
+						}) : /* @__PURE__ */ jsx("span", {
+							className: "local-mode-hint",
+							children: "Lists the endpoint's models to check the URL and key."
+						})]
+					}),
+					/* @__PURE__ */ jsxs("button", {
+						type: "button",
+						className: "local-mode-disclosure",
+						"aria-expanded": advanced,
+						onClick: () => setAdvanced(!advanced),
+						children: [
+							/* @__PURE__ */ jsx(Icon, {
+								name: "chevron",
+								size: 12
+							}),
+							"Advanced",
+							advanced ? null : /* @__PURE__ */ jsxs("span", {
+								className: "local-mode-hint",
+								children: [
+									"prefix ",
+									p.prefix || "?",
+									", extra headers"
+								]
+							})
+						]
+					}),
+					advanced ? /* @__PURE__ */ jsxs("div", {
+						className: "local-mode-advanced",
+						children: [/* @__PURE__ */ jsx(Field, {
+							label: "Model prefix",
+							hint: /* @__PURE__ */ jsxs(Fragment, { children: [
+								"Picker IDs become ",
+								/* @__PURE__ */ jsx("code", { children: `${p.prefix || "?"}/${firstModel}` }),
+								" so they never collide with Cursor's models. Stripped before the request is sent."
+							] }),
+							children: /* @__PURE__ */ jsx("input", {
+								value: p.prefix,
+								spellCheck: false,
+								className: "local-mode-input local-mode-mono",
+								onChange: (e) => onChange({ prefix: e.target.value.trim() })
+							})
+						}), /* @__PURE__ */ jsx(Field, {
+							label: "Extra headers",
+							hint: "Optional, one \"Name: value\" per line.",
+							children: /* @__PURE__ */ jsx("textarea", {
+								value: p.headers ?? "",
+								rows: 2,
+								placeholder: "X-Team: platform",
+								spellCheck: false,
+								className: "local-mode-input local-mode-mono local-mode-textarea",
+								onChange: (e) => onChange({ headers: e.target.value })
+							})
+						})]
+					}) : null
+				]
+			}),
+			/* @__PURE__ */ jsx(ModelList, {
+				prefix: p.prefix,
+				models,
+				busy,
+				onChange: (next) => onChange({ models: next }),
+				onFetch
+			})
+		]
+	});
+}
+//#endregion
 //#region src/vs/workbench/contrib/localMode/browser/components/SubscriptionsCard.tsx
 var STATUS_REFRESH_MS = 6e4;
 /** Usage fetched this recently (by the extension host) is not fetched again when the page opens. */
@@ -1552,13 +1630,46 @@ var USAGE_FRESH_MS = 6e5;
 var STRATEGY_LABELS = {
 	"round-robin": {
 		label: "Round robin",
-		hint: "Spread requests over the accounts of a type."
+		hint: "Take turns between the accounts of a type."
+	},
+	"weighted-round-robin": {
+		label: "Weighted",
+		hint: "Take turns in proportion to each account's weight (account settings). Weight 0 skips an account."
 	},
 	"fill-first": {
 		label: "Fill first",
 		hint: "Use one account until it hits a limit, then the next."
 	}
 };
+var IDLE_OPTIONS = [
+	15,
+	30,
+	60,
+	180,
+	720,
+	1440
+].map((m) => ({
+	value: m,
+	label: minutes(m)
+}));
+var WAIT_OPTIONS = [
+	0,
+	10,
+	30,
+	60,
+	120,
+	300
+].map((s) => ({
+	value: s,
+	label: s === 0 ? "Don't wait" : s < 60 ? `${s} s` : minutes(s / 60)
+}));
+var COUNT_OPTIONS = (max, none) => Array.from({ length: max + 1 }, (_, n) => ({
+	value: n,
+	label: n === 0 ? none : String(n)
+}));
+function minutes(m) {
+	return m < 60 ? `${m} min` : m % 60 === 0 ? `${m / 60} hour${m === 60 ? "" : "s"}` : `${m} min`;
+}
 function errorText(e) {
 	return e instanceof Error ? e.message.replace(/^Error invoking remote method '[^']*': (Error: )?/u, "") : String(e);
 }
@@ -1600,6 +1711,140 @@ function CommitInput(props) {
 			size: 13
 		}), /* @__PURE__ */ jsx("span", { children: error })]
 	})] });
+}
+/** A native select over a fixed list; a current value outside the list is kept as an extra option. */
+function Choice(props) {
+	const options = props.options.some((o) => o.value === props.value) ? props.options : [...props.options, {
+		value: props.value,
+		label: props.format?.(props.value) ?? String(props.value)
+	}];
+	return /* @__PURE__ */ jsxs("label", {
+		className: "lm-select",
+		children: [/* @__PURE__ */ jsx("select", {
+			value: String(props.value),
+			"aria-label": props.label,
+			onChange: (e) => {
+				const picked = options.find((o) => String(o.value) === e.target.value);
+				picked !== void 0 && props.onChange(picked.value);
+			},
+			children: options.map((o) => /* @__PURE__ */ jsx("option", {
+				value: String(o.value),
+				children: o.label
+			}, String(o.value)))
+		}), /* @__PURE__ */ jsx(Icon, {
+			name: "chevron",
+			size: 12
+		})]
+	});
+}
+/** One setting: label and hint on the left, its control on the right. */
+function SettingRow(props) {
+	return /* @__PURE__ */ jsxs("div", {
+		className: "lm-sub-setting",
+		children: [/* @__PURE__ */ jsxs("div", {
+			className: "lm-sub-setting-text",
+			children: [/* @__PURE__ */ jsx("span", {
+				className: "lm-sub-setting-label",
+				children: props.label
+			}), /* @__PURE__ */ jsx("span", {
+				className: "local-mode-hint",
+				children: props.hint
+			})]
+		}), /* @__PURE__ */ jsx("div", {
+			className: "lm-sub-setting-control",
+			children: props.children
+		})]
+	});
+}
+/** Sticky sessions, retries and cooldowns (CLIProxyAPI routing; applied without a restart). */
+function RoutingFields(props) {
+	const { Switch } = cursorHost().cursor.ui;
+	const r = routingSettings(props.routing);
+	const set = props.onChange;
+	return /* @__PURE__ */ jsxs("div", {
+		className: "lm-sub-settings",
+		children: [
+			/* @__PURE__ */ jsx(SettingRow, {
+				label: "Sticky sessions",
+				hint: "Keep each conversation on one account, so its prompt cache keeps hitting. It moves only when that account can't serve.",
+				children: /* @__PURE__ */ jsx(Switch, {
+					checked: r.sessionAffinity,
+					onCheckedChange: (on) => set({ sessionAffinity: on })
+				})
+			}),
+			r.sessionAffinity ? /* @__PURE__ */ jsxs(Fragment, { children: [/* @__PURE__ */ jsx(SettingRow, {
+				label: "Release after",
+				hint: "How long an idle conversation keeps its account.",
+				children: /* @__PURE__ */ jsx(Choice, {
+					label: "Release after",
+					value: r.affinityTtlMinutes,
+					options: IDLE_OPTIONS,
+					format: minutes,
+					onChange: (v) => set({ affinityTtlMinutes: v })
+				})
+			}), /* @__PURE__ */ jsx(SettingRow, {
+				label: "Move a conversation on",
+				hint: r.rebindOn === "quota" ? "Limits and sign-in errors only. A brief upstream error retries on another account once, then the conversation returns." : "Any error from its account, including brief upstream ones.",
+				children: /* @__PURE__ */ jsx("div", {
+					className: "local-mode-segmented",
+					children: [["any", "Any error"], ["quota", "Limits only"]].map(([value, label]) => /* @__PURE__ */ jsx("button", {
+						type: "button",
+						"aria-pressed": r.rebindOn === value,
+						"data-active": r.rebindOn === value || void 0,
+						onClick: () => set({ rebindOn: value }),
+						children: label
+					}, value))
+				})
+			})] }) : null,
+			/* @__PURE__ */ jsx(SettingRow, {
+				label: "Retry rounds",
+				hint: "When every account of a type failed (limit, 403, 5xx), go over them again this many times.",
+				children: /* @__PURE__ */ jsx(Choice, {
+					label: "Retry rounds",
+					value: r.retries,
+					options: COUNT_OPTIONS(5, "None"),
+					onChange: (v) => set({ retries: v })
+				})
+			}),
+			/* @__PURE__ */ jsx(SettingRow, {
+				label: "Wait for a cooling account",
+				hint: "If all of them are cooling down, wait up to this long for the first one to come back instead of failing.",
+				children: /* @__PURE__ */ jsx(Choice, {
+					label: "Wait for a cooling account",
+					value: r.retryWaitSeconds,
+					options: WAIT_OPTIONS,
+					format: (v) => `${v} s`,
+					onChange: (v) => set({ retryWaitSeconds: v })
+				})
+			}),
+			/* @__PURE__ */ jsx(SettingRow, {
+				label: "Cool down after errors",
+				hint: "Rest an account for a while after a limit or error, so requests go to the others. Off: keep sending it requests.",
+				children: /* @__PURE__ */ jsx(Switch, {
+					checked: r.cooling,
+					onCheckedChange: (on) => set({ cooling: on })
+				})
+			}),
+			r.cooling ? /* @__PURE__ */ jsx(SettingRow, {
+				label: "Per-model limits",
+				hint: "A Claude or Codex limit on one model rests the account for that model only; its other models keep serving.",
+				children: /* @__PURE__ */ jsx(Switch, {
+					checked: r.modelCooling,
+					onCheckedChange: (on) => set({ modelCooling: on })
+				})
+			}) : null,
+			/* @__PURE__ */ jsx(SettingRow, {
+				label: "Stream retries",
+				hint: "Retry a response that fails before its first token, without the agent noticing.",
+				children: /* @__PURE__ */ jsx(Choice, {
+					label: "Stream retries",
+					value: r.streamRetries,
+					options: COUNT_OPTIONS(3, "None"),
+					onChange: (v) => set({ streamRetries: v })
+				})
+			})
+		]
+	});
 }
 /** Proxy URL with "Test" (reaches the provider through it) and "Save". */
 function ProxyField(props) {
@@ -1771,8 +2016,11 @@ function AccountRow(props) {
 	const details = [
 		type === void 0 ? a.type : ACCOUNT_TYPE_LABELS[type],
 		a.plan,
+		a.priority ? `priority ${a.priority}` : void 0,
+		a.weight !== void 0 && a.weight !== 1 ? `weight ${a.weight}` : void 0,
 		a.proxyUrl ? `via ${maskProxyUrl(a.proxyUrl)}` : void 0
 	].filter(Boolean);
+	const cooling = !a.disabled && a.coolingUntil !== void 0 && a.coolingUntil > now;
 	return /* @__PURE__ */ jsxs("li", {
 		className: "lm-sub-account",
 		"data-off": a.disabled || void 0,
@@ -1792,6 +2040,13 @@ function AccountRow(props) {
 							children: details.join(" · ")
 						})]
 					}),
+					cooling ? /* @__PURE__ */ jsx("button", {
+						type: "button",
+						className: "local-mode-link-button",
+						title: "Clear the cooldown and send it requests again now",
+						onClick: () => void props.onResume(),
+						children: "Resume now"
+					}) : null,
 					/* @__PURE__ */ jsx("span", {
 						className: "lm-sub-pill",
 						"data-tone": state.tone,
@@ -1828,36 +2083,61 @@ function AccountRow(props) {
 			}),
 			open ? /* @__PURE__ */ jsxs("div", {
 				className: "lm-sub-account-settings",
-				children: [/* @__PURE__ */ jsx(Field, {
-					label: "Proxy",
-					hint: "This account's requests, token refresh and usage checks go through it. Empty: the default proxy under Advanced, if any.",
-					children: /* @__PURE__ */ jsx(ProxyField, {
-						value: a.proxyUrl ?? "",
-						saveLabel: "Save proxy",
-						onSave: (proxyUrl) => props.onUpdate({ proxyUrl }),
-						onTest: (proxyUrl) => props.onCheckProxy(proxyUrl, type ?? "claude")
+				children: [
+					/* @__PURE__ */ jsx(Field, {
+						label: "Proxy",
+						hint: "This account's requests, token refresh and usage checks go through it. Empty: the default proxy under Advanced, if any.",
+						children: /* @__PURE__ */ jsx(ProxyField, {
+							value: a.proxyUrl ?? "",
+							saveLabel: "Save proxy",
+							onSave: (proxyUrl) => props.onUpdate({ proxyUrl }),
+							onTest: (proxyUrl) => props.onCheckProxy(proxyUrl, type ?? "claude")
+						})
+					}),
+					/* @__PURE__ */ jsxs("div", {
+						className: "lm-sub-account-grid",
+						children: [/* @__PURE__ */ jsx(Field, {
+							label: "Priority",
+							hint: "Higher serves first; lower ones only when every higher account can't.",
+							children: /* @__PURE__ */ jsx(CommitInput, {
+								value: String(a.priority ?? 0),
+								label: "Priority",
+								validate: (v) => /^-?\d{1,6}$/u.test(v) ? void 0 : "Use a whole number.",
+								onCommit: (v) => void props.onUpdate({ priority: Number(v) })
+							})
+						}), /* @__PURE__ */ jsx(Field, {
+							label: "Weight",
+							hint: "Share of requests when selection is Weighted. 0 skips this account.",
+							children: /* @__PURE__ */ jsx(CommitInput, {
+								value: String(a.weight ?? 1),
+								label: "Weight",
+								validate: (v) => /^\d{1,7}$/u.test(v) && Number(v) <= 1e6 ? void 0 : "Use a whole number from 0 to 1000000.",
+								onCommit: (v) => void props.onUpdate({ weight: Number(v) })
+							})
+						})]
+					}),
+					/* @__PURE__ */ jsxs("div", {
+						className: "local-mode-check-row lm-sub-account-footer",
+						children: [/* @__PURE__ */ jsxs("span", {
+							className: "local-mode-hint",
+							children: [
+								a.success.toLocaleString(),
+								" requests served",
+								a.failed > 0 ? `, ${a.failed.toLocaleString()} failed` : "",
+								a.statusMessage ? ` · ${a.statusMessage}` : ""
+							]
+						}), /* @__PURE__ */ jsxs("button", {
+							type: "button",
+							className: "local-mode-link-button",
+							"data-danger": true,
+							onClick: () => confirm ? void props.onRemove() : setConfirm(true),
+							children: [/* @__PURE__ */ jsx(Icon, {
+								name: "trash",
+								size: 12
+							}), confirm ? "Click again to sign out" : "Sign out"]
+						})]
 					})
-				}), /* @__PURE__ */ jsxs("div", {
-					className: "local-mode-check-row lm-sub-account-footer",
-					children: [/* @__PURE__ */ jsxs("span", {
-						className: "local-mode-hint",
-						children: [
-							a.success.toLocaleString(),
-							" requests served",
-							a.failed > 0 ? `, ${a.failed.toLocaleString()} failed` : "",
-							a.statusMessage ? ` · ${a.statusMessage}` : ""
-						]
-					}), /* @__PURE__ */ jsxs("button", {
-						type: "button",
-						className: "local-mode-link-button",
-						"data-danger": true,
-						onClick: () => confirm ? void props.onRemove() : setConfirm(true),
-						children: [/* @__PURE__ */ jsx(Icon, {
-							name: "trash",
-							size: 12
-						}), confirm ? "Click again to sign out" : "Sign out"]
-					})]
-				})]
+				]
 			}) : null
 		]
 	});
@@ -1873,18 +2153,20 @@ function SubscriptionsCard(props) {
 	const { Switch } = ui;
 	const inference = useService(services.localInference);
 	const { provider: p, busy, check, onChange, onRemove, onFetch } = props;
-	const { port, apiKey, strategy, proxyUrl } = p;
+	const { port, apiKey, strategy, proxyUrl, routing } = p;
 	const client = useMemo(() => subscriptionsClient(inference, {
 		port,
 		apiKey,
 		strategy,
-		proxyUrl
+		proxyUrl,
+		routing
 	}), [
 		inference,
 		port,
 		apiKey,
 		strategy,
-		proxyUrl
+		proxyUrl,
+		routing
 	]);
 	const [status, setStatus] = useState(void 0);
 	const [loading, setLoading] = useState(false);
@@ -1987,7 +2269,10 @@ function SubscriptionsCard(props) {
 			/* @__PURE__ */ jsxs("div", {
 				className: "local-mode-card-header",
 				children: [
-					/* @__PURE__ */ jsx(ProviderAvatar, { name: p.name }),
+					/* @__PURE__ */ jsx(ProviderAvatar, {
+						name: p.name,
+						kind: "subscriptions"
+					}),
 					/* @__PURE__ */ jsxs("div", {
 						className: "local-mode-card-title",
 						children: [/* @__PURE__ */ jsx("input", {
@@ -2077,6 +2362,7 @@ function SubscriptionsCard(props) {
 							onQuota: () => void loadQuota(a.name),
 							onUpdate: (patch) => act(() => client.update(a.name, patch)),
 							onRemove: () => act(() => client.remove(a.name)),
+							onResume: () => act(() => client.resetCooldown(a.name)),
 							onCheckProxy: (url, type) => client.checkProxy(url, type)
 						}, a.name))
 					}) : running ? /* @__PURE__ */ jsx("span", {
@@ -2108,6 +2394,7 @@ function SubscriptionsCard(props) {
 									port,
 									", ",
 									STRATEGY_LABELS[strategy ?? "round-robin"].label.toLowerCase(),
+									routingSettings(routing).sessionAffinity ? ", sticky sessions" : "",
 									proxyUrl ? ", default proxy" : ""
 								]
 							})
@@ -2143,6 +2430,13 @@ function SubscriptionsCard(props) {
 										children: STRATEGY_LABELS[s].label
 									}, s))
 								})
+							}),
+							/* @__PURE__ */ jsx(RoutingFields, {
+								routing,
+								onChange: (patch) => onChange({ routing: {
+									...routing,
+									...patch
+								} })
 							}),
 							/* @__PURE__ */ jsx(Field, {
 								label: "Default proxy",
@@ -2251,6 +2545,7 @@ function PresetGrid(props) {
 				onClick: () => props.onPick(preset),
 				children: [/* @__PURE__ */ jsx(ProviderAvatar, {
 					name: preset.name,
+					kind: preset.kind,
 					size: "sm"
 				}), /* @__PURE__ */ jsxs("span", { children: [/* @__PURE__ */ jsx("span", {
 					className: "local-mode-preset-name",
@@ -2412,6 +2707,7 @@ function CustomProvidersSettings() {
 					children: [
 						/* @__PURE__ */ jsx(ProviderAvatar, {
 							name: x.name,
+							kind: x.kind,
 							size: "sm"
 						}),
 						/* @__PURE__ */ jsx("span", {
@@ -2774,12 +3070,12 @@ function toCsv(records) {
 //#region src/vs/workbench/contrib/localMode/browser/usageStore.ts
 var STORAGE_KEY$1 = "cursorLocalMode.usage";
 globalThis.__cursorLocalModeUsage ??= {
-	records: load$1(),
+	records: load$2(),
 	pending: /* @__PURE__ */ new Map(),
 	listeners: /* @__PURE__ */ new Set()
 };
 var store$1 = globalThis.__cursorLocalModeUsage;
-function load$1() {
+function load$2() {
 	try {
 		const value = JSON.parse(globalThis.localStorage?.getItem(STORAGE_KEY$1) ?? "{}");
 		return Array.isArray(value?.records) ? value.records.filter((r) => typeof r === "object" && r !== null && typeof r.at === "number") : [];
@@ -2787,7 +3083,7 @@ function load$1() {
 		return [];
 	}
 }
-function save$1() {
+function save$2() {
 	try {
 		globalThis.localStorage?.setItem(STORAGE_KEY$1, JSON.stringify({
 			version: 1,
@@ -2808,13 +3104,13 @@ function usageRecords() {
 }
 function clearUsage() {
 	store$1.records = [];
-	save$1();
+	save$2();
 	notify$1();
 }
 /** Adds records directly (tests and the devtool's sample data). */
 function addUsageRecords(records) {
 	store$1.records = [...store$1.records, ...records].sort((a, b) => a.at - b.at).slice(-2e4);
-	save$1();
+	save$2();
 	notify$1();
 }
 function projectName(paths) {
@@ -3221,7 +3517,7 @@ function DevTool() {
 var STORAGE_KEY = "cursorLocalMode.turnStats";
 var MAX_TURNS = 300;
 globalThis.__cursorLocalModeTurnStats ??= {
-	turns: load(),
+	turns: load$1(),
 	byConversation: /* @__PURE__ */ new Map(),
 	toolArgs: /* @__PURE__ */ new Map(),
 	listeners: /* @__PURE__ */ new Set(),
@@ -3229,7 +3525,7 @@ globalThis.__cursorLocalModeTurnStats ??= {
 };
 var store = globalThis.__cursorLocalModeTurnStats;
 store.toolArgs ??= /* @__PURE__ */ new Map();
-function load() {
+function load$1() {
 	try {
 		const value = JSON.parse(globalThis.localStorage?.getItem(STORAGE_KEY) ?? "[]");
 		return new Map(Array.isArray(value) ? value.filter((e) => Array.isArray(e) && typeof e[0] === "string" && e[1] && typeof e[1] === "object") : []);
@@ -3237,7 +3533,7 @@ function load() {
 		return /* @__PURE__ */ new Map();
 	}
 }
-function save() {
+function save$1() {
 	try {
 		const finished = [...store.turns].filter(([, s]) => s.endedAt !== void 0).slice(-300);
 		globalThis.localStorage?.setItem(STORAGE_KEY, JSON.stringify(finished));
@@ -3358,7 +3654,7 @@ function turnUpdate(key, update) {
 				thinkingSince: void 0,
 				outputTokens: out !== void 0 && out > 0 ? out : void 0
 			});
-			save();
+			save$1();
 			return;
 		}
 	}
@@ -4146,7 +4442,859 @@ function UsagePage() {
 }
 //#endregion
 //#region src/vs/workbench/contrib/localMode/browser/localMode.css?inline
-var localMode_default = "/* --- Transcript ------------------------------------------------------------ */\n\n/* Models often open a reply with a newline, which renders as an empty line\n   under the work-group header. */\n.ui-markdown > * > br:first-child {\n	display: none;\n}\n\n/* Keep the live turn stats right after the tail status text instead of\n   pushed to the far end of the row. */\n.agent-transcript-tail-status:has(> [data-slot=\"local-turn-stats\"]) > :first-child {\n	flex: 0 1 auto;\n	width: auto;\n}\n\n.local-mode-turn-stats {\n	flex-shrink: 0;\n	margin-right: auto;\n	color: var(--cursor-text-quaternary);\n	font-variant-numeric: tabular-nums;\n	white-space: nowrap;\n}\n\n.local-mode-tabular {\n	font-variant-numeric: tabular-nums;\n}\n\n/* --- Settings > Models > Custom Providers ---------------------------------- */\n\n.local-mode-settings {\n	--lm-radius: 12px;\n	--lm-fg: var(--cursor-text-primary, var(--vscode-foreground));\n	--lm-fg-2: var(--cursor-text-secondary, var(--vscode-descriptionForeground));\n	--lm-fg-3: var(--cursor-text-tertiary, var(--vscode-descriptionForeground));\n	--lm-bg: var(--cursor-bg-quinary, var(--vscode-editorWidget-background));\n	--lm-bg-hover: var(--cursor-bg-quaternary, var(--vscode-list-hoverBackground));\n	--lm-bg-track: var(--cursor-bg-tertiary, var(--vscode-list-hoverBackground));\n	--lm-bg-raised: var(--cursor-bg-elevated, var(--vscode-input-background));\n	--lm-line: var(--cursor-stroke-secondary, var(--vscode-widget-border, rgba(128, 128, 128, 0.2)));\n	--lm-line-2: var(--cursor-stroke-tertiary, rgba(128, 128, 128, 0.12));\n	--lm-focus: var(--cursor-stroke-focused, var(--vscode-focusBorder));\n	--lm-ok: var(--cursor-text-green-primary, var(--vscode-testing-iconPassed));\n	--lm-err: var(--cursor-text-red-primary, var(--vscode-errorForeground));\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	color: var(--lm-fg);\n	font-size: 13px;\n}\n\n.local-mode-settings :where(button) {\n	font: inherit;\n	color: inherit;\n	cursor: pointer;\n}\n\n.local-mode-settings :where(button:disabled) {\n	cursor: default;\n	opacity: 0.5;\n}\n\n.local-mode-icon {\n	flex-shrink: 0;\n	display: block;\n}\n\n.local-mode-hint {\n	display: block;\n	font-size: 12px;\n	line-height: 1.45;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-hint code {\n	padding: 0 4px;\n	border-radius: 4px;\n	background: var(--lm-bg-hover);\n	font-family: var(--monaco-monospace-font);\n	font-size: 11.5px;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-count {\n	margin-left: 6px;\n	font-size: 11px;\n	font-variant-numeric: tabular-nums;\n	color: var(--lm-fg-3);\n}\n\n/* Provider tabs */\n\n.local-mode-tabs {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 6px;\n}\n\n.local-mode-tab {\n	display: inline-flex;\n	align-items: center;\n	gap: 7px;\n	height: 30px;\n	max-width: 220px;\n	padding: 0 10px 0 5px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 8px;\n	background: transparent;\n	transition:\n		background-color 0.12s,\n		border-color 0.12s;\n}\n\n.local-mode-tab:hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-tab[data-active] {\n	background: var(--lm-bg-raised);\n	border-color: var(--lm-line);\n	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);\n}\n\n.local-mode-tab[data-off] .local-mode-tab-name {\n	color: var(--lm-fg-3);\n	text-decoration: line-through;\n	text-decoration-color: var(--lm-line);\n}\n\n.local-mode-tab-name {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-weight: 500;\n}\n\n.local-mode-tab .local-mode-count {\n	margin-left: 0;\n}\n\n.local-mode-tab-add {\n	padding-left: 9px;\n	border-style: dashed;\n	color: var(--lm-fg-2);\n}\n\n/* Avatar */\n\n.local-mode-avatar {\n	--hue: var(--cursor-blue, #3b82f6);\n	flex-shrink: 0;\n	display: inline-grid;\n	place-items: center;\n	width: 32px;\n	height: 32px;\n	border-radius: 8px;\n	font-weight: 600;\n	font-size: 14px;\n	color: var(--hue);\n	background: color-mix(in srgb, var(--hue) 16%, transparent);\n}\n\n.local-mode-avatar[data-size=\"sm\"] {\n	width: 20px;\n	height: 20px;\n	border-radius: 5px;\n	font-size: 11px;\n}\n\n.local-mode-avatar[data-hue=\"purple\"] {\n	--hue: var(--cursor-purple, #8b5cf6);\n}\n.local-mode-avatar[data-hue=\"orange\"] {\n	--hue: var(--cursor-orange, #f97316);\n}\n.local-mode-avatar[data-hue=\"green\"] {\n	--hue: var(--cursor-green, #22c55e);\n}\n.local-mode-avatar[data-hue=\"cyan\"] {\n	--hue: var(--cursor-cyan, #06b6d4);\n}\n.local-mode-avatar[data-hue=\"magenta\"] {\n	--hue: var(--cursor-magenta, #d946ef);\n}\n\n/* Card */\n\n.local-mode-card {\n	display: flex;\n	flex-direction: column;\n	border-radius: var(--lm-radius);\n	background: var(--lm-bg);\n}\n\n.local-mode-card > * + * {\n	border-top: 1px solid var(--lm-line-2);\n}\n\n.local-mode-card-header {\n	display: flex;\n	align-items: center;\n	gap: 12px;\n	padding: 14px 16px;\n}\n\n.local-mode-card[data-off] .local-mode-block {\n	opacity: 0.55;\n}\n\n.local-mode-card-title {\n	flex: 1 1 auto;\n	min-width: 0;\n	display: flex;\n	flex-direction: column;\n	gap: 1px;\n}\n\n.local-mode-title-input {\n	width: 100%;\n	margin-left: -4px;\n	padding: 1px 4px;\n	border: 1px solid transparent;\n	border-radius: 5px;\n	background: transparent;\n	color: var(--lm-fg);\n	font: inherit;\n	font-size: 14px;\n	font-weight: 600;\n	outline: none;\n}\n\n.local-mode-title-input:hover {\n	border-color: var(--lm-line-2);\n}\n\n.local-mode-title-input:focus {\n	border-color: var(--lm-focus);\n	background: var(--lm-bg-raised);\n}\n\n.local-mode-block {\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	padding: 14px 16px 16px;\n}\n\n.local-mode-block-header {\n	display: flex;\n	align-items: flex-start;\n	justify-content: space-between;\n	gap: 12px;\n}\n\n.local-mode-block-title {\n	font-size: 11px;\n	font-weight: 600;\n	letter-spacing: 0.04em;\n	text-transform: uppercase;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-block-header .local-mode-hint {\n	margin-top: 3px;\n}\n\n/* Fields */\n\n.local-mode-field {\n	display: flex;\n	flex-direction: column;\n	gap: 5px;\n}\n\n.local-mode-field-label {\n	font-size: 12px;\n	font-weight: 500;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-input {\n	width: 100%;\n	box-sizing: border-box;\n	height: 30px;\n	padding: 0 10px;\n	font: inherit;\n	font-size: 13px;\n	color: var(--vscode-input-foreground, var(--lm-fg));\n	background: var(--lm-bg-raised);\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	outline: none;\n	transition:\n		border-color 0.12s,\n		box-shadow 0.12s;\n}\n\n.local-mode-input:focus {\n	border-color: var(--lm-focus);\n	box-shadow: 0 0 0 3px color-mix(in srgb, var(--lm-focus) 18%, transparent);\n}\n\n.local-mode-input::placeholder,\n.local-mode-settings input::placeholder,\n.local-mode-settings textarea::placeholder {\n	color: var(--lm-fg-3);\n	opacity: 0.8;\n}\n\n.local-mode-mono {\n	font-family: var(--monaco-monospace-font);\n	font-size: 12px;\n}\n\n.local-mode-textarea {\n	height: auto;\n	padding: 6px 10px;\n	resize: vertical;\n}\n\n.local-mode-input-group {\n	position: relative;\n	display: block;\n}\n\n.local-mode-input-group .local-mode-input {\n	padding-right: 36px;\n}\n\n.local-mode-input-group .local-mode-icon-button {\n	position: absolute;\n	top: 3px;\n	right: 3px;\n}\n\n/* Buttons */\n\n.local-mode-icon-button {\n	display: inline-grid;\n	place-items: center;\n	width: 24px;\n	height: 24px;\n	padding: 0;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-icon-button:hover {\n	background: var(--lm-bg-hover);\n	color: var(--lm-fg);\n}\n\n.local-mode-button {\n	flex-shrink: 0;\n	height: 28px;\n	padding: 0 12px;\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	background: var(--lm-bg-raised);\n	font-weight: 500;\n}\n\n.local-mode-button:not(:disabled):hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-link-button {\n	display: inline-flex;\n	align-items: center;\n	gap: 5px;\n	height: 24px;\n	padding: 0 6px;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	font-size: 12px;\n	color: var(--lm-fg-2);\n	white-space: nowrap;\n}\n\n.local-mode-link-button:not(:disabled):hover {\n	background: var(--lm-bg-hover);\n	color: var(--lm-fg);\n}\n\n.local-mode-spin[data-active] .local-mode-icon {\n	animation: local-mode-spin 0.9s linear infinite;\n}\n\n@keyframes local-mode-spin {\n	to {\n		transform: rotate(360deg);\n	}\n}\n\n/* Segmented control */\n\n.local-mode-segmented {\n	display: inline-flex;\n	padding: 2px;\n	gap: 2px;\n	border-radius: 8px;\n	background: var(--lm-bg-track);\n}\n\n.local-mode-segmented button {\n	height: 24px;\n	padding: 0 10px;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	font-size: 12px;\n	color: var(--lm-fg-2);\n	white-space: nowrap;\n}\n\n.local-mode-segmented button[data-active] {\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg);\n	font-weight: 500;\n	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n\n.local-mode-segmented-fill {\n	display: flex;\n}\n\n.local-mode-segmented-fill button {\n	flex: 1 1 0;\n	height: 26px;\n}\n\n/* Connection check */\n\n.local-mode-check-row {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n	min-height: 28px;\n}\n\n.local-mode-check {\n	display: inline-flex;\n	align-items: flex-start;\n	gap: 6px;\n	min-width: 0;\n	font-size: 12px;\n	line-height: 1.45;\n	color: var(--lm-err);\n	overflow-wrap: anywhere;\n}\n\n.local-mode-check .local-mode-icon {\n	margin-top: 2px;\n}\n\n.local-mode-check[data-ok] {\n	color: var(--lm-ok);\n}\n\n.local-mode-disclosure {\n	display: inline-flex;\n	align-items: center;\n	align-self: flex-start;\n	gap: 6px;\n	margin-left: -6px;\n	padding: 3px 6px;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	font-size: 12px;\n	font-weight: 500;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-disclosure:hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-disclosure .local-mode-icon {\n	transition: transform 0.15s;\n}\n\n.local-mode-disclosure[aria-expanded=\"true\"] .local-mode-icon {\n	transform: rotate(90deg);\n}\n\n.local-mode-disclosure .local-mode-hint {\n	font-weight: 400;\n}\n\n.local-mode-advanced {\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	padding-left: 12px;\n	border-left: 2px solid var(--lm-line-2);\n}\n\n/* Models */\n\n.local-mode-model-toolbar {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n}\n\n.local-mode-search {\n	flex: 1 1 auto;\n	display: flex;\n	align-items: center;\n	gap: 6px;\n	height: 28px;\n	padding: 0 8px;\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg-3);\n}\n\n.local-mode-search:focus-within {\n	border-color: var(--lm-focus);\n}\n\n.local-mode-search input,\n.local-mode-add-model input {\n	flex: 1 1 auto;\n	min-width: 0;\n	padding: 0;\n	border: none;\n	outline: none;\n	background: transparent;\n	font: inherit;\n	font-size: 12.5px;\n	color: var(--lm-fg);\n}\n\n.local-mode-search button {\n	display: grid;\n	place-items: center;\n	padding: 2px;\n	border: none;\n	border-radius: 4px;\n	background: transparent;\n}\n\n.local-mode-model-list {\n	list-style: none;\n	max-height: 360px;\n	overflow-y: auto;\n	margin: 0 -6px;\n	padding: 0 6px;\n}\n\n.local-mode-model-row {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n	height: 34px;\n	margin: 0 -6px;\n	padding: 0 6px;\n	border-radius: 7px;\n}\n\n.local-mode-model-row:hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-model-name {\n	flex: 1 1 auto;\n	min-width: 0;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-family: var(--monaco-monospace-font);\n	font-size: 12.5px;\n}\n\n.local-mode-model-row[data-off] .local-mode-model-name {\n	color: var(--lm-fg-3);\n}\n\n.local-mode-row-action {\n	opacity: 0;\n}\n\n.local-mode-model-row:hover .local-mode-row-action,\n.local-mode-row-action:focus-visible {\n	opacity: 1;\n}\n\n.local-mode-context-chip,\n.local-mode-context-input {\n	box-sizing: border-box;\n	width: 64px;\n	height: 22px;\n	padding: 0 8px;\n	border-radius: 11px;\n	font-size: 11.5px;\n	font-variant-numeric: tabular-nums;\n	text-align: center;\n}\n\n.local-mode-context-chip {\n	border: 1px solid var(--lm-line);\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg-2);\n}\n\n.local-mode-context-chip[data-auto] {\n	border-color: transparent;\n	background: transparent;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-context-chip:hover {\n	border-color: var(--lm-line);\n	color: var(--lm-fg);\n}\n\n.local-mode-context-input {\n	border: 1px solid var(--lm-focus);\n	outline: none;\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg);\n	font-family: inherit;\n}\n\n.local-mode-context-input[aria-invalid=\"true\"] {\n	border-color: var(--lm-err);\n	color: var(--lm-err);\n}\n\n.local-mode-empty-row {\n	padding: 14px 0;\n	text-align: center;\n	font-size: 12px;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-model-footer {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n}\n\n.local-mode-add-model {\n	flex: 1 1 auto;\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	height: 28px;\n	padding: 0 8px;\n	border: 1px dashed var(--lm-line);\n	border-radius: 7px;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-add-model:focus-within {\n	border-style: solid;\n	border-color: var(--lm-focus);\n}\n\n.local-mode-bulk {\n	display: flex;\n	gap: 2px;\n}\n\n/* Presets and empty state */\n\n.local-mode-presets {\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	padding: 14px 16px 16px;\n}\n\n.local-mode-empty {\n	gap: 4px;\n	padding: 28px 24px;\n	align-items: stretch;\n	text-align: center;\n}\n\n.local-mode-empty > * + * {\n	border-top: none;\n}\n\n.local-mode-empty-title {\n	font-size: 15px;\n	font-weight: 600;\n}\n\n.local-mode-empty .local-mode-presets .local-mode-block-header {\n	display: none;\n}\n\n.local-mode-preset-grid {\n	display: grid;\n	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));\n	gap: 8px;\n}\n\n.local-mode-preset {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n	padding: 10px 12px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 8px;\n	background: var(--lm-bg-raised);\n	text-align: left;\n	transition:\n		border-color 0.12s,\n		transform 0.12s;\n}\n\n.local-mode-preset:hover {\n	border-color: var(--lm-focus);\n}\n\n.local-mode-preset .local-mode-avatar {\n	width: 28px;\n	height: 28px;\n	border-radius: 7px;\n	font-size: 13px;\n}\n\n.local-mode-preset-name {\n	display: block;\n	font-weight: 500;\n}\n\n/* Save bar */\n\n.local-mode-savebar {\n	position: sticky;\n	bottom: 12px;\n	z-index: 2;\n	display: flex;\n	align-items: center;\n	gap: 12px;\n	min-height: 40px;\n	padding: 6px 6px 6px 14px;\n	border: 1px solid var(--lm-line);\n	border-radius: var(--lm-radius);\n	background: var(--lm-bg-raised);\n	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);\n	animation: local-mode-rise 0.16s ease-out;\n}\n\n.local-mode-savebar-text {\n	flex: 1 1 auto;\n	display: flex;\n	align-items: center;\n	gap: 7px;\n	font-size: 12.5px;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-savebar[data-error] .local-mode-savebar-text {\n	color: var(--lm-err);\n}\n\n.local-mode-savebar-actions {\n	display: flex;\n	gap: 6px;\n}\n\n@keyframes local-mode-rise {\n	from {\n		opacity: 0;\n		transform: translateY(6px);\n	}\n}\n\n/* Subscriptions provider (Claude Code, Codex, Grok accounts) */\n\n.lm-model-badge {\n	flex-shrink: 0;\n	padding: 0 6px;\n	border-radius: 9px;\n	font-size: 10.5px;\n	line-height: 17px;\n	color: var(--lm-fg-3);\n	background: var(--lm-bg-hover);\n}\n\n.lm-sub-accounts {\n	display: flex;\n	flex-direction: column;\n	gap: 8px;\n	margin: 0;\n	padding: 0;\n	list-style: none;\n}\n\n.lm-sub-account {\n	display: flex;\n	flex-direction: column;\n	gap: 10px;\n	padding: 12px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 10px;\n	background: var(--lm-bg-raised);\n}\n\n.lm-sub-account[data-off] .lm-sub-account-name {\n	color: var(--lm-fg-3);\n}\n\n.lm-sub-account-head {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n}\n\n.lm-sub-account-name {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-weight: 500;\n}\n\n.lm-sub-expand .local-mode-icon {\n	transform: rotate(90deg);\n	transition: transform 0.12s;\n}\n\n.lm-sub-expand[aria-expanded=\"true\"] .local-mode-icon {\n	transform: rotate(-90deg);\n}\n\n.lm-sub-pill {\n	flex-shrink: 0;\n	padding: 1px 8px;\n	border-radius: 10px;\n	font-size: 11px;\n	font-weight: 500;\n	white-space: nowrap;\n	color: var(--lm-fg-2);\n	background: var(--lm-bg-hover);\n}\n\n.lm-sub-pill[data-tone=\"ok\"] {\n	color: var(--lm-ok);\n	background: color-mix(in srgb, var(--lm-ok) 12%, transparent);\n}\n\n.lm-sub-pill[data-tone=\"warn\"] {\n	color: var(--cursor-text-yellow-primary, #ca8a04);\n	background: color-mix(in srgb, var(--cursor-text-yellow-primary, #ca8a04) 12%, transparent);\n}\n\n.lm-sub-pill[data-tone=\"err\"] {\n	color: var(--lm-err);\n	background: color-mix(in srgb, var(--lm-err) 12%, transparent);\n}\n\n.lm-sub-quota {\n	display: flex;\n	flex-direction: column;\n	gap: 6px;\n	padding-left: 42px;\n}\n\n.lm-sub-quota-row {\n	--lm-quota: var(--lm-ok);\n	display: grid;\n	grid-template-columns: 110px minmax(60px, 1fr) 64px 110px;\n	align-items: center;\n	gap: 10px;\n	font-size: 12px;\n}\n\n.lm-sub-quota-row[data-level=\"mid\"] {\n	--lm-quota: var(--cursor-text-yellow-primary, #ca8a04);\n}\n\n.lm-sub-quota-row[data-level=\"low\"] {\n	--lm-quota: var(--lm-err);\n}\n\n.lm-sub-quota-label {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	color: var(--lm-fg-2);\n}\n\n.lm-sub-quota-bar {\n	height: 6px;\n	border-radius: 3px;\n	overflow: hidden;\n	background: var(--lm-bg-track);\n}\n\n.lm-sub-quota-bar > span {\n	display: block;\n	height: 100%;\n	border-radius: 3px;\n	background: var(--lm-quota);\n	transition: width 0.3s;\n}\n\n.lm-sub-quota-value {\n	text-align: right;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-sub-quota-reset {\n	color: var(--lm-fg-3);\n	font-variant-numeric: tabular-nums;\n	white-space: nowrap;\n}\n\n.lm-sub-quota-footer {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 8px;\n}\n\n.lm-sub-account-settings {\n	display: flex;\n	flex-direction: column;\n	gap: 10px;\n	padding: 10px 0 0 42px;\n	border-top: 1px solid var(--lm-line-2);\n}\n\n.lm-sub-account-footer {\n	justify-content: space-between;\n}\n\n.lm-sub-proxy {\n	display: flex;\n	flex-direction: column;\n	gap: 6px;\n}\n\n.lm-sub-inline {\n	display: flex;\n	gap: 6px;\n}\n\n.lm-sub-inline .local-mode-button {\n	height: 30px;\n}\n\n.lm-sub-error {\n	display: flex;\n	align-items: flex-start;\n	justify-content: space-between;\n	gap: 10px;\n	padding: 10px 12px;\n	border-radius: 8px;\n	background: color-mix(in srgb, var(--lm-err) 8%, transparent);\n	white-space: pre-wrap;\n}\n\n.lm-sub-add {\n	display: flex;\n	flex-direction: column;\n	gap: 8px;\n}\n\n.lm-sub-add-grid {\n	display: grid;\n	grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));\n	gap: 8px;\n}\n\n.lm-sub-signin {\n	display: flex;\n	flex-direction: column;\n	gap: 10px;\n	padding: 12px;\n	border: 1px solid var(--lm-focus);\n	border-radius: 10px;\n	background: var(--lm-bg-raised);\n}\n\n.lm-sub-signin[data-error] {\n	border-color: var(--lm-line);\n}\n\n.lm-sub-signin-title {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	font-weight: 600;\n}\n\n.lm-sub-link {\n	display: flex;\n	align-items: center;\n	gap: 4px;\n	padding: 4px 4px 4px 10px;\n	border-radius: 7px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-sub-link-url {\n	flex: 1 1 auto;\n	min-width: 0;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-family: var(--monaco-monospace-font);\n	font-size: 11.5px;\n	color: var(--lm-fg-2);\n}\n\n.lm-sub-link a.local-mode-link-button {\n	text-decoration: none;\n}\n\n.lm-sub-device {\n	display: flex;\n	align-items: center;\n	flex-wrap: wrap;\n	gap: 10px;\n}\n\n.lm-sub-code {\n	padding: 4px 12px;\n	border-radius: 7px;\n	background: var(--lm-bg-hover);\n	font-family: var(--monaco-monospace-font);\n	font-size: 16px;\n	font-weight: 600;\n	letter-spacing: 0.12em;\n}\n\n.lm-sub-paste {\n	display: flex;\n	gap: 6px;\n}\n\n.lm-sub-paste .local-mode-button {\n	height: 30px;\n}\n\n/* --- Settings > Usage ------------------------------------------------------ */\n\n.lm-usage {\n	--lm-input: rgb(14 165 233 / 0.85);\n	--lm-heat: var(--cursor-green, #22c55e);\n}\n\n.lm-muted {\n	font-size: 12px;\n	color: var(--lm-fg-3);\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-spacer {\n	flex: 1 1 auto;\n}\n\n.lm-toolbar {\n	display: flex;\n	flex-wrap: wrap;\n	align-items: center;\n	gap: 8px;\n}\n\n.lm-select {\n	position: relative;\n	display: inline-flex;\n	align-items: center;\n	gap: 6px;\n	height: 28px;\n	padding: 0 8px;\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	background: var(--lm-bg-raised);\n}\n\n.lm-select select {\n	appearance: none;\n	padding: 0 14px 0 0;\n	border: none;\n	outline: none;\n	background: transparent;\n	font: inherit;\n	font-size: 12.5px;\n	color: var(--lm-fg);\n	cursor: pointer;\n}\n\n.lm-select > .local-mode-icon {\n	position: absolute;\n	right: 7px;\n	transform: rotate(90deg);\n	color: var(--lm-fg-3);\n	pointer-events: none;\n}\n\n/* Stat cards */\n\n.lm-stats {\n	display: grid;\n	grid-template-columns: repeat(4, minmax(0, 1fr));\n	gap: 8px;\n}\n\n.lm-stat {\n	display: flex;\n	flex-direction: column;\n	gap: 2px;\n	min-width: 0;\n	padding: 12px 14px;\n	border-radius: var(--lm-radius);\n	background: var(--lm-bg);\n}\n\n.lm-stat-label {\n	font-size: 12px;\n	color: var(--lm-fg-3);\n}\n\n.lm-stat-value {\n	font-size: 22px;\n	font-weight: 600;\n	letter-spacing: -0.01em;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-stat-sub {\n	font-size: 11.5px;\n	line-height: 1.35;\n	color: var(--lm-fg-3);\n}\n\n/* Panels */\n\n.lm-panel-header {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 12px;\n	padding: 12px 16px 0;\n}\n\n.local-mode-card > .lm-panel-body {\n	display: flex;\n	flex-direction: column;\n	gap: 14px;\n	padding: 12px 16px 16px;\n	border-top: none;\n}\n\n/* Daily chart */\n\n.lm-daily {\n	display: flex;\n	flex-direction: column;\n	gap: 6px;\n}\n\n.lm-daily-readout {\n	display: flex;\n	flex-wrap: wrap;\n	align-items: center;\n	gap: 4px 12px;\n	min-height: 20px;\n	font-size: 12px;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-daily-bars {\n	display: flex;\n	align-items: flex-end;\n	gap: 2px;\n	height: 140px;\n	padding-bottom: 1px;\n	border-bottom: 1px solid var(--lm-line);\n	background-image: linear-gradient(to top, var(--lm-line-2) 1px, transparent 1px);\n	background-size: 100% 25%;\n}\n\n.lm-daily-col {\n	flex: 1 1 0;\n	display: flex;\n	align-items: flex-end;\n	height: 100%;\n	min-width: 0;\n	border-radius: 3px 3px 0 0;\n}\n\n.lm-daily-col[data-hover] {\n	background: var(--lm-bg-hover);\n}\n\n.lm-daily-stack {\n	display: flex;\n	flex-direction: column-reverse;\n	width: 100%;\n	min-height: 0;\n	overflow: hidden;\n	border-radius: 3px 3px 0 0;\n}\n\n.lm-daily-stack > span {\n	flex-basis: 0;\n	min-height: 1px;\n}\n\n.lm-daily-axis {\n	display: flex;\n	gap: 2px;\n}\n\n.lm-daily-axis > span {\n	flex: 1 1 0;\n	min-width: 0;\n	overflow: visible;\n	white-space: nowrap;\n	font-size: 10.5px;\n	color: var(--lm-fg-3);\n	font-variant-numeric: tabular-nums;\n}\n\n/* Token mix */\n\n.lm-mix {\n	display: flex;\n	flex-direction: column;\n	gap: 8px;\n}\n\n.lm-mix-bar {\n	display: flex;\n	gap: 2px;\n	height: 8px;\n	overflow: hidden;\n	border-radius: 4px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-mix-bar > span {\n	flex-basis: 0;\n}\n\n.lm-legend {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 4px 16px;\n}\n\n.lm-legend-item {\n	display: inline-flex;\n	align-items: center;\n	gap: 6px;\n	font-size: 12px;\n	color: var(--lm-fg-2);\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-legend-item i {\n	width: 8px;\n	height: 8px;\n	border-radius: 2px;\n}\n\n.lm-legend-item b {\n	font-weight: 600;\n	color: var(--lm-fg);\n}\n\n/* Provider tiles */\n\n.lm-tiles {\n	display: grid;\n	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));\n	gap: 8px;\n}\n\n.lm-tile {\n	display: flex;\n	flex-direction: column;\n	align-items: stretch;\n	gap: 4px;\n	min-width: 0;\n	padding: 10px 12px 12px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 9px;\n	background: var(--lm-bg-raised);\n	text-align: left;\n	transition: border-color 0.12s;\n}\n\n.lm-tile:hover,\n.lm-tile[data-active] {\n	border-color: var(--lm-focus);\n}\n\n.lm-tile-head {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	min-width: 0;\n}\n\n.lm-tile-head .lm-cell-main {\n	flex: 1 1 auto;\n}\n\n.lm-tile-value {\n	font-size: 18px;\n	font-weight: 600;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-share {\n	display: block;\n	height: 3px;\n	margin-top: 4px;\n	overflow: hidden;\n	border-radius: 2px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-share > span {\n	display: block;\n	height: 100%;\n	border-radius: 2px;\n	background: var(--lm-input);\n}\n\n/* Tables */\n\n.lm-table {\n	width: 100%;\n	border-collapse: collapse;\n	table-layout: fixed;\n	font-size: 12.5px;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-table th {\n	padding: 0 8px 8px;\n	border-bottom: 1px solid var(--lm-line);\n	text-align: left;\n	font-size: 11.5px;\n	font-weight: 500;\n	color: var(--lm-fg-3);\n}\n\n.lm-table td {\n	padding: 8px;\n	border-bottom: 1px solid var(--lm-line-2);\n	vertical-align: middle;\n}\n\n.lm-table tr:last-child td {\n	border-bottom: none;\n}\n\n.lm-table tbody tr:hover td {\n	background: var(--lm-bg-hover);\n}\n\n.lm-table th:first-child,\n.lm-table td:first-child {\n	padding-left: 0;\n}\n\n.lm-table th:last-child,\n.lm-table td:last-child {\n	padding-right: 0;\n}\n\n.lm-table .lm-num {\n	width: 84px;\n	text-align: right;\n	white-space: nowrap;\n}\n\n.lm-breakdown .lm-share {\n	max-width: 260px;\n}\n\n.lm-requests th:nth-child(1) {\n	width: 108px;\n}\n\n.lm-requests th:nth-child(2) {\n	width: 70px;\n}\n\n.lm-nowrap {\n	white-space: nowrap;\n}\n\n.lm-cell-main {\n	display: block;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-weight: 500;\n}\n\n.lm-breakdown .lm-cell-main {\n	display: inline;\n	font-family: var(--monaco-monospace-font);\n	font-size: 12px;\n	font-weight: 400;\n}\n\n.lm-requests .lm-cell-main {\n	font-family: var(--monaco-monospace-font);\n	font-size: 12px;\n	font-weight: 400;\n}\n\n.lm-cell-sub {\n	display: block;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-size: 11.5px;\n	color: var(--lm-fg-3);\n}\n\n.lm-badge {\n	display: inline-block;\n	padding: 1px 7px;\n	border-radius: 10px;\n	font-size: 11px;\n	font-weight: 500;\n	color: var(--lm-fg-2);\n	background: var(--lm-bg-hover);\n}\n\n.lm-badge[data-type=\"agent\"] {\n	color: rgb(14 165 233);\n	background: rgb(14 165 233 / 0.12);\n}\n\n.lm-pager {\n	display: flex;\n	align-items: center;\n	justify-content: flex-end;\n	gap: 4px;\n}\n\n.lm-pager .lm-muted {\n	margin-right: 8px;\n}\n\n/* Heatmap */\n\n.lm-heat {\n	display: flex;\n	gap: 6px;\n	overflow-x: auto;\n}\n\n.lm-heat-days {\n	display: grid;\n	grid-template-rows: 14px repeat(7, 11px);\n	row-gap: 3px;\n	font-size: 10px;\n	line-height: 11px;\n	color: var(--lm-fg-3);\n}\n\n.lm-heat-days > :first-child {\n	height: 14px;\n}\n\n.lm-heat-body {\n	display: flex;\n	flex-direction: column;\n	gap: 3px;\n	min-width: 0;\n}\n\n.lm-heat-months,\n.lm-heat-grid {\n	display: flex;\n	gap: 3px;\n}\n\n.lm-heat-months > span {\n	width: 11px;\n	height: 14px;\n	overflow: visible;\n	white-space: nowrap;\n	font-size: 10px;\n	color: var(--lm-fg-3);\n}\n\n.lm-heat-col {\n	display: flex;\n	flex-direction: column;\n	gap: 3px;\n}\n\n.lm-heat-cell {\n	display: inline-block;\n	width: 11px;\n	height: 11px;\n	border-radius: 3px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-heat-cell[data-level=\"1\"] {\n	background: color-mix(in srgb, var(--lm-heat) 30%, transparent);\n}\n\n.lm-heat-cell[data-level=\"2\"] {\n	background: color-mix(in srgb, var(--lm-heat) 52%, transparent);\n}\n\n.lm-heat-cell[data-level=\"3\"] {\n	background: color-mix(in srgb, var(--lm-heat) 76%, transparent);\n}\n\n.lm-heat-cell[data-level=\"4\"] {\n	background: var(--lm-heat);\n}\n\n.lm-heat-cell[data-future] {\n	visibility: hidden;\n}\n\n.lm-heat-cell[data-today] {\n	outline: 1px solid var(--lm-fg-3);\n	outline-offset: 1px;\n}\n\n.lm-heat-footer {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n}\n\n.lm-heat-legend {\n	display: inline-flex;\n	align-items: center;\n	gap: 3px;\n	font-size: 11px;\n	color: var(--lm-fg-3);\n}\n\n.lm-heat-legend > :first-of-type {\n	margin-left: 4px;\n}\n\n.lm-heat-legend > :last-of-type {\n	margin-right: 4px;\n}\n\n.lm-footer {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 12px;\n	padding: 0 4px 8px;\n}\n\n.local-mode-link-button[data-danger] {\n	color: var(--lm-err);\n}\n\n.local-mode-empty .local-mode-presets {\n	padding: 16px 0 0;\n}\n\n/* DevTool: DEV pill and panel (tweakpane-style, dark in every theme) */\n\n.lm-dev {\n	--dev-bg: rgb(32 33 38 / 0.97);\n	--dev-bg-2: rgb(255 255 255 / 0.06);\n	--dev-bg-3: rgb(255 255 255 / 0.11);\n	--dev-fg: rgb(240 241 245);\n	--dev-fg-2: rgb(240 241 245 / 0.62);\n	--dev-line: rgb(255 255 255 / 0.08);\n	--dev-accent: rgb(120 190 255);\n	font-family: var(--cursor-font-family-ui, system-ui), sans-serif;\n	font-size: 11.5px;\n	color: var(--dev-fg);\n}\n\n.lm-dev-pill {\n	position: fixed;\n	right: 0;\n	z-index: 100000;\n	padding: 6px 5px 6px 7px;\n	border: 1px solid var(--dev-line);\n	border-right: none;\n	border-radius: 8px 0 0 8px;\n	background: var(--dev-bg);\n	color: var(--dev-fg-2);\n	font:\n		600 10px / 1 ui-monospace,\n		SFMono-Regular,\n		Menlo,\n		monospace;\n	letter-spacing: 0.06em;\n	writing-mode: vertical-rl;\n	cursor: grab;\n	opacity: 0.55;\n	box-shadow: 0 2px 10px rgb(0 0 0 / 0.25);\n	transform: translateY(-50%);\n	transition:\n		opacity 120ms,\n		color 120ms;\n	touch-action: none;\n}\n\n.lm-dev-pill:hover,\n.lm-dev-pill[aria-expanded=\"true\"],\n.lm-dev-pill:focus-visible {\n	opacity: 1;\n	color: var(--dev-accent);\n}\n\n.lm-dev-pill:active {\n	cursor: grabbing;\n}\n\n.lm-dev-panel {\n	position: fixed;\n	top: 44px;\n	right: 34px;\n	z-index: 100000;\n	display: flex;\n	flex-direction: column;\n	width: 300px;\n	max-height: calc(100vh - 88px);\n	border: 1px solid var(--dev-line);\n	border-radius: 8px;\n	background: var(--dev-bg);\n	box-shadow: 0 12px 40px rgb(0 0 0 / 0.4);\n	backdrop-filter: blur(12px);\n}\n\n.lm-dev-header {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	padding: 7px 6px 7px 10px;\n	border-bottom: 1px solid var(--dev-line);\n	color: var(--dev-fg-2);\n	font-weight: 600;\n}\n\n.lm-dev-close {\n	display: grid;\n	place-items: center;\n	width: 22px;\n	height: 22px;\n	padding: 0;\n	border: none;\n	border-radius: 4px;\n	background: none;\n	color: var(--dev-fg-2);\n	cursor: pointer;\n}\n\n.lm-dev-close:hover {\n	background: var(--dev-bg-3);\n	color: var(--dev-fg);\n}\n\n.lm-dev-scroll {\n	overflow-y: auto;\n	padding: 4px;\n}\n\n.lm-dev-folder + .lm-dev-folder {\n	margin-top: 4px;\n}\n\n.lm-dev-folder-title {\n	display: flex;\n	align-items: center;\n	gap: 6px;\n	width: 100%;\n	padding: 5px 6px;\n	border: none;\n	border-radius: 4px;\n	background: var(--dev-bg-2);\n	color: var(--dev-fg);\n	font: inherit;\n	font-weight: 600;\n	text-align: left;\n	cursor: pointer;\n}\n\n.lm-dev-folder-title:hover {\n	background: var(--dev-bg-3);\n}\n\n.lm-dev-folder-title svg {\n	transition: transform 120ms;\n}\n\n.lm-dev-folder-title[aria-expanded=\"true\"] svg {\n	transform: rotate(90deg);\n}\n\n.lm-dev-folder-trailing {\n	margin-left: auto;\n	color: var(--dev-fg-2);\n	font-weight: 400;\n}\n\n.lm-dev-folder-body {\n	display: flex;\n	flex-direction: column;\n	gap: 3px;\n	padding: 6px 4px 4px 10px;\n}\n\n.lm-dev-row {\n	display: grid;\n	grid-template-columns: 76px minmax(0, 1fr);\n	align-items: center;\n	gap: 8px;\n	min-height: 22px;\n}\n\n.lm-dev-label {\n	overflow: hidden;\n	color: var(--dev-fg-2);\n	text-overflow: ellipsis;\n	white-space: nowrap;\n}\n\n.lm-dev-value {\n	overflow: hidden;\n	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;\n	font-size: 11px;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n}\n\n.lm-dev-muted {\n	color: var(--dev-fg-2);\n}\n\n.lm-dev-input {\n	box-sizing: border-box;\n	width: 100%;\n	height: 22px;\n	padding: 0 6px;\n	border: 1px solid transparent;\n	border-radius: 4px;\n	outline: none;\n	background: var(--dev-bg-2);\n	color: var(--dev-fg);\n	font: inherit;\n}\n\n.lm-dev-input:hover {\n	background: var(--dev-bg-3);\n}\n\n.lm-dev-input:focus {\n	border-color: var(--dev-accent);\n}\n\n.lm-dev-buttons {\n	display: flex;\n	gap: 4px;\n}\n\n.lm-dev-buttons .lm-dev-button {\n	flex: 1;\n}\n\n.lm-dev-button {\n	margin-top: 2px;\n	padding: 5px 8px;\n	border: none;\n	border-radius: 4px;\n	background: var(--dev-bg-3);\n	color: var(--dev-fg);\n	font: inherit;\n	cursor: pointer;\n}\n\n.lm-dev-button:hover:not(:disabled) {\n	background: rgb(255 255 255 / 0.17);\n}\n\n.lm-dev-button:disabled {\n	opacity: 0.45;\n	cursor: default;\n}\n\n.lm-dev-button[data-danger] {\n	color: rgb(255 140 140);\n}\n\n.lm-dev-status {\n	display: inline-flex;\n	align-items: center;\n	gap: 5px;\n}\n\n.lm-dev-status::before {\n	content: \"\";\n	width: 6px;\n	height: 6px;\n	border-radius: 50%;\n	background: var(--dev-fg-2);\n}\n\n.lm-dev-status[data-on]::before {\n	background: rgb(80 210 130);\n}\n\n.lm-dev-note {\n	margin: 2px 0 0;\n	color: var(--dev-fg-2);\n	font-size: 10.5px;\n	line-height: 1.4;\n}\n\n.lm-dev-requests {\n	display: flex;\n	flex-direction: column;\n	margin: 0;\n	padding: 0;\n	list-style: none;\n	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;\n	font-size: 10.5px;\n}\n\n.lm-dev-requests li {\n	display: grid;\n	grid-template-columns: auto minmax(0, 1fr) auto;\n	column-gap: 8px;\n	padding: 3px 0;\n	border-bottom: 1px solid var(--dev-line);\n}\n\n.lm-dev-requests li > :last-child {\n	grid-column: 2 / 4;\n}\n\n.lm-dev-request-model {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n}\n";
+var localMode_default = "/* --- Transcript ------------------------------------------------------------ */\n\n/* Models often open a reply with a newline, which renders as an empty line\n   under the work-group header. */\n.ui-markdown > * > br:first-child {\n	display: none;\n}\n\n/* Keep the live turn stats right after the tail status text instead of\n   pushed to the far end of the row. */\n.agent-transcript-tail-status:has(> [data-slot=\"local-turn-stats\"]) > :first-child {\n	flex: 0 1 auto;\n	width: auto;\n}\n\n.local-mode-turn-stats {\n	flex-shrink: 0;\n	margin-right: auto;\n	color: var(--cursor-text-quaternary);\n	font-variant-numeric: tabular-nums;\n	white-space: nowrap;\n}\n\n.local-mode-tabular {\n	font-variant-numeric: tabular-nums;\n}\n\n/* --- Settings > Models > Custom Providers ---------------------------------- */\n\n.local-mode-settings {\n	--lm-radius: 12px;\n	--lm-fg: var(--cursor-text-primary, var(--vscode-foreground));\n	--lm-fg-2: var(--cursor-text-secondary, var(--vscode-descriptionForeground));\n	--lm-fg-3: var(--cursor-text-tertiary, var(--vscode-descriptionForeground));\n	--lm-bg: var(--cursor-bg-quinary, var(--vscode-editorWidget-background));\n	--lm-bg-hover: var(--cursor-bg-quaternary, var(--vscode-list-hoverBackground));\n	--lm-bg-track: var(--cursor-bg-tertiary, var(--vscode-list-hoverBackground));\n	--lm-bg-raised: var(--cursor-bg-elevated, var(--vscode-input-background));\n	--lm-line: var(--cursor-stroke-secondary, var(--vscode-widget-border, rgba(128, 128, 128, 0.2)));\n	--lm-line-2: var(--cursor-stroke-tertiary, rgba(128, 128, 128, 0.12));\n	--lm-focus: var(--cursor-stroke-focused, var(--vscode-focusBorder));\n	--lm-ok: var(--cursor-text-green-primary, var(--vscode-testing-iconPassed));\n	--lm-err: var(--cursor-text-red-primary, var(--vscode-errorForeground));\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	color: var(--lm-fg);\n	font-size: 13px;\n}\n\n.local-mode-settings :where(button) {\n	font: inherit;\n	color: inherit;\n	cursor: pointer;\n}\n\n.local-mode-settings :where(button:disabled) {\n	cursor: default;\n	opacity: 0.5;\n}\n\n.local-mode-icon {\n	flex-shrink: 0;\n	display: block;\n}\n\n.local-mode-hint {\n	display: block;\n	font-size: 12px;\n	line-height: 1.45;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-hint code {\n	padding: 0 4px;\n	border-radius: 4px;\n	background: var(--lm-bg-hover);\n	font-family: var(--monaco-monospace-font);\n	font-size: 11.5px;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-count {\n	margin-left: 6px;\n	font-size: 11px;\n	font-variant-numeric: tabular-nums;\n	color: var(--lm-fg-3);\n}\n\n/* Provider tabs */\n\n.local-mode-tabs {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 6px;\n}\n\n.local-mode-tab {\n	display: inline-flex;\n	align-items: center;\n	gap: 7px;\n	height: 30px;\n	max-width: 220px;\n	padding: 0 10px 0 5px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 8px;\n	background: transparent;\n	transition:\n		background-color 0.12s,\n		border-color 0.12s;\n}\n\n.local-mode-tab:hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-tab[data-active] {\n	background: var(--lm-bg-raised);\n	border-color: var(--lm-line);\n	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);\n}\n\n.local-mode-tab[data-off] .local-mode-tab-name {\n	color: var(--lm-fg-3);\n	text-decoration: line-through;\n	text-decoration-color: var(--lm-line);\n}\n\n.local-mode-tab-name {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-weight: 500;\n}\n\n.local-mode-tab .local-mode-count {\n	margin-left: 0;\n}\n\n.local-mode-tab-add {\n	padding-left: 9px;\n	border-style: dashed;\n	color: var(--lm-fg-2);\n}\n\n/* Avatar */\n\n.local-mode-avatar {\n	--hue: var(--cursor-blue, #3b82f6);\n	flex-shrink: 0;\n	display: inline-grid;\n	place-items: center;\n	width: 32px;\n	height: 32px;\n	border-radius: 8px;\n	font-weight: 600;\n	font-size: 14px;\n	color: var(--hue);\n	background: color-mix(in srgb, var(--hue) 16%, transparent);\n}\n\n.local-mode-avatar[data-size=\"sm\"] {\n	width: 20px;\n	height: 20px;\n	border-radius: 5px;\n	font-size: 11px;\n}\n\n.local-mode-avatar[data-hue=\"purple\"] {\n	--hue: var(--cursor-purple, #8b5cf6);\n}\n.local-mode-avatar[data-hue=\"orange\"] {\n	--hue: var(--cursor-orange, #f97316);\n}\n.local-mode-avatar[data-hue=\"green\"] {\n	--hue: var(--cursor-green, #22c55e);\n}\n.local-mode-avatar[data-hue=\"cyan\"] {\n	--hue: var(--cursor-cyan, #06b6d4);\n}\n.local-mode-avatar[data-hue=\"magenta\"] {\n	--hue: var(--cursor-magenta, #d946ef);\n}\n\n/* Subscriptions > Advanced: one setting per row, control on the right. */\n.lm-sub-settings {\n	display: flex;\n	flex-direction: column;\n	gap: 2px;\n	padding: 4px 0;\n}\n\n.lm-sub-setting {\n	display: grid;\n	grid-template-columns: minmax(0, 1fr) auto;\n	align-items: center;\n	gap: 16px;\n	padding: 7px 0;\n	border-top: 1px solid var(--lm-line-2);\n}\n\n.lm-sub-setting:first-child {\n	border-top: none;\n}\n\n.lm-sub-setting-text {\n	display: flex;\n	flex-direction: column;\n	gap: 2px;\n	min-width: 0;\n}\n\n.lm-sub-setting-label {\n	font-size: 12.5px;\n	font-weight: 500;\n}\n\n.lm-sub-setting-control {\n	display: flex;\n	align-items: center;\n	justify-content: flex-end;\n}\n\n.lm-sub-account-grid {\n	display: grid;\n	grid-template-columns: 1fr 1fr;\n	gap: 12px;\n}\n\n/* Brand marks: Claude in its clay orange, Codex and Grok in the text color. */\n.local-mode-avatar[data-brand=\"claude\"] {\n	--hue: #d97757;\n}\n.local-mode-avatar[data-brand=\"codex\"],\n.local-mode-avatar[data-brand=\"xai\"] {\n	--hue: var(--lm-fg, currentColor);\n	background: color-mix(in srgb, var(--hue) 9%, transparent);\n}\n\n/* Subscriptions: the three marks overlapped on one tile. */\n.lm-sub-avatar {\n	--ring: var(--lm-bg-raised, var(--vscode-input-background));\n	--mark: 15px;\n	position: relative;\n	flex-shrink: 0;\n	width: 32px;\n	height: 32px;\n	border-radius: 8px;\n	background: var(--ring);\n	box-shadow: inset 0 0 0 1px var(--lm-line-2, rgba(128, 128, 128, 0.12));\n}\n\n.lm-sub-avatar[data-size=\"sm\"] {\n	--mark: 10px;\n	width: 20px;\n	height: 20px;\n	border-radius: 5px;\n}\n\n.lm-sub-avatar-mark {\n	position: absolute;\n	display: grid;\n	place-items: center;\n	width: var(--mark);\n	height: var(--mark);\n	border-radius: 50%;\n	color: var(--ring);\n	background: var(--lm-fg, currentColor);\n	box-shadow: 0 0 0 1.5px var(--ring);\n}\n\n.lm-sub-avatar-mark[data-brand=\"claude\"] {\n	z-index: 1;\n	top: 3px;\n	left: calc(50% - var(--mark) / 2);\n	color: #fff;\n	background: #d97757;\n}\n.lm-sub-avatar-mark[data-brand=\"codex\"] {\n	bottom: 3px;\n	left: 3px;\n}\n.lm-sub-avatar-mark[data-brand=\"xai\"] {\n	bottom: 3px;\n	right: 3px;\n}\n\n.lm-sub-avatar[data-size=\"sm\"] .lm-sub-avatar-mark {\n	box-shadow: 0 0 0 1px var(--ring);\n}\n.lm-sub-avatar[data-size=\"sm\"] .lm-sub-avatar-mark[data-brand=\"claude\"] {\n	top: 1.5px;\n}\n.lm-sub-avatar[data-size=\"sm\"] .lm-sub-avatar-mark:not([data-brand=\"claude\"]) {\n	bottom: 1.5px;\n}\n.lm-sub-avatar[data-size=\"sm\"] .lm-sub-avatar-mark[data-brand=\"codex\"] {\n	left: 1.5px;\n}\n.lm-sub-avatar[data-size=\"sm\"] .lm-sub-avatar-mark[data-brand=\"xai\"] {\n	right: 1.5px;\n}\n\n/* Card */\n\n.local-mode-card {\n	display: flex;\n	flex-direction: column;\n	border-radius: var(--lm-radius);\n	background: var(--lm-bg);\n}\n\n.local-mode-card > * + * {\n	border-top: 1px solid var(--lm-line-2);\n}\n\n.local-mode-card-header {\n	display: flex;\n	align-items: center;\n	gap: 12px;\n	padding: 14px 16px;\n}\n\n.local-mode-card[data-off] .local-mode-block {\n	opacity: 0.55;\n}\n\n.local-mode-card-title {\n	flex: 1 1 auto;\n	min-width: 0;\n	display: flex;\n	flex-direction: column;\n	gap: 1px;\n}\n\n.local-mode-title-input {\n	width: 100%;\n	margin-left: -4px;\n	padding: 1px 4px;\n	border: 1px solid transparent;\n	border-radius: 5px;\n	background: transparent;\n	color: var(--lm-fg);\n	font: inherit;\n	font-size: 14px;\n	font-weight: 600;\n	outline: none;\n}\n\n.local-mode-title-input:hover {\n	border-color: var(--lm-line-2);\n}\n\n.local-mode-title-input:focus {\n	border-color: var(--lm-focus);\n	background: var(--lm-bg-raised);\n}\n\n.local-mode-block {\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	padding: 14px 16px 16px;\n}\n\n.local-mode-block-header {\n	display: flex;\n	align-items: flex-start;\n	justify-content: space-between;\n	gap: 12px;\n}\n\n.local-mode-block-title {\n	font-size: 11px;\n	font-weight: 600;\n	letter-spacing: 0.04em;\n	text-transform: uppercase;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-block-header .local-mode-hint {\n	margin-top: 3px;\n}\n\n/* Fields */\n\n.local-mode-field {\n	display: flex;\n	flex-direction: column;\n	gap: 5px;\n}\n\n.local-mode-field-label {\n	font-size: 12px;\n	font-weight: 500;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-input {\n	width: 100%;\n	box-sizing: border-box;\n	height: 30px;\n	padding: 0 10px;\n	font: inherit;\n	font-size: 13px;\n	color: var(--vscode-input-foreground, var(--lm-fg));\n	background: var(--lm-bg-raised);\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	outline: none;\n	transition:\n		border-color 0.12s,\n		box-shadow 0.12s;\n}\n\n.local-mode-input:focus {\n	border-color: var(--lm-focus);\n	box-shadow: 0 0 0 3px color-mix(in srgb, var(--lm-focus) 18%, transparent);\n}\n\n.local-mode-input::placeholder,\n.local-mode-settings input::placeholder,\n.local-mode-settings textarea::placeholder {\n	color: var(--lm-fg-3);\n	opacity: 0.8;\n}\n\n.local-mode-mono {\n	font-family: var(--monaco-monospace-font);\n	font-size: 12px;\n}\n\n.local-mode-textarea {\n	height: auto;\n	padding: 6px 10px;\n	resize: vertical;\n}\n\n.local-mode-input-group {\n	position: relative;\n	display: block;\n}\n\n.local-mode-input-group .local-mode-input {\n	padding-right: 36px;\n}\n\n.local-mode-input-group .local-mode-icon-button {\n	position: absolute;\n	top: 3px;\n	right: 3px;\n}\n\n/* Buttons */\n\n.local-mode-icon-button {\n	display: inline-grid;\n	place-items: center;\n	width: 24px;\n	height: 24px;\n	padding: 0;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-icon-button:hover {\n	background: var(--lm-bg-hover);\n	color: var(--lm-fg);\n}\n\n.local-mode-button {\n	flex-shrink: 0;\n	height: 28px;\n	padding: 0 12px;\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	background: var(--lm-bg-raised);\n	font-weight: 500;\n}\n\n.local-mode-button:not(:disabled):hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-link-button {\n	display: inline-flex;\n	align-items: center;\n	gap: 5px;\n	height: 24px;\n	padding: 0 6px;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	font-size: 12px;\n	color: var(--lm-fg-2);\n	white-space: nowrap;\n}\n\n.local-mode-link-button:not(:disabled):hover {\n	background: var(--lm-bg-hover);\n	color: var(--lm-fg);\n}\n\n.local-mode-spin[data-active] .local-mode-icon {\n	animation: local-mode-spin 0.9s linear infinite;\n}\n\n@keyframes local-mode-spin {\n	to {\n		transform: rotate(360deg);\n	}\n}\n\n/* Segmented control */\n\n.local-mode-segmented {\n	display: inline-flex;\n	padding: 2px;\n	gap: 2px;\n	border-radius: 8px;\n	background: var(--lm-bg-track);\n}\n\n.local-mode-segmented button {\n	height: 24px;\n	padding: 0 10px;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	font-size: 12px;\n	color: var(--lm-fg-2);\n	white-space: nowrap;\n}\n\n.local-mode-segmented button[data-active] {\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg);\n	font-weight: 500;\n	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n\n.local-mode-segmented-fill {\n	display: flex;\n}\n\n.local-mode-segmented-fill button {\n	flex: 1 1 0;\n	height: 26px;\n}\n\n/* Connection check */\n\n.local-mode-check-row {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n	min-height: 28px;\n}\n\n.local-mode-check {\n	display: inline-flex;\n	align-items: flex-start;\n	gap: 6px;\n	min-width: 0;\n	font-size: 12px;\n	line-height: 1.45;\n	color: var(--lm-err);\n	overflow-wrap: anywhere;\n}\n\n.local-mode-check .local-mode-icon {\n	margin-top: 2px;\n}\n\n.local-mode-check[data-ok] {\n	color: var(--lm-ok);\n}\n\n.local-mode-disclosure {\n	display: inline-flex;\n	align-items: center;\n	align-self: flex-start;\n	gap: 6px;\n	margin-left: -6px;\n	padding: 3px 6px;\n	border: none;\n	border-radius: 6px;\n	background: transparent;\n	font-size: 12px;\n	font-weight: 500;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-disclosure:hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-disclosure .local-mode-icon {\n	transition: transform 0.15s;\n}\n\n.local-mode-disclosure[aria-expanded=\"true\"] .local-mode-icon {\n	transform: rotate(90deg);\n}\n\n.local-mode-disclosure .local-mode-hint {\n	font-weight: 400;\n}\n\n.local-mode-advanced {\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	padding-left: 12px;\n	border-left: 2px solid var(--lm-line-2);\n}\n\n/* Models */\n\n.local-mode-model-toolbar {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n}\n\n.local-mode-search {\n	flex: 1 1 auto;\n	display: flex;\n	align-items: center;\n	gap: 6px;\n	height: 28px;\n	padding: 0 8px;\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg-3);\n}\n\n.local-mode-search:focus-within {\n	border-color: var(--lm-focus);\n}\n\n.local-mode-search input,\n.local-mode-add-model input {\n	flex: 1 1 auto;\n	min-width: 0;\n	padding: 0;\n	border: none;\n	outline: none;\n	background: transparent;\n	font: inherit;\n	font-size: 12.5px;\n	color: var(--lm-fg);\n}\n\n.local-mode-search button {\n	display: grid;\n	place-items: center;\n	padding: 2px;\n	border: none;\n	border-radius: 4px;\n	background: transparent;\n}\n\n.local-mode-model-list {\n	list-style: none;\n	max-height: 360px;\n	overflow-y: auto;\n	margin: 0 -6px;\n	padding: 0 6px;\n}\n\n.local-mode-model-row {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n	height: 34px;\n	margin: 0 -6px;\n	padding: 0 6px;\n	border-radius: 7px;\n}\n\n.local-mode-model-row:hover {\n	background: var(--lm-bg-hover);\n}\n\n.local-mode-model-name {\n	flex: 1 1 auto;\n	min-width: 0;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-family: var(--monaco-monospace-font);\n	font-size: 12.5px;\n}\n\n.local-mode-model-row[data-off] .local-mode-model-name {\n	color: var(--lm-fg-3);\n}\n\n.local-mode-row-action {\n	opacity: 0;\n}\n\n.local-mode-model-row:hover .local-mode-row-action,\n.local-mode-row-action:focus-visible {\n	opacity: 1;\n}\n\n.local-mode-context-chip,\n.local-mode-context-input {\n	box-sizing: border-box;\n	width: 64px;\n	height: 22px;\n	padding: 0 8px;\n	border-radius: 11px;\n	font-size: 11.5px;\n	font-variant-numeric: tabular-nums;\n	text-align: center;\n}\n\n.local-mode-context-chip {\n	border: 1px solid var(--lm-line);\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg-2);\n}\n\n.local-mode-context-chip[data-auto] {\n	border-color: transparent;\n	background: transparent;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-context-chip:hover {\n	border-color: var(--lm-line);\n	color: var(--lm-fg);\n}\n\n.local-mode-context-input {\n	border: 1px solid var(--lm-focus);\n	outline: none;\n	background: var(--lm-bg-raised);\n	color: var(--lm-fg);\n	font-family: inherit;\n}\n\n.local-mode-context-input[aria-invalid=\"true\"] {\n	border-color: var(--lm-err);\n	color: var(--lm-err);\n}\n\n.local-mode-empty-row {\n	padding: 14px 0;\n	text-align: center;\n	font-size: 12px;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-model-footer {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n}\n\n.local-mode-add-model {\n	flex: 1 1 auto;\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	height: 28px;\n	padding: 0 8px;\n	border: 1px dashed var(--lm-line);\n	border-radius: 7px;\n	color: var(--lm-fg-3);\n}\n\n.local-mode-add-model:focus-within {\n	border-style: solid;\n	border-color: var(--lm-focus);\n}\n\n.local-mode-bulk {\n	display: flex;\n	gap: 2px;\n}\n\n/* Presets and empty state */\n\n.local-mode-presets {\n	display: flex;\n	flex-direction: column;\n	gap: 12px;\n	padding: 14px 16px 16px;\n}\n\n.local-mode-empty {\n	gap: 4px;\n	padding: 28px 24px;\n	align-items: stretch;\n	text-align: center;\n}\n\n.local-mode-empty > * + * {\n	border-top: none;\n}\n\n.local-mode-empty-title {\n	font-size: 15px;\n	font-weight: 600;\n}\n\n.local-mode-empty .local-mode-presets .local-mode-block-header {\n	display: none;\n}\n\n.local-mode-preset-grid {\n	display: grid;\n	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));\n	gap: 8px;\n}\n\n.local-mode-preset {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n	padding: 10px 12px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 8px;\n	background: var(--lm-bg-raised);\n	text-align: left;\n	transition:\n		border-color 0.12s,\n		transform 0.12s;\n}\n\n.local-mode-preset:hover {\n	border-color: var(--lm-focus);\n}\n\n.local-mode-preset .lm-sub-avatar {\n	--mark: 13px;\n	width: 28px;\n	height: 28px;\n	border-radius: 7px;\n}\n\n.local-mode-preset .local-mode-avatar {\n	width: 28px;\n	height: 28px;\n	border-radius: 7px;\n	font-size: 13px;\n}\n\n.local-mode-preset-name {\n	display: block;\n	font-weight: 500;\n}\n\n/* Save bar */\n\n.local-mode-savebar {\n	position: sticky;\n	bottom: 12px;\n	z-index: 2;\n	display: flex;\n	align-items: center;\n	gap: 12px;\n	min-height: 40px;\n	padding: 6px 6px 6px 14px;\n	border: 1px solid var(--lm-line);\n	border-radius: var(--lm-radius);\n	background: var(--lm-bg-raised);\n	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);\n	animation: local-mode-rise 0.16s ease-out;\n}\n\n.local-mode-savebar-text {\n	flex: 1 1 auto;\n	display: flex;\n	align-items: center;\n	gap: 7px;\n	font-size: 12.5px;\n	color: var(--lm-fg-2);\n}\n\n.local-mode-savebar[data-error] .local-mode-savebar-text {\n	color: var(--lm-err);\n}\n\n.local-mode-savebar-actions {\n	display: flex;\n	gap: 6px;\n}\n\n@keyframes local-mode-rise {\n	from {\n		opacity: 0;\n		transform: translateY(6px);\n	}\n}\n\n/* Subscriptions provider (Claude Code, Codex, Grok accounts) */\n\n.lm-model-badge {\n	flex-shrink: 0;\n	padding: 0 6px;\n	border-radius: 9px;\n	font-size: 10.5px;\n	line-height: 17px;\n	color: var(--lm-fg-3);\n	background: var(--lm-bg-hover);\n}\n\n.lm-sub-accounts {\n	display: flex;\n	flex-direction: column;\n	gap: 8px;\n	margin: 0;\n	padding: 0;\n	list-style: none;\n}\n\n.lm-sub-account {\n	display: flex;\n	flex-direction: column;\n	gap: 10px;\n	padding: 12px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 10px;\n	background: var(--lm-bg-raised);\n}\n\n.lm-sub-account[data-off] .lm-sub-account-name {\n	color: var(--lm-fg-3);\n}\n\n.lm-sub-account-head {\n	display: flex;\n	align-items: center;\n	gap: 10px;\n}\n\n.lm-sub-account-name {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-weight: 500;\n}\n\n.lm-sub-expand .local-mode-icon {\n	transform: rotate(90deg);\n	transition: transform 0.12s;\n}\n\n.lm-sub-expand[aria-expanded=\"true\"] .local-mode-icon {\n	transform: rotate(-90deg);\n}\n\n.lm-sub-pill {\n	flex-shrink: 0;\n	padding: 1px 8px;\n	border-radius: 10px;\n	font-size: 11px;\n	font-weight: 500;\n	white-space: nowrap;\n	color: var(--lm-fg-2);\n	background: var(--lm-bg-hover);\n}\n\n.lm-sub-pill[data-tone=\"ok\"] {\n	color: var(--lm-ok);\n	background: color-mix(in srgb, var(--lm-ok) 12%, transparent);\n}\n\n.lm-sub-pill[data-tone=\"warn\"] {\n	color: var(--cursor-text-yellow-primary, #ca8a04);\n	background: color-mix(in srgb, var(--cursor-text-yellow-primary, #ca8a04) 12%, transparent);\n}\n\n.lm-sub-pill[data-tone=\"err\"] {\n	color: var(--lm-err);\n	background: color-mix(in srgb, var(--lm-err) 12%, transparent);\n}\n\n.lm-sub-quota {\n	display: flex;\n	flex-direction: column;\n	gap: 6px;\n	padding-left: 42px;\n}\n\n.lm-sub-quota-row {\n	--lm-quota: var(--lm-ok);\n	display: grid;\n	grid-template-columns: 110px minmax(60px, 1fr) 64px 110px;\n	align-items: center;\n	gap: 10px;\n	font-size: 12px;\n}\n\n.lm-sub-quota-row[data-level=\"mid\"] {\n	--lm-quota: var(--cursor-text-yellow-primary, #ca8a04);\n}\n\n.lm-sub-quota-row[data-level=\"low\"] {\n	--lm-quota: var(--lm-err);\n}\n\n.lm-sub-quota-label {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	color: var(--lm-fg-2);\n}\n\n.lm-sub-quota-bar {\n	height: 6px;\n	border-radius: 3px;\n	overflow: hidden;\n	background: var(--lm-bg-track);\n}\n\n.lm-sub-quota-bar > span {\n	display: block;\n	height: 100%;\n	border-radius: 3px;\n	background: var(--lm-quota);\n	transition: width 0.3s;\n}\n\n.lm-sub-quota-value {\n	text-align: right;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-sub-quota-reset {\n	color: var(--lm-fg-3);\n	font-variant-numeric: tabular-nums;\n	white-space: nowrap;\n}\n\n.lm-sub-quota-footer {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 8px;\n}\n\n.lm-sub-account-settings {\n	display: flex;\n	flex-direction: column;\n	gap: 10px;\n	padding: 10px 0 0 42px;\n	border-top: 1px solid var(--lm-line-2);\n}\n\n.lm-sub-account-footer {\n	justify-content: space-between;\n}\n\n.lm-sub-proxy {\n	display: flex;\n	flex-direction: column;\n	gap: 6px;\n}\n\n.lm-sub-inline {\n	display: flex;\n	gap: 6px;\n}\n\n.lm-sub-inline .local-mode-button {\n	height: 30px;\n}\n\n.lm-sub-error {\n	display: flex;\n	align-items: flex-start;\n	justify-content: space-between;\n	gap: 10px;\n	padding: 10px 12px;\n	border-radius: 8px;\n	background: color-mix(in srgb, var(--lm-err) 8%, transparent);\n	white-space: pre-wrap;\n}\n\n.lm-sub-add {\n	display: flex;\n	flex-direction: column;\n	gap: 8px;\n}\n\n.lm-sub-add-grid {\n	display: grid;\n	grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));\n	gap: 8px;\n}\n\n.lm-sub-signin {\n	display: flex;\n	flex-direction: column;\n	gap: 10px;\n	padding: 12px;\n	border: 1px solid var(--lm-focus);\n	border-radius: 10px;\n	background: var(--lm-bg-raised);\n}\n\n.lm-sub-signin[data-error] {\n	border-color: var(--lm-line);\n}\n\n.lm-sub-signin-title {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	font-weight: 600;\n}\n\n.lm-sub-link {\n	display: flex;\n	align-items: center;\n	gap: 4px;\n	padding: 4px 4px 4px 10px;\n	border-radius: 7px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-sub-link-url {\n	flex: 1 1 auto;\n	min-width: 0;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-family: var(--monaco-monospace-font);\n	font-size: 11.5px;\n	color: var(--lm-fg-2);\n}\n\n.lm-sub-link a.local-mode-link-button {\n	text-decoration: none;\n}\n\n.lm-sub-device {\n	display: flex;\n	align-items: center;\n	flex-wrap: wrap;\n	gap: 10px;\n}\n\n.lm-sub-code {\n	padding: 4px 12px;\n	border-radius: 7px;\n	background: var(--lm-bg-hover);\n	font-family: var(--monaco-monospace-font);\n	font-size: 16px;\n	font-weight: 600;\n	letter-spacing: 0.12em;\n}\n\n.lm-sub-paste {\n	display: flex;\n	gap: 6px;\n}\n\n.lm-sub-paste .local-mode-button {\n	height: 30px;\n}\n\n/* --- Settings > Usage ------------------------------------------------------ */\n\n.lm-usage {\n	--lm-input: rgb(14 165 233 / 0.85);\n	--lm-heat: var(--cursor-green, #22c55e);\n}\n\n.lm-muted {\n	font-size: 12px;\n	color: var(--lm-fg-3);\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-spacer {\n	flex: 1 1 auto;\n}\n\n.lm-toolbar {\n	display: flex;\n	flex-wrap: wrap;\n	align-items: center;\n	gap: 8px;\n}\n\n.lm-select {\n	position: relative;\n	display: inline-flex;\n	align-items: center;\n	gap: 6px;\n	height: 28px;\n	padding: 0 8px;\n	border: 1px solid var(--lm-line);\n	border-radius: 7px;\n	background: var(--lm-bg-raised);\n}\n\n.lm-select select {\n	appearance: none;\n	padding: 0 14px 0 0;\n	border: none;\n	outline: none;\n	background: transparent;\n	font: inherit;\n	font-size: 12.5px;\n	color: var(--lm-fg);\n	cursor: pointer;\n}\n\n.lm-select > .local-mode-icon {\n	position: absolute;\n	right: 7px;\n	transform: rotate(90deg);\n	color: var(--lm-fg-3);\n	pointer-events: none;\n}\n\n/* Stat cards */\n\n.lm-stats {\n	display: grid;\n	grid-template-columns: repeat(4, minmax(0, 1fr));\n	gap: 8px;\n}\n\n.lm-stat {\n	display: flex;\n	flex-direction: column;\n	gap: 2px;\n	min-width: 0;\n	padding: 12px 14px;\n	border-radius: var(--lm-radius);\n	background: var(--lm-bg);\n}\n\n.lm-stat-label {\n	font-size: 12px;\n	color: var(--lm-fg-3);\n}\n\n.lm-stat-value {\n	font-size: 22px;\n	font-weight: 600;\n	letter-spacing: -0.01em;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-stat-sub {\n	font-size: 11.5px;\n	line-height: 1.35;\n	color: var(--lm-fg-3);\n}\n\n/* Panels */\n\n.lm-panel-header {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 12px;\n	padding: 12px 16px 0;\n}\n\n.local-mode-card > .lm-panel-body {\n	display: flex;\n	flex-direction: column;\n	gap: 14px;\n	padding: 12px 16px 16px;\n	border-top: none;\n}\n\n/* Daily chart */\n\n.lm-daily {\n	display: flex;\n	flex-direction: column;\n	gap: 6px;\n}\n\n.lm-daily-readout {\n	display: flex;\n	flex-wrap: wrap;\n	align-items: center;\n	gap: 4px 12px;\n	min-height: 20px;\n	font-size: 12px;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-daily-bars {\n	display: flex;\n	align-items: flex-end;\n	gap: 2px;\n	height: 140px;\n	padding-bottom: 1px;\n	border-bottom: 1px solid var(--lm-line);\n	background-image: linear-gradient(to top, var(--lm-line-2) 1px, transparent 1px);\n	background-size: 100% 25%;\n}\n\n.lm-daily-col {\n	flex: 1 1 0;\n	display: flex;\n	align-items: flex-end;\n	height: 100%;\n	min-width: 0;\n	border-radius: 3px 3px 0 0;\n}\n\n.lm-daily-col[data-hover] {\n	background: var(--lm-bg-hover);\n}\n\n.lm-daily-stack {\n	display: flex;\n	flex-direction: column-reverse;\n	width: 100%;\n	min-height: 0;\n	overflow: hidden;\n	border-radius: 3px 3px 0 0;\n}\n\n.lm-daily-stack > span {\n	flex-basis: 0;\n	min-height: 1px;\n}\n\n.lm-daily-axis {\n	display: flex;\n	gap: 2px;\n}\n\n.lm-daily-axis > span {\n	flex: 1 1 0;\n	min-width: 0;\n	overflow: visible;\n	white-space: nowrap;\n	font-size: 10.5px;\n	color: var(--lm-fg-3);\n	font-variant-numeric: tabular-nums;\n}\n\n/* Token mix */\n\n.lm-mix {\n	display: flex;\n	flex-direction: column;\n	gap: 8px;\n}\n\n.lm-mix-bar {\n	display: flex;\n	gap: 2px;\n	height: 8px;\n	overflow: hidden;\n	border-radius: 4px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-mix-bar > span {\n	flex-basis: 0;\n}\n\n.lm-legend {\n	display: flex;\n	flex-wrap: wrap;\n	gap: 4px 16px;\n}\n\n.lm-legend-item {\n	display: inline-flex;\n	align-items: center;\n	gap: 6px;\n	font-size: 12px;\n	color: var(--lm-fg-2);\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-legend-item i {\n	width: 8px;\n	height: 8px;\n	border-radius: 2px;\n}\n\n.lm-legend-item b {\n	font-weight: 600;\n	color: var(--lm-fg);\n}\n\n/* Provider tiles */\n\n.lm-tiles {\n	display: grid;\n	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));\n	gap: 8px;\n}\n\n.lm-tile {\n	display: flex;\n	flex-direction: column;\n	align-items: stretch;\n	gap: 4px;\n	min-width: 0;\n	padding: 10px 12px 12px;\n	border: 1px solid var(--lm-line-2);\n	border-radius: 9px;\n	background: var(--lm-bg-raised);\n	text-align: left;\n	transition: border-color 0.12s;\n}\n\n.lm-tile:hover,\n.lm-tile[data-active] {\n	border-color: var(--lm-focus);\n}\n\n.lm-tile-head {\n	display: flex;\n	align-items: center;\n	gap: 8px;\n	min-width: 0;\n}\n\n.lm-tile-head .lm-cell-main {\n	flex: 1 1 auto;\n}\n\n.lm-tile-value {\n	font-size: 18px;\n	font-weight: 600;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-share {\n	display: block;\n	height: 3px;\n	margin-top: 4px;\n	overflow: hidden;\n	border-radius: 2px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-share > span {\n	display: block;\n	height: 100%;\n	border-radius: 2px;\n	background: var(--lm-input);\n}\n\n/* Tables */\n\n.lm-table {\n	width: 100%;\n	border-collapse: collapse;\n	table-layout: fixed;\n	font-size: 12.5px;\n	font-variant-numeric: tabular-nums;\n}\n\n.lm-table th {\n	padding: 0 8px 8px;\n	border-bottom: 1px solid var(--lm-line);\n	text-align: left;\n	font-size: 11.5px;\n	font-weight: 500;\n	color: var(--lm-fg-3);\n}\n\n.lm-table td {\n	padding: 8px;\n	border-bottom: 1px solid var(--lm-line-2);\n	vertical-align: middle;\n}\n\n.lm-table tr:last-child td {\n	border-bottom: none;\n}\n\n.lm-table tbody tr:hover td {\n	background: var(--lm-bg-hover);\n}\n\n.lm-table th:first-child,\n.lm-table td:first-child {\n	padding-left: 0;\n}\n\n.lm-table th:last-child,\n.lm-table td:last-child {\n	padding-right: 0;\n}\n\n.lm-table .lm-num {\n	width: 84px;\n	text-align: right;\n	white-space: nowrap;\n}\n\n.lm-breakdown .lm-share {\n	max-width: 260px;\n}\n\n.lm-requests th:nth-child(1) {\n	width: 108px;\n}\n\n.lm-requests th:nth-child(2) {\n	width: 70px;\n}\n\n.lm-nowrap {\n	white-space: nowrap;\n}\n\n.lm-cell-main {\n	display: block;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-weight: 500;\n}\n\n.lm-breakdown .lm-cell-main {\n	display: inline;\n	font-family: var(--monaco-monospace-font);\n	font-size: 12px;\n	font-weight: 400;\n}\n\n.lm-requests .lm-cell-main {\n	font-family: var(--monaco-monospace-font);\n	font-size: 12px;\n	font-weight: 400;\n}\n\n.lm-cell-sub {\n	display: block;\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n	font-size: 11.5px;\n	color: var(--lm-fg-3);\n}\n\n.lm-badge {\n	display: inline-block;\n	padding: 1px 7px;\n	border-radius: 10px;\n	font-size: 11px;\n	font-weight: 500;\n	color: var(--lm-fg-2);\n	background: var(--lm-bg-hover);\n}\n\n.lm-badge[data-type=\"agent\"] {\n	color: rgb(14 165 233);\n	background: rgb(14 165 233 / 0.12);\n}\n\n.lm-pager {\n	display: flex;\n	align-items: center;\n	justify-content: flex-end;\n	gap: 4px;\n}\n\n.lm-pager .lm-muted {\n	margin-right: 8px;\n}\n\n/* Heatmap */\n\n.lm-heat {\n	display: flex;\n	gap: 6px;\n	overflow-x: auto;\n}\n\n.lm-heat-days {\n	display: grid;\n	grid-template-rows: 14px repeat(7, 11px);\n	row-gap: 3px;\n	font-size: 10px;\n	line-height: 11px;\n	color: var(--lm-fg-3);\n}\n\n.lm-heat-days > :first-child {\n	height: 14px;\n}\n\n.lm-heat-body {\n	display: flex;\n	flex-direction: column;\n	gap: 3px;\n	min-width: 0;\n}\n\n.lm-heat-months,\n.lm-heat-grid {\n	display: flex;\n	gap: 3px;\n}\n\n.lm-heat-months > span {\n	width: 11px;\n	height: 14px;\n	overflow: visible;\n	white-space: nowrap;\n	font-size: 10px;\n	color: var(--lm-fg-3);\n}\n\n.lm-heat-col {\n	display: flex;\n	flex-direction: column;\n	gap: 3px;\n}\n\n.lm-heat-cell {\n	display: inline-block;\n	width: 11px;\n	height: 11px;\n	border-radius: 3px;\n	background: var(--lm-bg-hover);\n}\n\n.lm-heat-cell[data-level=\"1\"] {\n	background: color-mix(in srgb, var(--lm-heat) 30%, transparent);\n}\n\n.lm-heat-cell[data-level=\"2\"] {\n	background: color-mix(in srgb, var(--lm-heat) 52%, transparent);\n}\n\n.lm-heat-cell[data-level=\"3\"] {\n	background: color-mix(in srgb, var(--lm-heat) 76%, transparent);\n}\n\n.lm-heat-cell[data-level=\"4\"] {\n	background: var(--lm-heat);\n}\n\n.lm-heat-cell[data-future] {\n	visibility: hidden;\n}\n\n.lm-heat-cell[data-today] {\n	outline: 1px solid var(--lm-fg-3);\n	outline-offset: 1px;\n}\n\n.lm-heat-footer {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n}\n\n.lm-heat-legend {\n	display: inline-flex;\n	align-items: center;\n	gap: 3px;\n	font-size: 11px;\n	color: var(--lm-fg-3);\n}\n\n.lm-heat-legend > :first-of-type {\n	margin-left: 4px;\n}\n\n.lm-heat-legend > :last-of-type {\n	margin-right: 4px;\n}\n\n.lm-footer {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	gap: 12px;\n	padding: 0 4px 8px;\n}\n\n.local-mode-link-button[data-danger] {\n	color: var(--lm-err);\n}\n\n.local-mode-empty .local-mode-presets {\n	padding: 16px 0 0;\n}\n\n/* DevTool: DEV pill and panel (tweakpane-style, dark in every theme) */\n\n.lm-dev {\n	--dev-bg: rgb(32 33 38 / 0.97);\n	--dev-bg-2: rgb(255 255 255 / 0.06);\n	--dev-bg-3: rgb(255 255 255 / 0.11);\n	--dev-fg: rgb(240 241 245);\n	--dev-fg-2: rgb(240 241 245 / 0.62);\n	--dev-line: rgb(255 255 255 / 0.08);\n	--dev-accent: rgb(120 190 255);\n	font-family: var(--cursor-font-family-ui, system-ui), sans-serif;\n	font-size: 11.5px;\n	color: var(--dev-fg);\n}\n\n.lm-dev-pill {\n	position: fixed;\n	right: 0;\n	z-index: 100000;\n	padding: 6px 5px 6px 7px;\n	border: 1px solid var(--dev-line);\n	border-right: none;\n	border-radius: 8px 0 0 8px;\n	background: var(--dev-bg);\n	color: var(--dev-fg-2);\n	font:\n		600 10px / 1 ui-monospace,\n		SFMono-Regular,\n		Menlo,\n		monospace;\n	letter-spacing: 0.06em;\n	writing-mode: vertical-rl;\n	cursor: grab;\n	opacity: 0.55;\n	box-shadow: 0 2px 10px rgb(0 0 0 / 0.25);\n	transform: translateY(-50%);\n	transition:\n		opacity 120ms,\n		color 120ms;\n	touch-action: none;\n}\n\n.lm-dev-pill:hover,\n.lm-dev-pill[aria-expanded=\"true\"],\n.lm-dev-pill:focus-visible {\n	opacity: 1;\n	color: var(--dev-accent);\n}\n\n.lm-dev-pill:active {\n	cursor: grabbing;\n}\n\n.lm-dev-panel {\n	position: fixed;\n	top: 44px;\n	right: 34px;\n	z-index: 100000;\n	display: flex;\n	flex-direction: column;\n	width: 300px;\n	max-height: calc(100vh - 88px);\n	border: 1px solid var(--dev-line);\n	border-radius: 8px;\n	background: var(--dev-bg);\n	box-shadow: 0 12px 40px rgb(0 0 0 / 0.4);\n	backdrop-filter: blur(12px);\n}\n\n.lm-dev-header {\n	display: flex;\n	align-items: center;\n	justify-content: space-between;\n	padding: 7px 6px 7px 10px;\n	border-bottom: 1px solid var(--dev-line);\n	color: var(--dev-fg-2);\n	font-weight: 600;\n}\n\n.lm-dev-close {\n	display: grid;\n	place-items: center;\n	width: 22px;\n	height: 22px;\n	padding: 0;\n	border: none;\n	border-radius: 4px;\n	background: none;\n	color: var(--dev-fg-2);\n	cursor: pointer;\n}\n\n.lm-dev-close:hover {\n	background: var(--dev-bg-3);\n	color: var(--dev-fg);\n}\n\n.lm-dev-scroll {\n	overflow-y: auto;\n	padding: 4px;\n}\n\n.lm-dev-folder + .lm-dev-folder {\n	margin-top: 4px;\n}\n\n.lm-dev-folder-title {\n	display: flex;\n	align-items: center;\n	gap: 6px;\n	width: 100%;\n	padding: 5px 6px;\n	border: none;\n	border-radius: 4px;\n	background: var(--dev-bg-2);\n	color: var(--dev-fg);\n	font: inherit;\n	font-weight: 600;\n	text-align: left;\n	cursor: pointer;\n}\n\n.lm-dev-folder-title:hover {\n	background: var(--dev-bg-3);\n}\n\n.lm-dev-folder-title svg {\n	transition: transform 120ms;\n}\n\n.lm-dev-folder-title[aria-expanded=\"true\"] svg {\n	transform: rotate(90deg);\n}\n\n.lm-dev-folder-trailing {\n	margin-left: auto;\n	color: var(--dev-fg-2);\n	font-weight: 400;\n}\n\n.lm-dev-folder-body {\n	display: flex;\n	flex-direction: column;\n	gap: 3px;\n	padding: 6px 4px 4px 10px;\n}\n\n.lm-dev-row {\n	display: grid;\n	grid-template-columns: 76px minmax(0, 1fr);\n	align-items: center;\n	gap: 8px;\n	min-height: 22px;\n}\n\n.lm-dev-label {\n	overflow: hidden;\n	color: var(--dev-fg-2);\n	text-overflow: ellipsis;\n	white-space: nowrap;\n}\n\n.lm-dev-value {\n	overflow: hidden;\n	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;\n	font-size: 11px;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n}\n\n.lm-dev-muted {\n	color: var(--dev-fg-2);\n}\n\n.lm-dev-input {\n	box-sizing: border-box;\n	width: 100%;\n	height: 22px;\n	padding: 0 6px;\n	border: 1px solid transparent;\n	border-radius: 4px;\n	outline: none;\n	background: var(--dev-bg-2);\n	color: var(--dev-fg);\n	font: inherit;\n}\n\n.lm-dev-input:hover {\n	background: var(--dev-bg-3);\n}\n\n.lm-dev-input:focus {\n	border-color: var(--dev-accent);\n}\n\n.lm-dev-buttons {\n	display: flex;\n	gap: 4px;\n}\n\n.lm-dev-buttons .lm-dev-button {\n	flex: 1;\n}\n\n.lm-dev-button {\n	margin-top: 2px;\n	padding: 5px 8px;\n	border: none;\n	border-radius: 4px;\n	background: var(--dev-bg-3);\n	color: var(--dev-fg);\n	font: inherit;\n	cursor: pointer;\n}\n\n.lm-dev-button:hover:not(:disabled) {\n	background: rgb(255 255 255 / 0.17);\n}\n\n.lm-dev-button:disabled {\n	opacity: 0.45;\n	cursor: default;\n}\n\n.lm-dev-button[data-danger] {\n	color: rgb(255 140 140);\n}\n\n.lm-dev-status {\n	display: inline-flex;\n	align-items: center;\n	gap: 5px;\n}\n\n.lm-dev-status::before {\n	content: \"\";\n	width: 6px;\n	height: 6px;\n	border-radius: 50%;\n	background: var(--dev-fg-2);\n}\n\n.lm-dev-status[data-on]::before {\n	background: rgb(80 210 130);\n}\n\n.lm-dev-note {\n	margin: 2px 0 0;\n	color: var(--dev-fg-2);\n	font-size: 10.5px;\n	line-height: 1.4;\n}\n\n.lm-dev-requests {\n	display: flex;\n	flex-direction: column;\n	margin: 0;\n	padding: 0;\n	list-style: none;\n	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;\n	font-size: 10.5px;\n}\n\n.lm-dev-requests li {\n	display: grid;\n	grid-template-columns: auto minmax(0, 1fr) auto;\n	column-gap: 8px;\n	padding: 3px 0;\n	border-bottom: 1px solid var(--dev-line);\n}\n\n.lm-dev-requests li > :last-child {\n	grid-column: 2 / 4;\n}\n\n.lm-dev-request-model {\n	overflow: hidden;\n	text-overflow: ellipsis;\n	white-space: nowrap;\n}\n";
+//#endregion
+//#region src/vs/workbench/contrib/localMode/common/marketplace.ts
+/** Where Cursor's marketplace keeps partner plugins. */
+var PARTNER_DIR = "third_party/";
+/** localStorage key (shared by every window of the profile). */
+var MARKETPLACE_STORAGE_KEY = "cursorLocalMode.marketplace";
+var DEFAULT_SOURCES = [{
+	id: sourceId("https://github.com/cursor/plugins"),
+	gitUrl: "https://github.com/cursor/plugins",
+	builtin: true,
+	name: "cursor-public",
+	displayName: "Cursor",
+	featured: true
+}, {
+	id: sourceId("https://github.com/anthropics/claude-plugins-official"),
+	gitUrl: "https://github.com/anthropics/claude-plugins-official",
+	builtin: true,
+	displayName: "Claude Code"
+}];
+/**
+* cyrb53: a 53-bit string hash, so IDs fit in a JS number and a protobuf
+* int64 alike. Never 0 (the page treats 0 as "no plugin").
+*/
+function stableId(key) {
+	let h1 = 3735928559;
+	let h2 = 1103547991;
+	for (let i = 0; i < key.length; i++) {
+		const c = key.charCodeAt(i);
+		h1 = Math.imul(h1 ^ c, 2654435761);
+		h2 = Math.imul(h2 ^ c, 1597334677);
+	}
+	h1 = Math.imul(h1 ^ h1 >>> 16, 2246822507) ^ Math.imul(h2 ^ h2 >>> 13, 3266489909);
+	h2 = Math.imul(h2 ^ h2 >>> 16, 2246822507) ^ Math.imul(h1 ^ h1 >>> 13, 3266489909);
+	const n = 4294967296 * (2097151 & h2) + (h1 >>> 0);
+	return String(n === 0 ? 1 : n);
+}
+/** `https://github.com/o/r(.git)`, `github.com/o/r/tree/...`, `git@github.com:o/r.git` or `o/r`. */
+function parseGitHubRepo(input) {
+	const text = input.trim();
+	const ssh = /^git@github\.com:([^/\s]+)\/([^/\s]+?)(?:\.git)?\/?$/iu.exec(text);
+	const short = /^([\w.-]+)\/([\w.-]+)$/u.exec(text);
+	let owner;
+	let repo;
+	if (ssh !== null) [, owner, repo] = ssh;
+	else if (short !== null && !text.includes(".com")) [, owner, repo] = short;
+	else {
+		let url;
+		try {
+			url = new URL(/^[a-z][a-z0-9+.-]*:\/\//iu.test(text) ? text : `https://${text}`);
+		} catch {
+			return;
+		}
+		if (url.hostname.toLowerCase() !== "github.com" && url.hostname.toLowerCase() !== "www.github.com") return;
+		[owner, repo] = url.pathname.split("/").filter(Boolean);
+	}
+	repo = repo?.replace(/\.git$/iu, "");
+	if (!owner || !repo || !/^[\w.-]+$/u.test(owner) || !/^[\w.-]+$/u.test(repo)) return;
+	return {
+		owner,
+		repo,
+		url: `https://github.com/${owner}/${repo}`
+	};
+}
+function sourceId(gitUrl) {
+	return stableId(`marketplace:${(parseGitHubRepo(gitUrl)?.url ?? gitUrl.trim()).toLowerCase()}`);
+}
+function pluginId(source, name) {
+	return stableId(`plugin:${source.id}/${name}`);
+}
+/** Joins manifest paths; undefined when one escapes the repository. */
+function joinPath(...parts) {
+	const out = [];
+	for (const part of parts) for (const seg of String(part ?? "").split("/")) {
+		if (seg === "" || seg === ".") continue;
+		if (seg === "..") return;
+		out.push(seg);
+	}
+	return out.join("/");
+}
+var text = (v) => typeof v === "string" && v.trim() !== "" ? v.trim() : void 0;
+/**
+* Where a manifest entry's plugin lives: a folder of the marketplace
+* repository (`"./plugins/x"`, `"x"`) or another repository (Claude Code's
+* `github` / `url` / `git-subdir` sources).
+*/
+function pluginLocation(source, pluginRoot) {
+	if (typeof source === "string") {
+		const path = source.trim().startsWith("./") ? joinPath(source) : joinPath(pluginRoot, source);
+		return path === void 0 ? void 0 : {
+			kind: "local",
+			path
+		};
+	}
+	if (source === null || typeof source !== "object") return;
+	const s = source;
+	const type = text(s.source) ?? text(s.type);
+	const ref = text(s.sha) ?? text(s.ref);
+	const path = text(s.path) === void 0 ? void 0 : joinPath(text(s.path));
+	if (text(s.path) !== void 0 && path === void 0) return;
+	let url;
+	if (type === "github") {
+		const repo = text(s.repo) ?? (text(s.owner) && text(s.name) ? `${text(s.owner)}/${text(s.name)}` : void 0);
+		url = repo === void 0 ? void 0 : parseGitHubRepo(repo)?.url;
+	} else if (type === "url" || type === "git" || type === "git-subdir") url = text(s.url);
+	if (url === void 0 || !/^https:\/\//iu.test(url)) return;
+	return {
+		kind: "git",
+		url: url.replace(/\.git$/iu, ""),
+		...path ? { path } : {},
+		...ref ? { ref } : {}
+	};
+}
+/** "cursor-team-kit" → "Cursor Team Kit". */
+function humanize(name) {
+	return name.split(/[-_\s]+/u).filter(Boolean).map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+}
+var CATEGORY_KEYS = [
+	[/^(?:productivity|workflow|automation)$/u, "PRODUCTIVITY"],
+	[/^(?:design|ui|ux|figma)$/u, "DESIGN"],
+	[/^(?:data|database|databases|analytics|data-analytics)$/u, "DATA_ANALYTICS"],
+	[/^(?:infrastructure|deployment|devops|cloud|monitoring|observability|security)$/u, "INFRASTRUCTURE"],
+	[/^(?:payments?|billing)$/u, "PAYMENTS"],
+	[/^(?:research|learning|education)$/u, "RESEARCH"],
+	[/^(?:documents?|docs|files)$/u, "DOCUMENTS_AND_FILES"],
+	[/^(?:sales|crm|marketing)$/u, "SALES"],
+	[/^(?:support|customer-support)$/u, "CUSTOMER_SUPPORT"],
+	[/^(?:finance|legal|accounting)$/u, "FINANCE_AND_LEGAL"],
+	[/^(?:scheduling|calendar)$/u, "SCHEDULING"],
+	[/^(?:communication|collaboration|email|chat)$/u, "INBOX_AND_COLLABORATION"],
+	[/^(?:agents?|orchestration|multi-agent)$/u, "AGENT_ORCHESTRATION"]
+];
+function categoryKeys(words) {
+	const keys = [];
+	for (const w of words) {
+		const word = w.trim().toLowerCase();
+		const key = CATEGORY_KEYS.find(([re]) => re.test(word))?.[1];
+		if (key !== void 0 && !keys.includes(key)) keys.push(key);
+	}
+	return keys;
+}
+var stem = (file) => file.replace(/\.[^.]+$/u, "");
+/** Skills, rules, commands, agents and hooks of the plugin in `dir`, from the repository's file list. */
+function componentsFromTree(paths, dir) {
+	const prefix = dir === "" ? "" : `${dir}/`;
+	const out = {
+		skills: [],
+		rules: [],
+		commands: [],
+		subagents: [],
+		hooks: []
+	};
+	for (const p of paths) {
+		if (!p.startsWith(prefix)) continue;
+		const rest = p.slice(prefix.length).split("/");
+		const [top, second, third] = rest;
+		if (top === "skills" && rest.length === 3 && third === "SKILL.md") out.skills.push({
+			name: second,
+			sourcePath: p
+		});
+		else if (top === "rules" && rest.length === 2 && /\.mdc?$/u.test(second)) out.rules.push({
+			name: stem(second),
+			sourcePath: p
+		});
+		else if (top === "commands" && rest.length === 2 && /\.md$/u.test(second)) out.commands.push({
+			name: stem(second),
+			sourcePath: p
+		});
+		else if (top === "agents" && rest.length === 2 && /\.md$/u.test(second)) out.subagents.push({
+			name: stem(second),
+			sourcePath: p
+		});
+		else if (top === "hooks" && rest.length === 2 && second === "hooks.json") out.hooks.push({
+			name: "hooks.json",
+			sourcePath: p
+		});
+	}
+	return out;
+}
+/** The plugin manifest of the plugin in `dir`, if the repository has one. */
+function pluginManifestPath(paths, dir) {
+	return [
+		".cursor-plugin/plugin.json",
+		".claude-plugin/plugin.json",
+		"plugin.json"
+	].map((f) => joinPath(dir, f)).find((p) => paths.has(p));
+}
+/** The MCP config of the plugin in `dir`, if the repository has one. */
+function mcpConfigPath(paths, dir) {
+	return [".mcp.json", "mcp.json"].map((f) => joinPath(dir, f)).find((p) => paths.has(p));
+}
+function mcpServers(config) {
+	const servers = config?.mcpServers;
+	return servers !== null && typeof servers === "object" ? Object.keys(servers).map((name) => ({ name })) : [];
+}
+var rawUrl = (repo, ref, path) => `https://raw.githubusercontent.com/${repo.owner}/${repo.repo}/${ref}/${path}`;
+function logoUrl(logo, repo, ref, dir) {
+	const l = text(logo);
+	if (l === void 0) return;
+	if (/^https:\/\//iu.test(l)) return l;
+	const path = joinPath(dir, l);
+	return path === void 0 ? void 0 : rawUrl(repo, ref, path);
+}
+function authorName(author) {
+	return text(author) ?? text(author?.name);
+}
+function words(...lists) {
+	return lists.flatMap((l) => Array.isArray(l) ? l.filter((w) => typeof w === "string") : text(l) ? [l] : []);
+}
+/** The catalog of one marketplace from its manifest and what was read of its repository. */
+function catalogFromManifest(source, manifest, contents, now) {
+	const m = manifest ?? {};
+	const metadata = m.metadata ?? {};
+	const name = source.name ?? text(m.name) ?? contents.repo.repo;
+	const plugins = [];
+	const seen = /* @__PURE__ */ new Set();
+	for (const raw of Array.isArray(m.plugins) ? m.plugins : []) {
+		const entry = raw ?? {};
+		const pluginName = text(entry.name);
+		const minCursor = text(entry.minClientVersions?.cursor);
+		if (pluginName === void 0 || seen.has(pluginName) || minCursor === "never") continue;
+		const location = pluginLocation(entry.source ?? "./", text(metadata.pluginRoot));
+		if (location === void 0) continue;
+		seen.add(pluginName);
+		const local = location.kind === "local";
+		const dir = local ? location.path : "";
+		const own = local ? contents.pluginManifests.get(dir) : void 0;
+		const components = local && contents.paths !== void 0 ? componentsFromTree(contents.paths, dir) : void 0;
+		const keywords = words(entry.category, entry.tags, entry.keywords, own?.keywords);
+		const variables = own?.variables ?? entry.variables;
+		plugins.push({
+			id: pluginId(source, pluginName),
+			name: pluginName,
+			displayName: text(own?.displayName) ?? text(entry.displayName) ?? humanize(pluginName),
+			description: text(own?.description) ?? text(entry.description) ?? "",
+			marketplaceId: source.id,
+			marketplaceName: name,
+			gitUrl: local ? contents.repo.url : location.url,
+			gitRef: local ? contents.ref : location.ref,
+			...local ? dir === "" ? {} : { gitPath: dir } : location.path ? { gitPath: location.path } : {},
+			local,
+			logoUrl: local ? logoUrl(own?.logo ?? entry.logo, contents.repo, contents.ref, dir) : text(entry.logo),
+			homepage: text(entry.homepage) ?? text(own?.homepage),
+			author: authorName(own?.author) ?? authorName(entry.author),
+			version: text(own?.version) ?? text(entry.version),
+			tags: [...new Set(keywords.map((w) => w.toLowerCase()))],
+			categoryKeys: [...source.featured && local && !`${dir}/`.startsWith(PARTNER_DIR) ? ["FEATURED"] : [], ...categoryKeys(keywords)],
+			skills: components?.skills ?? [],
+			rules: components?.rules ?? [],
+			commands: components?.commands ?? [],
+			subagents: components?.subagents ?? [],
+			hooks: components?.hooks ?? [],
+			mcpServers: local ? mcpServers(contents.mcpConfigs.get(dir) ?? own?.mcpServers) : [],
+			...variables !== null && typeof variables === "object" && !Array.isArray(variables) ? { variables } : {}
+		});
+	}
+	return {
+		sourceId: source.id,
+		name,
+		displayName: source.displayName ?? text(m.displayName) ?? humanize(name),
+		description: text(metadata.description) ?? text(m.description),
+		gitUrl: contents.repo.url,
+		gitRef: contents.ref,
+		commitSha: contents.commitSha,
+		fetchedAt: now,
+		version: 1,
+		plugins
+	};
+}
+function isStale(snapshot, now) {
+	return snapshot === void 0 || now - snapshot.fetchedAt > 216e5 || now < snapshot.fetchedAt;
+}
+/** Stored state, with the default marketplaces added and anything malformed dropped. */
+function parseState(json) {
+	let raw = {};
+	try {
+		const v = JSON.parse(json ?? "{}");
+		raw = v !== null && typeof v === "object" ? v : {};
+	} catch {}
+	const sources = [...DEFAULT_SOURCES];
+	for (const s of Array.isArray(raw.sources) ? raw.sources : []) if (typeof s?.gitUrl === "string" && typeof s.id === "string" && !sources.some((x) => x.id === s.id)) sources.push({
+		id: s.id,
+		gitUrl: s.gitUrl,
+		...typeof s.gitRef === "string" ? { gitRef: s.gitRef } : {}
+	});
+	const snapshots = {};
+	const stored = raw.snapshots !== null && typeof raw.snapshots === "object" ? raw.snapshots : {};
+	for (const s of sources) {
+		const snap = stored[s.id];
+		if (snap?.version === 1 && Array.isArray(snap.plugins) && typeof snap.fetchedAt === "number") snapshots[s.id] = snap;
+	}
+	return {
+		sources,
+		snapshots,
+		installs: (Array.isArray(raw.installs) ? raw.installs : []).filter((i) => typeof i?.plugin?.id === "string" && typeof i.plugin.name === "string")
+	};
+}
+function serializeState(state) {
+	return JSON.stringify({
+		version: 1,
+		sources: state.sources.filter((s) => !s.builtin).map(({ id, gitUrl, gitRef }) => ({
+			id,
+			gitUrl,
+			gitRef
+		})),
+		snapshots: state.snapshots,
+		installs: state.installs
+	});
+}
+/** Every plugin of every followed marketplace, first marketplace first. */
+function catalog(state) {
+	return state.sources.flatMap((s) => state.snapshots[s.id]?.plugins ?? []);
+}
+/** A catalog plugin, or an installed one whose marketplace no longer lists it. */
+function findPlugin(state, id) {
+	return catalog(state).find((p) => p.id === id) ?? state.installs.find((i) => i.plugin.id === id)?.plugin;
+}
+/** The plugin folders a manifest has in the marketplace repository itself. */
+function localPluginDirs(manifest) {
+	const m = manifest ?? {};
+	const root = text(m.metadata?.pluginRoot);
+	const dirs = /* @__PURE__ */ new Set();
+	for (const entry of Array.isArray(m.plugins) ? m.plugins : []) {
+		const location = pluginLocation(entry?.source ?? "./", root);
+		location?.kind === "local" && dirs.add(location.path);
+	}
+	return [...dirs];
+}
+/** A component list of a parsed plugin (`aiserver.v1.SkillDescriptor` and friends). */
+function componentList(list) {
+	return (Array.isArray(list) ? list : []).flatMap((c) => text(c?.name) ? [{
+		name: c.name,
+		...text(c.description) ? { description: c.description } : {}
+	}] : []);
+}
+/** A catalog from the extension host's parse (a GitHub URL pasted on the page, a local folder). */
+function snapshotFromParse(source, parsed, gitRef, now) {
+	const ref = text(parsed.commitSha) ?? text(parsed.defaultBranch) ?? text(gitRef) ?? "HEAD";
+	const name = source.name ?? text(parsed.marketplaceName);
+	return {
+		sourceId: source.id,
+		name,
+		displayName: source.displayName ?? humanize(name),
+		description: text(parsed.marketplaceDescription),
+		gitUrl: parsed.repositoryUrl,
+		gitRef: ref,
+		commitSha: text(parsed.commitSha),
+		fetchedAt: now,
+		version: 1,
+		plugins: parsed.plugins.filter((p) => text(p.name) && !text(p.parseError)).map((p) => {
+			const external = text(p.sourceGitUrl);
+			return {
+				id: pluginId(source, p.name),
+				name: p.name,
+				displayName: text(p.displayName) ?? humanize(p.name),
+				description: text(p.description) ?? "",
+				marketplaceId: source.id,
+				marketplaceName: name,
+				gitUrl: external ?? parsed.repositoryUrl,
+				gitRef: external ? text(p.sourceGitRef) : ref,
+				...text(p.gitPath) ? { gitPath: p.gitPath } : {},
+				local: external === void 0,
+				logoUrl: text(p.logoUrl),
+				tags: [],
+				categoryKeys: [],
+				skills: componentList(p.skills),
+				rules: componentList(p.rules),
+				commands: componentList(p.commands),
+				subagents: componentList(p.subagents),
+				hooks: componentList(p.hooks),
+				mcpServers: componentList(p.mcpServers),
+				...p.variables !== void 0 ? { variables: p.variables } : {}
+			};
+		})
+	};
+}
+/**
+* An `aiserver.v1.Plugin` in its JSON form, as the extension host reads it: a
+* marketplace plugin names its marketplace (installed from that clone), any
+* other plugin is cloned from its own repository.
+*/
+function pluginJson(p, marketplaceRef) {
+	return {
+		id: p.id,
+		name: p.name,
+		displayName: p.displayName,
+		description: p.description,
+		gitUrl: p.gitUrl,
+		...p.gitRef ? { gitRef: p.gitRef } : {},
+		...p.gitPath ? { gitPath: p.gitPath } : {},
+		fullRef: `${p.marketplaceName}/${p.name}`,
+		isPublished: true,
+		...p.local ? {
+			marketplaceId: p.marketplaceId,
+			marketplace: {
+				id: p.marketplaceId,
+				name: p.marketplaceName,
+				gitUrl: p.gitUrl,
+				gitRef: marketplaceRef ?? p.gitRef
+			}
+		} : {}
+	};
+}
+/**
+* `aiserver.v1.GetEffectiveUserPluginsResponse` in its JSON form: what the
+* extension host clones and loads.
+*/
+function effectivePlugins(state) {
+	const marketplaces = /* @__PURE__ */ new Map();
+	return {
+		plugins: state.installs.map(({ plugin: p, variables }) => {
+			const json = pluginJson(p);
+			if (json.marketplace !== void 0) marketplaces.set(p.marketplaceId, json.marketplace);
+			return {
+				plugin: json,
+				isEnabled: true,
+				isTeamRequired: false,
+				hasTeamConfiguredVariables: false,
+				...variables === void 0 ? {} : {
+					configuredVariables: variables,
+					configuredVariableKeys: Object.keys(variables)
+				}
+			};
+		}),
+		marketplaces: [...marketplaces.values()]
+	};
+}
+/** Project installs name plugins `<name>` (Cursor's marketplace) or `<marketplace>/<name>`. */
+function resolvePluginRefs(state, refs) {
+	const all = [...catalog(state), ...state.installs.map((i) => i.plugin)];
+	return refs.flatMap((ref) => {
+		const market = text(ref.marketplaceName) ?? "cursor-public";
+		const hit = all.find((p) => p.name === ref.name && p.marketplaceName === market);
+		return hit === void 0 ? [] : [hit];
+	});
+}
+//#endregion
+//#region src/vs/workbench/contrib/localMode/browser/marketplace.ts
+/**
+* The local marketplace in the agent window (see common/marketplace.ts).
+*
+* Patched in for Cursor's backend (build/patches/patches.mjs, `marketplace-*`):
+* `provider` answers the Customize page instead of DashboardService,
+* `effectivePlugins` tells the extension host what to clone and load. The
+* catalog is read from GitHub (the renderer's CSP allows https fetches) and
+* kept in localStorage with the installs.
+*/
+var GITHUB_API = "https://api.github.com";
+var FETCH_TIMEOUT_MS = 2e4;
+var FETCH_CONCURRENCY = 12;
+var TEAM_ONLY = "Team plugins need a Cursor team account, which local mode does not use.";
+var cached;
+globalThis.addEventListener?.("storage", (e) => {
+	if (e.key === "cursorLocalMode.marketplace") cached = void 0;
+});
+function load() {
+	if (cached === void 0) cached = parseState(globalThis.localStorage?.getItem(MARKETPLACE_STORAGE_KEY));
+	return cached;
+}
+function save(state) {
+	cached = state;
+	try {
+		globalThis.localStorage?.setItem(MARKETPLACE_STORAGE_KEY, serializeState(state));
+	} catch (e) {
+		console.warn("[local mode] could not save the marketplace", e);
+	}
+}
+function update(change) {
+	const next = change(load());
+	save(next);
+	return next;
+}
+async function get(url, accept) {
+	const r = await fetch(url, {
+		headers: accept === void 0 ? {} : { Accept: accept },
+		signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)
+	});
+	if (!r.ok) throw new Error(`${r.status} ${r.statusText || "error"} from ${url}`);
+	return r;
+}
+var getJson = async (url) => (await get(url)).json();
+async function eachLimit(items, limit, fn) {
+	let next = 0;
+	const worker = async () => {
+		while (next < items.length) await fn(items[next++]);
+	};
+	await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
+}
+/**
+* One marketplace: its commit and file list (GitHub API, two requests), its
+* manifest and, for plugins inside the repository, their plugin.json and MCP
+* config (raw.githubusercontent.com).
+*/
+async function readMarketplace(source, now = Date.now()) {
+	const repo = parseGitHubRepo(source.gitUrl);
+	if (repo === void 0) throw new Error(`${source.gitUrl} is not a GitHub repository.`);
+	const api = `${GITHUB_API}/repos/${repo.owner}/${repo.repo}`;
+	let commitSha;
+	try {
+		const sha = (await (await get(`${api}/commits/${encodeURIComponent(source.gitRef ?? "HEAD")}`, "application/vnd.github.sha")).text()).trim();
+		commitSha = /^[0-9a-f]{40}$/u.test(sha) ? sha : void 0;
+	} catch {}
+	const ref = commitSha ?? source.gitRef ?? "HEAD";
+	const raw = (path) => `https://raw.githubusercontent.com/${repo.owner}/${repo.repo}/${ref}/${path}`;
+	let paths;
+	try {
+		paths = ((await getJson(`${api}/git/trees/${ref}?recursive=1`)).tree ?? []).flatMap((t) => t.type === "blob" && typeof t.path === "string" ? [t.path] : []);
+	} catch {}
+	const files = new Set(paths ?? []);
+	const has = (path) => paths === void 0 || files.has(path);
+	let manifest;
+	for (const path of [".cursor-plugin/marketplace.json", ".claude-plugin/marketplace.json"]) if (manifest === void 0 && has(path)) try {
+		manifest = await getJson(raw(path));
+	} catch {}
+	if (manifest === void 0) {
+		const own = paths === void 0 ? void 0 : pluginManifestPath(files, "");
+		const plugin = own === void 0 ? void 0 : await getJson(raw(own));
+		if (plugin === void 0) throw new Error(`${repo.url} has no .cursor-plugin/marketplace.json or .claude-plugin/marketplace.json.`);
+		const name = typeof plugin.name === "string" && plugin.name ? plugin.name : repo.repo;
+		manifest = {
+			name: repo.repo,
+			plugins: [{
+				name,
+				source: "./",
+				description: plugin.description
+			}]
+		};
+	}
+	const pluginManifests = /* @__PURE__ */ new Map();
+	const mcpConfigs = /* @__PURE__ */ new Map();
+	if (paths !== void 0) await eachLimit(localPluginDirs(manifest), FETCH_CONCURRENCY, async (dir) => {
+		const own = pluginManifestPath(files, dir);
+		const mcp = mcpConfigPath(files, dir);
+		try {
+			own !== void 0 && pluginManifests.set(dir, await getJson(raw(own)));
+		} catch {}
+		try {
+			mcp !== void 0 && mcpConfigs.set(dir, await getJson(raw(mcp)));
+		} catch {}
+	});
+	return catalogFromManifest(source, manifest, {
+		repo,
+		ref,
+		commitSha,
+		paths,
+		pluginManifests,
+		mcpConfigs
+	}, now);
+}
+var inflight = /* @__PURE__ */ new Map();
+function refresh(source) {
+	let p = inflight.get(source.id);
+	if (p === void 0) {
+		p = readMarketplace(source).then((snapshot) => {
+			update((s) => ({
+				...s,
+				snapshots: {
+					...s.snapshots,
+					[source.id]: snapshot
+				}
+			}));
+			return snapshot;
+		}).finally(() => inflight.delete(source.id));
+		inflight.set(source.id, p);
+	}
+	return p;
+}
+/** Reads the marketplaces never read; stale ones refresh in the background. */
+async function ensureCatalog() {
+	const s = load();
+	const now = Date.now();
+	const readable = s.sources.filter((x) => parseGitHubRepo(x.gitUrl) !== void 0);
+	for (const source of readable) if (s.snapshots[source.id] !== void 0 && isStale(s.snapshots[source.id], now)) refresh(source).catch((e) => console.warn(`[local mode] could not refresh ${source.gitUrl}`, e));
+	await Promise.all(readable.filter((x) => s.snapshots[x.id] === void 0).map((source) => refresh(source).catch((e) => console.warn(`[local mode] could not read ${source.gitUrl}`, e))));
+	return load();
+}
+/** Has the extension host reload plugins (clone new installs, drop removed ones). */
+function reloadPlugins() {
+	cursorHost().cursor.pluginsService?.requestPluginsRefresh().catch((e) => console.warn("[local mode] plugin reload failed", e));
+}
+var big = (id) => {
+	try {
+		return BigInt(id ?? 0);
+	} catch {
+		return 0n;
+	}
+};
+function struct(json) {
+	if (json === void 0) return;
+	try {
+		return cursorHost().cursor.proto.Struct.fromJson(json);
+	} catch {
+		return;
+	}
+}
+function toJson(variables) {
+	const json = variables?.toJson?.();
+	return json !== null && typeof json === "object" && !Array.isArray(json) ? json : void 0;
+}
+function marketplaceMessage(source, snap) {
+	return new (cursorHost()).cursor.proto.Marketplace({
+		id: big(source.id),
+		name: snap.name,
+		...snap.displayName ? { displayName: snap.displayName } : {},
+		...snap.description ? { description: snap.description } : {},
+		gitUrl: snap.gitUrl,
+		gitRef: snap.gitRef,
+		...source.builtin ? {} : { userId: 0 },
+		createdAt: 0n,
+		updatedAt: big(snap.fetchedAt),
+		lastIndexedAt: big(snap.fetchedAt),
+		...snap.commitSha ? { lastIndexedCommitSha: snap.commitSha } : {}
+	});
+}
+function pluginMessage(p, state) {
+	const source = state.sources.find((s) => s.id === p.marketplaceId);
+	const snap = state.snapshots[p.marketplaceId];
+	const variables = struct(p.variables);
+	return new (cursorHost()).cursor.proto.Plugin({
+		id: big(p.id),
+		name: p.name,
+		displayName: p.displayName,
+		description: p.description,
+		status: 3,
+		lifecycleState: 1,
+		repositoryUrl: p.homepage ?? (p.local && p.gitPath ? `${p.gitUrl}/tree/${p.gitRef ?? "HEAD"}/${p.gitPath}` : p.gitUrl),
+		tags: p.tags,
+		...p.logoUrl ? { logoUrl: p.logoUrl } : {},
+		isPublished: true,
+		createdAt: 0n,
+		updatedAt: big(snap?.fetchedAt),
+		marketplaceId: big(p.marketplaceId),
+		...source !== void 0 && snap !== void 0 ? { marketplace: marketplaceMessage(source, snap) } : {},
+		...p.author ? { publisher: {
+			id: big(stableId(`publisher:${p.author}`)),
+			name: p.author,
+			displayName: p.author,
+			isUserOwned: false,
+			isVerified: false
+		} } : {},
+		gitUrl: p.gitUrl,
+		...p.gitRef ? { gitRef: p.gitRef } : {},
+		...p.gitPath ? { gitPath: p.gitPath } : {},
+		fullRef: `${p.marketplaceName}/${p.name}`,
+		skills: p.skills,
+		subagents: p.subagents,
+		hooks: p.hooks,
+		rules: p.rules,
+		mcpServers: p.mcpServers,
+		commands: p.commands,
+		curatedCategoryKeys: p.categoryKeys,
+		...variables === void 0 ? {} : { variables }
+	});
+}
+function installMessage(p, installedAt, state) {
+	return new (cursorHost()).cursor.proto.UserPluginInstall({
+		userId: 0,
+		pluginId: big(p.id),
+		isEnabled: true,
+		createdAt: big(installedAt),
+		updatedAt: big(installedAt),
+		plugin: pluginMessage(p, state)
+	});
+}
+function addSource(gitUrl, gitRef) {
+	const url = parseGitHubRepo(gitUrl)?.url ?? gitUrl.trim();
+	const id = sourceId(url);
+	const existing = load().sources.find((s) => s.id === id);
+	if (existing !== void 0) return existing;
+	const source = {
+		id,
+		gitUrl: url,
+		...gitRef ? { gitRef } : {}
+	};
+	update((s) => ({
+		...s,
+		sources: [...s.sources, source]
+	}));
+	return source;
+}
+async function addGitHubMarketplace(gitUrl, gitRef) {
+	if (!gitUrl || parseGitHubRepo(gitUrl) === void 0) throw new Error("Local mode can add marketplaces from GitHub repositories (https://github.com/<owner>/<repo>).");
+	const source = addSource(gitUrl, gitRef);
+	try {
+		return await refresh(source);
+	} catch (e) {
+		update((s) => ({
+			...s,
+			sources: s.sources.filter((x) => x.id !== source.id || x.builtin)
+		}));
+		throw e;
+	}
+}
+async function refreshPage() {
+	const service = cursorHost().cursor.pluginsService;
+	await service?._refreshMarketplacePluginsFromDashboardClient(service._getCurrentCacheKey(), { forceRefetch: true });
+}
+var provider = {
+	async listMarketplacePlugins(request) {
+		const s = await ensureCatalog();
+		const id = request?.marketplaceId === void 0 ? void 0 : String(request.marketplaceId);
+		return {
+			plugins: (id === void 0 ? catalog(s) : s.snapshots[id]?.plugins ?? []).map((p) => pluginMessage(p, s)),
+			nextPageToken: ""
+		};
+	},
+	async listMarketplaces() {
+		const s = await ensureCatalog();
+		return { marketplaces: s.sources.flatMap((source) => {
+			const snap = s.snapshots[source.id];
+			return snap === void 0 ? [] : [marketplaceMessage(source, snap)];
+		}) };
+	},
+	async listUserPluginInstalls() {
+		const s = load();
+		return { installs: s.installs.map((i) => installMessage(i.plugin, i.installedAt, s)) };
+	},
+	async getPlugin(request) {
+		const s = load();
+		const p = findPlugin(s, String(request?.pluginId));
+		if (p === void 0) throw new Error("This plugin is not in any marketplace local mode knows.");
+		return { plugin: pluginMessage(p, s) };
+	},
+	async installUserPlugin(request) {
+		const p = findPlugin(await ensureCatalog(), String(request?.pluginId));
+		if (p === void 0) throw new Error("This plugin is not in any marketplace local mode knows.");
+		const variables = toJson(request?.variables);
+		const installedAt = Date.now();
+		const next = update((x) => ({
+			...x,
+			installs: [...x.installs.filter((i) => i.plugin.id !== p.id), {
+				plugin: p,
+				installedAt,
+				...variables === void 0 ? {} : { variables }
+			}]
+		}));
+		reloadPlugins();
+		return { install: installMessage(p, installedAt, next) };
+	},
+	async updateUserPluginInstall(request) {
+		const id = String(request?.pluginId);
+		const variables = toJson(request?.variables);
+		const next = update((x) => ({
+			...x,
+			installs: x.installs.map((i) => i.plugin.id === id && variables !== void 0 ? {
+				...i,
+				variables
+			} : i)
+		}));
+		const install = next.installs.find((i) => i.plugin.id === id);
+		reloadPlugins();
+		return { install: install === void 0 ? void 0 : installMessage(install.plugin, install.installedAt, next) };
+	},
+	async uninstallUserPlugin(request) {
+		const id = String(request?.pluginId);
+		update((x) => ({
+			...x,
+			installs: x.installs.filter((i) => i.plugin.id !== id)
+		}));
+		reloadPlugins();
+		return { success: true };
+	},
+	async installTeamPlugin() {
+		throw new Error(TEAM_ONLY);
+	},
+	async uninstallTeamPlugin() {
+		throw new Error(TEAM_ONLY);
+	},
+	async addMarketplace(request) {
+		if (request?.teamId !== void 0) throw new Error(TEAM_ONLY);
+		const snap = await addGitHubMarketplace(request?.gitUrl, request?.gitRef);
+		return { marketplace: marketplaceMessage(load().sources.find((s) => s.id === snap.sourceId), snap) };
+	},
+	async removeMarketplace(request) {
+		const id = String(request?.marketplaceId);
+		if (load().sources.some((s) => s.id === id && s.builtin)) throw new Error("Local mode's built-in marketplaces can't be removed.");
+		update((x) => {
+			const { [id]: _, ...snapshots } = x.snapshots;
+			return {
+				...x,
+				sources: x.sources.filter((s) => s.id !== id),
+				snapshots
+			};
+		});
+		return { success: true };
+	},
+	async registerMarketplaceAndPlugins(request) {
+		const snap = await addGitHubMarketplace(request?.gitUrl, request?.gitRef);
+		return {
+			marketplaceId: big(snap.sourceId),
+			plugins: snap.plugins.map((p) => ({
+				pluginId: big(p.id),
+				name: p.name
+			}))
+		};
+	}
+};
+/**
+* A marketplace the extension host parsed (a GitHub URL pasted into the page's
+* search, or a local folder): kept as parsed; GitHub ones refresh like the rest.
+*/
+async function persistParsed({ gitRef, parseResult }) {
+	const parsed = {
+		...parseResult,
+		plugins: parseResult.plugins.map((p) => ({
+			...p,
+			variables: toJson(p.variables)
+		}))
+	};
+	const source = addSource(parsed.repositoryUrl, gitRef);
+	const snapshot = snapshotFromParse(source, parsed, gitRef, Date.now());
+	update((s) => ({
+		...s,
+		snapshots: {
+			...s.snapshots,
+			[source.id]: snapshot
+		}
+	}));
+}
+/** The Claude Code marketplaces this machine knows, added like any GitHub marketplace. */
+async function importClaudeMarketplaces() {
+	const result = {
+		discovered: 0,
+		registered: 0,
+		failed: 0
+	};
+	const payloads = await (await cursorHost().cursor.pluginsService?._waitForProvider())?.discoverClaudeMarketplacePayloads([]) ?? [];
+	result.discovered = payloads.length;
+	for (const p of payloads) {
+		if (parseGitHubRepo(p.gitUrl) === void 0) {
+			result.failed++;
+			continue;
+		}
+		addSource(p.gitUrl);
+		result.registered++;
+	}
+	if (result.registered > 0) {
+		await ensureCatalog();
+		await refreshPage().catch(() => {});
+	}
+	return result;
+}
+var marketplace = {
+	provider,
+	effectivePlugins: () => effectivePlugins(load()),
+	/** `$resolveProjectPlugins`: project installs (`.cursor/settings.json`) by name. */
+	resolveProjectPlugins: (refs) => {
+		const s = load();
+		return { plugins: resolvePluginRefs(s, refs).map((p) => pluginJson(p, s.snapshots[p.marketplaceId]?.gitRef)) };
+	},
+	persistParsed,
+	importClaudeMarketplaces
+};
 //#endregion
 //#region src/vs/workbench/contrib/localMode/browser/modelCatalog.ts
 /**
@@ -4156,6 +5304,8 @@ var localMode_default = "/* --- Transcript -------------------------------------
 async function refreshModels(aiService) {
 	const { cursor } = cursorHost();
 	const entries = enabledModels(routableProviders(readProviders(aiService._storageService)));
+	const bareIds = /* @__PURE__ */ new Map();
+	for (const { model } of entries) bareIds.set(model.id, (bareIds.get(model.id) ?? 0) + 1);
 	const rows = entries.map(({ provider, model, id }) => {
 		const context = contextWindow(model);
 		const source = provider.name || provider.prefix || "custom provider";
@@ -4211,7 +5361,7 @@ async function refreshModels(aiService) {
 			tagline: source,
 			namedModelSectionIndex: 1,
 			legacySlugs: [],
-			idAliases: [],
+			idAliases: bareIds.get(model.id) === 1 ? [model.id] : [],
 			parameterDefinitions,
 			variants,
 			tooltipData: { markdownContent: tooltip }
@@ -4360,6 +5510,7 @@ var impl = {
 		UsagePage
 	},
 	refreshModels,
+	marketplace,
 	routeTurn,
 	inferenceConfig,
 	turnBegin(conversationId, action, requestedModel, context) {

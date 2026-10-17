@@ -141,9 +141,50 @@ export interface CursorUi {
 	Switch: Component<{ checked: boolean; onCheckedChange: (checked: boolean) => void }>;
 }
 
+/** A protobuf-es message type. */
+export interface ProtoType<T = object> {
+	new (init?: Record<string, unknown>): T;
+	fromJson(json: unknown): T;
+}
+
+/** `google.protobuf.Struct`. */
+export interface StructMessage {
+	toJson(): unknown;
+}
+
+/** One marketplace a Claude Code install knows (`~/.claude/plugins/known_marketplaces.json`). */
+export interface ClaudeMarketplacePayload {
+	gitUrl: string;
+	gitRef?: string;
+	marketplaceName: string;
+}
+
+/** Cursor's PluginsProviderService (only what the local marketplace touches). */
+export interface PluginsService {
+	/** Makes the extension host re-read the installed plugins (clones new ones). */
+	requestPluginsRefresh(): Promise<void>;
+	notifyPluginsChanged(): void;
+	/** Re-reads the catalog (`_fetchMarketplaceSnapshotFromDashboard`) into the page's cache. */
+	_refreshMarketplacePluginsFromDashboardClient(cacheKey: string, options: { forceRefetch: boolean }): Promise<void>;
+	_getCurrentCacheKey(): string;
+	/** The extension host's plugins provider. */
+	_waitForProvider(): Promise<
+		{ discoverClaudeMarketplacePayloads(existing: string[]): Promise<ClaudeMarketplacePayload[]> } | undefined
+	>;
+}
+
 export interface CursorInternals {
 	/** Renderer build flags; `localMode` is the runtime switch. */
 	readonly buildFlags: { localMode: boolean };
+	/** aiserver.v1 messages the local marketplace answers the Customize page with. */
+	readonly proto: {
+		Plugin: ProtoType;
+		Marketplace: ProtoType;
+		UserPluginInstall: ProtoType;
+		Struct: ProtoType<StructMessage>;
+	};
+	/** The PluginsProviderService, once the workbench created it. */
+	readonly pluginsService: PluginsService | undefined;
 	/** `new ModelDetails({...})` (protobuf). */
 	readonly ModelDetails: new (
 		init: Record<string, string>,

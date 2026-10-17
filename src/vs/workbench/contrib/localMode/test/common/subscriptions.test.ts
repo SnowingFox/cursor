@@ -7,7 +7,10 @@ import {
 	headerQuota,
 	maskProxyUrl,
 	parseCallbackInput,
+	ROUTING_DEFAULTS,
+	routingSettings,
 	sidecarBaseUrl,
+	sidecarSettings,
 	subscriptionModel,
 	validateProxyUrl,
 	windowLabel,
@@ -268,5 +271,40 @@ describe('subscriptionModel', () => {
 			expect(subscriptionModel('xai', id, {})).toBeUndefined();
 		}
 		expect(subscriptionModel('codex', 'some-model', { supportedOutputModalities: ['image'] })).toBeUndefined();
+	});
+});
+
+describe('routing settings', () => {
+	it('fills in defaults and clamps', () => {
+		expect(routingSettings(undefined)).toEqual(ROUTING_DEFAULTS);
+		expect(
+			routingSettings({ affinityTtlMinutes: 0, retries: 99, retryWaitSeconds: -5, rebindOn: 'bogus' as never }),
+		).toMatchObject({ affinityTtlMinutes: 1, retries: 10, retryWaitSeconds: 0, rebindOn: 'any' });
+		expect(routingSettings({ sessionAffinity: false, streamRetries: 2.4 })).toMatchObject({
+			sessionAffinity: false,
+			streamRetries: 2,
+		});
+	});
+
+	it("maps to CLIProxyAPI's v8 config layout", () => {
+		expect(
+			sidecarSettings({
+				strategy: 'weighted-round-robin',
+				proxyUrl: 'socks5://127.0.0.1:1080',
+				routing: { affinityTtlMinutes: 90, rebindOn: 'quota', cooling: false },
+			}),
+		).toEqual({
+			routing: {
+				strategy: 'weighted-round-robin',
+				'session-affinity': true,
+				'session-affinity-ttl': '90m',
+				'session-affinity-rebind-on': 'quota',
+				retry: { 'request-retry': 2, 'max-retry-interval': 30 },
+				cooldown: { 'disable-cooling': true },
+			},
+			upstream: { claude: { 'model-level-cooling': true }, codex: { 'model-level-cooling': true } },
+			requests: { 'proxy-url': 'socks5://127.0.0.1:1080', streaming: { 'bootstrap-retries': 1 } },
+		});
+		expect(sidecarSettings({ strategy: 'bogus' as never }).routing.strategy).toBe('round-robin');
 	});
 });

@@ -182,6 +182,125 @@
 	--hue: var(--cursor-magenta, #d946ef);
 }
 
+/* Subscriptions > Advanced: one setting per row, control on the right. */
+.lm-sub-settings {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 4px 0;
+}
+
+.lm-sub-setting {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 16px;
+	padding: 7px 0;
+	border-top: 1px solid var(--lm-line-2);
+}
+
+.lm-sub-setting:first-child {
+	border-top: none;
+}
+
+.lm-sub-setting-text {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 0;
+}
+
+.lm-sub-setting-label {
+	font-size: 12.5px;
+	font-weight: 500;
+}
+
+.lm-sub-setting-control {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.lm-sub-account-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+}
+
+/* Brand marks: Claude in its clay orange, Codex and Grok in the text color. */
+.local-mode-avatar[data-brand="claude"] {
+	--hue: #d97757;
+}
+.local-mode-avatar[data-brand="codex"],
+.local-mode-avatar[data-brand="xai"] {
+	--hue: var(--lm-fg, currentColor);
+	background: color-mix(in srgb, var(--hue) 9%, transparent);
+}
+
+/* Subscriptions: the three marks overlapped on one tile. */
+.lm-sub-avatar {
+	--ring: var(--lm-bg-raised, var(--vscode-input-background));
+	--mark: 15px;
+	position: relative;
+	flex-shrink: 0;
+	width: 32px;
+	height: 32px;
+	border-radius: 8px;
+	background: var(--ring);
+	box-shadow: inset 0 0 0 1px var(--lm-line-2, rgba(128, 128, 128, 0.12));
+}
+
+.lm-sub-avatar[data-size="sm"] {
+	--mark: 10px;
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+}
+
+.lm-sub-avatar-mark {
+	position: absolute;
+	display: grid;
+	place-items: center;
+	width: var(--mark);
+	height: var(--mark);
+	border-radius: 50%;
+	color: var(--ring);
+	background: var(--lm-fg, currentColor);
+	box-shadow: 0 0 0 1.5px var(--ring);
+}
+
+.lm-sub-avatar-mark[data-brand="claude"] {
+	z-index: 1;
+	top: 3px;
+	left: calc(50% - var(--mark) / 2);
+	color: #fff;
+	background: #d97757;
+}
+.lm-sub-avatar-mark[data-brand="codex"] {
+	bottom: 3px;
+	left: 3px;
+}
+.lm-sub-avatar-mark[data-brand="xai"] {
+	bottom: 3px;
+	right: 3px;
+}
+
+.lm-sub-avatar[data-size="sm"] .lm-sub-avatar-mark {
+	box-shadow: 0 0 0 1px var(--ring);
+}
+.lm-sub-avatar[data-size="sm"] .lm-sub-avatar-mark[data-brand="claude"] {
+	top: 1.5px;
+}
+.lm-sub-avatar[data-size="sm"] .lm-sub-avatar-mark:not([data-brand="claude"]) {
+	bottom: 1.5px;
+}
+.lm-sub-avatar[data-size="sm"] .lm-sub-avatar-mark[data-brand="codex"] {
+	left: 1.5px;
+}
+.lm-sub-avatar[data-size="sm"] .lm-sub-avatar-mark[data-brand="xai"] {
+	right: 1.5px;
+}
+
 /* Card */
 
 .local-mode-card {
@@ -718,6 +837,13 @@
 
 .local-mode-preset:hover {
 	border-color: var(--lm-focus);
+}
+
+.local-mode-preset .lm-sub-avatar {
+	--mark: 13px;
+	width: 28px;
+	height: 28px;
+	border-radius: 7px;
 }
 
 .local-mode-preset .local-mode-avatar {

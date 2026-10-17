@@ -14,6 +14,7 @@ import { DevTool } from './components/DevTool.js';
 import { ThinkingDetails, TurnDetails, TurnStatusSuffix } from './components/TurnStatus.js';
 import { UsagePage } from './components/UsagePage.js';
 import styles from './localMode.css?inline';
+import { marketplace } from './marketplace.js';
 import { refreshModels } from './modelCatalog.js';
 import { inferenceConfig, routeTurn } from './turnRouting.js';
 import * as turnStats from './turnStats.js';
@@ -41,6 +42,7 @@ export const impl = {
 		UsagePage,
 	},
 	refreshModels,
+	marketplace,
 	routeTurn,
 	inferenceConfig,
 	turnBegin(

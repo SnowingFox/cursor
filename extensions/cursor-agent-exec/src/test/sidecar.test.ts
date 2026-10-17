@@ -25,7 +25,10 @@ describe('renderConfig', () => {
 		expect(yaml).toContain('  host: "127.0.0.1"\n  port: 18317\n');
 		expect(yaml).toContain('  allow-remote: false\n  secret-key: "mgmt"\n');
 		expect(yaml).toContain('  api-keys:\n    - "sk-local-a\\"b"\n');
-		expect(yaml).toContain('  strategy: "fill-first"\n');
+		expect(yaml).toContain('  strategy: "fill-first"\n  session-affinity: true\n  session-affinity-ttl: "60m"\n');
+		expect(yaml).toContain('  retry:\n    request-retry: 2\n    max-retry-interval: 30\n');
+		expect(yaml).toContain('upstream:\n  claude:\n    model-level-cooling: true\n');
+		expect(yaml).toContain('  proxy-url: ""\n  streaming:\n    bootstrap-retries: 1\n');
 		expect(yaml).toContain('  auth-dir: "/data/cliproxyapi/auths"\n');
 	});
 });
@@ -144,11 +147,24 @@ describe.skipIf(binary === undefined)('CLIProxyAPI sidecar', { timeout: 30_000 }
 
 	it('applies routing and proxy settings without a restart', async () => {
 		const before = await ensureSidecar(config);
-		const after = await ensureSidecar({ ...config, strategy: 'fill-first', proxyUrl: 'http://127.0.0.1:9' });
+		const after = await ensureSidecar({
+			...config,
+			strategy: 'weighted-round-robin',
+			proxyUrl: 'http://127.0.0.1:9',
+			routing: { sessionAffinity: false, retries: 0, modelCooling: false, streamRetries: 3 },
+		});
 		expect(after.pid).toBe(before.pid);
 		const settings = await management(after, 'GET', '/config');
-		expect(settings?.routing?.strategy).toBe('fill-first');
-		expect(settings?.requests?.['proxy-url']).toBe('http://127.0.0.1:9');
+		expect(settings?.routing).toMatchObject({
+			strategy: 'weighted-round-robin',
+			'session-affinity': false,
+			retry: { 'request-retry': 0, 'max-retry-interval': 30 },
+		});
+		expect(settings?.upstream?.codex?.['model-level-cooling']).toBe(false);
+		expect(settings?.requests).toMatchObject({
+			'proxy-url': 'http://127.0.0.1:9',
+			streaming: { 'bootstrap-retries': 3 },
+		});
 	});
 
 	it('adopts a running sidecar after an extension host restart, restarts for a new key', async () => {

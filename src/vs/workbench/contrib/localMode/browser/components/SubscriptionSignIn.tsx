@@ -9,7 +9,7 @@ import {
 	parseCallbackInput,
 } from '../../common/subscriptions.js';
 import type { SubscriptionsClient } from '../subscriptionsClient.js';
-import { Icon } from './icons.js';
+import { BrandMark, Icon } from './icons.js';
 
 const POLL_MS = 1500;
 
@@ -19,15 +19,30 @@ const CALLBACK_EXAMPLES: Partial<Record<AccountType, string>> = {
 	codex: 'http://localhost:1455/auth/callback?code=…&state=…',
 };
 
-// Hues of the account-type avatars (see .local-mode-avatar[data-hue]).
-export const ACCOUNT_HUES: Record<AccountType, string> = { claude: 'orange', codex: 'green', xai: 'purple' };
-const ACCOUNT_LETTERS: Record<AccountType, string> = { claude: 'A', codex: 'O', xai: 'X' };
-
 export function AccountAvatar({ type, size = 'md' }: { type: string; size?: 'sm' | 'md' }): ReactNode {
-	const known = (ACCOUNT_TYPES as readonly string[]).includes(type) ? (type as AccountType) : undefined;
+	if (!(ACCOUNT_TYPES as readonly string[]).includes(type)) {
+		return (
+			<span className="local-mode-avatar" data-size={size}>
+				{(type[0] ?? '?').toUpperCase()}
+			</span>
+		);
+	}
 	return (
-		<span className="local-mode-avatar" data-size={size} data-hue={known ? ACCOUNT_HUES[known] : 'blue'}>
-			{known ? ACCOUNT_LETTERS[known] : (type[0] ?? '?').toUpperCase()}
+		<span className="local-mode-avatar" data-size={size} data-brand={type}>
+			<BrandMark brand={type as AccountType} size={size === 'sm' ? 13 : 18} />
+		</span>
+	);
+}
+
+/** The Subscriptions provider's avatar: the three account types' marks, overlapped. */
+export function SubscriptionsAvatar({ size = 'md' }: { size?: 'sm' | 'md' }): ReactNode {
+	return (
+		<span className="lm-sub-avatar" data-size={size} aria-hidden="true">
+			{ACCOUNT_TYPES.map((type) => (
+				<span key={type} className="lm-sub-avatar-mark" data-brand={type}>
+					<BrandMark brand={type} size={size === 'sm' ? 6 : 9} />
+				</span>
+			))}
 		</span>
 	);
 }

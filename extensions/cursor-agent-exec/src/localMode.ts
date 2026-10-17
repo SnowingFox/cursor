@@ -67,6 +67,60 @@ export function maxOutputTokens(baseUrl: unknown, modelId: string): number | und
 	return positive(kind(baseUrl)?.maxOutputTokens?.[modelId]);
 }
 
+/**
+ * The effort values the picker offered for the model. The runtime's own table
+ * only knows gpt-5.x, so without this it drops the effort of every other
+ * OpenAI-compatible model (gpt-6-*, grok-*, a custom provider's models).
+ */
+export function effortValues(baseUrl: unknown, modelId: string): string[] | undefined {
+	const values = kind(baseUrl)?.efforts?.[modelId];
+	return Array.isArray(values) && values.length > 0 ? values : undefined;
+}
+
+type Fetch = (input: unknown, init?: { body?: unknown } & Record<string, unknown>) => Promise<unknown>;
+
+/** The effort a turn asks for, read the way the runtime reads it (off: undefined). */
+export function requestedEffort(modelParameters: unknown): string | undefined {
+	const p = Array.isArray(modelParameters)
+		? modelParameters.find((x) => ['reasoning', 'effort', 'thought_level'].includes(x?.id))
+		: undefined;
+	return typeof p?.value === 'string' && p.value !== '' && p.value !== 'none' ? p.value : undefined;
+}
+
+/**
+ * Wraps the Responses fetch of a subscriptions model so that, when thinking is
+ * on, it asks for reasoning summaries: what the transcript shows as thinking.
+ * The runtime's own wrapper (called next) sets the effort. Only for the
+ * sidecar: the OpenAI API rejects summaries for unverified organizations.
+ */
+export function reasoningFetch(baseUrl: unknown, modelId: string, modelParameters: unknown, fetch: Fetch): Fetch {
+	const effort = requestedEffort(modelParameters);
+	if (
+		kind(baseUrl)?.sidecar === undefined ||
+		effort === undefined ||
+		!effortValues(baseUrl, modelId)?.includes(effort)
+	) {
+		return fetch;
+	}
+	return (input, init) => fetch(input, withSummary(init));
+}
+
+export function withSummary<T extends { body?: unknown }>(init: T | undefined): T | undefined {
+	if (typeof init?.body !== 'string') {
+		return init;
+	}
+	try {
+		const body = JSON.parse(init.body);
+		if (body === null || typeof body !== 'object' || Array.isArray(body)) {
+			return init;
+		}
+		const reasoning = body.reasoning !== null && typeof body.reasoning === 'object' ? body.reasoning : {};
+		return { ...init, body: JSON.stringify({ ...body, reasoning: { summary: 'auto', ...reasoning } }) };
+	} catch {
+		return init;
+	}
+}
+
 /** Parses OpenAI, Anthropic and OpenRouter-style /models rows. */
 export function parseModelList(body: unknown): ListedModel[] {
 	const b = body as { data?: unknown; models?: unknown } | unknown[] | null;

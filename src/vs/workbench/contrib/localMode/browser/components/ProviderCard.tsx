@@ -1,8 +1,15 @@
 import { type ReactNode, useState } from 'react';
 import { cursorHost } from '../../../../../glass/host/cursorHost.js';
-import { API_TYPE_LABELS, API_TYPE_SHORT_LABELS, BASE_URL_HINTS, type CustomProvider } from '../../common/localMode.js';
+import {
+	API_TYPE_LABELS,
+	API_TYPE_SHORT_LABELS,
+	BASE_URL_HINTS,
+	type CustomProvider,
+	type ProviderKind,
+} from '../../common/localMode.js';
 import { Icon } from './icons.js';
 import { ModelList } from './ModelList.js';
+import { SubscriptionsAvatar } from './SubscriptionSignIn.js';
 
 /** Result of the last "Test connection" / model fetch. */
 export interface ConnectionCheck {
@@ -15,7 +22,11 @@ const API_FORMAT_ORDER = ['anthropic', 'openai-chat', 'openai-responses'] as con
 
 const AVATAR_HUES = ['blue', 'purple', 'orange', 'green', 'cyan', 'magenta'] as const;
 
-export function ProviderAvatar({ name, size = 'md' }: { name: string; size?: 'sm' | 'md' }): ReactNode {
+export function ProviderAvatar(props: { name: string; kind?: ProviderKind; size?: 'sm' | 'md' }): ReactNode {
+	const { name, kind, size = 'md' } = props;
+	if (kind === 'subscriptions') {
+		return <SubscriptionsAvatar size={size} />;
+	}
 	const label = name.trim() || '?';
 	let h = 0;
 	for (const c of label) {

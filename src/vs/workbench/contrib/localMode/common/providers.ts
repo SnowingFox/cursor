@@ -12,6 +12,7 @@ import {
 import {
 	randomKey,
 	randomPort,
+	routingSettings,
 	type SidecarConfig,
 	sidecarBaseUrl,
 	sidecarDataDir,
@@ -61,9 +62,18 @@ export function enabledModels(providers: CustomProvider[]): EnabledModel[] {
 	);
 }
 
+/**
+ * The enabled model a picker ID names. An ID without the prefix (how the agent
+ * runtime names a subagent's model) resolves when only one provider has it.
+ */
 export function resolveModel(providers: CustomProvider[], modelId: unknown): EnabledModel | undefined {
 	const id = typeof modelId === 'string' ? modelId.trim() : '';
-	return id ? enabledModels(providers).find((e) => e.id === id) : undefined;
+	if (!id) {
+		return undefined;
+	}
+	const models = enabledModels(providers);
+	const bare = models.filter((e) => e.model.id === id);
+	return models.find((e) => e.id === id) ?? (bare.length === 1 ? bare[0] : undefined);
 }
 
 const CLAUDE_200K = /^claude-(?:3|(?:opus|sonnet|haiku)-4(?:-[0-5])?(?:-\d{8})?$|(?:opus|sonnet|haiku)-4-[0-5]-)/i;
@@ -143,7 +153,7 @@ export function routableProviders(providers: CustomProvider[]): CustomProvider[]
 
 /** How the extension host runs a subscriptions provider's sidecar. */
 export function sidecarConfig(
-	provider: Pick<CustomProvider, 'port' | 'apiKey' | 'strategy' | 'proxyUrl'>,
+	provider: Pick<CustomProvider, 'port' | 'apiKey' | 'strategy' | 'proxyUrl' | 'routing'>,
 	userDataDir: string,
 ): SidecarConfig {
 	return {
@@ -152,6 +162,7 @@ export function sidecarConfig(
 		dataDir: sidecarDataDir(userDataDir),
 		strategy: provider.strategy ?? 'round-robin',
 		proxyUrl: String(provider.proxyUrl ?? '').trim(),
+		routing: routingSettings(provider.routing),
 	};
 }
 
@@ -159,23 +170,29 @@ export function sidecarConfig(
 export function descriptor(provider: CustomProvider, userDataDir?: string): ProviderDescriptor {
 	const contextLengths: Record<string, number> = {};
 	const maxOutput: Record<string, number> = {};
+	const efforts: Record<string, Effort[]> = {};
 	for (const m of provider.models ?? []) {
 		if (!m?.id) {
 			continue;
 		}
 		const context = contextWindow(m);
 		const output = maxOutputTokens(m);
+		const tiers = modelEffortTiers(provider, m);
 		if (context !== undefined) {
 			contextLengths[m.id] = context;
 		}
 		if (output !== undefined) {
 			maxOutput[m.id] = output;
 		}
+		if (tiers !== undefined) {
+			efforts[m.id] = tiers.values;
+		}
 	}
 	return {
 		apiType: API_TYPES.includes(provider.apiType) ? provider.apiType : 'openai-chat',
 		contextLengths,
 		maxOutputTokens: maxOutput,
+		efforts,
 		...(provider.kind === 'subscriptions' && userDataDir !== undefined
 			? { sidecar: sidecarConfig(provider, userDataDir) }
 			: {}),

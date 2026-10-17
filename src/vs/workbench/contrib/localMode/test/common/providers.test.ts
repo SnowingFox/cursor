@@ -16,6 +16,7 @@ import {
 	subscriptionApiType,
 	validateProviders,
 } from '../../common/providers.js';
+import { ROUTING_DEFAULTS } from '../../common/subscriptions.js';
 
 function provider(overrides: Partial<CustomProvider> = {}): CustomProvider {
 	return {
@@ -55,6 +56,16 @@ describe('enabledModels / resolveModel', () => {
 		expect(resolveModel(providers, ' gw/a ')?.model.id).toBe('a');
 		expect(resolveModel(providers, 'gw/b')).toBeUndefined();
 		expect(resolveModel(providers, 42)).toBeUndefined();
+	});
+
+	it('resolves an ID without the prefix when only one provider has it', () => {
+		const providers = [
+			provider({ models: [{ id: 'a' }, { id: 'shared' }] }),
+			provider({ prefix: 'two', models: [{ id: 'shared' }] }),
+		];
+		expect(resolveModel(providers, 'a')?.id).toBe('gw/a');
+		expect(resolveModel(providers, 'shared')).toBeUndefined();
+		expect(resolveModel(providers, 'two/shared')?.id).toBe('two/shared');
 	});
 });
 
@@ -105,13 +116,18 @@ describe('descriptor', () => {
 		const d = descriptor(
 			provider({
 				apiType: 'bogus' as never,
-				models: [{ id: 'claude-opus-5', maxOutputTokens: 64_000 }, { id: 'gpt-5' }],
+				models: [
+					{ id: 'claude-opus-5', maxOutputTokens: 64_000 },
+					{ id: 'gpt-5' },
+					{ id: 'gpt-6-astra', efforts: ['low', 'high'] },
+				],
 			}),
 		);
 		expect(d).toEqual({
 			apiType: 'openai-chat',
 			contextLengths: { 'claude-opus-5': 1_000_000 },
 			maxOutputTokens: { 'claude-opus-5': 64_000 },
+			efforts: { 'gpt-5': ['low', 'medium', 'high', 'xhigh'], 'gpt-6-astra': ['low', 'high'] },
 		});
 	});
 });
@@ -245,13 +261,16 @@ describe('subscriptions provider', () => {
 	});
 
 	it('tells the extension host how to run the sidecar', () => {
-		const [anthropic] = routableProviders([subs({ proxyUrl: 'socks5://127.0.0.1:1080' })]);
+		const [anthropic] = routableProviders([
+			subs({ proxyUrl: 'socks5://127.0.0.1:1080', routing: { sessionAffinity: false } }),
+		]);
 		expect(descriptor(anthropic, '/data/user').sidecar).toEqual({
 			port: 18_317,
 			apiKey: 'sk-local-test',
 			dataDir: '/data/user/cliproxyapi',
 			strategy: 'round-robin',
 			proxyUrl: 'socks5://127.0.0.1:1080',
+			routing: { ...ROUTING_DEFAULTS, sessionAffinity: false },
 		});
 		expect(descriptor(provider(), '/data/user').sidecar).toBeUndefined();
 	});

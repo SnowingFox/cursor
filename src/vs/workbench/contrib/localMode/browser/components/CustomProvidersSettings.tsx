@@ -44,7 +44,7 @@ function PresetGrid(props: { onPick: (preset: ProviderPreset) => void; onCancel?
 			<div className="local-mode-preset-grid">
 				{PROVIDER_PRESETS.map((preset) => (
 					<button key={preset.id} type="button" className="local-mode-preset" onClick={() => props.onPick(preset)}>
-						<ProviderAvatar name={preset.name} size="sm" />
+						<ProviderAvatar name={preset.name} kind={preset.kind} size="sm" />
 						<span>
 							<span className="local-mode-preset-name">{preset.name}</span>
 							<span className="local-mode-hint">{preset.description}</span>
@@ -212,7 +212,7 @@ export function CustomProvidersSettings(): ReactNode {
 								setAdding(false);
 							}}
 						>
-							<ProviderAvatar name={x.name} size="sm" />
+							<ProviderAvatar name={x.name} kind={x.kind} size="sm" />
 							<span className="local-mode-tab-name">{x.name.trim() || 'Untitled'}</span>
 							<span className="local-mode-count">{(x.models ?? []).filter((m) => m.enabled !== false).length}</span>
 						</button>

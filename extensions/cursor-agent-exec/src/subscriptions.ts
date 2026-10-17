@@ -11,6 +11,7 @@ import type { ListedModel } from '../../../src/vs/workbench/contrib/localMode/co
 import {
 	ACCOUNT_API_TYPES,
 	type Account,
+	type AccountPatch,
 	type AccountType,
 	claudeProfilePlan,
 	claudeUsageQuota,
@@ -58,6 +59,7 @@ interface CredentialRow {
 	success?: number;
 	failed?: number;
 	priority?: number;
+	weight?: number;
 	path?: string;
 	next_retry_after?: string;
 	quota?: { observed_at?: string; signals?: Record<string, unknown> };
@@ -134,6 +136,7 @@ async function toAccount(row: CredentialRow): Promise<Account> {
 		coolingUntil: Number.isNaN(retry) || retry <= Date.now() ? undefined : retry,
 		proxyUrl: file.proxy_url,
 		priority: typeof row.priority === 'number' ? row.priority : undefined,
+		weight: typeof row.weight === 'number' ? row.weight : undefined,
 		success: Number(row.success ?? 0),
 		failed: Number(row.failed ?? 0),
 		quota,
@@ -204,11 +207,7 @@ async function loginCallback(sidecar: Sidecar, state: string, input: string): Pr
 	return loginStatus(sidecar, state);
 }
 
-async function update(
-	sidecar: Sidecar,
-	name: string,
-	patch: { disabled?: boolean; proxyUrl?: string; priority?: number },
-): Promise<SubscriptionsStatus> {
+async function update(sidecar: Sidecar, name: string, patch: AccountPatch): Promise<SubscriptionsStatus> {
 	if (patch.disabled !== undefined) {
 		await management(sidecar, 'PATCH', '/credentials/status', { name, disabled: patch.disabled });
 	}
@@ -223,9 +222,19 @@ async function update(
 	if (patch.priority !== undefined) {
 		fields.priority = Math.trunc(patch.priority);
 	}
+	if (patch.weight !== undefined) {
+		fields.weight = Math.max(0, Math.min(1_000_000, Math.trunc(patch.weight)));
+	}
 	if (Object.keys(fields).length > 0) {
 		await management(sidecar, 'PATCH', '/credentials/fields', { name, ...fields });
 	}
+	return status(sidecar);
+}
+
+/** Lets a benched account serve again right away. */
+async function resetCooldown(sidecar: Sidecar, name: string): Promise<SubscriptionsStatus> {
+	const row = await credential(sidecar, name);
+	await management(sidecar, 'POST', '/routing/cooldown/reset', { auth_index: row.auth_index });
 	return status(sidecar);
 }
 
@@ -441,6 +450,8 @@ export async function handle(request: SubscriptionsRequest): Promise<unknown> {
 			return update(sidecar, request.name, request.patch ?? {});
 		case 'remove':
 			return remove(sidecar, request.name);
+		case 'reset-cooldown':
+			return resetCooldown(sidecar, request.name);
 		case 'quota':
 			return fetchQuota(sidecar, request.name);
 		case 'models':

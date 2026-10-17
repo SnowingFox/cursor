@@ -10,6 +10,10 @@ import { readProviders } from './providerStorage.js';
 export async function refreshModels(aiService: AiService): Promise<void> {
 	const { cursor } = cursorHost();
 	const entries = enabledModels(routableProviders(readProviders(aiService._storageService)));
+	const bareIds = new Map<string, number>();
+	for (const { model } of entries) {
+		bareIds.set(model.id, (bareIds.get(model.id) ?? 0) + 1);
+	}
 
 	const rows = entries.map(({ provider, model, id }) => {
 		const context = contextWindow(model);
@@ -74,7 +78,8 @@ export async function refreshModels(aiService: AiService): Promise<void> {
 			tagline: source,
 			namedModelSectionIndex: 1,
 			legacySlugs: [],
-			idAliases: [],
+			// The agent runtime reports a subagent's model without the prefix.
+			idAliases: bareIds.get(model.id) === 1 ? [model.id] : [],
 			parameterDefinitions,
 			variants,
 			tooltipData: { markdownContent: tooltip },

@@ -295495,7 +295495,7 @@ var VI, JJr, X8m, Z8m, Q8m, ees, Fot, tes, IA = L({ "pluginsProviderService.js"(
   "use strict";
   E(), Du(), Du(), qn(), Gt(), Qe(), Jc(), cCe(), cp(), fn(), Xo(), hr(), Rn(), It(), Ji(), UM(), Q0(), Zi(), Sr(), ip(), gT(), Rs(), fo(), _s(), YYa(), Lbe(), VI = jn("pluginsProviderService"), JJr = 3e4, X8m = 3e4, Z8m = 4, Q8m = "cursor.plugins.installedIds", ees = "user-local:", Fot = /* @__PURE__ */ new Map(), tes = class extends st {
     constructor(t, e, n, i, r, s, o) {
-      super(), this._cursorAuthenticationService = t, this._workspaceContextService = e, this._workbenchEnvironmentService = n, this._experimentService = i, this._metricsService = r, this._logService = s, this._storageService = o, this._pluginsProvider = new Yz(), this._providerWaitTimer = this._register(new Vn()), this._onDidPluginsChange = this._register(new tt()), this.onDidPluginsChange = this._onDidPluginsChange.event, this._onDidPluginsChangeWithoutRefetch = this._register(new tt()), this.onDidPluginsChangeWithoutRefetch = this._onDidPluginsChangeWithoutRefetch.event, this._onDidNewPluginsDetected = this._register(new tt()), this.onDidNewPluginsDetected = this._onDidNewPluginsDetected.event, this._cacheByContext = /* @__PURE__ */ new Map(), this._pluginsCache = bc("pluginsCache", void 0), this.pluginsCache = this._pluginsCache, this._refreshInstalledPluginsQueued = false, this._refreshInstalledPluginsPendingUseReplica = true, this._allowEmptySnapshotByKey = /* @__PURE__ */ new Set(), this._pluginComponentDataStaleByKey = /* @__PURE__ */ new Set(), this._installedPluginsConsistencyByKey = /* @__PURE__ */ new Map(), this._lastEffectiveInstalledPluginsByKey = /* @__PURE__ */ new Map(), this._installedPluginsConversionByKey = /* @__PURE__ */ new Map(), this._refreshMarketplacePluginsInFlightByKey = /* @__PURE__ */ new Map(), this._catalogRefreshSeq = 0, this._lastPublishedCatalogSeq = 0, this._persistedInstalledIdsByKey = /* @__PURE__ */ new Map(), this._onDidPluginsCacheChange = this._register(new tt()), this.onDidPluginsCacheChange = this._onDidPluginsCacheChange.event, this._hydrateInstalledPluginIdsFromStorage(), this._register(e.onDidChangeWorkspaceFolders(() => this._refreshCacheObservable()));
+      super(), this._cursorAuthenticationService = t, this._workspaceContextService = e, this._workbenchEnvironmentService = n, this._experimentService = i, this._metricsService = r, this._logService = s, this._storageService = o, this._pluginsProvider = new Yz(), __lcpPluginsService = this, this._providerWaitTimer = this._register(new Vn()), this._onDidPluginsChange = this._register(new tt()), this.onDidPluginsChange = this._onDidPluginsChange.event, this._onDidPluginsChangeWithoutRefetch = this._register(new tt()), this.onDidPluginsChangeWithoutRefetch = this._onDidPluginsChangeWithoutRefetch.event, this._onDidNewPluginsDetected = this._register(new tt()), this.onDidNewPluginsDetected = this._onDidNewPluginsDetected.event, this._cacheByContext = /* @__PURE__ */ new Map(), this._pluginsCache = bc("pluginsCache", void 0), this.pluginsCache = this._pluginsCache, this._refreshInstalledPluginsQueued = false, this._refreshInstalledPluginsPendingUseReplica = true, this._allowEmptySnapshotByKey = /* @__PURE__ */ new Set(), this._pluginComponentDataStaleByKey = /* @__PURE__ */ new Set(), this._installedPluginsConsistencyByKey = /* @__PURE__ */ new Map(), this._lastEffectiveInstalledPluginsByKey = /* @__PURE__ */ new Map(), this._installedPluginsConversionByKey = /* @__PURE__ */ new Map(), this._refreshMarketplacePluginsInFlightByKey = /* @__PURE__ */ new Map(), this._catalogRefreshSeq = 0, this._lastPublishedCatalogSeq = 0, this._persistedInstalledIdsByKey = /* @__PURE__ */ new Map(), this._onDidPluginsCacheChange = this._register(new tt()), this.onDidPluginsCacheChange = this._onDidPluginsCacheChange.event, this._hydrateInstalledPluginIdsFromStorage(), this._register(e.onDidChangeWorkspaceFolders(() => this._refreshCacheObservable()));
       const a = () => Fot.clear(), l = () => {
         a(), this._refreshCacheObservable();
       };
@@ -295558,6 +295558,10 @@ var VI, JJr, X8m, Z8m, Q8m, ees, Fot, tes, IA = L({ "pluginsProviderService.js"(
       }, n), e;
     }
     async _fetchMarketplaceSnapshotFromDashboard() {
+      if (vl.localMode) {
+        const snapshot = await mq1(hMn(this._cursorAuthenticationService), KYa(this._experimentService));
+        return { snapshot, complete: snapshot.allMarketplacePlugins.length > 0 };
+      }
       const t = await this._cursorAuthenticationService.dashboardClient(), e = KYa(this._experimentService), n = await Vh(t.listMarketplacePlugins(new X0t({}), { headers: vh(Ai()) }), e), i = (n?.plugins ?? []).map(T6), r = await Vh(t.listMarketplaces(new tki({}), { headers: vh(Ai()) }), e), s = r?.marketplaces ?? [], o = [];
       for (const c of s) {
         const u = $8m(c);
@@ -295693,6 +295697,7 @@ var VI, JJr, X8m, Z8m, Q8m, ees, Fot, tes, IA = L({ "pluginsProviderService.js"(
       }
     }
     async _persistLocallyParsedMarketplace({ gitRef: t, parseResult: e }) {
+      if (vl.localMode) return __lcpMarketplace("persistParsed", { gitRef: t, parseResult: e });
       const n = await this._cursorAuthenticationService.dashboardClient(), i = e.commitSha || e.defaultBranch || t || "", r = e.plugins.filter((s) => !s.parseError).map((s) => new vTn({ name: s.name, displayName: s.displayName, description: s.description, gitPath: s.gitPath, gitUrl: s.sourceGitUrl ?? "", gitRef: s.sourceGitRef ?? "", skills: s.skills, subagents: s.subagents, hooks: s.hooks, rules: s.rules, mcpServers: s.mcpServers, commands: s.commands, logoUrl: s.logoUrl, variables: s.variables, minClientVersions: s.minClientVersions }));
       await n.registerMarketplaceAndPlugins(new rGt({ gitUrl: e.repositoryUrl, gitRef: i, marketplaceName: e.marketplaceName, plugins: r, commitSha: e.commitSha || void 0 }), { headers: vh(Ai()) }), this._logService.info(`[PluginsProviderService] Persisted locally parsed marketplace: ${e.marketplaceName} with ${r.length} plugin(s)`);
     }
@@ -295703,6 +295708,7 @@ var VI, JJr, X8m, Z8m, Q8m, ees, Fot, tes, IA = L({ "pluginsProviderService.js"(
       }), e;
     }
     async importClaudeMarketplaces() {
+      if (vl.localMode) return __lcpMarketplace("importClaudeMarketplaces");
       const t = { discovered: 0, registered: 0, failed: 0 }, e = await this._waitForProvider();
       if (!e) return this._logService.warn("[PluginsProviderService] importClaudeMarketplaces: plugins provider not available"), t;
       const n = await this._cursorAuthenticationService.dashboardClient();
@@ -323022,8 +323028,12 @@ var gig, YPe, fig, crs, $4e = L({ "modelConfigService.js"() {
       if (vl.localMode && t !== void 0) {
         const s = this.reactiveStorageService.applicationUserPersistentStorage, ids = s.localProviderModelIds ?? [], first = (c) => c?.selectedModels?.[0]?.modelId ?? c?.modelName?.split(",")[0]?.trim();
         if (ids.length > 0 && !ids.includes(first(t))) {
-          const c = s.aiSettings?.modelConfig?.composer;
-          t = ids.includes(first(c)) ? c : { modelName: ids[0], selectedModels: [{ modelId: ids[0], parameters: [] }], maxMode: false };
+          const c = s.aiSettings?.modelConfig?.composer, m = first(t), prefix = first(c)?.split("/")[0];
+          // The agent runtime names models without the provider prefix (a
+          // subagent inherits "gpt-5.5", not "sub/gpt-5.5"): find it in the
+          // picker, on the composer's provider first.
+          const bare = m ? ids.filter((i) => i.slice(i.indexOf("/") + 1) === m) : [], id = bare.find((i) => i.split("/")[0] === prefix) ?? bare[0];
+          t = id !== void 0 ? { ...t, modelName: id, selectedModels: [{ modelId: id, parameters: t.selectedModels?.[0]?.parameters ?? [] }] } : ids.includes(first(c)) ? c : { modelName: ids[0], selectedModels: [{ modelId: ids[0], parameters: [] }], maxMode: false };
         }
       }
       if (!(this.isPrivateInferenceMode() ? this.getAvailableDefaultModels().length > 0 : (this.reactiveStorageService.applicationUserPersistentStorage.availableDefaultModels2?.length ?? 0) > 0)) return t;
@@ -336694,6 +336704,12 @@ var __lcpHost = globalThis.__cursorLocalMode = {
     get buildFlags() {
       return vl;
     },
+    get proto() {
+      return { Plugin: _L, Marketplace: aot, UserPluginInstall: mKr, Struct: qd };
+    },
+    get pluginsService() {
+      return __lcpPluginsService;
+    },
     get ModelDetails() {
       return Ove;
     },
@@ -336797,6 +336813,18 @@ function __lcpSlot({ name, props, fallback }) {
 function __lcpView(name, props, fallback) {
   return __lcpReact.createElement(__lcpSlot, { name, props, fallback });
 }
+// Local marketplace (src/vs/workbench/contrib/localMode/browser/marketplace.ts):
+// the PluginsProviderService registers itself here, and the Customize page's
+// plugins backend (grpcPluginsProvider) becomes these methods.
+var __lcpPluginsService;
+function __lcpMarketplace(name, ...args) {
+  return __lcpLoad().then((impl) => impl.marketplace[name](...args));
+}
+var __lcpMarketplaceProvider = Object.fromEntries(
+  ["listMarketplacePlugins", "listMarketplaces", "listUserPluginInstalls", "getPlugin", "installUserPlugin", "installTeamPlugin", "updateUserPluginInstall", "uninstallUserPlugin", "uninstallTeamPlugin", "addMarketplace", "removeMarketplace", "registerMarketplaceAndPlugins"].map(
+    (name) => [name, (request) => __lcpLoad().then((impl) => impl.marketplace.provider[name](request))]
+  )
+);
 function nMe(t) {
   const e = t?.trim();
   return e || void 0;
@@ -415482,6 +415510,7 @@ var Gaf, qaf, zaf, Vaf, Bfs, Kaf, Yaf, Ufs, Xaf, Zaf, Qaf, Jaf, zEl = L({ "Compo
   E(), at(), at(), at(), at(), at(), at(), at(), at(), pi(), gs(), Di(), aS(), vo(), S9e(), FS(), F6(), iye(), Jlt(), lzt(), y9e(), XUk(), Gaf = wt('<div class="flex gap-1.5 items-start flex-wrap">'), qaf = wt('<div class="text-[12px] select-text [color:var(--vscode-foreground)] min-w-0">'), zaf = wt("<div class=composer-warning-popup-children>"), Vaf = wt("<div><div>"), Bfs = wt("<div>"), Kaf = wt("<div class=composer-error-title>"), Yaf = wt('<div class="flex gap-1 items-center flex-1">'), Ufs = wt("<span class=composer-warning-button-text>"), Xaf = wt('<div class="flex flex-col gap-4 composer-warning-modal-content"tabindex=-1>'), Zaf = wt("<div tabindex=-1>"), Qaf = wt('<div class="absolute inset-0 z-10 pointer-events-none">'), Jaf = Ok(_Me);
 } });
 function hMn(t) {
+  if (vl.localMode) return __lcpMarketplaceProvider;
   return { async listMarketplacePlugins(e) {
     return await (await t.dashboardClient()).listMarketplacePlugins(new X0t(e), { headers: vh(Ai()) });
   }, async listMarketplaces(e) {
@@ -675421,6 +675450,7 @@ var h$i = class extends st {
     this._replicaCache = void 0, this._inFlight.clear();
   }
   async getEffectiveUserPlugins(t) {
+    if (vl.localMode) return __lcpMarketplace("effectivePlugins");
     if (!this.cursorAuthenticationService.isAuthenticated()) return z6_(new p8a({}));
     if (t) {
       const i = this._replicaCache;
@@ -677169,6 +677199,7 @@ var XUs = class extends st {
     return this._managedSkillsInFlight = i, i;
   }
   async $resolveProjectPlugins(t) {
+    if (vl.localMode) return __lcpMarketplace("resolveProjectPlugins", t);
     if (!this.cursorAuthenticationService.isAuthenticated()) return new kKr({});
     try {
       return await (await this.cursorAuthenticationService.dashboardClient()).resolvePluginsByRef(new g8a({ refs: t.map((i) => new m8a({ name: i.name, marketplaceName: i.marketplaceName })) }));

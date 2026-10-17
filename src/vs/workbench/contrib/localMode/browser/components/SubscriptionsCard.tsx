@@ -12,7 +12,9 @@ import {
 	maskProxyUrl,
 	type ProxyCheck,
 	type Quota,
+	type RoutingSettings,
 	type RoutingStrategy,
+	routingSettings,
 	type SubscriptionsStatus,
 	sidecarDataDir,
 	validateProxyUrl,
@@ -28,9 +30,25 @@ const STATUS_REFRESH_MS = 60_000;
 const USAGE_FRESH_MS = 10 * 60_000;
 
 const STRATEGY_LABELS: Record<RoutingStrategy, { label: string; hint: string }> = {
-	'round-robin': { label: 'Round robin', hint: 'Spread requests over the accounts of a type.' },
+	'round-robin': { label: 'Round robin', hint: 'Take turns between the accounts of a type.' },
+	'weighted-round-robin': {
+		label: 'Weighted',
+		hint: "Take turns in proportion to each account's weight (account settings). Weight 0 skips an account.",
+	},
 	'fill-first': { label: 'Fill first', hint: 'Use one account until it hits a limit, then the next.' },
 };
+
+const IDLE_OPTIONS = [15, 30, 60, 180, 720, 1440].map((m) => ({ value: m, label: minutes(m) }));
+const WAIT_OPTIONS = [0, 10, 30, 60, 120, 300].map((s) => ({
+	value: s,
+	label: s === 0 ? "Don't wait" : s < 60 ? `${s} s` : minutes(s / 60),
+}));
+const COUNT_OPTIONS = (max: number, none: string) =>
+	Array.from({ length: max + 1 }, (_, n) => ({ value: n, label: n === 0 ? none : String(n) }));
+
+function minutes(m: number): string {
+	return m < 60 ? `${m} min` : m % 60 === 0 ? `${m / 60} hour${m === 60 ? '' : 's'}` : `${m} min`;
+}
 
 function errorText(e: unknown): string {
 	return e instanceof Error ? e.message.replace(/^Error invoking remote method '[^']*': (Error: )?/u, '') : String(e);
@@ -90,6 +108,159 @@ function CommitInput(props: {
 				</span>
 			)}
 		</>
+	);
+}
+
+/** A native select over a fixed list; a current value outside the list is kept as an extra option. */
+function Choice<T extends string | number>(props: {
+	value: T;
+	options: { value: T; label: string }[];
+	label: string;
+	format?: (value: T) => string;
+	onChange: (value: T) => void;
+}): ReactNode {
+	const options = props.options.some((o) => o.value === props.value)
+		? props.options
+		: [...props.options, { value: props.value, label: props.format?.(props.value) ?? String(props.value) }];
+	return (
+		<label className="lm-select">
+			<select
+				value={String(props.value)}
+				aria-label={props.label}
+				onChange={(e) => {
+					const picked = options.find((o) => String(o.value) === e.target.value);
+					picked !== undefined && props.onChange(picked.value);
+				}}
+			>
+				{options.map((o) => (
+					<option key={String(o.value)} value={String(o.value)}>
+						{o.label}
+					</option>
+				))}
+			</select>
+			<Icon name="chevron" size={12} />
+		</label>
+	);
+}
+
+/** One setting: label and hint on the left, its control on the right. */
+function SettingRow(props: { label: string; hint: ReactNode; children: ReactNode }): ReactNode {
+	return (
+		<div className="lm-sub-setting">
+			<div className="lm-sub-setting-text">
+				<span className="lm-sub-setting-label">{props.label}</span>
+				<span className="local-mode-hint">{props.hint}</span>
+			</div>
+			<div className="lm-sub-setting-control">{props.children}</div>
+		</div>
+	);
+}
+
+/** Sticky sessions, retries and cooldowns (CLIProxyAPI routing; applied without a restart). */
+function RoutingFields(props: {
+	routing: RoutingSettings | undefined;
+	onChange: (patch: RoutingSettings) => void;
+}): ReactNode {
+	const { Switch } = cursorHost().cursor.ui;
+	const r = routingSettings(props.routing);
+	const set = props.onChange;
+	return (
+		<div className="lm-sub-settings">
+			<SettingRow
+				label="Sticky sessions"
+				hint="Keep each conversation on one account, so its prompt cache keeps hitting. It moves only when that account can't serve."
+			>
+				<Switch checked={r.sessionAffinity} onCheckedChange={(on) => set({ sessionAffinity: on })} />
+			</SettingRow>
+			{r.sessionAffinity ? (
+				<>
+					<SettingRow label="Release after" hint="How long an idle conversation keeps its account.">
+						<Choice
+							label="Release after"
+							value={r.affinityTtlMinutes}
+							options={IDLE_OPTIONS}
+							format={minutes}
+							onChange={(v) => set({ affinityTtlMinutes: v })}
+						/>
+					</SettingRow>
+					<SettingRow
+						label="Move a conversation on"
+						hint={
+							r.rebindOn === 'quota'
+								? 'Limits and sign-in errors only. A brief upstream error retries on another account once, then the conversation returns.'
+								: 'Any error from its account, including brief upstream ones.'
+						}
+					>
+						<div className="local-mode-segmented">
+							{(
+								[
+									['any', 'Any error'],
+									['quota', 'Limits only'],
+								] as const
+							).map(([value, label]) => (
+								<button
+									key={value}
+									type="button"
+									aria-pressed={r.rebindOn === value}
+									data-active={r.rebindOn === value || undefined}
+									onClick={() => set({ rebindOn: value })}
+								>
+									{label}
+								</button>
+							))}
+						</div>
+					</SettingRow>
+				</>
+			) : null}
+			<SettingRow
+				label="Retry rounds"
+				hint="When every account of a type failed (limit, 403, 5xx), go over them again this many times."
+			>
+				<Choice
+					label="Retry rounds"
+					value={r.retries}
+					options={COUNT_OPTIONS(5, 'None')}
+					onChange={(v) => set({ retries: v })}
+				/>
+			</SettingRow>
+			<SettingRow
+				label="Wait for a cooling account"
+				hint="If all of them are cooling down, wait up to this long for the first one to come back instead of failing."
+			>
+				<Choice
+					label="Wait for a cooling account"
+					value={r.retryWaitSeconds}
+					options={WAIT_OPTIONS}
+					format={(v) => `${v} s`}
+					onChange={(v) => set({ retryWaitSeconds: v })}
+				/>
+			</SettingRow>
+			<SettingRow
+				label="Cool down after errors"
+				hint="Rest an account for a while after a limit or error, so requests go to the others. Off: keep sending it requests."
+			>
+				<Switch checked={r.cooling} onCheckedChange={(on) => set({ cooling: on })} />
+			</SettingRow>
+			{r.cooling ? (
+				<SettingRow
+					label="Per-model limits"
+					hint="A Claude or Codex limit on one model rests the account for that model only; its other models keep serving."
+				>
+					<Switch checked={r.modelCooling} onCheckedChange={(on) => set({ modelCooling: on })} />
+				</SettingRow>
+			) : null}
+			<SettingRow
+				label="Stream retries"
+				hint="Retry a response that fails before its first token, without the agent noticing."
+			>
+				<Choice
+					label="Stream retries"
+					value={r.streamRetries}
+					options={COUNT_OPTIONS(3, 'None')}
+					onChange={(v) => set({ streamRetries: v })}
+				/>
+			</SettingRow>
+		</div>
 	);
 }
 
@@ -259,6 +430,7 @@ function AccountRow(props: {
 	onQuota: () => void;
 	onUpdate: (patch: AccountPatch) => Promise<void>;
 	onRemove: () => Promise<void>;
+	onResume: () => Promise<void>;
 	onCheckProxy: (proxyUrl: string, type: AccountType) => Promise<ProxyCheck>;
 }): ReactNode {
 	const { Switch } = cursorHost().cursor.ui;
@@ -270,8 +442,11 @@ function AccountRow(props: {
 	const details = [
 		type === undefined ? a.type : ACCOUNT_TYPE_LABELS[type],
 		a.plan,
+		a.priority ? `priority ${a.priority}` : undefined,
+		a.weight !== undefined && a.weight !== 1 ? `weight ${a.weight}` : undefined,
 		a.proxyUrl ? `via ${maskProxyUrl(a.proxyUrl)}` : undefined,
 	].filter(Boolean);
+	const cooling = !a.disabled && a.coolingUntil !== undefined && a.coolingUntil > now;
 
 	return (
 		<li className="lm-sub-account" data-off={a.disabled || undefined}>
@@ -283,6 +458,16 @@ function AccountRow(props: {
 					</span>
 					<span className="local-mode-hint">{details.join(' · ')}</span>
 				</div>
+				{cooling ? (
+					<button
+						type="button"
+						className="local-mode-link-button"
+						title="Clear the cooldown and send it requests again now"
+						onClick={() => void props.onResume()}
+					>
+						Resume now
+					</button>
+				) : null}
 				<span className="lm-sub-pill" data-tone={state.tone} title={state.title}>
 					{state.text}
 				</span>
@@ -323,6 +508,26 @@ function AccountRow(props: {
 							onTest={(proxyUrl) => props.onCheckProxy(proxyUrl, type ?? 'claude')}
 						/>
 					</Field>
+					<div className="lm-sub-account-grid">
+						<Field label="Priority" hint="Higher serves first; lower ones only when every higher account can't.">
+							<CommitInput
+								value={String(a.priority ?? 0)}
+								label="Priority"
+								validate={(v) => (/^-?\d{1,6}$/u.test(v) ? undefined : 'Use a whole number.')}
+								onCommit={(v) => void props.onUpdate({ priority: Number(v) })}
+							/>
+						</Field>
+						<Field label="Weight" hint="Share of requests when selection is Weighted. 0 skips this account.">
+							<CommitInput
+								value={String(a.weight ?? 1)}
+								label="Weight"
+								validate={(v) =>
+									/^\d{1,7}$/u.test(v) && Number(v) <= 1_000_000 ? undefined : 'Use a whole number from 0 to 1000000.'
+								}
+								onCommit={(v) => void props.onUpdate({ weight: Number(v) })}
+							/>
+						</Field>
+					</div>
 					<div className="local-mode-check-row lm-sub-account-footer">
 						<span className="local-mode-hint">
 							{a.success.toLocaleString()} requests served
@@ -363,10 +568,10 @@ export function SubscriptionsCard(props: {
 	const { Switch } = ui;
 	const inference = useService(services.localInference);
 	const { provider: p, busy, check, onChange, onRemove, onFetch } = props;
-	const { port, apiKey, strategy, proxyUrl } = p;
+	const { port, apiKey, strategy, proxyUrl, routing } = p;
 	const client = useMemo(
-		() => subscriptionsClient(inference, { port, apiKey, strategy, proxyUrl }),
-		[inference, port, apiKey, strategy, proxyUrl],
+		() => subscriptionsClient(inference, { port, apiKey, strategy, proxyUrl, routing }),
+		[inference, port, apiKey, strategy, proxyUrl, routing],
 	);
 
 	const [status, setStatus] = useState<SubscriptionsStatus | undefined>(undefined);
@@ -474,7 +679,7 @@ export function SubscriptionsCard(props: {
 	return (
 		<div className="local-mode-card" data-off={!on || undefined}>
 			<div className="local-mode-card-header">
-				<ProviderAvatar name={p.name} />
+				<ProviderAvatar name={p.name} kind="subscriptions" />
 				<div className="local-mode-card-title">
 					<input
 						value={p.name}
@@ -552,6 +757,7 @@ export function SubscriptionsCard(props: {
 								onQuota={() => void loadQuota(a.name)}
 								onUpdate={(patch) => act(() => client.update(a.name, patch))}
 								onRemove={() => act(() => client.remove(a.name))}
+								onResume={() => act(() => client.resetCooldown(a.name))}
 								onCheckProxy={(url, type) => client.checkProxy(url, type)}
 							/>
 						))}
@@ -575,6 +781,7 @@ export function SubscriptionsCard(props: {
 					{advanced ? null : (
 						<span className="local-mode-hint">
 							prefix {p.prefix || '?'}, port {port}, {STRATEGY_LABELS[strategy ?? 'round-robin'].label.toLowerCase()}
+							{routingSettings(routing).sessionAffinity ? ', sticky sessions' : ''}
 							{proxyUrl ? ', default proxy' : ''}
 						</span>
 					)}
@@ -612,6 +819,7 @@ export function SubscriptionsCard(props: {
 								))}
 							</div>
 						</Field>
+						<RoutingFields routing={routing} onChange={(patch) => onChange({ routing: { ...routing, ...patch } })} />
 						<Field
 							label="Default proxy"
 							hint="Sign-in, token refresh and every account without its own proxy. Empty: direct."

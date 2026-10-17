@@ -15,6 +15,12 @@ var __lcpHost = globalThis.__cursorLocalMode = {
     get buildFlags() {
       return vl;
     },
+    get proto() {
+      return { Plugin: _L, Marketplace: aot, UserPluginInstall: mKr, Struct: qd };
+    },
+    get pluginsService() {
+      return __lcpPluginsService;
+    },
     get ModelDetails() {
       return Ove;
     },
@@ -118,3 +124,15 @@ function __lcpSlot({ name, props, fallback }) {
 function __lcpView(name, props, fallback) {
   return __lcpReact.createElement(__lcpSlot, { name, props, fallback });
 }
+// Local marketplace (src/vs/workbench/contrib/localMode/browser/marketplace.ts):
+// the PluginsProviderService registers itself here, and the Customize page's
+// plugins backend (grpcPluginsProvider) becomes these methods.
+var __lcpPluginsService;
+function __lcpMarketplace(name, ...args) {
+  return __lcpLoad().then((impl) => impl.marketplace[name](...args));
+}
+var __lcpMarketplaceProvider = Object.fromEntries(
+  ["listMarketplacePlugins", "listMarketplaces", "listUserPluginInstalls", "getPlugin", "installUserPlugin", "installTeamPlugin", "updateUserPluginInstall", "uninstallUserPlugin", "uninstallTeamPlugin", "addMarketplace", "removeMarketplace", "registerMarketplaceAndPlugins"].map(
+    (name) => [name, (request) => __lcpLoad().then((impl) => impl.marketplace.provider[name](request))]
+  )
+);
