@@ -4,7 +4,7 @@ var StorageScope = { APPLICATION: -1 };
 var StorageTarget = { MACHINE: 1 };
 function cursorHost() {
 	const host = globalThis.__cursorLocalMode;
-	if (host === void 0) throw new Error("cursor host bridge is not installed (is the glass bundle patched?)");
+	if (host === void 0) throw new Error("cursor host bridge is not installed (is the workbench bundle patched?)");
 	return host;
 }
 //#endregion
@@ -5482,9 +5482,9 @@ function inferenceConfig(storage, modelConfigService, userAgent) {
 //#endregion
 //#region src/vs/workbench/contrib/localMode/browser/localMode.ts
 /**
-* Entry point of local mode in the agent window.
+* Entry point of local mode in the agent window and the IDE.
 *
-* Loaded by the glass bundle's host loader (build/patches/inject/glass-host.js):
+* Loaded by the workbench bundle's host loader (build/patches/inject/workbench-host.js):
 * in production from app/out/vs/workbench/contrib/localMode/browser/localMode.js,
 * under `bun run dev` straight from the Vite dev server. Registering the
 * implementation (again, on every hot update) swaps what the bundle's patch

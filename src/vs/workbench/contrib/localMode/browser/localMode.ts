@@ -1,7 +1,7 @@
 /**
- * Entry point of local mode in the agent window.
+ * Entry point of local mode in the agent window and the IDE.
  *
- * Loaded by the glass bundle's host loader (build/patches/inject/glass-host.js):
+ * Loaded by the workbench bundle's host loader (build/patches/inject/workbench-host.js):
  * in production from app/out/vs/workbench/contrib/localMode/browser/localMode.js,
  * under `bun run dev` straight from the Vite dev server. Registering the
  * implementation (again, on every hot update) swaps what the bundle's patch

@@ -28,6 +28,7 @@
 import { readFileSync } from 'node:fs';
 
 const GLASS = 'out/vs/workbench/workbench.glass.main.js';
+const IDE = 'out/vs/workbench/workbench.desktop.main.js';
 const WORKBENCH_HTML = 'out/vs/code/electron-sandbox/workbench/workbench.html';
 const AGENT_EXEC = 'extensions/cursor-agent-exec/dist/main.js';
 
@@ -35,6 +36,63 @@ const AGENT_EXEC = 'extensions/cursor-agent-exec/dist/main.js';
 export const DEV_SERVER_ORIGIN = 'http://localhost:5173';
 
 const inject = (name) => readFileSync(new URL(`./inject/${name}`, import.meta.url), 'utf8');
+
+// The agent window (glass) and the IDE (desktop) are separate bundles of the
+// same sources, so the host bridge is the same file with each bundle's
+// minified names filled in.
+const BUNDLE_NAMES = {
+  glass: {
+    surface: 'agent-window',
+    buildFlags: 'vl',
+    Plugin: '_L',
+    Marketplace: 'aot',
+    UserPluginInstall: 'mKr',
+    Struct: 'qd',
+    ModelDetails: 'Ove',
+    toAvailableModel: 'Ipn',
+    batch: 'Qm',
+    useService: 'et',
+    storageService: 'ki',
+    aiService: 'jl',
+    localInferenceService: 'VW_',
+    authService: 'ss',
+    commandService: 'Vc',
+    Page: 'BV',
+    Section: 'Tf',
+    Entries: 'Hs',
+    Button: 'An',
+    Switch: 'qx',
+  },
+  ide: {
+    surface: 'ide',
+    buildFlags: 'kc',
+    Plugin: 'LD',
+    Marketplace: 'Y4e',
+    UserPluginInstall: 'D$i',
+    Struct: 'fd',
+    ModelDetails: 'ode',
+    toAvailableModel: 'E3t',
+    batch: 'Lh',
+    useService: 'Hs',
+    storageService: 'yn',
+    aiService: 'jp',
+    localInferenceService: 'iUp',
+    authService: 'na',
+    commandService: '$n',
+    Page: 'Cae',
+    Section: 'y_',
+    Entries: 'Xs',
+    Button: 'ds',
+    Switch: 'GA',
+  },
+};
+
+const host = (bundle) =>
+  inject('workbench-host.js').replace(/\$BUNDLE\.(\w+)/g, (_, role) => {
+    const name = BUNDLE_NAMES[bundle][role];
+    if (name === undefined) throw new Error(`workbench-host.js: no ${bundle} name for $BUNDLE.${role}`);
+    return name;
+  });
 
 // Evaluated once when the renderer's buildFlags module initializes; by then the
 // preload has resolved the window configuration (product.json + user env).
@@ -158,7 +216,7 @@ export const patches = [
       this.authDebugLog("refreshMembership: called"), j?.throwIfAborted();`,
   },
   // Local sign-in: the profile, email, sign-in and sign-out all come from the
-  // local account (build/patches/inject/glass-host.js) instead of Cursor's
+  // local account (build/patches/inject/workbench-host.js) instead of Cursor's
   // backend. Log In on the sign-in screen signs in locally; Log Out signs out.
   {
     id: 'glass/auth-local-profile',
@@ -211,7 +269,7 @@ export const patches = [
     id: 'glass/local-mode-host',
     file: GLASS,
     find: 'function nMe(t) {\n  const e = t?.trim();',
-    replace: `${inject('glass-host.js')}function nMe(t) {\n  const e = t?.trim();`,
+    replace: `${host('glass')}function nMe(t) {\n  const e = t?.trim();`,
   },
   {
     id: 'glass/model-catalog-from-custom-providers',
@@ -425,6 +483,334 @@ export const patches = [
     file: GLASS,
     find: '  async $resolveProjectPlugins(t) {\n',
     replace: '  async $resolveProjectPlugins(t) {\n    if (vl.localMode) return __lcpMarketplace("resolveProjectPlugins", t);\n',
+  },
+
+  // --- IDE (desktop workbench) ----------------------------------------------
+  // The same features in the IDE window: workbench.desktop.main.js is built
+  // from the same sources as the agent window's bundle, with its own minified
+  // names. Each entry mirrors the glass/ patch of the same name above; the
+  // IDE has no DevTool pill or sidebar plan label.
+  {
+    id: 'ide/build-flag',
+    file: IDE,
+    find: 'cursorPredictionOptions: false, localMode: false };',
+    replace: `cursorPredictionOptions: false, localMode: (() => {
+    try {
+      const e = globalThis.vscode?.process?.env?.CURSOR_LOCAL_MODE?.trim().toLowerCase();
+      if (e === "1" || e === "true") return true;
+      if (e === "0" || e === "false") return false;
+      return globalThis.vscode?.context?.configuration?.()?.product?.cursorLocalMode === true;
+    } catch {
+      return false;
+    }
+  })() };`,
+  },
+  {
+    id: 'ide/auth-is-authenticated',
+    file: IDE,
+    find: `  isAuthenticated() {
+    const e = this.accessToken(), t = this.refreshToken();`,
+    replace: `  isAuthenticated() {
+    if (kc.localMode) return __lcpAccount().signedIn;
+    const e = this.accessToken(), t = this.refreshToken();`,
+  },
+  {
+    id: 'ide/auth-encrypted-tokens',
+    file: IDE,
+    find: 'this.refreshToken = () => this.storageService.get("cursorAuth/refreshToken", -1), this.accessToken = () => this.localOverrideAccessToken ? this.localOverrideAccessToken : this.environmentService.overrideCursorAuthToken ? this.environmentService.overrideCursorAuthToken : this.storageService.get("cursorAuth/accessToken", -1)',
+    replace: 'this.refreshToken = () => __lcpStoredToken(this.storageService.get("cursorAuth/refreshToken", -1)), this.accessToken = () => this.localOverrideAccessToken ? this.localOverrideAccessToken : this.environmentService.overrideCursorAuthToken ? this.environmentService.overrideCursorAuthToken : __lcpStoredToken(this.storageService.get("cursorAuth/accessToken", -1))',
+  },
+  {
+    id: 'ide/auth-team-membership',
+    file: IDE,
+    find: 'this.hasResolvedTeamMembership = () => this.hasRefreshedMembership,',
+    replace: 'this.hasResolvedTeamMembership = () => kc.localMode || this.hasRefreshedMembership,',
+  },
+  {
+    id: 'ide/auth-membership-type',
+    file: IDE,
+    find: 'this.membershipType = () => X3u(this._membershipType())',
+    replace: 'this.membershipType = () => kc.localMode ? Vi.ULTRA : X3u(this._membershipType())',
+  },
+  {
+    id: 'ide/auth-membership-refresh',
+    file: IDE,
+    find: `this.refreshMembership = async (G) => {
+      this.authDebugLog("refreshMembership: called"), G?.throwIfAborted();`,
+    replace: `this.refreshMembership = async (G) => {
+      if (kc.localMode) return this._reactiveStorageService.applicationUserPersistentStorage.membershipType !== Vi.ULTRA && this._reactiveStorageService.setApplicationUserPersistentStorage("membershipType", Vi.ULTRA), void 0;
+      this.authDebugLog("refreshMembership: called"), G?.throwIfAborted();`,
+  },
+  {
+    id: 'ide/auth-local-profile',
+    file: IDE,
+    find: `}, this.getScopedDashboardProfile = async (G) => {
+`,
+    replace: `}, this.getScopedDashboardProfile = async (G) => {
+      if (kc.localMode) return __lcpProfile();
+`,
+  },
+  {
+    id: 'ide/auth-local-cached-profile',
+    file: IDE,
+    find: `}, this.getCachedAccountProfile = () => {
+`,
+    replace: `}, this.getCachedAccountProfile = () => {
+      if (kc.localMode) return __lcpAccount().signedIn ? { authId: "", displayName: __lcpAccount().name, pictureUrl: void 0 } : void 0;
+`,
+  },
+  {
+    id: 'ide/auth-local-email',
+    file: IDE,
+    find: `  async getEmailAndSignUpType() {
+`,
+    replace: `  async getEmailAndSignUpType() {
+    if (kc.localMode) return { email: __lcpAccount().signedIn ? __lcpAccount().email : void 0, signUpType: Dee.UNKNOWN };
+`,
+  },
+  {
+    id: 'ide/auth-local-login',
+    file: IDE,
+    find: `  async login(e = "login") {
+`,
+    replace: `  async login(e = "login") {
+    if (kc.localMode) return __lcpSetAccount(this, { signedIn: true });
+`,
+  },
+  {
+    id: 'ide/auth-local-logout',
+    file: IDE,
+    find: `this.logout = async () => {
+      this.authDebugLog("logout: called"),`,
+    replace: `this.logout = async () => {
+      if (kc.localMode) return __lcpSetAccount(this, { signedIn: false });
+      this.authDebugLog("logout: called"),`,
+  },
+  {
+    id: 'ide/local-mode-host',
+    file: IDE,
+    find: 'function K_e(e) {\n  const t = e?.trim();',
+    replace: `${host('ide')}function K_e(e) {\n  const t = e?.trim();`,
+  },
+  {
+    id: 'ide/model-catalog-from-custom-providers',
+    file: IDE,
+    find: `  async refreshDefaultModels() {
+`,
+    replace: `  async refreshDefaultModels() {
+    if (kc.localMode) return (await __lcpLoad()).refreshModels(this);
+`,
+  },
+  {
+    id: 'ide/route-turn-to-custom-provider',
+    file: IDE,
+    find: `async runLocalAgentInExtensionHost(e, t, n, i, r, s, o, a, c, l) {
+      const u = await this.getLocalAgentProviderConfig(i, l), h = this.reactiveStorageService.applicationUserPersistentStorage.localProviderAgentModelIds ?? [],`,
+    replace: `async runLocalAgentInExtensionHost(e, t, n, i, r, s, o, a, c, l) {
+      const __lcp = kc.localMode ? (await __lcpLoad()).routeTurn(this.storageService, i, l) : void 0;
+      __lcp !== void 0 && (i = __lcp.modelDetails, l = __lcp.runOptions);
+      const u = __lcp?.providerConfig ?? await this.getLocalAgentProviderConfig(i, l), h = __lcp?.availableModelIds ?? this.reactiveStorageService.applicationUserPersistentStorage.localProviderAgentModelIds ?? [],`,
+  },
+  {
+    id: 'ide/route-turn-provider-descriptor',
+    file: IDE,
+    find: 'const f = { baseUrl: u.baseUrl, apiKey: u.apiKey, userAgent: ',
+    replace: 'const f = { ...__lcp === void 0 ? {} : { cursorLocalProvider: __lcp.cursorLocalProvider }, baseUrl: u.baseUrl, apiKey: u.apiKey, userAgent: ',
+  },
+  {
+    id: 'ide/route-inference-to-custom-provider',
+    file: IDE,
+    find: `  async getLocalInferenceProviderConfig() {
+`,
+    replace: `  async getLocalInferenceProviderConfig() {
+    const __lcp = kc.localMode ? (await __lcpLoad()).inferenceConfig(this._storageService, this._modelConfigService, \`Cursor/\${this.productService.version}\`) : void 0;
+    if (__lcp !== void 0) return __lcp;
+`,
+  },
+  {
+    id: 'ide/model-config-local-fallback',
+    file: IDE,
+    find: `    fixupModelConfigForCurrentFlag(e) {
+`,
+    replace: `    fixupModelConfigForCurrentFlag(e) {
+      if (kc.localMode && e !== void 0) {
+        const s = this.reactiveStorageService.applicationUserPersistentStorage, ids = s.localProviderModelIds ?? [], first = (c) => c?.selectedModels?.[0]?.modelId ?? c?.modelName?.split(",")[0]?.trim();
+        if (ids.length > 0 && !ids.includes(first(e))) {
+          const c = s.aiSettings?.modelConfig?.composer, m = first(e), prefix = first(c)?.split("/")[0];
+          // The agent runtime names models without the provider prefix (a
+          // subagent inherits "gpt-5.5", not "sub/gpt-5.5"): find it in the
+          // picker, on the composer's provider first.
+          const bare = m ? ids.filter((i) => i.slice(i.indexOf("/") + 1) === m) : [], id = bare.find((i) => i.split("/")[0] === prefix) ?? bare[0];
+          e = id !== void 0 ? { ...e, modelName: id, selectedModels: [{ modelId: id, parameters: e.selectedModels?.[0]?.parameters ?? [] }] } : ids.includes(first(c)) ? c : { modelName: ids[0], selectedModels: [{ modelId: ids[0], parameters: [] }], maxMode: false };
+        }
+      }
+`,
+  },
+  {
+    // Settings > Models > Custom Providers, in Cursor Settings.
+    id: 'ide/settings-custom-providers',
+    file: IDE,
+    find: 'function $7S(e) {\n',
+    replace: 'function $7S(e) {\n  if (kc.localMode) return __lcpView("CustomProvidersSettings", {});\n',
+  },
+  {
+    id: 'ide/turn-status-header',
+    file: IDE,
+    find: 'Z = "ui-step-group-collapsible agent-transcript-work-group-collapsible", K = Ke,',
+    replace: 'Z = "ui-step-group-collapsible agent-transcript-work-group-collapsible", K = kc.localMode && !le ? __lcpView("TurnDetails", { turnKey: n.turnHumanRowId, active: n.state.kind === "active", durationMs: n.state.durationMs, fallback: Ke }, Ke) : Ke,',
+  },
+  {
+    id: 'ide/turn-status-tail-key',
+    file: IDE,
+    find: `  if (t === void 0) return v2f(i);
+  const r = gKl({ rows: i, status: t, expandedActivityGroupRowIds: n })`,
+    replace: `  if (t === void 0) return v2f(i);
+  const __lcpTailKey = kc.localMode ? __lcpHost.impl?.turnKeyFromRows(i) : void 0;
+  __lcpTailKey !== void 0 && (t = { ...t, lcpTurnKey: __lcpTailKey });
+  const r = gKl({ rows: i, status: t, expandedActivityGroupRowIds: n })`,
+  },
+  {
+    id: 'ide/turn-status-tail-key-copy',
+    file: IDE,
+    find: `function fKl(e) {
+  return { action: e.action, loading: true, priority: e.priority, `,
+    replace: `function fKl(e) {
+  return { action: e.action, loading: true, priority: e.priority, ...e.lcpTurnKey === void 0 ? {} : { lcpTurnKey: e.lcpTurnKey }, `,
+  },
+  {
+    id: 'ide/turn-status-tail',
+    file: IDE,
+    find: '"data-priority": n.priority, role: "status", tabIndex: y, "aria-label": T, onClick: E, onKeyDown: A, children: [R, D] })',
+    replace: '"data-priority": n.priority, role: "status", tabIndex: y, "aria-label": T, onClick: E, onKeyDown: A, children: [R, n.loading && typeof n.lcpTurnKey === "string" ? __lcpView("TurnStatusSuffix", { turnKey: n.lcpTurnKey }) : null, D] })',
+  },
+  {
+    id: 'ide/turn-status-thinking',
+    file: IDE,
+    find: '(J = $Mi(iee, { className: F.className, action: "Thinking", expandable: X, open: Y, onOpenChange: Z, loading: true, children: K })',
+    replace: '(J = $Mi(iee, { className: F.className, action: "Thinking", details: kc.localMode ? __lcpView("ThinkingDetails", {}) : void 0, expandable: X, open: Y, onOpenChange: Z, loading: true, children: K })',
+  },
+  {
+    id: 'ide/turn-status-thinking-group',
+    file: IDE,
+    find: '(Rt = pve(iee, { action: it.action, className: ut.className, details: tt, ',
+    replace: '(Rt = pve(iee, { action: it.action, className: ut.className, details: kc.localMode && ct && it.action === "Thinking" ? __lcpView("ThinkingDetails", { fallback: tt }, tt) : tt, ',
+  },
+  {
+    id: 'ide/turn-status-begin',
+    file: IDE,
+    find: '      __lcp !== void 0 && (i = __lcp.modelDetails, l = __lcp.runOptions);\n',
+    replace: '      __lcp !== void 0 && (i = __lcp.modelDetails, l = __lcp.runOptions);\n      const __lcpTurnKey = kc.localMode ? __lcpHost.impl?.turnBegin(l.conversationId, n, l.requestedModel, { requestId: l.generationUUID, route: __lcp?.usage, workspace: this.workspaceContextService?.getWorkspace?.()?.folders?.map((f) => f.uri.fsPath) }) : void 0;\n',
+  },
+  {
+    id: 'ide/turn-status-updates',
+    file: IDE,
+    find: `v = { sendInteractionUpdate: async (y) => {
+          const T = Yb.fromBinary(y.buffer);
+`,
+    replace: `v = { sendInteractionUpdate: async (y) => {
+          const T = Yb.fromBinary(y.buffer);
+          __lcpTurnKey !== void 0 && __lcpHost.impl?.turnUpdate(__lcpTurnKey, T);
+`,
+  },
+  {
+    id: 'ide/settings-usage-visible',
+    file: IDE,
+    find: 'e === "plan-usage" ? t.signedIn ? t.hasTieredSelfServeTeamSpillover === true ? true : t.membershipType === Vi.ENTERPRISE ? t.isEnterpriseUser : t.hasAutoSpillover === true : false :',
+    replace: 'e === "plan-usage" ? kc.localMode || (t.signedIn ? t.hasTieredSelfServeTeamSpillover === true ? true : t.membershipType === Vi.ENTERPRISE ? t.isEnterpriseUser : t.hasAutoSpillover === true : false) :',
+  },
+  {
+    id: 'ide/settings-usage-label',
+    file: IDE,
+    find: 'fun: "Fun", "plan-usage": "Plan & Usage",',
+    replace: `fun: "Fun", get "plan-usage"() {
+    return kc.localMode ? "Usage" : "Plan & Usage";
+  },`,
+  },
+  {
+    // The IDE's settings shell is SolidJS; the Plan & Usage page is a React
+    // island (IHS), so swap its content inside the island's service provider.
+    id: 'ide/settings-usage-page',
+    file: IDE,
+    find: 'return jlm(aZ, { services: { workspace: e, workspaceCollectionService: t }, children: jlm(CHS, { hostThemeType: n }) });',
+    replace: 'return jlm(aZ, { services: { workspace: e, workspaceCollectionService: t }, children: kc.localMode ? __lcpView("UsagePage", {}) : jlm(CHS, { hostThemeType: n }) });',
+  },
+  {
+    id: 'ide/no-gateway-dialog-on-startup',
+    file: IDE,
+    find: `  async maybeShowAfterOnboarding() {
+`,
+    replace: `  async maybeShowAfterOnboarding() {
+    return;
+`,
+  },
+  {
+    id: 'ide/not-configured-message',
+    file: IDE,
+    find: 'fQi = `Configure your API key and base URL to use the local agent.',
+    replace: 'fQi = `Add a provider under Settings > Models > Custom Providers, then pick one of its models.',
+  },
+  {
+    id: 'ide/marketplace-plugins-service',
+    file: IDE,
+    find: 'this._storageService = o, this._pluginsProvider = new HU()',
+    replace: 'this._storageService = o, this._pluginsProvider = new HU(), __lcpPluginsService = this',
+  },
+  {
+    id: 'ide/marketplace-local-provider',
+    file: IDE,
+    find: `function hVo(e) {
+  return { async listMarketplacePlugins(t) {`,
+    replace: `function hVo(e) {
+  if (kc.localMode) return __lcpMarketplaceProvider;
+  return { async listMarketplacePlugins(t) {`,
+  },
+  {
+    id: 'ide/marketplace-snapshot',
+    file: IDE,
+    find: `    async _fetchMarketplaceSnapshotFromDashboard() {
+`,
+    replace: `    async _fetchMarketplaceSnapshotFromDashboard() {
+      if (kc.localMode) {
+        const snapshot = await KMv(hVo(this._cursorAuthenticationService), ugo(this._experimentService));
+        return { snapshot, complete: snapshot.allMarketplacePlugins.length > 0 };
+      }
+`,
+  },
+  {
+    id: 'ide/marketplace-persist-parsed',
+    file: IDE,
+    find: `    async _persistLocallyParsedMarketplace({ gitRef: e, parseResult: t }) {
+`,
+    replace: `    async _persistLocallyParsedMarketplace({ gitRef: e, parseResult: t }) {
+      if (kc.localMode) return __lcpMarketplace("persistParsed", { gitRef: e, parseResult: t });
+`,
+  },
+  {
+    id: 'ide/marketplace-import-claude',
+    file: IDE,
+    find: `    async importClaudeMarketplaces() {
+`,
+    replace: `    async importClaudeMarketplaces() {
+      if (kc.localMode) return __lcpMarketplace("importClaudeMarketplaces");
+`,
+  },
+  {
+    id: 'ide/marketplace-effective-plugins',
+    file: IDE,
+    find: `  async getEffectiveUserPlugins(e) {
+    if (!this.cursorAuthenticationService.isAuthenticated()) return Ccp(new Leo({}));`,
+    replace: `  async getEffectiveUserPlugins(e) {
+    if (kc.localMode) return __lcpMarketplace("effectivePlugins");
+    if (!this.cursorAuthenticationService.isAuthenticated()) return Ccp(new Leo({}));`,
+  },
+  {
+    id: 'ide/marketplace-project-plugins',
+    file: IDE,
+    find: `  async $resolveProjectPlugins(e) {
+`,
+    replace: `  async $resolveProjectPlugins(e) {
+    if (kc.localMode) return __lcpMarketplace("resolveProjectPlugins", e);
+`,
   },
 
   // --- cursor-agent-exec (local agent runtime) --------------------------------

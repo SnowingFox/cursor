@@ -12467,7 +12467,16 @@ var JH, qie, TAe, FIc, BIc, xg, TO, p3, qpn, aR, zie, Imi, zpn, wE, bI, ac, DNt,
   Ew = Kie;
 } }), kc, am = V({ "buildFlags.js"() {
   "use strict";
-  x(), kc = { extensionIsDev: false, developmentTooling: false, enableTraceSpanCollection: true, enableEmbeddingsModelToggle: false, enableCPPControlTokenToggle: false, cursorPredictionOptions: false, localMode: false };
+  x(), kc = { extensionIsDev: false, developmentTooling: false, enableTraceSpanCollection: true, enableEmbeddingsModelToggle: false, enableCPPControlTokenToggle: false, cursorPredictionOptions: false, localMode: (() => {
+    try {
+      const e = globalThis.vscode?.process?.env?.CURSOR_LOCAL_MODE?.trim().toLowerCase();
+      if (e === "1" || e === "true") return true;
+      if (e === "0" || e === "false") return false;
+      return globalThis.vscode?.context?.configuration?.()?.product?.cursorLocalMode === true;
+    } catch {
+      return false;
+    }
+  })() };
 } });
 function BT() {
   return globalThis._CURSOR_SENTRY;
@@ -182513,7 +182522,7 @@ function SUl(e) {
     let K;
     t[19] !== u || t[20] !== Y || t[21] !== n ? (K = Y && n && $Mi(F3, { normalized: true, isStreaming: true, shouldFade: true, copyText: u, className: $.className, style: $.style, children: n }), t[19] = u, t[20] = Y, t[21] = n, t[22] = K) : K = t[22];
     let J;
-    return t[23] !== X || t[24] !== Y || t[25] !== Z || t[26] !== K ? (J = $Mi(iee, { className: F.className, action: "Thinking", expandable: X, open: Y, onOpenChange: Z, loading: true, children: K }), t[23] = X, t[24] = Y, t[25] = Z, t[26] = K, t[27] = J) : J = t[27], J;
+    return t[23] !== X || t[24] !== Y || t[25] !== Z || t[26] !== K ? (J = $Mi(iee, { className: F.className, action: "Thinking", details: kc.localMode ? __lcpView("ThinkingDetails", {}) : void 0, expandable: X, open: Y, onOpenChange: Z, loading: true, children: K }), t[23] = X, t[24] = Y, t[25] = Z, t[26] = K, t[27] = J) : J = t[27], J;
   }
   const W = T && P;
   let G;
@@ -187926,7 +187935,7 @@ function nAs(e) {
     N.preventDefault(), N.stopPropagation(), n.onCancel?.();
   }, type: "button", children: "Cancel" }) : null, t[20] = n, t[21] = D) : D = t[21];
   let P;
-  return t[22] !== a.className || t[23] !== a.style || t[24] !== n.priority || t[25] !== A || t[26] !== R || t[27] !== D || t[28] !== y || t[29] !== T || t[30] !== E ? (P = dTf("div", { className: a.className, style: a.style, "data-priority": n.priority, role: "status", tabIndex: y, "aria-label": T, onClick: E, onKeyDown: A, children: [R, D] }), t[22] = a.className, t[23] = a.style, t[24] = n.priority, t[25] = A, t[26] = R, t[27] = D, t[28] = y, t[29] = T, t[30] = E, t[31] = P) : P = t[31], P;
+  return t[22] !== a.className || t[23] !== a.style || t[24] !== n.priority || t[25] !== A || t[26] !== R || t[27] !== D || t[28] !== y || t[29] !== T || t[30] !== E ? (P = dTf("div", { className: a.className, style: a.style, "data-priority": n.priority, role: "status", tabIndex: y, "aria-label": T, onClick: E, onKeyDown: A, children: [R, n.loading && typeof n.lcpTurnKey === "string" ? __lcpView("TurnStatusSuffix", { turnKey: n.lcpTurnKey }) : null, D] }), t[22] = a.className, t[23] = a.style, t[24] = n.priority, t[25] = A, t[26] = R, t[27] = D, t[28] = y, t[29] = T, t[30] = E, t[31] = P) : P = t[31], P;
 }
 var K1n, iAs = V({ "AgentTranscriptTailStatus.js"() {
   "use strict";
@@ -189388,7 +189397,7 @@ function qEf(e) {
   let Kt;
   t[62] !== h || t[63] !== n.trailingPlanningStatus || t[64] !== z ? (Kt = h ? pve(nxf, { items: z, trailingPlanningStatus: n.trailingPlanningStatus }) : null, t[62] = h, t[63] = n.trailingPlanningStatus, t[64] = z, t[65] = Kt) : Kt = t[65];
   let Rt;
-  t[66] !== ut.className || t[67] !== G || t[68] !== tt || t[69] !== it.action || t[70] !== h || t[71] !== ct || t[72] !== Kt ? (Rt = pve(iee, { action: it.action, className: ut.className, details: tt, detailsRef: D, expandable: true, headerRef: A, loading: ct, open: h, onOpenChange: G, chevronRef: N, tabularNums: true, tone: "muted", children: Kt }), t[66] = ut.className, t[67] = G, t[68] = tt, t[69] = it.action, t[70] = h, t[71] = ct, t[72] = Kt, t[73] = Rt) : Rt = t[73];
+  t[66] !== ut.className || t[67] !== G || t[68] !== tt || t[69] !== it.action || t[70] !== h || t[71] !== ct || t[72] !== Kt ? (Rt = pve(iee, { action: it.action, className: ut.className, details: kc.localMode && ct && it.action === "Thinking" ? __lcpView("ThinkingDetails", { fallback: tt }, tt) : tt, detailsRef: D, expandable: true, headerRef: A, loading: ct, open: h, onOpenChange: G, chevronRef: N, tabularNums: true, tone: "muted", children: Kt }), t[66] = ut.className, t[67] = G, t[68] = tt, t[69] = it.action, t[70] = h, t[71] = ct, t[72] = Kt, t[73] = Rt) : Rt = t[73];
   let Gt;
   return t[74] !== Tt || t[75] !== Rt ? (Gt = pve("div", { children: pve("div", { className: `ui-step-group-header ${lt.className}`, style: Tt, children: Rt }) }), t[74] = Tt, t[75] = Rt, t[76] = Gt) : Gt = t[76], Gt;
 }
@@ -195023,7 +195032,7 @@ function nLf(e) {
     let Be;
     t[40] !== Le || t[41] !== de || t[42] !== Ce || t[43] !== n.runningTaskStatus || t[44] !== n.state.kind ? (Be = n.state.kind === "completed" && de ? n.runningTaskStatus : n.state.kind === "completed" ? Ce === void 0 ? Le : a6e(pDs, { children: [Le === void 0 ? "" : `${Le} · `, a6e("span", { className: "ui-j8fevo", children: ["Routed to ", Ce] })] }) : void 0, t[40] = Le, t[41] = de, t[42] = Ce, t[43] = n.runningTaskStatus, t[44] = n.state.kind, t[45] = Be) : Be = t[45];
     const je = Be, Ge = n.state.kind === "active" ? de ? `${n.runningTaskCount} Working` : "Working" : de ? `${n.runningTaskCount} working` : "Worked", Xe = le ? null : Ge, Ke = le ? me : je;
-    z = D.className, X = D.style, q = "ui-step-group-header", O = iee, Y = Xe, Z = "ui-step-group-collapsible agent-transcript-work-group-collapsible", K = Ke, J = ce, ne = T, F = y, H = A, $ = true, W = "tertiary", G = y && !l ? mN("div", { className: N.className, style: N.style, children: ue.map((et) => mN(eLf, { children: i(et) }, et.rowId)) }) : null, t[7] = l, t[8] = A, t[9] = c, t[10] = y, t[11] = T, t[12] = i, t[13] = n, t[14] = O, t[15] = F, t[16] = H, t[17] = $, t[18] = W, t[19] = G, t[20] = q, t[21] = z, t[22] = X, t[23] = Y, t[24] = Z, t[25] = K, t[26] = J, t[27] = ne;
+    z = D.className, X = D.style, q = "ui-step-group-header", O = iee, Y = Xe, Z = "ui-step-group-collapsible agent-transcript-work-group-collapsible", K = kc.localMode && !le ? __lcpView("TurnDetails", { turnKey: n.turnHumanRowId, active: n.state.kind === "active", durationMs: n.state.durationMs, fallback: Ke }, Ke) : Ke, J = ce, ne = T, F = y, H = A, $ = true, W = "tertiary", G = y && !l ? mN("div", { className: N.className, style: N.style, children: ue.map((et) => mN(eLf, { children: i(et) }, et.rowId)) }) : null, t[7] = l, t[8] = A, t[9] = c, t[10] = y, t[11] = T, t[12] = i, t[13] = n, t[14] = O, t[15] = F, t[16] = H, t[17] = $, t[18] = W, t[19] = G, t[20] = q, t[21] = z, t[22] = X, t[23] = Y, t[24] = Z, t[25] = K, t[26] = J, t[27] = ne;
   } else O = t[14], F = t[15], H = t[16], $ = t[17], W = t[18], G = t[19], q = t[20], z = t[21], X = t[22], Y = t[23], Z = t[24], K = t[25], J = t[26], ne = t[27];
   let ee;
   t[46] !== O || t[47] !== F || t[48] !== H || t[49] !== $ || t[50] !== W || t[51] !== G || t[52] !== Y || t[53] !== Z || t[54] !== K || t[55] !== J || t[56] !== ne ? (ee = mN(O, { action: Y, className: Z, details: K, expandable: J, loading: ne, open: F, onOpenChange: H, tabularNums: $, tone: W, children: G }), t[46] = O, t[47] = F, t[48] = H, t[49] = $, t[50] = W, t[51] = G, t[52] = Y, t[53] = Z, t[54] = K, t[55] = J, t[56] = ne, t[57] = ee) : ee = t[57];
@@ -196533,6 +196542,8 @@ function a2f(e) {
 function c2f({ rows: e, status: t, expandedActivityGroupRowIds: n }) {
   const i = p2f(e.filter((c) => c.kind !== "tailStatus").map(l2f), t?.isReconnecting === true);
   if (t === void 0) return v2f(i);
+  const __lcpTailKey = kc.localMode ? __lcpHost.impl?.turnKeyFromRows(i) : void 0;
+  __lcpTailKey !== void 0 && (t = { ...t, lcpTurnKey: __lcpTailKey });
   const r = gKl({ rows: i, status: t, expandedActivityGroupRowIds: n }), s = RNi(i), o = h2f(i, n), a = { ...fKl(t), ...s === void 0 ? {} : { activatesWorkGroup: vKl(s) }, ...o === void 0 ? {} : { activatesActivityGroup: vKl(o) } };
   switch (r.kind) {
     case "suppressed":
@@ -196552,7 +196563,7 @@ function c2f({ rows: e, status: t, expandedActivityGroupRowIds: n }) {
   }
 }
 function fKl(e) {
-  return { action: e.action, loading: true, priority: e.priority, ...e.detail === void 0 ? {} : { detail: e.detail }, ...e.awaitCountdown === void 0 ? {} : { awaitCountdown: e.awaitCountdown } };
+  return { action: e.action, loading: true, priority: e.priority, ...e.lcpTurnKey === void 0 ? {} : { lcpTurnKey: e.lcpTurnKey }, ...e.detail === void 0 ? {} : { detail: e.detail }, ...e.awaitCountdown === void 0 ? {} : { awaitCountdown: e.awaitCountdown } };
 }
 function vKl(e) {
   return { rowId: e.rowId, sourceIds: e.sourceIds };
@@ -275068,7 +275079,7 @@ var EN, Xqi, HJd, WJd, GJd, Zqi, OUe, Qqi, lF = V({ "pluginsProviderService.js"(
   "use strict";
   x(), Jh(), Jh(), bn(), bt(), Se(), qa(), wde(), bu(), Qt(), Js(), bi(), Pn(), Ze(), Qn(), DR(), Lk(), Vn(), ci(), Cp(), Fw(), Za(), Vr(), qs(), dgo(), Fde(), EN = vn("pluginsProviderService"), Xqi = 3e4, HJd = 3e4, WJd = 4, GJd = "cursor.plugins.installedIds", Zqi = "user-local:", OUe = /* @__PURE__ */ new Map(), Qqi = class extends we {
     constructor(e, t, n, i, r, s, o) {
-      super(), this._cursorAuthenticationService = e, this._workspaceContextService = t, this._workbenchEnvironmentService = n, this._experimentService = i, this._metricsService = r, this._logService = s, this._storageService = o, this._pluginsProvider = new HU(), this._providerWaitTimer = this._register(new cn()), this._onDidPluginsChange = this._register(new ve()), this.onDidPluginsChange = this._onDidPluginsChange.event, this._onDidPluginsChangeWithoutRefetch = this._register(new ve()), this.onDidPluginsChangeWithoutRefetch = this._onDidPluginsChangeWithoutRefetch.event, this._onDidNewPluginsDetected = this._register(new ve()), this.onDidNewPluginsDetected = this._onDidNewPluginsDetected.event, this._cacheByContext = /* @__PURE__ */ new Map(), this._pluginsCache = Xo("pluginsCache", void 0), this.pluginsCache = this._pluginsCache, this._refreshInstalledPluginsQueued = false, this._refreshInstalledPluginsPendingUseReplica = true, this._allowEmptySnapshotByKey = /* @__PURE__ */ new Set(), this._pluginComponentDataStaleByKey = /* @__PURE__ */ new Set(), this._installedPluginsConsistencyByKey = /* @__PURE__ */ new Map(), this._lastEffectiveInstalledPluginsByKey = /* @__PURE__ */ new Map(), this._installedPluginsConversionByKey = /* @__PURE__ */ new Map(), this._refreshMarketplacePluginsInFlightByKey = /* @__PURE__ */ new Map(), this._catalogRefreshSeq = 0, this._lastPublishedCatalogSeq = 0, this._persistedInstalledIdsByKey = /* @__PURE__ */ new Map(), this._onDidPluginsCacheChange = this._register(new ve()), this.onDidPluginsCacheChange = this._onDidPluginsCacheChange.event, this._hydrateInstalledPluginIdsFromStorage(), this._register(t.onDidChangeWorkspaceFolders(() => this._refreshCacheObservable()));
+      super(), this._cursorAuthenticationService = e, this._workspaceContextService = t, this._workbenchEnvironmentService = n, this._experimentService = i, this._metricsService = r, this._logService = s, this._storageService = o, this._pluginsProvider = new HU(), __lcpPluginsService = this, this._providerWaitTimer = this._register(new cn()), this._onDidPluginsChange = this._register(new ve()), this.onDidPluginsChange = this._onDidPluginsChange.event, this._onDidPluginsChangeWithoutRefetch = this._register(new ve()), this.onDidPluginsChangeWithoutRefetch = this._onDidPluginsChangeWithoutRefetch.event, this._onDidNewPluginsDetected = this._register(new ve()), this.onDidNewPluginsDetected = this._onDidNewPluginsDetected.event, this._cacheByContext = /* @__PURE__ */ new Map(), this._pluginsCache = Xo("pluginsCache", void 0), this.pluginsCache = this._pluginsCache, this._refreshInstalledPluginsQueued = false, this._refreshInstalledPluginsPendingUseReplica = true, this._allowEmptySnapshotByKey = /* @__PURE__ */ new Set(), this._pluginComponentDataStaleByKey = /* @__PURE__ */ new Set(), this._installedPluginsConsistencyByKey = /* @__PURE__ */ new Map(), this._lastEffectiveInstalledPluginsByKey = /* @__PURE__ */ new Map(), this._installedPluginsConversionByKey = /* @__PURE__ */ new Map(), this._refreshMarketplacePluginsInFlightByKey = /* @__PURE__ */ new Map(), this._catalogRefreshSeq = 0, this._lastPublishedCatalogSeq = 0, this._persistedInstalledIdsByKey = /* @__PURE__ */ new Map(), this._onDidPluginsCacheChange = this._register(new ve()), this.onDidPluginsCacheChange = this._onDidPluginsCacheChange.event, this._hydrateInstalledPluginIdsFromStorage(), this._register(t.onDidChangeWorkspaceFolders(() => this._refreshCacheObservable()));
       const a = () => OUe.clear(), c = () => {
         a(), this._refreshCacheObservable();
       };
@@ -275131,6 +275142,10 @@ var EN, Xqi, HJd, WJd, GJd, Zqi, OUe, Qqi, lF = V({ "pluginsProviderService.js"(
       }, n), t;
     }
     async _fetchMarketplaceSnapshotFromDashboard() {
+      if (kc.localMode) {
+        const snapshot = await KMv(hVo(this._cursorAuthenticationService), ugo(this._experimentService));
+        return { snapshot, complete: snapshot.allMarketplacePlugins.length > 0 };
+      }
       const e = await this._cursorAuthenticationService.dashboardClient(), t = ugo(this._experimentService), n = await Hp(e.listMarketplacePlugins(new USt({}), { headers: td(zn()) }), t), i = (n?.plugins ?? []).map($6), r = await Hp(e.listMarketplaces(new YPn({}), { headers: td(zn()) }), t), s = r?.marketplaces ?? [], o = [];
       for (const l of s) {
         const u = PJd(l);
@@ -275266,6 +275281,7 @@ var EN, Xqi, HJd, WJd, GJd, Zqi, OUe, Qqi, lF = V({ "pluginsProviderService.js"(
       }
     }
     async _persistLocallyParsedMarketplace({ gitRef: e, parseResult: t }) {
+      if (kc.localMode) return __lcpMarketplace("persistParsed", { gitRef: e, parseResult: t });
       const n = await this._cursorAuthenticationService.dashboardClient(), i = t.commitSha || t.defaultBranch || e || "", r = t.plugins.filter((s) => !s.parseError).map((s) => new dHt({ name: s.name, displayName: s.displayName, description: s.description, gitPath: s.gitPath, gitUrl: s.sourceGitUrl ?? "", gitRef: s.sourceGitRef ?? "", skills: s.skills, subagents: s.subagents, hooks: s.hooks, rules: s.rules, mcpServers: s.mcpServers, commands: s.commands, logoUrl: s.logoUrl, variables: s.variables, minClientVersions: s.minClientVersions }));
       await n.registerMarketplaceAndPlugins(new HSt({ gitUrl: t.repositoryUrl, gitRef: i, marketplaceName: t.marketplaceName, plugins: r, commitSha: t.commitSha || void 0 }), { headers: td(zn()) }), this._logService.info(`[PluginsProviderService] Persisted locally parsed marketplace: ${t.marketplaceName} with ${r.length} plugin(s)`);
     }
@@ -275276,6 +275292,7 @@ var EN, Xqi, HJd, WJd, GJd, Zqi, OUe, Qqi, lF = V({ "pluginsProviderService.js"(
       }), t;
     }
     async importClaudeMarketplaces() {
+      if (kc.localMode) return __lcpMarketplace("importClaudeMarketplaces");
       const e = { discovered: 0, registered: 0, failed: 0 }, t = await this._waitForProvider();
       if (!t) return this._logService.warn("[PluginsProviderService] importClaudeMarketplaces: plugins provider not available"), e;
       const n = await this._cursorAuthenticationService.dashboardClient();
@@ -299756,6 +299773,17 @@ var Gvh, V_e, $Xi, ptt = V({ "modelConfigService.js"() {
       return n ? i : e;
     }
     fixupModelConfigForCurrentFlag(e) {
+      if (kc.localMode && e !== void 0) {
+        const s = this.reactiveStorageService.applicationUserPersistentStorage, ids = s.localProviderModelIds ?? [], first = (c) => c?.selectedModels?.[0]?.modelId ?? c?.modelName?.split(",")[0]?.trim();
+        if (ids.length > 0 && !ids.includes(first(e))) {
+          const c = s.aiSettings?.modelConfig?.composer, m = first(e), prefix = first(c)?.split("/")[0];
+          // The agent runtime names models without the provider prefix (a
+          // subagent inherits "gpt-5.5", not "sub/gpt-5.5"): find it in the
+          // picker, on the composer's provider first.
+          const bare = m ? ids.filter((i) => i.slice(i.indexOf("/") + 1) === m) : [], id = bare.find((i) => i.split("/")[0] === prefix) ?? bare[0];
+          e = id !== void 0 ? { ...e, modelName: id, selectedModels: [{ modelId: id, parameters: e.selectedModels?.[0]?.parameters ?? [] }] } : ids.includes(first(c)) ? c : { modelName: ids[0], selectedModels: [{ modelId: ids[0], parameters: [] }], maxMode: false };
+        }
+      }
       if (!(this.isPrivateInferenceMode() ? this.getAvailableDefaultModels().length > 0 : (this.reactiveStorageService.applicationUserPersistentStorage.availableDefaultModels2?.length ?? 0) > 0)) return e;
       const n = this.getAvailableDefaultModels();
       if (e.modelName && (!e.selectedModels || e.selectedModels.length === 0)) {
@@ -313299,6 +313327,156 @@ var m0h = V({ "ideClientCapabilities.js"() {
   "use strict";
   x();
 } });
+import * as __lcpReact from "./react-runtime/react/esm-index-production.js";
+import * as __lcpJsxRuntime from "./react-runtime/react/esm-jsx-runtime-production.js";
+// [cursor-re local mode] Host bridge + loader for src/vs/workbench/contrib/localMode.
+//
+// Publishes the bundle internals local mode needs under readable names (typed
+// in src/vs/glass/host/cursorHost.ts) and loads its entry point: the Vite build
+// next to this bundle, or the Vite dev server under `bun run dev`
+// (CURSOR_LOCAL_MODE_DEV_URL). Getters keep lazily initialized bundle modules
+// out of the picture until something actually asks for them.
+//
+// Both workbench bundles get this file: the agent window (glass) and the IDE
+// (desktop). $BUNDLE.<role> is replaced with that bundle's minified name for
+// the role (BUNDLE_NAMES in build/patches/patches.mjs).
+var __lcpListeners = /* @__PURE__ */ new Set();
+var __lcpHost = globalThis.__cursorLocalMode = {
+  react: __lcpReact,
+  jsxRuntime: __lcpJsxRuntime,
+  surface: "ide",
+  cursor: {
+    get buildFlags() {
+      return kc;
+    },
+    get proto() {
+      return { Plugin: LD, Marketplace: Y4e, UserPluginInstall: D$i, Struct: fd };
+    },
+    get pluginsService() {
+      return __lcpPluginsService;
+    },
+    get ModelDetails() {
+      return ode;
+    },
+    toAvailableModel: (m) => E3t(m),
+    batch: (fn) => Lh(fn),
+    useService: (id) => Hs(id),
+    get services() {
+      return { storage: yn, ai: jp, localInference: iUp, auth: na, commands: $n };
+    },
+    get ui() {
+      return { Page: Cae, Section: y_, Entries: Xs, Button: ds, Switch: GA };
+    }
+  },
+  account: {
+    get: () => __lcpAccount(),
+    set: (auth, patch) => __lcpSetAccount(auth, patch),
+    subscribe(listener) {
+      return __lcpAccountListeners.add(listener), () => __lcpAccountListeners.delete(listener);
+    }
+  },
+  impl: void 0,
+  loading: void 0,
+  register(impl) {
+    this.impl = impl;
+    for (const l of __lcpListeners) l();
+  }
+};
+// Local sign-in: the account local mode is signed in as. The patched auth
+// service reads it synchronously (isAuthenticated runs before the Vite module
+// loads), so it lives here; the devtool edits it through `account.set`.
+var __lcpAccountKey = "cursorLocalMode.account";
+var __lcpAccountListeners = /* @__PURE__ */ new Set();
+var __lcpAccountValue;
+function __lcpAccountClean(value) {
+  const o = value !== null && typeof value === "object" ? value : {};
+  // Version 1 saved the OS user name as the default; start over from "cursor".
+  const own = o.version === 2;
+  const text = (v, fallback) => own && typeof v === "string" && v.trim() !== "" ? v.trim() : fallback;
+  return {
+    signedIn: typeof o.signedIn === "boolean" ? o.signedIn : true,
+    name: text(o.name, "cursor"),
+    email: text(o.email, "cursor@localhost")
+  };
+}
+function __lcpAccount() {
+  if (__lcpAccountValue === void 0) {
+    let stored;
+    try {
+      stored = JSON.parse(globalThis.localStorage?.getItem(__lcpAccountKey) ?? "null");
+    } catch {
+    }
+    __lcpAccountValue = __lcpAccountClean(stored);
+  }
+  return __lcpAccountValue;
+}
+// Updates the account; with `auth` (the authentication service) also tells the
+// workbench, which re-reads the profile and signed-in state.
+function __lcpSetAccount(auth, patch) {
+  const prev = __lcpAccount(), next = __lcpAccountClean({ ...prev, ...patch, version: 2 });
+  __lcpAccountValue = next;
+  try {
+    globalThis.localStorage?.setItem(__lcpAccountKey, JSON.stringify({ version: 2, ...next }));
+  } catch {
+  }
+  for (const l of __lcpAccountListeners) l();
+  if (auth !== void 0) {
+    (next.signedIn !== prev.signedIn || next.name !== prev.name || next.email !== prev.email) && auth.notifyLoginChangedListeners(next.signedIn);
+  }
+}
+// getScopedDashboardProfile's shape. authId stays empty: a non-empty one turns
+// on cloud features that would call Cursor's backend.
+function __lcpProfile() {
+  const a = __lcpAccount();
+  return a.signedIn ? { firstName: a.name, lastName: "", pictureUrl: void 0, teamName: "", authId: "", email: a.email, numericId: void 0, hasActiveMobileSession: false, createdAt: void 0 } : { teamName: "", authId: "", email: "", numericId: void 0 };
+}
+// Cursor 3.27+ encrypts the tokens it stores in the shared profile
+// ("cursor-safe-storage:v1:<base64>"). This build would decode that as a JWT
+// and throw, which fails cursor-agent-exec's activation; read it as signed
+// out, as Cursor does when it can't decrypt.
+function __lcpStoredToken(value) {
+  return typeof value === "string" && value.startsWith("cursor-safe-storage:") ? void 0 : value;
+}
+function __lcpSubscribe(listener) {
+  return __lcpListeners.add(listener), () => __lcpListeners.delete(listener);
+}
+function __lcpLoad() {
+  return __lcpHost.loading ??= (async () => {
+    const dev = globalThis.vscode?.process?.env?.CURSOR_LOCAL_MODE_DEV_URL;
+    await import(dev || "./contrib/localMode/browser/localMode.js");
+    if (__lcpHost.impl === void 0) throw new Error("local mode did not register an implementation");
+    return __lcpHost.impl;
+  })().catch((e) => {
+    __lcpHost.loading = void 0;
+    console.error("[local mode] failed to load", e);
+    throw e;
+  });
+}
+// Renders local mode view `name`, or `fallback` until it has loaded.
+function __lcpSlot({ name, props, fallback }) {
+  const impl = __lcpReact.useSyncExternalStore(__lcpSubscribe, () => __lcpHost.impl);
+  __lcpReact.useEffect(() => {
+    impl === void 0 && __lcpLoad().catch(() => {
+    });
+  }, [impl === void 0]);
+  const View = impl?.views?.[name];
+  return View === void 0 ? fallback ?? null : __lcpReact.createElement(View, props);
+}
+function __lcpView(name, props, fallback) {
+  return __lcpReact.createElement(__lcpSlot, { name, props, fallback });
+}
+// Local marketplace (src/vs/workbench/contrib/localMode/browser/marketplace.ts):
+// the PluginsProviderService registers itself here, and the Customize page's
+// plugins backend (grpcPluginsProvider) becomes these methods.
+var __lcpPluginsService;
+function __lcpMarketplace(name, ...args) {
+  return __lcpLoad().then((impl) => impl.marketplace[name](...args));
+}
+var __lcpMarketplaceProvider = Object.fromEntries(
+  ["listMarketplacePlugins", "listMarketplaces", "listUserPluginInstalls", "getPlugin", "installUserPlugin", "installTeamPlugin", "updateUserPluginInstall", "uninstallUserPlugin", "uninstallTeamPlugin", "addMarketplace", "removeMarketplace", "registerMarketplaceAndPlugins"].map(
+    (name) => [name, (request) => __lcpLoad().then((impl) => impl.marketplace.provider[name](request))]
+  )
+);
 function K_e(e) {
   const t = e?.trim();
   return t || void 0;
@@ -313332,7 +313510,7 @@ function yXv() {
 }
 var V0o, j0o, q0o, fQi, Dtt = V({ "localAgentProviderConfig.js"() {
   "use strict";
-  x(), ZW(), hu(), V0o = "cursor.openLocalAgentConfigurationModal", j0o = "cursor.openLocalAgentLogs", q0o = "Local Agent Not Configured", fQi = `Configure your API key and base URL to use the local agent. [Open configuration](command:${V0o}) · [Open logs](command:${j0o})`;
+  x(), ZW(), hu(), V0o = "cursor.openLocalAgentConfigurationModal", j0o = "cursor.openLocalAgentLogs", q0o = "Local Agent Not Configured", fQi = `Add a provider under Settings > Models > Custom Providers, then pick one of its models. [Open configuration](command:${V0o}) · [Open logs](command:${j0o})`;
 } });
 function z0o(e) {
   return e.isLocalMode || e.useOpenAIKey === true ? e.rawStoredOpenAIKey : void 0;
@@ -313651,11 +313829,15 @@ var J0o, e1o, X5, D0h, M0h, p8e, P0h, L0h, N0h, O0h, M3n, Mtt = V({ "agentClient
       return new ode({ modelId: t, displayModelId: t, displayName: t, displayNameShort: t, maxMode: e.requestedModel?.maxMode, credentials: e.requestedModel?.credentials });
     }
     async runLocalAgentInExtensionHost(e, t, n, i, r, s, o, a, c, l) {
-      const u = await this.getLocalAgentProviderConfig(i, l), h = this.reactiveStorageService.applicationUserPersistentStorage.localProviderAgentModelIds ?? [], p = i ?? this.createDefaultLocalModel(l), g = K_e(l.requestedModel?.modelId) ?? K_e(i?.modelId) ?? p.modelId;
+      const __lcp = kc.localMode ? (await __lcpLoad()).routeTurn(this.storageService, i, l) : void 0;
+      __lcp !== void 0 && (i = __lcp.modelDetails, l = __lcp.runOptions);
+      const __lcpTurnKey = kc.localMode ? __lcpHost.impl?.turnBegin(l.conversationId, n, l.requestedModel, { requestId: l.generationUUID, route: __lcp?.usage, workspace: this.workspaceContextService?.getWorkspace?.()?.folders?.map((f) => f.uri.fsPath) }) : void 0;
+      const u = __lcp?.providerConfig ?? await this.getLocalAgentProviderConfig(i, l), h = __lcp?.availableModelIds ?? this.reactiveStorageService.applicationUserPersistentStorage.localProviderAgentModelIds ?? [], p = i ?? this.createDefaultLocalModel(l), g = K_e(l.requestedModel?.modelId) ?? K_e(i?.modelId) ?? p.modelId;
       this.logService.info("[AgentClientService] Running agent turn through local agent-exec runtime", { conversationId: l.conversationId, modelId: g, baseUrl: u.baseUrl }), await this.agentExecProviderService.waitForProviderRegistration(e.signal, e);
       try {
-        const f = { baseUrl: u.baseUrl, apiKey: u.apiKey, userAgent: `Cursor/${this.productService.version}`, customHeaders: u.customHeaders, urlProtocol: this.productService.urlProtocol, privacyMode: this.cursorAuthenticationService.granularPrivacyModeRawEnum(), defaultModel: wi.wrap(p.toBinary()), modelDetails: i ? wi.wrap(i.toBinary()) : void 0, availableModelIds: h, conversationState: wi.wrap(t.toBinary()), action: wi.wrap(n.toBinary()), runOptions: { conversationId: l.conversationId, conversationGroupId: l.conversationGroupId, generationUUID: l.generationUUID, customSystemPrompt: l.customSystemPrompt, excludeWorkspaceContext: l.excludeWorkspaceContext, isRunningInTest: l.isRunningInTest, clientSupportsInlineImages: l.clientSupportsInlineImages, clientSupportsPreviewCard: l.clientSupportsPreviewCard, clientSupportsSendToUser: l.clientSupportsSendToUser, serializeSubagentStatesAsBlobRefs: this.experimentService.checkFeatureGate("local_agent_subagent_state_blob_refs", { disableExposureLog: false }), requestedModel: l.requestedModel ? wi.wrap(l.requestedModel.toBinary()) : void 0, subagentModelOverrides: l.subagentModelOverrides?.map((y) => wi.wrap(y.toBinary())), subagentTypeName: l.subagentTypeName }, mcpTools: a, agentExecOptions: { composerId: l.conversationId, workspacePaths: this.workspaceContextService.getWorkspace().folders.map((y) => hM(y.uri, true, this.environmentService.remoteAuthority !== void 0)) } }, v = { sendInteractionUpdate: async (y) => {
+        const f = { ...__lcp === void 0 ? {} : { cursorLocalProvider: __lcp.cursorLocalProvider }, baseUrl: u.baseUrl, apiKey: u.apiKey, userAgent: `Cursor/${this.productService.version}`, customHeaders: u.customHeaders, urlProtocol: this.productService.urlProtocol, privacyMode: this.cursorAuthenticationService.granularPrivacyModeRawEnum(), defaultModel: wi.wrap(p.toBinary()), modelDetails: i ? wi.wrap(i.toBinary()) : void 0, availableModelIds: h, conversationState: wi.wrap(t.toBinary()), action: wi.wrap(n.toBinary()), runOptions: { conversationId: l.conversationId, conversationGroupId: l.conversationGroupId, generationUUID: l.generationUUID, customSystemPrompt: l.customSystemPrompt, excludeWorkspaceContext: l.excludeWorkspaceContext, isRunningInTest: l.isRunningInTest, clientSupportsInlineImages: l.clientSupportsInlineImages, clientSupportsPreviewCard: l.clientSupportsPreviewCard, clientSupportsSendToUser: l.clientSupportsSendToUser, serializeSubagentStatesAsBlobRefs: this.experimentService.checkFeatureGate("local_agent_subagent_state_blob_refs", { disableExposureLog: false }), requestedModel: l.requestedModel ? wi.wrap(l.requestedModel.toBinary()) : void 0, subagentModelOverrides: l.subagentModelOverrides?.map((y) => wi.wrap(y.toBinary())), subagentTypeName: l.subagentTypeName }, mcpTools: a, agentExecOptions: { composerId: l.conversationId, workspacePaths: this.workspaceContextService.getWorkspace().folders.map((y) => hM(y.uri, true, this.environmentService.remoteAuthority !== void 0)) } }, v = { sendInteractionUpdate: async (y) => {
           const T = Yb.fromBinary(y.buffer);
+          __lcpTurnKey !== void 0 && __lcpHost.impl?.turnUpdate(__lcpTurnKey, T);
           if (T.message.case === "turnEnded") {
             const E = LXv(T.message.value, { requestId: l.generationUUID, conversationId: l.conversationId, modelIntent: g });
             if (E !== void 0) try {
@@ -430784,6 +430966,7 @@ var nUn = class extends we {
     this._replicaCache = void 0, this._inFlight.clear();
   }
   async getEffectiveUserPlugins(e) {
+    if (kc.localMode) return __lcpMarketplace("effectivePlugins");
     if (!this.cursorAuthenticationService.isAuthenticated()) return Ccp(new Leo({}));
     if (e) {
       const i = this._replicaCache;
@@ -432562,6 +432745,7 @@ var Mur = class extends we {
     return this._managedSkillsInFlight = i, i;
   }
   async $resolveProjectPlugins(e) {
+    if (kc.localMode) return __lcpMarketplace("resolveProjectPlugins", e);
     if (!this.cursorAuthenticationService.isAuthenticated()) return new B$i({});
     try {
       return await (await this.cursorAuthenticationService.dashboardClient()).resolvePluginsByRef(new Oeo({ refs: e.map((i) => new Neo({ name: i.name, marketplaceName: i.marketplaceName })) }));
@@ -468021,6 +468205,7 @@ function YTt(e) {
 }
 x(), x(), $e(), mi(), qn(), bi(), Nq(), Fde(), fL(), x(), Jh(), Js(), Fw();
 function hVo(e) {
+  if (kc.localMode) return __lcpMarketplaceProvider;
   return { async listMarketplacePlugins(t) {
     return await (await e.dashboardClient()).listMarketplacePlugins(new USt(t), { headers: td(zn()) });
   }, async listMarketplaces(t) {
@@ -536529,6 +536714,7 @@ var T$y = "gpt-5.5", E$y = 0, x$y = 6e4, I$y = 0, A$y = 6e4, R$y = 6e4, D$y = 4,
     }
   }
   async refreshDefaultModels() {
+    if (kc.localMode) return (await __lcpLoad()).refreshModels(this);
     if (this.trySeedCatalogFromOwnKey(), !this._cursorAuthenticationService.isAuthenticated()) {
       this._aiSettingsService.handleAvailableModelsChange();
       return;
@@ -537183,6 +537369,8 @@ ${A}`;
     return await t.getPages(n, { headers: td(zn()) });
   }
   async getLocalInferenceProviderConfig() {
+    const __lcp = kc.localMode ? (await __lcpLoad()).inferenceConfig(this._storageService, this._modelConfigService, `Cursor/${this.productService.version}`) : void 0;
+    if (__lcp !== void 0) return __lcp;
     const e = kc.localMode ? await this._shellEnvironmentService.getShellEnv() : {}, t = await this.getModelDetails({ specificModelField: "composer" }), n = this._modelConfigService.getModelConfig("composer"), i = [K_e(n.selectedModels?.[0]?.modelId), K_e(t.modelName)].find((u) => u !== void 0 && u !== "default") ?? T$y, r = this._reactiveStorageService.applicationUserPersistentStorage, s = this._cursorAuthenticationService.openAIKey() ?? void 0, o = z0o({ rawStoredOpenAIKey: s, useOpenAIKey: r.useOpenAIKey, isLocalMode: kc.localMode }), a = K0o({ shellEnvironment: e, storedOpenAIKey: o, openAIBaseUrl: r.openAIBaseUrl, modelProvidedApiKey: t.apiKey, modelProvidedBaseUrl: t.openaiApiBaseUrl });
     let c;
     try {
@@ -567020,6 +567208,7 @@ var BWn = class {
     this.contextKeyService = e, this.environmentService = t, this.uiOverlayService = n, this.reactiveStorageService = i, this.cursorAuthenticationService = r, this.storageService = s, this.localModeDataImportService = o, kc.localMode && (this.environmentService.skipOnboarding || this.maybeShowAfterOnboarding());
   }
   async maybeShowAfterOnboarding() {
+    return;
     const e = Date.now() + JZy;
     for (; Date.now() < e && !this.isReadyToShowLocalAgentConfigurationModal(); ) await new Promise((i) => on.setTimeout(i, QZy));
     if (!this.isReadyToShowLocalAgentConfigurationModal()) return;
@@ -567599,7 +567788,9 @@ function bWp(e) {
 function IQy(e) {
   return bWp(e) || gQt(e);
 }
-var vra = { docs: "Docs", contact: "Contact" }, AQy = { docs: "https://cursor.com/docs", contact: "mailto:hi@cursor.com" }, RQy = () => "Rules, Skills, Subagents", Vvr = { general: "General", profile: "Profile", "vscode-settings": "VS Code Settings", appearance: "Appearance", fun: "Fun", "plan-usage": "Plan & Usage", chat: "Agents", browser: "Browser & Network", tab: "Tab", models: "Models", voice: "Voice", "git-prs": "Source Control", rules: "Rules, Skills, Subagents", plugins: "Plugins", customize: "Customize", indexing: "Code Intelligence", mcp: "Tools & MCPs", hooks: "Hooks", beta: "Beta", network: "Network", "background-composer": "Cloud Agents", "self-driving": "Self-Driving PRs", worktrees: "Worktrees", developer: "Developer" }, DQy = (e) => ({ ...Vvr, rules: RQy() }), MQy = [["vscode-settings"], ["appearance"], ["background-composer", "models", "voice", "git-prs"]];
+var vra = { docs: "Docs", contact: "Contact" }, AQy = { docs: "https://cursor.com/docs", contact: "mailto:hi@cursor.com" }, RQy = () => "Rules, Skills, Subagents", Vvr = { general: "General", profile: "Profile", "vscode-settings": "VS Code Settings", appearance: "Appearance", fun: "Fun", get "plan-usage"() {
+    return kc.localMode ? "Usage" : "Plan & Usage";
+  }, chat: "Agents", browser: "Browser & Network", tab: "Tab", models: "Models", voice: "Voice", "git-prs": "Source Control", rules: "Rules, Skills, Subagents", plugins: "Plugins", customize: "Customize", indexing: "Code Intelligence", mcp: "Tools & MCPs", hooks: "Hooks", beta: "Beta", network: "Network", "background-composer": "Cloud Agents", "self-driving": "Self-Driving PRs", worktrees: "Worktrees", developer: "Developer" }, DQy = (e) => ({ ...Vvr, rules: RQy() }), MQy = [["vscode-settings"], ["appearance"], ["background-composer", "models", "voice", "git-prs"]];
 function yWp(e) {
   const t = new Map(e.map((i, r) => [i, r])), n = /* @__PURE__ */ new Set();
   for (const i of MQy) {
@@ -664619,7 +664810,7 @@ function YOS(e) {
   return e.membershipType !== Vi.FREE && e.useOpenAIKey && !e.dismissedOpenAIKeyWarning;
 }
 function XOS(e, t) {
-  return e === "plugins" || e === "rules" || e === "mcp" || e === "hooks" ? false : e === "customize" ? t.customizeSidebarTabEnabled : e === "appearance" ? t.appearanceEnabled : e === "fun" || e === "network" ? false : e === "vscode-settings" ? !t.appearanceEnabled : e === "plan-usage" ? t.signedIn ? t.hasTieredSelfServeTeamSpillover === true ? true : t.membershipType === Vi.ENTERPRISE ? t.isEnterpriseUser : t.hasAutoSpillover === true : false : e === "background-composer" ? true : e === "worktrees" || e === "tab" || e === "self-driving" ? false : e === "developer" ? t.developerToolsEnabled : e === "profile" ? t.signedIn && t.profileTabEnabled : e === "voice" ? t.voiceTabEnabled : true;
+  return e === "plugins" || e === "rules" || e === "mcp" || e === "hooks" ? false : e === "customize" ? t.customizeSidebarTabEnabled : e === "appearance" ? t.appearanceEnabled : e === "fun" || e === "network" ? false : e === "vscode-settings" ? !t.appearanceEnabled : e === "plan-usage" ? kc.localMode || (t.signedIn ? t.hasTieredSelfServeTeamSpillover === true ? true : t.membershipType === Vi.ENTERPRISE ? t.isEnterpriseUser : t.hasAutoSpillover === true : false) : e === "background-composer" ? true : e === "worktrees" || e === "tab" || e === "self-driving" ? false : e === "developer" ? t.developerToolsEnabled : e === "profile" ? t.signedIn && t.profileTabEnabled : e === "voice" ? t.voiceTabEnabled : true;
 }
 function ZOS(e) {
   return fra.filter((t) => XOS(t, e));
@@ -670230,6 +670421,7 @@ function U7S({ settingsWorkspace: e }) {
   } })] });
 }
 function $7S(e) {
+  if (kc.localMode) return __lcpView("CustomProvidersSettings", {});
   const t = Ztn(10), n = Hs(na), i = Hs(XT), r = Hs(Do), s = DL(r, H7S), o = ulm(n);
   if (!kc.localMode) return null;
   const a = s ?? "Not configured";
@@ -671216,7 +671408,7 @@ function xHS(e) {
 Iq();
 import { jsx as jlm } from "./react-runtime/react/esm-jsx-runtime-production.js";
 function IHS({ workspace: e, workspaceCollectionService: t, hostThemeType: n }) {
-  return jlm(aZ, { services: { workspace: e, workspaceCollectionService: t }, children: jlm(CHS, { hostThemeType: n }) });
+  return jlm(aZ, { services: { workspace: e, workspaceCollectionService: t }, children: kc.localMode ? __lcpView("UsagePage", {}) : jlm(CHS, { hostThemeType: n }) });
 }
 var AHS = Ek(IHS);
 function RHS() {
@@ -676509,10 +676701,10 @@ function RKS(e) {
 }
 var dka = class extends we {
   constructor(e, t, n, i, r) {
-    super(), this.storageService = e, this.environmentService = t, this._reactiveStorageService = n, this.openAIKeyChangedListeners = [], this.claudeKeyChangedListeners = [], this.googleKeyChangedListeners = [], this.loginChangedListeners = [], this.subscriptionChangedListeners = [], this.subscriptionStatusChangedListeners = [], this.refreshTokenTimeout = this._register(new cn()), this._stripeProfileFetch = this._register(new Uwt({ cacheTtlMs: Udm, timeoutMs: xKS, defaultBackoffMs: uka })), this._getMeInFlight = /* @__PURE__ */ new Map(), this._onDidChangeSubscription = this._register(new ve()), this._onDidChangeTeamIds = this._register(new ve()), this._onDidChangeActiveTeamId = this._register(new ve()), this._onDidChangeAccessToken = this._register(new ve()), this._onDidObserveAccountClosed = this._register(new ve()), this.cachedExpirationResult = null, this._repoBlocklistPoller = this._register(new cn()), this._privacyEligibilityRefreshTimer = this._register(new bI()), this._teamUserPrivacyRefreshTimer = this._register(new bI()), this.onDidChangeSubscription = this._onDidChangeSubscription.event, this.onDidChangeTeamIds = this._onDidChangeTeamIds.event, this.onDidChangeActiveTeamId = this._onDidChangeActiveTeamId.event, this.onDidChangeAccessToken = this._onDidChangeAccessToken.event, this.onDidObserveAccountClosed = this._onDidObserveAccountClosed.event, this.localOverrideAccessToken = void 0, this.refreshToken = () => this.storageService.get("cursorAuth/refreshToken", -1), this.accessToken = () => this.localOverrideAccessToken ? this.localOverrideAccessToken : this.environmentService.overrideCursorAuthToken ? this.environmentService.overrideCursorAuthToken : this.storageService.get("cursorAuth/accessToken", -1), this.getCurrentAuthId = () => {
+    super(), this.storageService = e, this.environmentService = t, this._reactiveStorageService = n, this.openAIKeyChangedListeners = [], this.claudeKeyChangedListeners = [], this.googleKeyChangedListeners = [], this.loginChangedListeners = [], this.subscriptionChangedListeners = [], this.subscriptionStatusChangedListeners = [], this.refreshTokenTimeout = this._register(new cn()), this._stripeProfileFetch = this._register(new Uwt({ cacheTtlMs: Udm, timeoutMs: xKS, defaultBackoffMs: uka })), this._getMeInFlight = /* @__PURE__ */ new Map(), this._onDidChangeSubscription = this._register(new ve()), this._onDidChangeTeamIds = this._register(new ve()), this._onDidChangeActiveTeamId = this._register(new ve()), this._onDidChangeAccessToken = this._register(new ve()), this._onDidObserveAccountClosed = this._register(new ve()), this.cachedExpirationResult = null, this._repoBlocklistPoller = this._register(new cn()), this._privacyEligibilityRefreshTimer = this._register(new bI()), this._teamUserPrivacyRefreshTimer = this._register(new bI()), this.onDidChangeSubscription = this._onDidChangeSubscription.event, this.onDidChangeTeamIds = this._onDidChangeTeamIds.event, this.onDidChangeActiveTeamId = this._onDidChangeActiveTeamId.event, this.onDidChangeAccessToken = this._onDidChangeAccessToken.event, this.onDidObserveAccountClosed = this._onDidObserveAccountClosed.event, this.localOverrideAccessToken = void 0, this.refreshToken = () => __lcpStoredToken(this.storageService.get("cursorAuth/refreshToken", -1)), this.accessToken = () => this.localOverrideAccessToken ? this.localOverrideAccessToken : this.environmentService.overrideCursorAuthToken ? this.environmentService.overrideCursorAuthToken : __lcpStoredToken(this.storageService.get("cursorAuth/accessToken", -1)), this.getCurrentAuthId = () => {
       const s = this.accessToken();
       return s ? this.getAuthIdFromToken(s) : void 0;
-    }, this._membershipType = () => this.storageService.get(ZPn, -1), this._subscriptionStatus = () => this.storageService.get(V$i, -1), this.subscriptionStatus = () => this._subscriptionStatus(), this.membershipType = () => X3u(this._membershipType()), this.openAIKey = () => this.byokProviderKeyStorage.openAIKey(), this.claudeKey = () => this.byokProviderKeyStorage.claudeKey(), this.googleKey = () => this.byokProviderKeyStorage.googleKey(), this.whenByokProviderKeysHydrated = () => this.byokProviderKeyStorage.whenHydrated(), this.overrideAccessToken = (s) => {
+    }, this._membershipType = () => this.storageService.get(ZPn, -1), this._subscriptionStatus = () => this.storageService.get(V$i, -1), this.subscriptionStatus = () => this._subscriptionStatus(), this.membershipType = () => kc.localMode ? Vi.ULTRA : X3u(this._membershipType()), this.openAIKey = () => this.byokProviderKeyStorage.openAIKey(), this.claudeKey = () => this.byokProviderKeyStorage.claudeKey(), this.googleKey = () => this.byokProviderKeyStorage.googleKey(), this.whenByokProviderKeysHydrated = () => this.byokProviderKeyStorage.whenHydrated(), this.overrideAccessToken = (s) => {
       this.localOverrideAccessToken = s, this.notifyAccessTokenChangedEmitter(s), this.notifyLoginChangedListeners(true);
     }, this.storeAccessRefreshToken = (s, o) => {
       const a = this.accessToken();
@@ -676788,6 +676980,7 @@ var Dot = class extends dka {
         return console.error("Failed to fetch has valid payment method:", q), false;
       }
     }, this.getDaysRemainingOnTrial = async () => (await this.getStripeProfile())?.daysRemainingOnTrial, this.logout = async () => {
+      if (kc.localMode) return __lcpSetAccount(this, { signedIn: false });
       this.authDebugLog("logout: called"), this.resetTeamPolicyEnforcementState();
       try {
         const G = await this.getAccessToken();
@@ -676852,7 +677045,7 @@ var Dot = class extends dka {
     }, this.getTeamId = () => {
       const G = this._reactiveStorageService.applicationUserPersistentStorage.aiSettings;
       return G.teamId !== void 0 && (G.teamIds === void 0 || G.teamIds.includes(G.teamId)) ? G.teamId : G.teamIds?.[0];
-    }, this.hasResolvedTeamMembership = () => this.hasRefreshedMembership, this.setTeamId = (G) => {
+    }, this.hasResolvedTeamMembership = () => kc.localMode || this.hasRefreshedMembership, this.setTeamId = (G) => {
       const q = this._reactiveStorageService.applicationUserPersistentStorage.aiSettings.teamId;
       q !== G && (this.authDebugLog("setTeamId: updating active team", { previousTeamId: q, nextTeamId: G }), this._reactiveStorageService.setApplicationUserPersistentStorage("aiSettings", "teamId", G)), this.refreshRepoBlocklistIfActiveTeamChanged();
     }, this.createGetMeRequest = () => {
@@ -676871,6 +677064,7 @@ var Dot = class extends dka {
       const G = this.getCurrentAuthId();
       return G !== void 0 && this._numericUserId?.authId === G ? this._numericUserId.numericId : (await this.getScopedDashboardProfile()).numericId;
     }, this.getScopedDashboardProfile = async (G) => {
+      if (kc.localMode) return __lcpProfile();
       if (!this.isAuthenticated()) return { teamName: "", authId: "", email: "", numericId: void 0 };
       const q = this.getTeamId(), z = this.getCurrentAuthId();
       try {
@@ -676891,6 +677085,7 @@ var Dot = class extends dka {
         return { teamName: "", authId: "", email: "", numericId: void 0 };
       }
     }, this.getCachedAccountProfile = () => {
+      if (kc.localMode) return __lcpAccount().signedIn ? { authId: "", displayName: __lcpAccount().name, pictureUrl: void 0 } : void 0;
       const G = this.storageService.getObject(q$i, -1), q = typeof G?.authId == "string" ? G.authId : "", z = typeof G?.displayName == "string" ? G.displayName : "";
       if (!(z.length === 0 || q.length === 0 || q !== this.getCurrentAuthId())) return { authId: q, displayName: z, pictureUrl: typeof G?.pictureUrl == "string" ? G.pictureUrl : void 0 };
     }, this.getCachedTeam = () => {
@@ -676914,6 +677109,7 @@ var Dot = class extends dka {
         this.refreshingAccessToken = false, this.refreshingAccessTokenForced = false, this.refreshingAccessTokenPromise = void 0;
       }
     }, this.refreshMembership = async (G) => {
+      if (kc.localMode) return this._reactiveStorageService.applicationUserPersistentStorage.membershipType !== Vi.ULTRA && this._reactiveStorageService.setApplicationUserPersistentStorage("membershipType", Vi.ULTRA), void 0;
       this.authDebugLog("refreshMembership: called"), G?.throwIfAborted();
       try {
         await this.refreshMembershipCore(G);
@@ -677302,6 +677498,7 @@ var Dot = class extends dka {
     }
   }
   async getEmailAndSignUpType() {
+    if (kc.localMode) return { email: __lcpAccount().signedIn ? __lcpAccount().email : void 0, signUpType: Dee.UNKNOWN };
     const e = this.storageService.get(QPn, -1), t = this.storageService.get(j$i, -1);
     if (e && e !== "" && t) {
       const o = Object.values(Dee).includes(t) ? t : Dee.UNKNOWN;
@@ -677385,6 +677582,7 @@ var Dot = class extends dka {
     this.telemetryService.publicLogCapture("$identify_cursordelimiter_" + e);
   }
   async login(e = "login") {
+    if (kc.localMode) return __lcpSetAccount(this, { signedIn: true });
     if (this.authDebugLog("login: called", { mode: e }), e === "dev" || e === "dev-trial" || e === "dev-free" || e === "dev-pro-plus-trial" || e === "dev-ultra" || e === "dev-pro" || e === "dev-enterprise" || e === "dev-pro-plus") {
       this.resetAuthFuture();
       const n = this.cursorCredsService.getBackendUrl(), i = RKS(this.cursorCredsService);
@@ -677507,6 +677705,7 @@ var Dot = class extends dka {
     await this.getAccessToken() || await this.refreshAccessToken(), await this.refreshMembership();
   }
   isAuthenticated() {
+    if (kc.localMode) return __lcpAccount().signedIn;
     const e = this.accessToken(), t = this.refreshToken();
     return this.scheduleTeamPolicyCheck(), !!(e && t);
   }

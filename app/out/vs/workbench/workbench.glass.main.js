@@ -336696,10 +336696,15 @@ import * as __lcpJsxRuntime from "./react-runtime/react/esm-jsx-runtime-producti
 // next to this bundle, or the Vite dev server under `bun run dev`
 // (CURSOR_LOCAL_MODE_DEV_URL). Getters keep lazily initialized bundle modules
 // out of the picture until something actually asks for them.
+//
+// Both workbench bundles get this file: the agent window (glass) and the IDE
+// (desktop). $BUNDLE.<role> is replaced with that bundle's minified name for
+// the role (BUNDLE_NAMES in build/patches/patches.mjs).
 var __lcpListeners = /* @__PURE__ */ new Set();
 var __lcpHost = globalThis.__cursorLocalMode = {
   react: __lcpReact,
   jsxRuntime: __lcpJsxRuntime,
+  surface: "agent-window",
   cursor: {
     get buildFlags() {
       return vl;

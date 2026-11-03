@@ -15,7 +15,7 @@ export interface RouteInfo {
 	apiType: ApiType;
 }
 
-/** Extra context the glass bundle passes to turnBegin. */
+/** Extra context the workbench bundle passes to turnBegin. */
 export interface TurnContext {
 	requestId?: string;
 	route?: RouteInfo;

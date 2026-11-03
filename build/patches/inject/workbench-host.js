@@ -7,31 +7,36 @@ import * as __lcpJsxRuntime from "./react-runtime/react/esm-jsx-runtime-producti
 // next to this bundle, or the Vite dev server under `bun run dev`
 // (CURSOR_LOCAL_MODE_DEV_URL). Getters keep lazily initialized bundle modules
 // out of the picture until something actually asks for them.
+//
+// Both workbench bundles get this file: the agent window (glass) and the IDE
+// (desktop). $BUNDLE.<role> is replaced with that bundle's minified name for
+// the role (BUNDLE_NAMES in build/patches/patches.mjs).
 var __lcpListeners = /* @__PURE__ */ new Set();
 var __lcpHost = globalThis.__cursorLocalMode = {
   react: __lcpReact,
   jsxRuntime: __lcpJsxRuntime,
+  surface: "$BUNDLE.surface",
   cursor: {
     get buildFlags() {
-      return vl;
+      return $BUNDLE.buildFlags;
     },
     get proto() {
-      return { Plugin: _L, Marketplace: aot, UserPluginInstall: mKr, Struct: qd };
+      return { Plugin: $BUNDLE.Plugin, Marketplace: $BUNDLE.Marketplace, UserPluginInstall: $BUNDLE.UserPluginInstall, Struct: $BUNDLE.Struct };
     },
     get pluginsService() {
       return __lcpPluginsService;
     },
     get ModelDetails() {
-      return Ove;
+      return $BUNDLE.ModelDetails;
     },
-    toAvailableModel: (m) => Ipn(m),
-    batch: (fn) => Qm(fn),
-    useService: (id) => et(id),
+    toAvailableModel: (m) => $BUNDLE.toAvailableModel(m),
+    batch: (fn) => $BUNDLE.batch(fn),
+    useService: (id) => $BUNDLE.useService(id),
     get services() {
-      return { storage: ki, ai: jl, localInference: VW_, auth: ss, commands: Vc };
+      return { storage: $BUNDLE.storageService, ai: $BUNDLE.aiService, localInference: $BUNDLE.localInferenceService, auth: $BUNDLE.authService, commands: $BUNDLE.commandService };
     },
     get ui() {
-      return { Page: BV, Section: Tf, Entries: Hs, Button: An, Switch: qx };
+      return { Page: $BUNDLE.Page, Section: $BUNDLE.Section, Entries: $BUNDLE.Entries, Button: $BUNDLE.Button, Switch: $BUNDLE.Switch };
     }
   },
   account: {

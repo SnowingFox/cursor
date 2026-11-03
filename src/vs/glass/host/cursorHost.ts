@@ -1,9 +1,10 @@
 /**
- * Typed bridge to the agent window (glass) bundle.
+ * Typed bridge to Cursor's workbench bundles: the agent window (glass) and the
+ * IDE (desktop).
  *
- * Our modules are built separately from Cursor's minified workbench bundle, so
- * they cannot import its internals. Instead, a small loader patched into the
- * bundle (build/patches/inject/glass-host.js) publishes the pieces we need on
+ * Our modules are built separately from Cursor's minified workbench bundles, so
+ * they cannot import their internals. Instead, a small loader patched into each
+ * bundle (build/patches/inject/workbench-host.js) publishes the pieces we need on
  * `globalThis.__cursorLocalMode` under readable names, then imports our entry
  * point. This file is the only place that knows the shape of that object; when
  * a Cursor update renames things, only the loader's mapping changes.
@@ -211,8 +212,12 @@ export interface LocalModeImpl {
 	[name: string]: unknown;
 }
 
+/** Which workbench window the host bridge lives in. */
+export type Surface = 'agent-window' | 'ide';
+
 export interface CursorHost {
 	readonly react: typeof React;
+	readonly surface: Surface;
 	readonly jsxRuntime: typeof JsxRuntime;
 	readonly cursor: CursorInternals;
 	readonly account: LocalAccountStore;
@@ -228,7 +233,7 @@ declare global {
 export function cursorHost(): CursorHost {
 	const host = globalThis.__cursorLocalMode;
 	if (host === undefined) {
-		throw new Error('cursor host bridge is not installed (is the glass bundle patched?)');
+		throw new Error('cursor host bridge is not installed (is the workbench bundle patched?)');
 	}
 	return host;
 }

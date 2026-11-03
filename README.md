@@ -30,11 +30,13 @@ Use `bun run start -- --real-profile` to share the real profile instead.
 
 ## Local mode
 
-The agent window runs **without a Cursor account or backend**: Settings >
-Models > *Custom Providers* adds OpenAI Chat Completions, OpenAI Responses or
-Anthropic Messages endpoints (each with its own model prefix, e.g.
+Cursor RE runs **without a Cursor account or backend**, in both of Cursor's
+windows: the agent window and the IDE. Settings > Models > *Custom Providers*
+(in the IDE: Cursor Settings > Models) adds OpenAI Chat Completions, OpenAI
+Responses or Anthropic Messages endpoints (each with its own model prefix, e.g.
 `my-gateway/claude-opus-5`), the model list comes from the provider's `/models`,
-and Cursor's agent harness runs locally against the selected provider.
+and Cursor's agent harness runs locally against the selected provider. Both
+windows share the providers, the model picker, chats and usage.
 Turns show live stats in the style of Claude Code
 (`Planning next moves · 12s · ↓ 1.2k tokens`, `Thinking 4s · high effort`,
 `Worked for 34s · ↓ 2.3k tokens`).
@@ -78,7 +80,7 @@ app/                       the application (== Cursor.app/Contents/Resources/app
   node_modules/            third-party runtime deps (byte-identical to upstream)
   product.json             product configuration (checksums removed so edits are allowed)
 src/                       our renderer sources, laid out like VS Code's src/
-  vs/glass/host/           typed bridge to the agent window bundle + React shims
+  vs/glass/host/           typed bridge to the workbench bundles (agent window, IDE) + React shims
   vs/workbench/contrib/localMode/
     common/                provider model, formatting (no DOM / Node)
     browser/               model catalog, turn routing, turn stats, React components
@@ -94,7 +96,9 @@ Cursor's bundles are minified upstream output, so our code is not compiled
 `build/patches` adds a small loader to each bundle. The loader publishes the
 internals we need under readable names (`src/vs/glass/host/cursorHost.ts` is
 the typed side), loads our module, and the patched call sites delegate to it.
-Our React components use the agent window's own React instance. Patches are exact
+Both workbench bundles (agent window and IDE) get the same loader, with each
+bundle's minified names filled in (`BUNDLE_NAMES` in `build/patches/patches.mjs`).
+Our React components use the window's own React instance. Patches are exact
 string replacements applied to the pristine import commit, so re-applying
 is idempotent and an upstream update shows exactly which anchors moved.
 
