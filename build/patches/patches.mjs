@@ -124,6 +124,15 @@ export const patches = [
     const t = this.accessToken(), e = this.refreshToken();`,
   },
   {
+    // Tokens a newer Cursor stored encrypted in the shared profile read as
+    // signed out instead of crashing the JWT decoder (see __lcpStoredToken).
+    id: 'glass/auth-encrypted-tokens',
+    file: GLASS,
+    find: 'this.refreshToken = () => this.storageService.get("cursorAuth/refreshToken", -1), this.accessToken = () => this.localOverrideAccessToken ? this.localOverrideAccessToken : this.environmentService.overrideCursorAuthToken ? this.environmentService.overrideCursorAuthToken : this.storageService.get("cursorAuth/accessToken", -1)',
+    replace:
+      'this.refreshToken = () => __lcpStoredToken(this.storageService.get("cursorAuth/refreshToken", -1)), this.accessToken = () => this.localOverrideAccessToken ? this.localOverrideAccessToken : this.environmentService.overrideCursorAuthToken ? this.environmentService.overrideCursorAuthToken : __lcpStoredToken(this.storageService.get("cursorAuth/accessToken", -1))',
+  },
+  {
     id: 'glass/auth-team-membership',
     file: GLASS,
     find: 'this.hasResolvedTeamMembership = () => this.hasRefreshedMembership,',

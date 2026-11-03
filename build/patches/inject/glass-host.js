@@ -96,6 +96,13 @@ function __lcpProfile() {
   const a = __lcpAccount();
   return a.signedIn ? { firstName: a.name, lastName: "", pictureUrl: void 0, teamName: "", authId: "", email: a.email, numericId: void 0, hasActiveMobileSession: false, createdAt: void 0 } : { teamName: "", authId: "", email: "", numericId: void 0 };
 }
+// Cursor 3.27+ encrypts the tokens it stores in the shared profile
+// ("cursor-safe-storage:v1:<base64>"). This build would decode that as a JWT
+// and throw, which fails cursor-agent-exec's activation; read it as signed
+// out, as Cursor does when it can't decrypt.
+function __lcpStoredToken(value) {
+  return typeof value === "string" && value.startsWith("cursor-safe-storage:") ? void 0 : value;
+}
 function __lcpSubscribe(listener) {
   return __lcpListeners.add(listener), () => __lcpListeners.delete(listener);
 }
