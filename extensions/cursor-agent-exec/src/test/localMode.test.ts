@@ -10,6 +10,9 @@ import {
 	reasoningFetch,
 	register,
 	requestedEffort,
+	shortenToolIds,
+	shortToolId,
+	toolIdFetch,
 	withSummary,
 } from '../localMode.js';
 
@@ -77,6 +80,111 @@ describe('reasoning', () => {
 		const wrapped = reasoningFetch(local, 'gpt-6-astra', high, fetch);
 		expect(JSON.parse((await wrapped('u', { body: '{}' })) as string)).toEqual({ reasoning: { summary: 'auto' } });
 		expect(requestedEffort([{ id: 'effort', value: 'low' }])).toBe('low');
+	});
+});
+
+describe('tool call ids', () => {
+	// 83 characters, like the Codex call ids a direct endpoint rejected.
+	const long = `call_${'a'.repeat(24)}|fc_${'b'.repeat(50)}`;
+
+	it('shortens overlong ids the same way every time and keeps short ones', () => {
+		const short = shortToolId(long, false);
+		expect(short).toHaveLength(64);
+		expect(short).toMatch(/^[a-zA-Z0-9_-]+$/u);
+		expect(shortToolId(long, false)).toBe(short);
+		expect(shortToolId(`${long}x`, false)).not.toBe(short);
+		expect(shortToolId('call_abc', false)).toBe('call_abc');
+		// Anthropic also rejects characters outside its pattern.
+		expect(shortToolId('call|x', true)).toMatch(/^call_x_[0-9a-f]{16}$/u);
+		expect(shortToolId('call|x', false)).toBe('call|x');
+	});
+
+	it('rewrites Responses, Chat Completions and Messages bodies consistently', () => {
+		const short = shortToolId(long, false);
+		expect(
+			shortenToolIds({
+				model: 'gpt-6.1-sol',
+				input: [
+					{ type: 'function_call', call_id: long, name: 'Read', arguments: '{}' },
+					{ type: 'function_call_output', call_id: long, output: 'ok' },
+					{ role: 'user', content: 'hi' },
+				],
+			}),
+		).toEqual({
+			model: 'gpt-6.1-sol',
+			input: [
+				{ type: 'function_call', call_id: short, name: 'Read', arguments: '{}' },
+				{ type: 'function_call_output', call_id: short, output: 'ok' },
+				{ role: 'user', content: 'hi' },
+			],
+		});
+		expect(
+			shortenToolIds({
+				messages: [
+					{
+						role: 'assistant',
+						content: null,
+						tool_calls: [{ id: long, type: 'function', function: { name: 'Read' } }],
+					},
+					{ role: 'tool', tool_call_id: long, content: 'ok' },
+				],
+			}),
+		).toEqual({
+			messages: [
+				{ role: 'assistant', content: null, tool_calls: [{ id: short, type: 'function', function: { name: 'Read' } }] },
+				{ role: 'tool', tool_call_id: short, content: 'ok' },
+			],
+		});
+		const anthropic = shortToolId(long, true);
+		expect(
+			shortenToolIds({
+				messages: [
+					{ role: 'assistant', content: [{ type: 'tool_use', id: long, name: 'Read', input: {} }] },
+					{
+						role: 'user',
+						content: [
+							{ type: 'tool_result', tool_use_id: long, content: 'ok' },
+							{ type: 'text', text: 'go' },
+						],
+					},
+				],
+			}),
+		).toEqual({
+			messages: [
+				{ role: 'assistant', content: [{ type: 'tool_use', id: anthropic, name: 'Read', input: {} }] },
+				{
+					role: 'user',
+					content: [
+						{ type: 'tool_result', tool_use_id: anthropic, content: 'ok' },
+						{ type: 'text', text: 'go' },
+					],
+				},
+			],
+		});
+		expect(shortenToolIds({ input: [{ type: 'function_call_output', call_id: 'call_abc' }] })).toBeUndefined();
+	});
+
+	it('only wraps custom providers, not the sidecar', async () => {
+		const seen: unknown[] = [];
+		const fetch = async (_input: unknown, init?: { body?: unknown }) => {
+			seen.push(init?.body);
+			return 'response';
+		};
+		register({
+			baseUrl: 'https://direct.example.com/v1',
+			cursorLocalProvider: { ...descriptor, apiType: 'openai-responses' },
+		});
+		// Registered directly: register() would start the sidecar.
+		globalThis.__cursorLocalModeProviders?.set('http://127.0.0.1:18321/v1', {
+			...descriptor,
+			apiType: 'openai-responses',
+			sidecar: { port: 18321, apiKey: 'sk-local', dataDir: '/tmp/none' },
+		});
+		const body = JSON.stringify({ input: [{ type: 'function_call_output', call_id: long, output: 'ok' }] });
+		await toolIdFetch('https://direct.example.com/v1', fetch)('u', { body });
+		expect(JSON.parse(seen[0] as string).input[0].call_id).toBe(shortToolId(long, false));
+		expect(toolIdFetch('http://127.0.0.1:18321/v1', fetch)).toBe(fetch);
+		expect(toolIdFetch('https://unknown.example.com/v1', fetch)).toBe(fetch);
 	});
 });
 

@@ -21,8 +21,8 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 	enumerable: true
 }) : target, mod));
 //#endregion
-let node_child_process = require("node:child_process");
 let node_crypto = require("node:crypto");
+let node_child_process = require("node:child_process");
 let node_fs = require("node:fs");
 let node_fs_promises = require("node:fs/promises");
 let node_net = require("node:net");
@@ -1069,6 +1069,18 @@ async function handle(request) {
 }
 //#endregion
 //#region extensions/cursor-agent-exec/src/localMode.ts
+/**
+* Local mode support inside cursor-agent-exec (extension host).
+*
+* The renderer attaches a `cursorLocalProvider` descriptor to every local agent
+* / local inference request it routes to a custom provider. It is remembered
+* per base URL so that every helper that later resolves the same endpoint
+* (agent loop, smart-mode classifier, chat titles, commit messages) speaks the
+* provider's wire format.
+*
+* Built to app/extensions/cursor-agent-exec/dist/localMode.js and required by
+* the patched dist/main.js (build/patches/inject/agent-exec-host.js).
+*/
 globalThis.__cursorLocalModeProviders ??= /* @__PURE__ */ new Map();
 var providers = globalThis.__cursorLocalModeProviders;
 function key(baseUrl) {
@@ -1145,6 +1157,78 @@ function withSummary(init) {
 	} catch {
 		return init;
 	}
+}
+/** OpenAI's limit on tool call ids (`call_id`, `tool_call_id`). */
+var TOOL_ID_LIMIT = 64;
+var ANTHROPIC_TOOL_ID = /^[a-zA-Z0-9_-]+$/u;
+/**
+* A tool call id this provider accepts. A chat keeps the ids of every model it
+* ran on, and Codex call ids (Subscriptions) run past 64 characters: CLIProxyAPI
+* shortens them for Codex, but a direct endpoint rejects the next turn ("Invalid
+* 'input[n].call_id': string too long"). Overlong ids, and ids Anthropic's
+* pattern rejects, become a prefix plus a hash, the same in every request, so
+* calls and their results still pair up.
+*/
+function shortToolId(id, anthropic) {
+	if (id.length <= TOOL_ID_LIMIT && (!anthropic || ANTHROPIC_TOOL_ID.test(id))) return id;
+	const hash = (0, node_crypto.createHash)("sha256").update(id).digest("hex").slice(0, 16);
+	return `${id.replace(/[^a-zA-Z0-9_-]/gu, "_").slice(0, TOOL_ID_LIMIT - hash.length - 1)}_${hash}`;
+}
+/** Rewrites the tool call ids of a Responses, Chat Completions or Messages body; undefined if none changed. */
+function shortenToolIds(body) {
+	if (body === null || typeof body !== "object" || Array.isArray(body)) return;
+	const b = body;
+	let changed = false;
+	const fix = (id, anthropic) => {
+		if (typeof id !== "string") return id;
+		const short = shortToolId(id, anthropic);
+		changed ||= short !== id;
+		return short;
+	};
+	const input = Array.isArray(b.input) ? b.input.map((item) => item !== null && typeof item === "object" && "call_id" in item ? {
+		...item,
+		call_id: fix(item.call_id, false)
+	} : item) : b.input;
+	const messages = Array.isArray(b.messages) ? b.messages.map((m) => {
+		if (m === null || typeof m !== "object") return m;
+		const next = { ...m };
+		if (Array.isArray(next.tool_calls)) next.tool_calls = next.tool_calls.map((c) => c !== null && typeof c === "object" ? {
+			...c,
+			id: fix(c.id, false)
+		} : c);
+		if ("tool_call_id" in next) next.tool_call_id = fix(next.tool_call_id, false);
+		if (Array.isArray(next.content)) next.content = next.content.map((part) => part?.type === "tool_use" ? {
+			...part,
+			id: fix(part.id, true)
+		} : part?.type === "tool_result" ? {
+			...part,
+			tool_use_id: fix(part.tool_use_id, true)
+		} : part);
+		return next;
+	}) : b.messages;
+	return changed ? {
+		...b,
+		...input === void 0 ? {} : { input },
+		...messages === void 0 ? {} : { messages }
+	} : void 0;
+}
+/** Wraps a custom provider's fetch with shortenToolIds. The sidecar does its own. */
+function toolIdFetch(baseUrl, fetch) {
+	const provider = kind(baseUrl);
+	if (provider === void 0 || provider.sidecar !== void 0) return fetch;
+	return (input, init) => {
+		if (typeof init?.body !== "string") return fetch(input, init);
+		let body;
+		try {
+			body = shortenToolIds(JSON.parse(init.body));
+		} catch {
+			body = void 0;
+		}
+		return fetch(input, body === void 0 ? init : {
+			...init,
+			body: JSON.stringify(body)
+		});
+	};
 }
 /** Parses OpenAI, Anthropic and OpenRouter-style /models rows. */
 function parseModelList(body) {
@@ -1223,5 +1307,8 @@ exports.parseModelList = parseModelList;
 exports.reasoningFetch = reasoningFetch;
 exports.register = register;
 exports.requestedEffort = requestedEffort;
+exports.shortToolId = shortToolId;
+exports.shortenToolIds = shortenToolIds;
 exports.subscriptions = subscriptions;
+exports.toolIdFetch = toolIdFetch;
 exports.withSummary = withSummary;

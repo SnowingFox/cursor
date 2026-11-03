@@ -867,7 +867,16 @@ export const patches = [
     id: 'agent-exec/subscriptions-reasoning-summary',
     file: AGENT_EXEC,
     find: 'fetch: xRe({ modelId: e11.modelId, userAgent: e11.userAgent, modelParameters: e11.modelParameters, apiType: "openai_compatible", openAICompatibleEndpoint: s11, extendedCapabilitiesDetected: r11, apiKeyHelperConfig: e11.apiKeyHelper, requestLogMetadata: e11.requestLogMetadata, customHeaders: e11.customHeaders, configuredEffortValues: e11.configuredEffortValues, responsesStore: o11, chatReasoningReplay: i11, responsesReasoningReplay: a11, reasoningReplayLatch: e11.reasoningReplayLatch, gatewayTiming: e11.gatewayTiming })',
-    replace: 'fetch: __lcpExt.reasoningFetch(e11.baseUrl, e11.modelId, e11.modelParameters, xRe({ modelId: e11.modelId, userAgent: e11.userAgent, modelParameters: e11.modelParameters, apiType: "openai_compatible", openAICompatibleEndpoint: s11, extendedCapabilitiesDetected: r11, apiKeyHelperConfig: e11.apiKeyHelper, requestLogMetadata: e11.requestLogMetadata, customHeaders: e11.customHeaders, configuredEffortValues: e11.configuredEffortValues, responsesStore: o11, chatReasoningReplay: i11, responsesReasoningReplay: a11, reasoningReplayLatch: e11.reasoningReplayLatch, gatewayTiming: e11.gatewayTiming }))',
+    replace: 'fetch: __lcpExt.toolIdFetch(e11.baseUrl, __lcpExt.reasoningFetch(e11.baseUrl, e11.modelId, e11.modelParameters, xRe({ modelId: e11.modelId, userAgent: e11.userAgent, modelParameters: e11.modelParameters, apiType: "openai_compatible", openAICompatibleEndpoint: s11, extendedCapabilitiesDetected: r11, apiKeyHelperConfig: e11.apiKeyHelper, requestLogMetadata: e11.requestLogMetadata, customHeaders: e11.customHeaders, configuredEffortValues: e11.configuredEffortValues, responsesStore: o11, chatReasoningReplay: i11, responsesReasoningReplay: a11, reasoningReplayLatch: e11.reasoningReplayLatch, gatewayTiming: e11.gatewayTiming })))',
+  },
+  {
+    // A chat that ran on another model keeps its tool call ids; overlong ones
+    // (Codex via Subscriptions) are shortened for custom providers. The
+    // OpenAI-compatible fetch is wrapped above.
+    id: 'agent-exec/custom-provider-tool-ids',
+    file: AGENT_EXEC,
+    find: 'fetch: xRe({ modelId: e11.modelId, userAgent: e11.userAgent, modelParameters: e11.modelParameters, apiType: "anthropic_messages", extendedCapabilitiesDetected: t11, apiKeyHelperConfig: e11.apiKeyHelper, maxOutputTokens: r11, requestLogMetadata: e11.requestLogMetadata, customHeaders: e11.customHeaders, gatewayTiming: e11.gatewayTiming })',
+    replace: 'fetch: __lcpExt.toolIdFetch(e11.baseUrl, xRe({ modelId: e11.modelId, userAgent: e11.userAgent, modelParameters: e11.modelParameters, apiType: "anthropic_messages", extendedCapabilitiesDetected: t11, apiKeyHelperConfig: e11.apiKeyHelper, maxOutputTokens: r11, requestLogMetadata: e11.requestLogMetadata, customHeaders: e11.customHeaders, gatewayTiming: e11.gatewayTiming }))',
   },
   {
     // GPT models fill the Task tool's optional `model` with "" ("New subagent ·

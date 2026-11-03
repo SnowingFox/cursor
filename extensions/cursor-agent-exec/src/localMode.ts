@@ -10,6 +10,7 @@
  * Built to app/extensions/cursor-agent-exec/dist/localMode.js and required by
  * the patched dist/main.js (build/patches/inject/agent-exec-host.js).
  */
+import { createHash } from 'node:crypto';
 import type { ListedModel, ProviderDescriptor } from '../../../src/vs/workbench/contrib/localMode/common/localMode.js';
 import type { SubscriptionsRequest } from '../../../src/vs/workbench/contrib/localMode/common/subscriptions.js';
 import { ensureSidecar } from './sidecar.js';
@@ -119,6 +120,99 @@ export function withSummary<T extends { body?: unknown }>(init: T | undefined): 
 	} catch {
 		return init;
 	}
+}
+
+/** OpenAI's limit on tool call ids (`call_id`, `tool_call_id`). */
+const TOOL_ID_LIMIT = 64;
+const ANTHROPIC_TOOL_ID = /^[a-zA-Z0-9_-]+$/u;
+
+/**
+ * A tool call id this provider accepts. A chat keeps the ids of every model it
+ * ran on, and Codex call ids (Subscriptions) run past 64 characters: CLIProxyAPI
+ * shortens them for Codex, but a direct endpoint rejects the next turn ("Invalid
+ * 'input[n].call_id': string too long"). Overlong ids, and ids Anthropic's
+ * pattern rejects, become a prefix plus a hash, the same in every request, so
+ * calls and their results still pair up.
+ */
+export function shortToolId(id: string, anthropic: boolean): string {
+	if (id.length <= TOOL_ID_LIMIT && (!anthropic || ANTHROPIC_TOOL_ID.test(id))) {
+		return id;
+	}
+	const hash = createHash('sha256').update(id).digest('hex').slice(0, 16);
+	return `${id.replace(/[^a-zA-Z0-9_-]/gu, '_').slice(0, TOOL_ID_LIMIT - hash.length - 1)}_${hash}`;
+}
+
+/** Rewrites the tool call ids of a Responses, Chat Completions or Messages body; undefined if none changed. */
+export function shortenToolIds(body: unknown): unknown {
+	if (body === null || typeof body !== 'object' || Array.isArray(body)) {
+		return undefined;
+	}
+	const b = body as { input?: unknown; messages?: unknown };
+	let changed = false;
+	const fix = (id: unknown, anthropic: boolean) => {
+		if (typeof id !== 'string') {
+			return id;
+		}
+		const short = shortToolId(id, anthropic);
+		changed ||= short !== id;
+		return short;
+	};
+	const input = Array.isArray(b.input)
+		? b.input.map((item) =>
+				item !== null && typeof item === 'object' && 'call_id' in item
+					? { ...item, call_id: fix(item.call_id, false) }
+					: item,
+			)
+		: b.input;
+	const messages = Array.isArray(b.messages)
+		? b.messages.map((m) => {
+				if (m === null || typeof m !== 'object') {
+					return m;
+				}
+				const next: Record<string, any> = { ...m };
+				if (Array.isArray(next.tool_calls)) {
+					next.tool_calls = next.tool_calls.map((c: any) =>
+						c !== null && typeof c === 'object' ? { ...c, id: fix(c.id, false) } : c,
+					);
+				}
+				if ('tool_call_id' in next) {
+					next.tool_call_id = fix(next.tool_call_id, false);
+				}
+				if (Array.isArray(next.content)) {
+					next.content = next.content.map((part: any) =>
+						part?.type === 'tool_use'
+							? { ...part, id: fix(part.id, true) }
+							: part?.type === 'tool_result'
+								? { ...part, tool_use_id: fix(part.tool_use_id, true) }
+								: part,
+					);
+				}
+				return next;
+			})
+		: b.messages;
+	return changed
+		? { ...b, ...(input === undefined ? {} : { input }), ...(messages === undefined ? {} : { messages }) }
+		: undefined;
+}
+
+/** Wraps a custom provider's fetch with shortenToolIds. The sidecar does its own. */
+export function toolIdFetch(baseUrl: unknown, fetch: Fetch): Fetch {
+	const provider = kind(baseUrl);
+	if (provider === undefined || provider.sidecar !== undefined) {
+		return fetch;
+	}
+	return (input, init) => {
+		if (typeof init?.body !== 'string') {
+			return fetch(input, init);
+		}
+		let body: unknown;
+		try {
+			body = shortenToolIds(JSON.parse(init.body));
+		} catch {
+			body = undefined;
+		}
+		return fetch(input, body === undefined ? init : { ...init, body: JSON.stringify(body) });
+	};
 }
 
 /** Parses OpenAI, Anthropic and OpenRouter-style /models rows. */
