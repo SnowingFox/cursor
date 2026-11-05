@@ -1,0 +1,21 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5344",
+  "basename": "ComposerToolbarFileList.js",
+  "source": "recovered/app/glass/composer/ComposerToolbarFileList.js",
+  "renames": {
+    "qcf": "SteerQueueNuxNotice"
+  },
+  "evidence": [
+    {
+      "from": "qcf",
+      "to": "SteerQueueNuxNotice",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "SteerQueueNuxNotice.react.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3904",
+  "basename": "McpServerConfigMenu.js",
+  "file": "recovered/app/glass/agent/McpServerConfigMenu.js",
+  "renames": {
+    "NK1": "McpServerConfigMenu"
+  },
+  "notes": [
+    "NK1 -> McpServerConfigMenu: sole JSX-returning top-level function in module slice; name from wrapper basename"
+  ]
+}

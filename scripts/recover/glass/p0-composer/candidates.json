@@ -1,0 +1,1887 @@
+[
+ {
+  "file": "AgentToolCallLine.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "Y$h",
+    "jsxCalls": 0,
+    "lines": 16,
+    "params": 2
+   }
+  ]
+ },
+ {
+  "file": "AgentTranscriptActivityGroup.js",
+  "jsxAliases": [
+   "$5S",
+   "Wmi"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "sXh",
+    "jsxCalls": 6,
+    "lines": 12,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "AgentTranscriptApprovalStack.js",
+  "jsxAliases": [
+   "oXh"
+  ],
+  "wrappers": [
+   "G5S"
+  ],
+  "comps": [
+   {
+    "name": "Y5S",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "i4r",
+    "jsxCalls": 2,
+    "lines": 34,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "AgentTranscriptConnectScmCard.js",
+  "jsxAliases": [
+   "AYh"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "k1n",
+    "jsxCalls": 2,
+    "lines": 19,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "AgentTranscriptEnter.js",
+  "jsxAliases": [
+   "QWe",
+   "Z5S"
+  ],
+  "wrappers": [
+   "X5S"
+  ],
+  "comps": [
+   {
+    "name": "iSa",
+    "jsxCalls": 3,
+    "lines": 11,
+    "params": 1
+   },
+   {
+    "name": "eFS",
+    "jsxCalls": 8,
+    "lines": 20,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "AgentTranscriptHumanAttachmentStrip.js",
+  "jsxAliases": [
+   "uXh",
+   "tFS"
+  ],
+  "wrappers": [
+   "cXh"
+  ],
+  "comps": [
+   {
+    "name": "rSa",
+    "jsxCalls": 3,
+    "lines": 9,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "AgentTranscriptMcpAuthCard.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "Xjt",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "r4r",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 2
+   },
+   {
+    "name": "bXh",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 0
+   },
+   {
+    "name": "yXh",
+    "jsxCalls": 0,
+    "lines": 8,
+    "params": 1
+   },
+   {
+    "name": "oSa",
+    "jsxCalls": 0,
+    "lines": 8,
+    "params": 1
+   },
+   {
+    "name": "aSa",
+    "jsxCalls": 0,
+    "lines": 36,
+    "params": 2
+   },
+   {
+    "name": "lSa",
+    "jsxCalls": 0,
+    "lines": 14,
+    "params": 2
+   },
+   {
+    "name": "aFS",
+    "jsxCalls": 0,
+    "lines": 21,
+    "params": 3
+   }
+  ]
+ },
+ {
+  "file": "AgentTranscriptNotification.js",
+  "jsxAliases": [
+   "x1n",
+   "vFS"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "bFS",
+    "jsxCalls": 0,
+    "lines": 14,
+    "params": 2
+   },
+   {
+    "name": "AXh",
+    "jsxCalls": 7,
+    "lines": 9,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "AgentTranscriptRow.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "Ttp",
+    "jsxCalls": 0,
+    "lines": 10,
+    "params": 1
+   },
+   {
+    "name": "Etp",
+    "jsxCalls": 0,
+    "lines": 8,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "AgentTranscriptSentMessageActions.js",
+  "jsxAliases": [
+   "Jep"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "P9r",
+    "jsxCalls": 2,
+    "lines": 10,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "AgentTranscriptTaskRow.js",
+  "jsxAliases": [
+   "gL",
+   "JOS"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "Gya",
+    "jsxCalls": 21,
+    "lines": 179,
+    "params": 1
+   },
+   {
+    "name": "t5S",
+    "jsxCalls": 1,
+    "lines": 8,
+    "params": 1
+   },
+   {
+    "name": "n5S",
+    "jsxCalls": 4,
+    "lines": 42,
+    "params": 1
+   },
+   {
+    "name": "i5S",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "r5S",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "s5S",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "o5S",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "a5S",
+    "jsxCalls": 1,
+    "lines": 5,
+    "params": 1
+   },
+   {
+    "name": "l5S",
+    "jsxCalls": 1,
+    "lines": 8,
+    "params": 1
+   },
+   {
+    "name": "c5S",
+    "jsxCalls": 1,
+    "lines": 13,
+    "params": 1
+   },
+   {
+    "name": "K6r",
+    "jsxCalls": 1,
+    "lines": 9,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "AgentTranscriptToolCallView.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "qya"
+  ],
+  "comps": [
+   {
+    "name": "prt",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "WYh",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ArtifactImage.react.js",
+  "jsxAliases": [
+   "uew"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "Abf",
+    "jsxCalls": 1,
+    "lines": 35,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ArtifactTextReference.react.js",
+  "jsxAliases": [
+   "j$",
+   "hew"
+  ],
+  "wrappers": [
+   "dew"
+  ],
+  "comps": [
+   {
+    "name": "Rbf",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "pew",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "mew",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "gew",
+    "jsxCalls": 23,
+    "lines": 76,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "AssistantMessage.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "l4r",
+    "jsxCalls": 0,
+    "lines": 19,
+    "params": 2
+   }
+  ]
+ },
+ {
+  "file": "BackgroundComposerArtifactsSection.js",
+  "jsxAliases": [
+   "b8e",
+   "OoC"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "Tdt",
+    "jsxCalls": 1,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "FoC",
+    "jsxCalls": 11,
+    "lines": 3,
+    "params": 0
+   }
+  ]
+ },
+ {
+  "file": "BackgroundComposerFollowUpInputBox.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "j2w",
+    "jsxCalls": 0,
+    "lines": 8,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "BackgroundComposerInstanceHeader.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "aPw",
+    "jsxCalls": 0,
+    "lines": 123,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "BackgroundComposerInstanceHeaderForComposerPane.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "lPw"
+  ],
+  "comps": [
+   {
+    "name": "cPw",
+    "jsxCalls": 0,
+    "lines": 5,
+    "params": 2
+   },
+   {
+    "name": "J9l",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "$8f",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 2
+   },
+   {
+    "name": "H8f",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "eBl",
+    "jsxCalls": 0,
+    "lines": 6,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerAgentToolTranscriptRow.react.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "bTw",
+    "jsxCalls": 0,
+    "lines": 14,
+    "params": 1
+   },
+   {
+    "name": "nFf",
+    "jsxCalls": 0,
+    "lines": 46,
+    "params": 3
+   },
+   {
+    "name": "yTw",
+    "jsxCalls": 0,
+    "lines": 25,
+    "params": 1
+   },
+   {
+    "name": "STw",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 3
+   },
+   {
+    "name": "iFf",
+    "jsxCalls": 0,
+    "lines": 5,
+    "params": 1
+   },
+   {
+    "name": "kTw",
+    "jsxCalls": 0,
+    "lines": 8,
+    "params": 1
+   },
+   {
+    "name": "wTw",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerAssistantResponseComparison.react.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "Dew"
+  ],
+  "comps": [
+   {
+    "name": "New",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "Lew",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 2
+   },
+   {
+    "name": "Oew",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerAutocompleteHeuristicPlugin.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "$Uk",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "HUk",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "Raf",
+    "jsxCalls": 0,
+    "lines": 38,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerComputerUseTranscriptCard.react.js",
+  "jsxAliases": [
+   "RTw"
+  ],
+  "wrappers": [
+   "ATw"
+  ],
+  "comps": [
+   {
+    "name": "PTw",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "MTw",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 3
+   },
+   {
+    "name": "DTw",
+    "jsxCalls": 0,
+    "lines": 7,
+    "params": 1
+   },
+   {
+    "name": "NTw",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "LTw",
+    "jsxCalls": 1,
+    "lines": 8,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerDebugReproductionToolbar.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "DOk",
+    "jsxCalls": 0,
+    "lines": 10,
+    "params": 1
+   },
+   {
+    "name": "NOk",
+    "jsxCalls": 0,
+    "lines": 10,
+    "params": 1
+   },
+   {
+    "name": "WXg",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 2
+   }
+  ]
+ },
+ {
+  "file": "ComposerDebugReproductionUtils.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "gXg",
+    "jsxCalls": 0,
+    "lines": 8,
+    "params": 1
+   },
+   {
+    "name": "vOk",
+    "jsxCalls": 0,
+    "lines": 13,
+    "params": 1
+   },
+   {
+    "name": "fXg",
+    "jsxCalls": 0,
+    "lines": 21,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerEndOfTurnSummary.react.js",
+  "jsxAliases": [
+   "H6f"
+  ],
+  "wrappers": [
+   "exw"
+  ],
+  "comps": [
+   {
+    "name": "sxw",
+    "jsxCalls": 2,
+    "lines": 17,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerFindWidgetHost.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "HPw"
+  ],
+  "comps": [
+   {
+    "name": "WPw",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "GPw",
+    "jsxCalls": 0,
+    "lines": 12,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerGeneralStatusIndicator.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "Clf",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 2
+   }
+  ]
+ },
+ {
+  "file": "ComposerHumanRowDisplay.react.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "X3f",
+    "jsxCalls": 0,
+    "lines": 6,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerHumanRowEditInput.react.js",
+  "jsxAliases": [
+   "yFl"
+  ],
+  "wrappers": [
+   "Cyw"
+  ],
+  "comps": [
+   {
+    "name": "$3f",
+    "jsxCalls": 3,
+    "lines": 6,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerLexicalPlugins.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "I6k",
+    "jsxCalls": 0,
+    "lines": 8,
+    "params": 0
+   }
+  ]
+ },
+ {
+  "file": "ComposerLoadingDoneOrNumber.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "hcf",
+    "jsxCalls": 0,
+    "lines": 7,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerLocalWorktreeSetupRow.react.js",
+  "jsxAliases": [
+   "Taw"
+  ],
+  "wrappers": [
+   "Caw"
+  ],
+  "comps": [
+   {
+    "name": "Eaw",
+    "jsxCalls": 1,
+    "lines": 3,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerMarkdown.react.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "h2l",
+    "jsxCalls": 0,
+    "lines": 5,
+    "params": 1
+   },
+   {
+    "name": "DQk",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerMcpAuthTranscriptCard.react.js",
+  "jsxAliases": [
+   "M6f"
+  ],
+  "wrappers": [
+   "sIw"
+  ],
+  "comps": [
+   {
+    "name": "lIw",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "cIw",
+    "jsxCalls": 1,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "uIw",
+    "jsxCalls": 1,
+    "lines": 24,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerMcpElicitationForm.react.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "dIw"
+  ],
+  "comps": [
+   {
+    "name": "D6f",
+    "jsxCalls": 0,
+    "lines": 7,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerOptimisticPlanningRow.react.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "Iaw"
+  ],
+  "comps": [
+   {
+    "name": "xaw",
+    "jsxCalls": 0,
+    "lines": 36,
+    "params": 3
+   }
+  ]
+ },
+ {
+  "file": "ComposerPlanExecutionRow.react.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "q3f"
+  ],
+  "comps": [
+   {
+    "name": "Eyw",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerQuestionnaireToolbar.js",
+  "jsxAliases": [
+   "p$k"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "m$k",
+    "jsxCalls": 1,
+    "lines": 8,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerReactTranscriptRoot.react.js",
+  "jsxAliases": [
+   "Aow"
+  ],
+  "wrappers": [
+   "xow"
+  ],
+  "comps": [
+   {
+    "name": "Zkf",
+    "jsxCalls": 1,
+    "lines": 3,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerSlashMenuContext.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "yY1",
+    "jsxCalls": 0,
+    "lines": 19,
+    "params": 1
+   },
+   {
+    "name": "Ies",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "oZa",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "xes",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "SY1",
+    "jsxCalls": 0,
+    "lines": 7,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerSlashMenuTooltipContent.js",
+  "jsxAliases": [
+   "QY1"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "JY1",
+    "jsxCalls": 1,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "yZa",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerSwitchModeTranscriptCard.react.js",
+  "jsxAliases": [
+   "g4l"
+  ],
+  "wrappers": [
+   "yIw"
+  ],
+  "comps": [
+   {
+    "name": "f4l",
+    "jsxCalls": 3,
+    "lines": 3,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerTaskBriefMarkdown.react.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "muv",
+    "jsxCalls": 0,
+    "lines": 8,
+    "params": 1
+   },
+   {
+    "name": "UIs",
+    "jsxCalls": 0,
+    "lines": 10,
+    "params": 2
+   }
+  ]
+ },
+ {
+  "file": "ComposerTaskTranscriptCard.react.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "jIw"
+  ],
+  "comps": [
+   {
+    "name": "HIw",
+    "jsxCalls": 0,
+    "lines": 28,
+    "params": 1
+   },
+   {
+    "name": "WIw",
+    "jsxCalls": 0,
+    "lines": 9,
+    "params": 1
+   },
+   {
+    "name": "GIw",
+    "jsxCalls": 0,
+    "lines": 8,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerToolbarFileList.js",
+  "jsxAliases": [
+   "MPi",
+   "OIl"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "qcf",
+    "jsxCalls": 8,
+    "lines": 3,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerToolbarFileListItem.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "Bcf",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "Ucf",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 3
+   },
+   {
+    "name": "x$k",
+    "jsxCalls": 0,
+    "lines": 17,
+    "params": 3
+   },
+   {
+    "name": "A$k",
+    "jsxCalls": 0,
+    "lines": 10,
+    "params": 5
+   },
+   {
+    "name": "R$k",
+    "jsxCalls": 0,
+    "lines": 24,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerTranscriptHost.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "H9f",
+    "jsxCalls": 0,
+    "lines": 6,
+    "params": 1
+   },
+   {
+    "name": "f2w",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 5
+   },
+   {
+    "name": "v2w",
+    "jsxCalls": 0,
+    "lines": 24,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerUnifiedBottomBar.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "vEl",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "vfs",
+    "jsxCalls": 0,
+    "lines": 7,
+    "params": 3
+   },
+   {
+    "name": "cBe",
+    "jsxCalls": 0,
+    "lines": 7,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComposerWIPSection.js",
+  "jsxAliases": [
+   "lPt",
+   "eBi"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "vaC",
+    "jsxCalls": 13,
+    "lines": 3,
+    "params": 0
+   }
+  ]
+ },
+ {
+  "file": "ComposerWarningPopup.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "hMn",
+    "jsxCalls": 0,
+    "lines": 28,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ComputerUseToolCallView.js",
+  "jsxAliases": [
+   "ELS"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "xLS",
+    "jsxCalls": 1,
+    "lines": 5,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "EditToolCallView.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "uRS",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "p2e",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ErrorToolCallView.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "ALS"
+  ],
+  "comps": [
+   {
+    "name": "MLS",
+    "jsxCalls": 0,
+    "lines": 32,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "GlassHumanMessageStopButton.react.js",
+  "jsxAliases": [
+   "SKe"
+  ],
+  "wrappers": [
+   "H3f"
+  ],
+  "comps": [
+   {
+    "name": "G3f",
+    "jsxCalls": 10,
+    "lines": 21,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "GlobToolCallView.js",
+  "jsxAliases": [
+   "T6r"
+  ],
+  "wrappers": [
+   "TNS"
+  ],
+  "comps": [
+   {
+    "name": "INS",
+    "jsxCalls": 4,
+    "lines": 24,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "GrepToolCallView.js",
+  "jsxAliases": [
+   "E6r"
+  ],
+  "wrappers": [
+   "xNS"
+  ],
+  "comps": [
+   {
+    "name": "RNS",
+    "jsxCalls": 4,
+    "lines": 21,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "LexicalDecoratorBlockNode.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "rEg",
+    "jsxCalls": 0,
+    "lines": 6,
+    "params": 2
+   },
+   {
+    "name": "PAk",
+    "jsxCalls": 0,
+    "lines": 22,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "LexicalErrorBoundary.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "aAk",
+    "jsxCalls": 0,
+    "lines": 9,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "LexicalHorizontalRuleNode.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "QAk",
+    "jsxCalls": 0,
+    "lines": 12,
+    "params": 0
+   }
+  ]
+ },
+ {
+  "file": "LexicalHorizontalRulePlugin.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "EEg"
+  ],
+  "comps": [
+   {
+    "name": "JAk",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "LexicalNestedComposer.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "oRk",
+    "jsxCalls": 0,
+    "lines": 8,
+    "params": 2
+   },
+   {
+    "name": "aRk",
+    "jsxCalls": 0,
+    "lines": 11,
+    "params": 1
+   },
+   {
+    "name": "lRk",
+    "jsxCalls": 0,
+    "lines": 9,
+    "params": 1
+   },
+   {
+    "name": "cRk",
+    "jsxCalls": 0,
+    "lines": 6,
+    "params": 0
+   }
+  ]
+ },
+ {
+  "file": "LexicalOnChangePlugin.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "NTg"
+  ],
+  "comps": [
+   {
+    "name": "lAk",
+    "jsxCalls": 0,
+    "lines": 11,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "LexicalTypeaheadMenuPlugin.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "gRk",
+    "jsxCalls": 0,
+    "lines": 6,
+    "params": 3
+   },
+   {
+    "name": "fRk",
+    "jsxCalls": 0,
+    "lines": 6,
+    "params": 6
+   }
+  ]
+ },
+ {
+  "file": "LsToolCallView.js",
+  "jsxAliases": [
+   "f0e",
+   "_1n"
+  ],
+  "wrappers": [
+   "PNS"
+  ],
+  "comps": [
+   {
+    "name": "DNS",
+    "jsxCalls": 9,
+    "lines": 12,
+    "params": 1
+   },
+   {
+    "name": "I6r",
+    "jsxCalls": 10,
+    "lines": 13,
+    "params": 1
+   },
+   {
+    "name": "NNS",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "MarkdownPreview.js",
+  "jsxAliases": [
+   "eHt"
+  ],
+  "wrappers": [
+   "_gp"
+  ],
+  "comps": [
+   {
+    "name": "Qr1",
+    "jsxCalls": 7,
+    "lines": 31,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "McpToolCallCodeSurface.js",
+  "jsxAliases": [
+   "O3S",
+   "F3S"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "iKh",
+    "jsxCalls": 2,
+    "lines": 10,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "McpToolCallDetails.js",
+  "jsxAliases": [
+   "sKh"
+  ],
+  "wrappers": [
+   "rKh"
+  ],
+  "comps": [
+   {
+    "name": "cya",
+    "jsxCalls": 2,
+    "lines": 10,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "McpToolCallIcon.js",
+  "jsxAliases": [
+   "SKh",
+   "Q3S"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "kKh",
+    "jsxCalls": 3,
+    "lines": 24,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "PlanBuildMessageSection.js",
+  "jsxAliases": [
+   "US",
+   "m9"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "u6n",
+    "jsxCalls": 0,
+    "lines": 5,
+    "params": 1
+   },
+   {
+    "name": "icC",
+    "jsxCalls": 9,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "rcC",
+    "jsxCalls": 9,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "scC",
+    "jsxCalls": 12,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "ocC",
+    "jsxCalls": 13,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "acC",
+    "jsxCalls": 8,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "lcC",
+    "jsxCalls": 13,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "d6n",
+    "jsxCalls": 1,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "ccC",
+    "jsxCalls": 14,
+    "lines": 4,
+    "params": 0
+   }
+  ]
+ },
+ {
+  "file": "PlanRichTextEditor.react.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "hEw"
+  ],
+  "comps": [
+   {
+    "name": "pEw",
+    "jsxCalls": 0,
+    "lines": 169,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "PlaywrightToolCallView.js",
+  "jsxAliases": [
+   "x6r"
+  ],
+  "wrappers": [
+   "bya"
+  ],
+  "comps": [
+   {
+    "name": "ONS",
+    "jsxCalls": 4,
+    "lines": 24,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "PromptInputAnchoredTrayHovercard.react.js",
+  "jsxAliases": [
+   "Bct"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "ZOl",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 0
+   },
+   {
+    "name": "Afw",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "Rfw",
+    "jsxCalls": 0,
+    "lines": 10,
+    "params": 1
+   },
+   {
+    "name": "Pfw",
+    "jsxCalls": 0,
+    "lines": 42,
+    "params": 2
+   },
+   {
+    "name": "Mfw",
+    "jsxCalls": 0,
+    "lines": 7,
+    "params": 2
+   },
+   {
+    "name": "Dfw",
+    "jsxCalls": 2,
+    "lines": 4,
+    "params": 1
+   },
+   {
+    "name": "Nfw",
+    "jsxCalls": 7,
+    "lines": 11,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "PromptInputModelPicker.js",
+  "jsxAliases": [
+   "O_p"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "F_p",
+    "jsxCalls": 2,
+    "lines": 7,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "PromptInputToolbar.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "IGe",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "PromptSelectionOverlayExtension.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "Fo1",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "Bo1",
+    "jsxCalls": 0,
+    "lines": 3,
+    "params": 1
+   },
+   {
+    "name": "Uo1",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ReadLintsToolCallView.js",
+  "jsxAliases": [
+   "A6r"
+  ],
+  "wrappers": [
+   "FNS"
+  ],
+  "comps": [
+   {
+    "name": "UNS",
+    "jsxCalls": 4,
+    "lines": 24,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "RichTextEditor.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "bC1"
+  ],
+  "comps": [
+   {
+    "name": "yC1",
+    "jsxCalls": 0,
+    "lines": 13,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "ShellToolCallView.js",
+  "jsxAliases": [
+   "e3S"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "N4",
+    "jsxCalls": 1,
+    "lines": 5,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "TranscriptCardHeader.js",
+  "jsxAliases": [
+   "VxS"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "YxS",
+    "jsxCalls": 1,
+    "lines": 9,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "TranscriptCardHeaderIcon.js",
+  "jsxAliases": [
+   "cAS"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "dAS",
+    "jsxCalls": 1,
+    "lines": 9,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "TranscriptCardHeaderTitle.js",
+  "jsxAliases": [
+   "fAS"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "_AS",
+    "jsxCalls": 1,
+    "lines": 9,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "TranscriptCardRows.js",
+  "jsxAliases": [
+   "THh"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "BAS",
+    "jsxCalls": 2,
+    "lines": 17,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "UserMessageBox.js",
+  "jsxAliases": [],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "QBS",
+    "jsxCalls": 0,
+    "lines": 12,
+    "params": 1
+   },
+   {
+    "name": "Bep",
+    "jsxCalls": 0,
+    "lines": 34,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "VirtualizedComposerMessages.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "_2w",
+   "b2w"
+  ],
+  "comps": [
+   {
+    "name": "y2w",
+    "jsxCalls": 0,
+    "lines": 21,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "VirtualizedComposerProviders.js",
+  "jsxAliases": [],
+  "wrappers": [
+   "Bow"
+  ],
+  "comps": [
+   {
+    "name": "HDn",
+    "jsxCalls": 0,
+    "lines": 16,
+    "params": 2
+   },
+   {
+    "name": "owf",
+    "jsxCalls": 0,
+    "lines": 4,
+    "params": 0
+   }
+  ]
+ },
+ {
+  "file": "VoiceCallTranscriptUnavailable.js",
+  "jsxAliases": [
+   "xwt",
+   "oRa"
+  ],
+  "wrappers": [
+   "Zg1"
+  ],
+  "comps": [
+   {
+    "name": "aRa",
+    "jsxCalls": 11,
+    "lines": 20,
+    "params": 1
+   }
+  ]
+ },
+ {
+  "file": "WebFetchToolCallView.js",
+  "jsxAliases": [
+   "P6r"
+  ],
+  "wrappers": [],
+  "comps": [
+   {
+    "name": "VNS",
+    "jsxCalls": 0,
+    "lines": 7,
+    "params": 1
+   },
+   {
+    "name": "KNS",
+    "jsxCalls": 4,
+    "lines": 21,
+    "params": 1
+   }
+  ]
+ }
+]

@@ -1,0 +1,2303 @@
+{
+ "extension": "cursor-computer-use",
+ "generatedAt": "2026-11-05T10:07:22.069Z",
+ "sourceDir": "app/extensions/cursor-computer-use",
+ "artifacts": [
+  {
+   "artifact": "app/extensions/cursor-computer-use/dist/273.js",
+   "sha256": "057ec17488f68f7434e12ce31e59180a7183ddc2aab226744d2893aed3fcf167",
+   "bytes": 96804,
+   "chunk": "chunk-273",
+   "chunkId": 273,
+   "entry": false,
+   "moduleCount": 26,
+   "preludeBytes": 120,
+   "footerBytes": 3,
+   "reassembly": "ok",
+   "reassembledSha256": "057ec17488f68f7434e12ce31e59180a7183ddc2aab226744d2893aed3fcf167",
+   "modules": [
+    {
+     "key": "512",
+     "keyType": "number",
+     "file": "512.js",
+     "start": 120,
+     "end": 3708,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "690",
+     "keyType": "number",
+     "file": "690.js",
+     "start": 3710,
+     "end": 4130,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1060",
+     "keyType": "number",
+     "file": "1060.js",
+     "start": 4132,
+     "end": 4219,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1524",
+     "keyType": "number",
+     "file": "1524.js",
+     "start": 4221,
+     "end": 4515,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2421",
+     "keyType": "number",
+     "file": "2421.js",
+     "start": 4517,
+     "end": 5736,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2457",
+     "keyType": "number",
+     "file": "2457.js",
+     "start": 5738,
+     "end": 6783,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2665",
+     "keyType": "number",
+     "file": "2665.js",
+     "start": 6785,
+     "end": 8625,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2774",
+     "keyType": "number",
+     "file": "2774.js",
+     "start": 8627,
+     "end": 11159,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4015",
+     "keyType": "number",
+     "file": "4015.js",
+     "start": 11161,
+     "end": 22242,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4333",
+     "keyType": "number",
+     "file": "4333.js",
+     "start": 22244,
+     "end": 25228,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4651",
+     "keyType": "number",
+     "file": "4651.js",
+     "start": 25230,
+     "end": 29162,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4939",
+     "keyType": "number",
+     "file": "4939.js",
+     "start": 29164,
+     "end": 31517,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5273",
+     "keyType": "number",
+     "file": "5273.js",
+     "start": 31519,
+     "end": 46892,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5983",
+     "keyType": "number",
+     "file": "5983.js",
+     "start": 46894,
+     "end": 47210,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6311",
+     "keyType": "number",
+     "file": "6311.js",
+     "start": 47212,
+     "end": 47725,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6702",
+     "keyType": "number",
+     "file": "6702.js",
+     "start": 47727,
+     "end": 50105,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7626",
+     "keyType": "number",
+     "file": "7626.js",
+     "start": 50107,
+     "end": 71816,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7676",
+     "keyType": "number",
+     "file": "7676.js",
+     "start": 71818,
+     "end": 73035,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8087",
+     "keyType": "number",
+     "file": "8087.js",
+     "start": 73037,
+     "end": 83296,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8231",
+     "keyType": "number",
+     "file": "8231.js",
+     "start": 83298,
+     "end": 84205,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8467",
+     "keyType": "number",
+     "file": "8467.js",
+     "start": 84207,
+     "end": 84531,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8563",
+     "keyType": "number",
+     "file": "8563.js",
+     "start": 84533,
+     "end": 86579,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8565",
+     "keyType": "number",
+     "file": "8565.js",
+     "start": 86581,
+     "end": 87131,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8742",
+     "keyType": "number",
+     "file": "8742.js",
+     "start": 87133,
+     "end": 93857,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8821",
+     "keyType": "number",
+     "file": "8821.js",
+     "start": 93859,
+     "end": 95271,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9968",
+     "keyType": "number",
+     "file": "9968.js",
+     "start": 95273,
+     "end": 96800,
+     "separator": " ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    }
+   ]
+  },
+  {
+   "artifact": "app/extensions/cursor-computer-use/dist/691.js",
+   "sha256": "8055a883079f749d8473db81ef3a6f55f61961d8d578d425ad0e60812eb086f5",
+   "bytes": 17637,
+   "chunk": "chunk-691",
+   "chunkId": 691,
+   "entry": false,
+   "moduleCount": 1,
+   "preludeBytes": 73,
+   "footerBytes": 3,
+   "reassembly": "ok",
+   "reassembledSha256": "8055a883079f749d8473db81ef3a6f55f61961d8d578d425ad0e60812eb086f5",
+   "modules": [
+    {
+     "key": "3691",
+     "keyType": "number",
+     "file": "3691.js",
+     "start": 73,
+     "end": 17633,
+     "separator": " ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    }
+   ]
+  },
+  {
+   "artifact": "app/extensions/cursor-computer-use/dist/716.js",
+   "sha256": "96d288223926354946d5f96ab226d901d776ba8204642a2bc887977837880e89",
+   "bytes": 22268,
+   "chunk": "chunk-716",
+   "chunkId": 716,
+   "entry": false,
+   "moduleCount": 1,
+   "preludeBytes": 73,
+   "footerBytes": 8234,
+   "reassembly": "ok",
+   "reassembledSha256": "96d288223926354946d5f96ab226d901d776ba8204642a2bc887977837880e89",
+   "modules": [
+    {
+     "key": "2716",
+     "keyType": "number",
+     "file": "2716.js",
+     "start": 73,
+     "end": 14033,
+     "separator": " ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    }
+   ]
+  },
+  {
+   "artifact": "app/extensions/cursor-computer-use/dist/928.js",
+   "sha256": "e04ed350b40bd579ab3a39967750106d673508f05e9f3a77bfeb2f4eca08d90f",
+   "bytes": 172902,
+   "chunk": "chunk-928",
+   "chunkId": 928,
+   "entry": false,
+   "moduleCount": 18,
+   "preludeBytes": 59,
+   "footerBytes": 3,
+   "reassembly": "ok",
+   "reassembledSha256": "e04ed350b40bd579ab3a39967750106d673508f05e9f3a77bfeb2f4eca08d90f",
+   "modules": [
+    {
+     "key": "1182",
+     "keyType": "number",
+     "file": "1182.js",
+     "start": 59,
+     "end": 104491,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2589",
+     "keyType": "number",
+     "file": "2589.js",
+     "start": 104493,
+     "end": 114438,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3376",
+     "keyType": "number",
+     "file": "3376.js",
+     "start": 114440,
+     "end": 117019,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3638",
+     "keyType": "number",
+     "file": "3638.js",
+     "start": 117021,
+     "end": 117313,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4803",
+     "keyType": "number",
+     "file": "4803.js",
+     "start": 117315,
+     "end": 120127,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4975",
+     "keyType": "number",
+     "file": "4975.js",
+     "start": 120129,
+     "end": 123574,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5534",
+     "keyType": "number",
+     "file": "5534.js",
+     "start": 123576,
+     "end": 123815,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6095",
+     "keyType": "number",
+     "file": "6095.js",
+     "start": 123817,
+     "end": 143526,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6417",
+     "keyType": "number",
+     "file": "6417.js",
+     "start": 143528,
+     "end": 147235,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6818",
+     "keyType": "number",
+     "file": "6818.js",
+     "start": 147237,
+     "end": 149709,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6930",
+     "keyType": "number",
+     "file": "6930.js",
+     "start": 149711,
+     "end": 149947,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7101",
+     "keyType": "number",
+     "file": "7101.js",
+     "start": 149949,
+     "end": 150435,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7353",
+     "keyType": "number",
+     "file": "7353.js",
+     "start": 150437,
+     "end": 152009,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7515",
+     "keyType": "number",
+     "file": "7515.js",
+     "start": 152011,
+     "end": 152432,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8440",
+     "keyType": "number",
+     "file": "8440.js",
+     "start": 152434,
+     "end": 152554,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9761",
+     "keyType": "number",
+     "file": "9761.js",
+     "start": 152556,
+     "end": 152871,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9763",
+     "keyType": "number",
+     "file": "9763.js",
+     "start": 152873,
+     "end": 172033,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9928",
+     "keyType": "number",
+     "file": "9928.js",
+     "start": 172035,
+     "end": 172898,
+     "separator": " ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    }
+   ]
+  },
+  {
+   "artifact": "app/extensions/cursor-computer-use/dist/extension.js",
+   "sha256": "2e37990c917916e7e5b3d1524e03cf61b1cf38ddc56b1e51014a1275aa4568a6",
+   "bytes": 1955826,
+   "chunk": "extension",
+   "chunkId": null,
+   "entry": false,
+   "moduleCount": 173,
+   "preludeBytes": 88,
+   "footerBytes": 1210098,
+   "reassembly": "ok",
+   "reassembledSha256": "2e37990c917916e7e5b3d1524e03cf61b1cf38ddc56b1e51014a1275aa4568a6",
+   "modules": [
+    {
+     "key": "76",
+     "keyType": "number",
+     "file": "76.js",
+     "start": 88,
+     "end": 6154,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "159",
+     "keyType": "number",
+     "file": "159.js",
+     "start": 6156,
+     "end": 13544,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "174",
+     "keyType": "number",
+     "file": "174.js",
+     "start": 13546,
+     "end": 14605,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "181",
+     "keyType": "number",
+     "file": "181.js",
+     "start": 14607,
+     "end": 14679,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "290",
+     "keyType": "number",
+     "file": "290.js",
+     "start": 14681,
+     "end": 14758,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "363",
+     "keyType": "number",
+     "file": "363.js",
+     "start": 14760,
+     "end": 15748,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "443",
+     "keyType": "number",
+     "file": "443.js",
+     "start": 15750,
+     "end": 18949,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "491",
+     "keyType": "number",
+     "file": "491.js",
+     "start": 18951,
+     "end": 20815,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "536",
+     "keyType": "number",
+     "file": "536.js",
+     "start": 20817,
+     "end": 34635,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "568",
+     "keyType": "number",
+     "file": "568.js",
+     "start": 34637,
+     "end": 37943,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "609",
+     "keyType": "number",
+     "file": "609.js",
+     "start": 37945,
+     "end": 39237,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "761",
+     "keyType": "number",
+     "file": "761.js",
+     "start": 39239,
+     "end": 41280,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "858",
+     "keyType": "number",
+     "file": "858.js",
+     "start": 41282,
+     "end": 41649,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "871",
+     "keyType": "number",
+     "file": "871.js",
+     "start": 41651,
+     "end": 115626,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "970",
+     "keyType": "number",
+     "file": "970.js",
+     "start": 115628,
+     "end": 118111,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1099",
+     "keyType": "number",
+     "file": "1099.js",
+     "start": 118113,
+     "end": 125901,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1101",
+     "keyType": "number",
+     "file": "1101.js",
+     "start": 125903,
+     "end": 150874,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1124",
+     "keyType": "number",
+     "file": "1124.js",
+     "start": 150876,
+     "end": 151198,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1193",
+     "keyType": "number",
+     "file": "1193.js",
+     "start": 151200,
+     "end": 153528,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1329",
+     "keyType": "number",
+     "file": "1329.js",
+     "start": 153530,
+     "end": 157029,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1404",
+     "keyType": "number",
+     "file": "1404.js",
+     "start": 157031,
+     "end": 157146,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1455",
+     "keyType": "number",
+     "file": "1455.js",
+     "start": 157148,
+     "end": 158945,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1464",
+     "keyType": "number",
+     "file": "1464.js",
+     "start": 158947,
+     "end": 164430,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1498",
+     "keyType": "number",
+     "file": "1498.js",
+     "start": 164432,
+     "end": 166697,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1531",
+     "keyType": "number",
+     "file": "1531.js",
+     "start": 166699,
+     "end": 167429,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1537",
+     "keyType": "number",
+     "file": "1537.js",
+     "start": 167431,
+     "end": 174812,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1606",
+     "keyType": "number",
+     "file": "1606.js",
+     "start": 174814,
+     "end": 178845,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1637",
+     "keyType": "number",
+     "file": "1637.js",
+     "start": 178847,
+     "end": 178933,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1663",
+     "keyType": "number",
+     "file": "1663.js",
+     "start": 178935,
+     "end": 183480,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1771",
+     "keyType": "number",
+     "file": "1771.js",
+     "start": 183482,
+     "end": 185718,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1783",
+     "keyType": "number",
+     "file": "1783.js",
+     "start": 185720,
+     "end": 186395,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1802",
+     "keyType": "number",
+     "file": "1802.js",
+     "start": 186397,
+     "end": 188003,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1808",
+     "keyType": "number",
+     "file": "1808.js",
+     "start": 188005,
+     "end": 188976,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1862",
+     "keyType": "number",
+     "file": "1862.js",
+     "start": 188978,
+     "end": 189391,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "1942",
+     "keyType": "number",
+     "file": "1942.js",
+     "start": 189393,
+     "end": 193222,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2074",
+     "keyType": "number",
+     "file": "2074.js",
+     "start": 193224,
+     "end": 196918,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2203",
+     "keyType": "number",
+     "file": "2203.js",
+     "start": 196920,
+     "end": 196993,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2212",
+     "keyType": "number",
+     "file": "2212.js",
+     "start": 196995,
+     "end": 197969,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2239",
+     "keyType": "number",
+     "file": "2239.js",
+     "start": 197971,
+     "end": 210463,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2340",
+     "keyType": "number",
+     "file": "2340.js",
+     "start": 210465,
+     "end": 210697,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2347",
+     "keyType": "number",
+     "file": "2347.js",
+     "start": 210699,
+     "end": 211469,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2381",
+     "keyType": "number",
+     "file": "2381.js",
+     "start": 211471,
+     "end": 211570,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2422",
+     "keyType": "number",
+     "file": "2422.js",
+     "start": 211572,
+     "end": 212121,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2534",
+     "keyType": "number",
+     "file": "2534.js",
+     "start": 212123,
+     "end": 217469,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2613",
+     "keyType": "number",
+     "file": "2613.js",
+     "start": 217471,
+     "end": 217544,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2663",
+     "keyType": "number",
+     "file": "2663.js",
+     "start": 217546,
+     "end": 222009,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2672",
+     "keyType": "number",
+     "file": "2672.js",
+     "start": 222011,
+     "end": 227348,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2706",
+     "keyType": "number",
+     "file": "2706.js",
+     "start": 227350,
+     "end": 227929,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2721",
+     "keyType": "number",
+     "file": "2721.js",
+     "start": 227931,
+     "end": 228521,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2740",
+     "keyType": "number",
+     "file": "2740.js",
+     "start": 228523,
+     "end": 233154,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2789",
+     "keyType": "number",
+     "file": "2789.js",
+     "start": 233156,
+     "end": 307152,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2908",
+     "keyType": "number",
+     "file": "2908.js",
+     "start": 307154,
+     "end": 310271,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2932",
+     "keyType": "number",
+     "file": "2932.js",
+     "start": 310273,
+     "end": 318126,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "2987",
+     "keyType": "number",
+     "file": "2987.js",
+     "start": 318128,
+     "end": 318205,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3006",
+     "keyType": "number",
+     "file": "3006.js",
+     "start": 318207,
+     "end": 318643,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3098",
+     "keyType": "number",
+     "file": "3098.js",
+     "start": 318645,
+     "end": 319624,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3106",
+     "keyType": "number",
+     "file": "3106.js",
+     "start": 319626,
+     "end": 319697,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3153",
+     "keyType": "number",
+     "file": "3153.js",
+     "start": 319699,
+     "end": 320124,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3186",
+     "keyType": "number",
+     "file": "3186.js",
+     "start": 320126,
+     "end": 321008,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3192",
+     "keyType": "number",
+     "file": "3192.js",
+     "start": 321010,
+     "end": 322069,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3193",
+     "keyType": "number",
+     "file": "3193.js",
+     "start": 322071,
+     "end": 322152,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3230",
+     "keyType": "number",
+     "file": "3230.js",
+     "start": 322154,
+     "end": 322357,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3308",
+     "keyType": "number",
+     "file": "3308.js",
+     "start": 322359,
+     "end": 332408,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3322",
+     "keyType": "number",
+     "file": "3322.js",
+     "start": 332410,
+     "end": 336453,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3406",
+     "keyType": "number",
+     "file": "3406.js",
+     "start": 336455,
+     "end": 359010,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3408",
+     "keyType": "number",
+     "file": "3408.js",
+     "start": 359012,
+     "end": 359809,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3469",
+     "keyType": "number",
+     "file": "3469.js",
+     "start": 359811,
+     "end": 367526,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3480",
+     "keyType": "number",
+     "file": "3480.js",
+     "start": 367528,
+     "end": 367606,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3492",
+     "keyType": "number",
+     "file": "3492.js",
+     "start": 367608,
+     "end": 367864,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3494",
+     "keyType": "number",
+     "file": "3494.js",
+     "start": 367866,
+     "end": 371201,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3631",
+     "keyType": "number",
+     "file": "3631.js",
+     "start": 371203,
+     "end": 376615,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3672",
+     "keyType": "number",
+     "file": "3672.js",
+     "start": 376617,
+     "end": 377270,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3774",
+     "keyType": "number",
+     "file": "3774.js",
+     "start": 377272,
+     "end": 377349,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3832",
+     "keyType": "number",
+     "file": "3832.js",
+     "start": 377351,
+     "end": 378517,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3891",
+     "keyType": "number",
+     "file": "3891.js",
+     "start": 378519,
+     "end": 379649,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "3991",
+     "keyType": "number",
+     "file": "3991.js",
+     "start": 379651,
+     "end": 383223,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4003",
+     "keyType": "number",
+     "file": "4003.js",
+     "start": 383225,
+     "end": 385193,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4072",
+     "keyType": "number",
+     "file": "4072.js",
+     "start": 385195,
+     "end": 388567,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4101",
+     "keyType": "number",
+     "file": "4101.js",
+     "start": 388569,
+     "end": 391797,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4193",
+     "keyType": "number",
+     "file": "4193.js",
+     "start": 391799,
+     "end": 393518,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4236",
+     "keyType": "number",
+     "file": "4236.js",
+     "start": 393520,
+     "end": 393594,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4250",
+     "keyType": "number",
+     "file": "4250.js",
+     "start": 393596,
+     "end": 395961,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4260",
+     "keyType": "number",
+     "file": "4260.js",
+     "start": 395963,
+     "end": 400917,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4321",
+     "keyType": "number",
+     "file": "4321.js",
+     "start": 400919,
+     "end": 402826,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4331",
+     "keyType": "number",
+     "file": "4331.js",
+     "start": 402828,
+     "end": 404086,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4332",
+     "keyType": "number",
+     "file": "4332.js",
+     "start": 404088,
+     "end": 404520,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4434",
+     "keyType": "number",
+     "file": "4434.js",
+     "start": 404522,
+     "end": 404595,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4443",
+     "keyType": "number",
+     "file": "4443.js",
+     "start": 404597,
+     "end": 407922,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4622",
+     "keyType": "number",
+     "file": "4622.js",
+     "start": 407924,
+     "end": 408963,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4756",
+     "keyType": "number",
+     "file": "4756.js",
+     "start": 408965,
+     "end": 409035,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4814",
+     "keyType": "number",
+     "file": "4814.js",
+     "start": 409037,
+     "end": 446005,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4824",
+     "keyType": "number",
+     "file": "4824.js",
+     "start": 446007,
+     "end": 469910,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4826",
+     "keyType": "number",
+     "file": "4826.js",
+     "start": 469912,
+     "end": 470906,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4942",
+     "keyType": "number",
+     "file": "4942.js",
+     "start": 470908,
+     "end": 472521,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "4981",
+     "keyType": "number",
+     "file": "4981.js",
+     "start": 472523,
+     "end": 475117,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5440",
+     "keyType": "number",
+     "file": "5440.js",
+     "start": 475119,
+     "end": 475610,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5529",
+     "keyType": "number",
+     "file": "5529.js",
+     "start": 475612,
+     "end": 475900,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5543",
+     "keyType": "number",
+     "file": "5543.js",
+     "start": 475902,
+     "end": 476896,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5636",
+     "keyType": "number",
+     "file": "5636.js",
+     "start": 476898,
+     "end": 481528,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5638",
+     "keyType": "number",
+     "file": "5638.js",
+     "start": 481530,
+     "end": 485667,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5675",
+     "keyType": "number",
+     "file": "5675.js",
+     "start": 485669,
+     "end": 485741,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5682",
+     "keyType": "number",
+     "file": "5682.js",
+     "start": 485743,
+     "end": 486572,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5728",
+     "keyType": "number",
+     "file": "5728.js",
+     "start": 486574,
+     "end": 498968,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5747",
+     "keyType": "number",
+     "file": "5747.js",
+     "start": 498970,
+     "end": 503660,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5822",
+     "keyType": "number",
+     "file": "5822.js",
+     "start": 503662,
+     "end": 507062,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5853",
+     "keyType": "number",
+     "file": "5853.js",
+     "start": 507064,
+     "end": 509319,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5872",
+     "keyType": "number",
+     "file": "5872.js",
+     "start": 509321,
+     "end": 510487,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "5899",
+     "keyType": "number",
+     "file": "5899.js",
+     "start": 510489,
+     "end": 510795,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6038",
+     "keyType": "number",
+     "file": "6038.js",
+     "start": 510797,
+     "end": 515499,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6228",
+     "keyType": "number",
+     "file": "6228.js",
+     "start": 515501,
+     "end": 516788,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6261",
+     "keyType": "number",
+     "file": "6261.js",
+     "start": 516790,
+     "end": 519641,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6333",
+     "keyType": "number",
+     "file": "6333.js",
+     "start": 519643,
+     "end": 521353,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6363",
+     "keyType": "number",
+     "file": "6363.js",
+     "start": 521355,
+     "end": 521675,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6388",
+     "keyType": "number",
+     "file": "6388.js",
+     "start": 521677,
+     "end": 522043,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6560",
+     "keyType": "number",
+     "file": "6560.js",
+     "start": 522045,
+     "end": 524114,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6596",
+     "keyType": "number",
+     "file": "6596.js",
+     "start": 524116,
+     "end": 527043,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6657",
+     "keyType": "number",
+     "file": "6657.js",
+     "start": 527045,
+     "end": 531472,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6687",
+     "keyType": "number",
+     "file": "6687.js",
+     "start": 531474,
+     "end": 533932,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6747",
+     "keyType": "number",
+     "file": "6747.js",
+     "start": 533934,
+     "end": 541199,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6829",
+     "keyType": "number",
+     "file": "6829.js",
+     "start": 541201,
+     "end": 541957,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6879",
+     "keyType": "number",
+     "file": "6879.js",
+     "start": 541959,
+     "end": 544048,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6982",
+     "keyType": "number",
+     "file": "6982.js",
+     "start": 544050,
+     "end": 544123,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "6989",
+     "keyType": "number",
+     "file": "6989.js",
+     "start": 544125,
+     "end": 546067,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7016",
+     "keyType": "number",
+     "file": "7016.js",
+     "start": 546069,
+     "end": 546139,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7052",
+     "keyType": "number",
+     "file": "7052.js",
+     "start": 546141,
+     "end": 554578,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7075",
+     "keyType": "number",
+     "file": "7075.js",
+     "start": 554580,
+     "end": 554658,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7084",
+     "keyType": "number",
+     "file": "7084.js",
+     "start": 554660,
+     "end": 558507,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7141",
+     "keyType": "number",
+     "file": "7141.js",
+     "start": 558509,
+     "end": 567559,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7206",
+     "keyType": "number",
+     "file": "7206.js",
+     "start": 567561,
+     "end": 568431,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7235",
+     "keyType": "number",
+     "file": "7235.js",
+     "start": 568433,
+     "end": 570543,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7362",
+     "keyType": "number",
+     "file": "7362.js",
+     "start": 570545,
+     "end": 571118,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7374",
+     "keyType": "number",
+     "file": "7374.js",
+     "start": 571120,
+     "end": 615908,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7535",
+     "keyType": "number",
+     "file": "7535.js",
+     "start": 615910,
+     "end": 615996,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7598",
+     "keyType": "number",
+     "file": "7598.js",
+     "start": 615998,
+     "end": 616076,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7599",
+     "keyType": "number",
+     "file": "7599.js",
+     "start": 616078,
+     "end": 616941,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7668",
+     "keyType": "number",
+     "file": "7668.js",
+     "start": 616943,
+     "end": 617719,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7696",
+     "keyType": "number",
+     "file": "7696.js",
+     "start": 617721,
+     "end": 618187,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7710",
+     "keyType": "number",
+     "file": "7710.js",
+     "start": 618189,
+     "end": 623192,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7902",
+     "keyType": "number",
+     "file": "7902.js",
+     "start": 623194,
+     "end": 628697,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7907",
+     "keyType": "number",
+     "file": "7907.js",
+     "start": 628699,
+     "end": 631875,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7924",
+     "keyType": "number",
+     "file": "7924.js",
+     "start": 631877,
+     "end": 636100,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7975",
+     "keyType": "number",
+     "file": "7975.js",
+     "start": 636102,
+     "end": 636178,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7997",
+     "keyType": "number",
+     "file": "7997.js",
+     "start": 636180,
+     "end": 637433,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "7999",
+     "keyType": "number",
+     "file": "7999.js",
+     "start": 637435,
+     "end": 641531,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8005",
+     "keyType": "number",
+     "file": "8005.js",
+     "start": 641533,
+     "end": 650421,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8021",
+     "keyType": "number",
+     "file": "8021.js",
+     "start": 650423,
+     "end": 661975,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8167",
+     "keyType": "number",
+     "file": "8167.js",
+     "start": 661977,
+     "end": 662058,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8245",
+     "keyType": "number",
+     "file": "8245.js",
+     "start": 662060,
+     "end": 665760,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8253",
+     "keyType": "number",
+     "file": "8253.js",
+     "start": 665762,
+     "end": 665839,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8269",
+     "keyType": "number",
+     "file": "8269.js",
+     "start": 665841,
+     "end": 670452,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8430",
+     "keyType": "number",
+     "file": "8430.js",
+     "start": 670454,
+     "end": 679534,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8474",
+     "keyType": "number",
+     "file": "8474.js",
+     "start": 679536,
+     "end": 679614,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8611",
+     "keyType": "number",
+     "file": "8611.js",
+     "start": 679616,
+     "end": 679687,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8642",
+     "keyType": "number",
+     "file": "8642.js",
+     "start": 679689,
+     "end": 690758,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8803",
+     "keyType": "number",
+     "file": "8803.js",
+     "start": 690760,
+     "end": 692027,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8809",
+     "keyType": "number",
+     "file": "8809.js",
+     "start": 692029,
+     "end": 692120,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8814",
+     "keyType": "number",
+     "file": "8814.js",
+     "start": 692122,
+     "end": 697211,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8831",
+     "keyType": "number",
+     "file": "8831.js",
+     "start": 697213,
+     "end": 704053,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8832",
+     "keyType": "number",
+     "file": "8832.js",
+     "start": 704055,
+     "end": 707350,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "8841",
+     "keyType": "number",
+     "file": "8841.js",
+     "start": 707352,
+     "end": 710924,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9023",
+     "keyType": "number",
+     "file": "9023.js",
+     "start": 710926,
+     "end": 710997,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9044",
+     "keyType": "number",
+     "file": "9044.js",
+     "start": 710999,
+     "end": 716571,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9050",
+     "keyType": "number",
+     "file": "9050.js",
+     "start": 716573,
+     "end": 720056,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9278",
+     "keyType": "number",
+     "file": "9278.js",
+     "start": 720058,
+     "end": 720128,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9301",
+     "keyType": "number",
+     "file": "9301.js",
+     "start": 720130,
+     "end": 722217,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9361",
+     "keyType": "number",
+     "file": "9361.js",
+     "start": 722219,
+     "end": 732189,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9512",
+     "keyType": "number",
+     "file": "9512.js",
+     "start": 732191,
+     "end": 735261,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9523",
+     "keyType": "number",
+     "file": "9523.js",
+     "start": 735263,
+     "end": 735938,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9526",
+     "keyType": "number",
+     "file": "9526.js",
+     "start": 735940,
+     "end": 737822,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9792",
+     "keyType": "number",
+     "file": "9792.js",
+     "start": 737824,
+     "end": 741009,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9809",
+     "keyType": "number",
+     "file": "9809.js",
+     "start": 741011,
+     "end": 744417,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9896",
+     "keyType": "number",
+     "file": "9896.js",
+     "start": 744419,
+     "end": 744488,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    },
+    {
+     "key": "9909",
+     "keyType": "number",
+     "file": "9909.js",
+     "start": 744490,
+     "end": 745159,
+     "separator": " ",
+     "basis": "webpack-id",
+     "confidence": "C"
+    }
+   ]
+  }
+ ],
+ "skipped": [
+  {
+   "file": "app/extensions/cursor-computer-use/dist/46.js",
+   "reason": "no webpack module map (esbuild bundle, asset or script)",
+   "bytes": 95335
+  },
+  {
+   "file": "app/extensions/cursor-computer-use/dist/502.js",
+   "reason": "no webpack module map (esbuild bundle, asset or script)",
+   "bytes": 32560
+  },
+  {
+   "file": "app/extensions/cursor-computer-use/dist/621.js",
+   "reason": "no webpack module map (esbuild bundle, asset or script)",
+   "bytes": 40994
+  },
+  {
+   "file": "app/extensions/cursor-computer-use/dist/746.js",
+   "reason": "no webpack module map (esbuild bundle, asset or script)",
+   "bytes": 72421
+  },
+  {
+   "file": "app/extensions/cursor-computer-use/dist/853.js",
+   "reason": "no webpack module map (esbuild bundle, asset or script)",
+   "bytes": 15412
+  }
+ ],
+ "totals": {
+  "artifacts": 5,
+  "modules": 219
+ }
+}

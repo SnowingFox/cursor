@@ -1,0 +1,11 @@
+// @recovered-by cursor-re
+// artifact: app/extensions/cursor-agent-exec/dist/709.js sha256:178b16cc9cd8c06565bc9aac7b10691bae0eb6d67807efc2887d6c205e5f61c7
+// module: 48349 range:9301..11131
+// basis: webpack-id confidence: C
+// method: split
+// run: ext-p0 2026-11-05T10:07:22.069Z
+48349: (e, t, n) => {
+  Object.defineProperty(t, "__esModule", { value: true }), t.bdd = void 0;
+  const o = n(82713), r = "ref", i = -1, s = true, a = "isSet", c = "PartitionResult", u = "booleanEquals", d = "getAttr", p = "stringEquals", l = { [r]: "Endpoint" }, g = { [r]: c }, h = { fn: d, argv: [g, "name"] }, E = {}, S = [{ [r]: "Region" }], f = { conditions: [[a, [l]], [a, S], ["aws.partition", S, c], [u, [{ [r]: "UseFIPS" }, s]], [u, [{ [r]: "UseDualStack" }, s]], [u, [{ fn: d, argv: [g, "supportsDualStack"] }, s]], [u, [{ fn: d, argv: [g, "supportsFIPS"] }, s]], [p, [h, "aws"]], [p, [h, "aws-cn"]], [p, [h, "aws-us-gov"]]], results: [[i], [i, "Invalid Configuration: FIPS and custom endpoint are not supported"], [i, "Invalid Configuration: Dualstack and custom endpoint are not supported"], [l, E], ["https://{Region}.signin.aws.amazon.com", E], ["https://{Region}.signin.amazonaws.cn", E], ["https://{Region}.signin.amazonaws-us-gov.com", E], ["https://signin-fips.{Region}.{PartitionResult#dualStackDnsSuffix}", E], [i, "FIPS and DualStack are enabled, but this partition does not support one or both"], ["https://signin-fips.{Region}.{PartitionResult#dnsSuffix}", E], [i, "FIPS is enabled but this partition does not support FIPS"], ["https://signin.{Region}.{PartitionResult#dualStackDnsSuffix}", E], [i, "DualStack is enabled but this partition does not support DualStack"], ["https://signin.{Region}.{PartitionResult#dnsSuffix}", E], [i, "Invalid Configuration: Missing Region"]] }, m = 1e8, v = new Int32Array([-1, 1, -1, 0, 15, 3, 1, 4, m + 14, 2, 5, m + 14, 3, 11, 6, 4, 10, 7, 7, m + 4, 8, 8, m + 5, 9, 9, m + 6, m + 13, 5, m + 11, m + 12, 4, 13, 12, 6, m + 9, m + 10, 5, 14, m + 8, 6, m + 7, m + 8, 3, m + 1, 16, 4, m + 2, m + 3]);
+  t.bdd = o.BinaryDecisionDiagram.from(v, 2, f.conditions, f.results);
+}

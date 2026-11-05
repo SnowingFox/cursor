@@ -1,0 +1,20 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6042",
+  "basename": "ComposerMcpElicitationForm.react.js",
+  "source": "recovered/app/glass/composer/ComposerMcpElicitationForm.react.js",
+  "renames": {
+    "dIw": "composerMcpElicitationFormModuleInit"
+  },
+  "evidence": [
+    {
+      "from": "dIw",
+      "to": "composerMcpElicitationFormModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

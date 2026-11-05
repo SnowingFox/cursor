@@ -1,0 +1,89 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "ES2023"
+    ],
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@anysphere/cursor-sdk-local-runtime": [
+        "../cursor-sdk-local-runtime/src/index.ts"
+      ],
+      "@anysphere/cursor-sdk-local-runtime/*": [
+        "../cursor-sdk-local-runtime/src/*"
+      ],
+      "@anysphere/cursor-sdk-shared": [
+        "../cursor-sdk-shared/src/index.ts"
+      ],
+      "@anysphere/cursor-sdk-shared/*": [
+        "../cursor-sdk-shared/src/*"
+      ],
+      "@anysphere/proto": [
+        "../proto/src/index.ts"
+      ],
+      "@anysphere/proto/*": [
+        "../proto/src/*"
+      ],
+      "@anysphere/utils": [
+        "../utils/src/index.ts"
+      ],
+      "@anysphere/utils/*": [
+        "../utils/src/*"
+      ],
+      "@anysphere/context": [
+        "../context/src/index.ts"
+      ],
+      "@anysphere/context/*": [
+        "../context/src/*"
+      ],
+      "@anysphere/metrics": [
+        "../metrics/src/index.ts"
+      ],
+      "@anysphere/metrics/*": [
+        "../metrics/src/*"
+      ],
+      "@anysphere/shell-exec": [
+        "../shell-exec/src/index.ts"
+      ],
+      "@anysphere/shell-exec/*": [
+        "../shell-exec/src/*"
+      ],
+      "@anysphere/mcp-core": [
+        "../mcp-core/src/index.ts"
+      ],
+      "@anysphere/mcp-core/*": [
+        "../mcp-core/src/*"
+      ],
+      "@anysphere/mcp-agent-exec": [
+        "../mcp-agent-exec/src/index.ts"
+      ],
+      "@anysphere/mcp-agent-exec/*": [
+        "../mcp-agent-exec/src/*"
+      ],
+      "@anysphere/agent-kv": [
+        "../agent-kv/src/index.ts"
+      ],
+      "@anysphere/agent-kv/*": [
+        "../agent-kv/src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts"
+  ]
+}

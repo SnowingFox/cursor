@@ -1,0 +1,12 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3905",
+  "basename": "AgentHostAutoRoutingRow.js",
+  "file": "recovered/app/glass/agent/AgentHostAutoRoutingRow.js",
+  "renames": {
+    "LK1": "AgentHostAutoRoutingRowModule"
+  },
+  "notes": [
+    "LK1 -> AgentHostAutoRoutingRowModule: declared wrapper binding, evidence: esbuild init key \"AgentHostAutoRoutingRow.js\"",
+    "component rename skipped: 9 JSX-returning functions (K0i, WXa, FK1, BK1, wes, UK1, $K1, HK1, GK1)"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2886",
+  "basename": "MarkdownPreview.js",
+  "source": "recovered/app/glass/composer/MarkdownPreview.js",
+  "renames": {
+    "_gp": "markdownPreviewModuleInit",
+    "Qr1": "GalleryThumbnail"
+  },
+  "evidence": [
+    {
+      "from": "_gp",
+      "to": "markdownPreviewModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    },
+    {
+      "from": "Qr1",
+      "to": "GalleryThumbnail",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "GalleryThumbnail.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

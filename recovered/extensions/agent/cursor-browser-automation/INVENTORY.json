@@ -1,0 +1,214 @@
+{
+ "extension": "cursor-browser-automation",
+ "generatedAt": "2026-11-05T10:17:16.559Z",
+ "sourceDir": "app/extensions/cursor-browser-automation",
+ "package": {
+  "name": "cursor-browser-automation",
+  "version": "1.0.0",
+  "main": "./dist/extension.js",
+  "activationEvents": [
+   "onStartupFinished"
+  ],
+  "enabledApiProposals": [
+   "control",
+   "cursor",
+   "cursorTracing"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "contributes": {},
+  "scripts": {}
+ },
+ "distArtifacts": [
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/273.js",
+   "bytes": 96804,
+   "sha256": "ab64b3e34dc97e1e5c85ecdaec9168b4137705ddedfa3c341bca35d6a42d36bc",
+   "webpack": true,
+   "modules": 26,
+   "keyTypes": {
+    "number": 26,
+    "string": 0
+   },
+   "chunkId": 273,
+   "entry": false
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/46.js",
+   "bytes": 95335,
+   "sha256": "fc05f1652974ecd3fede58b9a6df92a390fecabe8af377b8fa1b79343228160a",
+   "webpack": false,
+   "modules": 0,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "chunkId": 46,
+   "entry": false
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/502.js",
+   "bytes": 32560,
+   "sha256": "c28372b4fe3243bd806f91851857b61a3514cba956e2181fd3b34cdcf2e08f40",
+   "webpack": false,
+   "modules": 0,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "chunkId": 502,
+   "entry": false
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/621.js",
+   "bytes": 40994,
+   "sha256": "e9bb25f91552aa3941ca867b7b4cdab4bd66cafb53676ea785ebd99f7ae01a99",
+   "webpack": false,
+   "modules": 0,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "chunkId": 621,
+   "entry": false
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/691.js",
+   "bytes": 17637,
+   "sha256": "8055a883079f749d8473db81ef3a6f55f61961d8d578d425ad0e60812eb086f5",
+   "webpack": true,
+   "modules": 1,
+   "keyTypes": {
+    "number": 1,
+    "string": 0
+   },
+   "chunkId": 691,
+   "entry": false
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/716.js",
+   "bytes": 22268,
+   "sha256": "96d288223926354946d5f96ab226d901d776ba8204642a2bc887977837880e89",
+   "webpack": true,
+   "modules": 1,
+   "keyTypes": {
+    "number": 1,
+    "string": 0
+   },
+   "chunkId": 716,
+   "entry": false
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/746.js",
+   "bytes": 72421,
+   "sha256": "cd76df42c575a3b1450a5f2711bab85d4f036cf9dbeaa8179fdc26a785e55817",
+   "webpack": false,
+   "modules": 0,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "chunkId": 746,
+   "entry": false
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/853.js",
+   "bytes": 15412,
+   "sha256": "1119ddb33768801f5f2bcce7edebbdccc3a5aa6e9616a4262a7fd132f755f2d4",
+   "webpack": false,
+   "modules": 0,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "chunkId": 853,
+   "entry": false
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/928.js",
+   "bytes": 172902,
+   "sha256": "e04ed350b40bd579ab3a39967750106d673508f05e9f3a77bfeb2f4eca08d90f",
+   "webpack": true,
+   "modules": 18,
+   "keyTypes": {
+    "number": 18,
+    "string": 0
+   },
+   "chunkId": 928,
+   "entry": false
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/extension.js",
+   "bytes": 228737,
+   "sha256": "0a3202863659a069dfa60ac7cf5aa5e2ce58efc5f5c37049b70028c987815a54",
+   "webpack": true,
+   "modules": 6,
+   "keyTypes": {
+    "number": 6,
+    "string": 0
+   },
+   "chunkId": null,
+   "entry": true
+  }
+ ],
+ "shippedFiles": [
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/273.js.LICENSE.txt",
+   "bytes": 90,
+   "sha256": "9147d44d83cc2ac8d2467b4587564cadc61ea5b26447dcfe7946e99209150493",
+   "category": "license",
+   "copy": false
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/46.js.LICENSE.txt",
+   "bytes": 5612,
+   "sha256": "ad557f168ac5a7056d7e176d54a20e32753340286d5f71a2c24c145cf7c74186",
+   "category": "license",
+   "copy": false
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/package.json",
+   "bytes": 433,
+   "sha256": "286a043c03d8093cd708c765dffb773f562541ecb0a3a4f9505dfb3f7a6ddf29",
+   "category": "manifest",
+   "copy": true
+  }
+ ],
+ "thirdPartyAssets": [],
+ "unresolved": [
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/46.js",
+   "reason": "no webpack module map (worker/esbuild/asset script)",
+   "bytes": 95335
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/502.js",
+   "reason": "no webpack module map (worker/esbuild/asset script)",
+   "bytes": 32560
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/621.js",
+   "reason": "no webpack module map (worker/esbuild/asset script)",
+   "bytes": 40994
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/746.js",
+   "reason": "no webpack module map (worker/esbuild/asset script)",
+   "bytes": 72421
+  },
+  {
+   "path": "app/extensions/cursor-browser-automation/dist/853.js",
+   "reason": "no webpack module map (worker/esbuild/asset script)",
+   "bytes": 15412
+  }
+ ],
+ "totals": {
+  "bytes": 801205,
+  "distBytes": 795070,
+  "distArtifacts": 10,
+  "webpackArtifacts": 5,
+  "webpackModules": 52,
+  "shippedFiles": 3
+ }
+}

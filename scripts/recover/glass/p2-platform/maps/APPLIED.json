@@ -1,0 +1,24 @@
+{
+  "applied": [
+    "AddPluginsToMarketplaceMenu.js",
+    "ImportTeamMarketplaceFromRepoForm.js",
+    "LegacyModelItem.js",
+    "LockedModelPicker.react.js",
+    "ManageTeamMarketplaceModal.js",
+    "ManageTeamMarketplaceModalContent.js",
+    "MarketplaceSectionEndCol.js",
+    "MicrosoftTeamsIcon.js",
+    "ModelListRowLabel.js",
+    "ModelParameterControls.js",
+    "ModelPickerContext.js",
+    "PluginActionConfirmCard.js",
+    "PluginCapabilityBadges.js",
+    "PluginSection.js",
+    "PluginSectionHeader.js",
+    "PluginSourceBadges.js",
+    "Plugins.types.js",
+    "ProjectDatabasePlugin.js",
+    "ShikiCodeBlockTokenizer.js",
+    "StatsigUser.js"
+  ]
+}

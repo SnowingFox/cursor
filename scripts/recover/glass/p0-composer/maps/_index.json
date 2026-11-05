@@ -1,0 +1,1538 @@
+{
+  "generatedAt": "2026-11-05T10:19:05.405Z",
+  "cluster": "p0-composer",
+  "modules": 53,
+  "renames": 70,
+  "maps": [
+    {
+      "basename": "AgentTranscriptActivityGroup.js",
+      "file": "scripts/recover/glass/p0-composer/maps/AgentTranscriptActivityGroup.json",
+      "renames": {
+        "sXh": "AgentTranscriptApprovalStack"
+      }
+    },
+    {
+      "basename": "AgentTranscriptApprovalStack.js",
+      "file": "scripts/recover/glass/p0-composer/maps/AgentTranscriptApprovalStack.json",
+      "renames": {
+        "G5S": "agentTranscriptApprovalStackModuleInit",
+        "i4r": "AgentTranscriptEnter"
+      }
+    },
+    {
+      "basename": "AgentTranscriptConnectScmCard.js",
+      "file": "scripts/recover/glass/p0-composer/maps/AgentTranscriptConnectScmCard.json",
+      "renames": {
+        "k1n": "CollapsibleContent"
+      }
+    },
+    {
+      "basename": "AgentTranscriptEnter.js",
+      "file": "scripts/recover/glass/p0-composer/maps/AgentTranscriptEnter.json",
+      "renames": {
+        "X5S": "agentTranscriptEnterModuleInit"
+      }
+    },
+    {
+      "basename": "AgentTranscriptHumanAttachmentStrip.js",
+      "file": "scripts/recover/glass/p0-composer/maps/AgentTranscriptHumanAttachmentStrip.json",
+      "renames": {
+        "cXh": "agentTranscriptHumanAttachmentStripModuleInit",
+        "rSa": "AgentTranscriptHumanSenderLabel"
+      }
+    },
+    {
+      "basename": "AgentTranscriptNotification.js",
+      "file": "scripts/recover/glass/p0-composer/maps/AgentTranscriptNotification.json",
+      "renames": {
+        "AXh": "AgentTranscriptPlacementDecisionCard"
+      }
+    },
+    {
+      "basename": "AgentTranscriptSentMessageActions.js",
+      "file": "scripts/recover/glass/p0-composer/maps/AgentTranscriptSentMessageActions.json",
+      "renames": {
+        "P9r": "CursorIcon"
+      }
+    },
+    {
+      "basename": "AgentTranscriptToolCallView.js",
+      "file": "scripts/recover/glass/p0-composer/maps/AgentTranscriptToolCallView.json",
+      "renames": {
+        "qya": "agentTranscriptToolCallViewModuleInit"
+      }
+    },
+    {
+      "basename": "ArtifactImage.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ArtifactImage.react.json",
+      "renames": {
+        "Abf": "ArtifactTextReference"
+      }
+    },
+    {
+      "basename": "ArtifactTextReference.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ArtifactTextReference.react.json",
+      "renames": {
+        "dew": "artifactTextReferenceModuleInit",
+        "gew": "ArtifactVideo"
+      }
+    },
+    {
+      "basename": "BackgroundComposerInstanceHeaderForComposerPane.js",
+      "file": "scripts/recover/glass/p0-composer/maps/BackgroundComposerInstanceHeaderForComposerPane.json",
+      "renames": {
+        "lPw": "backgroundComposerInstanceHeaderForComposerPaneModuleInit"
+      }
+    },
+    {
+      "basename": "ComposerAssistantResponseComparison.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerAssistantResponseComparison.react.json",
+      "renames": {
+        "Dew": "composerAssistantResponseComparisonModuleInit"
+      }
+    },
+    {
+      "basename": "ComposerComputerUseTranscriptCard.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerComputerUseTranscriptCard.react.json",
+      "renames": {
+        "ATw": "composerComputerUseTranscriptCardModuleInit",
+        "LTw": "ComposerConnectScmTranscriptCard"
+      }
+    },
+    {
+      "basename": "ComposerEndOfTurnSummary.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerEndOfTurnSummary.react.json",
+      "renames": {
+        "exw": "composerEndOfTurnSummaryModuleInit",
+        "sxw": "ComposerTranscriptCodeBlock"
+      }
+    },
+    {
+      "basename": "ComposerFindWidgetHost.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerFindWidgetHost.json",
+      "renames": {
+        "HPw": "composerFindWidgetHostModuleInit"
+      }
+    },
+    {
+      "basename": "ComposerHumanRowEditInput.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerHumanRowEditInput.react.json",
+      "renames": {
+        "Cyw": "composerHumanRowEditInputModuleInit",
+        "$3f": "GlassHumanMessageStopButton"
+      }
+    },
+    {
+      "basename": "ComposerLocalWorktreeSetupRow.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerLocalWorktreeSetupRow.react.json",
+      "renames": {
+        "Caw": "composerLocalWorktreeSetupRowModuleInit",
+        "Eaw": "ComposerOptimisticPlanningRow"
+      }
+    },
+    {
+      "basename": "ComposerMcpAuthTranscriptCard.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerMcpAuthTranscriptCard.react.json",
+      "renames": {
+        "sIw": "composerMcpAuthTranscriptCardModuleInit"
+      }
+    },
+    {
+      "basename": "ComposerMcpElicitationForm.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerMcpElicitationForm.react.json",
+      "renames": {
+        "dIw": "composerMcpElicitationFormModuleInit"
+      }
+    },
+    {
+      "basename": "ComposerOptimisticPlanningRow.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerOptimisticPlanningRow.react.json",
+      "renames": {
+        "Iaw": "composerOptimisticPlanningRowModuleInit"
+      }
+    },
+    {
+      "basename": "ComposerPlanExecutionRow.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerPlanExecutionRow.react.json",
+      "renames": {
+        "q3f": "composerPlanExecutionRowModuleInit"
+      }
+    },
+    {
+      "basename": "ComposerQuestionnaireToolbar.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerQuestionnaireToolbar.json",
+      "renames": {
+        "m$k": "ComposerTipTapReadOnlyHost"
+      }
+    },
+    {
+      "basename": "ComposerReactTranscriptRoot.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerReactTranscriptRoot.react.json",
+      "renames": {
+        "xow": "composerReactTranscriptRootModuleInit",
+        "Zkf": "ComposerReactTranscriptHost"
+      }
+    },
+    {
+      "basename": "ComposerSwitchModeTranscriptCard.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerSwitchModeTranscriptCard.react.json",
+      "renames": {
+        "yIw": "composerSwitchModeTranscriptCardModuleInit",
+        "f4l": "AgentEnvironmentIcon"
+      }
+    },
+    {
+      "basename": "ComposerTaskTranscriptCard.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerTaskTranscriptCard.react.json",
+      "renames": {
+        "jIw": "composerTaskTranscriptCardModuleInit"
+      }
+    },
+    {
+      "basename": "ComposerToolbarFileList.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerToolbarFileList.json",
+      "renames": {
+        "qcf": "SteerQueueNuxNotice"
+      }
+    },
+    {
+      "basename": "ComposerWIPSection.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComposerWIPSection.json",
+      "renames": {
+        "vaC": "ConversationDensityPreviewGallery"
+      }
+    },
+    {
+      "basename": "ComputerUseToolCallView.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ComputerUseToolCallView.json",
+      "renames": {
+        "xLS": "ErrorToolCallView"
+      }
+    },
+    {
+      "basename": "ErrorToolCallView.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ErrorToolCallView.json",
+      "renames": {
+        "ALS": "errorToolCallViewModuleInit"
+      }
+    },
+    {
+      "basename": "GlassHumanMessageStopButton.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/GlassHumanMessageStopButton.react.json",
+      "renames": {
+        "H3f": "glassHumanMessageStopButtonModuleInit",
+        "G3f": "ComposerPlanExecutionRow"
+      }
+    },
+    {
+      "basename": "GlobToolCallView.js",
+      "file": "scripts/recover/glass/p0-composer/maps/GlobToolCallView.json",
+      "renames": {
+        "TNS": "globToolCallViewModuleInit",
+        "INS": "GrepToolCallView"
+      }
+    },
+    {
+      "basename": "GrepToolCallView.js",
+      "file": "scripts/recover/glass/p0-composer/maps/GrepToolCallView.json",
+      "renames": {
+        "xNS": "grepToolCallViewModuleInit",
+        "RNS": "LsToolCallView"
+      }
+    },
+    {
+      "basename": "LexicalHorizontalRulePlugin.js",
+      "file": "scripts/recover/glass/p0-composer/maps/LexicalHorizontalRulePlugin.json",
+      "renames": {
+        "EEg": "lexicalHorizontalRulePluginModuleInit"
+      }
+    },
+    {
+      "basename": "LexicalOnChangePlugin.js",
+      "file": "scripts/recover/glass/p0-composer/maps/LexicalOnChangePlugin.json",
+      "renames": {
+        "NTg": "lexicalOnChangePluginModuleInit"
+      }
+    },
+    {
+      "basename": "LsToolCallView.js",
+      "file": "scripts/recover/glass/p0-composer/maps/LsToolCallView.json",
+      "renames": {
+        "PNS": "lsToolCallViewModuleInit"
+      }
+    },
+    {
+      "basename": "MarkdownPreview.js",
+      "file": "scripts/recover/glass/p0-composer/maps/MarkdownPreview.json",
+      "renames": {
+        "_gp": "markdownPreviewModuleInit",
+        "Qr1": "GalleryThumbnail"
+      }
+    },
+    {
+      "basename": "McpToolCallCodeSurface.js",
+      "file": "scripts/recover/glass/p0-composer/maps/McpToolCallCodeSurface.json",
+      "renames": {
+        "iKh": "McpToolCallDetails"
+      }
+    },
+    {
+      "basename": "McpToolCallDetails.js",
+      "file": "scripts/recover/glass/p0-composer/maps/McpToolCallDetails.json",
+      "renames": {
+        "rKh": "mcpToolCallDetailsModuleInit",
+        "cya": "MCPIcon"
+      }
+    },
+    {
+      "basename": "McpToolCallIcon.js",
+      "file": "scripts/recover/glass/p0-composer/maps/McpToolCallIcon.json",
+      "renames": {
+        "kKh": "PendingFileChangeApprovalLine"
+      }
+    },
+    {
+      "basename": "PlanRichTextEditor.react.js",
+      "file": "scripts/recover/glass/p0-composer/maps/PlanRichTextEditor.react.json",
+      "renames": {
+        "hEw": "planRichTextEditorModuleInit"
+      }
+    },
+    {
+      "basename": "PlaywrightToolCallView.js",
+      "file": "scripts/recover/glass/p0-composer/maps/PlaywrightToolCallView.json",
+      "renames": {
+        "bya": "playwrightToolCallViewModuleInit",
+        "ONS": "ReadLintsToolCallView"
+      }
+    },
+    {
+      "basename": "PromptInputModelPicker.js",
+      "file": "scripts/recover/glass/p0-composer/maps/PromptInputModelPicker.json",
+      "renames": {
+        "F_p": "SubmitArrowIcon"
+      }
+    },
+    {
+      "basename": "ReadLintsToolCallView.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ReadLintsToolCallView.json",
+      "renames": {
+        "FNS": "readLintsToolCallViewModuleInit",
+        "UNS": "SemSearchToolCallView"
+      }
+    },
+    {
+      "basename": "RichTextEditor.js",
+      "file": "scripts/recover/glass/p0-composer/maps/RichTextEditor.json",
+      "renames": {
+        "bC1": "richTextEditorModuleInit"
+      }
+    },
+    {
+      "basename": "ShellToolCallView.js",
+      "file": "scripts/recover/glass/p0-composer/maps/ShellToolCallView.json",
+      "renames": {
+        "N4": "ModelPickerMarkdown"
+      }
+    },
+    {
+      "basename": "TranscriptCardHeader.js",
+      "file": "scripts/recover/glass/p0-composer/maps/TranscriptCardHeader.json",
+      "renames": {
+        "YxS": "TranscriptCardHeaderContent"
+      }
+    },
+    {
+      "basename": "TranscriptCardHeaderIcon.js",
+      "file": "scripts/recover/glass/p0-composer/maps/TranscriptCardHeaderIcon.json",
+      "renames": {
+        "dAS": "TranscriptCardHeaderLeading"
+      }
+    },
+    {
+      "basename": "TranscriptCardHeaderTitle.js",
+      "file": "scripts/recover/glass/p0-composer/maps/TranscriptCardHeaderTitle.json",
+      "renames": {
+        "_AS": "TranscriptCardHeaderTrailing"
+      }
+    },
+    {
+      "basename": "TranscriptCardRows.js",
+      "file": "scripts/recover/glass/p0-composer/maps/TranscriptCardRows.json",
+      "renames": {
+        "BAS": "TranscriptCardTimeout"
+      }
+    },
+    {
+      "basename": "VirtualizedComposerMessages.js",
+      "file": "scripts/recover/glass/p0-composer/maps/VirtualizedComposerMessages.json",
+      "renames": {
+        "_2w": "virtualizedComposerMessagesModuleInit"
+      }
+    },
+    {
+      "basename": "VirtualizedComposerProviders.js",
+      "file": "scripts/recover/glass/p0-composer/maps/VirtualizedComposerProviders.json",
+      "renames": {
+        "Bow": "virtualizedComposerProvidersModuleInit"
+      }
+    },
+    {
+      "basename": "VoiceCallTranscriptUnavailable.js",
+      "file": "scripts/recover/glass/p0-composer/maps/VoiceCallTranscriptUnavailable.json",
+      "renames": {
+        "Zg1": "voiceCallTranscriptUnavailableModuleInit",
+        "aRa": "WarningConfirmTray"
+      }
+    },
+    {
+      "basename": "WebFetchToolCallView.js",
+      "file": "scripts/recover/glass/p0-composer/maps/WebFetchToolCallView.json",
+      "renames": {
+        "KNS": "WebSearchToolCallView"
+      }
+    }
+  ],
+  "skipped": [
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6112",
+      "basename": "AgentForegroundComposerTab.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2299",
+      "basename": "AgentToolCallLine.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2433",
+      "basename": "AgentTranscriptActivityGroupSummary.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2438",
+      "basename": "AgentTranscriptAskQuestionCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2319",
+      "basename": "AgentTranscriptHumanBubble.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2457",
+      "basename": "AgentTranscriptHumanSenderLabel.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2458",
+      "basename": "AgentTranscriptMcpAuthCard.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2460",
+      "basename": "AgentTranscriptMcpElicitationCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2444",
+      "basename": "AgentTranscriptMcpToolCallLine.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2463",
+      "basename": "AgentTranscriptPlacementDecisionCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2445",
+      "basename": "AgentTranscriptPlanCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2567",
+      "basename": "AgentTranscriptRow.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2562",
+      "basename": "AgentTranscriptSubscriptionEvents.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2446",
+      "basename": "AgentTranscriptSwitchModeCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2434",
+      "basename": "AgentTranscriptTailStatus.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2447",
+      "basename": "AgentTranscriptTaskRow.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2563",
+      "basename": "AgentTranscriptTimeBoundary.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2556",
+      "basename": "AgentTranscriptTurnActions.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2564",
+      "basename": "AgentTranscriptUnreadDivider.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2565",
+      "basename": "AgentTranscriptWorkGroup.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6148",
+      "basename": "AnimatedComposerTitle.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7716",
+      "basename": "ArtifactMarkdownRenderer.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7715",
+      "basename": "ArtifactMarkdownRenderer.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7717",
+      "basename": "ArtifactMarkdownSection.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3878",
+      "basename": "ArtifactPreviewCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7718",
+      "basename": "ArtifactPreviewCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7719",
+      "basename": "ArtifactsTable.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3883",
+      "basename": "ArtifactTextReferenceCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5525",
+      "basename": "ArtifactVideo.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3884",
+      "basename": "ArtifactVideoCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2464",
+      "basename": "AssistantMessage.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6133",
+      "basename": "BackgroundComposerActionButtons.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7720",
+      "basename": "BackgroundComposerArtifactsSection.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6118",
+      "basename": "BackgroundComposerBottomBar.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6117",
+      "basename": "BackgroundComposerBranchSelector.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6124",
+      "basename": "BackgroundComposerFollowUpInputBox.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6135",
+      "basename": "BackgroundComposerInstanceHeader.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7793",
+      "basename": "BackgroundComposerStatusIndicator.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2427",
+      "basename": "BrowserScriptToolCallView.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7725",
+      "basename": "ChatErrorSection.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5297",
+      "basename": "ComposerActionNotification.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6011",
+      "basename": "ComposerAgentToolTranscriptRow.react.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5683",
+      "basename": "ComposerAnchorTrayList.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5828",
+      "basename": "ComposerAnchorTrayOverlay.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5682",
+      "basename": "ComposerAnchorTrayRow.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5676",
+      "basename": "ComposerAnchorTraySearchInput.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5829",
+      "basename": "ComposerAnchorTraySurface.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5293",
+      "basename": "ComposerAutocompleteHeuristicPlugin.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5291",
+      "basename": "ComposerAutocompleteHeuristics.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5608",
+      "basename": "ComposerAutoRoutingResultDisplayRow.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5023",
+      "basename": "ComposerBarControlButtons.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5914",
+      "basename": "ComposerCloudEnvironmentStatusRow.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4687",
+      "basename": "ComposerCompactMenu.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6014",
+      "basename": "ComposerConnectScmTranscriptCard.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4776",
+      "basename": "ComposerContextPreview.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6034",
+      "basename": "ComposerCreatePlanTranscriptCard.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7729",
+      "basename": "ComposerDataHandleSection.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5030",
+      "basename": "ComposerDebugLogsToolCallBlock.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5031",
+      "basename": "ComposerDebugReproductionToolbar.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5025",
+      "basename": "ComposerDebugReproductionUtils.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5338",
+      "basename": "ComposerDiffStatusDisplay.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5126",
+      "basename": "ComposerDropdownItems.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5127",
+      "basename": "ComposerDropdownMaxModeConfirmation.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5125",
+      "basename": "ComposerDropdownMaxTooltip.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5033",
+      "basename": "ComposerFeedbackForm.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5034",
+      "basename": "ComposerFeedbackTray.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5339",
+      "basename": "ComposerFileListItemView.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5309",
+      "basename": "ComposerFullInputBox.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5310",
+      "basename": "ComposerGeneralStatusIndicator.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5327",
+      "basename": "ComposerGoalSection.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5904",
+      "basename": "ComposerHumanRowDisplay.react.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5622",
+      "basename": "ComposerHumanRowSlackMention.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5623",
+      "basename": "ComposerHumanRowTodoSummary.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5113",
+      "basename": "ComposerKeybindingPopup.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5115",
+      "basename": "ComposerLexicalPlugins.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5328",
+      "basename": "ComposerLexicalRenderer.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4971",
+      "basename": "ComposerLoading.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5329",
+      "basename": "ComposerLoadingDoneOrNumber.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5116",
+      "basename": "ComposerLoginButton.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5498",
+      "basename": "ComposerMarkdown.react.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5496",
+      "basename": "ComposerMarkdownLinkContent.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6036",
+      "basename": "ComposerMcpAppTranscriptCard.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5298",
+      "basename": "ComposerMCPSuccessNotification.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3910",
+      "basename": "ComposerMentionPreviewPrimitives.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6160",
+      "basename": "ComposerPane.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6114",
+      "basename": "ComposerPlan.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5330",
+      "basename": "ComposerPluginActionCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6155",
+      "basename": "ComposerPluginInstalledCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5673",
+      "basename": "ComposerPlusButton.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6127",
+      "basename": "ComposerProjectBadge.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5590",
+      "basename": "ComposerReactTranscriptHost.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5593",
+      "basename": "ComposerReactTranscriptHostMount.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5556",
+      "basename": "ComposerReactTranscriptRow.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5567",
+      "basename": "ComposerReactVirtualPlane.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5333",
+      "basename": "ComposerRichTextInline.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5903",
+      "basename": "ComposerSimulatedHumanAction.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3922",
+      "basename": "ComposerSlashMenu.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3913",
+      "basename": "ComposerSlashMenuContext.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3921",
+      "basename": "ComposerSlashMenuList.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3919",
+      "basename": "ComposerSlashMenuTooltipContent.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5613",
+      "basename": "ComposerSubscriptionEvents.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6625",
+      "basename": "ComposerTaskBriefMarkdown.react.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6624",
+      "basename": "ComposerTaskBriefProjectDatabase.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5332",
+      "basename": "ComposerTipTapReadOnlyHost.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5346",
+      "basename": "ComposerToolbar.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5340",
+      "basename": "ComposerToolbarFileListItem.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5343",
+      "basename": "ComposerToolbarNotebookGroup.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5022",
+      "basename": "ComposerToolbarSimpleButton.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5028",
+      "basename": "ComposerToolCallBlockContainer.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5029",
+      "basename": "ComposerToolCallSimpleLayout.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6052",
+      "basename": "ComposerTranscriptCodeBlock.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6107",
+      "basename": "ComposerTranscriptHost.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5262",
+      "basename": "ComposerUnifiedBottomBar.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4689",
+      "basename": "ComposerUnifiedContextMenu.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4688",
+      "basename": "ComposerUnifiedContextMenuCheck.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5128",
+      "basename": "ComposerUnifiedDropdown.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7730",
+      "basename": "ComposerUsageLimitBarSection.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5353",
+      "basename": "ComposerUsageStatusBar.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5352",
+      "basename": "ComposerUsageStatusBar.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5292",
+      "basename": "ComposerViewportSnapshotManager.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5301",
+      "basename": "ComposerWarningPopup.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7731",
+      "basename": "ComposerWarningPopupSection.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2030",
+      "basename": "DefaultDiff.constants.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2041",
+      "basename": "DefaultDiff.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2031",
+      "basename": "DefaultDiff.stylex.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2612",
+      "basename": "DiffCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7742",
+      "basename": "DiffSourceRegistryDebugSection.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2032",
+      "basename": "DiffWrapMeasure.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2329",
+      "basename": "EditToolCallView.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2435",
+      "basename": "EnvironmentToolCallView.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2431",
+      "basename": "GenerateImageToolCallView.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7763",
+      "basename": "IanBackgroundComposerSection.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4957",
+      "basename": "IChatEditorGroupService.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7768",
+      "basename": "InlineDiffServiceDebugSection.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4748",
+      "basename": "InputBoxComposerSelection.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4753",
+      "basename": "InputBoxDiffSelection.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4715",
+      "basename": "LexicalAutoFocusPlugin.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4718",
+      "basename": "LexicalBlockWithAlignableContents.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4722",
+      "basename": "LexicalCharacterLimitPlugin.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4725",
+      "basename": "LexicalCheckListPlugin.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4726",
+      "basename": "LexicalClearEditorPlugin.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4698",
+      "basename": "LexicalComposer.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4697",
+      "basename": "LexicalComposerContext.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4699",
+      "basename": "LexicalContentEditable.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4701",
+      "basename": "LexicalContextMenuPlugin.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4716",
+      "basename": "LexicalDecoratorBlockNode.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4702",
+      "basename": "LexicalErrorBoundary.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4738",
+      "basename": "LexicalHistoryPlugin.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4727",
+      "basename": "LexicalHorizontalRuleNode.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4730",
+      "basename": "LexicalListPlugin.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4700",
+      "basename": "LexicalMenu.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4734",
+      "basename": "LexicalNestedComposer.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4731",
+      "basename": "LexicalNodeEventPlugin.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4732",
+      "basename": "LexicalNodeMenuPlugin.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4714",
+      "basename": "LexicalPlainTextPlugin.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4735",
+      "basename": "LexicalTabIndentationPlugin.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4736",
+      "basename": "LexicalTypeaheadMenuPlugin.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2352",
+      "basename": "ListMcpResourcesToolCallBlock.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2042",
+      "basename": "Markdown.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1954",
+      "basename": "Markdown.stylex.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1955",
+      "basename": "MarkdownDefaultsContext.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6301",
+      "basename": "MarkdownEditorReact.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1959",
+      "basename": "MarkdownFileReference.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6283",
+      "basename": "MarkdownFrontmatterPanel.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1960",
+      "basename": "MarkdownPluginRegistry.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2331",
+      "basename": "MarkdownPromptButton.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7772",
+      "basename": "MarkdownSection.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2376",
+      "basename": "ModelPickerMarkdown.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7779",
+      "basename": "PlanBuildMessageSection.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5896",
+      "basename": "PromptEditInput.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2960",
+      "basename": "PromptInput.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2277",
+      "basename": "PromptInput.types.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5833",
+      "basename": "PromptInputAnchoredTray.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5831",
+      "basename": "PromptInputAnchoredTrayHovercard.react.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2917",
+      "basename": "PromptInputAttachmentGrid.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2918",
+      "basename": "PromptInputCompactVisible.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2913",
+      "basename": "PromptInputContext.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2945",
+      "basename": "PromptInputEditor.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2946",
+      "basename": "PromptInputHeaderTray.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2948",
+      "basename": "PromptInputImageAnnotation.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2949",
+      "basename": "PromptInputImageGrid.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2961",
+      "basename": "PromptInputInlineChip.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2928",
+      "basename": "PromptInputKeymapExtension.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2952",
+      "basename": "PromptInputSubmitButton.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2548",
+      "basename": "PromptInputTipTapReadOnly.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2509",
+      "basename": "PromptInputTipTapStaticReadOnly.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2953",
+      "basename": "PromptInputToolbar.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2944",
+      "basename": "PromptInputUndoBoundaryExtension.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2909",
+      "basename": "PromptSelectionOverlayExtension.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2929",
+      "basename": "PromptSuggestionExtension.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5296",
+      "basename": "PromptSuggestionGhostTextPlugin.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7786",
+      "basename": "ReactTranscriptGallery.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2408",
+      "basename": "ReadMcpResourceToolCallLine.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2437",
+      "basename": "ReadTodosToolCallView.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3173",
+      "basename": "RichTextEditor.stylex.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3170",
+      "basename": "RichTextEditorContext.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3199",
+      "basename": "RichTextEditorImageExtension.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2418",
+      "basename": "SemSearchToolCallView.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4696",
+      "basename": "SimpleMarkdown.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5495",
+      "basename": "SubagentMarkdownLink.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2409",
+      "basename": "TaskToolCallView.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2325",
+      "basename": "ToolCallCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2397",
+      "basename": "ToolCallDialog.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2410",
+      "basename": "ToolCallHoverCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2326",
+      "basename": "ToolCallLine.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2423",
+      "basename": "ToolCallRenderer.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2324",
+      "basename": "TranscriptCard.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2307",
+      "basename": "TranscriptCardContent.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2306",
+      "basename": "TranscriptCardContext.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2308",
+      "basename": "TranscriptCardFooter.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2311",
+      "basename": "TranscriptCardHeaderContent.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2309",
+      "basename": "TranscriptCardHeaderContext.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2312",
+      "basename": "TranscriptCardHeaderDescription.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2313",
+      "basename": "TranscriptCardHeaderExpand.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2315",
+      "basename": "TranscriptCardHeaderLeading.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2317",
+      "basename": "TranscriptCardHeaderTrailing.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2318",
+      "basename": "TranscriptCardMedia.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2320",
+      "basename": "TranscriptCardRoot.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2321",
+      "basename": "TranscriptCardRow.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2323",
+      "basename": "TranscriptCardTimeout.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2616",
+      "basename": "TrayMarkdownDefaults.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2549",
+      "basename": "UserMessageBox.js",
+      "reason": "parseable but no evidence-backed rename candidate"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2328",
+      "basename": "VirtualizedDiff.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6057",
+      "basename": "VisualizationTranscriptCard.react.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3025",
+      "basename": "VoiceCallTranscript.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3026",
+      "basename": "VoiceCallTranscriptView.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2420",
+      "basename": "WebSearchToolCallView.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6159",
+      "basename": "WorktreeComposerHeader.js",
+      "reason": "fragment unparseable (truncated at next wrapper); apply-map cannot certify AST equivalence"
+    }
+  ]
+}

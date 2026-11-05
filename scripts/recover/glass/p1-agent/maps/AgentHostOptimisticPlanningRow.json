@@ -1,0 +1,12 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3907",
+  "basename": "AgentHostOptimisticPlanningRow.js",
+  "file": "recovered/app/glass/agent/AgentHostOptimisticPlanningRow.js",
+  "renames": {
+    "KK1": "AgentHostOptimisticPlanningRowModule"
+  },
+  "notes": [
+    "KK1 -> AgentHostOptimisticPlanningRowModule: declared wrapper binding, evidence: esbuild init key \"AgentHostOptimisticPlanningRow.js\"",
+    "component rename skipped: 3 JSX-returning functions (XK1, ZK1, b$m)"
+  ]
+}

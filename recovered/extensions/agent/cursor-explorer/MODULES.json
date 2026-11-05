@@ -1,0 +1,55 @@
+{
+ "extension": "cursor-explorer",
+ "generatedAt": "2026-11-05T10:20:08.356Z",
+ "sourceDir": "app/extensions/cursor-explorer",
+ "artifacts": [
+  {
+   "artifact": "app/extensions/cursor-explorer/dist/main.js",
+   "sha256": "fe0739a7ec02134cead2f0a4c47cdf4da200a7c8a2848cafb3784544ead46d70",
+   "bytes": 22155,
+   "format": "esbuild-single-entry",
+   "chunk": "main",
+   "chunkId": null,
+   "entry": true,
+   "moduleCount": 1,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "preludeBytes": 0,
+   "footerBytes": 0,
+   "reassembly": "ok",
+   "reassembledSha256": "fe0739a7ec02134cead2f0a4c47cdf4da200a7c8a2848cafb3784544ead46d70",
+   "notes": [
+    "one-entry map in generic object literal (container t, coverage 0.29) demoted to whole-file fragment"
+   ],
+   "modules": [
+    {
+     "key": "(whole)",
+     "keyType": "number",
+     "file": "whole.js",
+     "start": 0,
+     "end": 22155,
+     "separator": "",
+     "basis": "esbuild-wrapper",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": [
+      "activate",
+      "deactivate",
+      "isPathValid"
+     ]
+    }
+   ]
+  }
+ ],
+ "skipped": [],
+ "totals": {
+  "artifacts": 1,
+  "modules": 1,
+  "confidence": {
+   "C": 1
+  },
+  "reassembly": "ok"
+ }
+}

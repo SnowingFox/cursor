@@ -1,0 +1,31 @@
+{
+  "verifiedAt": "2026-11-05T10:20:26.007Z",
+  "files": 281,
+  "byteExactUntouched": 228,
+  "astEquivalentRenamed": 53,
+  "byteMismatch": [],
+  "astFailures": [],
+  "missingHeaders": [],
+  "rangeMismatch": [],
+  "pathClaims": [],
+  "duplicateBasenames": [],
+  "untouched": 228,
+  "renamed": 53,
+  "knownBasenameDuplicates": [
+    "ArtifactPreviewCard.js",
+    "ArtifactPreviewCard.js"
+  ],
+  "counts": {
+    "total": 281,
+    "emitted": 281,
+    "renamedModules": 53,
+    "renamedIdentifiers": 70,
+    "exactPaths": 2,
+    "nullPaths": 279,
+    "parseable": 88,
+    "unparseable": 193,
+    "confidenceB": 2,
+    "confidenceC": 279
+  },
+  "pass": true
+}

@@ -1,0 +1,60 @@
+{
+ "extension": "cursor-shadow-workspace",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-shadow-workspace",
+ "files": [
+  {
+   "source": "app/extensions/cursor-shadow-workspace/media/icon.png",
+   "dest": "recovered/extensions/agent/cursor-shadow-workspace/shipped/media/icon.png",
+   "bytes": 1787,
+   "sha256": "75a34e7344b3673937f29ba19320fba14f88b12c87f6f52d349d826cbf8f9152",
+   "emittedSha256": "75a34e7344b3673937f29ba19320fba14f88b12c87f6f52d349d826cbf8f9152",
+   "byteIdentical": true,
+   "category": "media",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-shadow-workspace/package.json",
+   "dest": "recovered/extensions/agent/cursor-shadow-workspace/shipped/package.json",
+   "bytes": 713,
+   "sha256": "f5ea5e17033505ad6bf47fdf0be01295603018f99f4bf95acef8fc6d720ae97b",
+   "emittedSha256": "f5ea5e17033505ad6bf47fdf0be01295603018f99f4bf95acef8fc6d720ae97b",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-shadow-workspace/package.nls.json",
+   "dest": "recovered/extensions/agent/cursor-shadow-workspace/shipped/package.nls.json",
+   "bytes": 157,
+   "sha256": "163bd21c4831c736ef2f07fd2157017ccae89dc2e367981d0dfaca89eb3ebad1",
+   "emittedSha256": "163bd21c4831c736ef2f07fd2157017ccae89dc2e367981d0dfaca89eb3ebad1",
+   "byteIdentical": true,
+   "category": "nls",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [
+  {
+   "source": "app/extensions/cursor-shadow-workspace/dist/extension.js.LICENSE.txt",
+   "reason": "license bundle recorded in INVENTORY.json, not copied",
+   "bytes": 157
+  }
+ ],
+ "totals": {
+  "files": 3,
+  "bytes": 2657,
+  "byteIdentical": 3,
+  "headed": 0,
+  "skipped": 1
+ }
+}

@@ -1,0 +1,2093 @@
+{
+  "generatedAt": "2026-11-05T10:19:43.327Z",
+  "cluster": "p1-agent",
+  "outDir": "recovered/app/glass/agent",
+  "tooling": {
+    "mapping": "scripts/recover/glass/p1-agent/build-mapping.ts",
+    "renames": "scripts/recover/glass/p1-agent/apply-renames.ts -> scripts/recover/rename/apply-map.ts",
+    "annotate": "scripts/recover/glass/p1-agent/finalize.ts"
+  },
+  "counts": {
+    "modules": 87,
+    "emitted": 87,
+    "nlsExact": 0,
+    "nlsAmbiguous": 0,
+    "inferred": 87,
+    "basenameUniqueCandidates": 0,
+    "renameFiles": 15,
+    "renames": 19,
+    "depResolvedModules": 87,
+    "emittedFiles": 87,
+    "annotated": 87,
+    "renamedFiles": 9,
+    "blockedRenames": 6,
+    "missing": 0,
+    "totalRenames": 12,
+    "pathBasisCounts": {
+      "inferred": 87
+    },
+    "depsResolved": 87,
+    "modulesWithJsxComponent": 33
+  },
+  "modules": [
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5940",
+      "basename": "AgentContextTabDirtyIndicator.js",
+      "file": "recovered/app/glass/agent/AgentContextTabDirtyIndicator.js",
+      "range": [
+        31668012,
+        31668644
+      ],
+      "sha256": "4a483e1c95639c0c35016bcfde48b5504ab047ad0869c5951ca3cbd9a152a742",
+      "sha256Original": "56f1ffff7bd5cdd7e57133b80baee10bd873f7d06601c5fbaa55073f04242778",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "web.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2284",
+      "basename": "AgentConversationContext.js",
+      "file": "recovered/app/glass/agent/AgentConversationContext.js",
+      "range": [
+        15018970,
+        15019751
+      ],
+      "sha256": "95eef4eb88f3fa2312fc98a4db802f8dd1447dc7a13620d8ba3fc49a2dc909cd",
+      "sha256Original": "84586d5bb9eb49d1fc4fafdba40aba32636778efc7095b04896aa0c91c16e977",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "LinkNavigationContext.js",
+        "MarkdownDefaultsContext.js",
+        "conversation-density.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6045",
+      "basename": "AgentEnvironmentIcon.react.js",
+      "file": "recovered/app/glass/agent/AgentEnvironmentIcon.react.js",
+      "range": [
+        32137802,
+        32137902
+      ],
+      "sha256": "0bc071b98335ef2968625270ade8eb1b034d950fa73300db142d2884781349a7",
+      "sha256Original": "ec33440ca9e9296c745683d114372409e00900490c856b8c5c73bea1be99cbbf",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3905",
+      "basename": "AgentHostAutoRoutingRow.js",
+      "file": "recovered/app/glass/agent/AgentHostAutoRoutingRow.js",
+      "range": [
+        22609230,
+        22627044
+      ],
+      "sha256": "b05513941d9fd903abb6a900a8b5ab54e606f4bd13d5afe6bcba882c0593db5c",
+      "sha256Original": "0f338b1c23b8531db3fc2d7379052e69a736f2864cc1b3afe93f9d309db8671b",
+      "renamed": true,
+      "renames": {
+        "LK1": "AgentHostAutoRoutingRowModule"
+      },
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3906",
+      "basename": "AgentHostEnvironmentStatusRow.js",
+      "file": "recovered/app/glass/agent/AgentHostEnvironmentStatusRow.js",
+      "range": [
+        22627044,
+        22627955
+      ],
+      "sha256": "12935c5fb7bc628fc867ca98333798f63cebd97f4682fdaf15a06290e03c953b",
+      "sha256Original": "b4714f59ec69bce332d87bbb9f8205a10c9fc35828b2ebe33ebc9bd41b5aafd4",
+      "renamed": true,
+      "renames": {
+        "qK1": "AgentHostEnvironmentStatusRowModule",
+        "VK1": "AgentHostEnvironmentStatusRow"
+      },
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3907",
+      "basename": "AgentHostOptimisticPlanningRow.js",
+      "file": "recovered/app/glass/agent/AgentHostOptimisticPlanningRow.js",
+      "range": [
+        22627955,
+        22633960
+      ],
+      "sha256": "e05b15674262cb2c02abb18e16b6981384d49d5b06f3869e3021c5d0600cdca5",
+      "sha256Original": "ac12a0a57ab4921b93d0489dd656a61f88139a5212a01c36a0f1d0a63c7a5523",
+      "renamed": true,
+      "renames": {
+        "KK1": "AgentHostOptimisticPlanningRowModule"
+      },
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3908",
+      "basename": "AgentHostStreamErrorRow.js",
+      "file": "recovered/app/glass/agent/AgentHostStreamErrorRow.js",
+      "range": [
+        22633960,
+        22634241
+      ],
+      "sha256": "ad8957549f1e7017678f8c6b49b880da8ae30e52e43dd0af67c17db2b4821fef",
+      "sha256Original": "26d9c08fe01dfa4acf4c9f0063e3b5f50934851ed3e354088214f84f5a1a6fb4",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2646",
+      "basename": "AgentRowContent.js",
+      "file": "recovered/app/glass/agent/AgentRowContent.js",
+      "range": [
+        16299560,
+        16300781
+      ],
+      "sha256": "32702a8814eac9383c514b80df718874bcbdee78ebb0421c3cba37145dc54603",
+      "sha256Original": "4bf21de377cce9453aad7ed3fdea406af7da27e270b4d030ee5baa35f23a1e7e",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "cn.js",
+        "Tray.stylex.js",
+        "TextRoll.js",
+        "Text.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2279",
+      "basename": "AgentStatusDot.js",
+      "file": "recovered/app/glass/agent/AgentStatusDot.js",
+      "range": [
+        15006787,
+        15012778
+      ],
+      "sha256": "cc394901aec9c5bab1b2233eaa79e01becfdddcdd5aa1bf28492cfe0c78e2b10",
+      "sha256Original": "f50b6cbe0890db8973e14755f073af784d9dda6e046b6d2d988053ba1c8e2377",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "attach.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2280",
+      "basename": "AgentStatusIcon.js",
+      "file": "recovered/app/glass/agent/AgentStatusIcon.js",
+      "range": [
+        15012778,
+        15012889
+      ],
+      "sha256": "57b5c1a64489403742bdd6607dfa1a09346b41835a8838925110bdf407f69248",
+      "sha256Original": "b2d1457704edd44c7f8f66797519511297e065bc6652f8a76494db4481476ac1",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "cn.js",
+        "AgentStatusDot.js",
+        "Sidebar.stylex.js",
+        "icon.js",
+        "ProgressRing.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6110",
+      "basename": "AgentTabBase.js",
+      "file": "recovered/app/glass/agent/AgentTabBase.js",
+      "range": [
+        32712558,
+        32717868
+      ],
+      "sha256": "ba850be9dda251c8a2d1c51cb38c6e2dec97023454101559f208ea4a021c615a",
+      "sha256Original": "f9ad0cc6a1a457a444b17fb36b28008a679099e5592a911dcf6a72af9307114c",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "codicons.js",
+        "themables.js",
+        "ComposerDiffStatusDisplay.js",
+        "iconButton.js",
+        "spinningLoader.js",
+        "AgentViewTab.css"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7714",
+      "basename": "AgentTabsSection.js",
+      "file": "recovered/app/glass/agent/AgentTabsSection.js",
+      "range": [
+        38867246,
+        38869883
+      ],
+      "sha256": "17d00f3390c12f8d126eda78a9c0c9d1f353704e826d437955c648fa24f2ed8b",
+      "sha256Original": "71db1a0cbcde0fe8913ccf6686b4c8f1298290962176d7a3591e9f8844838495",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "AgentTabBase.js",
+        "gallerySection.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7713",
+      "basename": "AnyrunSetupUISection.js",
+      "file": "recovered/app/glass/agent/AnyrunSetupUISection.js",
+      "range": [
+        38860120,
+        38867246
+      ],
+      "sha256": "bc8a02cb1a81c9860c183553e0faedef5ce98a840a0e07cf18e5b342473241e2",
+      "sha256Original": "4f35cdb5c879e84b89f9c8193aa2962ef5770c2ea7facc59a01f0a5642abdf87",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "backgroundComposerConstants.js",
+        "solidContext.js",
+        "button.js",
+        "gallerySection.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4629",
+      "basename": "BrowserEditorContent.js",
+      "file": "recovered/app/glass/agent/BrowserEditorContent.js",
+      "range": [
+        26977843,
+        26986143
+      ],
+      "sha256": "148b2b7ac702982d3b0d5da52207b76489c79bae22b4c4d0d3b7af5a9e94d783",
+      "sha256Original": "e6b8d5148537015ea2246f6f144c24c3323643ce50e4bc4675e9a47f6d23bb55",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "index.js",
+        "solid.js",
+        "lexical.js",
+        "hoverWidget.js",
+        "window.js",
+        "actions.js",
+        "codicons.js",
+        "lifecycle.js",
+        "themables.js",
+        "uuid.js",
+        "react-bridge.js",
+        "solidContext.js",
+        "MentionNode.js",
+        "types.js",
+        "ImageUtil.js",
+        "checkbox.js",
+        "useMenuHover.js",
+        "scrollableDiv.js",
+        "browserInjection.js",
+        "browserOverlay.js",
+        "browserPlaceholderPages.js",
+        "browserZoomSteps.js",
+        "utils.js",
+        "BrowserEditorContent.css",
+        "browserBookmarkNaming.js",
+        "BrowserMoreMenu.react.js",
+        "OmniboxDropdown.js",
+        "browserNavigation.js",
+        "browserPageBackdrop.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4624",
+      "basename": "BrowserMoreMenu.react.js",
+      "file": "recovered/app/glass/agent/BrowserMoreMenu.react.js",
+      "range": [
+        26905936,
+        26908910
+      ],
+      "sha256": "4b67b7248581be5414d2e69361e260814a2a7ac776833dde29c362e69954d212",
+      "sha256Original": "82d55c64c286bd39f12db658c4270616b26087277879383ad5f912f6b219e6eb",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7723",
+      "basename": "BrowserToolsSection.js",
+      "file": "recovered/app/glass/agent/BrowserToolsSection.js",
+      "range": [
+        38926540,
+        38939754
+      ],
+      "sha256": "c8340b234fb89a9b9ba5b47d56dd3cba8b033a48132891a8a6d321c34d796b5b",
+      "sha256Original": "49696cdab682fb1d146519bb3170181abb85a48c696544ea8103ed41104fd73d",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "uuid.js",
+        "solidContext.js",
+        "gallerySection.js",
+        "BrowserToolsSection.css"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5912",
+      "basename": "CloudAgentTurnTimings.js",
+      "file": "recovered/app/glass/agent/CloudAgentTurnTimings.js",
+      "range": [
+        31565786,
+        31566285
+      ],
+      "sha256": "e015c4c4499af91a230562123d54fb9cdcaead6762f59d95377de52cdf90f798",
+      "sha256Original": "fc7344d3dcd5649a4349dde6de8fd33a6ffa0b0b54be9054932d2ce0217159ce",
+      "renamed": true,
+      "renames": {
+        "DSw": "CloudAgentTurnTimingsModule"
+      },
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2539",
+      "basename": "CommandChipNodeView.js",
+      "file": "recovered/app/glass/agent/CommandChipNodeView.js",
+      "range": [
+        15878500,
+        15887878
+      ],
+      "sha256": "641bbc2f1d9eb503b925e58dab91b23159e14c4ecdfeef392f6944d4ce61c81f",
+      "sha256Original": "9be8a1ae72fa6f76f9038135fc80f2b3a897dc5b94170c2b81ab8540eca3560c",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "index.js",
+        "prompt-chip.stylex.js",
+        "cn.js",
+        "prompt-input-command-chip-tooltip.js",
+        "SkillCommandBadge.js",
+        "command-chip-shared.js",
+        "tiptap-storage.js",
+        "IconColorPickerPanel.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2545",
+      "basename": "CommandChipPlugin.js",
+      "file": "recovered/app/glass/agent/CommandChipPlugin.js",
+      "range": [
+        15918651,
+        15923414
+      ],
+      "sha256": "701eda93d21e2ac8c4ea7b8073ebb11b9d0cc6e84e3b4f3f6cb89321d220cdc4",
+      "sha256Original": "8d17ae308c32f4ed7a5d2383d9d8fd45c190da100496ae0861c500cff285b85e",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "index.js",
+        "prompt-chip.stylex.js",
+        "insertPlainTextIntoEditor.js",
+        "CommandChipNodeView.js",
+        "command-chip-shared.js",
+        "MentionChipPlugin.js",
+        "tiptap-storage.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6142",
+      "basename": "CompactAgentHistoryHoverMenu.react.js",
+      "file": "recovered/app/glass/agent/CompactAgentHistoryHoverMenu.react.js",
+      "range": [
+        32885729,
+        32894720
+      ],
+      "sha256": "bcebb53738ac9dc1541b53c1a336a91c47197140c24b048fd03a178b2cfe6bf2",
+      "sha256Original": "db762388260e5bcfcbf0682e38c2759df3d523389971c737a23bdc577c9015bb",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "codicons.js",
+        "themables.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6143",
+      "basename": "CompactAgentHistoryHoverPane.js",
+      "file": "recovered/app/glass/agent/CompactAgentHistoryHoverPane.js",
+      "range": [
+        32894720,
+        32897079
+      ],
+      "sha256": "b4bfb57b1e12daa8395851f3fb5ea26ffb4cd0154121746987fe81a08221617a",
+      "sha256Original": "77bb8d3ed952c9af395803dfdac69328c05d85cd95b214172859dd85f91f933f",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "background_composer_pb.js",
+        "chat_pb.js",
+        "dom.js",
+        "actions.js",
+        "codicons.js",
+        "solidApplicationSetting.js",
+        "react-bridge.js",
+        "solidContext.js",
+        "usePersistentState.js",
+        "agentEnvironmentFilter.js",
+        "agentFilteringUtils.js",
+        "agentIconUtils.js",
+        "backgroundComposerFiltering.js",
+        "pinnedAgentsStorage.js",
+        "agentLayoutPaneConstants.js",
+        "CompactAgentHistoryHoverMenu.react.js",
+        "CompactAgentHistoryHoverPane.css",
+        "composerMenuActions.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7734",
+      "basename": "ControlledTerminalSection.js",
+      "file": "recovered/app/glass/agent/ControlledTerminalSection.js",
+      "range": [
+        39081863,
+        39082350
+      ],
+      "sha256": "246a44ba5c8fd02948eeec739a0494c254471f42b364f02927174c4cd2106c10",
+      "sha256Original": "21a2297c52e1081bf80b42304c7a377ecc0e319d1630ea8e26b1016513021ee9",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "gallerySection.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2893",
+      "basename": "CustomizeAgentRow.js",
+      "file": "recovered/app/glass/agent/CustomizeAgentRow.js",
+      "range": [
+        17209032,
+        17211715
+      ],
+      "sha256": "4dd88e70c82cd76d66b55f310ebf1cfbd4d0bc465a4df6992296d3839455ca8c",
+      "sha256Original": "edaab86b6d4b72fe9dfd04309c2d6a43bed6924be2983f9e185cc7df7ff8596c",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "ProjectAgentStatusGlyph.js",
+        "ProjectTone.js",
+        "projectAgentRole.js",
+        "icon.js",
+        "Text.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3928",
+      "basename": "CustomizeManageGroupShell.js",
+      "file": "recovered/app/glass/agent/CustomizeManageGroupShell.js",
+      "range": [
+        22739937,
+        22761775
+      ],
+      "sha256": "b8d397db28ed96cdc524f34d0c4363d105bb98f77db05cb178b89a7dc11b649b",
+      "sha256Original": "584ef15f8a8270242c81aebd3f5372f1beec7c0eb434c3f732c75bdb02d8dd0c",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "stylex.js",
+        "CustomizeManage.stylex.js",
+        "CustomizeManage.utils.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3933",
+      "basename": "CustomizeManageMcp.js",
+      "file": "recovered/app/glass/agent/CustomizeManageMcp.js",
+      "range": [
+        22785747,
+        22793362
+      ],
+      "sha256": "72369cc3739350c71a6bc0e1a1f564a81488f146a1338183a93dfaee027e3711",
+      "sha256Original": "b65f13857323e70b00610cadb7fb1a74efc04577f24baf94dcedf9f8f055509d",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "stylex.js",
+        "CustomizeManage.stylex.js",
+        "CustomizeManage.utils.js",
+        "CustomizeManageEmptyState.js",
+        "CustomizeManageGroupShell.js",
+        "CustomizeManageGroups.js",
+        "googleFaviconFallback.js",
+        "McpCreateDestinationMenu.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2894",
+      "basename": "CustomizeToolRow.js",
+      "file": "recovered/app/glass/agent/CustomizeToolRow.js",
+      "range": [
+        17211715,
+        17214266
+      ],
+      "sha256": "ce97a1cb191b27f6376894eafff59958b252c0a46e0e0bb812ad5e87999c5065",
+      "sha256Original": "8bbb1a902c70e805857833e9ec9a50694e18337ea34b7ebe1d566c70bb077433",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "icon.js",
+        "Text.js",
+        "Switch.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3952",
+      "basename": "EnvironmentSetupBlockedAgentTray.js",
+      "file": "recovered/app/glass/agent/EnvironmentSetupBlockedAgentTray.js",
+      "range": [
+        22978744,
+        22980722
+      ],
+      "sha256": "269315fb1b0cfa75b5f83db56e56c95f774b7055e5a2e64c150888e8e53f7938",
+      "sha256Original": "c950f8f57c0f388bfa65c18fe46ff7234cb9aa15a17ce0f33fed22885b0fe772",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3953",
+      "basename": "EnvironmentSetupExternalActionTray.js",
+      "file": "recovered/app/glass/agent/EnvironmentSetupExternalActionTray.js",
+      "range": [
+        22980722,
+        22990357
+      ],
+      "sha256": "7c2409b505ab9067d52c517d12906357e3746a1edac4a4d8a03c9b683c4696f7",
+      "sha256Original": "78bd3dce770bbc75c49a895f5f1236473b55af2a8f30b9291162a33a61bad645",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3954",
+      "basename": "EnvironmentSetupNetworkSection.js",
+      "file": "recovered/app/glass/agent/EnvironmentSetupNetworkSection.js",
+      "range": [
+        22990357,
+        22992458
+      ],
+      "sha256": "c0e130d636461ab1951305f0100bf57fab096855051c63a67f94f1d695b43559",
+      "sha256Original": "1b5dee3d3ae6a4ea6717c46d569111fe11eef53f84d7e88de1c595050766ebc8",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "env-egress-policy.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3955",
+      "basename": "EnvironmentSetupNetworkTray.js",
+      "file": "recovered/app/glass/agent/EnvironmentSetupNetworkTray.js",
+      "range": [
+        22992458,
+        22995663
+      ],
+      "sha256": "1f2449e7a922c08be8a328f1e911299a747e79d26a95fb0a52b8c5a4dbb060a3",
+      "sha256Original": "75426a88675820a912422fa3a9873a2d0755320be5075ea84e164dd63d1203fc",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "EnvironmentSetupNetworkSection.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3951",
+      "basename": "EnvironmentSetupRepoScopeDropdown.js",
+      "file": "recovered/app/glass/agent/EnvironmentSetupRepoScopeDropdown.js",
+      "range": [
+        22974469,
+        22978744
+      ],
+      "sha256": "af2e1422a472650d3513a23690450459ce827d08d8bf688e45b611e0bf72ce19",
+      "sha256Original": "f8fba3988e047023cdf9247f8567aa4af414a24afd342e8e6206299fbf605298",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "env-setup-secret.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3956",
+      "basename": "EnvironmentSetupSecretLevelSelect.js",
+      "file": "recovered/app/glass/agent/EnvironmentSetupSecretLevelSelect.js",
+      "range": [
+        22995663,
+        23009342
+      ],
+      "sha256": "a04b0715b98915f3ad20d27ab81e2210bc5f89fd09d81cb77293b5e874201112",
+      "sha256Original": "b7ee7cc5289a980b227682537cf2e9f45536c4151f7e719870cbab7efb1c8e16",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "env-setup-secret.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3957",
+      "basename": "EnvironmentSetupSecretsEditorModal.js",
+      "file": "recovered/app/glass/agent/EnvironmentSetupSecretsEditorModal.js",
+      "range": [
+        23009342,
+        23013186
+      ],
+      "sha256": "8babc2077f4ddbcf11ee8db1e931bc50fb2de8d3484265420762520505422210",
+      "sha256Original": "f7c96f54aa8a550861d51e404269ac77a486c4bfbb394388c86186e8468f244a",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "EnvironmentSetupRepoScopeDropdown.js",
+        "EnvironmentSetupSecretLevelSelect.js",
+        "env-setup-secret.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1215",
+      "basename": "FromCursorAgentsCards.js",
+      "file": "recovered/app/glass/agent/FromCursorAgentsCards.js",
+      "range": [
+        5365957,
+        5369433
+      ],
+      "sha256": "03433f12f6a0180938189045ce6911eca96b83c8cf8027c5d46777313e517159",
+      "sha256Original": "a6bcaf40ce47f52562bc57291a31a53853e34dd4021716b1b4b184f23951e4d7",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "tokens.stylex.js",
+        "GlassIcon.js",
+        "ManagedAgentsGetStartedBanner.js",
+        "attach.js",
+        "Button.js",
+        "useRender.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6156",
+      "basename": "GlassSubagentBreadcrumb.js",
+      "file": "recovered/app/glass/agent/GlassSubagentBreadcrumb.js",
+      "range": [
+        32927130,
+        32930696
+      ],
+      "sha256": "9999d81aee187614c1ba32eb68bd4a736355900ca449aff56906d6d87de3586d",
+      "sha256Original": "9b38e764e02d6c74b527f5731803d9ae3e675d2012806e71fb9f68e9b39049b9",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "index.js",
+        "solid.js",
+        "react-bridge.js",
+        "solidContext.js",
+        "GlassSubagentBreadcrumb.css"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6157",
+      "basename": "InlineAgentTabs.js",
+      "file": "recovered/app/glass/agent/InlineAgentTabs.js",
+      "range": [
+        32930696,
+        32935339
+      ],
+      "sha256": "35ff7f7ed37c1632d3b32aaa549ed75aa71a5c4be94f725498e575f136168944",
+      "sha256Original": "b37fd93f16a55114d5ba43a56b9761833f12e50137638847a064079dbbf26e8e",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "InlineAgentTabs.css"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4777",
+      "basename": "InputBoxBrowserChanges.js",
+      "file": "recovered/app/glass/agent/InputBoxBrowserChanges.js",
+      "range": [
+        27429101,
+        27433087
+      ],
+      "sha256": "bd3cd283bda379da8d3707caf37b01d35453b747944724882c80b51dc6298e30",
+      "sha256Original": "71a3cf74e6366010d596f40ea5413edd7ec6105546c0febc6229f0bb0632b318",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "InputBoxElementSelection.css"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1214",
+      "basename": "ManagedAgentsGetStartedBanner.js",
+      "file": "recovered/app/glass/agent/ManagedAgentsGetStartedBanner.js",
+      "range": [
+        5354130,
+        5365957
+      ],
+      "sha256": "c0d013c266183387c4fde15ce91d8de97bc33b83b9112320e983eaedbfbefc76",
+      "sha256Original": "d9a5bd12fc0fc2afc357835c7e8b1e9452a42cd63c5ee627e1611a0a85d9e8cd",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "typography.stylex.js",
+        "tokens.stylex.js",
+        "GlassIcon.js",
+        "icon.js",
+        "Button.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2847",
+      "basename": "ManageTeamMarketplaceMcpFormMenu.js",
+      "file": "recovered/app/glass/agent/ManageTeamMarketplaceMcpFormMenu.js",
+      "range": [
+        17021691,
+        17026942
+      ],
+      "sha256": "5437b896c559a15e3b41629542e1eb56b26c9790ea2cfdf81d86f311c10faacd",
+      "sha256Original": "831d913145864f70d90b5ed21b565df09311c871491c1ff284a25be804c1fc0a",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "manage-marketplace-modal.stylex.js",
+        "mcpInputToPluginConfig.js",
+        "SpinningLoader.js",
+        "InputGroup.js",
+        "Button.js",
+        "Popover.js",
+        "PortalContext.js",
+        "Dialog.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3942",
+      "basename": "McpConfigureDialog.js",
+      "file": "recovered/app/glass/agent/McpConfigureDialog.js",
+      "range": [
+        22847174,
+        22848465
+      ],
+      "sha256": "6d79716e0342d6124af6552ae99140edac8311710be576afa47e00dcee6b00c7",
+      "sha256Original": "d131d802d573855855788f80d945ac7758b34354ef87611a4a73942b33f6f944",
+      "renamed": true,
+      "renames": {
+        "EQ1": "McpConfigureDialogModule",
+        "CWm": "McpConfigureDialog"
+      },
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "McpServerConfigMenu.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3932",
+      "basename": "McpCreateDestinationMenu.js",
+      "file": "recovered/app/glass/agent/McpCreateDestinationMenu.js",
+      "range": [
+        22775346,
+        22785747
+      ],
+      "sha256": "266012a025fcf5c9aa9983a1762543f683fee5796ae731af453790586b995986",
+      "sha256Original": "715507c62b3562cd02d3116f9bc1b340da0e8d1b5ce38e971c8760c218b1ebed",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "CustomizeManage.utils.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2400",
+      "basename": "MCPIcon.js",
+      "file": "recovered/app/glass/agent/MCPIcon.js",
+      "range": [
+        15448051,
+        15448639
+      ],
+      "sha256": "121014a0bf11b2cb6190f9ab8611f39e4bf285ad212ad4db9fb8f38d5dd5fe58",
+      "sha256Original": "7dddb84440056bcaaf42afc3eed485ab5af8052c62687747a9a490419e6ba7ba",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2857",
+      "basename": "McpImpactConfirmDialog.js",
+      "file": "recovered/app/glass/agent/McpImpactConfirmDialog.js",
+      "range": [
+        17079037,
+        17081009
+      ],
+      "sha256": "de70c7bbe0bb78140768a26c2b51445998d1456db8f154b1ba7aed1c88068636",
+      "sha256Original": "d8c74b4c34ef634d36820c3ea2c1c876f3522007079a9169d7ec359e47a5419d",
+      "renamed": true,
+      "renames": {
+        "ri1": "McpImpactConfirmDialogModule"
+      },
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "PortalContext.js",
+        "Dialog.js",
+        "Button.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3903",
+      "basename": "McpServerConfigForm.js",
+      "file": "recovered/app/glass/agent/McpServerConfigForm.js",
+      "range": [
+        22551985,
+        22606260
+      ],
+      "sha256": "05e03017774a5ba831be2d325e27a9f9310d4ea9eafe1dcfe73bfd195200d5ec",
+      "sha256Original": "2d66a70933df43f66fa89f32085e5bc81c61e88228c43304ed2743f9432427d4",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "stylex.js",
+        "mcp.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3904",
+      "basename": "McpServerConfigMenu.js",
+      "file": "recovered/app/glass/agent/McpServerConfigMenu.js",
+      "range": [
+        22606260,
+        22609230
+      ],
+      "sha256": "61e29a4d8f42e3a711e49e978edb92fdbdbd9916f27dd275a5a588a999590f79",
+      "sha256Original": "7ca576d2ab6ca10d258d876db8918c2269156bba3eeb4e6d710c3a7cc9287c93",
+      "renamed": true,
+      "renames": {
+        "NK1": "McpServerConfigMenu"
+      },
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "stylex.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2404",
+      "basename": "McpServerIcon.js",
+      "file": "recovered/app/glass/agent/McpServerIcon.js",
+      "range": [
+        15451413,
+        15452398
+      ],
+      "sha256": "9a0d7c16e59b7e7b6123b54ac4fe1698123bc2e73bfad22905ee9284836118ee",
+      "sha256Original": "16387bdba95d55de03829bf140e7712116b8be766f2a022b5e43cad5dda8380b",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "MCPIcon.js",
+        "McpServerIconImage.js",
+        "use-mcp-server-icon.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2405",
+      "basename": "McpServerIconChip.js",
+      "file": "recovered/app/glass/agent/McpServerIconChip.js",
+      "range": [
+        15452398,
+        15452945
+      ],
+      "sha256": "62fd7e77417cf496d2fba881d157e69efdffeae00ecca8259200b2c3cd975d37",
+      "sha256Original": "51a4ea2b9f8141cc49b604ba66a830ab71f90cd219d0a6408650d1af64bb6d79",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2402",
+      "basename": "McpServerIconImage.js",
+      "file": "recovered/app/glass/agent/McpServerIconImage.js",
+      "range": [
+        15450105,
+        15450729
+      ],
+      "sha256": "6aabf840516f58f21a292ab22dda365fafd5d10051151a4abadc45a1765d2bf6",
+      "sha256Original": "0b0abdd3c7227431057a4190cd80c08ff16d2d1619eddced4936bcddb771386b",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "MCPIcon.js",
+        "google-favicon-fallback.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2432",
+      "basename": "McpServerIconStack.js",
+      "file": "recovered/app/glass/agent/McpServerIconStack.js",
+      "range": [
+        15524863,
+        15532014
+      ],
+      "sha256": "64036fef301a7d6e4803863e71ae6555b2160d2abfe3ac43f4fccf94ca1b2321",
+      "sha256Original": "87ed198d18c72c2ac7e6f8673167c5b3b77a96557e002a54b2c39d7b17337ed3",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "McpServerIcon.js",
+        "McpServerIconChip.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2474",
+      "basename": "MentionChipTooltip.js",
+      "file": "recovered/app/glass/agent/MentionChipTooltip.js",
+      "range": [
+        15684018,
+        15684108
+      ],
+      "sha256": "33db49fc04178a20bf44f6cad858b6bf530314b5de41ac5aa873a8d1531b2dda",
+      "sha256Original": "47bbfa8bc816b117079c2a0112c4727c57c90ac9cdd6a37ff740e606ebbe9edd",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "prompt-chip.stylex.js",
+        "tooltip.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2180",
+      "basename": "NewTaskSlot.js",
+      "file": "recovered/app/glass/agent/NewTaskSlot.js",
+      "range": [
+        14779595,
+        14783695
+      ],
+      "sha256": "7ad1a2effdb66983200a67cb7f4a4ee4fe516802d3a07f93db3509d000e87807",
+      "sha256Original": "afea23f5678edf1f8513697fff5774a0c4501f0fc8fad796796ee507ed1289e1",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "icon.js",
+        "Text.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2898",
+      "basename": "OrchestrationAgentChecklist.js",
+      "file": "recovered/app/glass/agent/OrchestrationAgentChecklist.js",
+      "range": [
+        17217288,
+        17219751
+      ],
+      "sha256": "dc8ef17ed48521d100cd6c0b1b6523a9b333238c489478f1db0e183343a8bf02",
+      "sha256Original": "1bf3df508e8597a9c66d6e2a40bc5bf600a9f07b8d46391408723bb2513ad6fb",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "ProjectAgentStatusGlyph.js",
+        "ProjectTone.js",
+        "projectAgentRole.js",
+        "Text.js",
+        "Markdown.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6025",
+      "basename": "PlanEditorView.js",
+      "file": "recovered/app/glass/agent/PlanEditorView.js",
+      "range": [
+        32067936,
+        32068334
+      ],
+      "sha256": "6db9ef6eae827f378172fb3be531b6689710c6efc27e35ccb0d109483d99793a",
+      "sha256Original": "405ec74e7642c85382d43fa104b0f1d8f254826a19ec6a953324675ebc5f6947",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "index.js",
+        "plan-references-section.react.js",
+        "plan-todos-section.react.js",
+        "vanilla.mjs",
+        "solid.js",
+        "keyboardEvent.js",
+        "constants.js",
+        "network.js",
+        "aiConfigHelper.js",
+        "vscodeCodeLineTokenizer.js",
+        "react-bridge.js",
+        "solidContext.js",
+        "jotaiSolidBridge.js",
+        "citationLinkUtils.js",
+        "scrollableDiv.js",
+        "PlanEditorView.css",
+        "PlanRichTextEditor.react.js",
+        "usePlanEditorState.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3962",
+      "basename": "PlanExecutionCard.js",
+      "file": "recovered/app/glass/agent/PlanExecutionCard.js",
+      "range": [
+        23033537,
+        23039466
+      ],
+      "sha256": "60701dfb650409ae62f37eadf96b4ac411c75dd0247bf430274194ef3b10351d",
+      "sha256Original": "097e8cec64e18c8fc6132e189fbd369e078218b999b9bd8e344329a5700fc232",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "tokens.stylex.js",
+        "stylex.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2869",
+      "basename": "PluginCommandSearchMenu.js",
+      "file": "recovered/app/glass/agent/PluginCommandSearchMenu.js",
+      "range": [
+        17152386,
+        17154021
+      ],
+      "sha256": "35696d017920393f2a2c365fd1b6b03bbca10f06ed26f6e658ae5df431c54ef0",
+      "sha256Original": "3ef5d42916f6dbd3fbf0f80240fe59bf45fb62684b7c434d66c3dbc53b434d38",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "promptInputMenuNavigation.js",
+        "AddPluginSearch.js",
+        "Plugins.search.js",
+        "menu.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2891",
+      "basename": "ProjectAgentStatusGlyph.js",
+      "file": "recovered/app/glass/agent/ProjectAgentStatusGlyph.js",
+      "range": [
+        17205364,
+        17205797
+      ],
+      "sha256": "030174d20cd84891681713f18070c37ef49c666171dce0fc8f262fb3e09f5fdb",
+      "sha256Original": "7d2c0f65cec6bd101d6a3ee5fed5963e18ccfe2575ce7ebaa2bff0cc7023409d",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "icon.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3177",
+      "basename": "SelectionTooltip.js",
+      "file": "recovered/app/glass/agent/SelectionTooltip.js",
+      "range": [
+        18206243,
+        18207963
+      ],
+      "sha256": "ab490859d2b3a3b1f5a31d3f4727b86308e6cbaa8e2fe87041b834eeabe1a283",
+      "sha256Original": "a17f2380faaf152f0509227d0ad70e89d0e37eca7ed7ecd87020df3559c0ac29",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "use-latest-ref.js",
+        "codicon.js",
+        "RichTextEditorContext.js",
+        "selection-utils.js",
+        "tooltip.js",
+        "PriorityToggleIconButton.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2506",
+      "basename": "SkillCommandBadge.js",
+      "file": "recovered/app/glass/agent/SkillCommandBadge.js",
+      "range": [
+        15758758,
+        15760035
+      ],
+      "sha256": "9bf5599eb40050dd49731c12543f9bc2c94cb4b479f2b8fd592e4616d6535396",
+      "sha256Original": "157d724a04c5a7f6b25f359e7cf2bc9d10b663b8697dea1198313d8bbd88a44c",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "IconColorPickerPanel.js",
+        "icon.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3055",
+      "basename": "SkillIcon.js",
+      "file": "recovered/app/glass/agent/SkillIcon.js",
+      "range": [
+        17826241,
+        17829078
+      ],
+      "sha256": "61e509e3b31f9185c383521d5a3c2367fd5edfe3a069a88ed87c0e363e5b6af6",
+      "sha256Original": "41230274720ddd178bc2281fd98dc77f929c945e105729cf631e17d61da5ddbf",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6282",
+      "basename": "SkillIconColorHeader.react.js",
+      "file": "recovered/app/glass/agent/SkillIconColorHeader.react.js",
+      "range": [
+        33692529,
+        33706080
+      ],
+      "sha256": "3e22941cafc088292a9295ad93cb8c2d441f7f0af7e1c84d5de09a535a8bb98b",
+      "sha256Original": "50c9d1a376e47cdb32a847c3f0031ce6378dace7620c8ccc1be95cc4bf786525",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "SkillIconColorHeader.css"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3056",
+      "basename": "SubagentIcon.js",
+      "file": "recovered/app/glass/agent/SubagentIcon.js",
+      "range": [
+        17829078,
+        17829973
+      ],
+      "sha256": "de6a9e24b3802a9a9669e5cd550e2479beb20aaa9f81c6cf32724120f2bf88ef",
+      "sha256Original": "2b404cb551aa435a21abf6ab67d9104b9dce2c4191552c542e692a6206639908",
+      "renamed": true,
+      "renames": {
+        "Pv1": "SubagentIconModule",
+        "dwp": "SubagentIcon"
+      },
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5494",
+      "basename": "SubagentLinkHoverCard.react.js",
+      "file": "recovered/app/glass/agent/SubagentLinkHoverCard.react.js",
+      "range": [
+        30598786,
+        30601993
+      ],
+      "sha256": "ec946b70de7f66dd55a70ac6128f566edefe7ea88d38fc5ffcbc0983a07186fb",
+      "sha256Original": "cb1db9f602a970f3e640654ff11fd565386654355544fe2b08f5614e2229b929",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "errors.js",
+        "markdownPlaintext.js",
+        "uri.js",
+        "use-cloud-subagent-header-revision.react.js",
+        "use-glass-agent-metadata-tooltip-rows.react.js",
+        "glass-agent-metadata-tooltip-body.react.js",
+        "agent-pr-status-icon.react.js",
+        "pullRequestIdentity.js",
+        "use-pr-lifecycle.react.js",
+        "use-reactive.react.js",
+        "use-service-event-state.react.js",
+        "use-service.react.js",
+        "opener.js",
+        "bubbleComposerDataHandle.js",
+        "composerDataServiceTypes.js",
+        "chatLinkDragSource.react.js",
+        "agentLinks.js",
+        "agentRepositoryServiceTypes.js",
+        "agentRepositoryService.js",
+        "subagentCanonicalIds.js",
+        "modelConfigServiceTypes.js",
+        "modelNameDisplayLookup.js",
+        "reactNodeToPlainText.react.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7563",
+      "basename": "SubagentStatusIndicator.react.js",
+      "file": "recovered/app/glass/agent/SubagentStatusIndicator.react.js",
+      "range": [
+        37609337,
+        37616474
+      ],
+      "sha256": "43fbf3545b3b37edd17cb18aa090ec8574e7d50254f5919bc0fc1c7c006d0c77",
+      "sha256Original": "ee665368363dc854187b6b7e11ccb260e0f1c63b5fecf101d6390c507493af0b",
+      "renamed": true,
+      "renames": {
+        "KDs": "SubagentStatusIndicatorModule"
+      },
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "SubagentStatusIndicator.css"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2378",
+      "basename": "SubagentTaskCard.js",
+      "file": "recovered/app/glass/agent/SubagentTaskCard.js",
+      "range": [
+        15419100,
+        15420161
+      ],
+      "sha256": "78877684d0630ca97fca5b396e4637c50ceb36e0bf9b3a25a62c41c40d6890a9",
+      "sha256Original": "49bbbfbe5ff839ac4c0ce03788570ff3f7eabe23179c749259684458db40aff5",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "ModelPickerMarkdown.js",
+        "TextRoll.js",
+        "PreviewCard.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3185",
+      "basename": "TaskItemNodeView.js",
+      "file": "recovered/app/glass/agent/TaskItemNodeView.js",
+      "range": [
+        18293452,
+        18299945
+      ],
+      "sha256": "5c25908f94925e527af384bdaa78609a43761032d454fa47bcbd3726aae648aa",
+      "sha256Original": "dcda7d039168d2ecdd2a99f3ca159f7edbc39432b34c116f34d9f258c23a3e03",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "cn.js",
+        "taskCheckboxAccessibility.js",
+        "RichTextEditorContext.js",
+        "Checkbox.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2204",
+      "basename": "TaskSectionView.js",
+      "file": "recovered/app/glass/agent/TaskSectionView.js",
+      "range": [
+        14912872,
+        14913169
+      ],
+      "sha256": "bd9af7a5c97e02183266a78af4faad70da7597c2cd59968984bbb076b311b52a",
+      "sha256Original": "2adfdb026aa4a57a8cf466f6e38d1cc2c8ea38994c36259d7293e76ef43f89b3",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "projectTaskSections.js",
+        "ProjectTone.js",
+        "KanbanCard.js",
+        "ProjectList.js",
+        "ProjectListOverflowToggle.js",
+        "Text.js",
+        "scroll-area.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2366",
+      "basename": "ToolApprovalContext.js",
+      "file": "recovered/app/glass/agent/ToolApprovalContext.js",
+      "range": [
+        15315598,
+        15315928
+      ],
+      "sha256": "e86100bfeb696ca7b52e722be011c973ff43dca33d4cc925346939f0feeba507",
+      "sha256Original": "380cf3935c97117be434fd5415b24cc83d9a7cb7c377a8e5cceb5b334f1fcc44",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2396",
+      "basename": "ToolApprovalGate.js",
+      "file": "recovered/app/glass/agent/ToolApprovalGate.js",
+      "range": [
+        15438145,
+        15440135
+      ],
+      "sha256": "27cbffbc11df75e69818afe2f2200aef27d3ea8aad1e2badfedf37ee6e68fc99",
+      "sha256Original": "b40fd9265cf77cc5bfbf5755e8b61aa60354f67532a51725ba84df46e10f03e2",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "useElementWidth.js",
+        "Button.js",
+        "ToolApprovalReasonStack.js",
+        "TranscriptCard.js",
+        "useToolApproval.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2368",
+      "basename": "ToolApprovalReasonStack.js",
+      "file": "recovered/app/glass/agent/ToolApprovalReasonStack.js",
+      "range": [
+        15319198,
+        15321653
+      ],
+      "sha256": "475ba86df2765d46a15a712030d05be367b4a3b9a744bb7765c696c99e899ad8",
+      "sha256Original": "c7aeb73c47b225b8430f9ebbe67197c1910ad750c8c372cd56654bb601f4241c",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "ToolApprovalContext.js",
+        "ToolApprovalReasonStack.stylex.js",
+        "tool-approval-types.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2367",
+      "basename": "ToolApprovalReasonStack.stylex.js",
+      "file": "recovered/app/glass/agent/ToolApprovalReasonStack.stylex.js",
+      "range": [
+        15315928,
+        15319198
+      ],
+      "sha256": "1b2013d7c69d303797b418ba1f5de35d0a5712832717401e2d8e0c9780e750f3",
+      "sha256Original": "f365e06e509f79a55878d0d1a550abf4f6fa3a4ba891d6fff1a7799a33c5b17e",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1447",
+      "basename": "ToolbarRootContext.js",
+      "file": "recovered/app/glass/agent/ToolbarRootContext.js",
+      "range": [
+        6139441,
+        6141952
+      ],
+      "sha256": "75abde3363be537df5095d7ecdf71601f2d79d20800c788a7d3d99aac869968b",
+      "sha256Original": "15f94fbec1619646888f46bb9d18c445c472ce663d8939ef36155a68ce1f9317",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5808",
+      "basename": "ToolbarRootContext.mjs",
+      "file": "recovered/app/glass/agent/ToolbarRootContext.mjs",
+      "range": [
+        31335869,
+        31336638
+      ],
+      "sha256": "6e94d854d74aee8c7f2db077bd9ad47bc894da181af1f9aa2065b27613115fc6",
+      "sha256Original": "7c4c9ab38633fadba31b8f74af5727db80a39f65b9e057aeaa2602e817cf41d3",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.mjs"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2450",
+      "basename": "ToolPlaceholder.js",
+      "file": "recovered/app/glass/agent/ToolPlaceholder.js",
+      "range": [
+        15609998,
+        15616062
+      ],
+      "sha256": "7df31a5bed0e9da68697a76e87fa25c0ff054df6297557a4e1d8c9134be02fa5",
+      "sha256Original": "a5eca52da04da9e188d36fc76d1342e7b283e41101999d8700ac76b778641ed7",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "ToolCallLine.js",
+        "transcript-types.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1517",
+      "basename": "TooltipHandle.js",
+      "file": "recovered/app/glass/agent/TooltipHandle.js",
+      "range": [
+        6352137,
+        6353642
+      ],
+      "sha256": "a7ec156d47b59cd79c8aae254507b9c807970ee063fc768e805c8dd19dfb23b2",
+      "sha256Original": "d2ee319f767c8f9ad8b14b41230065e67c7311bacf436ad71638d772157a759b",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.js",
+        "TooltipStore.js",
+        "createBaseUIEventDetails.js",
+        "reason-parts.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1515",
+      "basename": "TooltipPopup.js",
+      "file": "recovered/app/glass/agent/TooltipPopup.js",
+      "range": [
+        6350513,
+        6351629
+      ],
+      "sha256": "533f89e69fa5a6a9acb65eae577a996068cb021e06391d4a2a320af0dee2c96a",
+      "sha256Original": "b13527be9092c855ebc94a3ffa2089c148d4db8da97b1510595c6c79fce6a193",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "TooltipRootContext.js",
+        "TooltipPositionerContext.js",
+        "popupStateMapping.js",
+        "stateAttributesMapping.js",
+        "useOpenChangeComplete.js",
+        "useRenderElement.js",
+        "getDisabledMountTransitionStyles.js",
+        "useHoverFloatingInteraction.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1512",
+      "basename": "TooltipPortal.js",
+      "file": "recovered/app/glass/agent/TooltipPortal.js",
+      "range": [
+        6347798,
+        6348503
+      ],
+      "sha256": "49241887aa3f8eb08d9d66f250ed8ae8ebd1e8c22d120309932e78559f64c1a1",
+      "sha256Original": "4edd8260950590f46c2971bea17fbe8c63a82668fdf5341cfc931acd87769699",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "TooltipRootContext.js",
+        "TooltipPortalContext.js",
+        "FloatingPortalLite.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1511",
+      "basename": "TooltipPortalContext.js",
+      "file": "recovered/app/glass/agent/TooltipPortalContext.js",
+      "range": [
+        6347460,
+        6347798
+      ],
+      "sha256": "1607ecc30f716f83389382f2586c8f16066425b1d294c2fd0aee089b4bc50de6",
+      "sha256Original": "1dd7c7c9049d0a6ebf0d3c330e9b0ae03f98dad239788e5a9aaecf62eb736901",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1514",
+      "basename": "TooltipPositioner.js",
+      "file": "recovered/app/glass/agent/TooltipPositioner.js",
+      "range": [
+        6348849,
+        6350513
+      ],
+      "sha256": "31a5375a537e1162f365b418f45f95ed113277facf34a36092d9d0af351a38b9",
+      "sha256Original": "577116d319e8addddd15ac535ed4e1c72fd61e265ae097eddd737cd2a5397294",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "TooltipRootContext.js",
+        "TooltipPositionerContext.js",
+        "useAnchorPositioning.js",
+        "TooltipPortalContext.js",
+        "constants.js",
+        "adaptiveOriginMiddleware.js",
+        "usePositioner.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1513",
+      "basename": "TooltipPositionerContext.js",
+      "file": "recovered/app/glass/agent/TooltipPositionerContext.js",
+      "range": [
+        6348503,
+        6348849
+      ],
+      "sha256": "3b41c1525d97404fe2f1360b5bb69d611549cf6d88c4af509198cdfe7370a40f",
+      "sha256Original": "384e2064f651b64f3c7fa2ce5f1002735939040082d5d62ebcbb3a72d41a1e18",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1516",
+      "basename": "TooltipProvider.js",
+      "file": "recovered/app/glass/agent/TooltipProvider.js",
+      "range": [
+        6351629,
+        6352137
+      ],
+      "sha256": "47026caacbebeeea64272b6c99c9a067d24826b32d3b26e59eddb32509f71688",
+      "sha256Original": "22fb3878929cf333436bcc0e5e904c5e0490a1cc20035e090038d3e698d5972f",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "TooltipProviderContext.js",
+        "FloatingDelayGroup.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1507",
+      "basename": "TooltipProviderContext.js",
+      "file": "recovered/app/glass/agent/TooltipProviderContext.js",
+      "range": [
+        6342452,
+        6342632
+      ],
+      "sha256": "a5ce6ec8ebecc64912e0170cd11e9b4d0931e940f79caf3ed37d1c9079c7d84e",
+      "sha256Original": "762e3d1ad056b5ab3f0247680634b06c6ef710d92c7c736f1b0095e63b6051f8",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1506",
+      "basename": "TooltipRoot.js",
+      "file": "recovered/app/glass/agent/TooltipRoot.js",
+      "range": [
+        6340328,
+        6342452
+      ],
+      "sha256": "265ed425b1ba9c55c6b645951957d20fd77089fd69ad7456cf3d645fac513860",
+      "sha256Original": "3775e483084026ab45777a462b6ba453086723cf2e32f84f23742183b46951b7",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "fastHooks.js",
+        "useIsoLayoutEffect.js",
+        "TooltipRootContext.js",
+        "createBaseUIEventDetails.js",
+        "TooltipStore.js",
+        "popupStoreUtils.js",
+        "reason-parts.js",
+        "useDismiss.js",
+        "useClientPoint.js",
+        "mergeProps.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1504",
+      "basename": "TooltipRootContext.js",
+      "file": "recovered/app/glass/agent/TooltipRootContext.js",
+      "range": [
+        6337736,
+        6338245
+      ],
+      "sha256": "3d30d5913f272d8b8c9f1453b074a78191dcbe93175b5550196d6aabe3aa0bac",
+      "sha256Original": "72617d192d0cff09042ada2a94b5fc78fa56896f0aae42291ac27f7af189cc02",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7798",
+      "basename": "TooltipsSection.js",
+      "file": "recovered/app/glass/agent/TooltipsSection.js",
+      "range": [
+        39340921,
+        39348595
+      ],
+      "sha256": "06e0e704f5347913a84e944d33a9f7865aec64524ec95e6e74e6b3473332d443",
+      "sha256Original": "6ce3eb9d63faa3e23453300543f643829a6dfba83733c41ae56cb7971a939992",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "vanilla.mjs",
+        "solid.js",
+        "hoverWidget.js",
+        "codicons.js",
+        "themables.js",
+        "useLargeHoverTooltip.js",
+        "useVSHoverTooltip.js",
+        "gallerySection.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1505",
+      "basename": "TooltipStore.js",
+      "file": "recovered/app/glass/agent/TooltipStore.js",
+      "range": [
+        6338245,
+        6340328
+      ],
+      "sha256": "89ede28e58ba0661640de776ebc71ac2644bcb03a37df0e9e5509eb4ce092bec",
+      "sha256Original": "fc486d603249011f4491c3946572ca479371fb2e854d4a6bf2b3f343d447f71f",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "createBaseUIEventDetails.js",
+        "createSelector.js",
+        "store.js",
+        "ReactStore.js",
+        "popupTriggerMap.js",
+        "popupStoreUtils.js",
+        "reason-parts.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1510",
+      "basename": "TooltipTrigger.js",
+      "file": "recovered/app/glass/agent/TooltipTrigger.js",
+      "range": [
+        6343478,
+        6347460
+      ],
+      "sha256": "b7e3584987332a1cd2a6e4eddf941c96c0a017a135b93984cdb1cbbd32a13300",
+      "sha256Original": "e1182d0f450a5690bf305a841b00d48572aa303a8ab785326b3aedd30234a824",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.js",
+        "floating-ui.utils.dom.js",
+        "fastHooks.js",
+        "useTimeout.js",
+        "useValueAsRef.js",
+        "TooltipRootContext.js",
+        "popupStateMapping.js",
+        "useRenderElement.js",
+        "useBaseUiId.js",
+        "TooltipProviderContext.js",
+        "event.js",
+        "createBaseUIEventDetails.js",
+        "TooltipTriggerDataAttributes.js",
+        "useHoverInteractionSharedState.js",
+        "constants.js",
+        "popupStoreUtils.js",
+        "FloatingDelayGroup.js",
+        "shadowDom.js",
+        "useHoverReferenceInteraction.js",
+        "safePolygon.js",
+        "useFocus.js",
+        "reason-parts.js"
+      ]
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1508",
+      "basename": "TooltipTriggerDataAttributes.js",
+      "file": "recovered/app/glass/agent/TooltipTriggerDataAttributes.js",
+      "range": [
+        6342632,
+        6342840
+      ],
+      "sha256": "c991c6bf8362276eb19a5b0a63b151668b68061f2809ccdc0d0947285bf71b4c",
+      "sha256Original": "1c5e7b98bbef3f4e4688b4ebe3420d2717b3c8d6fda3cadd842c8c11e87c0a92",
+      "renamed": false,
+      "renames": {},
+      "confidence": "C",
+      "pathBasis": "inferred",
+      "path": null,
+      "deps": [
+        "tslib.es6.js",
+        "popupStateMapping.js"
+      ]
+    }
+  ]
+}

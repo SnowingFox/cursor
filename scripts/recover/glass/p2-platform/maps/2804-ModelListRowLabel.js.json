@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2804",
+  "basename": "ModelListRowLabel.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "declared esbuild wrapper init for module \"ModelListRowLabel.js\"; synthetic module-scope name derived from basename (wrapper key is exact)",
+  "renames": {
+    "BTa": "ModelListRowLabelModule"
+  },
+  "file": "recovered/app/glass/platform/ModelListRowLabel.js"
+}

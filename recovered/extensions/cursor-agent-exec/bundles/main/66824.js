@@ -1,0 +1,14 @@
+// @recovered-by cursor-re
+// artifact: app/extensions/cursor-agent-exec/dist/main.js sha256:8d20326bd54948353115113c2d4716cf781d593610fd4d8acebcc37a3170da8e
+// module: 66824 range:6048999..6049362
+// basis: webpack-id confidence: C
+// method: split
+// run: ext-p0 2026-11-05T10:07:22.069Z
+66824: (e, t, r) => {
+    "use strict";
+    Object.defineProperty(t, "__esModule", { value: true });
+    const n = r(79657), s = { keyword: ["then", "else"], schemaType: ["object", "boolean"], code({ keyword: e2, parentSchema: t2, it: r2 }) {
+      void 0 === t2.if && (0, n.checkStrictMode)(r2, `"${e2}" without "if" is ignored`);
+    } };
+    t.default = s;
+  }

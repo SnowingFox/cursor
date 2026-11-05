@@ -1,0 +1,12 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3932",
+  "basename": "McpCreateDestinationMenu.js",
+  "file": "recovered/app/glass/agent/McpCreateDestinationMenu.js",
+  "renames": {
+    "_Z1": "McpCreateDestinationMenuModule"
+  },
+  "notes": [
+    "_Z1 -> McpCreateDestinationMenuModule: declared wrapper binding, evidence: esbuild init key \"McpCreateDestinationMenu.js\"",
+    "component rename skipped: 6 JSX-returning functions (yZ1, SZ1, kZ1, YHm, XHm, ZHm)"
+  ]
+}

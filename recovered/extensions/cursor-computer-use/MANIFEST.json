@@ -1,0 +1,633 @@
+{
+ "generatedAt": "2026-11-05T10:09:48.889Z",
+ "run": "ext-p0",
+ "extension": "cursor-computer-use",
+ "sourceDir": "app/extensions/cursor-computer-use",
+ "adopted": [
+  {
+   "path": "src/backendClient.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backendClient.ts",
+   "sha256": "15442791672c29b15e2c1e979094a09e79c7dd1d50955be0cc184c7f42bcd785",
+   "bytes": 2344,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/extension.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/extension.test.ts",
+   "sha256": "27d11d6907aeb9dc2a61dc3f366bd44ccc7384fdf4bf51946001c6707b58532f",
+   "bytes": 49125,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/types.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/types.ts",
+   "sha256": "0dc351a76c9d14dc9d2e26cdbaf5152cb635393ee28eca3dbc93b716a3d70673",
+   "bytes": 6051,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/mac/helper-discovery.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/mac/helper-discovery.ts",
+   "sha256": "1c79f0bc5fe555b200f1d67bb724c4d2b7a102a6c5e92add0207196b1f389c96",
+   "bytes": 3130,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/mac/install-lock.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/mac/install-lock.ts",
+   "sha256": "7a454f811b3ec7c3ec4ba3975f6fc01e186559fc59b5d3d8853fec1f5462cc5d",
+   "bytes": 735,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/mac/sidecar-client.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/mac/sidecar-client.test.ts",
+   "sha256": "1af93aa5b73e7e5ade99654e21dcd645931253f7905fd07956bae59b8822d709",
+   "bytes": 90017,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/mac/helper-discovery.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/mac/helper-discovery.test.ts",
+   "sha256": "7b01066d8894f9964636fe456bc8bc853f43c02770776b2469ed5f1b82d899c1",
+   "bytes": 2927,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/mac/sidecar-download.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/mac/sidecar-download.test.ts",
+   "sha256": "fe9c0b37a95932fff404ea5cee07fea02f6c233498224205b07bf57978c374a2",
+   "bytes": 19840,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/mac/sidecar-client.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/mac/sidecar-client.ts",
+   "sha256": "38bfed187eb058252d083778e59b9f17fb025b6836adb8a80d3510bfa5e704e3",
+   "bytes": 40027,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/mac/rpc-codec.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/mac/rpc-codec.ts",
+   "sha256": "b56874563de63837df4c0fa100ffe286acde5f8e10e93bbdc9449c541312582c",
+   "bytes": 2975,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/mac/sidecar-download.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/mac/sidecar-download.ts",
+   "sha256": "028d4b196b1598c6d0a16431e56672da896c60d619c5108cd168a3db2b3d038e",
+   "bytes": 24599,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/common/sidecar-install-lock.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/common/sidecar-install-lock.test.ts",
+   "sha256": "17b53f109a8a285fbec7a6da05d17049178fcd5a2d64a83a4a7906244166259b",
+   "bytes": 12512,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/common/rpc-connection.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/common/rpc-connection.ts",
+   "sha256": "0da68c9720ea8a582d38409673491221e714d625d574142f2417146b38c326e3",
+   "bytes": 8531,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/common/sidecar-rpc-client.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/common/sidecar-rpc-client.test.ts",
+   "sha256": "f45ab1e642f5d77c7e659c0bcb47ee7236a2986b2a7334cfc21945f90b26c280",
+   "bytes": 1120,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/common/errors.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/common/errors.ts",
+   "sha256": "81a7fb19b043ddd6243c51a8c4c2cbdbca91b207e11d56a04a90769ad41dd281",
+   "bytes": 740,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/common/sidecar-rpc-client.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/common/sidecar-rpc-client.ts",
+   "sha256": "eaadd403a8fd13ef9eafd9a4c87a7523a1029d7a9121d7435383c767221faa12",
+   "bytes": 21183,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/common/sidecar-install-lock.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/common/sidecar-install-lock.ts",
+   "sha256": "09b862a4a6c319df8f01f3a5274861f30ccfe39ae1e90c7df5ff4530858536ec",
+   "bytes": 9233,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/common/transport.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/common/transport.ts",
+   "sha256": "826b6d28dff5fe0cab8e94b4591d3820fbdd2f3507f5c022f9e671d7f7ddddbc",
+   "bytes": 2493,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/common/rpc-codec.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/common/rpc-codec.ts",
+   "sha256": "0fae92b3926cc1f2755de426ee7b2c7b61644c221d09289411979b018564c061",
+   "bytes": 1875,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/index.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/index.ts",
+   "sha256": "efd03ab05ba7f6060aeb829e87368a80dab690a6b28cd5793565eff7bdd0a03f",
+   "bytes": 2223,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/release-fetch.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/release-fetch.ts",
+   "sha256": "a14fd05b0d43f4b709eb2071b263bb026f805d2a3ec8c17c969bc28f09bf8a63",
+   "bytes": 8008,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/launch-token.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/launch-token.ts",
+   "sha256": "cea144bcd72d9a1075b046fe7dc1e82f88669d4143bedfcf0806660dc38c1b53",
+   "bytes": 5034,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/sidecar-failure.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/sidecar-failure.ts",
+   "sha256": "b6f2fd016b8d18d44f5da4485490e1b371d1afe0f88c30d8c2f235534e2553ed",
+   "bytes": 5697,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/signer.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/signer.test.ts",
+   "sha256": "67772180359eb10e5b4ee2367c5be60b40204cea7c7873e4ba792ff0cc695967",
+   "bytes": 18848,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/signer.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/signer.ts",
+   "sha256": "d805f0a62c54da6d6f2b0d7048d0cd02c0d958ff8933c003d8477f476f9400a2",
+   "bytes": 13038,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/server-identity.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/server-identity.ts",
+   "sha256": "b08a6a4e488667a12ea37319aa8ba4f80bb83d157eab42840d5ec3017ba66ab7",
+   "bytes": 9666,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/pipe-discovery.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/pipe-discovery.test.ts",
+   "sha256": "6a3542b6928734eec9c92a6db05054bcef9bd33d3c219ea8f10e70926e0df668",
+   "bytes": 8060,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/__fixtures__/pipeline-win32-release-manifest.json",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/__fixtures__/pipeline-win32-release-manifest.json",
+   "sha256": "64b9e853fc0aa97674c1f7949bbaa22214f55bfd89c4fb47fccc9802bf1e3b78",
+   "bytes": 1148,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  },
+  {
+   "path": "src/backends/windows/__fixtures__/fake-sidecar.cjs",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/__fixtures__/fake-sidecar.cjs",
+   "sha256": "29d6ef043fef8d7b03506da335f53297c89c14797217fefbd8b4144f3676c9dd",
+   "bytes": 6207,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/stop-child.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/stop-child.test.ts",
+   "sha256": "655bb7ae8bd051709932af4f6680ed162674d98566d583bfb2b3c57bac7483e1",
+   "bytes": 2122,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/sidecar-client.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/sidecar-client.test.ts",
+   "sha256": "5d48fa85df7d4475f44ce03723b4b996e92dbccd4240fc8085c7e4038bd5e14e",
+   "bytes": 60988,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/product-profile.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/product-profile.ts",
+   "sha256": "90c38780efbf08a6f9daa2ba4ab9058ea98cfd1b755978493c9b0b6cfe9ea3ee",
+   "bytes": 3234,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/release-manifest.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/release-manifest.ts",
+   "sha256": "13850a1eceebd7802f5f8d04acc9ed861314f9299490fd8d48046018f40ff9b7",
+   "bytes": 11635,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/sidecar-download.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/sidecar-download.test.ts",
+   "sha256": "a029d00aa32f7f8461796e66d4404d75f7eb5c5d407c4741023565bb3329ae8c",
+   "bytes": 51793,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/sidecar-client.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/sidecar-client.ts",
+   "sha256": "e2c93e7eb561122ea63a4ed9df4d03874115c8a27ff513c28cd23c04edf2ae25",
+   "bytes": 774,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/conformance-vectors.test-support.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/conformance-vectors.test-support.ts",
+   "sha256": "2cbce5c23eed5a1ef62c601e26f2e00a2203b3974d47b576bc199474e6f6f974",
+   "bytes": 2706,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/product-profile.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/product-profile.test.ts",
+   "sha256": "9419bc45723797bd177b146f84911c0ede71f7d1a75c3d29a79ebea07d991dab",
+   "bytes": 2225,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/transport.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/transport.ts",
+   "sha256": "d426fa063e80d81aca52d26ecbce33adb0839bc6b29e4fe13f1d3cfef82c4db5",
+   "bytes": 32469,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/launch-token.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/launch-token.test.ts",
+   "sha256": "e9de4409f37af9a5de02bebf1ca9a5966bd3412c8db8f20e4e702dafc5e9c0c0",
+   "bytes": 5206,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/host-version.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/host-version.ts",
+   "sha256": "353f2783a6efc69f6f0ca80efa0c59bc0c5b96b7574d4ec16f0ed818750c0776",
+   "bytes": 3019,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/pe-image.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/pe-image.ts",
+   "sha256": "65198ef54840072cbd4a5a74ab10ce89bcf9931f39c60e3401c78aae8c7951cf",
+   "bytes": 1269,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/pipe-discovery.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/pipe-discovery.ts",
+   "sha256": "d3a4478c213a815da35e2976592d44d7fcea205876f175cc739634d938d4be8f",
+   "bytes": 9372,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/release-manifest.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/release-manifest.test.ts",
+   "sha256": "a589256c692d493f5fbd04d9f320b7e3227dc9b1a55edd1f2b41cbac7e5ab600",
+   "bytes": 11835,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/handshake.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/handshake.ts",
+   "sha256": "caeeea777ac437c6cf914632ee87bf32af62afaf2cd7cfb307ce160a0d7cea8e",
+   "bytes": 2351,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/backends/windows/sidecar-download.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/backends/windows/sidecar-download.ts",
+   "sha256": "6ea74de2925c2c954c31661026ba4e48c63134fb3a8f3d668fa16ca2d83a0d60",
+   "bytes": 37312,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/extension.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/extension.ts",
+   "sha256": "4e5afbd49c7c7be32c270f4e63f0f1e64113d2d3b3385d5d78563bdf7538db9d",
+   "bytes": 23526,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/next-action.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/next-action.test.ts",
+   "sha256": "739dc3057f11cfbac66d363bd5386b90d362e76180276a9dfeecdad091d6efd6",
+   "bytes": 4341,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/attempt-ax.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/attempt-ax.ts",
+   "sha256": "4177e185ceb64593ed11ebce6d852e3d7c0cadeac9b1c8dc0bfe86d74fab3e87",
+   "bytes": 10544,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/next-action.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/next-action.ts",
+   "sha256": "e3bae491819ef4a27408488c5b85cdd1b31273039bb8fd14cb36350c53ee97ae",
+   "bytes": 4574,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/screenshot-codec.bench.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/screenshot-codec.bench.test.ts",
+   "sha256": "0281e8cc4f53ccf8d13ecf73491a03bc5ae3237831570cb382bf07f069108e83",
+   "bytes": 17200,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/screenshot-codec.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/screenshot-codec.ts",
+   "sha256": "df21af4a739a6976e5d6f15436cbfc870a34c88870d40f43756b96a44ac5f38c",
+   "bytes": 13908,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/catalog-export.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/catalog-export.test.ts",
+   "sha256": "748dfc819e9f1ce131fd26d693fbd51223fda3c261f301cfad2c5a2095a1dc91",
+   "bytes": 10874,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/screenshot-codec.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/screenshot-codec.test.ts",
+   "sha256": "ee9fe0493cce25f1230d476153606040b55b12c75a6f7122ace47ccb4e0fc60a",
+   "bytes": 30129,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/__fixtures__/windows-tools.json",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/__fixtures__/windows-tools.json",
+   "sha256": "01c072d1f4c7981f7498c45f761a06a81a5d4f79faaa61a13af787bdf6607687",
+   "bytes": 5469,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  },
+  {
+   "path": "src/mcp/companion-loop.bench.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/companion-loop.bench.test.ts",
+   "sha256": "20df176176eb0c781cad275e104cff14156852441497bbf500b16bafecdf638c",
+   "bytes": 11256,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/mac-mode.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/mac-mode.ts",
+   "sha256": "39195276f0e3c6f8c05dc454870e09f6ca86f23f1566290e965ebcf7b6c7a456",
+   "bytes": 4405,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/zoom-conformance.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/zoom-conformance.test.ts",
+   "sha256": "79921924b1af6f1276e1ff7194773cf9f893d7f0dcf58409bdcfd63c70bff926",
+   "bytes": 3636,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/tools.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/tools.ts",
+   "sha256": "b22b6bdf28e8a8115ee3ee57bda1092061623b9e90521a3e7d3d188e403b6c46",
+   "bytes": 102583,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/tools.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/tools.test.ts",
+   "sha256": "634ce144262bb8ae2cdff6cf8d702ca334f55b5766617dead6243f37cea98d17",
+   "bytes": 147118,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/attempt.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/attempt.test.ts",
+   "sha256": "0448dacb4db27f7d0e44a87f1fd6aff52163f02b7a74d73bb517ab83daa9a58e",
+   "bytes": 15888,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/catalog-export.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/catalog-export.ts",
+   "sha256": "568c8eae19acbe7b5ea49901c169e9e41c6d13a44f6d7215ecc1a4600bd3f781",
+   "bytes": 8920,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/mac-mode.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/mac-mode.test.ts",
+   "sha256": "52624345ef7b0d5dc5caa704ac6b350493243b2bf94544689e9e1c97883ec5bc",
+   "bytes": 1872,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/attempt-ax.test.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/attempt-ax.test.ts",
+   "sha256": "c3c41f2201a3b74c0d0a6c01e32f2152bd6aa2412d844c46560c69d29629164e",
+   "bytes": 6494,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "src/mcp/attempt.ts",
+   "artifact": "app/extensions/cursor-computer-use/src/mcp/attempt.ts",
+   "sha256": "79cab2e6b016bac731ce453d9df14daab257b145c52ac9c2dc7f862e8cb67ee3",
+   "bytes": 19457,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "extension.webpack.config.js",
+   "artifact": "app/extensions/cursor-computer-use/extension.webpack.config.js",
+   "sha256": "481880c07a653080fb6a7bc4906b09c6a331c0900915017ef0798bfb79261573",
+   "bytes": 1296,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "vitest.config.ts",
+   "artifact": "app/extensions/cursor-computer-use/vitest.config.ts",
+   "sha256": "c3eeac51eacb7e2ca698836f7085b8ee6a0fe191bcb7318f14573e380b00adbc",
+   "bytes": 1621,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "tsconfig.json",
+   "artifact": "app/extensions/cursor-computer-use/tsconfig.json",
+   "sha256": "696d8da615b68627a482095c72cbcc80348f139ceb9dd49d7399c6654cc9cc78",
+   "bytes": 1284,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  }
+ ],
+ "adapted": [
+  "package.json",
+  "tsconfig.json"
+ ],
+ "stubs": [
+  "stubs/anysphere-computer-use-protocol.d.ts",
+  "stubs/anysphere-context.d.ts",
+  "stubs/anysphere-utils.d.ts",
+  "stubs/anysphere-utils-image-resize.d.ts",
+  "stubs/anysphere-utils-jimp-minimal.d.ts",
+  "stubs/cursor-types.d.ts",
+  "stubs/jsquash-webp.d.ts",
+  "stubs/proto-aiserver.d.ts",
+  "stubs/vscode.d.ts",
+  "stubs/yauzl.d.ts",
+  "stubs/connectrpc.d.ts",
+  "stubs/computer-use-product-profile.json"
+ ],
+ "externalAliases": [
+  "zod -> app/node_modules/zod (tracked, read-only)"
+ ],
+ "note": "JSON files are byte-identical to the artifact and carry no header; their provenance is the sha256 recorded here."
+}

@@ -1,0 +1,28 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2454",
+  "basename": "AgentTranscriptApprovalStack.js",
+  "source": "recovered/app/glass/composer/AgentTranscriptApprovalStack.js",
+  "renames": {
+    "G5S": "agentTranscriptApprovalStackModuleInit",
+    "i4r": "AgentTranscriptEnter"
+  },
+  "evidence": [
+    {
+      "from": "G5S",
+      "to": "agentTranscriptApprovalStackModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    },
+    {
+      "from": "i4r",
+      "to": "AgentTranscriptEnter",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "AgentTranscriptEnter.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

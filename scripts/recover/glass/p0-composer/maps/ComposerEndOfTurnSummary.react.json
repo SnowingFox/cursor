@@ -1,0 +1,28 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6051",
+  "basename": "ComposerEndOfTurnSummary.react.js",
+  "source": "recovered/app/glass/composer/ComposerEndOfTurnSummary.react.js",
+  "renames": {
+    "exw": "composerEndOfTurnSummaryModuleInit",
+    "sxw": "ComposerTranscriptCodeBlock"
+  },
+  "evidence": [
+    {
+      "from": "exw",
+      "to": "composerEndOfTurnSummaryModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    },
+    {
+      "from": "sxw",
+      "to": "ComposerTranscriptCodeBlock",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "ComposerTranscriptCodeBlock.react.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

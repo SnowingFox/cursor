@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2826",
+  "basename": "AddPluginsToMarketplaceMenu.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "declared esbuild wrapper init for module \"AddPluginsToMarketplaceMenu.js\"; synthetic module-scope name derived from basename (wrapper key is exact)",
+  "renames": {
+    "Fhp": "AddPluginsToMarketplaceMenuModule"
+  },
+  "file": "recovered/app/glass/platform/AddPluginsToMarketplaceMenu.js"
+}

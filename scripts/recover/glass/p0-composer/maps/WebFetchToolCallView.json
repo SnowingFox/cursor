@@ -1,0 +1,21 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2419",
+  "basename": "WebFetchToolCallView.js",
+  "source": "recovered/app/glass/composer/WebFetchToolCallView.js",
+  "renames": {
+    "KNS": "WebSearchToolCallView"
+  },
+  "evidence": [
+    {
+      "from": "KNS",
+      "to": "WebSearchToolCallView",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "WebSearchToolCallView.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

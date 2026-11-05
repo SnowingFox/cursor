@@ -1,0 +1,1033 @@
+{
+  "generatedAt": "2026-11-05T10:22:03.316Z",
+  "extensions": [
+    {
+      "name": "cursor-agent-exec",
+      "dir": "app/extensions/cursor-agent-exec",
+      "packageName": "cursor-agent-exec",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [
+        "control",
+        "cursor",
+        "cursorAgentHost",
+        "cursorTracing",
+        "cursorPseudoterminal"
+      ],
+      "dist": {
+        "jsFiles": 81,
+        "totalBytes": 18248314,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-agent-exec/dist/main.js",
+            "bytes": 12408412
+          },
+          {
+            "file": "app/extensions/cursor-agent-exec/dist/canvas-runtime/canvas-runtime.esm.js",
+            "bytes": 1740504
+          },
+          {
+            "file": "app/extensions/cursor-agent-exec/dist/canvas-runtime/canvas-runtime-grok.esm.js",
+            "bytes": 1448043
+          },
+          {
+            "file": "app/extensions/cursor-agent-exec/dist/652.js",
+            "bytes": 682684
+          },
+          {
+            "file": "app/extensions/cursor-agent-exec/dist/pdf-worker.js",
+            "bytes": 682097
+          }
+        ],
+        "chunks": [
+          "app/extensions/cursor-agent-exec/dist/709.js",
+          "app/extensions/cursor-agent-exec/dist/355.js",
+          "app/extensions/cursor-agent-exec/dist/270.js",
+          "app/extensions/cursor-agent-exec/dist/889.js",
+          "app/extensions/cursor-agent-exec/dist/122.js",
+          "app/extensions/cursor-agent-exec/dist/565.js",
+          "app/extensions/cursor-agent-exec/dist/716.js",
+          "app/extensions/cursor-agent-exec/dist/691.js",
+          "app/extensions/cursor-agent-exec/dist/652.js",
+          "app/extensions/cursor-agent-exec/dist/736.js",
+          "app/extensions/cursor-agent-exec/dist/46.js",
+          "app/extensions/cursor-agent-exec/dist/238.js",
+          "app/extensions/cursor-agent-exec/dist/33.js",
+          "app/extensions/cursor-agent-exec/dist/754.js",
+          "app/extensions/cursor-agent-exec/dist/853.js",
+          "app/extensions/cursor-agent-exec/dist/741.js",
+          "app/extensions/cursor-agent-exec/dist/198.js",
+          "app/extensions/cursor-agent-exec/dist/516.js",
+          "app/extensions/cursor-agent-exec/dist/957.js",
+          "app/extensions/cursor-agent-exec/dist/502.js",
+          "app/extensions/cursor-agent-exec/dist/338.js",
+          "app/extensions/cursor-agent-exec/dist/891.js",
+          "app/extensions/cursor-agent-exec/dist/621.js",
+          "app/extensions/cursor-agent-exec/dist/273.js",
+          "app/extensions/cursor-agent-exec/dist/135.js",
+          "app/extensions/cursor-agent-exec/dist/478.js",
+          "app/extensions/cursor-agent-exec/dist/538.js",
+          "app/extensions/cursor-agent-exec/dist/928.js",
+          "app/extensions/cursor-agent-exec/dist/373.js"
+        ],
+        "format": "webpack",
+        "webpackModuleHits": 1617,
+        "esbuildWrappers": 0,
+        "validatedModules": 1319,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-agent-host",
+      "dir": "app/extensions/cursor-agent-host",
+      "packageName": "cursor-agent-host",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main.js",
+      "enabledApiProposals": [
+        "control",
+        "cursor",
+        "cursorNoDeps",
+        "cursorAgentHost",
+        "cursorTracing",
+        "cursorPseudoterminal"
+      ],
+      "dist": {
+        "jsFiles": 85,
+        "totalBytes": 23838543,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-agent-host/dist/main.js",
+            "bytes": 15899880
+          },
+          {
+            "file": "app/extensions/cursor-agent-host/dist/canvas-runtime/canvas-runtime.esm.js",
+            "bytes": 1740504
+          },
+          {
+            "file": "app/extensions/cursor-agent-host/dist/canvas-runtime/canvas-runtime-grok.esm.js",
+            "bytes": 1448043
+          },
+          {
+            "file": "app/extensions/cursor-agent-host/dist/agent-host-daemon/dist/bin/pdf-worker.js",
+            "bytes": 1015538
+          },
+          {
+            "file": "app/extensions/cursor-agent-host/dist/652.js",
+            "bytes": 682684
+          }
+        ],
+        "chunks": [
+          "app/extensions/cursor-agent-host/dist/488.js",
+          "app/extensions/cursor-agent-host/dist/265.js",
+          "app/extensions/cursor-agent-host/dist/113.js",
+          "app/extensions/cursor-agent-host/dist/88.js",
+          "app/extensions/cursor-agent-host/dist/102.js",
+          "app/extensions/cursor-agent-host/dist/334.js",
+          "app/extensions/cursor-agent-host/dist/173.js",
+          "app/extensions/cursor-agent-host/dist/106.js",
+          "app/extensions/cursor-agent-host/dist/324.js",
+          "app/extensions/cursor-agent-host/dist/570.js",
+          "app/extensions/cursor-agent-host/dist/865.js",
+          "app/extensions/cursor-agent-host/dist/746.js",
+          "app/extensions/cursor-agent-host/dist/21.js",
+          "app/extensions/cursor-agent-host/dist/921.js",
+          "app/extensions/cursor-agent-host/dist/915.js",
+          "app/extensions/cursor-agent-host/dist/565.js",
+          "app/extensions/cursor-agent-host/dist/607.js",
+          "app/extensions/cursor-agent-host/dist/716.js",
+          "app/extensions/cursor-agent-host/dist/691.js",
+          "app/extensions/cursor-agent-host/dist/821.js",
+          "app/extensions/cursor-agent-host/dist/914.js",
+          "app/extensions/cursor-agent-host/dist/524.js",
+          "app/extensions/cursor-agent-host/dist/695.js",
+          "app/extensions/cursor-agent-host/dist/652.js",
+          "app/extensions/cursor-agent-host/dist/613.js",
+          "app/extensions/cursor-agent-host/dist/850.js",
+          "app/extensions/cursor-agent-host/dist/46.js",
+          "app/extensions/cursor-agent-host/dist/933.js",
+          "app/extensions/cursor-agent-host/dist/721.js",
+          "app/extensions/cursor-agent-host/dist/620.js",
+          "app/extensions/cursor-agent-host/dist/432.js",
+          "app/extensions/cursor-agent-host/dist/853.js",
+          "app/extensions/cursor-agent-host/dist/77.js",
+          "app/extensions/cursor-agent-host/dist/349.js",
+          "app/extensions/cursor-agent-host/dist/580.js",
+          "app/extensions/cursor-agent-host/dist/817.js",
+          "app/extensions/cursor-agent-host/dist/502.js",
+          "app/extensions/cursor-agent-host/dist/621.js",
+          "app/extensions/cursor-agent-host/dist/947.js",
+          "app/extensions/cursor-agent-host/dist/807.js",
+          "app/extensions/cursor-agent-host/dist/273.js",
+          "app/extensions/cursor-agent-host/dist/859.js",
+          "app/extensions/cursor-agent-host/dist/130.js",
+          "app/extensions/cursor-agent-host/dist/928.js",
+          "app/extensions/cursor-agent-host/dist/165.js"
+        ],
+        "format": "webpack",
+        "webpackModuleHits": 2682,
+        "esbuildWrappers": 0,
+        "validatedModules": 1703,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-agent-worker",
+      "dir": "app/extensions/cursor-agent-worker",
+      "packageName": "cursor-agent-worker",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [
+        "cursor",
+        "cursorNoDeps"
+      ],
+      "dist": {
+        "jsFiles": 1,
+        "totalBytes": 2150686,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-agent-worker/dist/main.js",
+            "bytes": 2150686
+          }
+        ],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 233,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-always-local",
+      "dir": "app/extensions/cursor-always-local",
+      "packageName": "cursor-always-local",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [
+        "cursor",
+        "control",
+        "externalUriOpener",
+        "contribSourceControlInputBoxMenu",
+        "textDocumentTextLength"
+      ],
+      "dist": {
+        "jsFiles": 3,
+        "totalBytes": 6987791,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-always-local/dist/main.js",
+            "bytes": 6924432
+          },
+          {
+            "file": "app/extensions/cursor-always-local/dist/915.js",
+            "bytes": 57737
+          },
+          {
+            "file": "app/extensions/cursor-always-local/dist/gitWorker.js",
+            "bytes": 5622
+          }
+        ],
+        "chunks": [
+          "app/extensions/cursor-always-local/dist/915.js"
+        ],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 386,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [
+          "app/extensions/cursor-always-local/package.nls.json",
+          "app/extensions/cursor-always-local/eslint.config.cjs"
+        ],
+        "schemas": [
+          "app/extensions/cursor-always-local/schemas/environment.schema.json",
+          "app/extensions/cursor-always-local/schemas/permissions.schema.json"
+        ]
+      }
+    },
+    {
+      "name": "cursor-browser-automation",
+      "dir": "app/extensions/cursor-browser-automation",
+      "packageName": "cursor-browser-automation",
+      "version": "1.0.0",
+      "publisher": "cursor",
+      "main": "./dist/extension.js",
+      "enabledApiProposals": [
+        "control",
+        "cursor",
+        "cursorTracing"
+      ],
+      "dist": {
+        "jsFiles": 10,
+        "totalBytes": 795070,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-browser-automation/dist/extension.js",
+            "bytes": 228737
+          },
+          {
+            "file": "app/extensions/cursor-browser-automation/dist/928.js",
+            "bytes": 172902
+          },
+          {
+            "file": "app/extensions/cursor-browser-automation/dist/273.js",
+            "bytes": 96804
+          },
+          {
+            "file": "app/extensions/cursor-browser-automation/dist/46.js",
+            "bytes": 95335
+          },
+          {
+            "file": "app/extensions/cursor-browser-automation/dist/746.js",
+            "bytes": 72421
+          }
+        ],
+        "chunks": [
+          "app/extensions/cursor-browser-automation/dist/746.js",
+          "app/extensions/cursor-browser-automation/dist/716.js",
+          "app/extensions/cursor-browser-automation/dist/691.js",
+          "app/extensions/cursor-browser-automation/dist/46.js",
+          "app/extensions/cursor-browser-automation/dist/853.js",
+          "app/extensions/cursor-browser-automation/dist/502.js",
+          "app/extensions/cursor-browser-automation/dist/621.js",
+          "app/extensions/cursor-browser-automation/dist/273.js",
+          "app/extensions/cursor-browser-automation/dist/928.js"
+        ],
+        "format": "webpack",
+        "webpackModuleHits": 52,
+        "esbuildWrappers": 0,
+        "validatedModules": 57,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-checkout",
+      "dir": "app/extensions/cursor-checkout",
+      "packageName": "cursor-checkout",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [
+        "cursor"
+      ],
+      "dist": {
+        "jsFiles": 1,
+        "totalBytes": 17592,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-checkout/dist/main.js",
+            "bytes": 17592
+          }
+        ],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 1,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [
+          "app/extensions/cursor-checkout/extension.webpack.config.js"
+        ],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-commits",
+      "dir": "app/extensions/cursor-commits",
+      "packageName": "cursor-commits",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [
+        "control",
+        "cursor",
+        "cursorTracing",
+        "cursorNoDeps"
+      ],
+      "dist": {
+        "jsFiles": 1,
+        "totalBytes": 1632803,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-commits/dist/main.js",
+            "bytes": 1632803
+          }
+        ],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 167,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [
+          "app/extensions/cursor-commits/worker/tsconfig.json"
+        ],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-computer-use",
+      "dir": "app/extensions/cursor-computer-use",
+      "packageName": "cursor-computer-use",
+      "version": "1.0.0",
+      "publisher": "cursor",
+      "main": "./dist/extension.js",
+      "enabledApiProposals": [
+        "cursor",
+        "cursorPublic"
+      ],
+      "dist": {
+        "jsFiles": 10,
+        "totalBytes": 2522159,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-computer-use/dist/extension.js",
+            "bytes": 1955826
+          },
+          {
+            "file": "app/extensions/cursor-computer-use/dist/928.js",
+            "bytes": 172902
+          },
+          {
+            "file": "app/extensions/cursor-computer-use/dist/273.js",
+            "bytes": 96804
+          },
+          {
+            "file": "app/extensions/cursor-computer-use/dist/46.js",
+            "bytes": 95335
+          },
+          {
+            "file": "app/extensions/cursor-computer-use/dist/746.js",
+            "bytes": 72421
+          }
+        ],
+        "chunks": [
+          "app/extensions/cursor-computer-use/dist/746.js",
+          "app/extensions/cursor-computer-use/dist/716.js",
+          "app/extensions/cursor-computer-use/dist/691.js",
+          "app/extensions/cursor-computer-use/dist/46.js",
+          "app/extensions/cursor-computer-use/dist/853.js",
+          "app/extensions/cursor-computer-use/dist/502.js",
+          "app/extensions/cursor-computer-use/dist/621.js",
+          "app/extensions/cursor-computer-use/dist/273.js",
+          "app/extensions/cursor-computer-use/dist/928.js"
+        ],
+        "format": "webpack",
+        "webpackModuleHits": 52,
+        "esbuildWrappers": 0,
+        "validatedModules": 219,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [
+          "app/extensions/cursor-computer-use/vitest.config.ts",
+          "app/extensions/cursor-computer-use/src/backendClient.ts",
+          "app/extensions/cursor-computer-use/src/extension.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/types.ts",
+          "app/extensions/cursor-computer-use/src/backends/mac/helper-discovery.ts",
+          "app/extensions/cursor-computer-use/src/backends/mac/install-lock.ts",
+          "app/extensions/cursor-computer-use/src/backends/mac/sidecar-client.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/mac/helper-discovery.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/mac/sidecar-download.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/mac/sidecar-client.ts",
+          "app/extensions/cursor-computer-use/src/backends/mac/rpc-codec.ts",
+          "app/extensions/cursor-computer-use/src/backends/mac/sidecar-download.ts",
+          "app/extensions/cursor-computer-use/src/backends/common/sidecar-install-lock.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/common/rpc-connection.ts",
+          "app/extensions/cursor-computer-use/src/backends/common/sidecar-rpc-client.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/common/errors.ts",
+          "app/extensions/cursor-computer-use/src/backends/common/sidecar-rpc-client.ts",
+          "app/extensions/cursor-computer-use/src/backends/common/sidecar-install-lock.ts",
+          "app/extensions/cursor-computer-use/src/backends/common/transport.ts",
+          "app/extensions/cursor-computer-use/src/backends/common/rpc-codec.ts",
+          "app/extensions/cursor-computer-use/src/backends/index.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/release-fetch.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/launch-token.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/sidecar-failure.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/signer.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/signer.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/server-identity.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/pipe-discovery.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/stop-child.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/sidecar-client.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/product-profile.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/release-manifest.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/sidecar-download.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/sidecar-client.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/conformance-vectors.test-support.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/product-profile.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/transport.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/launch-token.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/host-version.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/pe-image.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/pipe-discovery.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/release-manifest.test.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/handshake.ts",
+          "app/extensions/cursor-computer-use/src/backends/windows/sidecar-download.ts",
+          "app/extensions/cursor-computer-use/src/extension.ts",
+          "app/extensions/cursor-computer-use/src/mcp/next-action.test.ts",
+          "app/extensions/cursor-computer-use/src/mcp/attempt-ax.ts",
+          "app/extensions/cursor-computer-use/src/mcp/next-action.ts",
+          "app/extensions/cursor-computer-use/src/mcp/screenshot-codec.bench.test.ts",
+          "app/extensions/cursor-computer-use/src/mcp/screenshot-codec.ts",
+          "app/extensions/cursor-computer-use/src/mcp/catalog-export.test.ts",
+          "app/extensions/cursor-computer-use/src/mcp/screenshot-codec.test.ts",
+          "app/extensions/cursor-computer-use/src/mcp/companion-loop.bench.test.ts",
+          "app/extensions/cursor-computer-use/src/mcp/mac-mode.ts",
+          "app/extensions/cursor-computer-use/src/mcp/zoom-conformance.test.ts",
+          "app/extensions/cursor-computer-use/src/mcp/tools.ts",
+          "app/extensions/cursor-computer-use/src/mcp/tools.test.ts",
+          "app/extensions/cursor-computer-use/src/mcp/attempt.test.ts",
+          "app/extensions/cursor-computer-use/src/mcp/catalog-export.ts",
+          "app/extensions/cursor-computer-use/src/mcp/mac-mode.test.ts",
+          "app/extensions/cursor-computer-use/src/mcp/attempt-ax.test.ts",
+          "app/extensions/cursor-computer-use/src/mcp/attempt.ts"
+        ],
+        "configs": [
+          "app/extensions/cursor-computer-use/tsconfig.json",
+          "app/extensions/cursor-computer-use/extension.webpack.config.js"
+        ],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-deeplink",
+      "dir": "app/extensions/cursor-deeplink",
+      "packageName": "cursor-deeplink",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [
+        "cursor",
+        "control",
+        "externalUriOpener"
+      ],
+      "dist": {
+        "jsFiles": 1,
+        "totalBytes": 1107679,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-deeplink/dist/main.js",
+            "bytes": 1107679
+          }
+        ],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 202,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-explorer",
+      "dir": "app/extensions/cursor-explorer",
+      "packageName": "cursor-explorer",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [
+        "cursor"
+      ],
+      "dist": {
+        "jsFiles": 1,
+        "totalBytes": 22155,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-explorer/dist/main.js",
+            "bytes": 22155
+          }
+        ],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 1,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-file-service",
+      "dir": "app/extensions/cursor-file-service",
+      "packageName": "cursor-file-service",
+      "version": "1.0.0",
+      "publisher": "anysphere",
+      "main": null,
+      "enabledApiProposals": [],
+      "dist": {
+        "jsFiles": 1,
+        "totalBytes": 301,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-file-service/dist/main.js",
+            "bytes": 301
+          }
+        ],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 1,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-local-agent-runtime",
+      "dir": "app/extensions/cursor-local-agent-runtime",
+      "packageName": "cursor-local-agent-runtime",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [
+        "cursor"
+      ],
+      "dist": {
+        "jsFiles": 58,
+        "totalBytes": 13826377,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-local-agent-runtime/dist/main.js",
+            "bytes": 8098533
+          },
+          {
+            "file": "app/extensions/cursor-local-agent-runtime/dist/canvas-runtime/canvas-runtime.esm.js",
+            "bytes": 1740504
+          },
+          {
+            "file": "app/extensions/cursor-local-agent-runtime/dist/canvas-runtime/canvas-runtime-grok.esm.js",
+            "bytes": 1448043
+          },
+          {
+            "file": "app/extensions/cursor-local-agent-runtime/dist/652.js",
+            "bytes": 682684
+          },
+          {
+            "file": "app/extensions/cursor-local-agent-runtime/dist/pdf-worker.js",
+            "bytes": 682097
+          }
+        ],
+        "chunks": [
+          "app/extensions/cursor-local-agent-runtime/dist/709.js",
+          "app/extensions/cursor-local-agent-runtime/dist/355.js",
+          "app/extensions/cursor-local-agent-runtime/dist/270.js",
+          "app/extensions/cursor-local-agent-runtime/dist/889.js",
+          "app/extensions/cursor-local-agent-runtime/dist/122.js",
+          "app/extensions/cursor-local-agent-runtime/dist/565.js",
+          "app/extensions/cursor-local-agent-runtime/dist/716.js",
+          "app/extensions/cursor-local-agent-runtime/dist/691.js",
+          "app/extensions/cursor-local-agent-runtime/dist/652.js",
+          "app/extensions/cursor-local-agent-runtime/dist/736.js",
+          "app/extensions/cursor-local-agent-runtime/dist/46.js",
+          "app/extensions/cursor-local-agent-runtime/dist/238.js",
+          "app/extensions/cursor-local-agent-runtime/dist/33.js",
+          "app/extensions/cursor-local-agent-runtime/dist/754.js",
+          "app/extensions/cursor-local-agent-runtime/dist/853.js",
+          "app/extensions/cursor-local-agent-runtime/dist/741.js",
+          "app/extensions/cursor-local-agent-runtime/dist/198.js",
+          "app/extensions/cursor-local-agent-runtime/dist/516.js",
+          "app/extensions/cursor-local-agent-runtime/dist/957.js",
+          "app/extensions/cursor-local-agent-runtime/dist/502.js",
+          "app/extensions/cursor-local-agent-runtime/dist/338.js",
+          "app/extensions/cursor-local-agent-runtime/dist/891.js",
+          "app/extensions/cursor-local-agent-runtime/dist/621.js",
+          "app/extensions/cursor-local-agent-runtime/dist/273.js",
+          "app/extensions/cursor-local-agent-runtime/dist/135.js",
+          "app/extensions/cursor-local-agent-runtime/dist/478.js",
+          "app/extensions/cursor-local-agent-runtime/dist/538.js",
+          "app/extensions/cursor-local-agent-runtime/dist/928.js",
+          "app/extensions/cursor-local-agent-runtime/dist/373.js"
+        ],
+        "format": "webpack",
+        "webpackModuleHits": 1435,
+        "esbuildWrappers": 0,
+        "validatedModules": 1238,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-mcp",
+      "dir": "app/extensions/cursor-mcp",
+      "packageName": "cursor-mcp",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [
+        "control",
+        "cursor",
+        "cursorTracing"
+      ],
+      "dist": {
+        "jsFiles": 1,
+        "totalBytes": 1833733,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-mcp/dist/main.js",
+            "bytes": 1833733
+          }
+        ],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 433,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [
+          "app/extensions/cursor-mcp/eslint.config.cjs"
+        ],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-ndjson-ingest",
+      "dir": "app/extensions/cursor-ndjson-ingest",
+      "packageName": "cursor-ndjson-ingest",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [],
+      "dist": {
+        "jsFiles": 1,
+        "totalBytes": 21435,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-ndjson-ingest/dist/main.js",
+            "bytes": 21435
+          }
+        ],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 7,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-polyfills-remote",
+      "dir": "app/extensions/cursor-polyfills-remote",
+      "packageName": "cursor-polyfills-remote",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [],
+      "dist": {
+        "jsFiles": 1,
+        "totalBytes": 174212,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-polyfills-remote/dist/main.js",
+            "bytes": 174212
+          }
+        ],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 369,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [
+          "app/extensions/cursor-polyfills-remote/eslint.config.cjs"
+        ],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-resolver",
+      "dir": "app/extensions/cursor-resolver",
+      "packageName": "cursor-resolver",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [
+        "cursor",
+        "cursorNoDeps",
+        "resolvers"
+      ],
+      "dist": {
+        "jsFiles": 2,
+        "totalBytes": 6012814,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-resolver/dist/browser/main.js",
+            "bytes": 5644257
+          },
+          {
+            "file": "app/extensions/cursor-resolver/dist/main.js",
+            "bytes": 368557
+          }
+        ],
+        "chunks": [],
+        "format": "webpack",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 49,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [
+          "app/extensions/cursor-resolver/extension-browser.webpack.config.js"
+        ],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-resolver-helper",
+      "dir": "app/extensions/cursor-resolver-helper",
+      "packageName": "cursor-resolver-helper",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [
+        "cursor",
+        "cursorNoDeps"
+      ],
+      "dist": {
+        "jsFiles": 1,
+        "totalBytes": 1071166,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-resolver-helper/dist/main.js",
+            "bytes": 1071166
+          }
+        ],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 49,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-retrieval",
+      "dir": "app/extensions/cursor-retrieval",
+      "packageName": "cursor-retrieval",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [
+        "control",
+        "cursor",
+        "cursorNoDeps",
+        "cursorTracing",
+        "textSearchProvider2"
+      ],
+      "dist": {
+        "jsFiles": 1,
+        "totalBytes": 3194857,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-retrieval/dist/main.js",
+            "bytes": 3194857
+          }
+        ],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 196,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [
+          "app/extensions/cursor-retrieval/worker/tsconfig.json",
+          "app/extensions/cursor-retrieval/package.nls.json",
+          "app/extensions/cursor-retrieval/eslint.config.cjs"
+        ],
+        "schemas": [
+          "app/extensions/cursor-retrieval/schemas/package.schema.json"
+        ]
+      }
+    },
+    {
+      "name": "cursor-shadow-workspace",
+      "dir": "app/extensions/cursor-shadow-workspace",
+      "packageName": "cursor-shadow-workspace",
+      "version": "1.0.0",
+      "publisher": "anysphere",
+      "main": "./dist/extension",
+      "enabledApiProposals": [
+        "cursor"
+      ],
+      "dist": {
+        "jsFiles": 1,
+        "totalBytes": 1038008,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-shadow-workspace/dist/extension.js",
+            "bytes": 1038008
+          }
+        ],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 166,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [
+          "app/extensions/cursor-shadow-workspace/package.nls.json"
+        ],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-socket",
+      "dir": "app/extensions/cursor-socket",
+      "packageName": "cursor-socket",
+      "version": "0.0.1",
+      "publisher": "anysphere",
+      "main": "./dist/main",
+      "enabledApiProposals": [
+        "cursor",
+        "cursorNoDeps"
+      ],
+      "dist": {
+        "jsFiles": 1,
+        "totalBytes": 11741,
+        "largest": [
+          {
+            "file": "app/extensions/cursor-socket/dist/main.js",
+            "bytes": 11741
+          }
+        ],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 1,
+        "reassembly": "ok"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [
+          "app/extensions/cursor-socket/extension.webpack.config.js"
+        ],
+        "schemas": []
+      }
+    },
+    {
+      "name": "cursor-worktree-textmate",
+      "dir": "app/extensions/cursor-worktree-textmate",
+      "packageName": "worktree-textmate",
+      "version": "0.0.1",
+      "publisher": "everysphere",
+      "main": null,
+      "enabledApiProposals": [],
+      "dist": {
+        "jsFiles": 0,
+        "totalBytes": 0,
+        "largest": [],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 0,
+        "reassembly": "mixed"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [],
+        "schemas": []
+      }
+    },
+    {
+      "name": "theme-cursor",
+      "dir": "app/extensions/theme-cursor",
+      "packageName": "cursor-themes",
+      "version": "0.0.2",
+      "publisher": null,
+      "main": null,
+      "enabledApiProposals": [],
+      "dist": {
+        "jsFiles": 0,
+        "totalBytes": 0,
+        "largest": [],
+        "chunks": [],
+        "format": "unknown",
+        "webpackModuleHits": 0,
+        "esbuildWrappers": 0,
+        "validatedModules": 0,
+        "reassembly": "mixed"
+      },
+      "shippedSources": {
+        "ts": [],
+        "configs": [],
+        "schemas": []
+      }
+    }
+  ]
+}

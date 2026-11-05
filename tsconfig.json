@@ -16,5 +16,12 @@
 		"skipLibCheck": true,
 		"noEmit": true
 	},
-	"include": ["src", "extensions/*/src", "scripts/**/*.ts", "vite.config.ts"]
+	"include": ["src", "extensions/*/src", "scripts/**/*.ts", "vite.config.ts"],
+	"exclude": [
+		"scripts/recover/sdk/**",
+		"scripts/recover/sdk-runtime/**",
+		"scripts/recover/extensions/**",
+		"scripts/recover/vscode/**",
+		"scripts/recover/glass/**"
+	]
 }

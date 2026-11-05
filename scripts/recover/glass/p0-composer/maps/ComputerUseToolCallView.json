@@ -1,0 +1,21 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2428",
+  "basename": "ComputerUseToolCallView.js",
+  "source": "recovered/app/glass/composer/ComputerUseToolCallView.js",
+  "renames": {
+    "xLS": "ErrorToolCallView"
+  },
+  "evidence": [
+    {
+      "from": "xLS",
+      "to": "ErrorToolCallView",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "ErrorToolCallView.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

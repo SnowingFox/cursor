@@ -1,0 +1,617 @@
+{
+  "name": "p1-agent",
+  "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+  "count": 87,
+  "chars": 380696,
+  "modules": [
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5940",
+      "basename": "AgentContextTabDirtyIndicator.js",
+      "kind": "esm",
+      "charLength": 632,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2284",
+      "basename": "AgentConversationContext.js",
+      "kind": "esm",
+      "charLength": 781,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6045",
+      "basename": "AgentEnvironmentIcon.react.js",
+      "kind": "esm",
+      "charLength": 100,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3905",
+      "basename": "AgentHostAutoRoutingRow.js",
+      "kind": "esm",
+      "charLength": 17814,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3906",
+      "basename": "AgentHostEnvironmentStatusRow.js",
+      "kind": "esm",
+      "charLength": 911,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3907",
+      "basename": "AgentHostOptimisticPlanningRow.js",
+      "kind": "esm",
+      "charLength": 6005,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3908",
+      "basename": "AgentHostStreamErrorRow.js",
+      "kind": "esm",
+      "charLength": 281,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2646",
+      "basename": "AgentRowContent.js",
+      "kind": "esm",
+      "charLength": 1221,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2279",
+      "basename": "AgentStatusDot.js",
+      "kind": "esm",
+      "charLength": 5991,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2280",
+      "basename": "AgentStatusIcon.js",
+      "kind": "esm",
+      "charLength": 111,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6110",
+      "basename": "AgentTabBase.js",
+      "kind": "esm",
+      "charLength": 5310,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7714",
+      "basename": "AgentTabsSection.js",
+      "kind": "esm",
+      "charLength": 2637,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7713",
+      "basename": "AnyrunSetupUISection.js",
+      "kind": "esm",
+      "charLength": 7126,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4629",
+      "basename": "BrowserEditorContent.js",
+      "kind": "esm",
+      "charLength": 8300,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4624",
+      "basename": "BrowserMoreMenu.react.js",
+      "kind": "esm",
+      "charLength": 2974,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7723",
+      "basename": "BrowserToolsSection.js",
+      "kind": "esm",
+      "charLength": 13214,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5912",
+      "basename": "CloudAgentTurnTimings.js",
+      "kind": "esm",
+      "charLength": 499,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2539",
+      "basename": "CommandChipNodeView.js",
+      "kind": "esm",
+      "charLength": 9378,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2545",
+      "basename": "CommandChipPlugin.js",
+      "kind": "esm",
+      "charLength": 4763,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6142",
+      "basename": "CompactAgentHistoryHoverMenu.react.js",
+      "kind": "esm",
+      "charLength": 8991,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6143",
+      "basename": "CompactAgentHistoryHoverPane.js",
+      "kind": "esm",
+      "charLength": 2359,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7734",
+      "basename": "ControlledTerminalSection.js",
+      "kind": "esm",
+      "charLength": 487,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2893",
+      "basename": "CustomizeAgentRow.js",
+      "kind": "esm",
+      "charLength": 2683,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3928",
+      "basename": "CustomizeManageGroupShell.js",
+      "kind": "esm",
+      "charLength": 21838,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3933",
+      "basename": "CustomizeManageMcp.js",
+      "kind": "esm",
+      "charLength": 7615,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2894",
+      "basename": "CustomizeToolRow.js",
+      "kind": "esm",
+      "charLength": 2551,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3952",
+      "basename": "EnvironmentSetupBlockedAgentTray.js",
+      "kind": "esm",
+      "charLength": 1978,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3953",
+      "basename": "EnvironmentSetupExternalActionTray.js",
+      "kind": "esm",
+      "charLength": 9635,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3954",
+      "basename": "EnvironmentSetupNetworkSection.js",
+      "kind": "esm",
+      "charLength": 2101,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3955",
+      "basename": "EnvironmentSetupNetworkTray.js",
+      "kind": "esm",
+      "charLength": 3205,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3951",
+      "basename": "EnvironmentSetupRepoScopeDropdown.js",
+      "kind": "esm",
+      "charLength": 4275,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3956",
+      "basename": "EnvironmentSetupSecretLevelSelect.js",
+      "kind": "esm",
+      "charLength": 13679,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3957",
+      "basename": "EnvironmentSetupSecretsEditorModal.js",
+      "kind": "esm",
+      "charLength": 3844,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1215",
+      "basename": "FromCursorAgentsCards.js",
+      "kind": "esm",
+      "charLength": 3476,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6156",
+      "basename": "GlassSubagentBreadcrumb.js",
+      "kind": "esm",
+      "charLength": 3566,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6157",
+      "basename": "InlineAgentTabs.js",
+      "kind": "esm",
+      "charLength": 4643,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4777",
+      "basename": "InputBoxBrowserChanges.js",
+      "kind": "esm",
+      "charLength": 3986,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1214",
+      "basename": "ManagedAgentsGetStartedBanner.js",
+      "kind": "esm",
+      "charLength": 11827,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2847",
+      "basename": "ManageTeamMarketplaceMcpFormMenu.js",
+      "kind": "esm",
+      "charLength": 5251,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3942",
+      "basename": "McpConfigureDialog.js",
+      "kind": "esm",
+      "charLength": 1291,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3932",
+      "basename": "McpCreateDestinationMenu.js",
+      "kind": "esm",
+      "charLength": 10401,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2400",
+      "basename": "MCPIcon.js",
+      "kind": "esm",
+      "charLength": 588,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2857",
+      "basename": "McpImpactConfirmDialog.js",
+      "kind": "esm",
+      "charLength": 1972,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3903",
+      "basename": "McpServerConfigForm.js",
+      "kind": "esm",
+      "charLength": 54275,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3904",
+      "basename": "McpServerConfigMenu.js",
+      "kind": "esm",
+      "charLength": 2970,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2404",
+      "basename": "McpServerIcon.js",
+      "kind": "esm",
+      "charLength": 985,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2405",
+      "basename": "McpServerIconChip.js",
+      "kind": "esm",
+      "charLength": 547,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2402",
+      "basename": "McpServerIconImage.js",
+      "kind": "esm",
+      "charLength": 624,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2432",
+      "basename": "McpServerIconStack.js",
+      "kind": "esm",
+      "charLength": 7151,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2474",
+      "basename": "MentionChipTooltip.js",
+      "kind": "esm",
+      "charLength": 90,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2180",
+      "basename": "NewTaskSlot.js",
+      "kind": "esm",
+      "charLength": 4100,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2898",
+      "basename": "OrchestrationAgentChecklist.js",
+      "kind": "esm",
+      "charLength": 2463,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6025",
+      "basename": "PlanEditorView.js",
+      "kind": "esm",
+      "charLength": 398,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3962",
+      "basename": "PlanExecutionCard.js",
+      "kind": "esm",
+      "charLength": 5929,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2869",
+      "basename": "PluginCommandSearchMenu.js",
+      "kind": "esm",
+      "charLength": 1635,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2891",
+      "basename": "ProjectAgentStatusGlyph.js",
+      "kind": "esm",
+      "charLength": 433,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3177",
+      "basename": "SelectionTooltip.js",
+      "kind": "esm",
+      "charLength": 1720,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2506",
+      "basename": "SkillCommandBadge.js",
+      "kind": "esm",
+      "charLength": 1277,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3055",
+      "basename": "SkillIcon.js",
+      "kind": "esm",
+      "charLength": 2837,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6282",
+      "basename": "SkillIconColorHeader.react.js",
+      "kind": "esm",
+      "charLength": 13551,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3056",
+      "basename": "SubagentIcon.js",
+      "kind": "esm",
+      "charLength": 895,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5494",
+      "basename": "SubagentLinkHoverCard.react.js",
+      "kind": "esm",
+      "charLength": 3207,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7563",
+      "basename": "SubagentStatusIndicator.react.js",
+      "kind": "esm",
+      "charLength": 7137,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2378",
+      "basename": "SubagentTaskCard.js",
+      "kind": "esm",
+      "charLength": 1061,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3185",
+      "basename": "TaskItemNodeView.js",
+      "kind": "esm",
+      "charLength": 6493,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2204",
+      "basename": "TaskSectionView.js",
+      "kind": "esm",
+      "charLength": 297,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2366",
+      "basename": "ToolApprovalContext.js",
+      "kind": "esm",
+      "charLength": 330,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2396",
+      "basename": "ToolApprovalGate.js",
+      "kind": "esm",
+      "charLength": 1990,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2368",
+      "basename": "ToolApprovalReasonStack.js",
+      "kind": "esm",
+      "charLength": 2455,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2367",
+      "basename": "ToolApprovalReasonStack.stylex.js",
+      "kind": "esm",
+      "charLength": 3270,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1447",
+      "basename": "ToolbarRootContext.js",
+      "kind": "esm",
+      "charLength": 2511,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5808",
+      "basename": "ToolbarRootContext.mjs",
+      "kind": "esm",
+      "charLength": 769,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2450",
+      "basename": "ToolPlaceholder.js",
+      "kind": "esm",
+      "charLength": 6064,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1517",
+      "basename": "TooltipHandle.js",
+      "kind": "esm",
+      "charLength": 1505,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1515",
+      "basename": "TooltipPopup.js",
+      "kind": "esm",
+      "charLength": 1116,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1512",
+      "basename": "TooltipPortal.js",
+      "kind": "esm",
+      "charLength": 705,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1511",
+      "basename": "TooltipPortalContext.js",
+      "kind": "esm",
+      "charLength": 338,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1514",
+      "basename": "TooltipPositioner.js",
+      "kind": "esm",
+      "charLength": 1664,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1513",
+      "basename": "TooltipPositionerContext.js",
+      "kind": "esm",
+      "charLength": 346,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1516",
+      "basename": "TooltipProvider.js",
+      "kind": "esm",
+      "charLength": 508,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1507",
+      "basename": "TooltipProviderContext.js",
+      "kind": "esm",
+      "charLength": 180,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1506",
+      "basename": "TooltipRoot.js",
+      "kind": "esm",
+      "charLength": 2124,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1504",
+      "basename": "TooltipRootContext.js",
+      "kind": "esm",
+      "charLength": 509,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7798",
+      "basename": "TooltipsSection.js",
+      "kind": "esm",
+      "charLength": 7674,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1505",
+      "basename": "TooltipStore.js",
+      "kind": "esm",
+      "charLength": 2083,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1510",
+      "basename": "TooltipTrigger.js",
+      "kind": "esm",
+      "charLength": 3982,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1508",
+      "basename": "TooltipTriggerDataAttributes.js",
+      "kind": "esm",
+      "charLength": 208,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    }
+  ]
+}

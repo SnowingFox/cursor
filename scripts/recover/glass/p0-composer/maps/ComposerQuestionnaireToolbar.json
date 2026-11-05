@@ -1,0 +1,21 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5331",
+  "basename": "ComposerQuestionnaireToolbar.js",
+  "source": "recovered/app/glass/composer/ComposerQuestionnaireToolbar.js",
+  "renames": {
+    "m$k": "ComposerTipTapReadOnlyHost"
+  },
+  "evidence": [
+    {
+      "from": "m$k",
+      "to": "ComposerTipTapReadOnlyHost",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "ComposerTipTapReadOnlyHost.react.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

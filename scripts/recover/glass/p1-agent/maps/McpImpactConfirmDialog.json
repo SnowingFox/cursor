@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2857",
+  "basename": "McpImpactConfirmDialog.js",
+  "file": "recovered/app/glass/agent/McpImpactConfirmDialog.js",
+  "renames": {
+    "ri1": "McpImpactConfirmDialogModule"
+  },
+  "notes": [
+    "ri1 -> McpImpactConfirmDialogModule: declared wrapper binding, evidence: esbuild init key \"McpImpactConfirmDialog.js\""
+  ]
+}

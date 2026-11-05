@@ -1,0 +1,3 @@
+src/proto/**
+prisma/sqlite.db
+prisma/sqlite.db-journal

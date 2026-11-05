@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3908",
+  "basename": "AgentHostStreamErrorRow.js",
+  "file": "recovered/app/glass/agent/AgentHostStreamErrorRow.js",
+  "renames": {
+    "QK1": "AgentHostStreamErrorRowModule"
+  },
+  "notes": [
+    "QK1 -> AgentHostStreamErrorRowModule: declared wrapper binding, evidence: esbuild init key \"AgentHostStreamErrorRow.js\""
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-11-05T10:11:08.241Z",
+  "run": "w1-sdk-core",
+  "status": "applied to packages/cursor-sdk/package.json and tsconfig.json (main thread owns root manifests and bun.lock)",
+  "package": "packages/cursor-sdk",
+  "dependencies": {
+    "@anysphere/agent-kv": "workspace:*",
+    "@anysphere/context": "workspace:*",
+    "@anysphere/cursor-sdk-local-runtime": "workspace:*",
+    "@anysphere/cursor-sdk-shared": "workspace:*",
+    "@anysphere/mcp-agent-exec": "workspace:*",
+    "@anysphere/mcp-core": "workspace:*",
+    "@anysphere/metrics": "workspace:*",
+    "@anysphere/proto": "workspace:*",
+    "@anysphere/shell-exec": "workspace:*",
+    "@anysphere/utils": "workspace:*",
+    "@bufbuild/protobuf": "1.10.0",
+    "@connectrpc/connect": "^1.6.1",
+    "@connectrpc/connect-web": "^1.6.1",
+    "@statsig/js-client": "3.31.0",
+    "zod": "^3.25.0 || ^4.0.0 (peer)"
+  },
+  "tsconfigPathsApplied": true,
+  "note": "The recovered src/ currently imports the vendored copies under src/vendor/**; the workspace deps are declared so the next wave can replace those imports with @anysphere/* and let bun install link them. tsconfig.build.json intentionally clears paths so declaration emit stays inside packages/cursor-sdk/src (rootDir).",
+  "requiredByMainThread": [
+    "bun install (offline/agent-blocked; externals not installed now)",
+    "root package.json workspaces already covers packages/*; no change needed",
+    "do not publish this private package"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5611",
+  "basename": "ComposerOptimisticPlanningRow.react.js",
+  "source": "recovered/app/glass/composer/ComposerOptimisticPlanningRow.react.js",
+  "renames": {
+    "Iaw": "composerOptimisticPlanningRowModuleInit"
+  },
+  "evidence": [
+    {
+      "from": "Iaw",
+      "to": "composerOptimisticPlanningRowModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

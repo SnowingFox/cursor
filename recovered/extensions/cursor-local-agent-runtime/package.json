@@ -1,0 +1,1 @@
+{"name":"cursor-local-agent-runtime","description":"Hosts Cursor Private Inference outside workspace extension hosts","publisher":"anysphere","version":"0.0.1","private":true,"engines":{"vscode":"^1.43.0"},"main":"./dist/main","extensionKind":["ui"],"activationEvents":["*"],"enabledApiProposals":["cursor"],"contributes":{}}

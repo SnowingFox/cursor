@@ -1,0 +1,1579 @@
+{
+  "generatedAt": "2026-11-05T10:20:42.213Z",
+  "cluster": "p2-platform",
+  "outDir": "recovered/app/glass/platform",
+  "modules": [
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0274",
+      "basename": "$_StatsigGlobal.js",
+      "file": "recovered/app/glass/platform/$_StatsigGlobal.js",
+      "range": [
+        623404,
+        624585
+      ],
+      "sha256": "1f41d75b7dd3f3c4d6afdcb49fa1aa64ee8acb6e2e9baa3bb1ad9e1a7f63ad05",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3964",
+      "basename": "AddPlugin.js",
+      "file": "recovered/app/glass/platform/AddPlugin.js",
+      "range": [
+        23070126,
+        23072195
+      ],
+      "sha256": "9ebe1ee9ad130b13e7c8714e480d374a5a14181399aaa520660beb530143b729",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2820",
+      "basename": "AddPluginBanner.js",
+      "file": "recovered/app/glass/platform/AddPluginBanner.js",
+      "range": [
+        16949966,
+        16951612
+      ],
+      "sha256": "22f5a981af4fb19f86c2d6fe00f206585d5818e5f4d2e803068a46458a2dab16",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2866",
+      "basename": "AddPluginContent.js",
+      "file": "recovered/app/glass/platform/AddPluginContent.js",
+      "range": [
+        17133856,
+        17146463
+      ],
+      "sha256": "0e5fd7c2fdbf200d69fba06b01d09bb22262d6bb32b34e1e40f90b3aa10779c4",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2823",
+      "basename": "AddPluginSearch.js",
+      "file": "recovered/app/glass/platform/AddPluginSearch.js",
+      "range": [
+        16959337,
+        16963303
+      ],
+      "sha256": "0c63a569a6315459c2e047c77edf23cfb03f28dd28d75056bf027426dfde3cab",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2826",
+      "basename": "AddPluginsToMarketplaceMenu.js",
+      "file": "recovered/app/glass/platform/AddPluginsToMarketplaceMenu.js",
+      "range": [
+        16970998,
+        16974096
+      ],
+      "sha256": "6b047fec90834e1d3a222a758745751218b697e8182bdf2f3d78c8bb1e55f8e9",
+      "renamed": true,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2831",
+      "basename": "AddTeamMarketplaceModal.js",
+      "file": "recovered/app/glass/platform/AddTeamMarketplaceModal.js",
+      "range": [
+        16984850,
+        16984972
+      ],
+      "sha256": "50a1a90d4f6e1085d1031fccce7b7a800237b48f92939779f189837bf7c63e31",
+      "renamed": false,
+      "group": "team-marketplace"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5104",
+      "basename": "BillingStatusBanner.js",
+      "file": "recovered/app/glass/platform/BillingStatusBanner.js",
+      "range": [
+        29233595,
+        29234711
+      ],
+      "sha256": "19a9a9b511739d442f005313c6a4c1eb76f2ac81b4059396b03d9401cef43f2a",
+      "renamed": false,
+      "group": "usage-billing"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5103",
+      "basename": "BillingStatusBanner.react.js",
+      "file": "recovered/app/glass/platform/BillingStatusBanner.react.js",
+      "range": [
+        29232606,
+        29233595
+      ],
+      "sha256": "e025663db78c710cd494722dfb7bf2a6577f372f1053a5d620940817b9c8e1d5",
+      "renamed": false,
+      "group": "usage-billing"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3149",
+      "basename": "CachedNodeViewPlugin.js",
+      "file": "recovered/app/glass/platform/CachedNodeViewPlugin.js",
+      "range": [
+        18081361,
+        18085162
+      ],
+      "sha256": "ccda7a4609c602aa97b2d04c6b1a1a967186a8edfe86ef98be02e5243739ae31",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0278",
+      "basename": "CacheKey.js",
+      "file": "recovered/app/glass/platform/CacheKey.js",
+      "range": [
+        627387,
+        627470
+      ],
+      "sha256": "6aa701ddaba8c9e63e7862f94bbbbf20530adc9a947e30af6969eeca3c2d8f97",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5105",
+      "basename": "ClassicModelNudgeNotice.react.js",
+      "file": "recovered/app/glass/platform/ClassicModelNudgeNotice.react.js",
+      "range": [
+        29234711,
+        29236083
+      ],
+      "sha256": "021bb4088f5e8c04ffb8b2cdf58f985b6244ec29bc5676ffad616adf876fe7b4",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5106",
+      "basename": "ClassicUsageNoticeTray.react.js",
+      "file": "recovered/app/glass/platform/ClassicUsageNoticeTray.react.js",
+      "range": [
+        29236083,
+        29238935
+      ],
+      "sha256": "cc75f1b6d442187182d26e255bd262c6f61afe4f64372d0244e20f449cf86b2b",
+      "renamed": false,
+      "group": "usage-billing"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5107",
+      "basename": "ClassicUsageNoticeTrays.js",
+      "file": "recovered/app/glass/platform/ClassicUsageNoticeTrays.js",
+      "range": [
+        29238935,
+        29239221
+      ],
+      "sha256": "b99b56f807733a7a868b8f758307db5fb68aae5bde1111082001b4e1ac703a4f",
+      "renamed": false,
+      "group": "usage-billing"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3156",
+      "basename": "CodeBlockHighlightPlugin.js",
+      "file": "recovered/app/glass/platform/CodeBlockHighlightPlugin.js",
+      "range": [
+        18106585,
+        18106778
+      ],
+      "sha256": "46cbd995cd04589c750d9c038f729c33622625c7e2190f10dc8cec4069c37f71",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1943",
+      "basename": "CodeTokenizerProvider.js",
+      "file": "recovered/app/glass/platform/CodeTokenizerProvider.js",
+      "range": [
+        11057241,
+        11058158
+      ],
+      "sha256": "5118549e105c0965059a70cbf2af6b90fee4880d1f578c2a9d243d0602b5a9c7",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7728",
+      "basename": "ColorTokensSection.js",
+      "file": "recovered/app/glass/platform/ColorTokensSection.js",
+      "range": [
+        39033974,
+        39064714
+      ],
+      "sha256": "756db47ba3d276c138692c2a9f4d4868ef7bf6f68e28a46c7921fa68cdf9ac32",
+      "renamed": false,
+      "group": "settings"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2803",
+      "basename": "CompactModelFlyoutRows.js",
+      "file": "recovered/app/glass/platform/CompactModelFlyoutRows.js",
+      "range": [
+        16855362,
+        16856145
+      ],
+      "sha256": "5a164659790bd9aa4ac60d20082ae7b7caf3d7ad2b47b372946b4b62fa76bb8d",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2807",
+      "basename": "CompactModelPickerContent.js",
+      "file": "recovered/app/glass/platform/CompactModelPickerContent.js",
+      "range": [
+        16875135,
+        16876686
+      ],
+      "sha256": "8cb68b169afd07f33c194d3d7129e67bfb4f7c5be5e49531266dc0e215829a07",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3965",
+      "basename": "ConfigurePluginDialog.js",
+      "file": "recovered/app/glass/platform/ConfigurePluginDialog.js",
+      "range": [
+        23072195,
+        23072389
+      ],
+      "sha256": "220b0ace2b2b6869809a3a8ddc08de53ae5ff9148bc1ea064b6823a9c6ed1ec4",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5289",
+      "basename": "ContextUsageTray.react.js",
+      "file": "recovered/app/glass/platform/ContextUsageTray.react.js",
+      "range": [
+        29793980,
+        29794200
+      ],
+      "sha256": "89213cec94122a6aea057282c6bad286a114e848f92e6eab53640dc71c92600f",
+      "renamed": false,
+      "group": "usage-billing"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2828",
+      "basename": "CreateTeamMarketplaceForm.js",
+      "file": "recovered/app/glass/platform/CreateTeamMarketplaceForm.js",
+      "range": [
+        16977704,
+        16978519
+      ],
+      "sha256": "6ad385caa90f3c761494e4bfcd3ea5a811edf4ee4d6926df1bc77dc04a0e37e6",
+      "renamed": false,
+      "group": "team-marketplace"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3174",
+      "basename": "DocumentRhythmExtension.js",
+      "file": "recovered/app/glass/platform/DocumentRhythmExtension.js",
+      "range": [
+        18189121,
+        18191945
+      ],
+      "sha256": "f7a2c2cec7c94d5cc99863cef97cd9cf13116fe325948683de66ae32dca1f9ef",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6918",
+      "basename": "DOMKeyframesResolver.mjs",
+      "file": "recovered/app/glass/platform/DOMKeyframesResolver.mjs",
+      "range": [
+        35366269,
+        35368870
+      ],
+      "sha256": "7e4a03616d41e0a856f8f9c6b5f2324719793d3d7caa43d65c3ef0724e36cb1a",
+      "renamed": false,
+      "group": "third-party-build-mjs"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0294",
+      "basename": "DownloadConfigSpecsResponse.js",
+      "file": "recovered/app/glass/platform/DownloadConfigSpecsResponse.js",
+      "range": [
+        647586,
+        647677
+      ],
+      "sha256": "7a1067d4d514faf8a97d522d85912141ffb43c16fc65d87df8587e707df332c1",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3183",
+      "basename": "EditorHistoryOwnerExtension.js",
+      "file": "recovered/app/glass/platform/EditorHistoryOwnerExtension.js",
+      "range": [
+        18288182,
+        18290076
+      ],
+      "sha256": "5c416ae3256297b409472b34c8d0185abdfd7afdc03895c8a0ecb590d851bedf",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6944",
+      "basename": "Feature.mjs",
+      "file": "recovered/app/glass/platform/Feature.mjs",
+      "range": [
+        35385320,
+        35385769
+      ],
+      "sha256": "d5276986d7108a8efe2d87c5fffe2480b46e78eee7693558fc8917ab82c7b817",
+      "renamed": false,
+      "group": "third-party-build-mjs"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2746",
+      "basename": "HoverModelItem.js",
+      "file": "recovered/app/glass/platform/HoverModelItem.js",
+      "range": [
+        16659569,
+        16669951
+      ],
+      "sha256": "21f83d3e65f52c890a37520aadf08c3880587ccf98ce0a639bf6dd5095c8b52b",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4883",
+      "basename": "ImagePlugins.js",
+      "file": "recovered/app/glass/platform/ImagePlugins.js",
+      "range": [
+        28088803,
+        28091970
+      ],
+      "sha256": "40ae6d76853841f4ba097800781d8a4222f8111475ce42ebc1bbe7fccd777836",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2830",
+      "basename": "ImportTeamMarketplaceFromRepoForm.js",
+      "file": "recovered/app/glass/platform/ImportTeamMarketplaceFromRepoForm.js",
+      "range": [
+        16982968,
+        16984850
+      ],
+      "sha256": "c761c5ed117569512a8f65debc2311a365a27c3eb76d90a2ebad74645b2fe906",
+      "renamed": true,
+      "group": "team-marketplace"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3154",
+      "basename": "InlineCodeLinkPlugin.js",
+      "file": "recovered/app/glass/platform/InlineCodeLinkPlugin.js",
+      "range": [
+        18095049,
+        18101513
+      ],
+      "sha256": "ae2ce17c29cbbd48ddd8d6c21978a5423d9f317bbf38f1cea01818e785401030",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5111",
+      "basename": "KeybindingRecorder.js",
+      "file": "recovered/app/glass/platform/KeybindingRecorder.js",
+      "range": [
+        29264484,
+        29269117
+      ],
+      "sha256": "f060a8a7caf3c557329bafe98c82f3f533ba1ec11d1acaa1174bba1ecca15fc4",
+      "renamed": false,
+      "group": "settings"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7770",
+      "basename": "KeybindingRecorderSection.js",
+      "file": "recovered/app/glass/platform/KeybindingRecorderSection.js",
+      "range": [
+        39197472,
+        39199603
+      ],
+      "sha256": "b1b38ce555add8a4f70c89e526c1e9f88a39ba379b336141c6bcdc8826abaf48",
+      "renamed": false,
+      "group": "settings"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5112",
+      "basename": "KeyboardShortcutButton.js",
+      "file": "recovered/app/glass/platform/KeyboardShortcutButton.js",
+      "range": [
+        29269117,
+        29272864
+      ],
+      "sha256": "a9bd1fbe8e0283a2d49e1085b146481aa02ccb39954a4cd2b8c09703f94e09a2",
+      "renamed": false,
+      "group": "unclassified"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6861",
+      "basename": "KeyframesResolver.mjs",
+      "file": "recovered/app/glass/platform/KeyframesResolver.mjs",
+      "range": [
+        35336926,
+        35338437
+      ],
+      "sha256": "ccbb7df677324bcedf52b04f65e84fb56af7bdb8812725db02bd40bac5541fd0",
+      "renamed": false,
+      "group": "third-party-build-mjs"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2114",
+      "basename": "LabelableProvider.js",
+      "file": "recovered/app/glass/platform/LabelableProvider.js",
+      "range": [
+        14621682,
+        14623009
+      ],
+      "sha256": "128b1ce8ddcf1339cdf07af820d3829ab8d1592088867e0aa1a7e2f936985d72",
+      "renamed": false,
+      "group": "provider"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2925",
+      "basename": "LeadingContentExtension.js",
+      "file": "recovered/app/glass/platform/LeadingContentExtension.js",
+      "range": [
+        17347907,
+        17349137
+      ],
+      "sha256": "18df1e11cbb6863b60c220565754a83952c45be69eae0bd005d3dee5e4c8e435",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2747",
+      "basename": "LegacyModelItem.js",
+      "file": "recovered/app/glass/platform/LegacyModelItem.js",
+      "range": [
+        16669951,
+        16673314
+      ],
+      "sha256": "fbf7c5de58ba33f098bbbe1b01339b743434c8d6d156d7c5110ba1b2128877e4",
+      "renamed": true,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3195",
+      "basename": "LineCodeBlockTokenizer.js",
+      "file": "recovered/app/glass/platform/LineCodeBlockTokenizer.js",
+      "range": [
+        18320810,
+        18321644
+      ],
+      "sha256": "d46f3df17ea1db0450af0878a3bbc417d87bf850bd901264ca9f83bc87a2a0cd",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3168",
+      "basename": "LinkDecoratorPlugin.js",
+      "file": "recovered/app/glass/platform/LinkDecoratorPlugin.js",
+      "range": [
+        18154636,
+        18157596
+      ],
+      "sha256": "25a347bbf31e69c4415ce8ac1a44d6875f2bf331d8f26ff4da2410e332577152",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5136",
+      "basename": "LockedModelPicker.react.js",
+      "file": "recovered/app/glass/platform/LockedModelPicker.react.js",
+      "range": [
+        29331492,
+        29333850
+      ],
+      "sha256": "70638202f27e48406912b339b7df4682cd8351b919e7e875aa22e997b0072356",
+      "renamed": true,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2848",
+      "basename": "ManageTeamMarketplaceAddPicker.js",
+      "file": "recovered/app/glass/platform/ManageTeamMarketplaceAddPicker.js",
+      "range": [
+        17026942,
+        17027069
+      ],
+      "sha256": "7cf731d86a4995f3b3bace45fa33c65dade2cf4f5c8facfa93b8d69a74bc4eb6",
+      "renamed": false,
+      "group": "team-marketplace"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2864",
+      "basename": "ManageTeamMarketplaceModal.js",
+      "file": "recovered/app/glass/platform/ManageTeamMarketplaceModal.js",
+      "range": [
+        17113517,
+        17116330
+      ],
+      "sha256": "82791c6ed1edbea7b53f7dcf3add9c81ddff1c961485b7a16532ed6729b3946b",
+      "renamed": true,
+      "group": "team-marketplace"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2861",
+      "basename": "ManageTeamMarketplaceModalContent.js",
+      "file": "recovered/app/glass/platform/ManageTeamMarketplaceModalContent.js",
+      "range": [
+        17099274,
+        17105125
+      ],
+      "sha256": "7526f8c609fcee7f1aef0b61dcb6d654b874cdd79957d65b4624786add49fb9c",
+      "renamed": true,
+      "group": "team-marketplace"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2855",
+      "basename": "ManageTeamMarketplacePluginList.js",
+      "file": "recovered/app/glass/platform/ManageTeamMarketplacePluginList.js",
+      "range": [
+        17058333,
+        17077030
+      ],
+      "sha256": "6dc3ff5c0b0cdc138fa7f68eb6251dabf653141f05a3c2fae36a3b051634baa3",
+      "renamed": false,
+      "group": "team-marketplace"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2856",
+      "basename": "MarketplaceAccessSection.js",
+      "file": "recovered/app/glass/platform/MarketplaceAccessSection.js",
+      "range": [
+        17077030,
+        17079037
+      ],
+      "sha256": "01e4bd74421a5f8039f7cced571b4cac8d0c22e6ba6b8781a4a29fd65527c120",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2852",
+      "basename": "MarketplacePluginRow.js",
+      "file": "recovered/app/glass/platform/MarketplacePluginRow.js",
+      "range": [
+        17032100,
+        17032449
+      ],
+      "sha256": "eb8f8a861dce1dae7196f5023c00a909c1c54f2fa0819ed812b5567ba169c935",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2829",
+      "basename": "MarketplaceScopeSelect.js",
+      "file": "recovered/app/glass/platform/MarketplaceScopeSelect.js",
+      "range": [
+        16978519,
+        16982968
+      ],
+      "sha256": "33d986a3c2bad48620504e4d5bf659d48f3cf8baea97f8273fdf3f15b120b356",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3940",
+      "basename": "MarketplaceSection.js",
+      "file": "recovered/app/glass/platform/MarketplaceSection.js",
+      "range": [
+        22839772,
+        22841574
+      ],
+      "sha256": "c5b62edbccd8d922cbee1aff7c47f675ad4da0e15eee662ae9040af907b8a2b8",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3941",
+      "basename": "MarketplaceSectionEndCol.js",
+      "file": "recovered/app/glass/platform/MarketplaceSectionEndCol.js",
+      "range": [
+        22841574,
+        22847174
+      ],
+      "sha256": "aa05d2e8e6619b37f2ff589f14ec79abdb25a61e36151cb48e2475badd51bdc2",
+      "renamed": true,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3169",
+      "basename": "MathBlockPlugin.js",
+      "file": "recovered/app/glass/platform/MathBlockPlugin.js",
+      "range": [
+        18157596,
+        18160377
+      ],
+      "sha256": "b99b0006085ab4cdf0b7ef9728d3b04c72bf90a4da2390ca016d8ea54c80d187",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0300",
+      "basename": "MemoKey.js",
+      "file": "recovered/app/glass/platform/MemoKey.js",
+      "range": [
+        651728,
+        652769
+      ],
+      "sha256": "363805e0fdd596808dab362dd5e339901442ea356e85f5595b5c06e5be85e015",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2544",
+      "basename": "MentionChipPlugin.js",
+      "file": "recovered/app/glass/platform/MentionChipPlugin.js",
+      "range": [
+        15911981,
+        15918651
+      ],
+      "sha256": "c784750279aba06142932505f3ee9a9f7b420c883e6143aaeef49e79468af774",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2926",
+      "basename": "MentionOnlyPlaceholderExtension.js",
+      "file": "recovered/app/glass/platform/MentionOnlyPlaceholderExtension.js",
+      "range": [
+        17349137,
+        17349558
+      ],
+      "sha256": "f4141222fdbccc3dc6058f3a4331a02d565fa5ec7b9b80d3f5d0325002b9e9c4",
+      "renamed": false,
+      "group": "unclassified"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4877",
+      "basename": "MentionsPlugin.js",
+      "file": "recovered/app/glass/platform/MentionsPlugin.js",
+      "range": [
+        28074940,
+        28080391
+      ],
+      "sha256": "7e99e4cfe5b3d112aec1f24b58e5864f2931eb29f8d2e222ff5ea51ef2ce1e36",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3049",
+      "basename": "MicrosoftTeamsIcon.js",
+      "file": "recovered/app/glass/platform/MicrosoftTeamsIcon.js",
+      "range": [
+        17810592,
+        17812990
+      ],
+      "sha256": "b041f2e2dbe219dc27f56714c5b3de5751dff57af2307cb8bf35f82fc44fb2c1",
+      "renamed": true,
+      "group": "team"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2748",
+      "basename": "ModelButtons.js",
+      "file": "recovered/app/glass/platform/ModelButtons.js",
+      "range": [
+        16673314,
+        16673802
+      ],
+      "sha256": "ade9d5cbb5c7a713e4be4d787d243643e4d57a2a72de8cd16982b00268553aec",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2737",
+      "basename": "ModelCountControls.js",
+      "file": "recovered/app/glass/platform/ModelCountControls.js",
+      "range": [
+        16624053,
+        16624158
+      ],
+      "sha256": "47d6e9c58336a4b2c0d13d658a9c516c81533e53eb9523251cd8c385956558e6",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2739",
+      "basename": "ModelItemRow.js",
+      "file": "recovered/app/glass/platform/ModelItemRow.js",
+      "range": [
+        16630426,
+        16632804
+      ],
+      "sha256": "42ba89ce4ddcf32e607c11906b349a2b1a255d7632ff06040e1852f58ff7b97c",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2750",
+      "basename": "ModelList.js",
+      "file": "recovered/app/glass/platform/ModelList.js",
+      "range": [
+        16691995,
+        16702351
+      ],
+      "sha256": "df8d717d9add33c23c24ac003de0403fd51bfcb870a4beeb12984943cf0a1e3b",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2804",
+      "basename": "ModelListRowLabel.js",
+      "file": "recovered/app/glass/platform/ModelListRowLabel.js",
+      "range": [
+        16856145,
+        16856821
+      ],
+      "sha256": "bd78df7212dd661036342ade43354e42fbbd900a8dcbef88ac02a772338528cc",
+      "renamed": true,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4761",
+      "basename": "ModelNameDisplay.js",
+      "file": "recovered/app/glass/platform/ModelNameDisplay.js",
+      "range": [
+        27365830,
+        27367566
+      ],
+      "sha256": "c91367ff8b3450afa650f5e77251800cc8f0cf8f95f04e3aa94d5f0b3006d1ce",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7775",
+      "basename": "ModelNameDisplaySection.js",
+      "file": "recovered/app/glass/platform/ModelNameDisplaySection.js",
+      "range": [
+        39220923,
+        39224510
+      ],
+      "sha256": "8ddab22000d78cc1bfa41cc9e948b79fe4f0dbd35213a394b9cb339ed18471c7",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2743",
+      "basename": "ModelParameterControls.js",
+      "file": "recovered/app/glass/platform/ModelParameterControls.js",
+      "range": [
+        16641888,
+        16642158
+      ],
+      "sha256": "d046fe2f66bed9c022c07349d78e0f55d68ffff4dd793516d9ab5bf600e3e990",
+      "renamed": true,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2815",
+      "basename": "ModelPicker.js",
+      "file": "recovered/app/glass/platform/ModelPicker.js",
+      "range": [
+        16928270,
+        16928675
+      ],
+      "sha256": "5c9eda64865fffcfb134b45a760d12a0c84b0c98538ad11432dfaf7f07b00871",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2695",
+      "basename": "ModelPicker.types.js",
+      "file": "recovered/app/glass/platform/ModelPicker.types.js",
+      "range": [
+        16474089,
+        16474269
+      ],
+      "sha256": "c50f84b10460290cd1322a1b8b1105918866bbc5a77234e6a1a2a671bbbe3704",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2812",
+      "basename": "ModelPickerContent.js",
+      "file": "recovered/app/glass/platform/ModelPickerContent.js",
+      "range": [
+        16899313,
+        16900522
+      ],
+      "sha256": "cc5202dd5f89ad3fdad8118371061aee8d4311ca4314dbbc9deee932f09a2348",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2700",
+      "basename": "ModelPickerContext.js",
+      "file": "recovered/app/glass/platform/ModelPickerContext.js",
+      "range": [
+        16491980,
+        16494039
+      ],
+      "sha256": "c746cda453d13a966b2298c2899a00758a20160912fa127059e8de95ef35d5ee",
+      "renamed": true,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7776",
+      "basename": "ModelPickerSection.js",
+      "file": "recovered/app/glass/platform/ModelPickerSection.js",
+      "range": [
+        39224510,
+        39239753
+      ],
+      "sha256": "aaf6a23ea7bd4526b9be47763bf037d2426b79e8486471f25c3e38edabfa68e9",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2813",
+      "basename": "ModelPickerTrigger.js",
+      "file": "recovered/app/glass/platform/ModelPickerTrigger.js",
+      "range": [
+        16900522,
+        16907972
+      ],
+      "sha256": "4e5b9f57bfe6dd3bcd16c1588f9a64ece3d7c96e95af31c72dcfef897804fd88",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2752",
+      "basename": "ModelPickerViews.js",
+      "file": "recovered/app/glass/platform/ModelPickerViews.js",
+      "range": [
+        16710412,
+        16710811
+      ],
+      "sha256": "931b775b913fac925bebcb7aa1ef83ababf5748bbc994f1f0f8619bacbcc0029",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5144",
+      "basename": "ModelPickerWrapper.react.js",
+      "file": "recovered/app/glass/platform/ModelPickerWrapper.react.js",
+      "range": [
+        29355619,
+        29356077
+      ],
+      "sha256": "67b7ff374dbed81c53587aaf920b410199c5cac3723dee66c0a770cb8f1f0dcd",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2751",
+      "basename": "ModelToggles.js",
+      "file": "recovered/app/glass/platform/ModelToggles.js",
+      "range": [
+        16702351,
+        16710412
+      ],
+      "sha256": "893bda80270197480efcb568da6f9f78fad808ed369136271428b53482bd11b3",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6969",
+      "basename": "MotionConfigContext.mjs",
+      "file": "recovered/app/glass/platform/MotionConfigContext.mjs",
+      "range": [
+        35398735,
+        35399474
+      ],
+      "sha256": "e76157792ba6be7a01d1b968fc56d8ac56092442c018122f9d06a34e663956ae",
+      "renamed": false,
+      "group": "third-party-build-mjs"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2808",
+      "basename": "NestedModelListSubmenu.js",
+      "file": "recovered/app/glass/platform/NestedModelListSubmenu.js",
+      "range": [
+        16876686,
+        16879641
+      ],
+      "sha256": "9eeb8e437b9ae726cd1dd26da34cc29182d6d1438602b41102a7d99a615efe00",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0279",
+      "basename": "NetworkConfig.js",
+      "file": "recovered/app/glass/platform/NetworkConfig.js",
+      "range": [
+        627470,
+        627983
+      ],
+      "sha256": "e2d7556716dd6fbef09605afbc18bb5d114e6a062d5e5fffbb89888c8d3f983a",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7778",
+      "basename": "OutlineModelPlaygroundSection.js",
+      "file": "recovered/app/glass/platform/OutlineModelPlaygroundSection.js",
+      "range": [
+        39246598,
+        39248382
+      ],
+      "sha256": "530789e25e3930ae8ff2eb6f8ff71113ee60340952fcc492f547f7ffe788d87e",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5146",
+      "basename": "ParameterizedModelPicker.js",
+      "file": "recovered/app/glass/platform/ParameterizedModelPicker.js",
+      "range": [
+        29377554,
+        29377939
+      ],
+      "sha256": "30481facdc0c168e0b979b606628a4d33529df5423b1390e76c017a6b6c8ee44",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2867",
+      "basename": "PluginActionConfirmCard.js",
+      "file": "recovered/app/glass/platform/PluginActionConfirmCard.js",
+      "range": [
+        17146463,
+        17147016
+      ],
+      "sha256": "656bab3902d44a920ea0dbfcc1b962316100f13993ed040d694b2c11a0c4834a",
+      "renamed": true,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2851",
+      "basename": "PluginCapabilityBadges.js",
+      "file": "recovered/app/glass/platform/PluginCapabilityBadges.js",
+      "range": [
+        17029068,
+        17032100
+      ],
+      "sha256": "d1c7027599675e0fe80aeedf6e544bc4108d5994803ab241a82aa212284e2d06",
+      "renamed": true,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2818",
+      "basename": "PluginDefaultIcon.js",
+      "file": "recovered/app/glass/platform/PluginDefaultIcon.js",
+      "range": [
+        16936453,
+        16941923
+      ],
+      "sha256": "1ee48dc2c2b505c01f639607808b0dc7930f01170dbed3f088c0f99c669003e3",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3968",
+      "basename": "PluginDetailView.helpers.js",
+      "file": "recovered/app/glass/platform/PluginDetailView.helpers.js",
+      "range": [
+        23105175,
+        23131272
+      ],
+      "sha256": "4601b7746a7f9f305c1747215eeca9c07bde9aee8391b2535c77178358c7c738",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3969",
+      "basename": "PluginDetailView.js",
+      "file": "recovered/app/glass/platform/PluginDetailView.js",
+      "range": [
+        23131272,
+        23140433
+      ],
+      "sha256": "cfa8c22925e694d001f8f5985274a108688a6b7ec84adefa7e85ad587dc6a39f",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3970",
+      "basename": "PluginInstalledCard.js",
+      "file": "recovered/app/glass/platform/PluginInstalledCard.js",
+      "range": [
+        23140433,
+        23143783
+      ],
+      "sha256": "35c30db107acf880d55fb7468a10689db811e67175cabf6c655501ce3b04a86b",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3967",
+      "basename": "PluginItem.js",
+      "file": "recovered/app/glass/platform/PluginItem.js",
+      "range": [
+        23102915,
+        23105175
+      ],
+      "sha256": "618e149127d4a9c2f2cd2260839de39bb9912f9335ece8a2cb816baa1a73ee1a",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1216",
+      "basename": "Plugins.curatedCategories.js",
+      "file": "recovered/app/glass/platform/Plugins.curatedCategories.js",
+      "range": [
+        5369433,
+        5370606
+      ],
+      "sha256": "28703928acd1127e21f1dad890165a542ad085bcd956a8b3155533678d00ec75",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2821",
+      "basename": "Plugins.search.js",
+      "file": "recovered/app/glass/platform/Plugins.search.js",
+      "range": [
+        16951612,
+        16953821
+      ],
+      "sha256": "1d803e0cdf8160e160c9e5dfb2314a10e81394a7df46626a394d5f31b38f7c4c",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3966",
+      "basename": "Plugins.shared.stylex.js",
+      "file": "recovered/app/glass/platform/Plugins.shared.stylex.js",
+      "range": [
+        23072389,
+        23102915
+      ],
+      "sha256": "17f64227bee1719296823648d22994e597b286396bc974ffbdbb92d1fee6b7ce",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2873",
+      "basename": "Plugins.types.js",
+      "file": "recovered/app/glass/platform/Plugins.types.js",
+      "range": [
+        17156521,
+        17157551
+      ],
+      "sha256": "b1cc13032ffff2bf5824b30eecf20055ef084c66faac71844d47faac7d8613fe",
+      "renamed": true,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2819",
+      "basename": "Plugins.utils.js",
+      "file": "recovered/app/glass/platform/Plugins.utils.js",
+      "range": [
+        16941923,
+        16949966
+      ],
+      "sha256": "67f5feda1e20e845fa624cd393cac6ee834a0d0f74e62896bedc07726932caf4",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5304",
+      "basename": "PluginSearchMenu.js",
+      "file": "recovered/app/glass/platform/PluginSearchMenu.js",
+      "range": [
+        29859703,
+        29862627
+      ],
+      "sha256": "687dd0e62efc2a38479ce3c16451e2de2613c76f713d5cf8b3b5256f2d6f1ed6",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2870",
+      "basename": "PluginSection.js",
+      "file": "recovered/app/glass/platform/PluginSection.js",
+      "range": [
+        17154021,
+        17154516
+      ],
+      "sha256": "3d236d7d2f5b5c36bc9467679bd3f3d4bab37759b03a96659bbe5d0f84a2601a",
+      "renamed": true,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2871",
+      "basename": "PluginSectionHeader.js",
+      "file": "recovered/app/glass/platform/PluginSectionHeader.js",
+      "range": [
+        17154516,
+        17155544
+      ],
+      "sha256": "3b2c68a807defb8965417fb424e2b993e8ef2911cd2cbb52cf50903a9f7f9444",
+      "renamed": true,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2872",
+      "basename": "PluginSourceBadges.js",
+      "file": "recovered/app/glass/platform/PluginSourceBadges.js",
+      "range": [
+        17155544,
+        17156521
+      ],
+      "sha256": "02707638df3f8caa1031fd5c780cc3088e53eac2d7cf825586cbd89af99e344d",
+      "renamed": true,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3943",
+      "basename": "PluginUninstallConfirmDialog.js",
+      "file": "recovered/app/glass/platform/PluginUninstallConfirmDialog.js",
+      "range": [
+        22848465,
+        22855756
+      ],
+      "sha256": "46d59f8e76de01599175f30c808ffeeeb05ed8b56a37f3790e21b9a15290042a",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2854",
+      "basename": "PluginVariablesForm.js",
+      "file": "recovered/app/glass/platform/PluginVariablesForm.js",
+      "range": [
+        17043588,
+        17058333
+      ],
+      "sha256": "4fca77b135b16755a24c1fc05819aa39f53c043b69f99888b3f7d6d1231cd8ca",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6298",
+      "basename": "ProjectDatabasePlugin.js",
+      "file": "recovered/app/glass/platform/ProjectDatabasePlugin.js",
+      "range": [
+        33764071,
+        33764634
+      ],
+      "sha256": "9b044263adbe1ada26fa2d62783b6c195950fc6c243570789f3b3f67f855978a",
+      "renamed": true,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3166",
+      "basename": "SearchPlugin.js",
+      "file": "recovered/app/glass/platform/SearchPlugin.js",
+      "range": [
+        18149877,
+        18153580
+      ],
+      "sha256": "908bf62bc56df6329ab03ea0ca4d21daa77a1d4897c9f7362c63b467aaa7067f",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3184",
+      "basename": "SearchSelectionScrollExtension.js",
+      "file": "recovered/app/glass/platform/SearchSelectionScrollExtension.js",
+      "range": [
+        18290076,
+        18293452
+      ],
+      "sha256": "22e16879e4050eb090134e1bbb71504c67ed693ab16891773f4179edaaf2724b",
+      "renamed": false,
+      "group": "unclassified"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2809",
+      "basename": "SelectedModelParametersMenuContent.js",
+      "file": "recovered/app/glass/platform/SelectedModelParametersMenuContent.js",
+      "range": [
+        16879641,
+        16882298
+      ],
+      "sha256": "671f9198d41041e260338e43098f05f89e60dab3e533e1bed8f4966884ad14cd",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2811",
+      "basename": "SelectedModelParametersSubmenuContent.js",
+      "file": "recovered/app/glass/platform/SelectedModelParametersSubmenuContent.js",
+      "range": [
+        16887958,
+        16899313
+      ],
+      "sha256": "6fc85f6c3b227b11921b95cdc85f1469acf355e1faeec1d2fdc5608230874934",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3196",
+      "basename": "ShikiCodeBlockTokenizer.js",
+      "file": "recovered/app/glass/platform/ShikiCodeBlockTokenizer.js",
+      "range": [
+        18321644,
+        18321780
+      ],
+      "sha256": "49150fceee0f6cbca63312735dfb528299963b903e5fad2aad1eb967d0864e29",
+      "renamed": true,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0322",
+      "basename": "StatsigClient.js",
+      "file": "recovered/app/glass/platform/StatsigClient.js",
+      "range": [
+        681584,
+        689958
+      ],
+      "sha256": "c573f39d9fca3b908ae94f443ba19ca601f07402c40d705e24f2259c2058b60e",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0310",
+      "basename": "StatsigClientBase.js",
+      "file": "recovered/app/glass/platform/StatsigClientBase.js",
+      "range": [
+        667063,
+        670805
+      ],
+      "sha256": "3326ebeb836fa17d7e88aee311ae5b79d76cd5999f1d4928db2c982399b552e4",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0305",
+      "basename": "StatsigClientEventEmitter.js",
+      "file": "recovered/app/glass/platform/StatsigClientEventEmitter.js",
+      "range": [
+        658521,
+        659904
+      ],
+      "sha256": "3b786f720f4ff27f8fef46ecc6b330886c1cd7e4f0ba78d5e21c6fe3c71f1bd4",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0311",
+      "basename": "StatsigDataAdapter.js",
+      "file": "recovered/app/glass/platform/StatsigDataAdapter.js",
+      "range": [
+        670805,
+        670896
+      ],
+      "sha256": "7dfd965840b71f9d9e682dcadb41c267f20f23f776fb8b688efa743849e5d544",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0321",
+      "basename": "StatsigEvaluationsDataAdapter.js",
+      "file": "recovered/app/glass/platform/StatsigEvaluationsDataAdapter.js",
+      "range": [
+        680286,
+        681584
+      ],
+      "sha256": "536ad19d4ca35519eb76df595ca2bf9a2f2a253e273b10faa22cc35fc15cdb1c",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0281",
+      "basename": "StatsigEvent.js",
+      "file": "recovered/app/glass/platform/StatsigEvent.js",
+      "range": [
+        628943,
+        630667
+      ],
+      "sha256": "458e52641d86aea21c8b351174914d26e3a5abe8d81b3820e1f51d55373e5ff6",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0287",
+      "basename": "StatsigMetadata.js",
+      "file": "recovered/app/glass/platform/StatsigMetadata.js",
+      "range": [
+        640782,
+        640982
+      ],
+      "sha256": "095c579638c992c2cda14face605a96bb0bf861f48db21a383f52aa99982e5a3",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0282",
+      "basename": "StatsigOptionsCommon.js",
+      "file": "recovered/app/glass/platform/StatsigOptionsCommon.js",
+      "range": [
+        630667,
+        631415
+      ],
+      "sha256": "5d37a07828ffb28606910c9ea79031a5ea4a5e158e53c15aa3eca5e54129ca52",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0312",
+      "basename": "StatsigPlugin.js",
+      "file": "recovered/app/glass/platform/StatsigPlugin.js",
+      "range": [
+        670896,
+        671970
+      ],
+      "sha256": "ec29303aaab133edea4209e7b2b99e7c0a6023e2d76cecbd28f746d542229e42",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0313",
+      "basename": "StatsigTypeFactories.js",
+      "file": "recovered/app/glass/platform/StatsigTypeFactories.js",
+      "range": [
+        671970,
+        672057
+      ],
+      "sha256": "5230b9197d8842088def2c6cba876a4dbd8abb3f95a6bccdc0ac635f0c61706b",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0314",
+      "basename": "StatsigTypes.js",
+      "file": "recovered/app/glass/platform/StatsigTypes.js",
+      "range": [
+        672057,
+        672128
+      ],
+      "sha256": "473600f8ee421c81697c23d28794f88a55b7002bcd43fc4a3a53ec85db8bbcc2",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0315",
+      "basename": "StatsigUpdateDetails.js",
+      "file": "recovered/app/glass/platform/StatsigUpdateDetails.js",
+      "range": [
+        672128,
+        672479
+      ],
+      "sha256": "5fa1486063e091f3b2f37095e838390c7603a6f7b8d994310cf303c8cc7e98e6",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0291",
+      "basename": "StatsigUser.js",
+      "file": "recovered/app/glass/platform/StatsigUser.js",
+      "range": [
+        643439,
+        643700
+      ],
+      "sha256": "b458a8c5ae19a9afbaab687cca51b30e8435be6eb029b8066aca1b82f8335fd7",
+      "renamed": true,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0283",
+      "basename": "StorageProvider.js",
+      "file": "recovered/app/glass/platform/StorageProvider.js",
+      "range": [
+        631415,
+        632682
+      ],
+      "sha256": "b945abbbe4cd5f3d795fabad57829545ac08c823a3787a0cbee1a0b0553b3555",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3188",
+      "basename": "StreamingPlugin.js",
+      "file": "recovered/app/glass/platform/StreamingPlugin.js",
+      "range": [
+        18306162,
+        18310177
+      ],
+      "sha256": "4489504a4101895945953e9259ad97a23a1a756e968a4146f12183a2a77c5845",
+      "renamed": false,
+      "group": "marketplace-plugins"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3194",
+      "basename": "TablePlugin.js",
+      "file": "recovered/app/glass/platform/TablePlugin.js",
+      "range": [
+        18319914,
+        18320810
+      ],
+      "sha256": "2488f8c9b8b7f8507ae01f02a42b5bf4c63b4168c0738f29d3644fdbdaf231c6",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5085",
+      "basename": "ThirdPartyUsageNudgeBubble.react.js",
+      "file": "recovered/app/glass/platform/ThirdPartyUsageNudgeBubble.react.js",
+      "range": [
+        29204696,
+        29207102
+      ],
+      "sha256": "8d23ad0184538b6ccce88285a3e385a5f21a4612725b84770a3b0c01f573b12f",
+      "renamed": false,
+      "group": "usage-billing"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5086",
+      "basename": "ThirdPartyUsageNudgeClassic.js",
+      "file": "recovered/app/glass/platform/ThirdPartyUsageNudgeClassic.js",
+      "range": [
+        29207102,
+        29208593
+      ],
+      "sha256": "80c9a1377da52c03a35754d5c2a0895c2504a4e17ab50330c4c6b9355bd0eac2",
+      "renamed": false,
+      "group": "usage-billing"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5120",
+      "basename": "TokenRing.js",
+      "file": "recovered/app/glass/platform/TokenRing.js",
+      "range": [
+        29280341,
+        29280890
+      ],
+      "sha256": "7cdd84af43ff9ebf623decf596779bec7ee8da570d1c96cba1f5b746ea1e1771",
+      "renamed": false,
+      "group": "settings"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5272",
+      "basename": "UnifiedUsageBanner.js",
+      "file": "recovered/app/glass/platform/UnifiedUsageBanner.js",
+      "range": [
+        29696449,
+        29697141
+      ],
+      "sha256": "d746d66b59c0009564b8b881db22003fefcc04f701f8f2720b1d1962127f865c",
+      "renamed": false,
+      "group": "usage-billing"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0284",
+      "basename": "UrlConfiguration.js",
+      "file": "recovered/app/glass/platform/UrlConfiguration.js",
+      "range": [
+        632682,
+        633433
+      ],
+      "sha256": "bbb5eed27ab14d28974931139434c9f01e23451fec23a1ae787dad571ca59195",
+      "renamed": false,
+      "group": "third-party-statsig"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5271",
+      "basename": "UsageLimitPolicyBanner.js",
+      "file": "recovered/app/glass/platform/UsageLimitPolicyBanner.js",
+      "range": [
+        29691219,
+        29696449
+      ],
+      "sha256": "9a8fa327360b2c43e2fe754320de8b2b318704a0821fa4b58c0bc4d3a48cca34",
+      "renamed": false,
+      "group": "usage-billing"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3946",
+      "basename": "UsageTable.js",
+      "file": "recovered/app/glass/platform/UsageTable.js",
+      "range": [
+        22886856,
+        22954771
+      ],
+      "sha256": "339267ecd87554c8c8f491fa52ec6ae391047d77bec4b566967abd9fcdf93c7d",
+      "renamed": false,
+      "group": "usage-billing"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3945",
+      "basename": "UsageTable.stylex.js",
+      "file": "recovered/app/glass/platform/UsageTable.stylex.js",
+      "range": [
+        22856014,
+        22886856
+      ],
+      "sha256": "7ba3aa27cf16ae61c82e84ea9dc5b211aab79941247e7f503f6db29ec0529cdc",
+      "renamed": false,
+      "group": "usage-billing"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5308",
+      "basename": "VoiceDictationServicePlugin.js",
+      "file": "recovered/app/glass/platform/VoiceDictationServicePlugin.js",
+      "range": [
+        29864152,
+        29956770
+      ],
+      "sha256": "815c31f10381fa80ef1e34645871815e3c0ead4d4c57d7c15e6dfb5514ee5a01",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2943",
+      "basename": "VoicePendingDecorationExtension.js",
+      "file": "recovered/app/glass/platform/VoicePendingDecorationExtension.js",
+      "range": [
+        17369616,
+        17370527
+      ],
+      "sha256": "3689d2d32b6bb273da4948aedd58b57f7b5381f9ff91248b5691e49d9cf8532f",
+      "renamed": false,
+      "group": "editor-plugins-third-party"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5147",
+      "basename": "VoiceSettingsDropdown.js",
+      "file": "recovered/app/glass/platform/VoiceSettingsDropdown.js",
+      "range": [
+        29377939,
+        29380234
+      ],
+      "sha256": "3fd8d416612394f622fdc8a75ce46db1fbd75ed761553aae6d9fe7408d4779ba",
+      "renamed": false,
+      "group": "settings"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5142",
+      "basename": "VscodeModelPickerProductContent.react.js",
+      "file": "recovered/app/glass/platform/VscodeModelPickerProductContent.react.js",
+      "range": [
+        29346521,
+        29347388
+      ],
+      "sha256": "db012863493e12353817f30e459a3071f3f53adc6364f92c5b01512e66c99608",
+      "renamed": false,
+      "group": "model"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5143",
+      "basename": "VscodeModelPickerProductTrigger.react.js",
+      "file": "recovered/app/glass/platform/VscodeModelPickerProductTrigger.react.js",
+      "range": [
+        29347388,
+        29355619
+      ],
+      "sha256": "a7bb4c4efd5101ee9cc3340aac962fc5972c8ca7f576c4b024a512e0c0311dd7",
+      "renamed": false,
+      "group": "model"
+    }
+  ]
+}

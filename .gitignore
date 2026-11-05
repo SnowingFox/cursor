@@ -18,3 +18,16 @@
 
 # Reverse-engineering notes and tool output (machine-specific)
 /docs/rea/
+
+# Recovery workstream: pinned artifacts and large regenerable output
+/.vendor/
+/recovery/.cache/
+/recovery/raw/
+/recovery/sdk/raw/
+/recovery/inventory/bundles.json
+/recovery/inventory/modules.json
+/recovery/inventory/sdk.json
+/recovered/extensions/*/node_modules/
+/recovered/extensions/agent/*/node_modules/
+/packages/*/node_modules/
+/packages/*/dist/

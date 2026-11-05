@@ -1,0 +1,80 @@
+{
+  "generatedAt": "2026-11-05T10:07:47.913Z",
+  "packages": {
+    "cursor-sdk-local-runtime": {
+      "modules": 14,
+      "generated": 0,
+      "indexGenerated": true,
+      "shims": [
+        "bun:sqlite"
+      ]
+    },
+    "cursor-sdk-shared": {
+      "modules": 2,
+      "generated": 0,
+      "indexGenerated": true,
+      "shims": [
+        "zod/v3"
+      ]
+    },
+    "proto": {
+      "modules": 64,
+      "generated": 64,
+      "indexGenerated": true,
+      "shims": [
+        "@bufbuild/protobuf"
+      ]
+    },
+    "utils": {
+      "modules": 10,
+      "generated": 0,
+      "indexGenerated": true,
+      "shims": [
+        "rxjs"
+      ]
+    },
+    "context": {
+      "modules": 3,
+      "generated": 0,
+      "indexGenerated": true,
+      "shims": [
+        "@opentelemetry/api"
+      ]
+    },
+    "metrics": {
+      "modules": 1,
+      "generated": 0,
+      "indexGenerated": false,
+      "shims": []
+    },
+    "shell-exec": {
+      "modules": 1,
+      "generated": 0,
+      "indexGenerated": true,
+      "shims": [
+        "ignore",
+        "rxjs"
+      ]
+    },
+    "mcp-core": {
+      "modules": 1,
+      "generated": 0,
+      "indexGenerated": true,
+      "shims": []
+    },
+    "mcp-agent-exec": {
+      "modules": 1,
+      "generated": 0,
+      "indexGenerated": true,
+      "shims": []
+    },
+    "agent-kv": {
+      "modules": 1,
+      "generated": 0,
+      "indexGenerated": false,
+      "shims": [
+        "zod/v4"
+      ]
+    }
+  }
+}

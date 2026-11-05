@@ -1,0 +1,21 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2406",
+  "basename": "McpToolCallIcon.js",
+  "source": "recovered/app/glass/composer/McpToolCallIcon.js",
+  "renames": {
+    "kKh": "PendingFileChangeApprovalLine"
+  },
+  "evidence": [
+    {
+      "from": "kKh",
+      "to": "PendingFileChangeApprovalLine",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "PendingFileChangeApprovalLine.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

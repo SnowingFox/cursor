@@ -1,0 +1,28 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2456",
+  "basename": "AgentTranscriptHumanAttachmentStrip.js",
+  "source": "recovered/app/glass/composer/AgentTranscriptHumanAttachmentStrip.js",
+  "renames": {
+    "cXh": "agentTranscriptHumanAttachmentStripModuleInit",
+    "rSa": "AgentTranscriptHumanSenderLabel"
+  },
+  "evidence": [
+    {
+      "from": "cXh",
+      "to": "agentTranscriptHumanAttachmentStripModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    },
+    {
+      "from": "rSa",
+      "to": "AgentTranscriptHumanSenderLabel",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "AgentTranscriptHumanSenderLabel.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

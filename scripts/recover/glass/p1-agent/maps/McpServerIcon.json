@@ -1,0 +1,13 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2404",
+  "basename": "McpServerIcon.js",
+  "file": "recovered/app/glass/agent/McpServerIcon.js",
+  "renames": {
+    "mKh": "McpServerIconModule",
+    "gKh": "McpServerIcon"
+  },
+  "notes": [
+    "mKh -> McpServerIconModule: declared wrapper binding, evidence: esbuild init key \"McpServerIcon.js\"",
+    "gKh -> McpServerIcon: sole JSX-returning top-level function in module slice; name from wrapper basename"
+  ]
+}

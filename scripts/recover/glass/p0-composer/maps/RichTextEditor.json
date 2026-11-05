@@ -1,0 +1,20 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3187",
+  "basename": "RichTextEditor.js",
+  "source": "recovered/app/glass/composer/RichTextEditor.js",
+  "renames": {
+    "bC1": "richTextEditorModuleInit"
+  },
+  "evidence": [
+    {
+      "from": "bC1",
+      "to": "richTextEditorModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

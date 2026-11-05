@@ -1,0 +1,79 @@
+{
+ "extension": "cursor-shadow-workspace",
+ "generatedAt": "2026-11-05T10:17:16.559Z",
+ "sourceDir": "app/extensions/cursor-shadow-workspace",
+ "package": {
+  "name": "cursor-shadow-workspace",
+  "version": "1.0.0",
+  "main": "./dist/extension",
+  "activationEvents": [
+   "onStartupFinished"
+  ],
+  "enabledApiProposals": [
+   "cursor"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "contributes": {
+   "commands": 0,
+   "configuration": 0
+  },
+  "scripts": {}
+ },
+ "distArtifacts": [
+  {
+   "path": "app/extensions/cursor-shadow-workspace/dist/extension.js",
+   "bytes": 1038008,
+   "sha256": "19218949e5ecc64e4c1b41e194ba40abfd54a9aeb034a14f90c71485b7f84585",
+   "webpack": true,
+   "modules": 166,
+   "keyTypes": {
+    "number": 166,
+    "string": 0
+   },
+   "chunkId": null,
+   "entry": true
+  }
+ ],
+ "shippedFiles": [
+  {
+   "path": "app/extensions/cursor-shadow-workspace/dist/extension.js.LICENSE.txt",
+   "bytes": 157,
+   "sha256": "61a820909372707238aa36a3c251159fc1630658d7f74382b2ae6bdb56502afd",
+   "category": "license",
+   "copy": false
+  },
+  {
+   "path": "app/extensions/cursor-shadow-workspace/media/icon.png",
+   "bytes": 1787,
+   "sha256": "75a34e7344b3673937f29ba19320fba14f88b12c87f6f52d349d826cbf8f9152",
+   "category": "media",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-shadow-workspace/package.json",
+   "bytes": 713,
+   "sha256": "f5ea5e17033505ad6bf47fdf0be01295603018f99f4bf95acef8fc6d720ae97b",
+   "category": "manifest",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-shadow-workspace/package.nls.json",
+   "bytes": 157,
+   "sha256": "163bd21c4831c736ef2f07fd2157017ccae89dc2e367981d0dfaca89eb3ebad1",
+   "category": "nls",
+   "copy": true
+  }
+ ],
+ "thirdPartyAssets": [],
+ "unresolved": [],
+ "totals": {
+  "bytes": 1040822,
+  "distBytes": 1038008,
+  "distArtifacts": 1,
+  "webpackArtifacts": 1,
+  "webpackModules": 166,
+  "shippedFiles": 4
+ }
+}

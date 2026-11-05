@@ -1,0 +1,28 @@
+{
+ "extension": "cursor-resolver-helper",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-resolver-helper",
+ "files": [
+  {
+   "source": "app/extensions/cursor-resolver-helper/package.json",
+   "dest": "recovered/extensions/agent/cursor-resolver-helper/shipped/package.json",
+   "bytes": 486,
+   "sha256": "39f5be4c41f75f85f301b845a6ce47a3535d67b50ecd2a12dd7c64b69549651d",
+   "emittedSha256": "39f5be4c41f75f85f301b845a6ce47a3535d67b50ecd2a12dd7c64b69549651d",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [],
+ "totals": {
+  "files": 1,
+  "bytes": 486,
+  "byteIdentical": 1,
+  "headed": 0,
+  "skipped": 0
+ }
+}

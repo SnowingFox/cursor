@@ -1,0 +1,345 @@
+{
+  "generatedAt": "2026-11-05T10:22:35.426Z",
+  "bundles": [
+    {
+      "bundle": "app/out/main.js",
+      "modules": 1030
+    },
+    {
+      "bundle": "app/out/vs/workbench/workbench.desktop.main.js",
+      "modules": 4702
+    },
+    {
+      "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+      "modules": 8708
+    },
+    {
+      "bundle": "app/out/vs/workbench/api/node/extensionHostProcess.js",
+      "modules": 10
+    }
+  ],
+  "sdk": {
+    "dts": 190,
+    "moduleKeys": 1870,
+    "ownSourceKeys": 40,
+    "siblingPackages": {
+      "mcp-core": 2,
+      "shell-exec": 2,
+      "utils": 26,
+      "agent-kv": 4,
+      "context": 10,
+      "metrics": 4,
+      "proto": 210,
+      "cursor-sdk-local-runtime": 48,
+      "cursor-sdk-shared": 4,
+      "mcp-agent-exec": 2
+    }
+  },
+  "extensions": [
+    {
+      "name": "cursor-agent-exec",
+      "format": "webpack",
+      "jsFiles": 81,
+      "webpackModuleHits": 1617,
+      "validatedModules": 1319,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-agent-host",
+      "format": "webpack",
+      "jsFiles": 85,
+      "webpackModuleHits": 2682,
+      "validatedModules": 1703,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-agent-worker",
+      "format": "unknown",
+      "jsFiles": 1,
+      "webpackModuleHits": 0,
+      "validatedModules": 233,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-always-local",
+      "format": "unknown",
+      "jsFiles": 3,
+      "webpackModuleHits": 0,
+      "validatedModules": 386,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-browser-automation",
+      "format": "webpack",
+      "jsFiles": 10,
+      "webpackModuleHits": 52,
+      "validatedModules": 57,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-checkout",
+      "format": "unknown",
+      "jsFiles": 1,
+      "webpackModuleHits": 0,
+      "validatedModules": 1,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-commits",
+      "format": "unknown",
+      "jsFiles": 1,
+      "webpackModuleHits": 0,
+      "validatedModules": 167,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-computer-use",
+      "format": "webpack",
+      "jsFiles": 10,
+      "webpackModuleHits": 52,
+      "validatedModules": 219,
+      "reassembly": "ok",
+      "shippedTs": 62
+    },
+    {
+      "name": "cursor-deeplink",
+      "format": "unknown",
+      "jsFiles": 1,
+      "webpackModuleHits": 0,
+      "validatedModules": 202,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-explorer",
+      "format": "unknown",
+      "jsFiles": 1,
+      "webpackModuleHits": 0,
+      "validatedModules": 1,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-file-service",
+      "format": "unknown",
+      "jsFiles": 1,
+      "webpackModuleHits": 0,
+      "validatedModules": 1,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-local-agent-runtime",
+      "format": "webpack",
+      "jsFiles": 58,
+      "webpackModuleHits": 1435,
+      "validatedModules": 1238,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-mcp",
+      "format": "unknown",
+      "jsFiles": 1,
+      "webpackModuleHits": 0,
+      "validatedModules": 433,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-ndjson-ingest",
+      "format": "unknown",
+      "jsFiles": 1,
+      "webpackModuleHits": 0,
+      "validatedModules": 7,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-polyfills-remote",
+      "format": "unknown",
+      "jsFiles": 1,
+      "webpackModuleHits": 0,
+      "validatedModules": 369,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-resolver",
+      "format": "webpack",
+      "jsFiles": 2,
+      "webpackModuleHits": 0,
+      "validatedModules": 49,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-resolver-helper",
+      "format": "unknown",
+      "jsFiles": 1,
+      "webpackModuleHits": 0,
+      "validatedModules": 49,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-retrieval",
+      "format": "unknown",
+      "jsFiles": 1,
+      "webpackModuleHits": 0,
+      "validatedModules": 196,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-shadow-workspace",
+      "format": "unknown",
+      "jsFiles": 1,
+      "webpackModuleHits": 0,
+      "validatedModules": 166,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-socket",
+      "format": "unknown",
+      "jsFiles": 1,
+      "webpackModuleHits": 0,
+      "validatedModules": 1,
+      "reassembly": "ok",
+      "shippedTs": 0
+    },
+    {
+      "name": "cursor-worktree-textmate",
+      "format": "unknown",
+      "jsFiles": 0,
+      "webpackModuleHits": 0,
+      "validatedModules": 0,
+      "reassembly": "mixed",
+      "shippedTs": 0
+    },
+    {
+      "name": "theme-cursor",
+      "format": "unknown",
+      "jsFiles": 0,
+      "webpackModuleHits": 0,
+      "validatedModules": 0,
+      "reassembly": "mixed",
+      "shippedTs": 0
+    }
+  ],
+  "clusters": [
+    {
+      "name": "p0-composer",
+      "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+      "count": 281,
+      "chars": 1171639
+    },
+    {
+      "name": "p1-agent",
+      "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+      "count": 87,
+      "chars": 380696
+    },
+    {
+      "name": "p2-platform",
+      "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+      "count": 131,
+      "chars": 628876
+    },
+    {
+      "name": "p3-ui",
+      "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+      "count": 678,
+      "chars": 2467749
+    },
+    {
+      "name": "p4-lower",
+      "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+      "count": 7531,
+      "chars": 53476944
+    }
+  ],
+  "recovered": {
+    "all": {
+      "files": 9026,
+      "bytes": 85945769
+    },
+    "glass": {
+      "files": 1183,
+      "bytes": 5889183
+    },
+    "extensions": {
+      "files": 7265,
+      "bytes": 71453680
+    },
+    "vscode": {
+      "files": 577,
+      "bytes": 8601210
+    }
+  },
+  "packages": [
+    {
+      "name": "metrics",
+      "files": 5,
+      "bytes": 4955
+    },
+    {
+      "name": "context",
+      "files": 15,
+      "bytes": 39160
+    },
+    {
+      "name": "proto",
+      "files": 174,
+      "bytes": 2908229
+    },
+    {
+      "name": "cursor-sdk",
+      "files": 410,
+      "bytes": 1340336
+    },
+    {
+      "name": "mcp-agent-exec",
+      "files": 4,
+      "bytes": 5246
+    },
+    {
+      "name": "mcp-core",
+      "files": 4,
+      "bytes": 18578
+    },
+    {
+      "name": "cursor-sdk-local-runtime",
+      "files": 18,
+      "bytes": 60068
+    },
+    {
+      "name": "utils",
+      "files": 20,
+      "bytes": 62099
+    },
+    {
+      "name": "shell-exec",
+      "files": 5,
+      "bytes": 190194
+    },
+    {
+      "name": "agent-kv",
+      "files": 6,
+      "bytes": 35666
+    },
+    {
+      "name": "cursor-sdk-shared",
+      "files": 6,
+      "bytes": 14987
+    }
+  ]
+}

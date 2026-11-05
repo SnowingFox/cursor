@@ -1,0 +1,28 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5589",
+  "basename": "ComposerReactTranscriptRoot.react.js",
+  "source": "recovered/app/glass/composer/ComposerReactTranscriptRoot.react.js",
+  "renames": {
+    "xow": "composerReactTranscriptRootModuleInit",
+    "Zkf": "ComposerReactTranscriptHost"
+  },
+  "evidence": [
+    {
+      "from": "xow",
+      "to": "composerReactTranscriptRootModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    },
+    {
+      "from": "Zkf",
+      "to": "ComposerReactTranscriptHost",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "ComposerReactTranscriptHost.react.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

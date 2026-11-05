@@ -1,0 +1,34 @@
+{
+ "extension": "cursor-deeplink",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-deeplink",
+ "files": [
+  {
+   "source": "app/extensions/cursor-deeplink/package.json",
+   "dest": "recovered/extensions/agent/cursor-deeplink/shipped/package.json",
+   "bytes": 642,
+   "sha256": "e54ce97f33178c20e4847cbc502ffa0b20f1eb67a827ddb73cf372305edddf1f",
+   "emittedSha256": "e54ce97f33178c20e4847cbc502ffa0b20f1eb67a827ddb73cf372305edddf1f",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [
+  {
+   "source": "app/extensions/cursor-deeplink/dist/main.js.LICENSE.txt",
+   "reason": "license bundle recorded in INVENTORY.json, not copied",
+   "bytes": 243
+  }
+ ],
+ "totals": {
+  "files": 1,
+  "bytes": 642,
+  "byteIdentical": 1,
+  "headed": 0,
+  "skipped": 1
+ }
+}

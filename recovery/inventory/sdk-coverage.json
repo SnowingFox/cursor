@@ -1,0 +1,701 @@
+{
+  "generatedAt": "2026-11-05T10:04:41.268Z",
+  "counts": {
+    "universe": 82,
+    "defined": 40,
+    "referenced": 40,
+    "dts": 80,
+    "definedAndDts": 38,
+    "dtsOnly": 42,
+    "definedOnly": 2
+  },
+  "records": [
+    {
+      "path": "src/agent/agent.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/analytics-agent-name.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/analytics-prompt-hash.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/analytics.ts",
+      "defined": true,
+      "referenced": 4,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/artifacts.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/auth/credential-store.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/auth/login-flow.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/auth/login.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/auth/mint-api-key.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/auth/open-browser.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/auth/stored-credentials.ts",
+      "defined": true,
+      "referenced": 5,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/cloud-agent.ts",
+      "defined": true,
+      "referenced": 14,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/cloud-api-client.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/cloud-executor.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/cloud-mcp-utils.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/core-adapter.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/custom-tools.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/errors.ts",
+      "defined": true,
+      "referenced": 12,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/executor-common.ts",
+      "defined": true,
+      "referenced": 5,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/executor-types.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/filesystem/compose.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/filesystem/errors.ts",
+      "defined": true,
+      "referenced": 6,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/filesystem/executors.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/filesystem/host-lockout.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/filesystem/index.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/filesystem/local-fs.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/filesystem/ls-tree.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/filesystem/merge.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/filesystem/nearest.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/filesystem/scratch.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/filesystem/session-context.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/filesystem/session.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/filesystem/tool-policy.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/filesystem/tools.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/filesystem/trees.ts",
+      "defined": true,
+      "referenced": 4,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/filesystem/types.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/filesystem/walk.ts",
+      "defined": true,
+      "referenced": 6,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/index.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/local-executor.ts",
+      "defined": true,
+      "referenced": 2,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/local-model-validation.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/local-store-open-failure.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/messages.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/native/tree-sitter-bash.webpack.cjs",
+      "defined": true,
+      "referenced": 2,
+      "dts": false,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js"
+      ]
+    },
+    {
+      "path": "src/agent/native/tree-sitter.webpack.cjs",
+      "defined": true,
+      "referenced": 2,
+      "dts": false,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js"
+      ]
+    },
+    {
+      "path": "src/agent/native/vendored-tree-sitter.ts",
+      "defined": true,
+      "referenced": 5,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/options.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/platform-package-locator.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/platform.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/pr-opened-telemetry.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/public-api.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/run-event-notifier-api.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/run-event-tailer.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/run-interaction-accumulator.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/run-store-public-types.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/run.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/safe-connect-transport.ts",
+      "defined": true,
+      "referenced": 2,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/441.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/safe-node-http-client.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/sdk-config.ts",
+      "defined": true,
+      "referenced": 4,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/sdk-statsig.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/store/index.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/store/jsonl-local-agent-store.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/store/local-agent-record-conversion.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/52.js"
+      ]
+    },
+    {
+      "path": "src/agent/store/local-agent-store.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/52.js"
+      ]
+    },
+    {
+      "path": "src/agent/store/open-default-local-agent-store.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/store/sdk-local-defaults.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/store/sdk-state-root.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/52.js"
+      ]
+    },
+    {
+      "path": "src/agent/store/sqlite-local-agent-store.ts",
+      "defined": true,
+      "referenced": 2,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/52.js"
+      ]
+    },
+    {
+      "path": "src/agent/store/sqlite-storage-unavailable.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/stubs.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/subagent-conversion.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/team-id.ts",
+      "defined": true,
+      "referenced": 4,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/tool-call-utils.ts",
+      "defined": true,
+      "referenced": 5,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/tools-option.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/transport.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ]
+    },
+    {
+      "path": "src/agent/types/conversation-types.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/types/delta-types.ts",
+      "defined": true,
+      "referenced": 3,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/types/tool-call-types.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/usage-types.ts",
+      "defined": true,
+      "referenced": 5,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/utils/conversation-utils.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/agent/utils/logger.ts",
+      "defined": true,
+      "referenced": 6,
+      "dts": true,
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/448.js"
+      ]
+    },
+    {
+      "path": "src/agent/utils/message-schemas.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    },
+    {
+      "path": "src/sqlite.ts",
+      "defined": false,
+      "referenced": 0,
+      "dts": true,
+      "files": []
+    }
+  ]
+}

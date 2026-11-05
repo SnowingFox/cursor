@@ -1,0 +1,1975 @@
+{
+  "name": "p0-composer",
+  "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+  "count": 281,
+  "chars": 1171639,
+  "modules": [
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6112",
+      "basename": "AgentForegroundComposerTab.js",
+      "kind": "esm",
+      "charLength": 947,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2299",
+      "basename": "AgentToolCallLine.js",
+      "kind": "esm",
+      "charLength": 946,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2453",
+      "basename": "AgentTranscriptActivityGroup.js",
+      "kind": "esm",
+      "charLength": 2166,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2433",
+      "basename": "AgentTranscriptActivityGroupSummary.js",
+      "kind": "esm",
+      "charLength": 4693,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2454",
+      "basename": "AgentTranscriptApprovalStack.js",
+      "kind": "esm",
+      "charLength": 1908,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2438",
+      "basename": "AgentTranscriptAskQuestionCard.js",
+      "kind": "esm",
+      "charLength": 3139,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2442",
+      "basename": "AgentTranscriptConnectScmCard.js",
+      "kind": "esm",
+      "charLength": 1856,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2455",
+      "basename": "AgentTranscriptEnter.js",
+      "kind": "esm",
+      "charLength": 3147,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2456",
+      "basename": "AgentTranscriptHumanAttachmentStrip.js",
+      "kind": "esm",
+      "charLength": 1051,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2319",
+      "basename": "AgentTranscriptHumanBubble.js",
+      "kind": "esm",
+      "charLength": 3553,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2457",
+      "basename": "AgentTranscriptHumanSenderLabel.js",
+      "kind": "esm",
+      "charLength": 4533,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2458",
+      "basename": "AgentTranscriptMcpAuthCard.js",
+      "kind": "esm",
+      "charLength": 3359,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2460",
+      "basename": "AgentTranscriptMcpElicitationCard.js",
+      "kind": "esm",
+      "charLength": 244,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2444",
+      "basename": "AgentTranscriptMcpToolCallLine.js",
+      "kind": "esm",
+      "charLength": 3618,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2462",
+      "basename": "AgentTranscriptNotification.js",
+      "kind": "esm",
+      "charLength": 1441,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2463",
+      "basename": "AgentTranscriptPlacementDecisionCard.js",
+      "kind": "esm",
+      "charLength": 4032,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2445",
+      "basename": "AgentTranscriptPlanCard.js",
+      "kind": "esm",
+      "charLength": 6332,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2567",
+      "basename": "AgentTranscriptRow.js",
+      "kind": "esm",
+      "charLength": 1942,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2557",
+      "basename": "AgentTranscriptSentMessageActions.js",
+      "kind": "esm",
+      "charLength": 1608,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2562",
+      "basename": "AgentTranscriptSubscriptionEvents.js",
+      "kind": "esm",
+      "charLength": 1651,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2446",
+      "basename": "AgentTranscriptSwitchModeCard.js",
+      "kind": "esm",
+      "charLength": 4663,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2434",
+      "basename": "AgentTranscriptTailStatus.js",
+      "kind": "esm",
+      "charLength": 5796,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2447",
+      "basename": "AgentTranscriptTaskRow.js",
+      "kind": "esm",
+      "charLength": 15820,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2563",
+      "basename": "AgentTranscriptTimeBoundary.js",
+      "kind": "esm",
+      "charLength": 1148,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2448",
+      "basename": "AgentTranscriptToolCallView.js",
+      "kind": "esm",
+      "charLength": 510,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2556",
+      "basename": "AgentTranscriptTurnActions.js",
+      "kind": "esm",
+      "charLength": 6125,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2564",
+      "basename": "AgentTranscriptUnreadDivider.js",
+      "kind": "esm",
+      "charLength": 14325,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2565",
+      "basename": "AgentTranscriptWorkGroup.js",
+      "kind": "esm",
+      "charLength": 494,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6148",
+      "basename": "AnimatedComposerTitle.js",
+      "kind": "esm",
+      "charLength": 1146,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5523",
+      "basename": "ArtifactImage.react.js",
+      "kind": "esm",
+      "charLength": 2304,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7716",
+      "basename": "ArtifactMarkdownRenderer.js",
+      "kind": "esm",
+      "charLength": 7397,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7715",
+      "basename": "ArtifactMarkdownRenderer.react.js",
+      "kind": "esm",
+      "charLength": 1048,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7717",
+      "basename": "ArtifactMarkdownSection.js",
+      "kind": "esm",
+      "charLength": 11197,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3878",
+      "basename": "ArtifactPreviewCard.js",
+      "kind": "esm",
+      "charLength": 3484,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7718",
+      "basename": "ArtifactPreviewCard.js",
+      "kind": "esm",
+      "charLength": 3839,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7719",
+      "basename": "ArtifactsTable.js",
+      "kind": "esm",
+      "charLength": 6677,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5524",
+      "basename": "ArtifactTextReference.react.js",
+      "kind": "esm",
+      "charLength": 5498,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3883",
+      "basename": "ArtifactTextReferenceCard.js",
+      "kind": "esm",
+      "charLength": 6375,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5525",
+      "basename": "ArtifactVideo.react.js",
+      "kind": "esm",
+      "charLength": 5739,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3884",
+      "basename": "ArtifactVideoCard.js",
+      "kind": "esm",
+      "charLength": 2214,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2464",
+      "basename": "AssistantMessage.js",
+      "kind": "esm",
+      "charLength": 1206,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6133",
+      "basename": "BackgroundComposerActionButtons.js",
+      "kind": "esm",
+      "charLength": 7173,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7720",
+      "basename": "BackgroundComposerArtifactsSection.js",
+      "kind": "esm",
+      "charLength": 1623,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6118",
+      "basename": "BackgroundComposerBottomBar.js",
+      "kind": "esm",
+      "charLength": 4452,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6117",
+      "basename": "BackgroundComposerBranchSelector.js",
+      "kind": "esm",
+      "charLength": 17719,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6124",
+      "basename": "BackgroundComposerFollowUpInputBox.js",
+      "kind": "esm",
+      "charLength": 18850,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6135",
+      "basename": "BackgroundComposerInstanceHeader.js",
+      "kind": "esm",
+      "charLength": 7940,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6136",
+      "basename": "BackgroundComposerInstanceHeaderForComposerPane.js",
+      "kind": "esm",
+      "charLength": 1095,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7793",
+      "basename": "BackgroundComposerStatusIndicator.js",
+      "kind": "esm",
+      "charLength": 7372,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2427",
+      "basename": "BrowserScriptToolCallView.js",
+      "kind": "esm",
+      "charLength": 8507,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7725",
+      "basename": "ChatErrorSection.js",
+      "kind": "esm",
+      "charLength": 1753,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5297",
+      "basename": "ComposerActionNotification.js",
+      "kind": "esm",
+      "charLength": 4496,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6011",
+      "basename": "ComposerAgentToolTranscriptRow.react.js",
+      "kind": "esm",
+      "charLength": 3644,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5683",
+      "basename": "ComposerAnchorTrayList.react.js",
+      "kind": "esm",
+      "charLength": 799,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5828",
+      "basename": "ComposerAnchorTrayOverlay.react.js",
+      "kind": "esm",
+      "charLength": 416,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5682",
+      "basename": "ComposerAnchorTrayRow.react.js",
+      "kind": "esm",
+      "charLength": 6195,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5676",
+      "basename": "ComposerAnchorTraySearchInput.react.js",
+      "kind": "esm",
+      "charLength": 726,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5829",
+      "basename": "ComposerAnchorTraySurface.react.js",
+      "kind": "esm",
+      "charLength": 1859,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5528",
+      "basename": "ComposerAssistantResponseComparison.react.js",
+      "kind": "esm",
+      "charLength": 423,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5293",
+      "basename": "ComposerAutocompleteHeuristicPlugin.js",
+      "kind": "esm",
+      "charLength": 13212,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5291",
+      "basename": "ComposerAutocompleteHeuristics.js",
+      "kind": "esm",
+      "charLength": 4418,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5608",
+      "basename": "ComposerAutoRoutingResultDisplayRow.react.js",
+      "kind": "esm",
+      "charLength": 1480,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5023",
+      "basename": "ComposerBarControlButtons.js",
+      "kind": "esm",
+      "charLength": 208,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5914",
+      "basename": "ComposerCloudEnvironmentStatusRow.react.js",
+      "kind": "esm",
+      "charLength": 4350,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4687",
+      "basename": "ComposerCompactMenu.js",
+      "kind": "esm",
+      "charLength": 159,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6013",
+      "basename": "ComposerComputerUseTranscriptCard.react.js",
+      "kind": "esm",
+      "charLength": 2463,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6014",
+      "basename": "ComposerConnectScmTranscriptCard.react.js",
+      "kind": "esm",
+      "charLength": 2922,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4776",
+      "basename": "ComposerContextPreview.js",
+      "kind": "esm",
+      "charLength": 1432,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6034",
+      "basename": "ComposerCreatePlanTranscriptCard.react.js",
+      "kind": "esm",
+      "charLength": 965,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7729",
+      "basename": "ComposerDataHandleSection.js",
+      "kind": "esm",
+      "charLength": 8619,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5030",
+      "basename": "ComposerDebugLogsToolCallBlock.js",
+      "kind": "esm",
+      "charLength": 7896,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5031",
+      "basename": "ComposerDebugReproductionToolbar.js",
+      "kind": "esm",
+      "charLength": 1296,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5025",
+      "basename": "ComposerDebugReproductionUtils.js",
+      "kind": "esm",
+      "charLength": 1271,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5338",
+      "basename": "ComposerDiffStatusDisplay.js",
+      "kind": "esm",
+      "charLength": 2745,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5126",
+      "basename": "ComposerDropdownItems.js",
+      "kind": "esm",
+      "charLength": 6893,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5127",
+      "basename": "ComposerDropdownMaxModeConfirmation.js",
+      "kind": "esm",
+      "charLength": 29225,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5125",
+      "basename": "ComposerDropdownMaxTooltip.js",
+      "kind": "esm",
+      "charLength": 1041,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6051",
+      "basename": "ComposerEndOfTurnSummary.react.js",
+      "kind": "esm",
+      "charLength": 1389,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5033",
+      "basename": "ComposerFeedbackForm.react.js",
+      "kind": "esm",
+      "charLength": 2316,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5034",
+      "basename": "ComposerFeedbackTray.js",
+      "kind": "esm",
+      "charLength": 189,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5339",
+      "basename": "ComposerFileListItemView.js",
+      "kind": "esm",
+      "charLength": 9181,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6153",
+      "basename": "ComposerFindWidgetHost.js",
+      "kind": "esm",
+      "charLength": 438,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5309",
+      "basename": "ComposerFullInputBox.js",
+      "kind": "esm",
+      "charLength": 4960,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5310",
+      "basename": "ComposerGeneralStatusIndicator.js",
+      "kind": "esm",
+      "charLength": 386,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5327",
+      "basename": "ComposerGoalSection.js",
+      "kind": "esm",
+      "charLength": 1751,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5904",
+      "basename": "ComposerHumanRowDisplay.react.js",
+      "kind": "esm",
+      "charLength": 392,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5899",
+      "basename": "ComposerHumanRowEditInput.react.js",
+      "kind": "esm",
+      "charLength": 686,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5622",
+      "basename": "ComposerHumanRowSlackMention.react.js",
+      "kind": "esm",
+      "charLength": 6705,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5623",
+      "basename": "ComposerHumanRowTodoSummary.react.js",
+      "kind": "esm",
+      "charLength": 627,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5113",
+      "basename": "ComposerKeybindingPopup.js",
+      "kind": "esm",
+      "charLength": 1799,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5115",
+      "basename": "ComposerLexicalPlugins.js",
+      "kind": "esm",
+      "charLength": 2001,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5328",
+      "basename": "ComposerLexicalRenderer.js",
+      "kind": "esm",
+      "charLength": 4445,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4971",
+      "basename": "ComposerLoading.js",
+      "kind": "esm",
+      "charLength": 519,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5329",
+      "basename": "ComposerLoadingDoneOrNumber.js",
+      "kind": "esm",
+      "charLength": 754,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5610",
+      "basename": "ComposerLocalWorktreeSetupRow.react.js",
+      "kind": "esm",
+      "charLength": 373,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5116",
+      "basename": "ComposerLoginButton.js",
+      "kind": "esm",
+      "charLength": 233,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5498",
+      "basename": "ComposerMarkdown.react.js",
+      "kind": "esm",
+      "charLength": 420,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5496",
+      "basename": "ComposerMarkdownLinkContent.react.js",
+      "kind": "esm",
+      "charLength": 5139,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6036",
+      "basename": "ComposerMcpAppTranscriptCard.react.js",
+      "kind": "esm",
+      "charLength": 285,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6041",
+      "basename": "ComposerMcpAuthTranscriptCard.react.js",
+      "kind": "esm",
+      "charLength": 1857,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6042",
+      "basename": "ComposerMcpElicitationForm.react.js",
+      "kind": "esm",
+      "charLength": 568,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5298",
+      "basename": "ComposerMCPSuccessNotification.js",
+      "kind": "esm",
+      "charLength": 295,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3910",
+      "basename": "ComposerMentionPreviewPrimitives.js",
+      "kind": "esm",
+      "charLength": 6043,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5611",
+      "basename": "ComposerOptimisticPlanningRow.react.js",
+      "kind": "esm",
+      "charLength": 1735,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6160",
+      "basename": "ComposerPane.js",
+      "kind": "esm",
+      "charLength": 4477,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6114",
+      "basename": "ComposerPlan.js",
+      "kind": "esm",
+      "charLength": 1509,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5901",
+      "basename": "ComposerPlanExecutionRow.react.js",
+      "kind": "esm",
+      "charLength": 235,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5330",
+      "basename": "ComposerPluginActionCard.js",
+      "kind": "esm",
+      "charLength": 16573,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6155",
+      "basename": "ComposerPluginInstalledCard.js",
+      "kind": "esm",
+      "charLength": 1832,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5673",
+      "basename": "ComposerPlusButton.react.js",
+      "kind": "esm",
+      "charLength": 100,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6127",
+      "basename": "ComposerProjectBadge.js",
+      "kind": "esm",
+      "charLength": 6423,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5331",
+      "basename": "ComposerQuestionnaireToolbar.js",
+      "kind": "esm",
+      "charLength": 2541,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5590",
+      "basename": "ComposerReactTranscriptHost.react.js",
+      "kind": "esm",
+      "charLength": 870,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5593",
+      "basename": "ComposerReactTranscriptHostMount.js",
+      "kind": "esm",
+      "charLength": 228,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5589",
+      "basename": "ComposerReactTranscriptRoot.react.js",
+      "kind": "esm",
+      "charLength": 348,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5556",
+      "basename": "ComposerReactTranscriptRow.react.js",
+      "kind": "esm",
+      "charLength": 532,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5567",
+      "basename": "ComposerReactVirtualPlane.react.js",
+      "kind": "esm",
+      "charLength": 3945,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5333",
+      "basename": "ComposerRichTextInline.js",
+      "kind": "esm",
+      "charLength": 512,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5903",
+      "basename": "ComposerSimulatedHumanAction.react.js",
+      "kind": "esm",
+      "charLength": 19122,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3922",
+      "basename": "ComposerSlashMenu.js",
+      "kind": "esm",
+      "charLength": 288,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3913",
+      "basename": "ComposerSlashMenuContext.js",
+      "kind": "esm",
+      "charLength": 1041,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3921",
+      "basename": "ComposerSlashMenuList.js",
+      "kind": "esm",
+      "charLength": 10201,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3919",
+      "basename": "ComposerSlashMenuTooltipContent.js",
+      "kind": "esm",
+      "charLength": 1787,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5613",
+      "basename": "ComposerSubscriptionEvents.react.js",
+      "kind": "esm",
+      "charLength": 4975,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6044",
+      "basename": "ComposerSwitchModeTranscriptCard.react.js",
+      "kind": "esm",
+      "charLength": 588,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6625",
+      "basename": "ComposerTaskBriefMarkdown.react.js",
+      "kind": "esm",
+      "charLength": 1166,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6624",
+      "basename": "ComposerTaskBriefProjectDatabase.react.js",
+      "kind": "esm",
+      "charLength": 3781,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6048",
+      "basename": "ComposerTaskTranscriptCard.react.js",
+      "kind": "esm",
+      "charLength": 3420,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5332",
+      "basename": "ComposerTipTapReadOnlyHost.react.js",
+      "kind": "esm",
+      "charLength": 1080,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5346",
+      "basename": "ComposerToolbar.js",
+      "kind": "esm",
+      "charLength": 11038,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5344",
+      "basename": "ComposerToolbarFileList.js",
+      "kind": "esm",
+      "charLength": 1213,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5340",
+      "basename": "ComposerToolbarFileListItem.js",
+      "kind": "esm",
+      "charLength": 3265,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5343",
+      "basename": "ComposerToolbarNotebookGroup.js",
+      "kind": "esm",
+      "charLength": 1883,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5022",
+      "basename": "ComposerToolbarSimpleButton.js",
+      "kind": "esm",
+      "charLength": 2992,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5028",
+      "basename": "ComposerToolCallBlockContainer.js",
+      "kind": "esm",
+      "charLength": 1923,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5029",
+      "basename": "ComposerToolCallSimpleLayout.js",
+      "kind": "esm",
+      "charLength": 6066,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6052",
+      "basename": "ComposerTranscriptCodeBlock.react.js",
+      "kind": "esm",
+      "charLength": 2040,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6107",
+      "basename": "ComposerTranscriptHost.js",
+      "kind": "esm",
+      "charLength": 1832,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5262",
+      "basename": "ComposerUnifiedBottomBar.js",
+      "kind": "esm",
+      "charLength": 2093,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4689",
+      "basename": "ComposerUnifiedContextMenu.js",
+      "kind": "esm",
+      "charLength": 15282,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4688",
+      "basename": "ComposerUnifiedContextMenuCheck.js",
+      "kind": "esm",
+      "charLength": 16038,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5128",
+      "basename": "ComposerUnifiedDropdown.js",
+      "kind": "esm",
+      "charLength": 1066,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7730",
+      "basename": "ComposerUsageLimitBarSection.js",
+      "kind": "esm",
+      "charLength": 5567,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5353",
+      "basename": "ComposerUsageStatusBar.js",
+      "kind": "esm",
+      "charLength": 279,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5352",
+      "basename": "ComposerUsageStatusBar.react.js",
+      "kind": "esm",
+      "charLength": 3135,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5292",
+      "basename": "ComposerViewportSnapshotManager.js",
+      "kind": "esm",
+      "charLength": 6804,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5301",
+      "basename": "ComposerWarningPopup.js",
+      "kind": "esm",
+      "charLength": 2540,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7731",
+      "basename": "ComposerWarningPopupSection.js",
+      "kind": "esm",
+      "charLength": 1276,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7732",
+      "basename": "ComposerWIPSection.js",
+      "kind": "esm",
+      "charLength": 1571,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2428",
+      "basename": "ComputerUseToolCallView.js",
+      "kind": "esm",
+      "charLength": 1505,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2030",
+      "basename": "DefaultDiff.constants.js",
+      "kind": "esm",
+      "charLength": 3461,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2041",
+      "basename": "DefaultDiff.js",
+      "kind": "esm",
+      "charLength": 60970,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2031",
+      "basename": "DefaultDiff.stylex.js",
+      "kind": "esm",
+      "charLength": 14527,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2612",
+      "basename": "DiffCard.js",
+      "kind": "esm",
+      "charLength": 6215,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7742",
+      "basename": "DiffSourceRegistryDebugSection.js",
+      "kind": "esm",
+      "charLength": 6604,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2032",
+      "basename": "DiffWrapMeasure.js",
+      "kind": "esm",
+      "charLength": 5561,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2329",
+      "basename": "EditToolCallView.js",
+      "kind": "esm",
+      "charLength": 13397,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2435",
+      "basename": "EnvironmentToolCallView.js",
+      "kind": "esm",
+      "charLength": 7187,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2429",
+      "basename": "ErrorToolCallView.js",
+      "kind": "esm",
+      "charLength": 1177,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2431",
+      "basename": "GenerateImageToolCallView.js",
+      "kind": "esm",
+      "charLength": 2544,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5900",
+      "basename": "GlassHumanMessageStopButton.react.js",
+      "kind": "esm",
+      "charLength": 2907,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2413",
+      "basename": "GlobToolCallView.js",
+      "kind": "esm",
+      "charLength": 1611,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2414",
+      "basename": "GrepToolCallView.js",
+      "kind": "esm",
+      "charLength": 1269,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7763",
+      "basename": "IanBackgroundComposerSection.js",
+      "kind": "esm",
+      "charLength": 487,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4957",
+      "basename": "IChatEditorGroupService.js",
+      "kind": "esm",
+      "charLength": 119,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7768",
+      "basename": "InlineDiffServiceDebugSection.js",
+      "kind": "esm",
+      "charLength": 3935,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4748",
+      "basename": "InputBoxComposerSelection.js",
+      "kind": "esm",
+      "charLength": 1110,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4753",
+      "basename": "InputBoxDiffSelection.js",
+      "kind": "esm",
+      "charLength": 4356,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4715",
+      "basename": "LexicalAutoFocusPlugin.js",
+      "kind": "esm",
+      "charLength": 83,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4718",
+      "basename": "LexicalBlockWithAlignableContents.js",
+      "kind": "esm",
+      "charLength": 150,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4722",
+      "basename": "LexicalCharacterLimitPlugin.js",
+      "kind": "esm",
+      "charLength": 9730,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4725",
+      "basename": "LexicalCheckListPlugin.js",
+      "kind": "esm",
+      "charLength": 111,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4726",
+      "basename": "LexicalClearEditorPlugin.js",
+      "kind": "esm",
+      "charLength": 861,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4698",
+      "basename": "LexicalComposer.js",
+      "kind": "esm",
+      "charLength": 3810,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4697",
+      "basename": "LexicalComposerContext.js",
+      "kind": "esm",
+      "charLength": 1780,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4699",
+      "basename": "LexicalContentEditable.js",
+      "kind": "esm",
+      "charLength": 7510,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4701",
+      "basename": "LexicalContextMenuPlugin.js",
+      "kind": "esm",
+      "charLength": 419,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4716",
+      "basename": "LexicalDecoratorBlockNode.js",
+      "kind": "esm",
+      "charLength": 676,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4702",
+      "basename": "LexicalErrorBoundary.js",
+      "kind": "esm",
+      "charLength": 584,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4738",
+      "basename": "LexicalHistoryPlugin.js",
+      "kind": "esm",
+      "charLength": 93,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4727",
+      "basename": "LexicalHorizontalRuleNode.js",
+      "kind": "esm",
+      "charLength": 1189,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4728",
+      "basename": "LexicalHorizontalRulePlugin.js",
+      "kind": "esm",
+      "charLength": 355,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4730",
+      "basename": "LexicalListPlugin.js",
+      "kind": "esm",
+      "charLength": 103,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4700",
+      "basename": "LexicalMenu.js",
+      "kind": "esm",
+      "charLength": 474,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4734",
+      "basename": "LexicalNestedComposer.js",
+      "kind": "esm",
+      "charLength": 976,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4731",
+      "basename": "LexicalNodeEventPlugin.js",
+      "kind": "esm",
+      "charLength": 95,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4732",
+      "basename": "LexicalNodeMenuPlugin.js",
+      "kind": "esm",
+      "charLength": 77,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4703",
+      "basename": "LexicalOnChangePlugin.js",
+      "kind": "esm",
+      "charLength": 377,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4714",
+      "basename": "LexicalPlainTextPlugin.js",
+      "kind": "esm",
+      "charLength": 127,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4735",
+      "basename": "LexicalTabIndentationPlugin.js",
+      "kind": "esm",
+      "charLength": 2696,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4736",
+      "basename": "LexicalTypeaheadMenuPlugin.js",
+      "kind": "esm",
+      "charLength": 405,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2352",
+      "basename": "ListMcpResourcesToolCallBlock.js",
+      "kind": "esm",
+      "charLength": 279,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2415",
+      "basename": "LsToolCallView.js",
+      "kind": "esm",
+      "charLength": 3851,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2042",
+      "basename": "Markdown.js",
+      "kind": "esm",
+      "charLength": 2502,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1954",
+      "basename": "Markdown.stylex.js",
+      "kind": "esm",
+      "charLength": 13036,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1955",
+      "basename": "MarkdownDefaultsContext.js",
+      "kind": "esm",
+      "charLength": 249,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6301",
+      "basename": "MarkdownEditorReact.react.js",
+      "kind": "esm",
+      "charLength": 387,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1959",
+      "basename": "MarkdownFileReference.js",
+      "kind": "esm",
+      "charLength": 439,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6283",
+      "basename": "MarkdownFrontmatterPanel.react.js",
+      "kind": "esm",
+      "charLength": 2128,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1960",
+      "basename": "MarkdownPluginRegistry.js",
+      "kind": "esm",
+      "charLength": 1218,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2886",
+      "basename": "MarkdownPreview.js",
+      "kind": "esm",
+      "charLength": 1432,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2331",
+      "basename": "MarkdownPromptButton.js",
+      "kind": "esm",
+      "charLength": 6968,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7772",
+      "basename": "MarkdownSection.js",
+      "kind": "esm",
+      "charLength": 1874,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2398",
+      "basename": "McpToolCallCodeSurface.js",
+      "kind": "esm",
+      "charLength": 1268,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2399",
+      "basename": "McpToolCallDetails.js",
+      "kind": "esm",
+      "charLength": 4425,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2406",
+      "basename": "McpToolCallIcon.js",
+      "kind": "esm",
+      "charLength": 1831,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2376",
+      "basename": "ModelPickerMarkdown.js",
+      "kind": "esm",
+      "charLength": 8903,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7779",
+      "basename": "PlanBuildMessageSection.js",
+      "kind": "esm",
+      "charLength": 6582,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6023",
+      "basename": "PlanRichTextEditor.react.js",
+      "kind": "esm",
+      "charLength": 8079,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2416",
+      "basename": "PlaywrightToolCallView.js",
+      "kind": "esm",
+      "charLength": 1647,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5896",
+      "basename": "PromptEditInput.react.js",
+      "kind": "esm",
+      "charLength": 1028,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2960",
+      "basename": "PromptInput.js",
+      "kind": "esm",
+      "charLength": 10807,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2277",
+      "basename": "PromptInput.types.js",
+      "kind": "esm",
+      "charLength": 1209,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5833",
+      "basename": "PromptInputAnchoredTray.react.js",
+      "kind": "esm",
+      "charLength": 10600,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5831",
+      "basename": "PromptInputAnchoredTrayHovercard.react.js",
+      "kind": "esm",
+      "charLength": 3287,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2917",
+      "basename": "PromptInputAttachmentGrid.js",
+      "kind": "esm",
+      "charLength": 3437,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2918",
+      "basename": "PromptInputCompactVisible.js",
+      "kind": "esm",
+      "charLength": 541,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2913",
+      "basename": "PromptInputContext.js",
+      "kind": "esm",
+      "charLength": 1526,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2945",
+      "basename": "PromptInputEditor.js",
+      "kind": "esm",
+      "charLength": 8786,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2946",
+      "basename": "PromptInputHeaderTray.js",
+      "kind": "esm",
+      "charLength": 2904,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2948",
+      "basename": "PromptInputImageAnnotation.js",
+      "kind": "esm",
+      "charLength": 13517,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2949",
+      "basename": "PromptInputImageGrid.js",
+      "kind": "esm",
+      "charLength": 4245,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2961",
+      "basename": "PromptInputInlineChip.js",
+      "kind": "esm",
+      "charLength": 4388,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2928",
+      "basename": "PromptInputKeymapExtension.js",
+      "kind": "esm",
+      "charLength": 2322,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2950",
+      "basename": "PromptInputModelPicker.js",
+      "kind": "esm",
+      "charLength": 1909,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2952",
+      "basename": "PromptInputSubmitButton.js",
+      "kind": "esm",
+      "charLength": 4433,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2548",
+      "basename": "PromptInputTipTapReadOnly.js",
+      "kind": "esm",
+      "charLength": 6920,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2509",
+      "basename": "PromptInputTipTapStaticReadOnly.js",
+      "kind": "esm",
+      "charLength": 10392,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2953",
+      "basename": "PromptInputToolbar.js",
+      "kind": "esm",
+      "charLength": 1309,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2944",
+      "basename": "PromptInputUndoBoundaryExtension.js",
+      "kind": "esm",
+      "charLength": 22762,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2909",
+      "basename": "PromptSelectionOverlayExtension.js",
+      "kind": "esm",
+      "charLength": 506,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2929",
+      "basename": "PromptSuggestionExtension.js",
+      "kind": "esm",
+      "charLength": 684,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5296",
+      "basename": "PromptSuggestionGhostTextPlugin.js",
+      "kind": "esm",
+      "charLength": 7307,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7786",
+      "basename": "ReactTranscriptGallery.react.js",
+      "kind": "esm",
+      "charLength": 26352,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2417",
+      "basename": "ReadLintsToolCallView.js",
+      "kind": "esm",
+      "charLength": 1625,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2408",
+      "basename": "ReadMcpResourceToolCallLine.js",
+      "kind": "esm",
+      "charLength": 4259,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2437",
+      "basename": "ReadTodosToolCallView.js",
+      "kind": "esm",
+      "charLength": 3084,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3187",
+      "basename": "RichTextEditor.js",
+      "kind": "esm",
+      "charLength": 517,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3173",
+      "basename": "RichTextEditor.stylex.js",
+      "kind": "esm",
+      "charLength": 22525,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3170",
+      "basename": "RichTextEditorContext.js",
+      "kind": "esm",
+      "charLength": 530,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3199",
+      "basename": "RichTextEditorImageExtension.js",
+      "kind": "esm",
+      "charLength": 1880,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2418",
+      "basename": "SemSearchToolCallView.js",
+      "kind": "esm",
+      "charLength": 1670,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2375",
+      "basename": "ShellToolCallView.js",
+      "kind": "esm",
+      "charLength": 12092,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4696",
+      "basename": "SimpleMarkdown.react.js",
+      "kind": "esm",
+      "charLength": 269,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5495",
+      "basename": "SubagentMarkdownLink.react.js",
+      "kind": "esm",
+      "charLength": 3555,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2409",
+      "basename": "TaskToolCallView.js",
+      "kind": "esm",
+      "charLength": 2322,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2325",
+      "basename": "ToolCallCard.js",
+      "kind": "esm",
+      "charLength": 4295,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2397",
+      "basename": "ToolCallDialog.js",
+      "kind": "esm",
+      "charLength": 2223,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2410",
+      "basename": "ToolCallHoverCard.js",
+      "kind": "esm",
+      "charLength": 2697,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2326",
+      "basename": "ToolCallLine.js",
+      "kind": "esm",
+      "charLength": 1218,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2423",
+      "basename": "ToolCallRenderer.js",
+      "kind": "esm",
+      "charLength": 2534,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2324",
+      "basename": "TranscriptCard.js",
+      "kind": "esm",
+      "charLength": 5952,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2307",
+      "basename": "TranscriptCardContent.js",
+      "kind": "esm",
+      "charLength": 2119,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2306",
+      "basename": "TranscriptCardContext.js",
+      "kind": "esm",
+      "charLength": 1153,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2308",
+      "basename": "TranscriptCardFooter.js",
+      "kind": "esm",
+      "charLength": 605,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2310",
+      "basename": "TranscriptCardHeader.js",
+      "kind": "esm",
+      "charLength": 1632,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2311",
+      "basename": "TranscriptCardHeaderContent.js",
+      "kind": "esm",
+      "charLength": 897,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2309",
+      "basename": "TranscriptCardHeaderContext.js",
+      "kind": "esm",
+      "charLength": 1756,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2312",
+      "basename": "TranscriptCardHeaderDescription.js",
+      "kind": "esm",
+      "charLength": 1503,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2313",
+      "basename": "TranscriptCardHeaderExpand.js",
+      "kind": "esm",
+      "charLength": 1768,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2314",
+      "basename": "TranscriptCardHeaderIcon.js",
+      "kind": "esm",
+      "charLength": 1044,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2315",
+      "basename": "TranscriptCardHeaderLeading.js",
+      "kind": "esm",
+      "charLength": 1494,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2316",
+      "basename": "TranscriptCardHeaderTitle.js",
+      "kind": "esm",
+      "charLength": 1090,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2317",
+      "basename": "TranscriptCardHeaderTrailing.js",
+      "kind": "esm",
+      "charLength": 800,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2318",
+      "basename": "TranscriptCardMedia.js",
+      "kind": "esm",
+      "charLength": 6851,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2320",
+      "basename": "TranscriptCardRoot.js",
+      "kind": "esm",
+      "charLength": 3528,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2321",
+      "basename": "TranscriptCardRow.js",
+      "kind": "esm",
+      "charLength": 1617,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2322",
+      "basename": "TranscriptCardRows.js",
+      "kind": "esm",
+      "charLength": 1975,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2323",
+      "basename": "TranscriptCardTimeout.js",
+      "kind": "esm",
+      "charLength": 85,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2616",
+      "basename": "TrayMarkdownDefaults.js",
+      "kind": "esm",
+      "charLength": 1483,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2549",
+      "basename": "UserMessageBox.js",
+      "kind": "esm",
+      "charLength": 2782,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6108",
+      "basename": "VirtualizedComposerMessages.js",
+      "kind": "esm",
+      "charLength": 793,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5595",
+      "basename": "VirtualizedComposerProviders.js",
+      "kind": "esm",
+      "charLength": 574,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2328",
+      "basename": "VirtualizedDiff.js",
+      "kind": "esm",
+      "charLength": 3709,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6057",
+      "basename": "VisualizationTranscriptCard.react.js",
+      "kind": "esm",
+      "charLength": 698,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3025",
+      "basename": "VoiceCallTranscript.js",
+      "kind": "esm",
+      "charLength": 5430,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3028",
+      "basename": "VoiceCallTranscriptUnavailable.js",
+      "kind": "esm",
+      "charLength": 1908,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3026",
+      "basename": "VoiceCallTranscriptView.js",
+      "kind": "esm",
+      "charLength": 4766,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2419",
+      "basename": "WebFetchToolCallView.js",
+      "kind": "esm",
+      "charLength": 1389,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2420",
+      "basename": "WebSearchToolCallView.js",
+      "kind": "esm",
+      "charLength": 93,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6159",
+      "basename": "WorktreeComposerHeader.js",
+      "kind": "esm",
+      "charLength": 79187,
+      "note": "segment runs to the next wrapper; may contain declarations hoisted outside the wrapper body"
+    }
+  ]
+}

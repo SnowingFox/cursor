@@ -1,0 +1,28 @@
+{
+ "extension": "cursor-explorer",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-explorer",
+ "files": [
+  {
+   "source": "app/extensions/cursor-explorer/package.json",
+   "dest": "recovered/extensions/agent/cursor-explorer/shipped/package.json",
+   "bytes": 467,
+   "sha256": "84b1338f7ed81205a98d0503bbe00756409c6ab1f580e7ebd8843b582ddb19cf",
+   "emittedSha256": "84b1338f7ed81205a98d0503bbe00756409c6ab1f580e7ebd8843b582ddb19cf",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [],
+ "totals": {
+  "files": 1,
+  "bytes": 467,
+  "byteIdentical": 1,
+  "headed": 0,
+  "skipped": 0
+ }
+}

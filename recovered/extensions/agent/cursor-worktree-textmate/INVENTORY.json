@@ -1,0 +1,290 @@
+{
+ "extension": "cursor-worktree-textmate",
+ "generatedAt": "2026-11-05T10:17:16.559Z",
+ "sourceDir": "app/extensions/cursor-worktree-textmate",
+ "package": {
+  "name": "worktree-textmate",
+  "version": "0.0.1",
+  "main": null,
+  "activationEvents": [],
+  "enabledApiProposals": [],
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "contributes": {
+   "languages": 28,
+   "languagesIds": [
+    "worktree-typescript",
+    "worktree-typescriptreact",
+    "worktree-javascript",
+    "worktree-javascriptreact",
+    "worktree-python",
+    "worktree-go",
+    "worktree-rust",
+    "worktree-java",
+    "worktree-c",
+    "worktree-cpp",
+    "worktree-php",
+    "worktree-ruby",
+    "worktree-html",
+    "worktree-css",
+    "worktree-json",
+    "worktree-yaml",
+    "worktree-sql",
+    "worktree-swift",
+    "worktree-shellscript",
+    "worktree-protobuf",
+    "worktree-hcl",
+    "worktree-terraform",
+    "worktree-terraform-vars",
+    "worktree-terraform-stack",
+    "worktree-terraform-deploy",
+    "worktree-terraform-test",
+    "worktree-terraform-mock",
+    "worktree-terraform-search"
+   ],
+   "grammars": 28,
+   "grammarsIds": [
+    "worktree-typescript",
+    "worktree-typescriptreact",
+    "worktree-javascript",
+    "worktree-javascriptreact",
+    "worktree-python",
+    "worktree-go",
+    "worktree-rust",
+    "worktree-java",
+    "worktree-c",
+    "worktree-cpp",
+    "worktree-php",
+    "worktree-ruby",
+    "worktree-html",
+    "worktree-css",
+    "worktree-json",
+    "worktree-yaml",
+    "worktree-sql",
+    "worktree-swift",
+    "worktree-shellscript",
+    "worktree-protobuf",
+    "worktree-hcl",
+    "worktree-terraform",
+    "worktree-terraform-vars",
+    "worktree-terraform-stack",
+    "worktree-terraform-deploy",
+    "worktree-terraform-test",
+    "worktree-terraform-mock",
+    "worktree-terraform-search"
+   ],
+   "configurationDefaults": "object"
+  },
+  "scripts": {}
+ },
+ "distArtifacts": [],
+ "shippedFiles": [
+  {
+   "path": "app/extensions/cursor-worktree-textmate/package.json",
+   "bytes": 9137,
+   "sha256": "fe9623153ce3089dc0544a3c832d8f097fb80563b1dce0191e8b53473e57215a",
+   "category": "manifest",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-c.tmLanguage.json",
+   "bytes": 69,
+   "sha256": "169db3297c828151240e1393c495a0985ee76d72a667e1b3adff76a85ce251f4",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-cpp.tmLanguage.json",
+   "bytes": 73,
+   "sha256": "4213e54717e3dcdfd50fc636ee297cc96aca6582045e21f88af0de8ac43c13f1",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-css.tmLanguage.json",
+   "bytes": 73,
+   "sha256": "9d1ce6d87ccaa4a564b281101f87f8ed3b741c7cdb40f6c4854898e9557e1e88",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-go.tmLanguage.json",
+   "bytes": 71,
+   "sha256": "5196ff7291e8a1a3ef38f5cf8d9c907446b17dfe2892b179f1331eadc270879e",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-html.tmLanguage.json",
+   "bytes": 84,
+   "sha256": "0e85ea879623790795e5f7ef914b53fbd5491bb3c0e6bc3325d6bb0fbee8d287",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-java.tmLanguage.json",
+   "bytes": 75,
+   "sha256": "10200e192caaf97fb9a4af4196feedd75e354b391e6135cc6c560683ab9846aa",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-javascript.tmLanguage.json",
+   "bytes": 79,
+   "sha256": "df61fe79683be84cb90edc1f296d5b23d2f958bd4a16007362234ecd35025286",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-javascriptreact.tmLanguage.json",
+   "bytes": 85,
+   "sha256": "fba1a6ff6adb734c7bb2cc4340295d173212bee0339674f3f1d7c8d6f45443c2",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-json.tmLanguage.json",
+   "bytes": 75,
+   "sha256": "067ce7ceb2dfcd28b82fc14e72a84da90959fe4f7276fa1dbfae9560d2539e68",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-php.tmLanguage.json",
+   "bytes": 73,
+   "sha256": "71712ffad7eef3631a704a955fc42af4626624687d29aade6320013ce2bf8319",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-protobuf.tmLanguage.json",
+   "bytes": 80,
+   "sha256": "849cd179af4a14c28693a839c0407984e5d6a69b0f4c4460e5a131f81b52c784",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-python.tmLanguage.json",
+   "bytes": 79,
+   "sha256": "6f8c678871a4ef46a9c607b6fa97c735210f017662511571266a5bfb90457c0a",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-ruby.tmLanguage.json",
+   "bytes": 75,
+   "sha256": "60fe72a51e2a1f87731dbbf374d65704e4de5413f8b59638e45b2808ffc4f38b",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-rust.tmLanguage.json",
+   "bytes": 75,
+   "sha256": "9cfd84f86719dc395c99a019cc5c02788207159a26062c8cf6d89a9f2c90228a",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-shellscript.tmLanguage.json",
+   "bytes": 83,
+   "sha256": "6cf20eae250d6813a64ea02cbfb35bd4dc579ea36db5ef4048523b3090f99f81",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-sql.tmLanguage.json",
+   "bytes": 73,
+   "sha256": "34ce0326028c33e703694219c8b37de1eaf15d3ae9dff86b9deb18594289070f",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-swift.tmLanguage.json",
+   "bytes": 77,
+   "sha256": "24da571db5c071731beafb3f67ad7a28b2a0a0e5c102f17ef0c764674f751957",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform-deploy.tmLanguage.json",
+   "bytes": 86,
+   "sha256": "483ff7c14b2c23004b7057ebc3378776670116b62599e60098bd7639b7f84a85",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform-mock.tmLanguage.json",
+   "bytes": 84,
+   "sha256": "3ab020ccbbc38c244dd9d5ed0431888ad4ecbdf64bf07aad035446129ea8f3cd",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform-search.tmLanguage.json",
+   "bytes": 86,
+   "sha256": "bd1e9cdbd16e551364b23081b27ab2fa7d74b3fe57c7026d520ac6db83614ff7",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform-stack.tmLanguage.json",
+   "bytes": 85,
+   "sha256": "625e6f7635ba4597e27e79135ea509a1f32a4726398681f6b301a78bd7220bfe",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform-test.tmLanguage.json",
+   "bytes": 84,
+   "sha256": "e7413636c0967cde1048d6edcdda1fc79c3efc87f2d79def4db5a1b563637f04",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform-vars.tmLanguage.json",
+   "bytes": 94,
+   "sha256": "950f68f693eee979547165ecc52ba47663f3ae8fa660f00eaf603ad0119047ce",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform.tmLanguage.json",
+   "bytes": 89,
+   "sha256": "712c5fadcbb4a79e5ca3e6432376822d5f0cc9f9e138a9480460f2c3d2567fa2",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-typescript.tmLanguage.json",
+   "bytes": 79,
+   "sha256": "615cdbdac1b6bd127cda6347548f5d7db94936501f7f8f0bb7ecdd52d494d186",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-typescriptreact.tmLanguage.json",
+   "bytes": 85,
+   "sha256": "70d439627ce25c960944812a28c8db950dc1f42d545b274c81a48cf541e9db0d",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-yaml.tmLanguage.json",
+   "bytes": 75,
+   "sha256": "b9652ffe965c890e165a674fe9e6e9c755d5d06a157bc3f0de79f46bc60017a6",
+   "category": "other",
+   "copy": true
+  }
+ ],
+ "thirdPartyAssets": [],
+ "unresolved": [],
+ "totals": {
+  "bytes": 11283,
+  "distBytes": 0,
+  "distArtifacts": 0,
+  "webpackArtifacts": 0,
+  "webpackModules": 0,
+  "shippedFiles": 28
+ }
+}

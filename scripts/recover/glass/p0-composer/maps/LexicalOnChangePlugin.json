@@ -1,0 +1,20 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4703",
+  "basename": "LexicalOnChangePlugin.js",
+  "source": "recovered/app/glass/composer/LexicalOnChangePlugin.js",
+  "renames": {
+    "NTg": "lexicalOnChangePluginModuleInit"
+  },
+  "evidence": [
+    {
+      "from": "NTg",
+      "to": "lexicalOnChangePluginModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

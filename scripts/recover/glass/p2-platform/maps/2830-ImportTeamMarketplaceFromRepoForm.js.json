@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2830",
+  "basename": "ImportTeamMarketplaceFromRepoForm.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "declared esbuild wrapper init for module \"ImportTeamMarketplaceFromRepoForm.js\"; synthetic module-scope name derived from basename (wrapper key is exact)",
+  "renames": {
+    "Rt1": "ImportTeamMarketplaceFromRepoFormModule"
+  },
+  "file": "recovered/app/glass/platform/ImportTeamMarketplaceFromRepoForm.js"
+}

@@ -1,0 +1,14 @@
+# Hand-written; the vscode extensions tree is gazelle-excluded (see
+# //:BUILD.bazel). backend/server consumes these sources through a build-time
+# copy-and-rewrite (backend/server/scripts/copyCppUtils.js in the pnpm build;
+# //backend/server/src:cpp_utils_generated under Bazel). copy_to_bin (rather
+# than a filegroup) because the consuming js_run_binary needs bin-tree inputs
+# and cannot copy another package's sources itself.
+
+load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+
+copy_to_bin(
+    name = "sources",
+    srcs = glob(["**/*.ts"]),
+    visibility = ["//backend/server/src:__pkg__"],
+)

@@ -1,0 +1,28 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5899",
+  "basename": "ComposerHumanRowEditInput.react.js",
+  "source": "recovered/app/glass/composer/ComposerHumanRowEditInput.react.js",
+  "renames": {
+    "Cyw": "composerHumanRowEditInputModuleInit",
+    "$3f": "GlassHumanMessageStopButton"
+  },
+  "evidence": [
+    {
+      "from": "Cyw",
+      "to": "composerHumanRowEditInputModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    },
+    {
+      "from": "$3f",
+      "to": "GlassHumanMessageStopButton",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "GlassHumanMessageStopButton.react.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

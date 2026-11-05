@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5136",
+  "basename": "LockedModelPicker.react.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "declared esbuild wrapper init for module \"LockedModelPicker.react.js\"; synthetic module-scope name derived from basename (wrapper key is exact)",
+  "renames": {
+    "pCl": "LockedModelPickerModule"
+  },
+  "file": "recovered/app/glass/platform/LockedModelPicker.react.js"
+}

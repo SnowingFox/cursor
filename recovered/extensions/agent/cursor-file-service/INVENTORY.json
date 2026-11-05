@@ -1,0 +1,57 @@
+{
+ "extension": "cursor-file-service",
+ "generatedAt": "2026-11-05T10:17:16.559Z",
+ "sourceDir": "app/extensions/cursor-file-service",
+ "package": {
+  "name": "cursor-file-service",
+  "version": "1.0.0",
+  "main": null,
+  "activationEvents": [],
+  "enabledApiProposals": [],
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "contributes": {},
+  "scripts": {}
+ },
+ "distArtifacts": [
+  {
+   "path": "app/extensions/cursor-file-service/dist/main.js",
+   "bytes": 301,
+   "sha256": "0301e18b2e39d0bcb30a0addb12f624d481026525359164eb66249a5669fea2c",
+   "webpack": false,
+   "modules": 0,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "chunkId": null,
+   "entry": true
+  }
+ ],
+ "shippedFiles": [
+  {
+   "path": "app/extensions/cursor-file-service/package.json",
+   "bytes": 299,
+   "sha256": "f9612e67e37ccd4c90a72402bb57ae5158d4d82d3997d14641ed3a1a3380f2a6",
+   "category": "manifest",
+   "copy": true
+  }
+ ],
+ "thirdPartyAssets": [],
+ "unresolved": [
+  {
+   "path": "app/extensions/cursor-file-service/dist/main.js",
+   "reason": "no webpack module map (worker/esbuild/asset script)",
+   "bytes": 301
+  }
+ ],
+ "totals": {
+  "bytes": 600,
+  "distBytes": 301,
+  "distArtifacts": 1,
+  "webpackArtifacts": 0,
+  "webpackModules": 0,
+  "shippedFiles": 1
+ }
+}

@@ -1,0 +1,86 @@
+{
+ "extension": "cursor-commits",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-commits",
+ "files": [
+  {
+   "source": "app/extensions/cursor-commits/package.json",
+   "dest": "recovered/extensions/agent/cursor-commits/shipped/package.json",
+   "bytes": 569,
+   "sha256": "2fe260576825b2be548ce1e90214966bd9e49ae0d2c68a9dbc7e7dc9a0fc7d78",
+   "emittedSha256": "2fe260576825b2be548ce1e90214966bd9e49ae0d2c68a9dbc7e7dc9a0fc7d78",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-commits/worker/.gitignore",
+   "dest": "recovered/extensions/agent/cursor-commits/shipped/worker/.gitignore",
+   "bytes": 6,
+   "sha256": "4a1feebe4572dc56f873d1d3dff590732f52700cd30f5749a52cf9299a54f415",
+   "emittedSha256": "4a1feebe4572dc56f873d1d3dff590732f52700cd30f5749a52cf9299a54f415",
+   "byteIdentical": true,
+   "category": "build-extra",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-commits/worker/dist/main.js",
+   "dest": "recovered/extensions/agent/cursor-commits/shipped/worker/dist/main.js",
+   "bytes": 323963,
+   "sha256": "7f2d0fb83874e78b836df2976028aecfa5106fe13e1ad5114d3dee2596fe5d0d",
+   "emittedSha256": "f2dcad29a32f62db7900072913be0fd61e12f7d14ce368493cdb78ad7980fd3d",
+   "byteIdentical": false,
+   "category": "other",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "provenance header added; body proven lossless by sha256"
+  },
+  {
+   "source": "app/extensions/cursor-commits/worker/pre-compile.js",
+   "dest": "recovered/extensions/agent/cursor-commits/shipped/worker/pre-compile.js",
+   "bytes": 4815,
+   "sha256": "8cdaa96a67a2b2b66245472680c34e2d149be30497742356a115b1eee05dabee",
+   "emittedSha256": "a2a62e80c314430555ce2b39a031af5aef98e926ceceb05e0d5c28f2069bfb3b",
+   "byteIdentical": false,
+   "category": "config",
+   "basis": "shipped-source",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "provenance header added; body proven lossless by sha256"
+  },
+  {
+   "source": "app/extensions/cursor-commits/worker/tsconfig.json",
+   "dest": "recovered/extensions/agent/cursor-commits/shipped/worker/tsconfig.json",
+   "bytes": 614,
+   "sha256": "f71847fc5dbb0f610e7c28f2db7ca39cd9c23448a5cfe63b25d7dbab8447d507",
+   "emittedSha256": "f71847fc5dbb0f610e7c28f2db7ca39cd9c23448a5cfe63b25d7dbab8447d507",
+   "byteIdentical": true,
+   "category": "tsconfig",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [
+  {
+   "source": "app/extensions/cursor-commits/dist/main.js.LICENSE.txt",
+   "reason": "license bundle recorded in INVENTORY.json, not copied",
+   "bytes": 157
+  }
+ ],
+ "totals": {
+  "files": 5,
+  "bytes": 329967,
+  "byteIdentical": 3,
+  "headed": 2,
+  "skipped": 1
+ }
+}

@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6298",
+  "basename": "ProjectDatabasePlugin.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "declared esbuild wrapper init for module \"ProjectDatabasePlugin.js\"; synthetic module-scope name derived from basename (wrapper key is exact)",
+  "renames": {
+    "PBw": "ProjectDatabasePluginModule"
+  },
+  "file": "recovered/app/glass/platform/ProjectDatabasePlugin.js"
+}

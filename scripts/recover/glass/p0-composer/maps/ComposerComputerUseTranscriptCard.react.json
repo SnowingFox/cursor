@@ -1,0 +1,28 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6013",
+  "basename": "ComposerComputerUseTranscriptCard.react.js",
+  "source": "recovered/app/glass/composer/ComposerComputerUseTranscriptCard.react.js",
+  "renames": {
+    "ATw": "composerComputerUseTranscriptCardModuleInit",
+    "LTw": "ComposerConnectScmTranscriptCard"
+  },
+  "evidence": [
+    {
+      "from": "ATw",
+      "to": "composerComputerUseTranscriptCardModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    },
+    {
+      "from": "LTw",
+      "to": "ComposerConnectScmTranscriptCard",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "ComposerConnectScmTranscriptCard.react.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

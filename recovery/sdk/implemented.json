@@ -1,0 +1,1182 @@
+{
+  "generatedAt": "2026-11-05T10:09:19.190Z",
+  "modules": [
+    {
+      "key": "./src/agent/team-id.ts",
+      "out": "src/agent/team-id.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "E",
+          "localName": "s",
+          "publicName": null
+        },
+        {
+          "alias": "P",
+          "localName": "n",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/tool-call-utils.ts",
+      "out": "src/agent/tool-call-utils.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "D",
+          "localName": "s",
+          "publicName": null
+        },
+        {
+          "alias": "u",
+          "localName": "n",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/usage-types.ts",
+      "out": "src/agent/usage-types.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "g8",
+          "localName": "i",
+          "publicName": null
+        },
+        {
+          "alias": "qI",
+          "localName": "n",
+          "publicName": null
+        },
+        {
+          "alias": "wV",
+          "localName": "s",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/utils/logger.ts",
+      "out": "src/agent/utils/logger.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "v",
+          "localName": "n",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/analytics-prompt-hash.ts",
+      "out": "src/agent/analytics-prompt-hash.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "E",
+          "localName": "s",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/analytics-agent-name.ts",
+      "out": "src/agent/analytics-agent-name.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "o",
+          "localName": "n",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/filesystem/errors.ts",
+      "out": "src/agent/filesystem/errors.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "ER",
+          "localName": "o",
+          "publicName": "PathError"
+        },
+        {
+          "alias": "F",
+          "localName": "d",
+          "publicName": "EditError"
+        },
+        {
+          "alias": "JA",
+          "localName": "l",
+          "publicName": "WriteFailedError"
+        },
+        {
+          "alias": "QK",
+          "localName": "u",
+          "publicName": "ReadOnlyMountError"
+        },
+        {
+          "alias": "VV",
+          "localName": "c",
+          "publicName": "NoMountError"
+        },
+        {
+          "alias": "Wp",
+          "localName": "f",
+          "publicName": "isFileNotFoundError"
+        },
+        {
+          "alias": "Zu",
+          "localName": "_",
+          "publicName": "remapPathError"
+        },
+        {
+          "alias": "kG",
+          "localName": "a",
+          "publicName": "FileNotFoundError"
+        },
+        {
+          "alias": "kp",
+          "localName": "p",
+          "publicName": "InvalidGrepPatternError"
+        },
+        {
+          "alias": "q_",
+          "localName": "h",
+          "publicName": "isInvalidGrepPatternError"
+        },
+        {
+          "alias": "x$",
+          "localName": "m",
+          "publicName": "DeleteNotSupportedError"
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/filesystem/merge.ts",
+      "out": "src/agent/filesystem/merge.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "C",
+          "localName": "n",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/filesystem/types.ts",
+      "out": "src/agent/filesystem/types.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "H",
+          "localName": "n",
+          "publicName": "FILE_SYSTEM_SCAN_LIMIT"
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/filesystem/walk.ts",
+      "out": "src/agent/filesystem/walk.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "SC",
+          "localName": "ft",
+          "publicName": null
+        },
+        {
+          "alias": "e4",
+          "localName": "pt",
+          "publicName": null
+        },
+        {
+          "alias": "h",
+          "localName": "St",
+          "publicName": null
+        },
+        {
+          "alias": "kN",
+          "localName": "qt",
+          "publicName": null
+        },
+        {
+          "alias": "Zy",
+          "localName": "Pt",
+          "publicName": null
+        },
+        {
+          "alias": "lN",
+          "localName": "Jt",
+          "publicName": null
+        },
+        {
+          "alias": "sn",
+          "localName": "Bt",
+          "publicName": null
+        },
+        {
+          "alias": "a",
+          "localName": "ut",
+          "publicName": null
+        },
+        {
+          "alias": "I6",
+          "localName": "yt",
+          "publicName": null
+        },
+        {
+          "alias": "qq",
+          "localName": "gt",
+          "publicName": null
+        },
+        {
+          "alias": "eV",
+          "localName": "mt",
+          "publicName": null
+        },
+        {
+          "alias": "mU",
+          "localName": "wt",
+          "publicName": null
+        },
+        {
+          "alias": "eI",
+          "localName": "nt",
+          "publicName": null
+        },
+        {
+          "alias": "c9",
+          "localName": "it",
+          "publicName": null
+        },
+        {
+          "alias": "hJ",
+          "localName": "st",
+          "publicName": null
+        },
+        {
+          "alias": "ZC",
+          "localName": "at",
+          "publicName": null
+        },
+        {
+          "alias": "dN",
+          "localName": "_t",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/filesystem/trees.ts",
+      "out": "src/agent/filesystem/trees.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "Om",
+          "localName": "l",
+          "publicName": "tempFs"
+        },
+        {
+          "alias": "f1",
+          "localName": "c",
+          "publicName": "emptyFs"
+        },
+        {
+          "alias": "i$",
+          "localName": "d",
+          "publicName": "strReplaceOnFileSystem"
+        },
+        {
+          "alias": "iK",
+          "localName": "m",
+          "publicName": "readOnlyFs"
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/filesystem/compose.ts",
+      "out": "src/agent/filesystem/compose.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "Mb",
+          "localName": "w",
+          "publicName": "overlayFs"
+        },
+        {
+          "alias": "VL",
+          "localName": "g",
+          "publicName": "unionFs"
+        },
+        {
+          "alias": "w1",
+          "localName": "S",
+          "publicName": "childOverlayFs"
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/filesystem/local-fs.ts",
+      "out": "src/agent/filesystem/local-fs.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "I2",
+          "localName": "a",
+          "publicName": null
+        },
+        {
+          "alias": "VP",
+          "localName": "o",
+          "publicName": null
+        },
+        {
+          "alias": "rK",
+          "localName": "i",
+          "publicName": null
+        },
+        {
+          "alias": "xh",
+          "localName": "u",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/platform-package-locator.ts",
+      "out": "src/agent/platform-package-locator.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "hQ",
+          "localName": "u",
+          "publicName": null
+        },
+        {
+          "alias": "nk",
+          "localName": "a",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/auth/credential-store.ts",
+      "out": "src/agent/auth/credential-store.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "Nw",
+          "localName": "a",
+          "publicName": null
+        },
+        {
+          "alias": "Tg",
+          "localName": "c",
+          "publicName": "FileCredentialStore"
+        },
+        {
+          "alias": "fZ",
+          "localName": "l",
+          "publicName": "InMemoryCredentialStore"
+        },
+        {
+          "alias": "rJ",
+          "localName": "o",
+          "publicName": "getDefaultSdkAuthPath"
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/auth/login-flow.ts",
+      "out": "src/agent/auth/login-flow.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "Fw",
+          "localName": "o",
+          "publicName": null
+        },
+        {
+          "alias": "bi",
+          "localName": "u",
+          "publicName": null
+        },
+        {
+          "alias": "er",
+          "localName": "d",
+          "publicName": null
+        },
+        {
+          "alias": "pi",
+          "localName": "a",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/auth/stored-credentials.ts",
+      "out": "src/agent/auth/stored-credentials.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "Lc",
+          "localName": "u",
+          "publicName": null
+        },
+        {
+          "alias": "s1",
+          "localName": "a",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/store/sdk-local-defaults.ts",
+      "out": "src/agent/store/sdk-local-defaults.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "Dt",
+          "localName": "i",
+          "publicName": null
+        },
+        {
+          "alias": "kP",
+          "localName": "s",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/store/sdk-state-root.ts",
+      "out": "src/agent/store/sdk-state-root.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "V",
+          "localName": "u",
+          "publicName": "getDefaultSdkStateRoot"
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/store/local-agent-record-conversion.ts",
+      "out": "src/agent/store/local-agent-record-conversion.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "EB",
+          "localName": "n",
+          "publicName": null
+        },
+        {
+          "alias": "R",
+          "localName": "o",
+          "publicName": null
+        },
+        {
+          "alias": "UY",
+          "localName": "i",
+          "publicName": null
+        },
+        {
+          "alias": "xu",
+          "localName": "s",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/run-interaction-accumulator.ts",
+      "out": "src/agent/run-interaction-accumulator.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "KG",
+          "localName": "i",
+          "publicName": null
+        },
+        {
+          "alias": "e4",
+          "localName": "s",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/subagent-conversion.ts",
+      "out": "src/agent/subagent-conversion.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "DB",
+          "localName": "o",
+          "publicName": null
+        },
+        {
+          "alias": "SB",
+          "localName": "i",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/sdk-config.ts",
+      "out": "src/agent/sdk-config.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "Mu",
+          "localName": "c",
+          "publicName": null
+        },
+        {
+          "alias": "it",
+          "localName": "u",
+          "publicName": null
+        },
+        {
+          "alias": "xP",
+          "localName": "a",
+          "publicName": "configureCursorSdk"
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/errors.ts",
+      "out": "src/agent/errors.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "D7",
+          "localName": "J",
+          "publicName": null
+        },
+        {
+          "alias": "Dr",
+          "localName": "d",
+          "publicName": "NetworkError"
+        },
+        {
+          "alias": "J1",
+          "localName": "l",
+          "publicName": "AgentBusyError"
+        },
+        {
+          "alias": "LF",
+          "localName": "i",
+          "publicName": "CursorSdkError"
+        },
+        {
+          "alias": "Nt",
+          "localName": "y",
+          "publicName": "wrapSdkError"
+        },
+        {
+          "alias": "OE",
+          "localName": "u",
+          "publicName": "RateLimitError"
+        },
+        {
+          "alias": "VW",
+          "localName": "m",
+          "publicName": "IntegrationNotConnectedError"
+        },
+        {
+          "alias": "W_",
+          "localName": "B",
+          "publicName": null
+        },
+        {
+          "alias": "XB",
+          "localName": "f",
+          "publicName": "AgentNotFoundError"
+        },
+        {
+          "alias": "c$",
+          "localName": "p",
+          "publicName": "UnknownAgentError"
+        },
+        {
+          "alias": "e_",
+          "localName": "I",
+          "publicName": "convertConnectError"
+        },
+        {
+          "alias": "j1",
+          "localName": "c",
+          "publicName": "ConfigurationError"
+        },
+        {
+          "alias": "q3",
+          "localName": "P",
+          "publicName": "convertError"
+        },
+        {
+          "alias": "ud",
+          "localName": "o",
+          "publicName": "CursorAgentError"
+        },
+        {
+          "alias": "v3",
+          "localName": "a",
+          "publicName": "AuthenticationError"
+        },
+        {
+          "alias": "vg",
+          "localName": "b",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/messages.ts",
+      "out": "src/agent/messages.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "J5",
+          "localName": "f",
+          "publicName": "isTerminalLocalRunStreamEvent"
+        },
+        {
+          "alias": "LN",
+          "localName": "c",
+          "publicName": "decodeLocalRunStreamEvent"
+        },
+        {
+          "alias": "MV",
+          "localName": "i",
+          "publicName": "LOCAL_RUN_STREAM_SCHEMA_VERSION"
+        },
+        {
+          "alias": "Nk",
+          "localName": "u",
+          "publicName": "createSdkMessageRunStreamEvent"
+        },
+        {
+          "alias": "bM",
+          "localName": "p",
+          "publicName": "decodeSdkMessageRunStreamEvent"
+        },
+        {
+          "alias": "cD",
+          "localName": "a",
+          "publicName": null
+        },
+        {
+          "alias": "do",
+          "localName": "o",
+          "publicName": "LOCAL_RUN_STREAM_EVENT_TYPE"
+        },
+        {
+          "alias": "xc",
+          "localName": "d",
+          "publicName": "localRunStreamEventToSdkMessage"
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/types/delta-types.ts",
+      "out": "src/agent/types/delta-types.ts",
+      "vendored": false,
+      "exports": [
+        {
+          "alias": "Zs",
+          "localName": "b",
+          "publicName": "InteractionUpdateSchema"
+        },
+        {
+          "alias": "tq",
+          "localName": "q",
+          "publicName": "NestedTaskUpdateSchema"
+        },
+        {
+          "alias": "ON",
+          "localName": "d",
+          "publicName": "PartialToolCallUpdateSchema"
+        },
+        {
+          "alias": "M7",
+          "localName": "_",
+          "publicName": "ShellOutputDeltaUpdateSchema"
+        },
+        {
+          "alias": "uj",
+          "localName": "g",
+          "publicName": "SummaryCompletedUpdateSchema"
+        },
+        {
+          "alias": "Wf",
+          "localName": "h",
+          "publicName": "SummaryStartedUpdateSchema"
+        },
+        {
+          "alias": "XP",
+          "localName": "f",
+          "publicName": "SummaryUpdateSchema"
+        },
+        {
+          "alias": "yP",
+          "localName": "o",
+          "publicName": "TextDeltaUpdateSchema"
+        },
+        {
+          "alias": "Y3",
+          "localName": "l",
+          "publicName": "ThinkingCompletedUpdateSchema"
+        },
+        {
+          "alias": "p$",
+          "localName": "c",
+          "publicName": "ThinkingDeltaUpdateSchema"
+        },
+        {
+          "alias": "IO",
+          "localName": "p",
+          "publicName": "TokenDeltaUpdateSchema"
+        },
+        {
+          "alias": "EC",
+          "localName": "u",
+          "publicName": "ToolCallCompletedUpdateSchema"
+        },
+        {
+          "alias": "fr",
+          "localName": "B",
+          "publicName": "ToolCallDeltaUpdateSchema"
+        },
+        {
+          "alias": "a7",
+          "localName": "a",
+          "publicName": "ToolCallStartedUpdateSchema"
+        },
+        {
+          "alias": "Ed",
+          "localName": "w",
+          "publicName": "TurnEndedUpdateSchema"
+        },
+        {
+          "alias": "Sb",
+          "localName": "m",
+          "publicName": "UserMessageAppendedUpdateSchema"
+        }
+      ]
+    },
+    {
+      "key": "./src/agent/native/vendored-tree-sitter.ts",
+      "out": "src/agent/native/vendored-tree-sitter.ts",
+      "vendored": false,
+      "exports": []
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/utils_pb.js",
+      "out": "src/vendor/proto/aiserver/v1/utils_pb.ts",
+      "vendored": true,
+      "exports": [
+        {
+          "alias": "Az",
+          "localName": "ot",
+          "publicName": null
+        },
+        {
+          "alias": "Bo",
+          "localName": "ft",
+          "publicName": null
+        },
+        {
+          "alias": "CX",
+          "localName": "Y",
+          "publicName": null
+        },
+        {
+          "alias": "DX",
+          "localName": "nt",
+          "publicName": null
+        },
+        {
+          "alias": "EZ",
+          "localName": "jt",
+          "publicName": null
+        },
+        {
+          "alias": "Ei",
+          "localName": "b",
+          "publicName": null
+        },
+        {
+          "alias": "FY",
+          "localName": "Ct",
+          "publicName": null
+        },
+        {
+          "alias": "Gm",
+          "localName": "H",
+          "publicName": null
+        },
+        {
+          "alias": "LI",
+          "localName": "Rt",
+          "publicName": null
+        },
+        {
+          "alias": "M6",
+          "localName": "V",
+          "publicName": null
+        },
+        {
+          "alias": "MT",
+          "localName": "k",
+          "publicName": null
+        },
+        {
+          "alias": "NG",
+          "localName": "U",
+          "publicName": null
+        },
+        {
+          "alias": "Nj",
+          "localName": "c",
+          "publicName": null
+        },
+        {
+          "alias": "O2",
+          "localName": "ht",
+          "publicName": null
+        },
+        {
+          "alias": "Q9",
+          "localName": "Et",
+          "publicName": null
+        },
+        {
+          "alias": "QP",
+          "localName": "B",
+          "publicName": null
+        },
+        {
+          "alias": "Se",
+          "localName": "d",
+          "publicName": null
+        },
+        {
+          "alias": "U$",
+          "localName": "et",
+          "publicName": null
+        },
+        {
+          "alias": "U1",
+          "localName": "G",
+          "publicName": null
+        },
+        {
+          "alias": "UR",
+          "localName": "bt",
+          "publicName": null
+        },
+        {
+          "alias": "Uf",
+          "localName": "T",
+          "publicName": null
+        },
+        {
+          "alias": "Us",
+          "localName": "Tt",
+          "publicName": null
+        },
+        {
+          "alias": "Vq",
+          "localName": "g",
+          "publicName": null
+        },
+        {
+          "alias": "Wf",
+          "localName": "q",
+          "publicName": null
+        },
+        {
+          "alias": "Wj",
+          "localName": "X",
+          "publicName": null
+        },
+        {
+          "alias": "Xr",
+          "localName": "It",
+          "publicName": null
+        },
+        {
+          "alias": "Y1",
+          "localName": "st",
+          "publicName": null
+        },
+        {
+          "alias": "Yd",
+          "localName": "l",
+          "publicName": null
+        },
+        {
+          "alias": "ZH",
+          "localName": "j",
+          "publicName": null
+        },
+        {
+          "alias": "_u",
+          "localName": "P",
+          "publicName": null
+        },
+        {
+          "alias": "bO",
+          "localName": "tt",
+          "publicName": null
+        },
+        {
+          "alias": "bV",
+          "localName": "_t",
+          "publicName": null
+        },
+        {
+          "alias": "c5",
+          "localName": "Mt",
+          "publicName": null
+        },
+        {
+          "alias": "d7",
+          "localName": "C",
+          "publicName": null
+        },
+        {
+          "alias": "df",
+          "localName": "w",
+          "publicName": null
+        },
+        {
+          "alias": "e$",
+          "localName": "m",
+          "publicName": null
+        },
+        {
+          "alias": "ej",
+          "localName": "mt",
+          "publicName": null
+        },
+        {
+          "alias": "ek",
+          "localName": "_",
+          "publicName": null
+        },
+        {
+          "alias": "fL",
+          "localName": "O",
+          "publicName": null
+        },
+        {
+          "alias": "gO",
+          "localName": "f",
+          "publicName": null
+        },
+        {
+          "alias": "l2",
+          "localName": "J",
+          "publicName": null
+        },
+        {
+          "alias": "lo",
+          "localName": "u",
+          "publicName": null
+        },
+        {
+          "alias": "n6",
+          "localName": "I",
+          "publicName": null
+        },
+        {
+          "alias": "o$",
+          "localName": "S",
+          "publicName": null
+        },
+        {
+          "alias": "oQ",
+          "localName": "M",
+          "publicName": null
+        },
+        {
+          "alias": "ot",
+          "localName": "vt",
+          "publicName": null
+        },
+        {
+          "alias": "qW",
+          "localName": "F",
+          "publicName": null
+        },
+        {
+          "alias": "qv",
+          "localName": "kt",
+          "publicName": null
+        },
+        {
+          "alias": "sr",
+          "localName": "xt",
+          "publicName": null
+        },
+        {
+          "alias": "vj",
+          "localName": "ct",
+          "publicName": null
+        },
+        {
+          "alias": "wZ",
+          "localName": "rt",
+          "publicName": null
+        },
+        {
+          "alias": "x$",
+          "localName": "a",
+          "publicName": null
+        },
+        {
+          "alias": "yM",
+          "localName": "lt",
+          "publicName": null
+        },
+        {
+          "alias": "zH",
+          "localName": "h",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "../proto/dist/runtime/compact.js",
+      "out": "src/vendor/proto/runtime/compact.ts",
+      "vendored": true,
+      "exports": [
+        {
+          "alias": "HL",
+          "localName": "u",
+          "publicName": null
+        },
+        {
+          "alias": "QT",
+          "localName": "l",
+          "publicName": null
+        },
+        {
+          "alias": "kU",
+          "localName": "i",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "../cursor-sdk-shared/dist/message-schemas.js",
+      "out": "src/vendor/cursor-sdk-shared/message-schemas.ts",
+      "vendored": true,
+      "exports": [
+        {
+          "alias": "JY",
+          "localName": "s",
+          "publicName": "ImageSchema"
+        },
+        {
+          "alias": "K8",
+          "localName": "l",
+          "publicName": "isMessage"
+        },
+        {
+          "alias": "Kx",
+          "localName": "i",
+          "publicName": null
+        },
+        {
+          "alias": "RB",
+          "localName": "a",
+          "publicName": "MessageSchema"
+        },
+        {
+          "alias": "d0",
+          "localName": "u",
+          "publicName": "isUserMessage"
+        },
+        {
+          "alias": "lK",
+          "localName": "o",
+          "publicName": null
+        },
+        {
+          "alias": "mj",
+          "localName": "c",
+          "publicName": "isAssistantMessage"
+        }
+      ]
+    },
+    {
+      "key": "../cursor-sdk-shared/dist/tool-call-types.js",
+      "out": "src/vendor/cursor-sdk-shared/tool-call-types.ts",
+      "vendored": true,
+      "exports": [
+        {
+          "alias": "C6",
+          "localName": "vt",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "../utils/dist/workspace-paths.js",
+      "out": "src/vendor/utils/workspace-paths.ts",
+      "vendored": true,
+      "exports": [
+        {
+          "alias": "O2",
+          "localName": "n",
+          "publicName": null
+        },
+        {
+          "alias": "Rv",
+          "localName": "i",
+          "publicName": null
+        },
+        {
+          "alias": "r_",
+          "localName": "s",
+          "publicName": null
+        },
+        {
+          "alias": "sh",
+          "localName": "o",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "../utils/dist/fresh-uuid.js",
+      "out": "src/vendor/utils/fresh-uuid.ts",
+      "vendored": true,
+      "exports": [
+        {
+          "alias": "C",
+          "localName": "a",
+          "publicName": null
+        }
+      ]
+    },
+    {
+      "key": "../../node_modules/.pnpm/brace-expansion@5.0.12/node_modules/brace-expansion/dist/esm/index.js",
+      "out": "src/vendor/brace-expansion/index.ts",
+      "vendored": true,
+      "exports": [
+        {
+          "alias": "fT",
+          "localName": "R",
+          "publicName": null
+        }
+      ]
+    }
+  ]
+}

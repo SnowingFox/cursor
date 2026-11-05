@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0291",
+  "basename": "StatsigUser.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "declared esbuild wrapper init for module \"StatsigUser.js\"; synthetic module-scope name derived from basename (wrapper key is exact)",
+  "renames": {
+    "mJu": "StatsigUserModule"
+  },
+  "file": "recovered/app/glass/platform/StatsigUser.js"
+}

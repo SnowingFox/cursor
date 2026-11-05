@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-11-05T10:19:30.870Z",
+  "maps": [
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2826",
+      "basename": "AddPluginsToMarketplaceMenu.js",
+      "file": "recovered/app/glass/platform/AddPluginsToMarketplaceMenu.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2826-AddPluginsToMarketplaceMenu.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2830",
+      "basename": "ImportTeamMarketplaceFromRepoForm.js",
+      "file": "recovered/app/glass/platform/ImportTeamMarketplaceFromRepoForm.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2830-ImportTeamMarketplaceFromRepoForm.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2747",
+      "basename": "LegacyModelItem.js",
+      "file": "recovered/app/glass/platform/LegacyModelItem.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2747-LegacyModelItem.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5136",
+      "basename": "LockedModelPicker.react.js",
+      "file": "recovered/app/glass/platform/LockedModelPicker.react.js",
+      "map": "scripts/recover/glass/p2-platform/maps/5136-LockedModelPicker.react.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2864",
+      "basename": "ManageTeamMarketplaceModal.js",
+      "file": "recovered/app/glass/platform/ManageTeamMarketplaceModal.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2864-ManageTeamMarketplaceModal.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2861",
+      "basename": "ManageTeamMarketplaceModalContent.js",
+      "file": "recovered/app/glass/platform/ManageTeamMarketplaceModalContent.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2861-ManageTeamMarketplaceModalContent.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3941",
+      "basename": "MarketplaceSectionEndCol.js",
+      "file": "recovered/app/glass/platform/MarketplaceSectionEndCol.js",
+      "map": "scripts/recover/glass/p2-platform/maps/3941-MarketplaceSectionEndCol.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3049",
+      "basename": "MicrosoftTeamsIcon.js",
+      "file": "recovered/app/glass/platform/MicrosoftTeamsIcon.js",
+      "map": "scripts/recover/glass/p2-platform/maps/3049-MicrosoftTeamsIcon.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2804",
+      "basename": "ModelListRowLabel.js",
+      "file": "recovered/app/glass/platform/ModelListRowLabel.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2804-ModelListRowLabel.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2743",
+      "basename": "ModelParameterControls.js",
+      "file": "recovered/app/glass/platform/ModelParameterControls.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2743-ModelParameterControls.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2700",
+      "basename": "ModelPickerContext.js",
+      "file": "recovered/app/glass/platform/ModelPickerContext.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2700-ModelPickerContext.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2867",
+      "basename": "PluginActionConfirmCard.js",
+      "file": "recovered/app/glass/platform/PluginActionConfirmCard.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2867-PluginActionConfirmCard.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2851",
+      "basename": "PluginCapabilityBadges.js",
+      "file": "recovered/app/glass/platform/PluginCapabilityBadges.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2851-PluginCapabilityBadges.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2873",
+      "basename": "Plugins.types.js",
+      "file": "recovered/app/glass/platform/Plugins.types.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2873-Plugins.types.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5304",
+      "basename": "PluginSearchMenu.js",
+      "file": "recovered/app/glass/platform/PluginSearchMenu.js",
+      "map": "scripts/recover/glass/p2-platform/maps/5304-PluginSearchMenu.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2870",
+      "basename": "PluginSection.js",
+      "file": "recovered/app/glass/platform/PluginSection.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2870-PluginSection.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2871",
+      "basename": "PluginSectionHeader.js",
+      "file": "recovered/app/glass/platform/PluginSectionHeader.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2871-PluginSectionHeader.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2872",
+      "basename": "PluginSourceBadges.js",
+      "file": "recovered/app/glass/platform/PluginSourceBadges.js",
+      "map": "scripts/recover/glass/p2-platform/maps/2872-PluginSourceBadges.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6298",
+      "basename": "ProjectDatabasePlugin.js",
+      "file": "recovered/app/glass/platform/ProjectDatabasePlugin.js",
+      "map": "scripts/recover/glass/p2-platform/maps/6298-ProjectDatabasePlugin.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3196",
+      "basename": "ShikiCodeBlockTokenizer.js",
+      "file": "recovered/app/glass/platform/ShikiCodeBlockTokenizer.js",
+      "map": "scripts/recover/glass/p2-platform/maps/3196-ShikiCodeBlockTokenizer.js.json"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0291",
+      "basename": "StatsigUser.js",
+      "file": "recovered/app/glass/platform/StatsigUser.js",
+      "map": "scripts/recover/glass/p2-platform/maps/0291-StatsigUser.js.json"
+    }
+  ]
+}

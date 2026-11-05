@@ -4,6 +4,9 @@
 	"private": true,
 	"description": "Runnable, readable reconstruction of the Cursor desktop app (macOS arm64)",
 	"type": "module",
+	"workspaces": [
+		"packages/*"
+	],
 	"engines": {
 		"bun": ">=1.3"
 	},
@@ -22,14 +25,35 @@
 		"format": "biome check --write .",
 		"cliproxyapi": "bun scripts/cliproxyapi.mjs",
 		"extract": "bun scripts/extract.mjs",
-		"split": "bun scripts/split-modules.mjs"
+		"split": "bun scripts/split-modules.mjs",
+		"recover:inventory": "bun scripts/recover/inventory/index.ts",
+		"recover:verify": "bun scripts/recover/verify.ts",
+		"recover:audit": "bun scripts/recover/audit.ts",
+		"recover:all": "bun scripts/recover/all.ts",
+		"recover:report": "bun scripts/recover/report.ts",
+		"recover:ext:adopt": "bun scripts/recover/extensions/adopt.ts",
+		"recover:ext:split": "bun scripts/recover/extensions/split.ts",
+		"recover:ext:configs": "bun scripts/recover/extensions/adopt-configs.ts",
+		"recover:vscode": "bun scripts/recover/vscode/build.ts",
+		"recover:vscode:materialize": "bun scripts/recover/vscode/materialize.ts",
+		"recover:sdk:extract": "bun scripts/recover/sdk/extract.ts",
+		"sdk:build": "bun packages/cursor-sdk/build.ts",
+		"sdk:verify": "bun scripts/recover/sdk/verify.ts",
+		"sdk:test": "vitest run packages/cursor-sdk/test"
 	},
 	"devDependencies": {
+		"@babel/generator": "^8.1.0",
+		"@babel/parser": "^8.1.0",
+		"@babel/traverse": "^8.1.0",
+		"@babel/types": "^8.1.0",
 		"@biomejs/biome": "2.5.15",
+		"@types/babel__generator": "^7.27.0",
+		"@types/babel__traverse": "^7.28.0",
 		"@types/node": "26.6.5",
 		"@types/react": "19.3.0",
 		"electron": "42.10.0",
 		"esbuild": "0.28.2",
+		"ts-morph": "^28.0.0",
 		"typescript": "7.0.2",
 		"vite": "8.3.4",
 		"vitest": "5.0.5"

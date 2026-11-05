@@ -1,0 +1,28 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5610",
+  "basename": "ComposerLocalWorktreeSetupRow.react.js",
+  "source": "recovered/app/glass/composer/ComposerLocalWorktreeSetupRow.react.js",
+  "renames": {
+    "Caw": "composerLocalWorktreeSetupRowModuleInit",
+    "Eaw": "ComposerOptimisticPlanningRow"
+  },
+  "evidence": [
+    {
+      "from": "Caw",
+      "to": "composerLocalWorktreeSetupRowModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    },
+    {
+      "from": "Eaw",
+      "to": "ComposerOptimisticPlanningRow",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "ComposerOptimisticPlanningRow.react.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

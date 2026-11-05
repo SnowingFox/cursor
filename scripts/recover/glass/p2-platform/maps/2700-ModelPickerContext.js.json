@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2700",
+  "basename": "ModelPickerContext.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "single-return property getter over t.routedModelViewConfig; name inferred from returned property chain",
+  "renames": {
+    "Mrt": "getRoutedModelViewConfig"
+  },
+  "file": "recovered/app/glass/platform/ModelPickerContext.js"
+}

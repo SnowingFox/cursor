@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5912",
+  "basename": "CloudAgentTurnTimings.js",
+  "file": "recovered/app/glass/agent/CloudAgentTurnTimings.js",
+  "renames": {
+    "DSw": "CloudAgentTurnTimingsModule"
+  },
+  "notes": [
+    "DSw -> CloudAgentTurnTimingsModule: declared wrapper binding, evidence: esbuild init key \"CloudAgentTurnTimings.js\""
+  ]
+}

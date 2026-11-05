@@ -1,0 +1,13 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3942",
+  "basename": "McpConfigureDialog.js",
+  "file": "recovered/app/glass/agent/McpConfigureDialog.js",
+  "renames": {
+    "EQ1": "McpConfigureDialogModule",
+    "CWm": "McpConfigureDialog"
+  },
+  "notes": [
+    "EQ1 -> McpConfigureDialogModule: declared wrapper binding, evidence: esbuild init key \"McpConfigureDialog.js\"",
+    "CWm -> McpConfigureDialog: sole JSX-returning top-level function in module slice; name from wrapper basename"
+  ]
+}

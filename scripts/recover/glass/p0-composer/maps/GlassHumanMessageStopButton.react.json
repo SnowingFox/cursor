@@ -1,0 +1,28 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5900",
+  "basename": "GlassHumanMessageStopButton.react.js",
+  "source": "recovered/app/glass/composer/GlassHumanMessageStopButton.react.js",
+  "renames": {
+    "H3f": "glassHumanMessageStopButtonModuleInit",
+    "G3f": "ComposerPlanExecutionRow"
+  },
+  "evidence": [
+    {
+      "from": "H3f",
+      "to": "glassHumanMessageStopButtonModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    },
+    {
+      "from": "G3f",
+      "to": "ComposerPlanExecutionRow",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "ComposerPlanExecutionRow.react.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

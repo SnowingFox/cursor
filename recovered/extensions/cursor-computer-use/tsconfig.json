@@ -1,0 +1,89 @@
+{
+  "//": "ADAPTED from upstream/tsconfig.json for local typecheck: tsconfig.base.json, src/proto, src/external/bufbuild, packages/* and src/vscode-dts are not shipped. Those imports now point at stubs/ (TODO(stub)); zod is aliased to the app node_modules copy. Tests are excluded, as upstream did.",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": [
+      "ES2022"
+    ],
+    "strict": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "@anysphere/computer-use/protocol": [
+        "./stubs/anysphere-computer-use-protocol.d.ts"
+      ],
+      "@anysphere/computer-use/windows/profiles/cursor-product-profile.json": [
+        "./stubs/computer-use-product-profile.json"
+      ],
+      "@anysphere/context": [
+        "./stubs/anysphere-context.d.ts"
+      ],
+      "@anysphere/utils": [
+        "./stubs/anysphere-utils.d.ts"
+      ],
+      "@anysphere/utils/image-resize": [
+        "./stubs/anysphere-utils-image-resize.d.ts"
+      ],
+      "@anysphere/utils/jimp-minimal": [
+        "./stubs/anysphere-utils-jimp-minimal.d.ts"
+      ],
+      "@cursor/types": [
+        "./stubs/cursor-types.d.ts"
+      ],
+      "@jsquash/webp/codec/enc/webp_enc.js": [
+        "./stubs/jsquash-webp.d.ts"
+      ],
+      "@jsquash/webp/codec/enc/webp_enc_simd.js": [
+        "./stubs/jsquash-webp.d.ts"
+      ],
+      "@jsquash/webp/decode.js": [
+        "./stubs/jsquash-webp.d.ts"
+      ],
+      "@jsquash/webp/meta.js": [
+        "./stubs/jsquash-webp.d.ts"
+      ],
+      "@jsquash/webp/utils.js": [
+        "./stubs/jsquash-webp.d.ts"
+      ],
+      "proto/aiserver/v1/aiserver_connectweb.js": [
+        "./stubs/proto-aiserver.d.ts"
+      ],
+      "proto/aiserver/v1/aiserver_pb.js": [
+        "./stubs/proto-aiserver.d.ts"
+      ],
+      "vscode": [
+        "./stubs/vscode.d.ts"
+      ],
+      "yauzl": [
+        "./stubs/yauzl.d.ts"
+      ],
+      "@connectrpc/connect": [
+        "./stubs/connectrpc.d.ts"
+      ],
+      "@connectrpc/connect-node": [
+        "./stubs/connectrpc.d.ts"
+      ],
+      "zod": [
+        "../../../app/node_modules/zod/index.d.cts"
+      ],
+      "zod/v3": [
+        "../../../app/node_modules/zod/v3/index.d.cts"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/*.test.ts"
+  ]
+}

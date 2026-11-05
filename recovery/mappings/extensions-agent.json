@@ -1,0 +1,2071 @@
+{
+ "generatedAt": "2026-11-05T10:20:51.833Z",
+ "run": "ext-agent",
+ "task": "W2-4 ext-agent",
+ "tooling": [
+  "scripts/recover/extensions/agent/webpack.ts",
+  "scripts/recover/extensions/agent/inventory.ts",
+  "scripts/recover/extensions/agent/adopt.ts",
+  "scripts/recover/extensions/agent/split.ts",
+  "scripts/recover/extensions/agent/verify.ts"
+ ],
+ "totals": {
+  "extensions": 16,
+  "distArtifacts": 25,
+  "webpackArtifacts": 15,
+  "singleEntryArtifacts": 10,
+  "splitModules": 1836,
+  "adoptedFiles": 76,
+  "confidence": {
+   "C": 1836
+  }
+ },
+ "extensions": [
+  {
+   "extension": "cursor-always-local",
+   "sourceDir": "app/extensions/cursor-always-local",
+   "outputDir": "recovered/extensions/agent/cursor-always-local",
+   "package": {
+    "name": "cursor-always-local",
+    "version": "0.0.1",
+    "main": "./dist/main",
+    "activationEvents": [
+     "onStartupFinished",
+     "onResolveRemoteAuthority:background-composer"
+    ],
+    "enabledApiProposals": [
+     "cursor",
+     "control",
+     "externalUriOpener",
+     "contribSourceControlInputBoxMenu",
+     "textDocumentTextLength"
+    ],
+    "contributes": {
+     "commands": 0,
+     "keybindings": 0,
+     "menus": "object",
+     "jsonValidation": 2,
+     "jsonValidationIds": [
+      "./schemas/environment.schema.json",
+      "./schemas/permissions.schema.json"
+     ],
+     "configuration": "object"
+    }
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-always-local/dist/915.js",
+      "bytes": 57737,
+      "sha256": "a047de6a109482b317cdb9ce470b0c1903b3caa8ebca06fe5218a9e9c369a526",
+      "webpack": true,
+      "modules": 6,
+      "keyTypes": {
+       "number": 6,
+       "string": 0
+      }
+     },
+     {
+      "path": "app/extensions/cursor-always-local/dist/gitWorker.js",
+      "bytes": 5622,
+      "sha256": "47e4af92fd88e470df01610c5a00f135b9ff61b2780374408ae8ff918be7edc7",
+      "webpack": false,
+      "modules": 0,
+      "keyTypes": {
+       "number": 0,
+       "string": 0
+      }
+     },
+     {
+      "path": "app/extensions/cursor-always-local/dist/main.js",
+      "bytes": 6924432,
+      "sha256": "14fb2d0e360d81a024b4ec605f417e030e19b30b2df99bc45648aa227060534e",
+      "webpack": true,
+      "modules": 379,
+      "keyTypes": {
+       "number": 379,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 3,
+    "modules": 386,
+    "confidence": {
+     "C": 386
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-always-local/dist/915.js",
+      "format": "webpack",
+      "chunk": "chunk-915",
+      "chunkId": 915,
+      "modules": 6,
+      "preludeBytes": 73,
+      "footerBytes": 21199,
+      "reassembly": "ok"
+     },
+     {
+      "artifact": "app/extensions/cursor-always-local/dist/gitWorker.js",
+      "format": "esbuild-single-entry",
+      "chunk": "gitWorker",
+      "chunkId": null,
+      "modules": 1,
+      "preludeBytes": 0,
+      "footerBytes": 0,
+      "reassembly": "ok"
+     },
+     {
+      "artifact": "app/extensions/cursor-always-local/dist/main.js",
+      "format": "webpack",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 379,
+      "preludeBytes": 86,
+      "footerBytes": 674613,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 7,
+    "byteIdentical": 6,
+    "headed": 1,
+    "byBasis": {
+     "shipped-source": 2,
+     "shipped-config": 5
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-always-local/dist/commands/cppUtils/BUILD.bazel",
+      "dest": "recovered/extensions/agent/cursor-always-local/shipped/dist/commands/cppUtils/BUILD.bazel",
+      "sha256": "774a0ee6a87dda3d3b0613898a7ad52fc65d52b14a1e499a7e002eb4858e02a9",
+      "basis": "shipped-source",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-always-local/eslint.config.cjs",
+      "dest": "recovered/extensions/agent/cursor-always-local/shipped/eslint.config.cjs",
+      "sha256": "842f9f80283f33d83bbfbe0f1d67f14ef957b678c4a3bd1f9ec5bc4711a08a6f",
+      "basis": "shipped-source",
+      "confidence": "A",
+      "byteIdentical": false
+     },
+     {
+      "source": "app/extensions/cursor-always-local/media/main.css",
+      "dest": "recovered/extensions/agent/cursor-always-local/shipped/media/main.css",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-always-local/package.json",
+      "dest": "recovered/extensions/agent/cursor-always-local/shipped/package.json",
+      "sha256": "e6f7827311ec5e9ba560332f15384fcec6ca9b5076de5d9f8e7e8d079a520f68",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-always-local/package.nls.json",
+      "dest": "recovered/extensions/agent/cursor-always-local/shipped/package.nls.json",
+      "sha256": "dca8e3c7f4e29756605a885da1f6393b9e0328b899040dd3471a5a6586f07e0c",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-always-local/schemas/environment.schema.json",
+      "dest": "recovered/extensions/agent/cursor-always-local/shipped/schemas/environment.schema.json",
+      "sha256": "8e81be8b36c9bea044b5546c65afc43ac4f9c3617238c0f43ecbf702d479143a",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-always-local/schemas/permissions.schema.json",
+      "dest": "recovered/extensions/agent/cursor-always-local/shipped/schemas/permissions.schema.json",
+      "sha256": "852aa108fe5add547ce205f4282a6a447a49b1756b4c88100c556f28866f005e",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [
+    {
+     "path": "app/extensions/cursor-always-local/dist/gitWorker.js",
+     "reason": "no webpack module map (worker/esbuild/asset script)",
+     "bytes": 5622
+    }
+   ],
+   "skippedAssets": [
+    {
+     "source": "app/extensions/cursor-always-local/dist/main.js.LICENSE.txt",
+     "reason": "license bundle recorded in INVENTORY.json, not copied",
+     "bytes": 1735
+    }
+   ]
+  },
+  {
+   "extension": "cursor-retrieval",
+   "sourceDir": "app/extensions/cursor-retrieval",
+   "outputDir": "recovered/extensions/agent/cursor-retrieval",
+   "package": {
+    "name": "cursor-retrieval",
+    "version": "0.0.1",
+    "main": "./dist/main",
+    "activationEvents": [
+     "onStartupFinished"
+    ],
+    "enabledApiProposals": [
+     "control",
+     "cursor",
+     "cursorNoDeps",
+     "cursorTracing",
+     "textSearchProvider2"
+    ],
+    "contributes": {
+     "commands": 2,
+     "commandsIds": [
+      "cursor.grepClient.debug",
+      "cursor.codebaseTelemetry.triggerSnapshot"
+     ],
+     "keybindings": 0,
+     "menus": "object",
+     "configuration": 1,
+     "configurationKeys": [
+      "cursor-retrieval.canAttemptGithubLogin"
+     ],
+     "languages": 2,
+     "languagesIds": [
+      "ignore",
+      "ignore"
+     ]
+    }
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-retrieval/dist/main.js",
+      "bytes": 3194857,
+      "sha256": "50c717cc16d67dfb571db8461d6630caeb8e421ad0090d156086d1a3d53b1b2b",
+      "webpack": true,
+      "modules": 196,
+      "keyTypes": {
+       "number": 196,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 1,
+    "modules": 196,
+    "confidence": {
+     "C": 196
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-retrieval/dist/main.js",
+      "format": "webpack",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 196,
+      "preludeBytes": 89,
+      "footerBytes": 2125342,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 9,
+    "byteIdentical": 7,
+    "headed": 2,
+    "byBasis": {
+     "shipped-config": 8,
+     "shipped-source": 1
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-retrieval/.gitignore",
+      "dest": "recovered/extensions/agent/cursor-retrieval/shipped/.gitignore",
+      "sha256": "d2619b0fdba16d4e7ef97c5423d13d06e29e4ef0270f3cd64b992c5825ae3ff7",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-retrieval/dist/telemetry/.agentic-owners/policy.yml",
+      "dest": "recovered/extensions/agent/cursor-retrieval/shipped/dist/telemetry/.agentic-owners/policy.yml",
+      "sha256": "24938af5fed52a6759e0c475680077b1e78c7db152d58f5f75724bd75f2d5133",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-retrieval/eslint.config.cjs",
+      "dest": "recovered/extensions/agent/cursor-retrieval/shipped/eslint.config.cjs",
+      "sha256": "842f9f80283f33d83bbfbe0f1d67f14ef957b678c4a3bd1f9ec5bc4711a08a6f",
+      "basis": "shipped-source",
+      "confidence": "A",
+      "byteIdentical": false
+     },
+     {
+      "source": "app/extensions/cursor-retrieval/icons/css.png",
+      "dest": "recovered/extensions/agent/cursor-retrieval/shipped/icons/css.png",
+      "sha256": "9b0ac847f0440c4f04fc25ce73fb0030ac4cc697f95e7b3ca0a179fd8e3048fb",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-retrieval/package.json",
+      "dest": "recovered/extensions/agent/cursor-retrieval/shipped/package.json",
+      "sha256": "ce2c760b625b32c9435bf099a39e075a4d3a0799a08ebff37ad9324c1be5ea59",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-retrieval/package.nls.json",
+      "dest": "recovered/extensions/agent/cursor-retrieval/shipped/package.nls.json",
+      "sha256": "42c6840c5eff9079e5dff56650434527b430652d74ddc72b617aa9e22b779af1",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-retrieval/schemas/package.schema.json",
+      "dest": "recovered/extensions/agent/cursor-retrieval/shipped/schemas/package.schema.json",
+      "sha256": "008f98d4c69c5251698c7f337c0b3f2c85aac75c7f4adf5d77710c71f8aa476c",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-retrieval/worker/dist/main.js",
+      "dest": "recovered/extensions/agent/cursor-retrieval/shipped/worker/dist/main.js",
+      "sha256": "7f2d0fb83874e78b836df2976028aecfa5106fe13e1ad5114d3dee2596fe5d0d",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": false
+     },
+     {
+      "source": "app/extensions/cursor-retrieval/worker/tsconfig.json",
+      "dest": "recovered/extensions/agent/cursor-retrieval/shipped/worker/tsconfig.json",
+      "sha256": "f71847fc5dbb0f610e7c28f2db7ca39cd9c23448a5cfe63b25d7dbab8447d507",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [],
+   "skippedAssets": [
+    {
+     "source": "app/extensions/cursor-retrieval/dist/main.js.LICENSE.txt",
+     "reason": "license bundle recorded in INVENTORY.json, not copied",
+     "bytes": 318
+    }
+   ]
+  },
+  {
+   "extension": "cursor-commits",
+   "sourceDir": "app/extensions/cursor-commits",
+   "outputDir": "recovered/extensions/agent/cursor-commits",
+   "package": {
+    "name": "cursor-commits",
+    "version": "0.0.1",
+    "main": "./dist/main",
+    "activationEvents": [
+     "onStartupFinished"
+    ],
+    "enabledApiProposals": [
+     "control",
+     "cursor",
+     "cursorTracing",
+     "cursorNoDeps"
+    ],
+    "contributes": {
+     "commands": 0,
+     "keybindings": 0,
+     "menus": "object"
+    }
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-commits/dist/main.js",
+      "bytes": 1632803,
+      "sha256": "093f8518d2bba92ce25a152b40a9e7490ef35d5b45f1477f49078295148101b9",
+      "webpack": true,
+      "modules": 167,
+      "keyTypes": {
+       "number": 167,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 1,
+    "modules": 167,
+    "confidence": {
+     "C": 167
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-commits/dist/main.js",
+      "format": "webpack",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 167,
+      "preludeBytes": 89,
+      "footerBytes": 917839,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 5,
+    "byteIdentical": 3,
+    "headed": 2,
+    "byBasis": {
+     "shipped-config": 4,
+     "shipped-source": 1
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-commits/package.json",
+      "dest": "recovered/extensions/agent/cursor-commits/shipped/package.json",
+      "sha256": "2fe260576825b2be548ce1e90214966bd9e49ae0d2c68a9dbc7e7dc9a0fc7d78",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-commits/worker/.gitignore",
+      "dest": "recovered/extensions/agent/cursor-commits/shipped/worker/.gitignore",
+      "sha256": "4a1feebe4572dc56f873d1d3dff590732f52700cd30f5749a52cf9299a54f415",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-commits/worker/dist/main.js",
+      "dest": "recovered/extensions/agent/cursor-commits/shipped/worker/dist/main.js",
+      "sha256": "7f2d0fb83874e78b836df2976028aecfa5106fe13e1ad5114d3dee2596fe5d0d",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": false
+     },
+     {
+      "source": "app/extensions/cursor-commits/worker/pre-compile.js",
+      "dest": "recovered/extensions/agent/cursor-commits/shipped/worker/pre-compile.js",
+      "sha256": "8cdaa96a67a2b2b66245472680c34e2d149be30497742356a115b1eee05dabee",
+      "basis": "shipped-source",
+      "confidence": "A",
+      "byteIdentical": false
+     },
+     {
+      "source": "app/extensions/cursor-commits/worker/tsconfig.json",
+      "dest": "recovered/extensions/agent/cursor-commits/shipped/worker/tsconfig.json",
+      "sha256": "f71847fc5dbb0f610e7c28f2db7ca39cd9c23448a5cfe63b25d7dbab8447d507",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [],
+   "skippedAssets": [
+    {
+     "source": "app/extensions/cursor-commits/dist/main.js.LICENSE.txt",
+     "reason": "license bundle recorded in INVENTORY.json, not copied",
+     "bytes": 157
+    }
+   ]
+  },
+  {
+   "extension": "cursor-socket",
+   "sourceDir": "app/extensions/cursor-socket",
+   "outputDir": "recovered/extensions/agent/cursor-socket",
+   "package": {
+    "name": "cursor-socket",
+    "version": "0.0.1",
+    "main": "./dist/main",
+    "activationEvents": [
+     "onResolveRemoteAuthority:background-composer",
+     "onStartupFinished"
+    ],
+    "enabledApiProposals": [
+     "cursor",
+     "cursorNoDeps"
+    ],
+    "contributes": {}
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-socket/dist/main.js",
+      "bytes": 11741,
+      "sha256": "a688d7d35ac6281849fdd4dc68958c60f88b164b8759df5a11b9eda7cfac610c",
+      "webpack": false,
+      "modules": 0,
+      "keyTypes": {
+       "number": 0,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 1,
+    "modules": 1,
+    "confidence": {
+     "C": 1
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-socket/dist/main.js",
+      "format": "esbuild-single-entry",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 1,
+      "preludeBytes": 0,
+      "footerBytes": 0,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 2,
+    "byteIdentical": 1,
+    "headed": 1,
+    "byBasis": {
+     "shipped-source": 1,
+     "shipped-config": 1
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-socket/extension.webpack.config.js",
+      "dest": "recovered/extensions/agent/cursor-socket/shipped/extension.webpack.config.js",
+      "sha256": "3dda5cc8750c0fa260e9a4ca36ca8d269501a87ce42d9dbba3dffaebad95ef9b",
+      "basis": "shipped-source",
+      "confidence": "A",
+      "byteIdentical": false
+     },
+     {
+      "source": "app/extensions/cursor-socket/package.json",
+      "dest": "recovered/extensions/agent/cursor-socket/shipped/package.json",
+      "sha256": "8b62e78178f25dfbcc5b5cac2578965364f76e7671e8e5f5fab78e775a6a8df9",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [
+    {
+     "path": "app/extensions/cursor-socket/dist/main.js",
+     "reason": "no webpack module map (worker/esbuild/asset script)",
+     "bytes": 11741
+    }
+   ],
+   "skippedAssets": []
+  },
+  {
+   "extension": "cursor-checkout",
+   "sourceDir": "app/extensions/cursor-checkout",
+   "outputDir": "recovered/extensions/agent/cursor-checkout",
+   "package": {
+    "name": "cursor-checkout",
+    "version": "0.0.1",
+    "main": "./dist/main",
+    "activationEvents": [
+     "*"
+    ],
+    "enabledApiProposals": [
+     "cursor"
+    ],
+    "contributes": {}
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-checkout/dist/main.js",
+      "bytes": 17592,
+      "sha256": "ccd8cb947c666c766f3f8588674d7351e81475ac871ccc90c095ed7e035e9e7b",
+      "webpack": false,
+      "modules": 0,
+      "keyTypes": {
+       "number": 0,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 1,
+    "modules": 1,
+    "confidence": {
+     "C": 1
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-checkout/dist/main.js",
+      "format": "esbuild-single-entry",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 1,
+      "preludeBytes": 0,
+      "footerBytes": 0,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 3,
+    "byteIdentical": 2,
+    "headed": 1,
+    "byBasis": {
+     "shipped-config": 2,
+     "shipped-source": 1
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-checkout/.gitignore",
+      "dest": "recovered/extensions/agent/cursor-checkout/shipped/.gitignore",
+      "sha256": "a888b9df89402a815bdb15d30c5280b090be11655ab4cc2299ce748d44cd6ed4",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-checkout/extension.webpack.config.js",
+      "dest": "recovered/extensions/agent/cursor-checkout/shipped/extension.webpack.config.js",
+      "sha256": "3dda5cc8750c0fa260e9a4ca36ca8d269501a87ce42d9dbba3dffaebad95ef9b",
+      "basis": "shipped-source",
+      "confidence": "A",
+      "byteIdentical": false
+     },
+     {
+      "source": "app/extensions/cursor-checkout/package.json",
+      "dest": "recovered/extensions/agent/cursor-checkout/shipped/package.json",
+      "sha256": "caba0ed347cba093be5b3f0b2514f01cc4a519d37cb1c19a817243ac9b205189",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [
+    {
+     "path": "app/extensions/cursor-checkout/dist/main.js",
+     "reason": "no webpack module map (worker/esbuild/asset script)",
+     "bytes": 17592
+    }
+   ],
+   "skippedAssets": []
+  },
+  {
+   "extension": "cursor-explorer",
+   "sourceDir": "app/extensions/cursor-explorer",
+   "outputDir": "recovered/extensions/agent/cursor-explorer",
+   "package": {
+    "name": "cursor-explorer",
+    "version": "0.0.1",
+    "main": "./dist/main",
+    "activationEvents": [
+     "onStartupFinished"
+    ],
+    "enabledApiProposals": [
+     "cursor"
+    ],
+    "contributes": {}
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-explorer/dist/main.js",
+      "bytes": 22155,
+      "sha256": "fe0739a7ec02134cead2f0a4c47cdf4da200a7c8a2848cafb3784544ead46d70",
+      "webpack": true,
+      "modules": 1,
+      "keyTypes": {
+       "number": 1,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 1,
+    "modules": 1,
+    "confidence": {
+     "C": 1
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-explorer/dist/main.js",
+      "format": "esbuild-single-entry",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 1,
+      "preludeBytes": 0,
+      "footerBytes": 0,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 1,
+    "byteIdentical": 1,
+    "headed": 0,
+    "byBasis": {
+     "shipped-config": 1
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-explorer/package.json",
+      "dest": "recovered/extensions/agent/cursor-explorer/shipped/package.json",
+      "sha256": "84b1338f7ed81205a98d0503bbe00756409c6ab1f580e7ebd8843b582ddb19cf",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [],
+   "skippedAssets": []
+  },
+  {
+   "extension": "cursor-deeplink",
+   "sourceDir": "app/extensions/cursor-deeplink",
+   "outputDir": "recovered/extensions/agent/cursor-deeplink",
+   "package": {
+    "name": "cursor-deeplink",
+    "version": "0.0.1",
+    "main": "./dist/main",
+    "activationEvents": [
+     "onStartupFinished",
+     "onUri"
+    ],
+    "enabledApiProposals": [
+     "cursor",
+     "control",
+     "externalUriOpener"
+    ],
+    "contributes": {
+     "commands": 1,
+     "commandsIds": [
+      "cursor-deeplink.debug.triggerDeeplink"
+     ]
+    }
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-deeplink/dist/main.js",
+      "bytes": 1107679,
+      "sha256": "2b0091d260814e411af8319789fee5fe8b4b75d7c27c85b905f80c4d53d995f3",
+      "webpack": true,
+      "modules": 202,
+      "keyTypes": {
+       "number": 202,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 1,
+    "modules": 202,
+    "confidence": {
+     "C": 202
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-deeplink/dist/main.js",
+      "format": "webpack",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 202,
+      "preludeBytes": 83,
+      "footerBytes": 252207,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 1,
+    "byteIdentical": 1,
+    "headed": 0,
+    "byBasis": {
+     "shipped-config": 1
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-deeplink/package.json",
+      "dest": "recovered/extensions/agent/cursor-deeplink/shipped/package.json",
+      "sha256": "e54ce97f33178c20e4847cbc502ffa0b20f1eb67a827ddb73cf372305edddf1f",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [],
+   "skippedAssets": [
+    {
+     "source": "app/extensions/cursor-deeplink/dist/main.js.LICENSE.txt",
+     "reason": "license bundle recorded in INVENTORY.json, not copied",
+     "bytes": 243
+    }
+   ]
+  },
+  {
+   "extension": "cursor-file-service",
+   "sourceDir": "app/extensions/cursor-file-service",
+   "outputDir": "recovered/extensions/agent/cursor-file-service",
+   "package": {
+    "name": "cursor-file-service",
+    "version": "1.0.0",
+    "main": null,
+    "activationEvents": [],
+    "enabledApiProposals": [],
+    "contributes": {}
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-file-service/dist/main.js",
+      "bytes": 301,
+      "sha256": "0301e18b2e39d0bcb30a0addb12f624d481026525359164eb66249a5669fea2c",
+      "webpack": false,
+      "modules": 0,
+      "keyTypes": {
+       "number": 0,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 1,
+    "modules": 1,
+    "confidence": {
+     "C": 1
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-file-service/dist/main.js",
+      "format": "esbuild-single-entry",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 1,
+      "preludeBytes": 0,
+      "footerBytes": 0,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 1,
+    "byteIdentical": 1,
+    "headed": 0,
+    "byBasis": {
+     "shipped-config": 1
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-file-service/package.json",
+      "dest": "recovered/extensions/agent/cursor-file-service/shipped/package.json",
+      "sha256": "f9612e67e37ccd4c90a72402bb57ae5158d4d82d3997d14641ed3a1a3380f2a6",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [
+    {
+     "path": "app/extensions/cursor-file-service/dist/main.js",
+     "reason": "no webpack module map (worker/esbuild/asset script)",
+     "bytes": 301
+    }
+   ],
+   "skippedAssets": []
+  },
+  {
+   "extension": "cursor-shadow-workspace",
+   "sourceDir": "app/extensions/cursor-shadow-workspace",
+   "outputDir": "recovered/extensions/agent/cursor-shadow-workspace",
+   "package": {
+    "name": "cursor-shadow-workspace",
+    "version": "1.0.0",
+    "main": "./dist/extension",
+    "activationEvents": [
+     "onStartupFinished"
+    ],
+    "enabledApiProposals": [
+     "cursor"
+    ],
+    "contributes": {
+     "commands": 0,
+     "configuration": 0
+    }
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-shadow-workspace/dist/extension.js",
+      "bytes": 1038008,
+      "sha256": "19218949e5ecc64e4c1b41e194ba40abfd54a9aeb034a14f90c71485b7f84585",
+      "webpack": true,
+      "modules": 166,
+      "keyTypes": {
+       "number": 166,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 1,
+    "modules": 166,
+    "confidence": {
+     "C": 166
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-shadow-workspace/dist/extension.js",
+      "format": "webpack",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 166,
+      "preludeBytes": 88,
+      "footerBytes": 324131,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 3,
+    "byteIdentical": 3,
+    "headed": 0,
+    "byBasis": {
+     "shipped-config": 3
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-shadow-workspace/media/icon.png",
+      "dest": "recovered/extensions/agent/cursor-shadow-workspace/shipped/media/icon.png",
+      "sha256": "75a34e7344b3673937f29ba19320fba14f88b12c87f6f52d349d826cbf8f9152",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-shadow-workspace/package.json",
+      "dest": "recovered/extensions/agent/cursor-shadow-workspace/shipped/package.json",
+      "sha256": "f5ea5e17033505ad6bf47fdf0be01295603018f99f4bf95acef8fc6d720ae97b",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-shadow-workspace/package.nls.json",
+      "dest": "recovered/extensions/agent/cursor-shadow-workspace/shipped/package.nls.json",
+      "sha256": "163bd21c4831c736ef2f07fd2157017ccae89dc2e367981d0dfaca89eb3ebad1",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [],
+   "skippedAssets": [
+    {
+     "source": "app/extensions/cursor-shadow-workspace/dist/extension.js.LICENSE.txt",
+     "reason": "license bundle recorded in INVENTORY.json, not copied",
+     "bytes": 157
+    }
+   ]
+  },
+  {
+   "extension": "cursor-polyfills-remote",
+   "sourceDir": "app/extensions/cursor-polyfills-remote",
+   "outputDir": "recovered/extensions/agent/cursor-polyfills-remote",
+   "package": {
+    "name": "cursor-polyfills-remote",
+    "version": "0.0.1",
+    "main": "./dist/main",
+    "activationEvents": [
+     "*"
+    ],
+    "enabledApiProposals": [],
+    "contributes": {}
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-polyfills-remote/dist/main.js",
+      "bytes": 174212,
+      "sha256": "0999cf8a13fa3160958b9d4467b71182f1d8936a0d2a6ca1a790aa269a98a611",
+      "webpack": true,
+      "modules": 369,
+      "keyTypes": {
+       "number": 369,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 1,
+    "modules": 369,
+    "confidence": {
+     "C": 369
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-polyfills-remote/dist/main.js",
+      "format": "webpack",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 369,
+      "preludeBytes": 37,
+      "footerBytes": 1694,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 2,
+    "byteIdentical": 1,
+    "headed": 1,
+    "byBasis": {
+     "shipped-source": 1,
+     "shipped-config": 1
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-polyfills-remote/eslint.config.cjs",
+      "dest": "recovered/extensions/agent/cursor-polyfills-remote/shipped/eslint.config.cjs",
+      "sha256": "842f9f80283f33d83bbfbe0f1d67f14ef957b678c4a3bd1f9ec5bc4711a08a6f",
+      "basis": "shipped-source",
+      "confidence": "A",
+      "byteIdentical": false
+     },
+     {
+      "source": "app/extensions/cursor-polyfills-remote/package.json",
+      "dest": "recovered/extensions/agent/cursor-polyfills-remote/shipped/package.json",
+      "sha256": "3cdb77b5389f7ccdd918b2685b3a8c603a026a078004d648be82a27d894cbf37",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [],
+   "skippedAssets": []
+  },
+  {
+   "extension": "cursor-worktree-textmate",
+   "sourceDir": "app/extensions/cursor-worktree-textmate",
+   "outputDir": "recovered/extensions/agent/cursor-worktree-textmate",
+   "package": {
+    "name": "worktree-textmate",
+    "version": "0.0.1",
+    "main": null,
+    "activationEvents": [],
+    "enabledApiProposals": [],
+    "contributes": {
+     "languages": 28,
+     "languagesIds": [
+      "worktree-typescript",
+      "worktree-typescriptreact",
+      "worktree-javascript",
+      "worktree-javascriptreact",
+      "worktree-python",
+      "worktree-go",
+      "worktree-rust",
+      "worktree-java",
+      "worktree-c",
+      "worktree-cpp",
+      "worktree-php",
+      "worktree-ruby",
+      "worktree-html",
+      "worktree-css",
+      "worktree-json",
+      "worktree-yaml",
+      "worktree-sql",
+      "worktree-swift",
+      "worktree-shellscript",
+      "worktree-protobuf",
+      "worktree-hcl",
+      "worktree-terraform",
+      "worktree-terraform-vars",
+      "worktree-terraform-stack",
+      "worktree-terraform-deploy",
+      "worktree-terraform-test",
+      "worktree-terraform-mock",
+      "worktree-terraform-search"
+     ],
+     "grammars": 28,
+     "grammarsIds": [
+      "worktree-typescript",
+      "worktree-typescriptreact",
+      "worktree-javascript",
+      "worktree-javascriptreact",
+      "worktree-python",
+      "worktree-go",
+      "worktree-rust",
+      "worktree-java",
+      "worktree-c",
+      "worktree-cpp",
+      "worktree-php",
+      "worktree-ruby",
+      "worktree-html",
+      "worktree-css",
+      "worktree-json",
+      "worktree-yaml",
+      "worktree-sql",
+      "worktree-swift",
+      "worktree-shellscript",
+      "worktree-protobuf",
+      "worktree-hcl",
+      "worktree-terraform",
+      "worktree-terraform-vars",
+      "worktree-terraform-stack",
+      "worktree-terraform-deploy",
+      "worktree-terraform-test",
+      "worktree-terraform-mock",
+      "worktree-terraform-search"
+     ],
+     "configurationDefaults": "object"
+    }
+   },
+   "dist": {
+    "artifacts": []
+   },
+   "split": {
+    "artifacts": 0,
+    "modules": 0,
+    "confidence": {},
+    "reassembly": "ok",
+    "chunks": []
+   },
+   "adopted": {
+    "files": 28,
+    "byteIdentical": 28,
+    "headed": 0,
+    "byBasis": {
+     "shipped-config": 28
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-worktree-textmate/package.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/package.json",
+      "sha256": "fe9623153ce3089dc0544a3c832d8f097fb80563b1dce0191e8b53473e57215a",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-c.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-c.tmLanguage.json",
+      "sha256": "169db3297c828151240e1393c495a0985ee76d72a667e1b3adff76a85ce251f4",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-cpp.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-cpp.tmLanguage.json",
+      "sha256": "4213e54717e3dcdfd50fc636ee297cc96aca6582045e21f88af0de8ac43c13f1",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-css.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-css.tmLanguage.json",
+      "sha256": "9d1ce6d87ccaa4a564b281101f87f8ed3b741c7cdb40f6c4854898e9557e1e88",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-go.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-go.tmLanguage.json",
+      "sha256": "5196ff7291e8a1a3ef38f5cf8d9c907446b17dfe2892b179f1331eadc270879e",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-html.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-html.tmLanguage.json",
+      "sha256": "0e85ea879623790795e5f7ef914b53fbd5491bb3c0e6bc3325d6bb0fbee8d287",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-java.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-java.tmLanguage.json",
+      "sha256": "10200e192caaf97fb9a4af4196feedd75e354b391e6135cc6c560683ab9846aa",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-javascript.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-javascript.tmLanguage.json",
+      "sha256": "df61fe79683be84cb90edc1f296d5b23d2f958bd4a16007362234ecd35025286",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-javascriptreact.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-javascriptreact.tmLanguage.json",
+      "sha256": "fba1a6ff6adb734c7bb2cc4340295d173212bee0339674f3f1d7c8d6f45443c2",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-json.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-json.tmLanguage.json",
+      "sha256": "067ce7ceb2dfcd28b82fc14e72a84da90959fe4f7276fa1dbfae9560d2539e68",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-php.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-php.tmLanguage.json",
+      "sha256": "71712ffad7eef3631a704a955fc42af4626624687d29aade6320013ce2bf8319",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-protobuf.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-protobuf.tmLanguage.json",
+      "sha256": "849cd179af4a14c28693a839c0407984e5d6a69b0f4c4460e5a131f81b52c784",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-python.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-python.tmLanguage.json",
+      "sha256": "6f8c678871a4ef46a9c607b6fa97c735210f017662511571266a5bfb90457c0a",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-ruby.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-ruby.tmLanguage.json",
+      "sha256": "60fe72a51e2a1f87731dbbf374d65704e4de5413f8b59638e45b2808ffc4f38b",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-rust.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-rust.tmLanguage.json",
+      "sha256": "9cfd84f86719dc395c99a019cc5c02788207159a26062c8cf6d89a9f2c90228a",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-shellscript.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-shellscript.tmLanguage.json",
+      "sha256": "6cf20eae250d6813a64ea02cbfb35bd4dc579ea36db5ef4048523b3090f99f81",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-sql.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-sql.tmLanguage.json",
+      "sha256": "34ce0326028c33e703694219c8b37de1eaf15d3ae9dff86b9deb18594289070f",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-swift.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-swift.tmLanguage.json",
+      "sha256": "24da571db5c071731beafb3f67ad7a28b2a0a0e5c102f17ef0c764674f751957",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform-deploy.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-terraform-deploy.tmLanguage.json",
+      "sha256": "483ff7c14b2c23004b7057ebc3378776670116b62599e60098bd7639b7f84a85",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform-mock.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-terraform-mock.tmLanguage.json",
+      "sha256": "3ab020ccbbc38c244dd9d5ed0431888ad4ecbdf64bf07aad035446129ea8f3cd",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform-search.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-terraform-search.tmLanguage.json",
+      "sha256": "bd1e9cdbd16e551364b23081b27ab2fa7d74b3fe57c7026d520ac6db83614ff7",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform-stack.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-terraform-stack.tmLanguage.json",
+      "sha256": "625e6f7635ba4597e27e79135ea509a1f32a4726398681f6b301a78bd7220bfe",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform-test.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-terraform-test.tmLanguage.json",
+      "sha256": "e7413636c0967cde1048d6edcdda1fc79c3efc87f2d79def4db5a1b563637f04",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform-vars.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-terraform-vars.tmLanguage.json",
+      "sha256": "950f68f693eee979547165ecc52ba47663f3ae8fa660f00eaf603ad0119047ce",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-terraform.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-terraform.tmLanguage.json",
+      "sha256": "712c5fadcbb4a79e5ca3e6432376822d5f0cc9f9e138a9480460f2c3d2567fa2",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-typescript.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-typescript.tmLanguage.json",
+      "sha256": "615cdbdac1b6bd127cda6347548f5d7db94936501f7f8f0bb7ecdd52d494d186",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-typescriptreact.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-typescriptreact.tmLanguage.json",
+      "sha256": "70d439627ce25c960944812a28c8db950dc1f42d545b274c81a48cf541e9db0d",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/cursor-worktree-textmate/syntaxes/worktree-yaml.tmLanguage.json",
+      "dest": "recovered/extensions/agent/cursor-worktree-textmate/shipped/syntaxes/worktree-yaml.tmLanguage.json",
+      "sha256": "b9652ffe965c890e165a674fe9e6e9c755d5d06a157bc3f0de79f46bc60017a6",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [],
+   "skippedAssets": []
+  },
+  {
+   "extension": "theme-cursor",
+   "sourceDir": "app/extensions/theme-cursor",
+   "outputDir": "recovered/extensions/agent/theme-cursor",
+   "package": {
+    "name": "cursor-themes",
+    "version": "0.0.2",
+    "main": null,
+    "activationEvents": [],
+    "enabledApiProposals": [],
+    "contributes": {
+     "themes": 7,
+     "themesIds": [
+      "./themes/cursor-dark-midnight-color-theme.json",
+      "./themes/cursor-dark-hc-color-theme.json",
+      "./themes/cursor-dark-color-theme.json",
+      "./themes/cursor-light-color-theme.json",
+      "./themes/cursor-light-colorblind-color-theme.json",
+      "./themes/cursor-dark-colorblind-color-theme.json",
+      "./themes/cursor-light-hc-color-theme.json"
+     ]
+    }
+   },
+   "dist": {
+    "artifacts": []
+   },
+   "split": {
+    "artifacts": 0,
+    "modules": 0,
+    "confidence": {},
+    "reassembly": "ok",
+    "chunks": []
+   },
+   "adopted": {
+    "files": 10,
+    "byteIdentical": 10,
+    "headed": 0,
+    "byBasis": {
+     "vendored": 2,
+     "shipped-config": 8
+    },
+    "entries": [
+     {
+      "source": "app/extensions/theme-cursor/CHANGELOG.md",
+      "dest": "recovered/extensions/agent/theme-cursor/shipped/CHANGELOG.md",
+      "sha256": "ab35c16bd105c6dcd5f6da9cacaef4b1180aea94143956d0d74a118789004871",
+      "basis": "vendored",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/theme-cursor/README.md",
+      "dest": "recovered/extensions/agent/theme-cursor/shipped/README.md",
+      "sha256": "0a51416d92a0016282d94d8f6828ff19506bfb0588c85cd1812e20c67f07da94",
+      "basis": "vendored",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/theme-cursor/package.json",
+      "dest": "recovered/extensions/agent/theme-cursor/shipped/package.json",
+      "sha256": "3f19170cba3c311e2ec8306bf93642a8c83df47d6a08d74f3810c842a7af45ab",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/theme-cursor/themes/cursor-dark-color-theme.json",
+      "dest": "recovered/extensions/agent/theme-cursor/shipped/themes/cursor-dark-color-theme.json",
+      "sha256": "117a4d53e7869b7a780468ff54db2b4ba769c4a34303377ac31f8b99d8f84727",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/theme-cursor/themes/cursor-dark-colorblind-color-theme.json",
+      "dest": "recovered/extensions/agent/theme-cursor/shipped/themes/cursor-dark-colorblind-color-theme.json",
+      "sha256": "56be1eba878945308a4ac1971d3314b6c9bb9f05ce0fd9704fdd767476063169",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/theme-cursor/themes/cursor-dark-hc-color-theme.json",
+      "dest": "recovered/extensions/agent/theme-cursor/shipped/themes/cursor-dark-hc-color-theme.json",
+      "sha256": "79cf024019623975e4dcf60b75124b448c4fdad1e8c823639b61955eecc83960",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/theme-cursor/themes/cursor-dark-midnight-color-theme.json",
+      "dest": "recovered/extensions/agent/theme-cursor/shipped/themes/cursor-dark-midnight-color-theme.json",
+      "sha256": "df7c6966eb908a4264c31362346d1e58df5cd37f3d6fa3bdb56105b98bea4810",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/theme-cursor/themes/cursor-light-color-theme.json",
+      "dest": "recovered/extensions/agent/theme-cursor/shipped/themes/cursor-light-color-theme.json",
+      "sha256": "8b0e3db44d50a7962771c5b4c2a31a59fbc43c0fd3a6f98ec2c99743f9ee2c12",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/theme-cursor/themes/cursor-light-colorblind-color-theme.json",
+      "dest": "recovered/extensions/agent/theme-cursor/shipped/themes/cursor-light-colorblind-color-theme.json",
+      "sha256": "2cd9cc7828d74ca62409a1b76d6e5d87e48275a6e9132548631e8a31726604ad",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     },
+     {
+      "source": "app/extensions/theme-cursor/themes/cursor-light-hc-color-theme.json",
+      "dest": "recovered/extensions/agent/theme-cursor/shipped/themes/cursor-light-hc-color-theme.json",
+      "sha256": "b28657448c93f3e2057f46cfe46a02ddf5cf1e953366b98b93240d2ecd081e12",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [],
+   "skippedAssets": []
+  },
+  {
+   "extension": "cursor-agent-worker",
+   "sourceDir": "app/extensions/cursor-agent-worker",
+   "outputDir": "recovered/extensions/agent/cursor-agent-worker",
+   "package": {
+    "name": "cursor-agent-worker",
+    "version": "0.0.1",
+    "main": "./dist/main",
+    "activationEvents": [
+     "onStartupFinished"
+    ],
+    "enabledApiProposals": [
+     "cursor",
+     "cursorNoDeps"
+    ],
+    "contributes": {}
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-agent-worker/dist/main.js",
+      "bytes": 2150686,
+      "sha256": "d5af94b4e40f694b81a675a0fb00fa8d060306ca064a011e953218d005b613d5",
+      "webpack": true,
+      "modules": 233,
+      "keyTypes": {
+       "number": 233,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 1,
+    "modules": 233,
+    "confidence": {
+     "C": 233
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-agent-worker/dist/main.js",
+      "format": "webpack",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 233,
+      "preludeBytes": 43,
+      "footerBytes": 1783786,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 1,
+    "byteIdentical": 1,
+    "headed": 0,
+    "byBasis": {
+     "shipped-config": 1
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-agent-worker/package.json",
+      "dest": "recovered/extensions/agent/cursor-agent-worker/shipped/package.json",
+      "sha256": "e7935eec802f471ae9187e559c0982ccde65f37618aa52e2ee024b85121bd40f",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [],
+   "skippedAssets": []
+  },
+  {
+   "extension": "cursor-browser-automation",
+   "sourceDir": "app/extensions/cursor-browser-automation",
+   "outputDir": "recovered/extensions/agent/cursor-browser-automation",
+   "package": {
+    "name": "cursor-browser-automation",
+    "version": "1.0.0",
+    "main": "./dist/extension.js",
+    "activationEvents": [
+     "onStartupFinished"
+    ],
+    "enabledApiProposals": [
+     "control",
+     "cursor",
+     "cursorTracing"
+    ],
+    "contributes": {}
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-browser-automation/dist/273.js",
+      "bytes": 96804,
+      "sha256": "ab64b3e34dc97e1e5c85ecdaec9168b4137705ddedfa3c341bca35d6a42d36bc",
+      "webpack": true,
+      "modules": 26,
+      "keyTypes": {
+       "number": 26,
+       "string": 0
+      }
+     },
+     {
+      "path": "app/extensions/cursor-browser-automation/dist/46.js",
+      "bytes": 95335,
+      "sha256": "fc05f1652974ecd3fede58b9a6df92a390fecabe8af377b8fa1b79343228160a",
+      "webpack": false,
+      "modules": 0,
+      "keyTypes": {
+       "number": 0,
+       "string": 0
+      }
+     },
+     {
+      "path": "app/extensions/cursor-browser-automation/dist/502.js",
+      "bytes": 32560,
+      "sha256": "c28372b4fe3243bd806f91851857b61a3514cba956e2181fd3b34cdcf2e08f40",
+      "webpack": false,
+      "modules": 0,
+      "keyTypes": {
+       "number": 0,
+       "string": 0
+      }
+     },
+     {
+      "path": "app/extensions/cursor-browser-automation/dist/621.js",
+      "bytes": 40994,
+      "sha256": "e9bb25f91552aa3941ca867b7b4cdab4bd66cafb53676ea785ebd99f7ae01a99",
+      "webpack": false,
+      "modules": 0,
+      "keyTypes": {
+       "number": 0,
+       "string": 0
+      }
+     },
+     {
+      "path": "app/extensions/cursor-browser-automation/dist/691.js",
+      "bytes": 17637,
+      "sha256": "8055a883079f749d8473db81ef3a6f55f61961d8d578d425ad0e60812eb086f5",
+      "webpack": true,
+      "modules": 1,
+      "keyTypes": {
+       "number": 1,
+       "string": 0
+      }
+     },
+     {
+      "path": "app/extensions/cursor-browser-automation/dist/716.js",
+      "bytes": 22268,
+      "sha256": "96d288223926354946d5f96ab226d901d776ba8204642a2bc887977837880e89",
+      "webpack": true,
+      "modules": 1,
+      "keyTypes": {
+       "number": 1,
+       "string": 0
+      }
+     },
+     {
+      "path": "app/extensions/cursor-browser-automation/dist/746.js",
+      "bytes": 72421,
+      "sha256": "cd76df42c575a3b1450a5f2711bab85d4f036cf9dbeaa8179fdc26a785e55817",
+      "webpack": false,
+      "modules": 0,
+      "keyTypes": {
+       "number": 0,
+       "string": 0
+      }
+     },
+     {
+      "path": "app/extensions/cursor-browser-automation/dist/853.js",
+      "bytes": 15412,
+      "sha256": "1119ddb33768801f5f2bcce7edebbdccc3a5aa6e9616a4262a7fd132f755f2d4",
+      "webpack": false,
+      "modules": 0,
+      "keyTypes": {
+       "number": 0,
+       "string": 0
+      }
+     },
+     {
+      "path": "app/extensions/cursor-browser-automation/dist/928.js",
+      "bytes": 172902,
+      "sha256": "e04ed350b40bd579ab3a39967750106d673508f05e9f3a77bfeb2f4eca08d90f",
+      "webpack": true,
+      "modules": 18,
+      "keyTypes": {
+       "number": 18,
+       "string": 0
+      }
+     },
+     {
+      "path": "app/extensions/cursor-browser-automation/dist/extension.js",
+      "bytes": 228737,
+      "sha256": "0a3202863659a069dfa60ac7cf5aa5e2ce58efc5f5c37049b70028c987815a54",
+      "webpack": true,
+      "modules": 6,
+      "keyTypes": {
+       "number": 6,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 10,
+    "modules": 57,
+    "confidence": {
+     "C": 57
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-browser-automation/dist/273.js",
+      "format": "webpack",
+      "chunk": "chunk-273",
+      "chunkId": 273,
+      "modules": 26,
+      "preludeBytes": 120,
+      "footerBytes": 3,
+      "reassembly": "ok"
+     },
+     {
+      "artifact": "app/extensions/cursor-browser-automation/dist/46.js",
+      "format": "esbuild-single-entry",
+      "chunk": "chunk-46",
+      "chunkId": 46,
+      "modules": 1,
+      "preludeBytes": 0,
+      "footerBytes": 0,
+      "reassembly": "ok"
+     },
+     {
+      "artifact": "app/extensions/cursor-browser-automation/dist/502.js",
+      "format": "esbuild-single-entry",
+      "chunk": "chunk-502",
+      "chunkId": 502,
+      "modules": 1,
+      "preludeBytes": 0,
+      "footerBytes": 0,
+      "reassembly": "ok"
+     },
+     {
+      "artifact": "app/extensions/cursor-browser-automation/dist/621.js",
+      "format": "esbuild-single-entry",
+      "chunk": "chunk-621",
+      "chunkId": 621,
+      "modules": 1,
+      "preludeBytes": 0,
+      "footerBytes": 0,
+      "reassembly": "ok"
+     },
+     {
+      "artifact": "app/extensions/cursor-browser-automation/dist/691.js",
+      "format": "webpack",
+      "chunk": "chunk-691",
+      "chunkId": 691,
+      "modules": 1,
+      "preludeBytes": 73,
+      "footerBytes": 3,
+      "reassembly": "ok"
+     },
+     {
+      "artifact": "app/extensions/cursor-browser-automation/dist/716.js",
+      "format": "webpack",
+      "chunk": "chunk-716",
+      "chunkId": 716,
+      "modules": 1,
+      "preludeBytes": 73,
+      "footerBytes": 8234,
+      "reassembly": "ok"
+     },
+     {
+      "artifact": "app/extensions/cursor-browser-automation/dist/746.js",
+      "format": "esbuild-single-entry",
+      "chunk": "chunk-746",
+      "chunkId": 746,
+      "modules": 1,
+      "preludeBytes": 0,
+      "footerBytes": 0,
+      "reassembly": "ok"
+     },
+     {
+      "artifact": "app/extensions/cursor-browser-automation/dist/853.js",
+      "format": "esbuild-single-entry",
+      "chunk": "chunk-853",
+      "chunkId": 853,
+      "modules": 1,
+      "preludeBytes": 0,
+      "footerBytes": 0,
+      "reassembly": "ok"
+     },
+     {
+      "artifact": "app/extensions/cursor-browser-automation/dist/928.js",
+      "format": "webpack",
+      "chunk": "chunk-928",
+      "chunkId": 928,
+      "modules": 18,
+      "preludeBytes": 59,
+      "footerBytes": 3,
+      "reassembly": "ok"
+     },
+     {
+      "artifact": "app/extensions/cursor-browser-automation/dist/extension.js",
+      "format": "webpack",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 6,
+      "preludeBytes": 40,
+      "footerBytes": 228365,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 1,
+    "byteIdentical": 1,
+    "headed": 0,
+    "byBasis": {
+     "shipped-config": 1
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-browser-automation/package.json",
+      "dest": "recovered/extensions/agent/cursor-browser-automation/shipped/package.json",
+      "sha256": "286a043c03d8093cd708c765dffb773f562541ecb0a3a4f9505dfb3f7a6ddf29",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [
+    {
+     "path": "app/extensions/cursor-browser-automation/dist/46.js",
+     "reason": "no webpack module map (worker/esbuild/asset script)",
+     "bytes": 95335
+    },
+    {
+     "path": "app/extensions/cursor-browser-automation/dist/502.js",
+     "reason": "no webpack module map (worker/esbuild/asset script)",
+     "bytes": 32560
+    },
+    {
+     "path": "app/extensions/cursor-browser-automation/dist/621.js",
+     "reason": "no webpack module map (worker/esbuild/asset script)",
+     "bytes": 40994
+    },
+    {
+     "path": "app/extensions/cursor-browser-automation/dist/746.js",
+     "reason": "no webpack module map (worker/esbuild/asset script)",
+     "bytes": 72421
+    },
+    {
+     "path": "app/extensions/cursor-browser-automation/dist/853.js",
+     "reason": "no webpack module map (worker/esbuild/asset script)",
+     "bytes": 15412
+    }
+   ],
+   "skippedAssets": [
+    {
+     "source": "app/extensions/cursor-browser-automation/dist/273.js.LICENSE.txt",
+     "reason": "license bundle recorded in INVENTORY.json, not copied",
+     "bytes": 90
+    },
+    {
+     "source": "app/extensions/cursor-browser-automation/dist/46.js.LICENSE.txt",
+     "reason": "license bundle recorded in INVENTORY.json, not copied",
+     "bytes": 5612
+    }
+   ]
+  },
+  {
+   "extension": "cursor-ndjson-ingest",
+   "sourceDir": "app/extensions/cursor-ndjson-ingest",
+   "outputDir": "recovered/extensions/agent/cursor-ndjson-ingest",
+   "package": {
+    "name": "cursor-ndjson-ingest",
+    "version": "0.0.1",
+    "main": "./dist/main",
+    "activationEvents": [
+     "onCommand:cursor.ndjsonIngest.start",
+     "onCommand:cursor.ndjsonIngest.reassignPort"
+    ],
+    "enabledApiProposals": [],
+    "contributes": {
+     "commands": 5,
+     "commandsIds": [
+      "cursor.ndjsonIngest.start",
+      "cursor.ndjsonIngest.stop",
+      "cursor.ndjsonIngest.copyCurl",
+      "cursor.ndjsonIngest.reassignPort",
+      "cursor.ndjsonIngest.showStatus"
+     ],
+     "configuration": 2,
+     "configurationKeys": [
+      "ndjson.port",
+      "ndjson.bindAddress"
+     ]
+    }
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-ndjson-ingest/dist/main.js",
+      "bytes": 21435,
+      "sha256": "c20522000288197a1017b7169f8d5c503fe24f6cafe518222b9f24bea4fea3dc",
+      "webpack": true,
+      "modules": 7,
+      "keyTypes": {
+       "number": 7,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 1,
+    "modules": 7,
+    "confidence": {
+     "C": 7
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-ndjson-ingest/dist/main.js",
+      "format": "webpack",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 7,
+      "preludeBytes": 37,
+      "footerBytes": 760,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 1,
+    "byteIdentical": 1,
+    "headed": 0,
+    "byBasis": {
+     "shipped-config": 1
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-ndjson-ingest/package.json",
+      "dest": "recovered/extensions/agent/cursor-ndjson-ingest/shipped/package.json",
+      "sha256": "3884bf40eed7fb8ded86bd0f18df575d23d990fba47a78c3221ab9535b946325",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [],
+   "skippedAssets": []
+  },
+  {
+   "extension": "cursor-resolver-helper",
+   "sourceDir": "app/extensions/cursor-resolver-helper",
+   "outputDir": "recovered/extensions/agent/cursor-resolver-helper",
+   "package": {
+    "name": "cursor-resolver-helper",
+    "version": "0.0.1",
+    "main": "./dist/main",
+    "activationEvents": [
+     "onResolveRemoteAuthority:background-composer",
+     "onStartupFinished"
+    ],
+    "enabledApiProposals": [
+     "cursor",
+     "cursorNoDeps"
+    ],
+    "contributes": {}
+   },
+   "dist": {
+    "artifacts": [
+     {
+      "path": "app/extensions/cursor-resolver-helper/dist/main.js",
+      "bytes": 1071166,
+      "sha256": "0eb6078f0829c93d9374e39385fef22eabf7657a05c3cdf5bf316d9dbcf5ad0e",
+      "webpack": true,
+      "modules": 49,
+      "keyTypes": {
+       "number": 49,
+       "string": 0
+      }
+     }
+    ]
+   },
+   "split": {
+    "artifacts": 1,
+    "modules": 49,
+    "confidence": {
+     "C": 49
+    },
+    "reassembly": "ok",
+    "chunks": [
+     {
+      "artifact": "app/extensions/cursor-resolver-helper/dist/main.js",
+      "format": "webpack",
+      "chunk": "main",
+      "chunkId": null,
+      "modules": 49,
+      "preludeBytes": 37,
+      "footerBytes": 858279,
+      "reassembly": "ok"
+     }
+    ]
+   },
+   "adopted": {
+    "files": 1,
+    "byteIdentical": 1,
+    "headed": 0,
+    "byBasis": {
+     "shipped-config": 1
+    },
+    "entries": [
+     {
+      "source": "app/extensions/cursor-resolver-helper/package.json",
+      "dest": "recovered/extensions/agent/cursor-resolver-helper/shipped/package.json",
+      "sha256": "39f5be4c41f75f85f301b845a6ce47a3535d67b50ecd2a12dd7c64b69549651d",
+      "basis": "shipped-config",
+      "confidence": "A",
+      "byteIdentical": true
+     }
+    ]
+   },
+   "unresolved": [],
+   "skippedAssets": []
+  }
+ ]
+}

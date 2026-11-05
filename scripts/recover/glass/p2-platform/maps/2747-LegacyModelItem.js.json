@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2747",
+  "basename": "LegacyModelItem.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "declared esbuild wrapper init for module \"LegacyModelItem.js\"; synthetic module-scope name derived from basename (wrapper key is exact)",
+  "renames": {
+    "Glp": "LegacyModelItemModule"
+  },
+  "file": "recovered/app/glass/platform/LegacyModelItem.js"
+}

@@ -1,0 +1,21 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2375",
+  "basename": "ShellToolCallView.js",
+  "source": "recovered/app/glass/composer/ShellToolCallView.js",
+  "renames": {
+    "N4": "ModelPickerMarkdown"
+  },
+  "evidence": [
+    {
+      "from": "N4",
+      "to": "ModelPickerMarkdown",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "ModelPickerMarkdown.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

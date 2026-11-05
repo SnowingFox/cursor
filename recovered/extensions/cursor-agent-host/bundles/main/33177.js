@@ -1,0 +1,12 @@
+// @recovered-by cursor-re
+// artifact: app/extensions/cursor-agent-host/dist/main.js sha256:9d478dff35f72f6b3ed85b33f2c4a15c12b41b4e3d42247ecc8ce4981e9308bb
+// module: 33177 range:6588740..6590861
+// basis: webpack-id confidence: C
+// method: split
+// run: ext-p0 2026-11-05T10:07:22.069Z
+33177: (e, t, r) => {
+    "use strict";
+    r.r(t), r.d(t, { ChatService: () => i, ReplayChatService: () => a });
+    var n = r(50464), s = r(36038), o = r(82537);
+    const i = { typeName: "aiserver.v1.ChatService", methods: { streamUnifiedChat: { name: "StreamUnifiedChat", I: n.w1, O: n.QX, kind: s.MethodKind.ServerStreaming }, streamUnifiedChatWithTools: { name: "StreamUnifiedChatWithTools", I: n.jc, O: n.pV, kind: s.MethodKind.BiDiStreaming }, streamUnifiedChatWithToolsSSE: { name: "StreamUnifiedChatWithToolsSSE", I: o.BidiRequestId, O: n.pV, kind: s.MethodKind.ServerStreaming }, streamUnifiedChatWithToolsPoll: { name: "StreamUnifiedChatWithToolsPoll", I: o.BidiPollRequest, O: o.BidiPollResponse, kind: s.MethodKind.ServerStreaming }, streamUnifiedChatWithToolsIdempotent: { name: "StreamUnifiedChatWithToolsIdempotent", I: n.Wu, O: n.gr, kind: s.MethodKind.BiDiStreaming }, streamUnifiedChatWithToolsIdempotentSSE: { name: "StreamUnifiedChatWithToolsIdempotentSSE", I: o.BidiRequestId, O: n.gr, kind: s.MethodKind.ServerStreaming }, streamUnifiedChatWithToolsIdempotentPoll: { name: "StreamUnifiedChatWithToolsIdempotentPoll", I: o.BidiPollRequest, O: o.BidiPollResponse, kind: s.MethodKind.ServerStreaming }, getConversationSummary: { name: "GetConversationSummary", I: n.w1, O: n.KR, kind: s.MethodKind.Unary }, streamSpeculativeSummaries: { name: "StreamSpeculativeSummaries", I: n.w1, O: n.KR, kind: s.MethodKind.ServerStreaming }, warmStreamUnifiedChatWithTools: { name: "WarmStreamUnifiedChatWithTools", I: n.w1, O: n.oP, kind: s.MethodKind.Unary }, getPromptDryRun: { name: "GetPromptDryRun", I: n.w1, O: n.K4, kind: s.MethodKind.Unary }, streamFullFileCmdK: { name: "StreamFullFileCmdK", I: n.w1, O: n.pV, kind: s.MethodKind.ServerStreaming }, warmFullFileCmdK: { name: "WarmFullFileCmdK", I: n.w1, O: n.oP, kind: s.MethodKind.Unary }, convertOALToNAL: { name: "ConvertOALToNAL", I: n.Db, O: n.xb, kind: s.MethodKind.Unary } } }, a = { typeName: "aiserver.v1.ReplayChatService", methods: { streamReplayChat: { name: "StreamReplayChat", I: n.fN, O: n.pV, kind: s.MethodKind.ServerStreaming } } };
+  }

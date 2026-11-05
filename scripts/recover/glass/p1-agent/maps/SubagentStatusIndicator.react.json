@@ -1,0 +1,12 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7563",
+  "basename": "SubagentStatusIndicator.react.js",
+  "file": "recovered/app/glass/agent/SubagentStatusIndicator.react.js",
+  "renames": {
+    "KDs": "SubagentStatusIndicatorModule"
+  },
+  "notes": [
+    "KDs -> SubagentStatusIndicatorModule: declared wrapper binding, evidence: esbuild init key \"SubagentStatusIndicator.react.js\"",
+    "component rename skipped: 3 JSX-returning functions (pV0, rBv, fV0)"
+  ]
+}

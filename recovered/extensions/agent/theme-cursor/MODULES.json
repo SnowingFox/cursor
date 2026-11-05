@@ -1,0 +1,13 @@
+{
+ "extension": "theme-cursor",
+ "generatedAt": "2026-11-05T10:20:08.356Z",
+ "sourceDir": "app/extensions/theme-cursor",
+ "artifacts": [],
+ "skipped": [],
+ "totals": {
+  "artifacts": 0,
+  "modules": 0,
+  "confidence": {},
+  "reassembly": "ok"
+ }
+}

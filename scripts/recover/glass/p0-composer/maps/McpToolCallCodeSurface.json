@@ -1,0 +1,21 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2398",
+  "basename": "McpToolCallCodeSurface.js",
+  "source": "recovered/app/glass/composer/McpToolCallCodeSurface.js",
+  "renames": {
+    "iKh": "McpToolCallDetails"
+  },
+  "evidence": [
+    {
+      "from": "iKh",
+      "to": "McpToolCallDetails",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "McpToolCallDetails.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

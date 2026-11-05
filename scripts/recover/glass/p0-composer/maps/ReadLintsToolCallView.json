@@ -1,0 +1,28 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2417",
+  "basename": "ReadLintsToolCallView.js",
+  "source": "recovered/app/glass/composer/ReadLintsToolCallView.js",
+  "renames": {
+    "FNS": "readLintsToolCallViewModuleInit",
+    "UNS": "SemSearchToolCallView"
+  },
+  "evidence": [
+    {
+      "from": "FNS",
+      "to": "readLintsToolCallViewModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    },
+    {
+      "from": "UNS",
+      "to": "SemSearchToolCallView",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "SemSearchToolCallView.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

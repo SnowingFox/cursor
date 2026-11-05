@@ -1,0 +1,80 @@
+// @recovered-by cursor-re
+// artifact: app/extensions/cursor-local-agent-runtime/dist/main.js sha256:be87ea0ed3ac86375ab8e5f92c4261df0ccfc61ff24b07420f9c88a78ae2cfd0
+// module: 75822 range:7246304..7249671
+// basis: webpack-id confidence: C
+// method: split
+// run: ext-p0 2026-11-05T10:07:22.069Z
+75822: (e, t) => {
+    "use strict";
+    function r(e2, r2) {
+      const n2 = o(e2);
+      return r2 ? n2 : (0, t.safeObjectProperty)(c(n2));
+    }
+    function n(e2) {
+      return r(e2, false);
+    }
+    function o(e2) {
+      let t2 = false;
+      const r2 = [];
+      for (let n2 = 0; n2 < e2.length; n2++) {
+        let o2 = e2.charAt(n2);
+        switch (o2) {
+          case "_":
+            t2 = true;
+            break;
+          case "0":
+          case "1":
+          case "2":
+          case "3":
+          case "4":
+          case "5":
+          case "6":
+          case "7":
+          case "8":
+          case "9":
+            r2.push(o2), t2 = false;
+            break;
+          default:
+            t2 && (t2 = false, o2 = o2.toUpperCase()), r2.push(o2);
+        }
+      }
+      return r2.join("");
+    }
+    Object.defineProperty(t, "__esModule", { value: true }), t.safeIdentifier = t.safeObjectProperty = t.findEnumSharedPrefix = t.fieldJsonName = t.localOneofName = t.localFieldName = t.localName = void 0, t.localName = function(e2) {
+      switch (e2.kind) {
+        case "field":
+          return r(e2.name, void 0 !== e2.oneof);
+        case "oneof":
+          return n(e2.name);
+        case "enum":
+        case "message":
+        case "service":
+        case "extension": {
+          const r2 = e2.file.proto.package, n2 = void 0 === r2 ? 0 : r2.length + 1, o2 = e2.typeName.substring(n2).replace(/\./g, "_");
+          return (0, t.safeObjectProperty)((0, t.safeIdentifier)(o2));
+        }
+        case "enum_value": {
+          let r2 = e2.name;
+          const n2 = e2.parent.sharedPrefix;
+          return void 0 !== n2 && (r2 = r2.substring(n2.length)), (0, t.safeObjectProperty)(r2);
+        }
+        case "rpc": {
+          let r2 = e2.name;
+          return 0 == r2.length ? r2 : (r2 = r2[0].toLowerCase() + r2.substring(1), (0, t.safeObjectProperty)(r2));
+        }
+      }
+    }, t.localFieldName = r, t.localOneofName = n, t.fieldJsonName = o, t.findEnumSharedPrefix = function(e2, t2) {
+      const r2 = ((n2 = e2).substring(0, 1) + n2.substring(1).replace(/[A-Z]/g, (e3) => "_" + e3)).toLowerCase() + "_";
+      var n2;
+      for (const e3 of t2) {
+        if (!e3.toLowerCase().startsWith(r2)) return;
+        const t3 = e3.substring(r2.length);
+        if (0 == t3.length) return;
+        if (/^\d/.test(t3)) return;
+      }
+      return r2;
+    };
+    const s = /* @__PURE__ */ new Set(["break", "case", "catch", "class", "const", "continue", "debugger", "default", "delete", "do", "else", "export", "extends", "false", "finally", "for", "function", "if", "import", "in", "instanceof", "new", "null", "return", "super", "switch", "this", "throw", "true", "try", "typeof", "var", "void", "while", "with", "yield", "enum", "implements", "interface", "let", "package", "private", "protected", "public", "static", "Object", "bigint", "number", "boolean", "string", "object", "globalThis", "Uint8Array", "Partial"]), i = /* @__PURE__ */ new Set(["constructor", "toString", "toJSON", "valueOf"]), a = /* @__PURE__ */ new Set(["getType", "clone", "equals", "fromBinary", "fromJson", "fromJsonString", "toBinary", "toJson", "toJsonString", "toObject"]), l = (e2) => `${e2}$`, c = (e2) => a.has(e2) ? l(e2) : e2;
+    t.safeObjectProperty = (e2) => i.has(e2) ? l(e2) : e2;
+    t.safeIdentifier = (e2) => s.has(e2) ? l(e2) : e2;
+  }

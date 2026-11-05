@@ -1,0 +1,97 @@
+{
+ "extension": "cursor-commits",
+ "generatedAt": "2026-11-05T10:17:16.559Z",
+ "sourceDir": "app/extensions/cursor-commits",
+ "package": {
+  "name": "cursor-commits",
+  "version": "0.0.1",
+  "main": "./dist/main",
+  "activationEvents": [
+   "onStartupFinished"
+  ],
+  "enabledApiProposals": [
+   "control",
+   "cursor",
+   "cursorTracing",
+   "cursorNoDeps"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "contributes": {
+   "commands": 0,
+   "keybindings": 0,
+   "menus": "object"
+  },
+  "scripts": {}
+ },
+ "distArtifacts": [
+  {
+   "path": "app/extensions/cursor-commits/dist/main.js",
+   "bytes": 1632803,
+   "sha256": "093f8518d2bba92ce25a152b40a9e7490ef35d5b45f1477f49078295148101b9",
+   "webpack": true,
+   "modules": 167,
+   "keyTypes": {
+    "number": 167,
+    "string": 0
+   },
+   "chunkId": null,
+   "entry": true
+  }
+ ],
+ "shippedFiles": [
+  {
+   "path": "app/extensions/cursor-commits/dist/main.js.LICENSE.txt",
+   "bytes": 157,
+   "sha256": "61a820909372707238aa36a3c251159fc1630658d7f74382b2ae6bdb56502afd",
+   "category": "license",
+   "copy": false
+  },
+  {
+   "path": "app/extensions/cursor-commits/package.json",
+   "bytes": 569,
+   "sha256": "2fe260576825b2be548ce1e90214966bd9e49ae0d2c68a9dbc7e7dc9a0fc7d78",
+   "category": "manifest",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-commits/worker/.gitignore",
+   "bytes": 6,
+   "sha256": "4a1feebe4572dc56f873d1d3dff590732f52700cd30f5749a52cf9299a54f415",
+   "category": "build-extra",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-commits/worker/dist/main.js",
+   "bytes": 323963,
+   "sha256": "7f2d0fb83874e78b836df2976028aecfa5106fe13e1ad5114d3dee2596fe5d0d",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-commits/worker/pre-compile.js",
+   "bytes": 4815,
+   "sha256": "8cdaa96a67a2b2b66245472680c34e2d149be30497742356a115b1eee05dabee",
+   "category": "config",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-commits/worker/tsconfig.json",
+   "bytes": 614,
+   "sha256": "f71847fc5dbb0f610e7c28f2db7ca39cd9c23448a5cfe63b25d7dbab8447d507",
+   "category": "tsconfig",
+   "copy": true
+  }
+ ],
+ "thirdPartyAssets": [],
+ "unresolved": [],
+ "totals": {
+  "bytes": 1962927,
+  "distBytes": 1632803,
+  "distArtifacts": 1,
+  "webpackArtifacts": 1,
+  "webpackModules": 167,
+  "shippedFiles": 6
+ }
+}

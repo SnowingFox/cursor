@@ -1,0 +1,28 @@
+{
+ "extension": "cursor-agent-worker",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-agent-worker",
+ "files": [
+  {
+   "source": "app/extensions/cursor-agent-worker/package.json",
+   "dest": "recovered/extensions/agent/cursor-agent-worker/shipped/package.json",
+   "bytes": 426,
+   "sha256": "e7935eec802f471ae9187e559c0982ccde65f37618aa52e2ee024b85121bd40f",
+   "emittedSha256": "e7935eec802f471ae9187e559c0982ccde65f37618aa52e2ee024b85121bd40f",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [],
+ "totals": {
+  "files": 1,
+  "bytes": 426,
+  "byteIdentical": 1,
+  "headed": 0,
+  "skipped": 0
+ }
+}

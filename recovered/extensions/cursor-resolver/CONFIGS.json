@@ -1,0 +1,35 @@
+{
+ "generatedAt": "2026-11-05T10:09:31.841Z",
+ "run": "ext-p0",
+ "extension": "cursor-resolver",
+ "adopted": [
+  {
+   "path": "package.json",
+   "artifact": "app/extensions/cursor-resolver/package.json",
+   "sha256": "569c307ea4aecfb01a4d8a9f998f340739d3c04fe09ce7ca2a2b0f5f964a03c0",
+   "bytes": 717,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  },
+  {
+   "path": "extension-browser.webpack.config.js",
+   "artifact": "app/extensions/cursor-resolver/extension-browser.webpack.config.js",
+   "sha256": "d58241107d79d365b6bd7c4092e65a0e4a6f99c37958f5a5836c39e1ba5e5564",
+   "bytes": 840,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "rewrite-bufbuild-loader.js",
+   "artifact": "app/extensions/cursor-resolver/rewrite-bufbuild-loader.js",
+   "sha256": "7e45d03bb993bd6f75798f6dde4bc3f0c8b3865ab0baa0f2879a312f465e4b75",
+   "bytes": 203,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  }
+ ],
+ "note": "JSON files are byte-identical to the artifact; text files carry a provenance header. Verify sha256 against app/extensions/<extension>/<path> after stripping the header."
+}

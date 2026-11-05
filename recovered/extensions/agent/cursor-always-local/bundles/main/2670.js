@@ -1,0 +1,12 @@
+// @recovered-by cursor-re
+// artifact: app/extensions/cursor-always-local/dist/main.js sha256:14fb2d0e360d81a024b4ec605f417e030e19b30b2df99bc45648aa227060534e
+// module: 2670 range:715048..717247
+// basis: webpack-id confidence: C
+// method: split
+// run: ext-agent 2026-11-05T10:20:08.356Z
+2670: (t2, e2, r2) => {
+    "use strict";
+    r2.r(e2), r2.d(e2, { ChatRequestEventService: () => m, MetricsService: () => i2, PerformanceEventService: () => o2, ProfilingService: () => a, ToolCallEventService: () => l, TraceService: () => c, WebProfilingService: () => u });
+    var n2 = r2(1840), s2 = r2(6038);
+    const i2 = { typeName: "aiserver.v1.MetricsService", methods: { reportIncrement: { name: "ReportIncrement", I: n2.ReportMetricsRequest, O: n2.ReportMetricsResponse, kind: s2.MethodKind.Unary }, reportDecrement: { name: "ReportDecrement", I: n2.ReportMetricsRequest, O: n2.ReportMetricsResponse, kind: s2.MethodKind.Unary }, reportDistribution: { name: "ReportDistribution", I: n2.ReportMetricsRequest, O: n2.ReportMetricsResponse, kind: s2.MethodKind.Unary }, reportGauge: { name: "ReportGauge", I: n2.ReportMetricsRequest, O: n2.ReportMetricsResponse, kind: s2.MethodKind.Unary } } }, o2 = { typeName: "aiserver.v1.PerformanceEventService", methods: { submitPerformanceEvents: { name: "SubmitPerformanceEvents", I: n2.SubmitPerformanceEventsRequest, O: n2.SubmitPerformanceEventsResponse, kind: s2.MethodKind.Unary } } }, a = { typeName: "aiserver.v1.ProfilingService", methods: { submitProfile: { name: "SubmitProfile", I: n2.SubmitProfileRequest, O: n2.SubmitProfileResponse, kind: s2.MethodKind.Unary } } }, u = { typeName: "aiserver.v1.WebProfilingService", methods: { submitInteractionWindow: { name: "SubmitInteractionWindow", I: n2.SubmitInteractionWindowRequest, O: n2.SubmitInteractionWindowResponse, kind: s2.MethodKind.Unary } } }, c = { typeName: "aiserver.v1.TraceService", methods: { submitSpans: { name: "SubmitSpans", I: n2.SubmitSpansRequest, O: n2.SubmitSpansResponse, kind: s2.MethodKind.Unary } } }, l = { typeName: "aiserver.v1.ToolCallEventService", methods: { submitToolCallEvents: { name: "SubmitToolCallEvents", I: n2.SubmitToolCallEventsRequest, O: n2.SubmitToolCallEventsResponse, kind: s2.MethodKind.Unary } } }, m = { typeName: "aiserver.v1.ChatRequestEventService", methods: { submitChatRequestEvents: { name: "SubmitChatRequestEvents", I: n2.SubmitChatRequestEventsRequest, O: n2.SubmitChatRequestEventsResponse, kind: s2.MethodKind.Unary } } };
+  }

@@ -1,0 +1,54 @@
+{
+ "extension": "cursor-checkout",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-checkout",
+ "files": [
+  {
+   "source": "app/extensions/cursor-checkout/.gitignore",
+   "dest": "recovered/extensions/agent/cursor-checkout/shipped/.gitignore",
+   "bytes": 5,
+   "sha256": "a888b9df89402a815bdb15d30c5280b090be11655ab4cc2299ce748d44cd6ed4",
+   "emittedSha256": "a888b9df89402a815bdb15d30c5280b090be11655ab4cc2299ce748d44cd6ed4",
+   "byteIdentical": true,
+   "category": "build-extra",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-checkout/extension.webpack.config.js",
+   "dest": "recovered/extensions/agent/cursor-checkout/shipped/extension.webpack.config.js",
+   "bytes": 171,
+   "sha256": "3dda5cc8750c0fa260e9a4ca36ca8d269501a87ce42d9dbba3dffaebad95ef9b",
+   "emittedSha256": "d5e41c67e1c75af1a5e4c5e55190f930144b33e2498baeb19b785656c592da94",
+   "byteIdentical": false,
+   "category": "config",
+   "basis": "shipped-source",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "provenance header added; body proven lossless by sha256"
+  },
+  {
+   "source": "app/extensions/cursor-checkout/package.json",
+   "dest": "recovered/extensions/agent/cursor-checkout/shipped/package.json",
+   "bytes": 310,
+   "sha256": "caba0ed347cba093be5b3f0b2514f01cc4a519d37cb1c19a817243ac9b205189",
+   "emittedSha256": "caba0ed347cba093be5b3f0b2514f01cc4a519d37cb1c19a817243ac9b205189",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [],
+ "totals": {
+  "files": 3,
+  "bytes": 486,
+  "byteIdentical": 2,
+  "headed": 1,
+  "skipped": 0
+ }
+}
