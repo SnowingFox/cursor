@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-11-05T10:21:01.717Z",
+  "pass": true,
+  "counts": {
+    "total": 281,
+    "emitted": 281,
+    "renamedModules": 53,
+    "renamedIdentifiers": 70,
+    "exactPaths": 2,
+    "nullPaths": 279,
+    "parseable": 88,
+    "unparseable": 193,
+    "confidenceB": 2,
+    "confidenceC": 279
+  },
+  "byteExactUntouched": 228,
+  "astEquivalentRenamed": 53,
+  "blocked": {
+    "unparseableFragments": 193,
+    "reason": "truncated at next wrapper; apply-map cannot certify AST equivalence"
+  }
+}

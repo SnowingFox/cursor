@@ -1,0 +1,21 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2442",
+  "basename": "AgentTranscriptConnectScmCard.js",
+  "source": "recovered/app/glass/composer/AgentTranscriptConnectScmCard.js",
+  "renames": {
+    "k1n": "CollapsibleContent"
+  },
+  "evidence": [
+    {
+      "from": "k1n",
+      "to": "CollapsibleContent",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "CollapsibleContent.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

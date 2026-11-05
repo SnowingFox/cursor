@@ -1,0 +1,20 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5901",
+  "basename": "ComposerPlanExecutionRow.react.js",
+  "source": "recovered/app/glass/composer/ComposerPlanExecutionRow.react.js",
+  "renames": {
+    "q3f": "composerPlanExecutionRowModuleInit"
+  },
+  "evidence": [
+    {
+      "from": "q3f",
+      "to": "composerPlanExecutionRowModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

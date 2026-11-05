@@ -1,0 +1,31 @@
+// @recovered-by cursor-re
+// artifact: app/extensions/cursor-agent-host/dist/main.js sha256:9d478dff35f72f6b3ed85b33f2c4a15c12b41b4e3d42247ecc8ce4981e9308bb
+// module: 27599 range:4827972..4828824
+// basis: webpack-id confidence: C
+// method: split
+// run: ext-p0 2026-11-05T10:07:22.069Z
+27599: (e, t, r) => {
+    "use strict";
+    Object.defineProperty(t, "__esModule", { value: true }), t.proto3 = void 0;
+    const n = r(86829), s = r(94331), o = r(31455), i = r(66228);
+    t.proto3 = (0, n.makeProtoRuntime)("proto3", (e2) => new s.InternalFieldList(e2, (e3) => (0, i.normalizeFieldInfos)(e3, true)), (e2) => {
+      for (const t2 of e2.getType().fields.byMember()) {
+        if (t2.opt) continue;
+        const r2 = t2.localName, n2 = e2;
+        if (t2.repeated) n2[r2] = [];
+        else switch (t2.kind) {
+          case "oneof":
+            n2[r2] = { case: void 0 };
+            break;
+          case "enum":
+            n2[r2] = 0;
+            break;
+          case "map":
+            n2[r2] = {};
+            break;
+          case "scalar":
+            n2[r2] = (0, o.scalarZeroValue)(t2.T, t2.L);
+        }
+      }
+    });
+  }

@@ -1,0 +1,20 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2415",
+  "basename": "LsToolCallView.js",
+  "source": "recovered/app/glass/composer/LsToolCallView.js",
+  "renames": {
+    "PNS": "lsToolCallViewModuleInit"
+  },
+  "evidence": [
+    {
+      "from": "PNS",
+      "to": "lsToolCallViewModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

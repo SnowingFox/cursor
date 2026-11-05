@@ -1,0 +1,41 @@
+{
+ "extension": "cursor-socket",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-socket",
+ "files": [
+  {
+   "source": "app/extensions/cursor-socket/extension.webpack.config.js",
+   "dest": "recovered/extensions/agent/cursor-socket/shipped/extension.webpack.config.js",
+   "bytes": 171,
+   "sha256": "3dda5cc8750c0fa260e9a4ca36ca8d269501a87ce42d9dbba3dffaebad95ef9b",
+   "emittedSha256": "5df87837cd7df060bc2b24b44d339931bbc4e527cf7ee593dd2ec507024392b4",
+   "byteIdentical": false,
+   "category": "config",
+   "basis": "shipped-source",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "provenance header added; body proven lossless by sha256"
+  },
+  {
+   "source": "app/extensions/cursor-socket/package.json",
+   "dest": "recovered/extensions/agent/cursor-socket/shipped/package.json",
+   "bytes": 477,
+   "sha256": "8b62e78178f25dfbcc5b5cac2578965364f76e7671e8e5f5fab78e775a6a8df9",
+   "emittedSha256": "8b62e78178f25dfbcc5b5cac2578965364f76e7671e8e5f5fab78e775a6a8df9",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [],
+ "totals": {
+  "files": 2,
+  "bytes": 648,
+  "byteIdentical": 1,
+  "headed": 1,
+  "skipped": 0
+ }
+}

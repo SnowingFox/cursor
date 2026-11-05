@@ -1,0 +1,20 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5528",
+  "basename": "ComposerAssistantResponseComparison.react.js",
+  "source": "recovered/app/glass/composer/ComposerAssistantResponseComparison.react.js",
+  "renames": {
+    "Dew": "composerAssistantResponseComparisonModuleInit"
+  },
+  "evidence": [
+    {
+      "from": "Dew",
+      "to": "composerAssistantResponseComparisonModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

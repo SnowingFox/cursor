@@ -1,0 +1,19 @@
+// @recovered-by cursor-re
+// artifact: app/extensions/cursor-agent-host/dist/main.js sha256:9d478dff35f72f6b3ed85b33f2c4a15c12b41b4e3d42247ecc8ce4981e9308bb
+// module: 34589 range:6625192..6625587
+// basis: webpack-id confidence: C
+// method: split
+// run: ext-p0 2026-11-05T10:07:22.069Z
+34589: (e, t, r) => {
+    "use strict";
+    Object.defineProperty(t, "__esModule", { value: true }), t.using = void 0;
+    const n = r(51078), s = r(744);
+    t.using = function(e2, t2) {
+      return new n.Observable((r2) => {
+        const o = e2(), i = t2(o);
+        return (i ? (0, n.from)(i) : s.EMPTY).subscribe(r2), () => {
+          o && o.unsubscribe();
+        };
+      });
+    };
+  }

@@ -1,0 +1,161 @@
+{
+  "generatedAt": "2026-11-05T10:19:09.148Z",
+  "tool": "scripts/recover/rename/apply-map.ts (AST equivalence gate)",
+  "applied": 9,
+  "blocked": 6,
+  "results": [
+    {
+      "basename": "AgentHostOptimisticPlanningRow.js",
+      "status": "already-applied",
+      "renames": {
+        "KK1": "AgentHostOptimisticPlanningRowModule"
+      }
+    },
+    {
+      "basename": "SubagentLinkHoverCard.react.js",
+      "status": "no-proposals",
+      "renames": {}
+    },
+    {
+      "basename": "McpServerIconChip.js",
+      "status": "blocked-parse",
+      "renames": {},
+      "reason": "fragment is not a standalone program (starts mid var-chain); apply-map parser rejects it",
+      "parser": "328 |   reasonCode,"
+    },
+    {
+      "basename": "BrowserEditorContent.js",
+      "status": "no-proposals",
+      "renames": {}
+    },
+    {
+      "basename": "PlanExecutionCard.js",
+      "status": "no-proposals",
+      "renames": {}
+    },
+    {
+      "basename": "McpServerIconStack.js",
+      "status": "no-proposals",
+      "renames": {}
+    },
+    {
+      "basename": "CloudAgentTurnTimings.js",
+      "status": "already-applied",
+      "renames": {
+        "DSw": "CloudAgentTurnTimingsModule"
+      }
+    },
+    {
+      "basename": "SubagentTaskCard.js",
+      "status": "no-proposals",
+      "renames": {}
+    },
+    {
+      "basename": "AgentHostStreamErrorRow.js",
+      "status": "blocked-parse",
+      "renames": {},
+      "reason": "fragment is not a standalone program (starts mid var-chain); apply-map parser rejects it",
+      "parser": "328 |   reasonCode,"
+    },
+    {
+      "basename": "MCPIcon.js",
+      "status": "blocked-parse",
+      "renames": {},
+      "reason": "fragment is not a standalone program (starts mid var-chain); apply-map parser rejects it",
+      "parser": "328 |   reasonCode,"
+    },
+    {
+      "basename": "McpCreateDestinationMenu.js",
+      "status": "blocked-parse",
+      "renames": {},
+      "reason": "fragment is not a standalone program (starts mid var-chain); apply-map parser rejects it",
+      "parser": "328 |   reasonCode,"
+    },
+    {
+      "basename": "SubagentStatusIndicator.react.js",
+      "status": "already-applied",
+      "renames": {
+        "KDs": "SubagentStatusIndicatorModule"
+      }
+    },
+    {
+      "basename": "BrowserToolsSection.js",
+      "status": "no-proposals",
+      "renames": {}
+    },
+    {
+      "basename": "AgentHostEnvironmentStatusRow.js",
+      "status": "already-applied",
+      "renames": {
+        "qK1": "AgentHostEnvironmentStatusRowModule",
+        "VK1": "AgentHostEnvironmentStatusRow"
+      }
+    },
+    {
+      "basename": "McpServerIcon.js",
+      "status": "blocked-parse",
+      "renames": {},
+      "reason": "fragment is not a standalone program (starts mid var-chain); apply-map parser rejects it",
+      "parser": "328 |   reasonCode,"
+    },
+    {
+      "basename": "PlanEditorView.js",
+      "status": "no-proposals",
+      "renames": {}
+    },
+    {
+      "basename": "McpServerConfigMenu.js",
+      "status": "already-applied",
+      "renames": {
+        "NK1": "McpServerConfigMenu"
+      }
+    },
+    {
+      "basename": "McpImpactConfirmDialog.js",
+      "status": "already-applied",
+      "renames": {
+        "ri1": "McpImpactConfirmDialogModule"
+      }
+    },
+    {
+      "basename": "BrowserMoreMenu.react.js",
+      "status": "no-proposals",
+      "renames": {}
+    },
+    {
+      "basename": "AgentHostAutoRoutingRow.js",
+      "status": "already-applied",
+      "renames": {
+        "LK1": "AgentHostAutoRoutingRowModule"
+      }
+    },
+    {
+      "basename": "SubagentIcon.js",
+      "status": "already-applied",
+      "renames": {
+        "Pv1": "SubagentIconModule",
+        "dwp": "SubagentIcon"
+      }
+    },
+    {
+      "basename": "McpConfigureDialog.js",
+      "status": "already-applied",
+      "renames": {
+        "EQ1": "McpConfigureDialogModule",
+        "CWm": "McpConfigureDialog"
+      }
+    },
+    {
+      "basename": "McpServerConfigForm.js",
+      "status": "no-proposals",
+      "renames": {}
+    },
+    {
+      "basename": "McpServerIconImage.js",
+      "status": "blocked-parse",
+      "renames": {},
+      "reason": "fragment is not a standalone program (starts mid var-chain); apply-map parser rejects it",
+      "parser": "328 |   reasonCode,"
+    }
+  ]
+}

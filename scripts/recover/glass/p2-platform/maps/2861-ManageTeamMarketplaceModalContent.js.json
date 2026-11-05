@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2861",
+  "basename": "ManageTeamMarketplaceModalContent.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "single-return property getter over t.pluginId; name inferred from returned property chain",
+  "renames": {
+    "Pi1": "getPluginId"
+  },
+  "file": "recovered/app/glass/platform/ManageTeamMarketplaceModalContent.js"
+}

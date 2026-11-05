@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2871",
+  "basename": "PluginSectionHeader.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "declared esbuild wrapper init for module \"PluginSectionHeader.js\"; synthetic module-scope name derived from basename (wrapper key is exact)",
+  "renames": {
+    "rr1": "PluginSectionHeaderModule"
+  },
+  "file": "recovered/app/glass/platform/PluginSectionHeader.js"
+}

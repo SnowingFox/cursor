@@ -1,0 +1,135 @@
+{
+ "extension": "cursor-ndjson-ingest",
+ "generatedAt": "2026-11-05T10:20:08.356Z",
+ "sourceDir": "app/extensions/cursor-ndjson-ingest",
+ "artifacts": [
+  {
+   "artifact": "app/extensions/cursor-ndjson-ingest/dist/main.js",
+   "sha256": "c20522000288197a1017b7169f8d5c503fe24f6cafe518222b9f24bea4fea3dc",
+   "bytes": 21435,
+   "format": "webpack",
+   "chunk": "main",
+   "chunkId": null,
+   "entry": true,
+   "moduleCount": 7,
+   "keyTypes": {
+    "number": 7,
+    "string": 0
+   },
+   "preludeBytes": 37,
+   "footerBytes": 760,
+   "reassembly": "ok",
+   "reassembledSha256": "c20522000288197a1017b7169f8d5c503fe24f6cafe518222b9f24bea4fea3dc",
+   "notes": [],
+   "modules": [
+    {
+     "key": "93",
+     "keyType": "number",
+     "file": "93.js",
+     "start": 37,
+     "end": 6535,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": [
+      "DEFAULT_NDJSON_PORT_RANGE_END",
+      "DEFAULT_NDJSON_PORT_RANGE_START",
+      "NdjsonIngestServer",
+      "NdjsonServerStartError",
+      "chooseNdjsonPort",
+      "isPortAvailable",
+      "resolveLogger"
+     ]
+    },
+    {
+     "key": "184",
+     "keyType": "number",
+     "file": "184.js",
+     "start": 6537,
+     "end": 18464,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [
+      "cursor.ndjsonIngest.start",
+      "cursor.ndjsonIngest.stop",
+      "cursor.ndjsonIngest.copyCurl",
+      "cursor.ndjsonIngest.reassignPort",
+      "cursor.ndjsonIngest.showStatus"
+     ],
+     "exportsHint": []
+    },
+    {
+     "key": "377",
+     "keyType": "number",
+     "file": "377.js",
+     "start": 18466,
+     "end": 20456,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "398",
+     "keyType": "number",
+     "file": "398.js",
+     "start": 20458,
+     "end": 20512,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "857",
+     "keyType": "number",
+     "file": "857.js",
+     "start": 20514,
+     "end": 20564,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "928",
+     "keyType": "number",
+     "file": "928.js",
+     "start": 20566,
+     "end": 20618,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "982",
+     "keyType": "number",
+     "file": "982.js",
+     "start": 20620,
+     "end": 20674,
+     "separator": " ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    }
+   ]
+  }
+ ],
+ "skipped": [],
+ "totals": {
+  "artifacts": 1,
+  "modules": 7,
+  "confidence": {
+   "C": 7
+  },
+  "reassembly": "ok"
+ }
+}

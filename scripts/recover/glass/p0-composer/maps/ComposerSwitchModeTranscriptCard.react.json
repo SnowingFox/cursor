@@ -1,0 +1,28 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6044",
+  "basename": "ComposerSwitchModeTranscriptCard.react.js",
+  "source": "recovered/app/glass/composer/ComposerSwitchModeTranscriptCard.react.js",
+  "renames": {
+    "yIw": "composerSwitchModeTranscriptCardModuleInit",
+    "f4l": "AgentEnvironmentIcon"
+  },
+  "evidence": [
+    {
+      "from": "yIw",
+      "to": "composerSwitchModeTranscriptCardModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    },
+    {
+      "from": "f4l",
+      "to": "AgentEnvironmentIcon",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "AgentEnvironmentIcon.react.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

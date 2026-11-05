@@ -1,0 +1,139 @@
+{
+ "extension": "cursor-retrieval",
+ "generatedAt": "2026-11-05T10:17:16.559Z",
+ "sourceDir": "app/extensions/cursor-retrieval",
+ "package": {
+  "name": "cursor-retrieval",
+  "version": "0.0.1",
+  "main": "./dist/main",
+  "activationEvents": [
+   "onStartupFinished"
+  ],
+  "enabledApiProposals": [
+   "control",
+   "cursor",
+   "cursorNoDeps",
+   "cursorTracing",
+   "textSearchProvider2"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "contributes": {
+   "commands": 2,
+   "commandsIds": [
+    "cursor.grepClient.debug",
+    "cursor.codebaseTelemetry.triggerSnapshot"
+   ],
+   "keybindings": 0,
+   "menus": "object",
+   "configuration": 1,
+   "configurationKeys": [
+    "cursor-retrieval.canAttemptGithubLogin"
+   ],
+   "languages": 2,
+   "languagesIds": [
+    "ignore",
+    "ignore"
+   ]
+  },
+  "scripts": {}
+ },
+ "distArtifacts": [
+  {
+   "path": "app/extensions/cursor-retrieval/dist/main.js",
+   "bytes": 3194857,
+   "sha256": "50c717cc16d67dfb571db8461d6630caeb8e421ad0090d156086d1a3d53b1b2b",
+   "webpack": true,
+   "modules": 196,
+   "keyTypes": {
+    "number": 196,
+    "string": 0
+   },
+   "chunkId": null,
+   "entry": true
+  }
+ ],
+ "shippedFiles": [
+  {
+   "path": "app/extensions/cursor-retrieval/.gitignore",
+   "bytes": 55,
+   "sha256": "d2619b0fdba16d4e7ef97c5423d13d06e29e4ef0270f3cd64b992c5825ae3ff7",
+   "category": "build-extra",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-retrieval/dist/main.js.LICENSE.txt",
+   "bytes": 318,
+   "sha256": "ff12f126b6117efdbcc347e33e0b3bcdbc97b9273e0bd6c182f7677835b0ea5b",
+   "category": "license",
+   "copy": false
+  },
+  {
+   "path": "app/extensions/cursor-retrieval/eslint.config.cjs",
+   "bytes": 399,
+   "sha256": "842f9f80283f33d83bbfbe0f1d67f14ef957b678c4a3bd1f9ec5bc4711a08a6f",
+   "category": "config",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-retrieval/icons/css.png",
+   "bytes": 3719,
+   "sha256": "9b0ac847f0440c4f04fc25ce73fb0030ac4cc697f95e7b3ca0a179fd8e3048fb",
+   "category": "media",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-retrieval/package.json",
+   "bytes": 1354,
+   "sha256": "ce2c760b625b32c9435bf099a39e075a4d3a0799a08ebff37ad9324c1be5ea59",
+   "category": "manifest",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-retrieval/package.nls.json",
+   "bytes": 92,
+   "sha256": "42c6840c5eff9079e5dff56650434527b430652d74ddc72b617aa9e22b779af1",
+   "category": "nls",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-retrieval/schemas/package.schema.json",
+   "bytes": 766,
+   "sha256": "008f98d4c69c5251698c7f337c0b3f2c85aac75c7f4adf5d77710c71f8aa476c",
+   "category": "schema",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-retrieval/worker/dist/main.js",
+   "bytes": 323963,
+   "sha256": "7f2d0fb83874e78b836df2976028aecfa5106fe13e1ad5114d3dee2596fe5d0d",
+   "category": "other",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-retrieval/worker/tsconfig.json",
+   "bytes": 614,
+   "sha256": "f71847fc5dbb0f610e7c28f2db7ca39cd9c23448a5cfe63b25d7dbab8447d507",
+   "category": "tsconfig",
+   "copy": true
+  }
+ ],
+ "thirdPartyAssets": [
+  {
+   "path": "app/extensions/cursor-retrieval/dist/telemetry/.agentic-owners/policy.yml",
+   "bytes": 179,
+   "sha256": "24938af5fed52a6759e0c475680077b1e78c7db152d58f5f75724bd75f2d5133",
+   "note": "dist-asset"
+  }
+ ],
+ "unresolved": [],
+ "totals": {
+  "bytes": 3526316,
+  "distBytes": 3194857,
+  "distArtifacts": 1,
+  "webpackArtifacts": 1,
+  "webpackModules": 196,
+  "shippedFiles": 9
+ }
+}

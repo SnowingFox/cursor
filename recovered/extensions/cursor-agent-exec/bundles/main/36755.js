@@ -1,0 +1,27 @@
+// @recovered-by cursor-re
+// artifact: app/extensions/cursor-agent-exec/dist/main.js sha256:8d20326bd54948353115113c2d4716cf781d593610fd4d8acebcc37a3170da8e
+// module: 36755 range:3003316..3004044
+// basis: webpack-id confidence: C
+// method: split
+// run: ext-p0 2026-11-05T10:07:22.069Z
+36755: (e) => {
+    "use strict";
+    function t(e2) {
+      return null == e2;
+    }
+    e.exports.isNothing = t, e.exports.isObject = function(e2) {
+      return "object" == typeof e2 && null !== e2;
+    }, e.exports.toArray = function(e2) {
+      return Array.isArray(e2) ? e2 : t(e2) ? [] : [e2];
+    }, e.exports.repeat = function(e2, t2) {
+      var r, n = "";
+      for (r = 0; r < t2; r += 1) n += e2;
+      return n;
+    }, e.exports.isNegativeZero = function(e2) {
+      return 0 === e2 && Number.NEGATIVE_INFINITY === 1 / e2;
+    }, e.exports.extend = function(e2, t2) {
+      var r, n, s, o;
+      if (t2) for (r = 0, n = (o = Object.keys(t2)).length; r < n; r += 1) e2[s = o[r]] = t2[s];
+      return e2;
+    };
+  }

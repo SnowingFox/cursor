@@ -1,0 +1,138 @@
+{
+ "extension": "cursor-retrieval",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-retrieval",
+ "files": [
+  {
+   "source": "app/extensions/cursor-retrieval/.gitignore",
+   "dest": "recovered/extensions/agent/cursor-retrieval/shipped/.gitignore",
+   "bytes": 55,
+   "sha256": "d2619b0fdba16d4e7ef97c5423d13d06e29e4ef0270f3cd64b992c5825ae3ff7",
+   "emittedSha256": "d2619b0fdba16d4e7ef97c5423d13d06e29e4ef0270f3cd64b992c5825ae3ff7",
+   "byteIdentical": true,
+   "category": "build-extra",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-retrieval/dist/telemetry/.agentic-owners/policy.yml",
+   "dest": "recovered/extensions/agent/cursor-retrieval/shipped/dist/telemetry/.agentic-owners/policy.yml",
+   "bytes": 179,
+   "sha256": "24938af5fed52a6759e0c475680077b1e78c7db152d58f5f75724bd75f2d5133",
+   "emittedSha256": "24938af5fed52a6759e0c475680077b1e78c7db152d58f5f75724bd75f2d5133",
+   "byteIdentical": true,
+   "category": "policy",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-retrieval/eslint.config.cjs",
+   "dest": "recovered/extensions/agent/cursor-retrieval/shipped/eslint.config.cjs",
+   "bytes": 399,
+   "sha256": "842f9f80283f33d83bbfbe0f1d67f14ef957b678c4a3bd1f9ec5bc4711a08a6f",
+   "emittedSha256": "07b44fbaf90fda3556be95250f5edddc069b655448c1db3763be797261ce57e9",
+   "byteIdentical": false,
+   "category": "config",
+   "basis": "shipped-source",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "provenance header added; body proven lossless by sha256"
+  },
+  {
+   "source": "app/extensions/cursor-retrieval/icons/css.png",
+   "dest": "recovered/extensions/agent/cursor-retrieval/shipped/icons/css.png",
+   "bytes": 3719,
+   "sha256": "9b0ac847f0440c4f04fc25ce73fb0030ac4cc697f95e7b3ca0a179fd8e3048fb",
+   "emittedSha256": "9b0ac847f0440c4f04fc25ce73fb0030ac4cc697f95e7b3ca0a179fd8e3048fb",
+   "byteIdentical": true,
+   "category": "media",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-retrieval/package.json",
+   "dest": "recovered/extensions/agent/cursor-retrieval/shipped/package.json",
+   "bytes": 1354,
+   "sha256": "ce2c760b625b32c9435bf099a39e075a4d3a0799a08ebff37ad9324c1be5ea59",
+   "emittedSha256": "ce2c760b625b32c9435bf099a39e075a4d3a0799a08ebff37ad9324c1be5ea59",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-retrieval/package.nls.json",
+   "dest": "recovered/extensions/agent/cursor-retrieval/shipped/package.nls.json",
+   "bytes": 92,
+   "sha256": "42c6840c5eff9079e5dff56650434527b430652d74ddc72b617aa9e22b779af1",
+   "emittedSha256": "42c6840c5eff9079e5dff56650434527b430652d74ddc72b617aa9e22b779af1",
+   "byteIdentical": true,
+   "category": "nls",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-retrieval/schemas/package.schema.json",
+   "dest": "recovered/extensions/agent/cursor-retrieval/shipped/schemas/package.schema.json",
+   "bytes": 766,
+   "sha256": "008f98d4c69c5251698c7f337c0b3f2c85aac75c7f4adf5d77710c71f8aa476c",
+   "emittedSha256": "008f98d4c69c5251698c7f337c0b3f2c85aac75c7f4adf5d77710c71f8aa476c",
+   "byteIdentical": true,
+   "category": "schema",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-retrieval/worker/dist/main.js",
+   "dest": "recovered/extensions/agent/cursor-retrieval/shipped/worker/dist/main.js",
+   "bytes": 323963,
+   "sha256": "7f2d0fb83874e78b836df2976028aecfa5106fe13e1ad5114d3dee2596fe5d0d",
+   "emittedSha256": "8d0974b0c85b68b5848c2b7c873f599bcd7eb18a62a3db9640a74394ec21313e",
+   "byteIdentical": false,
+   "category": "other",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "provenance header added; body proven lossless by sha256"
+  },
+  {
+   "source": "app/extensions/cursor-retrieval/worker/tsconfig.json",
+   "dest": "recovered/extensions/agent/cursor-retrieval/shipped/worker/tsconfig.json",
+   "bytes": 614,
+   "sha256": "f71847fc5dbb0f610e7c28f2db7ca39cd9c23448a5cfe63b25d7dbab8447d507",
+   "emittedSha256": "f71847fc5dbb0f610e7c28f2db7ca39cd9c23448a5cfe63b25d7dbab8447d507",
+   "byteIdentical": true,
+   "category": "tsconfig",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [
+  {
+   "source": "app/extensions/cursor-retrieval/dist/main.js.LICENSE.txt",
+   "reason": "license bundle recorded in INVENTORY.json, not copied",
+   "bytes": 318
+  }
+ ],
+ "totals": {
+  "files": 9,
+  "bytes": 331141,
+  "byteIdentical": 7,
+  "headed": 2,
+  "skipped": 1
+ }
+}

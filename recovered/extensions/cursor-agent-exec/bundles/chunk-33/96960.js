@@ -1,0 +1,11 @@
+// @recovered-by cursor-re
+// artifact: app/extensions/cursor-agent-exec/dist/33.js sha256:0578e78d5607b8b353029c5d245d24e3c43207abe1be65b2efe4aaae28326339
+// module: 96960 range:25871..27601
+// basis: webpack-id confidence: C
+// method: split
+// run: ext-p0 2026-11-05T10:07:22.069Z
+96960: (e, t, n) => {
+  Object.defineProperty(t, "__esModule", { value: true }), t.getRuntimeConfig = void 0;
+  const i = n(58571), o = n(93664), r = n(6635), s = n(55909), a = n(98175), c = n(55264), l = n(3865), d = n(49125), u = n(63122), p = n(32780), g = n(83121);
+  t.getRuntimeConfig = (e2) => ({ apiVersion: "2011-06-15", base64Decoder: e2?.base64Decoder ?? l.fromBase64, base64Encoder: e2?.base64Encoder ?? l.toBase64, disableHostPrefix: e2?.disableHostPrefix ?? false, endpointProvider: e2?.endpointProvider ?? p.defaultEndpointResolver, extensions: e2?.extensions ?? [], httpAuthSchemeProvider: e2?.httpAuthSchemeProvider ?? u.defaultSTSHttpAuthSchemeProvider, httpAuthSchemes: e2?.httpAuthSchemes ?? [{ schemeId: "aws.auth#sigv4", identityProvider: (e3) => e3.getIdentityProvider("aws.auth#sigv4"), signer: new i.AwsSdkSigV4Signer() }, { schemeId: "aws.auth#sigv4a", identityProvider: (e3) => e3.getIdentityProvider("aws.auth#sigv4a"), signer: new i.AwsSdkSigV4ASigner() }, { schemeId: "smithy.api#noAuth", identityProvider: (e3) => e3.getIdentityProvider("smithy.api#noAuth") || (async () => ({})), signer: new s.NoAuthSigner() }], logger: e2?.logger ?? new a.NoOpLogger(), protocol: e2?.protocol ?? o.AwsQueryProtocol, protocolSettings: e2?.protocolSettings ?? { defaultNamespace: "com.amazonaws.sts", errorTypeRegistries: g.errorTypeRegistries, xmlNamespace: "https://sts.amazonaws.com/doc/2011-06-15/", version: "2011-06-15", serviceTarget: "AWSSecurityTokenServiceV20110615" }, serviceId: e2?.serviceId ?? "STS", signerConstructor: e2?.signerConstructor ?? r.SignatureV4MultiRegion, urlParser: e2?.urlParser ?? c.parseUrl, utf8Decoder: e2?.utf8Decoder ?? d.fromUtf8, utf8Encoder: e2?.utf8Encoder ?? d.toUtf8 });
+}

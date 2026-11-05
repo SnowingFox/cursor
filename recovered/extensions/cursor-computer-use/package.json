@@ -1,0 +1,16 @@
+{
+  "name": "@cursor-re/cursor-computer-use",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Recovered copy of the shipped cursor-computer-use extension (local study only; not published).",
+  "type": "module",
+  "cursorRe": {
+    "run": "ext-p0",
+    "adoptedFrom": "app/extensions/cursor-computer-use",
+    "note": "Adapted for local typecheck only; the original workspace layout is documented in upstream/ and MANIFEST.json."
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test:local": "vitest run --config vitest.local.config.ts"
+  }
+}

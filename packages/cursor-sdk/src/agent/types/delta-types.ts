@@ -1,0 +1,15 @@
+// @recovered-by cursor-re
+// artifact: .vendor/cursor-sdk-1.3.1/dist/esm/index.js sha256:30d4aa44a1383cfb282f8f4747e2d54601c0a4a1250b9fb6606c799d1aff9fb6
+// module: ./src/agent/types/delta-types.ts range:324231..326135
+// basis: webpack-key
+// confidence: B
+// method: split
+// run: w1-sdk-core 2026-11-05T10:09:21.485Z
+// @ts-nocheck -- body copied verbatim from the published artifact; typed public surface lives in src/api-types/**
+// note: webpack wrapper converted to ESM; internal identifiers remain minified (no semantic edits)
+import * as n from "zod/v3";
+import * as s from "../../vendor/cursor-sdk-shared/message-schemas.js";
+import * as i from "../../vendor/cursor-sdk-shared/tool-call-types.js";
+
+const o=n.object({type:n.literal("text-delta"),text:n.string()}),a=n.object({type:n.literal("tool-call-started"),callId:n.string(),toolCall:i.C6,modelCallId:n.string()}),u=n.object({type:n.literal("tool-call-completed"),callId:n.string(),toolCall:i.C6,modelCallId:n.string()}),c=n.object({type:n.literal("thinking-delta"),text:n.string()}),l=n.object({type:n.literal("thinking-completed"),thinkingDurationMs:n.number()}),m=n.object({type:n.literal("user-message-appended"),userMessage:s.Kx}),d=n.object({type:n.literal("partial-tool-call"),callId:n.string(),toolCall:i.C6,modelCallId:n.string()}),p=n.object({type:n.literal("token-delta"),tokens:n.number()}),f=n.object({type:n.literal("summary"),summary:n.string()}),h=n.object({type:n.literal("summary-started")}),g=n.object({type:n.literal("summary-completed"),failed:n.boolean().optional(),fallback:n.boolean().optional()}),_=n.object({type:n.literal("shell-output-delta"),event:n.record(n.string(),n.unknown())}),w=n.object({type:n.literal("turn-ended"),usage:n.object({inputTokens:n.number(),outputTokens:n.number(),cacheReadTokens:n.number(),cacheWriteTokens:n.number(),reasoningTokens:n.number().optional()}).optional()}),y=n.object({type:n.literal("step-started"),stepId:n.number()}),J=n.object({type:n.literal("tool-requests-listed"),callCount:n.number()}),S=n.object({type:n.literal("step-completed"),stepId:n.number(),stepDurationMs:n.number()}),q=n.discriminatedUnion("type",[o,a,u,c,l,d,y,S,J]),B=n.object({type:n.literal("tool-call-delta"),callId:n.string(),modelCallId:n.string(),taskUpdate:q}),b=n.discriminatedUnion("type",[o,a,u,c,l,m,d,p,f,h,g,_,w,y,S,J,B])
+export { b as Zs, b as InteractionUpdateSchema, q as tq, q as NestedTaskUpdateSchema, d as ON, d as PartialToolCallUpdateSchema, _ as M7, _ as ShellOutputDeltaUpdateSchema, g as uj, g as SummaryCompletedUpdateSchema, h as Wf, h as SummaryStartedUpdateSchema, f as XP, f as SummaryUpdateSchema, o as yP, o as TextDeltaUpdateSchema, l as Y3, l as ThinkingCompletedUpdateSchema, c as p$, c as ThinkingDeltaUpdateSchema, p as IO, p as TokenDeltaUpdateSchema, u as EC, u as ToolCallCompletedUpdateSchema, B as fr, B as ToolCallDeltaUpdateSchema, a as a7, a as ToolCallStartedUpdateSchema, w as Ed, w as TurnEndedUpdateSchema, m as Sb, m as UserMessageAppendedUpdateSchema };

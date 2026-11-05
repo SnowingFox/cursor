@@ -1,0 +1,39 @@
+{
+ "extension": "cursor-browser-automation",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-browser-automation",
+ "files": [
+  {
+   "source": "app/extensions/cursor-browser-automation/package.json",
+   "dest": "recovered/extensions/agent/cursor-browser-automation/shipped/package.json",
+   "bytes": 433,
+   "sha256": "286a043c03d8093cd708c765dffb773f562541ecb0a3a4f9505dfb3f7a6ddf29",
+   "emittedSha256": "286a043c03d8093cd708c765dffb773f562541ecb0a3a4f9505dfb3f7a6ddf29",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [
+  {
+   "source": "app/extensions/cursor-browser-automation/dist/273.js.LICENSE.txt",
+   "reason": "license bundle recorded in INVENTORY.json, not copied",
+   "bytes": 90
+  },
+  {
+   "source": "app/extensions/cursor-browser-automation/dist/46.js.LICENSE.txt",
+   "reason": "license bundle recorded in INVENTORY.json, not copied",
+   "bytes": 5612
+  }
+ ],
+ "totals": {
+  "files": 1,
+  "bytes": 433,
+  "byteIdentical": 1,
+  "headed": 0,
+  "skipped": 2
+ }
+}

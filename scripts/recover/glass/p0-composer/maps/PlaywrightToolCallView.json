@@ -1,0 +1,28 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2416",
+  "basename": "PlaywrightToolCallView.js",
+  "source": "recovered/app/glass/composer/PlaywrightToolCallView.js",
+  "renames": {
+    "bya": "playwrightToolCallViewModuleInit",
+    "ONS": "ReadLintsToolCallView"
+  },
+  "evidence": [
+    {
+      "from": "bya",
+      "to": "playwrightToolCallViewModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    },
+    {
+      "from": "ONS",
+      "to": "ReadLintsToolCallView",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "ReadLintsToolCallView.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

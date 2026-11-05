@@ -1,0 +1,53 @@
+{
+ "generatedAt": "2026-11-05T10:09:31.841Z",
+ "run": "ext-p0",
+ "extension": "cursor-retrieval",
+ "adopted": [
+  {
+   "path": "package.json",
+   "artifact": "app/extensions/cursor-retrieval/package.json",
+   "sha256": "ce2c760b625b32c9435bf099a39e075a4d3a0799a08ebff37ad9324c1be5ea59",
+   "bytes": 1354,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  },
+  {
+   "path": "package.nls.json",
+   "artifact": "app/extensions/cursor-retrieval/package.nls.json",
+   "sha256": "42c6840c5eff9079e5dff56650434527b430652d74ddc72b617aa9e22b779af1",
+   "bytes": 92,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  },
+  {
+   "path": "eslint.config.cjs",
+   "artifact": "app/extensions/cursor-retrieval/eslint.config.cjs",
+   "sha256": "842f9f80283f33d83bbfbe0f1d67f14ef957b678c4a3bd1f9ec5bc4711a08a6f",
+   "bytes": 399,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "worker/tsconfig.json",
+   "artifact": "app/extensions/cursor-retrieval/worker/tsconfig.json",
+   "sha256": "f71847fc5dbb0f610e7c28f2db7ca39cd9c23448a5cfe63b25d7dbab8447d507",
+   "bytes": 614,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  },
+  {
+   "path": "schemas/package.schema.json",
+   "artifact": "app/extensions/cursor-retrieval/schemas/package.schema.json",
+   "sha256": "008f98d4c69c5251698c7f337c0b3f2c85aac75c7f4adf5d77710c71f8aa476c",
+   "bytes": 766,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  }
+ ],
+ "note": "JSON files are byte-identical to the artifact; text files carry a provenance header. Verify sha256 against app/extensions/<extension>/<path> after stripping the header."
+}

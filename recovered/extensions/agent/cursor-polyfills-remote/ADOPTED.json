@@ -1,0 +1,41 @@
+{
+ "extension": "cursor-polyfills-remote",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-polyfills-remote",
+ "files": [
+  {
+   "source": "app/extensions/cursor-polyfills-remote/eslint.config.cjs",
+   "dest": "recovered/extensions/agent/cursor-polyfills-remote/shipped/eslint.config.cjs",
+   "bytes": 399,
+   "sha256": "842f9f80283f33d83bbfbe0f1d67f14ef957b678c4a3bd1f9ec5bc4711a08a6f",
+   "emittedSha256": "0b895f910a55642e96b446c6bee2dd0d371b6ebfedf547a296c088057bcd2c21",
+   "byteIdentical": false,
+   "category": "config",
+   "basis": "shipped-source",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "provenance header added; body proven lossless by sha256"
+  },
+  {
+   "source": "app/extensions/cursor-polyfills-remote/package.json",
+   "dest": "recovered/extensions/agent/cursor-polyfills-remote/shipped/package.json",
+   "bytes": 445,
+   "sha256": "3cdb77b5389f7ccdd918b2685b3a8c603a026a078004d648be82a27d894cbf37",
+   "emittedSha256": "3cdb77b5389f7ccdd918b2685b3a8c603a026a078004d648be82a27d894cbf37",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [],
+ "totals": {
+  "files": 2,
+  "bytes": 844,
+  "byteIdentical": 1,
+  "headed": 1,
+  "skipped": 0
+ }
+}

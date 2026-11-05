@@ -1,0 +1,518 @@
+{
+  "generatedAt": "2026-11-05T10:06:18.348Z",
+  "package": "@anysphere/proto",
+  "status": "generated",
+  "generatedModules": 63,
+  "supportModules": [
+    "packages/proto/src/runtime/compact.ts"
+  ],
+  "doNotHandEdit": "Descriptors/classes are protoc-gen-es output recovered from the SDK bundle; do not hand-edit descriptor data.",
+  "sourceOfTruth": ".vendor/cursor-sdk-1.3.1/dist/esm/{index.js,sqlite.js} (webpack keys ../proto/dist/generated/** and ../proto/dist/runtime/**)",
+  "files": [
+    {
+      "module": "../proto/dist/generated/agent/v1/agent_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/agent_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "418667..619187",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/agent_service_connect.js",
+      "file": "packages/proto/src/generated/agent/v1/agent_service_connect.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "619254..621313",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/agent_service_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/agent_service_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "621375..647711",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/agent_skills_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/agent_skills_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "647772..648814",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/agent_store_conflict_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/agent_store_conflict_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "648888..651857",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/ai_attribution_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/ai_attribution_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "651925..654213",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/apply_agent_diff_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/apply_agent_diff_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "654283..657023",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/ask_question_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/ask_question_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "657089..661395",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/background_shell_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/background_shell_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "661465..665905",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/canvas_diagnostics_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/canvas_diagnostics_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "665977..667916",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/computer_use_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/computer_use_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "667982..677708",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/connect_scm_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/connect_scm_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "677773..684102",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/conversation_search_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/conversation_search_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "684175..686650",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/create_plan_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/create_plan_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "686715..690101",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/cursor_rules_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/cursor_rules_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "690162..693170",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/delete_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/delete_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "693230..697170",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/diagnostics_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/diagnostics_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "697235..700984",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "701037..711279",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/fetch_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/fetch_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "711338..713157",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/generate_image_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/generate_image_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "713225..717018",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/grep_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/grep_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "717076..722599",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/hook_additional_context_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/hook_additional_context_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "722671..723279",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/hooks_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/hooks_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "723333..734496",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/kv_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/kv_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "734547..737537",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/ls_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/ls_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "737593..742091",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/mcp_allowlist_precheck_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/mcp_allowlist_precheck_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "742167..743215",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/mcp_auth_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/mcp_auth_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "743277..747255",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/mcp_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/mcp_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "747312..762295",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/mcp_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/mcp_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "762347..765911",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/pr_management_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/pr_management_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "765978..774908",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/read_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/read_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "774966..778637",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/record_screen_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/record_screen_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "778704..781754",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/replace_env_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/replace_env_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "781819..785392",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/report_bugfix_results_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/report_bugfix_results_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "785467..788243",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/request_context_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/request_context_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "788312..804880",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/requested_model_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/requested_model_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "804944..807423",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/sandbox_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/sandbox_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "807479..809757",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/selected_context_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/selected_context_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "809822..835963",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/setup_vm_environment_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/setup_vm_environment_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "836037..837831",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/shell_allowlist_precheck_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/shell_allowlist_precheck_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "837909..839043",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/shell_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/shell_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "839102..854133",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/smart_mode_classifier_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/smart_mode_classifier_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "854208..858308",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/subagent_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/subagent_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "858370..865243",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/subagents_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/subagents_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "865301..872022",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/switch_mode_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/switch_mode_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "872087..876127",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/system_prompt_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/system_prompt_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "876189..876779",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/todo_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/todo_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "876837..881576",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/utils_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/utils_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "881630..883420",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/web_fetch_allowlist_precheck_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/web_fetch_allowlist_precheck_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "883502..884476",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/web_fetch_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/web_fetch_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "884539..888672",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/web_search_tool_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/web_search_tool_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "888736..893115",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/agent/v1/write_exec_pb.js",
+      "file": "packages/proto/src/generated/agent/v1/write_exec_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "893174..896480",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/aiserver/v1/bidi_pb.js",
+      "file": "packages/proto/src/generated/aiserver/v1/bidi_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "896536..898715",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/aiserver/v1/chat_pb.js",
+      "file": "packages/proto/src/generated/aiserver/v1/chat_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "898771..954301",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/aiserver/v1/dashboard_connect.js",
+      "file": "packages/proto/src/generated/aiserver/v1/dashboard_connect.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "954367..1072455",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/aiserver/v1/dashboard_pb.js",
+      "file": "packages/proto/src/generated/aiserver/v1/dashboard_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "1072516..2276732",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/aiserver/v1/docs_pb.js",
+      "file": "packages/proto/src/generated/aiserver/v1/docs_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "2276788..2278051",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/aiserver/v1/privacy_mode_pb.js",
+      "file": "packages/proto/src/generated/aiserver/v1/privacy_mode_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "2278115..2278378",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/aiserver/v1/repository_pb.js",
+      "file": "packages/proto/src/generated/aiserver/v1/repository_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "2278440..2283742",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/aiserver/v1/tools_pb.js",
+      "file": "packages/proto/src/generated/aiserver/v1/tools_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "2283799..2424324",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/aiserver/v1/unify_eligibility_pb.js",
+      "file": "packages/proto/src/generated/aiserver/v1/unify_eligibility_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "2424393..2427539",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/aiserver/v1/usage_pb.js",
+      "file": "packages/proto/src/generated/aiserver/v1/usage_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "2427596..2439011",
+      "status": "generated",
+      "confidence": "B"
+    },
+    {
+      "module": "../proto/dist/generated/aiserver/v1/utils_pb.js",
+      "file": "packages/proto/src/generated/aiserver/v1/utils_pb.ts",
+      "artifact": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "range": "2439068..2478345",
+      "status": "generated",
+      "confidence": "B"
+    }
+  ],
+  "missingFromKeys": "The proto package root index was not a webpack module key; packages/proto/src/index.ts is a generated namespace barrel (no logic)."
+}

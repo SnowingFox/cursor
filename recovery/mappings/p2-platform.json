@@ -1,0 +1,5731 @@
+{
+  "generatedAt": "2026-11-05T10:20:42.212Z",
+  "cluster": "p2-platform",
+  "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+  "bundleSha256": "6eb88cb60fce5bf5df2ee401f797d5e160b0bcb5d85c25e57d2576b467edce81",
+  "counts": {
+    "modules": 131,
+    "parseable": 51,
+    "truncated": 80,
+    "segmentExact": 111,
+    "renames": 20,
+    "groups": 11
+  },
+  "records": [
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0274",
+      "basename": "$_StatsigGlobal.js",
+      "file": "recovered/app/glass/platform/$_StatsigGlobal.js",
+      "range": [
+        623404,
+        624585
+      ],
+      "sha256": "1f41d75b7dd3f3c4d6afdcb49fa1aa64ee8acb6e2e9baa3bb1ad9e1a7f63ad05",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "r_t",
+      "wrapperKey": "$_StatsigGlobal.js",
+      "deps": [
+        "E",
+        "Nde",
+        "i_t"
+      ],
+      "topLevelDeclarations": [
+        "Vdn",
+        "Syy",
+        "Kdn",
+        "qTo",
+        "IZn"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3964",
+      "basename": "AddPlugin.js",
+      "file": "recovered/app/glass/platform/AddPlugin.js",
+      "range": [
+        23070126,
+        23072195
+      ],
+      "sha256": "9ebe1ee9ad130b13e7c8714e480d374a5a14181399aaa520660beb530143b729",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "IQa",
+      "wrapperKey": "AddPlugin.js",
+      "deps": [
+        "E",
+        "Mt"
+      ],
+      "topLevelDeclarations": [
+        "Stk"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "cursor-ui-ht4xr3",
+          "cursor-ui-w7nakj",
+          "cursor-ui-1n2onr6",
+          "cursor-ui-b3r6kr",
+          "cursor-ui-c8icb0",
+          "cursor-ui-1nbh50h",
+          "cursor-ui-1xv6bh5",
+          "cursor-ui-1speawj",
+          "cursor-ui-s55268",
+          "cursor-ui-1cpjm7i",
+          "cursor-ui-1hmns74",
+          "cursor-ui-xx281p"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2820",
+      "basename": "AddPluginBanner.js",
+      "file": "recovered/app/glass/platform/AddPluginBanner.js",
+      "range": [
+        16949966,
+        16951612
+      ],
+      "sha256": "22f5a981af4fb19f86c2d6fe00f206585d5818e5f4d2e803068a46458a2dab16",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "lt1",
+      "wrapperKey": "AddPluginBanner.js",
+      "deps": [
+        "E",
+        "Hrt",
+        "fd",
+        "P0"
+      ],
+      "topLevelDeclarations": [
+        "svi",
+        "ovi",
+        "Grt",
+        "mhp",
+        "ghp",
+        "ct1",
+        "fhp",
+        "vhp",
+        "l6e",
+        "QTa"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2866",
+      "basename": "AddPluginContent.js",
+      "file": "recovered/app/glass/platform/AddPluginContent.js",
+      "range": [
+        17133856,
+        17146463
+      ],
+      "sha256": "0e5fd7c2fdbf200d69fba06b01d09bb22262d6bb32b34e1e40f90b3aa10779c4",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Wi1",
+      "wrapperKey": "AddPluginContent.js",
+      "deps": [
+        "E",
+        "Va",
+        "mf",
+        "WRe",
+        "Hrt",
+        "d5r",
+        "P0",
+        "Lmp",
+        "f2",
+        "s2e"
+      ],
+      "topLevelDeclarations": [
+        "qi1",
+        "zi1",
+        "Wmp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production",
+          "cursor-stroke-secondary"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2823",
+      "basename": "AddPluginSearch.js",
+      "file": "recovered/app/glass/platform/AddPluginSearch.js",
+      "range": [
+        16959337,
+        16963303
+      ],
+      "sha256": "0c63a569a6315459c2e047c77edf23cfb03f28dd28d75056bf027426dfde3cab",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "whp",
+      "wrapperKey": "AddPluginSearch.js",
+      "deps": [
+        "E",
+        "mf",
+        "pQd",
+        "E7r",
+        "Hrt",
+        "aJ",
+        "vGe",
+        "yhp"
+      ],
+      "topLevelDeclarations": [
+        "gt1",
+        "pwt",
+        "rwn"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2826",
+      "basename": "AddPluginsToMarketplaceMenu.js",
+      "file": "recovered/app/glass/platform/AddPluginsToMarketplaceMenu.js",
+      "range": [
+        16970998,
+        16974096
+      ],
+      "sha256": "6b047fec90834e1d3a222a758745751218b697e8182bdf2f3d78c8bb1e55f8e9",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "AddPluginsToMarketplaceMenuModule",
+      "wrapperKey": "AddPluginsToMarketplaceMenu.js",
+      "deps": [
+        "E",
+        "Hrt",
+        "avi",
+        "Php",
+        "P0",
+        "BW"
+      ],
+      "topLevelDeclarations": [
+        "AddPluginsToMarketplaceMenuModule",
+        "W$t",
+        "kt1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2831",
+      "basename": "AddTeamMarketplaceModal.js",
+      "file": "recovered/app/glass/platform/AddTeamMarketplaceModal.js",
+      "range": [
+        16984850,
+        16984972
+      ],
+      "sha256": "50a1a90d4f6e1085d1031fccce7b7a800237b48f92939779f189837bf7c63e31",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Lt1",
+      "wrapperKey": "AddTeamMarketplaceModal.js",
+      "deps": [
+        "E",
+        "lEa",
+        "Rt1",
+        "QQ",
+        "pB"
+      ],
+      "topLevelDeclarations": [
+        "Lt1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "team-marketplace",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5104",
+      "basename": "BillingStatusBanner.js",
+      "file": "recovered/app/glass/platform/BillingStatusBanner.js",
+      "range": [
+        29233595,
+        29234711
+      ],
+      "sha256": "19a9a9b511739d442f005313c6a4c1eb76f2ac81b4059396b03d9401cef43f2a",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "t6k",
+      "wrapperKey": "BillingStatusBanner.js",
+      "deps": [
+        "E",
+        "at",
+        "pi",
+        "vo",
+        "aS",
+        "JFk"
+      ],
+      "topLevelDeclarations": [
+        "n6k",
+        "pJg"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "usage-billing",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5103",
+      "basename": "BillingStatusBanner.react.js",
+      "file": "recovered/app/glass/platform/BillingStatusBanner.react.js",
+      "range": [
+        29232606,
+        29233595
+      ],
+      "sha256": "e025663db78c710cd494722dfb7bf2a6577f372f1053a5d620940817b9c8e1d5",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "JFk",
+      "wrapperKey": "BillingStatusBanner.react.js",
+      "deps": [
+        "E",
+        "Mt",
+        "gxi",
+        "lJg"
+      ],
+      "topLevelDeclarations": [
+        "dJg",
+        "e6k",
+        "hJg"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "usage-billing",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3149",
+      "basename": "CachedNodeViewPlugin.js",
+      "file": "recovered/app/glass/platform/CachedNodeViewPlugin.js",
+      "range": [
+        18081361,
+        18085162
+      ],
+      "sha256": "ccda7a4609c602aa97b2d04c6b1a1a967186a8edfe86ef98be02e5243739ae31",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "H11",
+      "wrapperKey": "CachedNodeViewPlugin.js",
+      "deps": [
+        "E",
+        "Fy",
+        "destroy",
+        "stopEvent",
+        "ignoreMutation"
+      ],
+      "topLevelDeclarations": [
+        "ETp",
+        "q11",
+        "z11",
+        "V11",
+        "K11",
+        "Y11",
+        "X11",
+        "Z11",
+        "Owt",
+        "Q11",
+        "ITp",
+        "J11",
+        "Fwt"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0278",
+      "basename": "CacheKey.js",
+      "file": "recovered/app/glass/platform/CacheKey.js",
+      "range": [
+        627387,
+        627470
+      ],
+      "sha256": "6aa701ddaba8c9e63e7862f94bbbbf20530adc9a947e30af6969eeca3c2d8f97",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "agr",
+      "wrapperKey": "CacheKey.js",
+      "deps": [
+        "E",
+        "Ydn"
+      ],
+      "topLevelDeclarations": [
+        "agr"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5105",
+      "basename": "ClassicModelNudgeNotice.react.js",
+      "file": "recovered/app/glass/platform/ClassicModelNudgeNotice.react.js",
+      "range": [
+        29234711,
+        29236083
+      ],
+      "sha256": "021bb4088f5e8c04ffb8b2cdf58f985b6244ec29bc5676ffad616adf876fe7b4",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "i6k",
+      "wrapperKey": "ClassicModelNudgeNotice.react.js",
+      "deps": [
+        "E",
+        "Mt",
+        "S9e"
+      ],
+      "topLevelDeclarations": [
+        "mJg",
+        "G0l"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5106",
+      "basename": "ClassicUsageNoticeTray.react.js",
+      "file": "recovered/app/glass/platform/ClassicUsageNoticeTray.react.js",
+      "range": [
+        29236083,
+        29238935
+      ],
+      "sha256": "cc75f1b6d442187182d26e255bd262c6f61afe4f64372d0244e20f449cf86b2b",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "fJg",
+      "wrapperKey": "ClassicUsageNoticeTray.react.js",
+      "deps": [
+        "E",
+        "Mt"
+      ],
+      "topLevelDeclarations": [
+        "r6k",
+        "s6k",
+        "o6k",
+        "a6k",
+        "q0l"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "usage-billing",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5107",
+      "basename": "ClassicUsageNoticeTrays.js",
+      "file": "recovered/app/glass/platform/ClassicUsageNoticeTrays.js",
+      "range": [
+        29238935,
+        29239221
+      ],
+      "sha256": "b99b56f807733a7a868b8f758307db5fb68aae5bde1111082001b4e1ac703a4f",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "l6k",
+      "wrapperKey": "ClassicUsageNoticeTrays.js",
+      "deps": [
+        "E",
+        "at",
+        "aS",
+        "vo",
+        "W4e",
+        "i6k",
+        "fJg"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "usage-billing",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3156",
+      "basename": "CodeBlockHighlightPlugin.js",
+      "file": "recovered/app/glass/platform/CodeBlockHighlightPlugin.js",
+      "range": [
+        18106585,
+        18106778
+      ],
+      "sha256": "46cbd995cd04589c750d9c038f729c33622625c7e2190f10dc8cec4069c37f71",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "yk1",
+      "wrapperKey": "CodeBlockHighlightPlugin.js",
+      "deps": [
+        "E",
+        "gE",
+        "Doe",
+        "Aw",
+        "HQ",
+        "Fy"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1943",
+      "basename": "CodeTokenizerProvider.js",
+      "file": "recovered/app/glass/platform/CodeTokenizerProvider.js",
+      "range": [
+        11057241,
+        11058158
+      ],
+      "sha256": "5118549e105c0965059a70cbf2af6b90fee4880d1f578c2a9d243d0602b5a9c7",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Qla",
+      "wrapperKey": "CodeTokenizerProvider.js",
+      "deps": [
+        "E",
+        "MlS",
+        "Eit"
+      ],
+      "topLevelDeclarations": [
+        "BlS",
+        "nNr",
+        "UlS",
+        "Mit"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7728",
+      "basename": "ColorTokensSection.js",
+      "file": "recovered/app/glass/platform/ColorTokensSection.js",
+      "range": [
+        39033974,
+        39064714
+      ],
+      "sha256": "756db47ba3d276c138692c2a9f4d4868ef7bf6f68e28a46c7921fa68cdf9ac32",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "raC",
+      "wrapperKey": "ColorTokensSection.js",
+      "deps": [
+        "E",
+        "at",
+        "Am",
+        "pi",
+        "Hn",
+        "vo",
+        "ZoC",
+        "eD",
+        "mk"
+      ],
+      "topLevelDeclarations": [
+        "gLs",
+        "Muc",
+        "saC",
+        "Duc"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "settings",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2803",
+      "basename": "CompactModelFlyoutRows.js",
+      "file": "recovered/app/glass/platform/CompactModelFlyoutRows.js",
+      "range": [
+        16855362,
+        16856145
+      ],
+      "sha256": "5a164659790bd9aa4ac60d20082ae7b7caf3d7ad2b47b372946b4b62fa76bb8d",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "RJS",
+      "wrapperKey": "CompactModelFlyoutRows.js",
+      "deps": [
+        "E",
+        "JY",
+        "Tkn",
+        "$Ca",
+        "$he",
+        "lcp",
+        "ocp",
+        "NTa",
+        "fd"
+      ],
+      "topLevelDeclarations": [
+        "FTa"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production",
+          "model-list-dismissible-dot"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2807",
+      "basename": "CompactModelPickerContent.js",
+      "file": "recovered/app/glass/platform/CompactModelPickerContent.js",
+      "range": [
+        16875135,
+        16876686
+      ],
+      "sha256": "8cb68b169afd07f33c194d3d7129e67bfb4f7c5be5e49531266dc0e215829a07",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "hdp",
+      "wrapperKey": "CompactModelPickerContent.js",
+      "deps": [
+        "E",
+        "ipi",
+        "Rop",
+        "a8r",
+        "JY",
+        "Drt",
+        "B0a",
+        "VFe",
+        "RJS",
+        "Nlp",
+        "ICa",
+        "$Ca",
+        "BTa",
+        "Ukn",
+        "$he",
+        "jTa",
+        "s2e",
+        "NTa",
+        "BW"
+      ],
+      "topLevelDeclarations": [
+        "pdp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "show-all-models",
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production",
+          "selected-model-list-submenu"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3965",
+      "basename": "ConfigurePluginDialog.js",
+      "file": "recovered/app/glass/platform/ConfigurePluginDialog.js",
+      "range": [
+        23072195,
+        23072389
+      ],
+      "sha256": "220b0ace2b2b6869809a3a8ddc08de53ae5ff9148bc1ea064b6823a9c6ed1ec4",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "ktk",
+      "wrapperKey": "ConfigurePluginDialog.js",
+      "deps": [
+        "E",
+        "IQa"
+      ],
+      "topLevelDeclarations": [
+        "xQa",
+        "wtk",
+        "ktk",
+        "oqm"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5289",
+      "basename": "ContextUsageTray.react.js",
+      "file": "recovered/app/glass/platform/ContextUsageTray.react.js",
+      "range": [
+        29793980,
+        29794200
+      ],
+      "sha256": "89213cec94122a6aea057282c6bad286a114e848f92e6eab53640dc71c92600f",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "faf",
+      "wrapperKey": "ContextUsageTray.react.js",
+      "deps": [
+        "E",
+        "Mt",
+        "NUk"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "usage-billing",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2828",
+      "basename": "CreateTeamMarketplaceForm.js",
+      "file": "recovered/app/glass/platform/CreateTeamMarketplaceForm.js",
+      "range": [
+        16977704,
+        16978519
+      ],
+      "sha256": "6ad385caa90f3c761494e4bfcd3ea5a811edf4ee4d6926df1bc77dc04a0e37e6",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "lEa",
+      "wrapperKey": "CreateTeamMarketplaceForm.js",
+      "deps": [
+        "E",
+        "I7r",
+        "QQ",
+        "twt",
+        "Nhe",
+        "P0"
+      ],
+      "topLevelDeclarations": [
+        "It1",
+        "$hp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "team-marketplace",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3174",
+      "basename": "DocumentRhythmExtension.js",
+      "file": "recovered/app/glass/platform/DocumentRhythmExtension.js",
+      "range": [
+        18189121,
+        18191945
+      ],
+      "sha256": "f7a2c2cec7c94d5cc99863cef97cd9cf13116fe325948683de66ae32dca1f9ef",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "n01",
+      "wrapperKey": "DocumentRhythmExtension.js",
+      "deps": [
+        "E",
+        "Fy",
+        "gE",
+        "Doe",
+        "Aw",
+        "HQ"
+      ],
+      "topLevelDeclarations": [
+        "o01",
+        "a01",
+        "l01"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production",
+          "esm-index-production"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6918",
+      "basename": "DOMKeyframesResolver.mjs",
+      "file": "recovered/app/glass/platform/DOMKeyframesResolver.mjs",
+      "range": [
+        35366269,
+        35368870
+      ],
+      "sha256": "7e4a03616d41e0a856f8f9c6b5f2324719793d3d7caa43d65c3ef0724e36cb1a",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Uf0",
+      "wrapperKey": "DOMKeyframesResolver.mjs",
+      "deps": [
+        "E",
+        "Xyv",
+        "oSv",
+        "df0",
+        "aFi",
+        "iXl",
+        "Df0",
+        "Bf0",
+        "dyv"
+      ],
+      "topLevelDeclarations": [
+        "jf0"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-build-mjs",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0294",
+      "basename": "DownloadConfigSpecsResponse.js",
+      "file": "recovered/app/glass/platform/DownloadConfigSpecsResponse.js",
+      "range": [
+        647586,
+        647677
+      ],
+      "sha256": "7a1067d4d514faf8a97d522d85912141ffb43c16fc65d87df8587e707df332c1",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Eyy",
+      "wrapperKey": "DownloadConfigSpecsResponse.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3183",
+      "basename": "EditorHistoryOwnerExtension.js",
+      "file": "recovered/app/glass/platform/EditorHistoryOwnerExtension.js",
+      "range": [
+        18288182,
+        18290076
+      ],
+      "sha256": "5c416ae3256297b409472b34c8d0185abdfd7afdc03895c8a0ecb590d851bedf",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Q01",
+      "wrapperKey": "EditorHistoryOwnerExtension.js",
+      "deps": [
+        "E",
+        "Fy",
+        "$kt",
+        "gE",
+        "jkt",
+        "Aw"
+      ],
+      "topLevelDeclarations": [
+        "J01",
+        "eC1",
+        "tC1",
+        "nC1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "data-editor-owns-history",
+          "cursor-editor-history-command"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6944",
+      "basename": "Feature.mjs",
+      "file": "recovered/app/glass/platform/Feature.mjs",
+      "range": [
+        35385320,
+        35385769
+      ],
+      "sha256": "d5276986d7108a8efe2d87c5fffe2480b46e78eee7693558fc8917ab82c7b817",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "sv0",
+      "wrapperKey": "Feature.mjs",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "ov0",
+        "av0"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-build-mjs",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2746",
+      "basename": "HoverModelItem.js",
+      "file": "recovered/app/glass/platform/HoverModelItem.js",
+      "range": [
+        16659569,
+        16669951
+      ],
+      "sha256": "21f83d3e65f52c890a37520aadf08c3880587ccf98ce0a639bf6dd5095c8b52b",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "IXS",
+      "wrapperKey": "HoverModelItem.js",
+      "deps": [
+        "E",
+        "ijt",
+        "ICa",
+        "$he",
+        "a8r",
+        "JY",
+        "B0a",
+        "kXS",
+        "aJ",
+        "s2e",
+        "Wj",
+        "nw"
+      ],
+      "topLevelDeclarations": [
+        "AXS",
+        "Hlp",
+        "RXS",
+        "PXS",
+        "Wlp",
+        "MXS",
+        "DXS"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production",
+          "parameter-edit-btn"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4883",
+      "basename": "ImagePlugins.js",
+      "file": "recovered/app/glass/platform/ImagePlugins.js",
+      "range": [
+        28088803,
+        28091970
+      ],
+      "sha256": "40ae6d76853841f4ba097800781d8a4222f8111475ce42ebc1bbe7fccd777836",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "_3k",
+      "wrapperKey": "ImagePlugins.js",
+      "deps": [
+        "E",
+        "pi",
+        "cI",
+        "Ak",
+        "vo",
+        "qJ",
+        "eIt"
+      ],
+      "topLevelDeclarations": [
+        "Jvl",
+        "e_l",
+        "b3k",
+        "y3k",
+        "S3k",
+        "k3k",
+        "_3k",
+        "KPg"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2830",
+      "basename": "ImportTeamMarketplaceFromRepoForm.js",
+      "file": "recovered/app/glass/platform/ImportTeamMarketplaceFromRepoForm.js",
+      "range": [
+        16982968,
+        16984850
+      ],
+      "sha256": "c761c5ed117569512a8f65debc2311a365a27c3eb76d90a2ebad74645b2fe906",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "ImportTeamMarketplaceFromRepoFormModule",
+      "wrapperKey": "ImportTeamMarketplaceFromRepoForm.js",
+      "deps": [
+        "E",
+        "lEa",
+        "I7r",
+        "xt1",
+        "QQ",
+        "twt",
+        "P0"
+      ],
+      "topLevelDeclarations": [
+        "ImportTeamMarketplaceFromRepoFormModule",
+        "Whp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production",
+          "esm-index-production"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "team-marketplace",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3154",
+      "basename": "InlineCodeLinkPlugin.js",
+      "file": "recovered/app/glass/platform/InlineCodeLinkPlugin.js",
+      "range": [
+        18095049,
+        18101513
+      ],
+      "sha256": "ae2ce17c29cbbd48ddd8d6c21978a5423d9f317bbf38f1cea01818e785401030",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "FTp",
+      "wrapperKey": "InlineCodeLinkPlugin.js",
+      "deps": [
+        "E",
+        "Va",
+        "Fy",
+        "gE",
+        "Doe",
+        "T$r",
+        "qu",
+        "HQ",
+        "Aw",
+        "X11",
+        "Z11",
+        "addOptions",
+        "addProseMirrorPlugins",
+        "preventDefault",
+        "stopPropagation"
+      ],
+      "topLevelDeclarations": [
+        "sk1",
+        "ok1",
+        "ak1",
+        "lk1",
+        "ck1",
+        "BTp",
+        "uk1",
+        "x$r",
+        "UTp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5111",
+      "basename": "KeybindingRecorder.js",
+      "file": "recovered/app/glass/platform/KeybindingRecorder.js",
+      "range": [
+        29264484,
+        29269117
+      ],
+      "sha256": "f060a8a7caf3c557329bafe98c82f3f533ba1ec11d1acaa1174bba1ecca15fc4",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "kJg",
+      "wrapperKey": "KeybindingRecorder.js",
+      "deps": [
+        "E",
+        "at",
+        "pi",
+        "ABt",
+        "Di",
+        "vo",
+        "bJg",
+        "y6k"
+      ],
+      "topLevelDeclarations": [
+        "S6k",
+        "wJg"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "settings",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7770",
+      "basename": "KeybindingRecorderSection.js",
+      "file": "recovered/app/glass/platform/KeybindingRecorderSection.js",
+      "range": [
+        39197472,
+        39199603
+      ],
+      "sha256": "b1b38ce555add8a4f70c89e526c1e9f88a39ba379b336141c6bcdc8826abaf48",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "NlC",
+      "wrapperKey": "KeybindingRecorderSection.js",
+      "deps": [
+        "E",
+        "at",
+        "pi",
+        "Am",
+        "kJg"
+      ],
+      "topLevelDeclarations": [
+        "LlC",
+        "kYv"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "settings",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5112",
+      "basename": "KeyboardShortcutButton.js",
+      "file": "recovered/app/glass/platform/KeyboardShortcutButton.js",
+      "range": [
+        29269117,
+        29272864
+      ],
+      "sha256": "a9bd1fbe8e0283a2d49e1085b146481aa02ccb39954a4cd2b8c09703f94e09a2",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "k6k",
+      "wrapperKey": "KeyboardShortcutButton.js",
+      "deps": [
+        "E",
+        "at",
+        "pi",
+        "gs",
+        "ta",
+        "vo",
+        "sye",
+        "kJg"
+      ],
+      "topLevelDeclarations": [
+        "EJg",
+        "IJg",
+        "w6k",
+        "C6k",
+        "xJg"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "unclassified",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6861",
+      "basename": "KeyframesResolver.mjs",
+      "file": "recovered/app/glass/platform/KeyframesResolver.mjs",
+      "range": [
+        35336926,
+        35338437
+      ],
+      "sha256": "ccbb7df677324bcedf52b04f65e84fb56af7bdb8812725db02bd40bac5541fd0",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "iXl",
+      "wrapperKey": "KeyframesResolver.mjs",
+      "deps": [
+        "E",
+        "Bg0",
+        "dyv",
+        "bRt",
+        "Set",
+        "scheduleResolve",
+        "readKeyframes",
+        "complete",
+        "get",
+        "setFinalKeyframe",
+        "measureInitialState",
+        "renderEndStyles",
+        "measureEndState"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-build-mjs",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2114",
+      "basename": "LabelableProvider.js",
+      "file": "recovered/app/glass/platform/LabelableProvider.js",
+      "range": [
+        14621682,
+        14623009
+      ],
+      "sha256": "128b1ce8ddcf1339cdf07af820d3829ab8d1592088867e0aa1a7e2f936985d72",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "o4h",
+      "wrapperKey": "LabelableProvider.js",
+      "deps": [
+        "E",
+        "Jy",
+        "jQ",
+        "_A",
+        "VQ",
+        "$I",
+        "zQ"
+      ],
+      "topLevelDeclarations": [
+        "KOr"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [
+        {
+          "identifier": "VOr",
+          "displayName": "LabelableProvider"
+        }
+      ],
+      "group": "provider",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2925",
+      "basename": "LeadingContentExtension.js",
+      "file": "recovered/app/glass/platform/LeadingContentExtension.js",
+      "range": [
+        17347907,
+        17349137
+      ],
+      "sha256": "18df1e11cbb6863b60c220565754a83952c45be69eae0bd005d3dee5e4c8e435",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "yl1",
+      "wrapperKey": "LeadingContentExtension.js",
+      "deps": [
+        "E",
+        "Fy",
+        "gE",
+        "Doe",
+        "Aw",
+        "HQ"
+      ],
+      "topLevelDeclarations": [
+        "Sl1",
+        "kl1",
+        "wl1",
+        "_vp",
+        "Cl1",
+        "bvp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2747",
+      "basename": "LegacyModelItem.js",
+      "file": "recovered/app/glass/platform/LegacyModelItem.js",
+      "range": [
+        16669951,
+        16673314
+      ],
+      "sha256": "fbf7c5de58ba33f098bbbe1b01339b743434c8d6d156d7c5110ba1b2128877e4",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "LegacyModelItemModule",
+      "wrapperKey": "LegacyModelItem.js",
+      "deps": [
+        "E",
+        "ijt",
+        "JY",
+        "B0a",
+        "ICa",
+        "Ukn",
+        "$he",
+        "aJ",
+        "P0",
+        "Wj",
+        "s2e",
+        "Elp"
+      ],
+      "topLevelDeclarations": [
+        "LegacyModelItemModule",
+        "OCa",
+        "L8r",
+        "NXS",
+        "LXS",
+        "OXS"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production",
+          "model-selection-restriction-notice",
+          "routed-model-to-named-view-button",
+          "named-view-to-routed-model-view"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3195",
+      "basename": "LineCodeBlockTokenizer.js",
+      "file": "recovered/app/glass/platform/LineCodeBlockTokenizer.js",
+      "range": [
+        18320810,
+        18321644
+      ],
+      "sha256": "d46f3df17ea1db0450af0878a3bbc417d87bf850bd901264ca9f83bc87a2a0cd",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "cAp",
+      "wrapperKey": "LineCodeBlockTokenizer.js",
+      "deps": [
+        "E",
+        "yca"
+      ],
+      "topLevelDeclarations": [
+        "CMa",
+        "OC1",
+        "FC1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3168",
+      "basename": "LinkDecoratorPlugin.js",
+      "file": "recovered/app/glass/platform/LinkDecoratorPlugin.js",
+      "range": [
+        18154636,
+        18157596
+      ],
+      "sha256": "25a347bbf31e69c4415ce8ac1a44d6875f2bf331d8f26ff4da2410e332577152",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Iw1",
+      "wrapperKey": "LinkDecoratorPlugin.js",
+      "deps": [
+        "E",
+        "Va",
+        "Fy",
+        "gE",
+        "Doe",
+        "k1t",
+        "NTp",
+        "qu",
+        "HQ",
+        "Aw",
+        "Tw1",
+        "Ew1",
+        "addOptions",
+        "addProseMirrorPlugins"
+      ],
+      "topLevelDeclarations": [
+        "Mw1",
+        "Dw1",
+        "J_i",
+        "oIp",
+        "aIp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5136",
+      "basename": "LockedModelPicker.react.js",
+      "file": "recovered/app/glass/platform/LockedModelPicker.react.js",
+      "range": [
+        29331492,
+        29333850
+      ],
+      "sha256": "70638202f27e48406912b339b7df4682cd8351b919e7e875aa22e997b0072356",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "LockedModelPickerModule",
+      "wrapperKey": "LockedModelPicker.react.js",
+      "deps": [
+        "E",
+        "Mt",
+        "Hle",
+        "K2i"
+      ],
+      "topLevelDeclarations": [
+        "LockedModelPickerModule",
+        "UPn"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2848",
+      "basename": "ManageTeamMarketplaceAddPicker.js",
+      "file": "recovered/app/glass/platform/ManageTeamMarketplaceAddPicker.js",
+      "range": [
+        17026942,
+        17027069
+      ],
+      "sha256": "7cf731d86a4995f3b3bace45fa33c65dade2cf4f5c8facfa93b8d69a74bc4eb6",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Cn1",
+      "wrapperKey": "ManageTeamMarketplaceAddPicker.js",
+      "deps": [
+        "E",
+        "Fhp",
+        "Jpp",
+        "P0",
+        "fd",
+        "BW",
+        "N1n"
+      ],
+      "topLevelDeclarations": [
+        "Cn1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "team-marketplace",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2864",
+      "basename": "ManageTeamMarketplaceModal.js",
+      "file": "recovered/app/glass/platform/ManageTeamMarketplaceModal.js",
+      "range": [
+        17113517,
+        17116330
+      ],
+      "sha256": "82791c6ed1edbea7b53f7dcf3add9c81ddff1c961485b7a16532ed6729b3946b",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "ManageTeamMarketplaceModalModule",
+      "wrapperKey": "ManageTeamMarketplaceModal.js",
+      "deps": [
+        "E",
+        "wmp",
+        "Tmp",
+        "Rmp",
+        "pB",
+        "QQ"
+      ],
+      "topLevelDeclarations": [
+        "ManageTeamMarketplaceModalModule",
+        "WEa"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production"
+        ],
+        "urls": [
+          "http://www.w3.org/2000/svg"
+        ],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "team-marketplace",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2861",
+      "basename": "ManageTeamMarketplaceModalContent.js",
+      "file": "recovered/app/glass/platform/ManageTeamMarketplaceModalContent.js",
+      "range": [
+        17099274,
+        17105125
+      ],
+      "sha256": "7526f8c609fcee7f1aef0b61dcb6d654b874cdd79957d65b4624786add49fb9c",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "wmp",
+      "wrapperKey": "ManageTeamMarketplaceModalContent.js",
+      "deps": [
+        "E",
+        "Va",
+        "R7r",
+        "Cn1",
+        "Vn1",
+        "jEa",
+        "ri1",
+        "Hrt",
+        "avi",
+        "ai1",
+        "pi1",
+        "Ti1",
+        "Nhe",
+        "P0",
+        "QQ"
+      ],
+      "topLevelDeclarations": [
+        "Cmp",
+        "xi1",
+        "Ai1",
+        "Ri1",
+        "getPluginId",
+        "Mi1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "cursor-font-weight-semibold",
+          "esm-compiler-runtime-production"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "team-marketplace",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2855",
+      "basename": "ManageTeamMarketplacePluginList.js",
+      "file": "recovered/app/glass/platform/ManageTeamMarketplacePluginList.js",
+      "range": [
+        17058333,
+        17077030
+      ],
+      "sha256": "6dc3ff5c0b0cdc138fa7f68eb6251dabf653141f05a3c2fae36a3b051634baa3",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Vn1",
+      "wrapperKey": "ManageTeamMarketplacePluginList.js",
+      "deps": [
+        "E",
+        "Va",
+        "R7r",
+        "Tn1",
+        "Jpp",
+        "REa",
+        "E7r",
+        "Hrt",
+        "FEa",
+        "avi",
+        "Nhe",
+        "Q3",
+        "f2",
+        "BW",
+        "P0"
+      ],
+      "topLevelDeclarations": [
+        "cmp",
+        "ump",
+        "$7r",
+        "dmp",
+        "hmp",
+        "H7r",
+        "W7r",
+        "Xn1",
+        "BEa",
+        "pmp",
+        "Zn1",
+        "mmp",
+        "UEa",
+        "Qn1",
+        "G7r",
+        "Jn1",
+        "gmp",
+        "ei1",
+        "ti1",
+        "q7r"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "team-marketplace",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2856",
+      "basename": "MarketplaceAccessSection.js",
+      "file": "recovered/app/glass/platform/MarketplaceAccessSection.js",
+      "range": [
+        17077030,
+        17079037
+      ],
+      "sha256": "01e4bd74421a5f8039f7cced571b4cac8d0c22e6ba6b8781a4a29fd65527c120",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "jEa",
+      "wrapperKey": "MarketplaceAccessSection.js",
+      "deps": [
+        "E",
+        "Va",
+        "R7r",
+        "I7r",
+        "REa",
+        "Hrt",
+        "avi",
+        "kwh",
+        "Iwh",
+        "pB",
+        "qUt",
+        "hL",
+        "fd",
+        "P0",
+        "Q3",
+        "QQ"
+      ],
+      "topLevelDeclarations": [
+        "ii1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2852",
+      "basename": "MarketplacePluginRow.js",
+      "file": "recovered/app/glass/platform/MarketplacePluginRow.js",
+      "range": [
+        17032100,
+        17032449
+      ],
+      "sha256": "eb8f8a861dce1dae7196f5023c00a909c1c54f2fa0819ed812b5567ba169c935",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "REa",
+      "wrapperKey": "MarketplacePluginRow.js",
+      "deps": [
+        "E",
+        "mf",
+        "smp"
+      ],
+      "topLevelDeclarations": [
+        "An1",
+        "Rn1",
+        "REa",
+        "omp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2829",
+      "basename": "MarketplaceScopeSelect.js",
+      "file": "recovered/app/glass/platform/MarketplaceScopeSelect.js",
+      "range": [
+        16978519,
+        16982968
+      ],
+      "sha256": "33d986a3c2bad48620504e4d5bf659d48f3cf8baea97f8273fdf3f15b120b356",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "xt1",
+      "wrapperKey": "MarketplaceScopeSelect.js",
+      "deps": [
+        "E",
+        "Obn"
+      ],
+      "topLevelDeclarations": [
+        "At1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-index-production"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3940",
+      "basename": "MarketplaceSection.js",
+      "file": "recovered/app/glass/platform/MarketplaceSection.js",
+      "range": [
+        22839772,
+        22841574
+      ],
+      "sha256": "c5b62edbccd8d922cbee1aff7c47f675ad4da0e15eee662ae9040af907b8a2b8",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "yQ1",
+      "wrapperKey": "MarketplaceSection.js",
+      "deps": [
+        "E",
+        "Mt",
+        "J7"
+      ],
+      "topLevelDeclarations": [
+        "kQ1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "cursor-ui-78zum5",
+          "cursor-ui-dt5ytf",
+          "cursor-ui-1oot3zn",
+          "cursor-ui-12h1iku",
+          "cursor-ui-1q0g3np",
+          "cursor-ui-6s0dn4",
+          "cursor-ui-13ly8rp",
+          "cursor-ui-1yxiud8",
+          "cursor-ui-1xlntvz",
+          "cursor-ui-yab65l",
+          "cursor-ui-1m7fhj7",
+          "cursor-ui-1wd3ewq"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3941",
+      "basename": "MarketplaceSectionEndCol.js",
+      "file": "recovered/app/glass/platform/MarketplaceSectionEndCol.js",
+      "range": [
+        22841574,
+        22847174
+      ],
+      "sha256": "aa05d2e8e6619b37f2ff589f14ec79abdb25a61e36151cb48e2475badd51bdc2",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "MarketplaceSectionEndColModule",
+      "wrapperKey": "MarketplaceSectionEndCol.js",
+      "deps": [
+        "E",
+        "Mt"
+      ],
+      "topLevelDeclarations": [
+        "MarketplaceSectionEndColModule",
+        "kWm"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3169",
+      "basename": "MathBlockPlugin.js",
+      "file": "recovered/app/glass/platform/MathBlockPlugin.js",
+      "range": [
+        18157596,
+        18160377
+      ],
+      "sha256": "b99b0006085ab4cdf0b7ef9728d3b04c72bf90a4da2390ca016d8ea54c80d187",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Nw1",
+      "wrapperKey": "MathBlockPlugin.js",
+      "deps": [
+        "E",
+        "Fy",
+        "v_e",
+        "Sda",
+        "addAttributes"
+      ],
+      "topLevelDeclarations": [
+        "uIp",
+        "Uw1",
+        "jw1",
+        "f0n"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0300",
+      "basename": "MemoKey.js",
+      "file": "recovered/app/glass/platform/MemoKey.js",
+      "range": [
+        651728,
+        652769
+      ],
+      "sha256": "363805e0fdd596808dab362dd5e339901442ea356e85f5595b5c06e5be85e015",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "EJu",
+      "wrapperKey": "MemoKey.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "Nyy",
+        "Lyy",
+        "IJu"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2544",
+      "basename": "MentionChipPlugin.js",
+      "file": "recovered/app/glass/platform/MentionChipPlugin.js",
+      "range": [
+        15911981,
+        15918651
+      ],
+      "sha256": "c784750279aba06142932505f3ee9a9f7b420c883e6143aaeef49e79468af774",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "lGe",
+      "wrapperKey": "MentionChipPlugin.js",
+      "deps": [
+        "E",
+        "Fy",
+        "nBS",
+        "gE",
+        "Doe",
+        "Ymi",
+        "S4r",
+        "Mkt",
+        "pBS",
+        "k9r",
+        "Aw",
+        "HQ",
+        "addStorage",
+        "addCommands"
+      ],
+      "topLevelDeclarations": [
+        "ABS",
+        "bep",
+        "RBS",
+        "PBS",
+        "q1a",
+        "MBS",
+        "yep",
+        "C9r",
+        "cGe",
+        "z1a",
+        "Sep"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2926",
+      "basename": "MentionOnlyPlaceholderExtension.js",
+      "file": "recovered/app/glass/platform/MentionOnlyPlaceholderExtension.js",
+      "range": [
+        17349137,
+        17349558
+      ],
+      "sha256": "f4141222fdbccc3dc6058f3a4331a02d565fa5ec7b9b80d3f5d0325002b9e9c4",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Tl1",
+      "wrapperKey": "MentionOnlyPlaceholderExtension.js",
+      "deps": [
+        "E",
+        "Fy",
+        "gE",
+        "Doe",
+        "lGe",
+        "_rt",
+        "Aw",
+        "HQ"
+      ],
+      "topLevelDeclarations": [
+        "yvp",
+        "Svp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "is-editor-mention-only"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "unclassified",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4877",
+      "basename": "MentionsPlugin.js",
+      "file": "recovered/app/glass/platform/MentionsPlugin.js",
+      "range": [
+        28074940,
+        28080391
+      ],
+      "sha256": "7e99e4cfe5b3d112aec1f24b58e5864f2931eb29f8d2e222ff5ea51ef2ce1e36",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "OPg",
+      "wrapperKey": "MentionsPlugin.js",
+      "deps": [
+        "E",
+        "at",
+        "pi",
+        "v1",
+        "cI",
+        "AEg",
+        "Tus",
+        "NA",
+        "Ak",
+        "cW",
+        "Hn",
+        "nT",
+        "gz",
+        "Iw",
+        "Ga",
+        "gs",
+        "Qe",
+        "Ul",
+        "ob",
+        "ta",
+        "fn",
+        "Xo",
+        "Qs",
+        "EB"
+      ],
+      "topLevelDeclarations": [
+        "F9e",
+        "B9e"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "mention-menu-item-with-codicon",
+          "subtitle-truncate-end"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3049",
+      "basename": "MicrosoftTeamsIcon.js",
+      "file": "recovered/app/glass/platform/MicrosoftTeamsIcon.js",
+      "range": [
+        17810592,
+        17812990
+      ],
+      "sha256": "b041f2e2dbe219dc27f56714c5b3de5751dff57af2307cb8bf35f82fc44fb2c1",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "MicrosoftTeamsIconModule",
+      "wrapperKey": "MicrosoftTeamsIcon.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "MicrosoftTeamsIconModule",
+        "iwp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production"
+        ],
+        "urls": [
+          "http://www.w3.org/2000/svg"
+        ],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "team",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2748",
+      "basename": "ModelButtons.js",
+      "file": "recovered/app/glass/platform/ModelButtons.js",
+      "range": [
+        16673314,
+        16673802
+      ],
+      "sha256": "ade9d5cbb5c7a713e4be4d787d243643e4d57a2a72de8cd16982b00268553aec",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "qlp",
+      "wrapperKey": "ModelButtons.js",
+      "deps": [
+        "E",
+        "JY",
+        "Drt",
+        "Tkn",
+        "$he",
+        "aJ",
+        "awt",
+        "fd"
+      ],
+      "topLevelDeclarations": [
+        "FXS",
+        "qlp",
+        "zlp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2737",
+      "basename": "ModelCountControls.js",
+      "file": "recovered/app/glass/platform/ModelCountControls.js",
+      "range": [
+        16624053,
+        16624158
+      ],
+      "sha256": "47d6e9c58336a4b2c0d13d658a9c516c81533e53eb9523251cd8c385956558e6",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Clp",
+      "wrapperKey": "ModelCountControls.js",
+      "deps": [
+        "E",
+        "JY",
+        "aJ",
+        "P0",
+        "fd"
+      ],
+      "topLevelDeclarations": [
+        "Clp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2739",
+      "basename": "ModelItemRow.js",
+      "file": "recovered/app/glass/platform/ModelItemRow.js",
+      "range": [
+        16630426,
+        16632804
+      ],
+      "sha256": "42ba89ce4ddcf32e607c11906b349a2b1a255d7632ff06040e1852f58ff7b97c",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "ICa",
+      "wrapperKey": "ModelItemRow.js",
+      "deps": [
+        "E",
+        "Va",
+        "JY",
+        "Dfi",
+        "nap",
+        "Clp",
+        "$he",
+        "qu",
+        "O9r",
+        "fd",
+        "P0",
+        "Elp",
+        "hL"
+      ],
+      "topLevelDeclarations": [
+        "Plp",
+        "Mlp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2750",
+      "basename": "ModelList.js",
+      "file": "recovered/app/glass/platform/ModelList.js",
+      "range": [
+        16691995,
+        16702351
+      ],
+      "sha256": "df8d717d9add33c23c24ac003de0403fd51bfcb870a4beeb12984943cf0a1e3b",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "$Ca",
+      "wrapperKey": "ModelList.js",
+      "deps": [
+        "E",
+        "Va",
+        "P7",
+        "IXS",
+        "JY",
+        "Drt",
+        "Tkn",
+        "VFe",
+        "Glp",
+        "qlp",
+        "BXS",
+        "aJ",
+        "fd",
+        "awt",
+        "nw"
+      ],
+      "topLevelDeclarations": [
+        "HCa",
+        "WCa",
+        "tcp",
+        "ncp",
+        "icp",
+        "rcp",
+        "scp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2804",
+      "basename": "ModelListRowLabel.js",
+      "file": "recovered/app/glass/platform/ModelListRowLabel.js",
+      "range": [
+        16856145,
+        16856821
+      ],
+      "sha256": "bd78df7212dd661036342ade43354e42fbbd900a8dcbef88ac02a772338528cc",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "ModelListRowLabelModule",
+      "wrapperKey": "ModelListRowLabel.js",
+      "deps": [
+        "E",
+        "JY",
+        "ACa"
+      ],
+      "topLevelDeclarations": [
+        "ModelListRowLabelModule",
+        "LJS"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-index-production"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4761",
+      "basename": "ModelNameDisplay.js",
+      "file": "recovered/app/glass/platform/ModelNameDisplay.js",
+      "range": [
+        27365830,
+        27367566
+      ],
+      "sha256": "c91367ff8b3450afa650f5e77251800cc8f0cf8f95f04e3aa94d5f0b3006d1ce",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "KRn",
+      "wrapperKey": "ModelNameDisplay.js",
+      "deps": [
+        "E",
+        "at",
+        "pi",
+        "gs",
+        "ta",
+        "DIg",
+        "vo",
+        "Ous"
+      ],
+      "topLevelDeclarations": [
+        "jRk",
+        "sAi",
+        "$Rk",
+        "HRk",
+        "FIg",
+        "YRn",
+        "Bus",
+        "Uus"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7775",
+      "basename": "ModelNameDisplaySection.js",
+      "file": "recovered/app/glass/platform/ModelNameDisplaySection.js",
+      "range": [
+        39220923,
+        39224510
+      ],
+      "sha256": "8ddab22000d78cc1bfa41cc9e948b79fe4f0dbd35213a394b9cb339ed18471c7",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "GlC",
+      "wrapperKey": "ModelNameDisplaySection.js",
+      "deps": [
+        "E",
+        "at",
+        "pi",
+        "Hu",
+        "KRn",
+        "mk"
+      ],
+      "topLevelDeclarations": [
+        "zlC",
+        "VlC",
+        "idc"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2743",
+      "basename": "ModelParameterControls.js",
+      "file": "recovered/app/glass/platform/ModelParameterControls.js",
+      "range": [
+        16641888,
+        16642158
+      ],
+      "sha256": "d046fe2f66bed9c022c07349d78e0f55d68ffff4dd793516d9ab5bf600e3e990",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "ModelParameterControlsModule",
+      "wrapperKey": "ModelParameterControls.js",
+      "deps": [
+        "E",
+        "JY",
+        "R0a",
+        "Dfi",
+        "Nlp",
+        "ACa",
+        "$he",
+        "aXS",
+        "fd",
+        "aJ",
+        "BW"
+      ],
+      "topLevelDeclarations": [
+        "ModelParameterControlsModule",
+        "dXS"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2815",
+      "basename": "ModelPicker.js",
+      "file": "recovered/app/glass/platform/ModelPicker.js",
+      "range": [
+        16928270,
+        16928675
+      ],
+      "sha256": "5c9eda64865fffcfb134b45a760d12a0c84b0c98538ad11432dfaf7f07b00871",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Gdp",
+      "wrapperKey": "ModelPicker.js",
+      "deps": [
+        "E",
+        "ipi",
+        "hdp",
+        "xe1",
+        "Ldp",
+        "JY",
+        "Fdp",
+        "VFe",
+        "awt",
+        "aJ",
+        "BW"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2695",
+      "basename": "ModelPicker.types.js",
+      "file": "recovered/app/glass/platform/ModelPicker.types.js",
+      "range": [
+        16474089,
+        16474269
+      ],
+      "sha256": "c50f84b10460290cd1322a1b8b1105918866bbc5a77234e6a1a2a671bbbe3704",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "a8r",
+      "wrapperKey": "ModelPicker.types.js",
+      "deps": [
+        "E",
+        "Xba"
+      ],
+      "topLevelDeclarations": [
+        "ykn",
+        "A0a"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2812",
+      "basename": "ModelPickerContent.js",
+      "file": "recovered/app/glass/platform/ModelPickerContent.js",
+      "range": [
+        16899313,
+        16900522
+      ],
+      "sha256": "cc5202dd5f89ad3fdad8118371061aee8d4311ca4314dbbc9deee932f09a2348",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "xe1",
+      "wrapperKey": "ModelPickerContent.js",
+      "deps": [
+        "E",
+        "a8r",
+        "JY",
+        "Drt",
+        "Tkn",
+        "lcp",
+        "oe1",
+        "ge1",
+        "Nkn",
+        "qu",
+        "aJ",
+        "awt"
+      ],
+      "topLevelDeclarations": [
+        "Ddp",
+        "WTa",
+        "GTa",
+        "Pe1",
+        "Me1",
+        "C7r"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2700",
+      "basename": "ModelPickerContext.js",
+      "file": "recovered/app/glass/platform/ModelPickerContext.js",
+      "range": [
+        16491980,
+        16494039
+      ],
+      "sha256": "c746cda453d13a966b2298c2899a00758a20160912fa127059e8de95ef35d5ee",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "JY",
+      "wrapperKey": "ModelPickerContext.js",
+      "deps": [
+        "E",
+        "R0a",
+        "Dfi",
+        "nVS",
+        "rVS",
+        "VFe"
+      ],
+      "topLevelDeclarations": [
+        "getRoutedModelViewConfig",
+        "pVS",
+        "qop",
+        "L0a",
+        "zop",
+        "Vop",
+        "u8r",
+        "mVS",
+        "Kop",
+        "O0a",
+        "d8r",
+        "Yop",
+        "gVS",
+        "F0a",
+        "fVS",
+        "Xop",
+        "vVS",
+        "_VS"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7776",
+      "basename": "ModelPickerSection.js",
+      "file": "recovered/app/glass/platform/ModelPickerSection.js",
+      "range": [
+        39224510,
+        39239753
+      ],
+      "sha256": "aaf6a23ea7bd4526b9be47763bf037d2426b79e8486471f25c3e38edabfa68e9",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "KlC",
+      "wrapperKey": "ModelPickerSection.js",
+      "deps": [
+        "E",
+        "at",
+        "Mt",
+        "Fxn",
+        "itf",
+        "aS",
+        "mk"
+      ],
+      "topLevelDeclarations": [
+        "YlC",
+        "WYv"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2813",
+      "basename": "ModelPickerTrigger.js",
+      "file": "recovered/app/glass/platform/ModelPickerTrigger.js",
+      "range": [
+        16900522,
+        16907972
+      ],
+      "sha256": "4e5b9f57bfe6dd3bcd16c1588f9a64ece3d7c96e95af31c72dcfef897804fd88",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Ldp",
+      "wrapperKey": "ModelPickerTrigger.js",
+      "deps": [
+        "E",
+        "JY",
+        "VFe",
+        "$he",
+        "qu",
+        "fd",
+        "P0",
+        "hL",
+        "Bop",
+        "Ddp"
+      ],
+      "topLevelDeclarations": [
+        "tvi",
+        "De1",
+        "Odp",
+        "T7r"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "data-pointer-hover-intent"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2752",
+      "basename": "ModelPickerViews.js",
+      "file": "recovered/app/glass/platform/ModelPickerViews.js",
+      "range": [
+        16710412,
+        16710811
+      ],
+      "sha256": "931b775b913fac925bebcb7aa1ef83ababf5748bbc994f1f0f8619bacbcc0029",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "lcp",
+      "wrapperKey": "ModelPickerViews.js",
+      "deps": [
+        "E",
+        "JY",
+        "Drt",
+        "Tkn",
+        "qlp",
+        "$Ca",
+        "ocp",
+        "aJ",
+        "awt"
+      ],
+      "topLevelDeclarations": [
+        "tZS"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5144",
+      "basename": "ModelPickerWrapper.react.js",
+      "file": "recovered/app/glass/platform/ModelPickerWrapper.react.js",
+      "range": [
+        29355619,
+        29356077
+      ],
+      "sha256": "67b7ff374dbed81c53587aaf920b410199c5cac3723dee66c0a770cb8f1f0dcd",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Tgs",
+      "wrapperKey": "ModelPickerWrapper.react.js",
+      "deps": [
+        "E",
+        "Mt",
+        "BVe",
+        "Hle",
+        "tPi",
+        "nPi"
+      ],
+      "topLevelDeclarations": [
+        "P4k",
+        "Tgs",
+        "Egs"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2751",
+      "basename": "ModelToggles.js",
+      "file": "recovered/app/glass/platform/ModelToggles.js",
+      "range": [
+        16702351,
+        16710412
+      ],
+      "sha256": "893bda80270197480efcb568da6f9f78fad808ed369136271428b53482bd11b3",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "ocp",
+      "wrapperKey": "ModelToggles.js",
+      "deps": [
+        "E",
+        "JY",
+        "Drt",
+        "Tkn",
+        "$he",
+        "fd",
+        "aJ"
+      ],
+      "topLevelDeclarations": [
+        "zCa",
+        "VCa",
+        "acp",
+        "ZXS",
+        "QXS",
+        "JXS",
+        "eZS",
+        "B8r"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6969",
+      "basename": "MotionConfigContext.mjs",
+      "file": "recovered/app/glass/platform/MotionConfigContext.mjs",
+      "range": [
+        35398735,
+        35399474
+      ],
+      "sha256": "e76157792ba6be7a01d1b968fc56d8ac56092442c018122f9d06a34e663956ae",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "vFi",
+      "wrapperKey": "MotionConfigContext.mjs",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "_1v",
+        "Nv0",
+        "Lv0"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-index-production"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-build-mjs",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2808",
+      "basename": "NestedModelListSubmenu.js",
+      "file": "recovered/app/glass/platform/NestedModelListSubmenu.js",
+      "range": [
+        16876686,
+        16879641
+      ],
+      "sha256": "9eeb8e437b9ae726cd1dd26da34cc29182d6d1438602b41102a7d99a615efe00",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "mdp",
+      "wrapperKey": "NestedModelListSubmenu.js",
+      "deps": [
+        "E",
+        "JY",
+        "aJ"
+      ],
+      "topLevelDeclarations": [
+        "se1",
+        "mdp",
+        "gdp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0279",
+      "basename": "NetworkConfig.js",
+      "file": "recovered/app/glass/platform/NetworkConfig.js",
+      "range": [
+        627470,
+        627983
+      ],
+      "sha256": "e2d7556716dd6fbef09605afbc18bb5d114e6a062d5e5fffbb89888c8d3f983a",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "lgr",
+      "wrapperKey": "NetworkConfig.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7778",
+      "basename": "OutlineModelPlaygroundSection.js",
+      "file": "recovered/app/glass/platform/OutlineModelPlaygroundSection.js",
+      "range": [
+        39246598,
+        39248382
+      ],
+      "sha256": "530789e25e3930ae8ff2eb6f8ff71113ee60340952fcc492f547f7ffe788d87e",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "JlC",
+      "wrapperKey": "OutlineModelPlaygroundSection.js",
+      "deps": [
+        "E",
+        "at",
+        "Am",
+        "pi",
+        "yo",
+        "fn",
+        "p_e",
+        "rC",
+        "vo",
+        "Ien",
+        "hKv",
+        "e_",
+        "eD",
+        "REt",
+        "mk"
+      ],
+      "topLevelDeclarations": [
+        "tcC",
+        "ZYv"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5146",
+      "basename": "ParameterizedModelPicker.js",
+      "file": "recovered/app/glass/platform/ParameterizedModelPicker.js",
+      "range": [
+        29377554,
+        29377939
+      ],
+      "sha256": "30481facdc0c168e0b979b606628a4d33529df5423b1390e76c017a6b6c8ee44",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "itf",
+      "wrapperKey": "ParameterizedModelPicker.js",
+      "deps": [
+        "E",
+        "at",
+        "lrs",
+        "Mt",
+        "pi",
+        "pa",
+        "wm",
+        "sk",
+        "oCl",
+        "wu",
+        "Um",
+        "Dbe",
+        "QW",
+        "KO",
+        "kxn",
+        "aS",
+        "vo",
+        "sye",
+        "Ef",
+        "gef",
+        "oye",
+        "AIt",
+        "igs",
+        "bef"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2867",
+      "basename": "PluginActionConfirmCard.js",
+      "file": "recovered/app/glass/platform/PluginActionConfirmCard.js",
+      "range": [
+        17146463,
+        17147016
+      ],
+      "sha256": "656bab3902d44a920ea0dbfcc1b962316100f13993ed040d694b2c11a0c4834a",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "PluginActionConfirmCardModule",
+      "wrapperKey": "PluginActionConfirmCard.js",
+      "deps": [
+        "E",
+        "Wi1"
+      ],
+      "topLevelDeclarations": [
+        "PluginActionConfirmCardModule",
+        "Q7r",
+        "J7r",
+        "Gmp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2851",
+      "basename": "PluginCapabilityBadges.js",
+      "file": "recovered/app/glass/platform/PluginCapabilityBadges.js",
+      "range": [
+        17029068,
+        17032100
+      ],
+      "sha256": "d1c7027599675e0fe80aeedf6e544bc4108d5994803ab241a82aa212284e2d06",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "PluginCapabilityBadgesModule",
+      "wrapperKey": "PluginCapabilityBadges.js",
+      "deps": [
+        "E",
+        "Va",
+        "imp",
+        "mf",
+        "Hrt"
+      ],
+      "topLevelDeclarations": [
+        "PluginCapabilityBadgesModule",
+        "d6e"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2818",
+      "basename": "PluginDefaultIcon.js",
+      "file": "recovered/app/glass/platform/PluginDefaultIcon.js",
+      "range": [
+        16936453,
+        16941923
+      ],
+      "sha256": "1ee48dc2c2b505c01f639607808b0dc7930f01170dbed3f088c0f99c669003e3",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "ihp",
+      "wrapperKey": "PluginDefaultIcon.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "ohp",
+        "KTa",
+        "ahp",
+        "YTa",
+        "Qe1",
+        "lhp",
+        "W7",
+        "Je1",
+        "et1",
+        "chp",
+        "uhp",
+        "$$t",
+        "tt1",
+        "XTa",
+        "dhp",
+        "ivi",
+        "ihp",
+        "iwn"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3968",
+      "basename": "PluginDetailView.helpers.js",
+      "file": "recovered/app/glass/platform/PluginDetailView.helpers.js",
+      "range": [
+        23105175,
+        23131272
+      ],
+      "sha256": "4601b7746a7f9f305c1747215eeca9c07bde9aee8391b2535c77178358c7c738",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Rtk",
+      "wrapperKey": "PluginDetailView.helpers.js",
+      "deps": [
+        "E",
+        "NumberFormat"
+      ],
+      "topLevelDeclarations": [
+        "Dtk",
+        "xIn",
+        "my",
+        "Ntk",
+        "Ltk",
+        "Otk",
+        "Ftk",
+        "TL"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3969",
+      "basename": "PluginDetailView.js",
+      "file": "recovered/app/glass/platform/PluginDetailView.js",
+      "range": [
+        23131272,
+        23140433
+      ],
+      "sha256": "cfa8c22925e694d001f8f5985274a108688a6b7ec84adefa7e85ad587dc6a39f",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Btk",
+      "wrapperKey": "PluginDetailView.js",
+      "deps": [
+        "E",
+        "Mt",
+        "J7",
+        "NZa",
+        "IQa",
+        "ktk",
+        "Rtk",
+        "AQa"
+      ],
+      "topLevelDeclarations": [
+        "jtk",
+        "$tk",
+        "fts"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3970",
+      "basename": "PluginInstalledCard.js",
+      "file": "recovered/app/glass/platform/PluginInstalledCard.js",
+      "range": [
+        23140433,
+        23143783
+      ],
+      "sha256": "35c30db107acf880d55fb7468a10689db811e67175cabf6c655501ce3b04a86b",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Htk",
+      "wrapperKey": "PluginInstalledCard.js",
+      "deps": [
+        "E",
+        "Mt",
+        "J7",
+        "AQa"
+      ],
+      "topLevelDeclarations": [
+        "kqm"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "cursor-ui-78zum5",
+          "cursor-ui-6s0dn4",
+          "cursor-ui-1qughib",
+          "cursor-ui-1v2ro7d",
+          "cursor-ui-euugli",
+          "cursor-ui-1xmf6yo",
+          "cursor-ui-1yrsyyn",
+          "cursor-ui-y13l1i",
+          "cursor-ui-10b6aqq",
+          "cursor-ui-163pfp",
+          "cursor-ui-178xt8z",
+          "cursor-ui-s1s249"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3967",
+      "basename": "PluginItem.js",
+      "file": "recovered/app/glass/platform/PluginItem.js",
+      "range": [
+        23102915,
+        23105175
+      ],
+      "sha256": "618e149127d4a9c2f2cd2260839de39bb9912f9335ece8a2cb816baa1a73ee1a",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Etk",
+      "wrapperKey": "PluginItem.js",
+      "deps": [
+        "E",
+        "Mt",
+        "J7",
+        "AQa"
+      ],
+      "topLevelDeclarations": [
+        "Itk",
+        "EIn",
+        "xtk",
+        "Atk",
+        "RQa"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:1216",
+      "basename": "Plugins.curatedCategories.js",
+      "file": "recovered/app/glass/platform/Plugins.curatedCategories.js",
+      "range": [
+        5369433,
+        5370606
+      ],
+      "sha256": "28703928acd1127e21f1dad890165a542ad085bcd956a8b3155533678d00ec75",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "pQd",
+      "wrapperKey": "Plugins.curatedCategories.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "fne"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2821",
+      "basename": "Plugins.search.js",
+      "file": "recovered/app/glass/platform/Plugins.search.js",
+      "range": [
+        16951612,
+        16953821
+      ],
+      "sha256": "1d803e0cdf8160e160c9e5dfb2314a10e81394a7df46626a394d5f31b38f7c4c",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "E7r",
+      "wrapperKey": "Plugins.search.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "bhp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production"
+        ],
+        "urls": [
+          "http://www.w3.org/2000/svg"
+        ],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3966",
+      "basename": "Plugins.shared.stylex.js",
+      "file": "recovered/app/glass/platform/Plugins.shared.stylex.js",
+      "range": [
+        23072389,
+        23102915
+      ],
+      "sha256": "17f64227bee1719296823648d22994e597b286396bc974ffbdbb92d1fee6b7ce",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "AQa",
+      "wrapperKey": "Plugins.shared.stylex.js",
+      "deps": [
+        "E",
+        "Mt"
+      ],
+      "topLevelDeclarations": [
+        "DPe",
+        "Kot",
+        "Ctk",
+        "Ttk",
+        "cqm"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2873",
+      "basename": "Plugins.types.js",
+      "file": "recovered/app/glass/platform/Plugins.types.js",
+      "range": [
+        17156521,
+        17157551
+      ],
+      "sha256": "b1cc13032ffff2bf5824b30eecf20055ef084c66faac71844d47faac7d8613fe",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "PluginsModule",
+      "wrapperKey": "Plugins.types.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "PluginsModule",
+        "pwn",
+        "ur1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2819",
+      "basename": "Plugins.utils.js",
+      "file": "recovered/app/glass/platform/Plugins.utils.js",
+      "range": [
+        16941923,
+        16949966
+      ],
+      "sha256": "67f5feda1e20e845fa624cd393cac6ee834a0d0f74e62896bedc07726932caf4",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Hrt",
+      "wrapperKey": "Plugins.utils.js",
+      "deps": [
+        "E",
+        "Va",
+        "joe",
+        "mf",
+        "S6r",
+        "qnS",
+        "ihp",
+        "Iwh",
+        "kwh",
+        "riS"
+      ],
+      "topLevelDeclarations": [
+        "rt1",
+        "st1",
+        "ot1",
+        "at1",
+        "php"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5304",
+      "basename": "PluginSearchMenu.js",
+      "file": "recovered/app/glass/platform/PluginSearchMenu.js",
+      "range": [
+        29859703,
+        29862627
+      ],
+      "sha256": "687dd0e62efc2a38479ce3c16451e2de2613c76f713d5cf8b3b5256f2d6f1ed6",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "sjk",
+      "wrapperKey": "PluginSearchMenu.js",
+      "deps": [
+        "E",
+        "at",
+        "Mt",
+        "pi",
+        "hr",
+        "Pie",
+        "Lbe",
+        "KO",
+        "pMn",
+        "KPe",
+        "aS",
+        "vo",
+        "njk",
+        "wTe"
+      ],
+      "topLevelDeclarations": [
+        "sjk",
+        "jfs",
+        "ilf",
+        "VEl",
+        "ojk",
+        "rlf",
+        "slf"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2870",
+      "basename": "PluginSection.js",
+      "file": "recovered/app/glass/platform/PluginSection.js",
+      "range": [
+        17154021,
+        17154516
+      ],
+      "sha256": "3d236d7d2f5b5c36bc9467679bd3f3d4bab37759b03a96659bbe5d0f84a2601a",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "PluginSectionModule",
+      "wrapperKey": "PluginSection.js",
+      "deps": [
+        "E",
+        "mf"
+      ],
+      "topLevelDeclarations": [
+        "PluginSectionModule",
+        "ir1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2871",
+      "basename": "PluginSectionHeader.js",
+      "file": "recovered/app/glass/platform/PluginSectionHeader.js",
+      "range": [
+        17154516,
+        17155544
+      ],
+      "sha256": "3b2c68a807defb8965417fb424e2b993e8ef2911cd2cbb52cf50903a9f7f9444",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "PluginSectionHeaderModule",
+      "wrapperKey": "PluginSectionHeader.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "PluginSectionHeaderModule",
+        "tUr"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production",
+          "ui-plugin-detail"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2872",
+      "basename": "PluginSourceBadges.js",
+      "file": "recovered/app/glass/platform/PluginSourceBadges.js",
+      "range": [
+        17155544,
+        17156521
+      ],
+      "sha256": "02707638df3f8caa1031fd5c780cc3088e53eac2d7cf825586cbd89af99e344d",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "PluginSourceBadgesModule",
+      "wrapperKey": "PluginSourceBadges.js",
+      "deps": [
+        "E",
+        "Va",
+        "imp",
+        "mf"
+      ],
+      "topLevelDeclarations": [
+        "PluginSourceBadgesModule",
+        "lr1",
+        "Ymp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3943",
+      "basename": "PluginUninstallConfirmDialog.js",
+      "file": "recovered/app/glass/platform/PluginUninstallConfirmDialog.js",
+      "range": [
+        22848465,
+        22855756
+      ],
+      "sha256": "46d59f8e76de01599175f30c808ffeeeb05ed8b56a37f3790e21b9a15290042a",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "RQ1",
+      "wrapperKey": "PluginUninstallConfirmDialog.js",
+      "deps": [
+        "E",
+        "Mt"
+      ],
+      "topLevelDeclarations": [
+        "PQ1",
+        "MQ1",
+        "DQ1",
+        "NQ1",
+        "TWm",
+        "LQ1",
+        "OQ1",
+        "FQ1",
+        "Zes",
+        "$Za",
+        "EWm",
+        "IWm",
+        "Qes",
+        "BQ1",
+        "UQ1",
+        "jQ1",
+        "RQ1",
+        "Jes"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2854",
+      "basename": "PluginVariablesForm.js",
+      "file": "recovered/app/glass/platform/PluginVariablesForm.js",
+      "range": [
+        17043588,
+        17058333
+      ],
+      "sha256": "4fca77b135b16755a24c1fc05819aa39f53c043b69f99888b3f7d6d1231cd8ca",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "FEa",
+      "wrapperKey": "PluginVariablesForm.js",
+      "deps": [
+        "E",
+        "Pn1",
+        "mf",
+        "Lz",
+        "H1t",
+        "YSt",
+        "s2e",
+        "Obn",
+        "twt",
+        "P0"
+      ],
+      "topLevelDeclarations": [
+        "jn1",
+        "$n1",
+        "Hn1",
+        "Wn1",
+        "Gn1",
+        "qn1",
+        "zn1",
+        "amp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6298",
+      "basename": "ProjectDatabasePlugin.js",
+      "file": "recovered/app/glass/platform/ProjectDatabasePlugin.js",
+      "range": [
+        33764071,
+        33764634
+      ],
+      "sha256": "9b044263adbe1ada26fa2d62783b6c195950fc6c243570789f3b3f67f855978a",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "ProjectDatabasePluginModule",
+      "wrapperKey": "ProjectDatabasePlugin.js",
+      "deps": [
+        "E",
+        "_Yf"
+      ],
+      "topLevelDeclarations": [
+        "ProjectDatabasePluginModule",
+        "MBw"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3166",
+      "basename": "SearchPlugin.js",
+      "file": "recovered/app/glass/platform/SearchPlugin.js",
+      "range": [
+        18149877,
+        18153580
+      ],
+      "sha256": "908bf62bc56df6329ab03ea0ca4d21daa77a1d4897c9f7362c63b467aaa7067f",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "W$r",
+      "wrapperKey": "SearchPlugin.js",
+      "deps": [
+        "E",
+        "Fy",
+        "gE",
+        "Doe",
+        "Aw",
+        "HQ",
+        "Sw1"
+      ],
+      "topLevelDeclarations": [
+        "eIp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "ui-rich-text",
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production",
+          "esm-index-production",
+          "ui-expandable-node",
+          "data-expandable-node"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3184",
+      "basename": "SearchSelectionScrollExtension.js",
+      "file": "recovered/app/glass/platform/SearchSelectionScrollExtension.js",
+      "range": [
+        18290076,
+        18293452
+      ],
+      "sha256": "22e16879e4050eb090134e1bbb71504c67ed693ab16891773f4179edaaf2724b",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "iC1",
+      "wrapperKey": "SearchSelectionScrollExtension.js",
+      "deps": [
+        "E",
+        "Fy",
+        "gE",
+        "W$r",
+        "Aw"
+      ],
+      "topLevelDeclarations": [
+        "aC1",
+        "Bxp",
+        "lC1",
+        "cC1",
+        "iC1",
+        "Uxp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "unclassified",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2809",
+      "basename": "SelectedModelParametersMenuContent.js",
+      "file": "recovered/app/glass/platform/SelectedModelParametersMenuContent.js",
+      "range": [
+        16879641,
+        16882298
+      ],
+      "sha256": "671f9198d41041e260338e43098f05f89e60dab3e533e1bed8f4966884ad14cd",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "oe1",
+      "wrapperKey": "SelectedModelParametersMenuContent.js",
+      "deps": [
+        "E",
+        "VFe",
+        "BTa",
+        "Glp",
+        "$he",
+        "mdp",
+        "jTa",
+        "aJ",
+        "qu"
+      ],
+      "topLevelDeclarations": [
+        "ce1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "esm-jsx-runtime-production",
+          "esm-compiler-runtime-production"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2811",
+      "basename": "SelectedModelParametersSubmenuContent.js",
+      "file": "recovered/app/glass/platform/SelectedModelParametersSubmenuContent.js",
+      "range": [
+        16887958,
+        16899313
+      ],
+      "sha256": "6fc85f6c3b227b11921b95cdc85f1469acf355e1faeec1d2fdc5608230874934",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "ge1",
+      "wrapperKey": "SelectedModelParametersSubmenuContent.js",
+      "deps": [
+        "E",
+        "VFe",
+        "BTa",
+        "ue1",
+        "Ukn",
+        "$he",
+        "mdp",
+        "jTa",
+        "aJ",
+        "qu",
+        "fd"
+      ],
+      "topLevelDeclarations": [
+        "kdp",
+        "wdp",
+        "Cdp",
+        "Tdp",
+        "Se1",
+        "w7r",
+        "Edp",
+        "Idp",
+        "ke1",
+        "we1",
+        "xdp",
+        "Ce1",
+        "Te1",
+        "Ee1",
+        "Ie1",
+        "Adp",
+        "Rdp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3196",
+      "basename": "ShikiCodeBlockTokenizer.js",
+      "file": "recovered/app/glass/platform/ShikiCodeBlockTokenizer.js",
+      "range": [
+        18321644,
+        18321780
+      ],
+      "sha256": "49150fceee0f6cbca63312735dfb528299963b903e5fad2aad1eb967d0864e29",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "ShikiCodeBlockTokenizerModule",
+      "wrapperKey": "ShikiCodeBlockTokenizer.js",
+      "deps": [
+        "E",
+        "tUt",
+        "Q3r",
+        "tNr",
+        "cAp"
+      ],
+      "topLevelDeclarations": [
+        "ShikiCodeBlockTokenizerModule",
+        "UC1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0322",
+      "basename": "StatsigClient.js",
+      "file": "recovered/app/glass/platform/StatsigClient.js",
+      "range": [
+        681584,
+        689958
+      ],
+      "sha256": "c573f39d9fca3b908ae94f443ba19ca601f07402c40d705e24f2259c2058b60e",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "TSy",
+      "wrapperKey": "StatsigClient.js",
+      "deps": [
+        "E",
+        "l_t",
+        "mSy",
+        "ted",
+        "CSy",
+        "ied",
+        "REo",
+        "kgr",
+        "i_t",
+        "xZn"
+      ],
+      "topLevelDeclarations": [
+        "VQc"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0310",
+      "basename": "StatsigClientBase.js",
+      "file": "recovered/app/glass/platform/StatsigClientBase.js",
+      "range": [
+        667063,
+        670805
+      ],
+      "sha256": "3326ebeb836fa17d7e88aee311ae5b79d76cd5999f1d4928db2c982399b552e4",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "rSy",
+      "wrapperKey": "StatsigClientBase.js",
+      "deps": [
+        "E",
+        "r_t",
+        "wJu",
+        "cJu",
+        "Nde",
+        "EJu",
+        "I6t",
+        "wEo",
+        "Cgr",
+        "AZn",
+        "a_t",
+        "Map"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0305",
+      "basename": "StatsigClientEventEmitter.js",
+      "file": "recovered/app/glass/platform/StatsigClientEventEmitter.js",
+      "range": [
+        658521,
+        659904
+      ],
+      "sha256": "3b786f720f4ff27f8fef46ecc6b330886c1cd7e4f0ba78d5e21c6fe3c71f1bd4",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "BJu",
+      "wrapperKey": "StatsigClientEventEmitter.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "Kyy",
+        "Yyy",
+        "Xyy",
+        "Zyy",
+        "UJu",
+        "Qyy",
+        "jJu"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0311",
+      "basename": "StatsigDataAdapter.js",
+      "file": "recovered/app/glass/platform/StatsigDataAdapter.js",
+      "range": [
+        670805,
+        670896
+      ],
+      "sha256": "7dfd965840b71f9d9e682dcadb41c267f20f23f776fb8b688efa743849e5d544",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "sSy",
+      "wrapperKey": "StatsigDataAdapter.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0321",
+      "basename": "StatsigEvaluationsDataAdapter.js",
+      "file": "recovered/app/glass/platform/StatsigEvaluationsDataAdapter.js",
+      "range": [
+        680286,
+        681584
+      ],
+      "sha256": "536ad19d4ca35519eb76df595ca2bf9a2f2a253e273b10faa22cc35fc15cdb1c",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "ied",
+      "wrapperKey": "StatsigEvaluationsDataAdapter.js",
+      "deps": [
+        "E",
+        "l_t",
+        "ted",
+        "constructor",
+        "_getSdkKey"
+      ],
+      "topLevelDeclarations": [
+        "extends"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0281",
+      "basename": "StatsigEvent.js",
+      "file": "recovered/app/glass/platform/StatsigEvent.js",
+      "range": [
+        628943,
+        630667
+      ],
+      "sha256": "458e52641d86aea21c8b351174914d26e3a5abe8d81b3820e1f51d55373e5ff6",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "ZQu",
+      "wrapperKey": "StatsigEvent.js",
+      "deps": [
+        "E",
+        "now"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0287",
+      "basename": "StatsigMetadata.js",
+      "file": "recovered/app/glass/platform/StatsigMetadata.js",
+      "range": [
+        640782,
+        640982
+      ],
+      "sha256": "095c579638c992c2cda14face605a96bb0bf861f48db21a383f52aa99982e5a3",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "Sgr",
+      "wrapperKey": "StatsigMetadata.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0282",
+      "basename": "StatsigOptionsCommon.js",
+      "file": "recovered/app/glass/platform/StatsigOptionsCommon.js",
+      "range": [
+        630667,
+        631415
+      ],
+      "sha256": "5d37a07828ffb28606910c9ea79031a5ea4a5e158e53c15aa3eca5e54129ca52",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "AZn",
+      "wrapperKey": "StatsigOptionsCommon.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "QQu",
+        "RZn",
+        "pgr",
+        "Xdn"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0312",
+      "basename": "StatsigPlugin.js",
+      "file": "recovered/app/glass/platform/StatsigPlugin.js",
+      "range": [
+        670896,
+        671970
+      ],
+      "sha256": "ec29303aaab133edea4209e7b2b99e7c0a6023e2d76cecbd28f746d542229e42",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "oSy",
+      "wrapperKey": "StatsigPlugin.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "EEo",
+        "aSy",
+        "ZJu",
+        "lSy",
+        "cSy",
+        "uSy",
+        "IEo"
+      ],
+      "stringAnchors": {
+        "ids": [
+          "docs.statsig.com"
+        ],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0313",
+      "basename": "StatsigTypeFactories.js",
+      "file": "recovered/app/glass/platform/StatsigTypeFactories.js",
+      "range": [
+        671970,
+        672057
+      ],
+      "sha256": "5230b9197d8842088def2c6cba876a4dbd8abb3f95a6bccdc0ac635f0c61706b",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "dSy",
+      "wrapperKey": "StatsigTypeFactories.js",
+      "deps": [
+        "E",
+        "Nde",
+        "VTo"
+      ],
+      "topLevelDeclarations": [
+        "dSy"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0314",
+      "basename": "StatsigTypes.js",
+      "file": "recovered/app/glass/platform/StatsigTypes.js",
+      "range": [
+        672057,
+        672128
+      ],
+      "sha256": "473600f8ee421c81697c23d28794f88a55b7002bcd43fc4a3a53ec85db8bbcc2",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "hSy",
+      "wrapperKey": "StatsigTypes.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0315",
+      "basename": "StatsigUpdateDetails.js",
+      "file": "recovered/app/glass/platform/StatsigUpdateDetails.js",
+      "range": [
+        672128,
+        672479
+      ],
+      "sha256": "5fa1486063e091f3b2f37095e838390c7603a6f7b8d994310cf303c8cc7e98e6",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "pSy",
+      "wrapperKey": "StatsigUpdateDetails.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0291",
+      "basename": "StatsigUser.js",
+      "file": "recovered/app/glass/platform/StatsigUser.js",
+      "range": [
+        643439,
+        643700
+      ],
+      "sha256": "b458a8c5ae19a9afbaab687cca51b30e8435be6eb029b8066aca1b82f8335fd7",
+      "parseable": true,
+      "truncated": false,
+      "renamed": true,
+      "segmentExact": false,
+      "wrapperInitSymbol": "StatsigUserModule",
+      "wrapperKey": "StatsigUser.js",
+      "deps": [
+        "E",
+        "Ydn",
+        "Nde"
+      ],
+      "topLevelDeclarations": [
+        "StatsigUserModule",
+        "x6t"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0283",
+      "basename": "StorageProvider.js",
+      "file": "recovered/app/glass/platform/StorageProvider.js",
+      "range": [
+        631415,
+        632682
+      ],
+      "sha256": "b945abbbe4cd5f3d795fabad57829545ac08c823a3787a0cbee1a0b0553b3555",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "a_t",
+      "wrapperKey": "StorageProvider.js",
+      "deps": [
+        "E",
+        "Nde",
+        "I6t",
+        "E6t",
+        "isReady",
+        "isReadyResolver",
+        "getProviderName",
+        "getAllKeys"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3188",
+      "basename": "StreamingPlugin.js",
+      "file": "recovered/app/glass/platform/StreamingPlugin.js",
+      "range": [
+        18306162,
+        18310177
+      ],
+      "sha256": "4489504a4101895945953e9259ad97a23a1a756e968a4146f12183a2a77c5845",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "SC1",
+      "wrapperKey": "StreamingPlugin.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "mMa",
+        "Xxp",
+        "kC1",
+        "Zxp",
+        "wC1",
+        "CC1",
+        "TC1",
+        "EC1",
+        "IC1",
+        "SC1",
+        "gMa"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "marketplace-plugins",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3194",
+      "basename": "TablePlugin.js",
+      "file": "recovered/app/glass/platform/TablePlugin.js",
+      "range": [
+        18319914,
+        18320810
+      ],
+      "sha256": "2488f8c9b8b7f8507ae01f02a42b5bf4c63b4168c0738f29d3644fdbdaf231c6",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "LC1",
+      "wrapperKey": "TablePlugin.js",
+      "deps": [
+        "E",
+        "oHr",
+        "AC1",
+        "RC1",
+        "PC1",
+        "NC1"
+      ],
+      "topLevelDeclarations": [
+        "pbi",
+        "kMa",
+        "oAp",
+        "aAp",
+        "LC1",
+        "lAp"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5085",
+      "basename": "ThirdPartyUsageNudgeBubble.react.js",
+      "file": "recovered/app/glass/platform/ThirdPartyUsageNudgeBubble.react.js",
+      "range": [
+        29204696,
+        29207102
+      ],
+      "sha256": "8d23ad0184538b6ccce88285a3e385a5f21a4612725b84770a3b0c01f573b12f",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "xFk",
+      "wrapperKey": "ThirdPartyUsageNudgeBubble.react.js",
+      "deps": [
+        "E",
+        "TFk"
+      ],
+      "topLevelDeclarations": [
+        "GQg",
+        "xFk",
+        "qQg"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "usage-billing",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5086",
+      "basename": "ThirdPartyUsageNudgeClassic.js",
+      "file": "recovered/app/glass/platform/ThirdPartyUsageNudgeClassic.js",
+      "range": [
+        29207102,
+        29208593
+      ],
+      "sha256": "80c9a1377da52c03a35754d5c2a0895c2504a4e17ab50330c4c6b9355bd0eac2",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "AFk",
+      "wrapperKey": "ThirdPartyUsageNudgeClassic.js",
+      "deps": [
+        "E",
+        "at",
+        "pi",
+        "aS",
+        "vo",
+        "Ole",
+        "W4e",
+        "HQg",
+        "xFk"
+      ],
+      "topLevelDeclarations": [
+        "RFk",
+        "PFk",
+        "VQg"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "focus-last-queue-item",
+          "edit-last-queue-item",
+          "select-last-human-bubble"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "usage-billing",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5120",
+      "basename": "TokenRing.js",
+      "file": "recovered/app/glass/platform/TokenRing.js",
+      "range": [
+        29280341,
+        29280890
+      ],
+      "sha256": "7cdd84af43ff9ebf623decf596779bec7ee8da570d1c96cba1f5b746ea1e1771",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "N6k",
+      "wrapperKey": "TokenRing.js",
+      "deps": [
+        "E",
+        "at",
+        "M6k"
+      ],
+      "topLevelDeclarations": [
+        "L6k"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "token-ring-background",
+          "token-ring-progress"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "settings",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5272",
+      "basename": "UnifiedUsageBanner.js",
+      "file": "recovered/app/glass/platform/UnifiedUsageBanner.js",
+      "range": [
+        29696449,
+        29697141
+      ],
+      "sha256": "d746d66b59c0009564b8b881db22003fefcc04f701f8f2720b1d1962127f865c",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "x7k",
+      "wrapperKey": "UnifiedUsageBanner.js",
+      "deps": [
+        "E",
+        "at",
+        "pi",
+        "_fs",
+        "RA",
+        "aS",
+        "vo",
+        "lMn",
+        "tof",
+        "oof",
+        "yfs",
+        "lof",
+        "fJg",
+        "m7k",
+        "E7k"
+      ],
+      "topLevelDeclarations": [
+        "R7k",
+        "P7k",
+        "kof"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "usage-billing",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:0284",
+      "basename": "UrlConfiguration.js",
+      "file": "recovered/app/glass/platform/UrlConfiguration.js",
+      "range": [
+        632682,
+        633433
+      ],
+      "sha256": "bbb5eed27ab14d28974931139434c9f01e23451fec23a1ae787dad571ca59195",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "eJu",
+      "wrapperKey": "UrlConfiguration.js",
+      "deps": [
+        "E",
+        "Ydn",
+        "lgr",
+        "getUrl",
+        "getChecksum",
+        "sort"
+      ],
+      "topLevelDeclarations": [],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "third-party-statsig",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5271",
+      "basename": "UsageLimitPolicyBanner.js",
+      "file": "recovered/app/glass/platform/UsageLimitPolicyBanner.js",
+      "range": [
+        29691219,
+        29696449
+      ],
+      "sha256": "9a8fa327360b2c43e2fe754320de8b2b318704a0821fa4b58c0bc4d3a48cca34",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "E7k",
+      "wrapperKey": "UsageLimitPolicyBanner.js",
+      "deps": [
+        "E",
+        "at",
+        "pi",
+        "Um",
+        "ZPe",
+        "_fs",
+        "vo",
+        "IL",
+        "g7k",
+        "_7k",
+        "KO",
+        "Dbe",
+        "igs",
+        "cTe"
+      ],
+      "topLevelDeclarations": [
+        "I7k",
+        "bof",
+        "yof"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "usage-billing",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3946",
+      "basename": "UsageTable.js",
+      "file": "recovered/app/glass/platform/UsageTable.js",
+      "range": [
+        22886856,
+        22954771
+      ],
+      "sha256": "339267ecd87554c8c8f491fa52ec6ae391047d77bec4b566967abd9fcdf93c7d",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "rJ1",
+      "wrapperKey": "UsageTable.js",
+      "deps": [
+        "E",
+        "Mt",
+        "wZa",
+        "J7",
+        "$Q1"
+      ],
+      "topLevelDeclarations": [
+        "BWm",
+        "aJ1",
+        "UWm",
+        "lJ1",
+        "cJ1",
+        "jWm",
+        "GZa",
+        "$Wm",
+        "qZa",
+        "uJ1",
+        "zZa",
+        "dJ1",
+        "hJ1",
+        "HWm",
+        "pJ1",
+        "mJ1",
+        "gJ1",
+        "WWm",
+        "GWm",
+        "fJ1",
+        "vJ1",
+        "_J1",
+        "bJ1",
+        "yJ1",
+        "SJ1",
+        "kJ1",
+        "wJ1",
+        "CJ1",
+        "TJ1",
+        "EJ1",
+        "IJ1",
+        "xJ1",
+        "AJ1",
+        "RJ1",
+        "PJ1",
+        "MJ1",
+        "DJ1",
+        "tts"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "usage-billing",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3945",
+      "basename": "UsageTable.stylex.js",
+      "file": "recovered/app/glass/platform/UsageTable.stylex.js",
+      "range": [
+        22856014,
+        22886856
+      ],
+      "sha256": "7ba3aa27cf16ae61c82e84ea9dc5b211aab79941247e7f503f6db29ec0529cdc",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "$Q1",
+      "wrapperKey": "UsageTable.stylex.js",
+      "deps": [
+        "E"
+      ],
+      "topLevelDeclarations": [
+        "HQ1",
+        "WQ1",
+        "GQ1",
+        "qQ1",
+        "zQ1",
+        "VQ1",
+        "KQ1",
+        "YQ1",
+        "XQ1",
+        "ZQ1",
+        "QQ1",
+        "JQ1",
+        "eJ1",
+        "tJ1",
+        "nJ1",
+        "iJ1",
+        "k4e"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "usage-billing",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5308",
+      "basename": "VoiceDictationServicePlugin.js",
+      "file": "recovered/app/glass/platform/VoiceDictationServicePlugin.js",
+      "range": [
+        29864152,
+        29956770
+      ],
+      "sha256": "815c31f10381fa80ef1e34645871815e3c0ead4d4c57d7c15e6dfb5514ee5a01",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "ujk",
+      "wrapperKey": "VoiceDictationServicePlugin.js",
+      "deps": [
+        "E",
+        "pi",
+        "cI",
+        "Ak",
+        "vo",
+        "J0l",
+        "cjk",
+        "U0l",
+        "t1",
+        "Gr",
+        "l",
+        "cancel",
+        "reset",
+        "getState",
+        "i",
+        "c",
+        "a",
+        "dispose"
+      ],
+      "topLevelDeclarations": [
+        "djk",
+        "llf",
+        "clf",
+        "ulf",
+        "dlf"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2943",
+      "basename": "VoicePendingDecorationExtension.js",
+      "file": "recovered/app/glass/platform/VoicePendingDecorationExtension.js",
+      "range": [
+        17369616,
+        17370527
+      ],
+      "sha256": "3689d2d32b6bb273da4948aedd58b57f7b5381f9ff91248b5691e49d9cf8532f",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "cc1",
+      "wrapperKey": "VoicePendingDecorationExtension.js",
+      "deps": [
+        "E",
+        "Fy",
+        "gE",
+        "Doe",
+        "Aw",
+        "HQ"
+      ],
+      "topLevelDeclarations": [
+        "uc1",
+        "dc1"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "ui-prompt-input-voice-pending",
+          "data-voice-pending"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "editor-plugins-third-party",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5147",
+      "basename": "VoiceSettingsDropdown.js",
+      "file": "recovered/app/glass/platform/VoiceSettingsDropdown.js",
+      "range": [
+        29377939,
+        29380234
+      ],
+      "sha256": "3fd8d416612394f622fdc8a75ce46db1fbd75ed761553aae6d9fe7408d4779ba",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "L4k",
+      "wrapperKey": "VoiceSettingsDropdown.js",
+      "deps": [
+        "E",
+        "at",
+        "pi",
+        "gs",
+        "ta",
+        "Ole",
+        "vo",
+        "Ss",
+        "VIn",
+        "iye",
+        "y9e",
+        "N4k",
+        "Gr",
+        "nye",
+        "i",
+        "c",
+        "o",
+        "rtf",
+        "e",
+        "u",
+        "r"
+      ],
+      "topLevelDeclarations": [
+        "F4k"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "voice-settings-dropdown-trigger",
+          "voice-settings-menu",
+          "esm-jsx-runtime-production",
+          "cursor-icon-accent-primary"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "settings",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5142",
+      "basename": "VscodeModelPickerProductContent.react.js",
+      "file": "recovered/app/glass/platform/VscodeModelPickerProductContent.react.js",
+      "range": [
+        29346521,
+        29347388
+      ],
+      "sha256": "db012863493e12353817f30e459a3071f3f53adc6364f92c5b01512e66c99608",
+      "parseable": false,
+      "truncated": true,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "tPi",
+      "wrapperKey": "VscodeModelPickerProductContent.react.js",
+      "deps": [
+        "E",
+        "Mt",
+        "Hle",
+        "v4k",
+        "y4k",
+        "K2i"
+      ],
+      "topLevelDeclarations": [
+        "x4k",
+        "A4k",
+        "SCl"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    },
+    {
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5143",
+      "basename": "VscodeModelPickerProductTrigger.react.js",
+      "file": "recovered/app/glass/platform/VscodeModelPickerProductTrigger.react.js",
+      "range": [
+        29347388,
+        29355619
+      ],
+      "sha256": "a7bb4c4efd5101ee9cc3340aac962fc5972c8ca7f576c4b024a512e0c0311dd7",
+      "parseable": true,
+      "truncated": false,
+      "renamed": false,
+      "segmentExact": true,
+      "wrapperInitSymbol": "nPi",
+      "wrapperKey": "VscodeModelPickerProductTrigger.react.js",
+      "deps": [
+        "E",
+        "Mt",
+        "K2i",
+        "GTa",
+        "u"
+      ],
+      "topLevelDeclarations": [
+        "Cgs"
+      ],
+      "stringAnchors": {
+        "ids": [],
+        "kebab": [
+          "data-pointer-hover-intent",
+          "new-models-dot",
+          "model-picker-new-models-dot",
+          "max-badge-text",
+          "esm-index-production",
+          "esm-jsx-runtime-production"
+        ],
+        "urls": [],
+        "displayName": []
+      },
+      "displayNameAnchors": [],
+      "group": "model",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "notes": "esbuild wrapper boundary is exact; no nls/webpack-key evidence for a source path, so path is null and directory stays flat; fragment may cut declarations at segment edges"
+    }
+  ]
+}

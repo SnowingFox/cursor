@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2864",
+  "basename": "ManageTeamMarketplaceModal.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "declared esbuild wrapper init for module \"ManageTeamMarketplaceModal.js\"; synthetic module-scope name derived from basename (wrapper key is exact)",
+  "renames": {
+    "Li1": "ManageTeamMarketplaceModalModule"
+  },
+  "file": "recovered/app/glass/platform/ManageTeamMarketplaceModal.js"
+}

@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2405",
+  "basename": "McpServerIconChip.js",
+  "file": "recovered/app/glass/agent/McpServerIconChip.js",
+  "renames": {
+    "pya": "McpServerIconChip"
+  },
+  "notes": [
+    "pya -> McpServerIconChip: sole JSX-returning top-level function in module slice; name from wrapper basename"
+  ]
+}

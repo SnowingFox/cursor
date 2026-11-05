@@ -1,0 +1,26 @@
+{
+ "generatedAt": "2026-11-05T10:09:31.841Z",
+ "run": "ext-p0",
+ "extension": "cursor-checkout",
+ "adopted": [
+  {
+   "path": "package.json",
+   "artifact": "app/extensions/cursor-checkout/package.json",
+   "sha256": "caba0ed347cba093be5b3f0b2514f01cc4a519d37cb1c19a817243ac9b205189",
+   "bytes": 310,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  },
+  {
+   "path": "extension.webpack.config.js",
+   "artifact": "app/extensions/cursor-checkout/extension.webpack.config.js",
+   "sha256": "3dda5cc8750c0fa260e9a4ca36ca8d269501a87ce42d9dbba3dffaebad95ef9b",
+   "bytes": 171,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  }
+ ],
+ "note": "JSON files are byte-identical to the artifact; text files carry a provenance header. Verify sha256 against app/extensions/<extension>/<path> after stripping the header."
+}

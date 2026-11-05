@@ -1,0 +1,102 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "ES2023",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "moduleDetection": "force",
+    "allowImportingTsExtensions": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "noEmit": true,
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "@cursor/sdk": [
+        "./src/index.ts"
+      ],
+      "@cursor/sdk/*": [
+        "./src/*"
+      ],
+      "@anysphere/agent-kv": [
+        "../agent-kv/src/index.ts"
+      ],
+      "@anysphere/agent-kv/*": [
+        "../agent-kv/src/*"
+      ],
+      "@anysphere/context": [
+        "../context/src/index.ts"
+      ],
+      "@anysphere/context/*": [
+        "../context/src/*"
+      ],
+      "@anysphere/cursor-sdk-local-runtime": [
+        "../cursor-sdk-local-runtime/src/index.ts"
+      ],
+      "@anysphere/cursor-sdk-local-runtime/*": [
+        "../cursor-sdk-local-runtime/src/*"
+      ],
+      "@anysphere/cursor-sdk-shared": [
+        "../cursor-sdk-shared/src/index.ts"
+      ],
+      "@anysphere/cursor-sdk-shared/*": [
+        "../cursor-sdk-shared/src/*"
+      ],
+      "@anysphere/mcp-agent-exec": [
+        "../mcp-agent-exec/src/index.ts"
+      ],
+      "@anysphere/mcp-agent-exec/*": [
+        "../mcp-agent-exec/src/*"
+      ],
+      "@anysphere/mcp-core": [
+        "../mcp-core/src/index.ts"
+      ],
+      "@anysphere/mcp-core/*": [
+        "../mcp-core/src/*"
+      ],
+      "@anysphere/metrics": [
+        "../metrics/src/index.ts"
+      ],
+      "@anysphere/metrics/*": [
+        "../metrics/src/*"
+      ],
+      "@anysphere/proto": [
+        "../proto/src/index.ts"
+      ],
+      "@anysphere/proto/*": [
+        "../proto/src/*"
+      ],
+      "@anysphere/shell-exec": [
+        "../shell-exec/src/index.ts"
+      ],
+      "@anysphere/shell-exec/*": [
+        "../shell-exec/src/*"
+      ],
+      "@anysphere/utils": [
+        "../utils/src/index.ts"
+      ],
+      "@anysphere/utils/*": [
+        "../utils/src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "test/**/*.ts",
+    "build.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}

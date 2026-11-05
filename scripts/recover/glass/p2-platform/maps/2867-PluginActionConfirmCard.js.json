@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2867",
+  "basename": "PluginActionConfirmCard.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "declared esbuild wrapper init for module \"PluginActionConfirmCard.js\"; synthetic module-scope name derived from basename (wrapper key is exact)",
+  "renames": {
+    "Vi1": "PluginActionConfirmCardModule"
+  },
+  "file": "recovered/app/glass/platform/PluginActionConfirmCard.js"
+}

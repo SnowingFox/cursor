@@ -1,0 +1,138 @@
+{
+  "generatedAt": "2026-11-05T10:22:32.848Z",
+  "vendorExports": 96,
+  "rebuiltExports": 65,
+  "present": 65,
+  "coveragePct": 67.7,
+  "missing": [
+    "Agent",
+    "AgentConversationTurnSchema",
+    "AssistantMessageSchema",
+    "ConversationStepSchema",
+    "ConversationTurnSchema",
+    "Cursor",
+    "CursorAgentPlatform",
+    "DEFAULT_LOGIN_API_KEY_TTL_MS",
+    "InMemoryRunEventNotifier",
+    "JSONL_LOCAL_AGENT_STORE_FILES",
+    "JsonlLocalAgentStore",
+    "LocalRunEventNotifier",
+    "LocalRunEventNotifierServer",
+    "SdkAssistantMessageSchema",
+    "SdkThinkingMessageSchema",
+    "SdkUserMessageSchema",
+    "ShellCommandSchema",
+    "ShellConversationTurnSchema",
+    "ShellOutputSchema",
+    "UnsupportedRunOperationError",
+    "UserMessageSchema",
+    "composeLocalAgentStore",
+    "createAgentPlatform",
+    "createFileSystemTools",
+    "createInMemoryRunEventNotifier",
+    "createLocalRunEventNotifier",
+    "getTurnType",
+    "paginateAgentDocuments",
+    "paginateCheckpointBlobIds",
+    "paginateRunDocuments",
+    "startLocalRunEventNotifierServer"
+  ],
+  "kindMismatch": [],
+  "protoChecked": 43,
+  "protoMismatch": [],
+  "errorNames": [
+    {
+      "name": "AgentBusyError",
+      "vendor": "AgentBusyError",
+      "rebuilt": "AgentBusyError"
+    },
+    {
+      "name": "AgentNotFoundError",
+      "vendor": "AgentNotFoundError",
+      "rebuilt": "AgentNotFoundError"
+    },
+    {
+      "name": "AuthenticationError",
+      "vendor": "AuthenticationError",
+      "rebuilt": "AuthenticationError"
+    },
+    {
+      "name": "ConfigurationError",
+      "vendor": "ConfigurationError",
+      "rebuilt": "ConfigurationError"
+    },
+    {
+      "name": "CursorAgentError",
+      "vendor": "CursorAgentError",
+      "rebuilt": "CursorAgentError"
+    },
+    {
+      "name": "CursorSdkError",
+      "vendor": "CursorSdkError",
+      "rebuilt": "CursorSdkError"
+    },
+    {
+      "name": "DeleteNotSupportedError",
+      "vendor": "DeleteNotSupportedError",
+      "rebuilt": "DeleteNotSupportedError"
+    },
+    {
+      "name": "EditError",
+      "vendor": "EditError",
+      "rebuilt": "EditError"
+    },
+    {
+      "name": "FileNotFoundError",
+      "vendor": "FileNotFoundError",
+      "rebuilt": "FileNotFoundError"
+    },
+    {
+      "name": "InvalidGrepPatternError",
+      "vendor": "InvalidGrepPatternError",
+      "rebuilt": "InvalidGrepPatternError"
+    },
+    {
+      "name": "NetworkError",
+      "vendor": "NetworkError",
+      "rebuilt": "NetworkError"
+    },
+    {
+      "name": "NoMountError",
+      "vendor": "NoMountError",
+      "rebuilt": "NoMountError"
+    },
+    {
+      "name": "PathError",
+      "vendor": "PathError",
+      "rebuilt": "PathError"
+    },
+    {
+      "name": "RateLimitError",
+      "vendor": "RateLimitError",
+      "rebuilt": "RateLimitError"
+    },
+    {
+      "name": "ReadOnlyMountError",
+      "vendor": "ReadOnlyMountError",
+      "rebuilt": "ReadOnlyMountError"
+    },
+    {
+      "name": "UnknownAgentError",
+      "vendor": "UnknownAgentError",
+      "rebuilt": "UnknownAgentError"
+    },
+    {
+      "name": "WriteFailedError",
+      "vendor": "WriteFailedError",
+      "rebuilt": "WriteFailedError"
+    }
+  ],
+  "errorMismatch": [],
+  "sqlite": {
+    "vendorExports": 1,
+    "rebuiltExports": 0,
+    "missing": [
+      "SqliteLocalAgentStore"
+    ]
+  }
+}

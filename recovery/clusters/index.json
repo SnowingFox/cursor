@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-11-05T10:22:03.340Z",
+  "clusters": [
+    {
+      "name": "p0-composer",
+      "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+      "count": 281,
+      "chars": 1171639
+    },
+    {
+      "name": "p1-agent",
+      "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+      "count": 87,
+      "chars": 380696
+    },
+    {
+      "name": "p2-platform",
+      "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+      "count": 131,
+      "chars": 628876
+    },
+    {
+      "name": "p3-ui",
+      "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+      "count": 678,
+      "chars": 2467749
+    },
+    {
+      "name": "p4-lower",
+      "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+      "count": 7531,
+      "chars": 53476944
+    }
+  ]
+}

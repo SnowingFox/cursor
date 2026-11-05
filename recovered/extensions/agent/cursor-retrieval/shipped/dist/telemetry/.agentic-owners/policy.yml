@@ -1,0 +1,10 @@
+version: 1
+policies:
+  - paths:
+      - "**"
+    team: data-infra
+    self_review: true
+  - paths:
+      - .agentic-owners/**
+    team: data-infra
+    human_review_required: true

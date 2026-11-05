@@ -1,0 +1,35 @@
+{
+ "generatedAt": "2026-11-05T10:09:31.841Z",
+ "run": "ext-p0",
+ "extension": "cursor-commits",
+ "adopted": [
+  {
+   "path": "package.json",
+   "artifact": "app/extensions/cursor-commits/package.json",
+   "sha256": "2fe260576825b2be548ce1e90214966bd9e49ae0d2c68a9dbc7e7dc9a0fc7d78",
+   "bytes": 569,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  },
+  {
+   "path": "worker/pre-compile.js",
+   "artifact": "app/extensions/cursor-commits/worker/pre-compile.js",
+   "sha256": "8cdaa96a67a2b2b66245472680c34e2d149be30497742356a115b1eee05dabee",
+   "bytes": 4815,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "worker/tsconfig.json",
+   "artifact": "app/extensions/cursor-commits/worker/tsconfig.json",
+   "sha256": "f71847fc5dbb0f610e7c28f2db7ca39cd9c23448a5cfe63b25d7dbab8447d507",
+   "bytes": 614,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  }
+ ],
+ "note": "JSON files are byte-identical to the artifact; text files carry a provenance header. Verify sha256 against app/extensions/<extension>/<path> after stripping the header."
+}

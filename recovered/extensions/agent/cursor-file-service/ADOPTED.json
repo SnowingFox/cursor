@@ -1,0 +1,28 @@
+{
+ "extension": "cursor-file-service",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-file-service",
+ "files": [
+  {
+   "source": "app/extensions/cursor-file-service/package.json",
+   "dest": "recovered/extensions/agent/cursor-file-service/shipped/package.json",
+   "bytes": 299,
+   "sha256": "f9612e67e37ccd4c90a72402bb57ae5158d4d82d3997d14641ed3a1a3380f2a6",
+   "emittedSha256": "f9612e67e37ccd4c90a72402bb57ae5158d4d82d3997d14641ed3a1a3380f2a6",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [],
+ "totals": {
+  "files": 1,
+  "bytes": 299,
+  "byteIdentical": 1,
+  "headed": 0,
+  "skipped": 0
+ }
+}

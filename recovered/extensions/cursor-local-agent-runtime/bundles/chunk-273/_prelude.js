@@ -1,0 +1,8 @@
+// @recovered-by cursor-re
+// artifact: app/extensions/cursor-local-agent-runtime/dist/273.js sha256:918321c092763b0f5509b45d1560ac236164a596e0ab5a603460d95abe18903b
+// module: (prelude) range:0..120
+// basis: webpack-container confidence: C
+// method: split
+// run: ext-p0 2026-11-05T10:07:22.069Z
+/*! For license information please see 273.js.LICENSE.txt */
+exports.id = 273, exports.ids = [273], exports.modules = { 

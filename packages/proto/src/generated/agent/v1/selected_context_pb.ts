@@ -1,0 +1,1124 @@
+// @ts-nocheck - TODO(recovered): recovered minified artifact; type-level signatures unavailable offline (documented exception, see REPORT.md)
+// @recovered-by cursor-re
+// artifact: .vendor/cursor-sdk-1.3.1/dist/esm/index.js sha256:86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87
+// module: "../proto/dist/generated/agent/v1/selected_context_pb.js" range:809822..835963
+// basis: webpack-key
+// confidence: B
+// method: split+rewire+generated
+// run: w1-sdk-runtime 2026-11-05T10:06:18.348Z
+// status: generated (do not hand-edit descriptors)
+import * as __dep0 from "@bufbuild/protobuf";
+import * as __dep1 from "./utils_pb";
+import * as __dep2 from "./ls_exec_pb";
+import * as __dep3 from "./cursor_rules_pb";
+import * as __dep4 from "./agent_skills_pb";
+import * as __dep5 from "../../../runtime/compact";
+var n = __dep0,
+  s = __dep1,
+  i = __dep2,
+  o = __dep3,
+  a = __dep4,
+  u = __dep5;
+const c = "agent.v1.";
+class l extends u.HL {
+  static get runtime() {
+    return (0, u.kU)(this, "runtime", n.proto3);
+  }
+  static $p() {
+    return c;
+  }
+}
+var m = (0, u.QT)(n.proto3, c, "SelectedPluginCapabilityType", [[0, "UNSPECIFIED"], [1, "COMMAND"], [2, "SKILL"], [3, "SUBAGENT"]], 1);
+class d extends l {
+  constructor(t) {
+    super(), this.dataOrBlobId = {
+      case: void 0
+    }, this.uuid = "", this.path = "", this.mimeType = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new d().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new d().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new d().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(d, t, r);
+  }
+  static $() {
+    return ["SelectedImage|1 blob_id 12 data_or_blob_id|8 data 12 data_or_blob_id|9 blob_id_with_data #0 data_or_blob_id|10 prompt_upload_ref #1 data_or_blob_id|2 uuid 9|3 path 9|4 dimension #2|7 mime_type 9", p, h, f];
+  }
+}
+class p extends l {
+  constructor(t) {
+    super(), this.blobId = new Uint8Array(0), this.data = new Uint8Array(0), n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new p().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new p().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new p().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(p, t, r);
+  }
+  static $() {
+    return ["SelectedImage.BlobIdWithData|1 blob_id 12|2 data 12"];
+  }
+}
+class f extends l {
+  constructor(t) {
+    super(), this.width = 0, this.height = 0, n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new f().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new f().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new f().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(f, t, r);
+  }
+  static $() {
+    return ["SelectedImage.Dimension|1 width 5|2 height 5"];
+  }
+}
+class h extends l {
+  constructor(t) {
+    super(), this.uploadId = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new h().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new h().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new h().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(h, t, r);
+  }
+  static $() {
+    return ["PromptUploadRef|1 upload_id 9"];
+  }
+}
+class g extends l {
+  constructor(t) {
+    super(), this.dataOrBlobId = {
+      case: void 0
+    }, this.uuid = "", this.filename = "", this.mimeType = "", this.path = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new g().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new g().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new g().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(g, t, r);
+  }
+  static $() {
+    return ["SelectedDocument|1 blob_id 12 data_or_blob_id|8 data 12 data_or_blob_id|9 blob_id_with_data #0 data_or_blob_id|10 prompt_upload_ref #1 data_or_blob_id|2 uuid 9|3 filename 9|4 mime_type 9|7 path 9", _, h];
+  }
+}
+class _ extends l {
+  constructor(t) {
+    super(), this.blobId = new Uint8Array(0), this.data = new Uint8Array(0), n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new _().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new _().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new _().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(_, t, r);
+  }
+  static $() {
+    return ["SelectedDocument.BlobIdWithData|1 blob_id 12|2 data 12"];
+  }
+}
+class w extends l {
+  constructor(t) {
+    super(), this.dataOrBlobId = {
+      case: void 0
+    }, this.uuid = "", this.path = "", this.mimeType = "", this.filename = "", this.materializeToFilesystem = !1, n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new w().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new w().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new w().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(w, t, r);
+  }
+  static $() {
+    return ["SelectedVideo|1 blob_id 12 data_or_blob_id|8 data 12 data_or_blob_id|9 blob_id_with_data #0 data_or_blob_id|11 signed_url #1 data_or_blob_id|13 prompt_upload_ref #2 data_or_blob_id|2 uuid 9|3 path 9|4 fps 2?|7 mime_type 9|10 filename 9|12 materialize_to_filesystem 8", y, J, h];
+  }
+}
+class y extends l {
+  constructor(t) {
+    super(), this.blobId = new Uint8Array(0), this.data = new Uint8Array(0), n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new y().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new y().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new y().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(y, t, r);
+  }
+  static $() {
+    return ["SelectedVideo.BlobIdWithData|1 blob_id 12|2 data 12"];
+  }
+}
+class J extends l {
+  constructor(t) {
+    super(), this.url = "", this.key = "", this.expiresAtUnixMs = n.protoInt64.zero, this.refreshAfterUnixMs = n.protoInt64.zero, this.conversationId = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new J().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new J().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new J().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(J, t, r);
+  }
+  static $() {
+    return ["SelectedVideo.SignedUrl|1 url 9|2 key 9|3 expires_at_unix_ms 3|4 refresh_after_unix_ms 3|5 conversation_id 9"];
+  }
+}
+class S extends l {
+  constructor(t) {
+    super(), this.dataOrBlobId = {
+      case: void 0
+    }, n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new S().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new S().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new S().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(S, t, r);
+  }
+  static $() {
+    return ["ExtraContextEntry|1 data 9 data_or_blob_id|2 blob_id 12 data_or_blob_id"];
+  }
+}
+class q extends l {
+  constructor(t) {
+    super(), this.content = "", this.path = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new q().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new q().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new q().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(q, t, r);
+  }
+  static $() {
+    return ["SelectedFile|1 content 9|2 path 9|3 relative_path 9?"];
+  }
+}
+class B extends l {
+  constructor(t) {
+    super(), this.content = "", this.path = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new B().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new B().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new B().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(B, t, r);
+  }
+  static $() {
+    return ["SelectedCodeSelection|1 content 9|2 path 9|3 relative_path 9?|4 range #0", s.Q6];
+  }
+}
+class b extends l {
+  constructor(t) {
+    super(), this.content = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new b().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new b().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new b().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(b, t, r);
+  }
+  static $() {
+    return ["SelectedTerminal|1 content 9|2 title 9?|3 path 9?"];
+  }
+}
+class P extends l {
+  constructor(t) {
+    super(), this.content = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new P().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new P().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new P().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(P, t, r);
+  }
+  static $() {
+    return ["SelectedTerminalSelection|1 content 9|2 title 9?|3 path 9?|4 range #0", s.Q6];
+  }
+}
+class I extends l {
+  constructor(t) {
+    super(), this.path = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new I().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new I().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new I().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(I, t, r);
+  }
+  static $() {
+    return ["SelectedFolder|1 path 9|2 relative_path 9?|3 directory_tree #0", i.vq];
+  }
+}
+class x extends l {
+  constructor(t) {
+    super(), this.url = "", this.uuid = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new x().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new x().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new x().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(x, t, r);
+  }
+  static $() {
+    return ["SelectedExternalLink|1 url 9|2 uuid 9|3 pdf_content 9?|4 is_pdf 8?|5 filename 9?|6 blob_id 12?"];
+  }
+}
+class v extends l {
+  constructor(t) {
+    super(), n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new v().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new v().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new v().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(v, t, r);
+  }
+  static $() {
+    return ["SelectedCursorRule|1 rule #0", o.DX];
+  }
+}
+class R extends l {
+  constructor(t) {
+    super(), this.content = "", this.fullContentLengthCharCount = 0, n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new R().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new R().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new R().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(R, t, r);
+  }
+  static $() {
+    return ["SelectedGitDiff|1 content 9|2 full_content_length_char_count 5"];
+  }
+}
+class E extends l {
+  constructor(t) {
+    super(), this.content = "", this.fullContentLengthCharCount = 0, n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new E().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new E().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new E().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(E, t, r);
+  }
+  static $() {
+    return ["SelectedGitDiffFromBranchToMain|1 content 9|2 full_content_length_char_count 5"];
+  }
+}
+class k extends l {
+  constructor(t) {
+    super(), this.sha = "", this.message = "", this.diff = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new k().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new k().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new k().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(k, t, r);
+  }
+  static $() {
+    return ["SelectedGitCommit|1 sha 9|2 message 9|3 description 9?|4 diff 9"];
+  }
+}
+class T extends l {
+  constructor(t) {
+    super(), this.number = 0, this.url = "", this.folderPath = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new T().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new T().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new T().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(T, t, r);
+  }
+  static $() {
+    return ["SelectedPullRequest|1 number 5|2 url 9|3 title 9?|4 folder_path 9|5 summary_json 9?|6 description 9?|7 blob_id 12?"];
+  }
+}
+class C extends l {
+  constructor(t) {
+    super(), this.prUrl = "", this.filePath = "", this.startLine = 0, this.endLine = 0, n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new C().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new C().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new C().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(C, t, r);
+  }
+  static $() {
+    return ["SelectedGitPRDiffSelection|1 pr_url 9|2 file_path 9|3 start_line 5|4 end_line 5|5 diff_content 9?|6 blob_id 12?"];
+  }
+}
+class U extends l {
+  constructor(t) {
+    super(), this.pluginId = "", this.capabilityType = m.UNSPECIFIED, this.sourcePath = "", this.snapshotToken = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new U().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new U().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new U().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(U, t, r);
+  }
+  static $() {
+    return ["SelectedPluginCapabilityRef|1 plugin_id 9|2 capability_type #0|3 source_path 9|4 snapshot_token 9|5 resolved_commit_sha 9?", m];
+  }
+}
+class A extends l {
+  constructor(t) {
+    super(), this.name = "", this.content = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new A().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new A().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new A().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(A, t, r);
+  }
+  static $() {
+    return ["SelectedCursorCommand|1 name 9|2 content 9|3 plugin_capability #0?|4 full_path 9?|5 display_name 9?", U];
+  }
+}
+class $ extends l {
+  constructor(t) {
+    super(), this.docId = "", this.name = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new $().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new $().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new $().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals($, t, r);
+  }
+  static $() {
+    return ["SelectedDocumentation|1 doc_id 9|2 name 9"];
+  }
+}
+class O extends l {
+  constructor(t) {
+    super(), this.agentId = "", this.name = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new O().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new O().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new O().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(O, t, r);
+  }
+  static $() {
+    return ["SelectedPastChat|1 agent_id 9|2 name 9"];
+  }
+}
+class j extends l {
+  constructor(t) {
+    super(), this.name = "", this.path = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new j().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new j().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new j().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(j, t, r);
+  }
+  static $() {
+    return ["RecentAgent|1 name 9|2 path 9|3 overview 9?"];
+  }
+}
+class M extends l {
+  constructor(t) {
+    super(), this.recentAgents = [], n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new M().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new M().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new M().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(M, t, r);
+  }
+  static $() {
+    return ["RecentAgentsContext|1 recent_agents #0*", j];
+  }
+}
+class D extends l {
+  constructor(t) {
+    super(), n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new D().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new D().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new D().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(D, t, r);
+  }
+  static $() {
+    return ["CallFrame|1 function_name 9?|2 url 9?|3 line_number 5?|4 column_number 5?"];
+  }
+}
+class N extends l {
+  constructor(t) {
+    super(), this.callFrames = [], n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new N().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new N().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new N().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(N, t, r);
+  }
+  static $() {
+    return ["StackTrace|1 call_frames #0*|2 raw_stack_trace 9?", D];
+  }
+}
+class G extends l {
+  constructor(t) {
+    super(), this.message = "", this.timestamp = 0, this.level = "", this.clientName = "", this.sessionId = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new G().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new G().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new G().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(G, t, r);
+  }
+  static $() {
+    return ["SelectedConsoleLog|1 message 9|2 timestamp 1|3 level 9|4 client_name 9|5 session_id 9|6 stack_trace #0?|7 object_data_json 9?", N];
+  }
+}
+class L extends l {
+  constructor(t) {
+    super(), this.element = "", this.xpath = "", this.textContent = "", this.extra = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new L().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new L().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new L().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(L, t, r);
+  }
+  static $() {
+    return ["SelectedUIElement|1 element 9|2 xpath 9|3 text_content 9|4 extra 9|5 component 9?|6 component_props_json 9?"];
+  }
+}
+class F extends l {
+  constructor(t) {
+    super(), this.name = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new F().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new F().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new F().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(F, t, r);
+  }
+  static $() {
+    return ["SelectedSubagent|1 name 9"];
+  }
+}
+class K extends l {
+  constructor(t) {
+    super(), this.browserId = "", this.url = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new K().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new K().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new K().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(K, t, r);
+  }
+  static $() {
+    return ["SelectedBrowser|1 browser_id 9|2 url 9|3 page_title 9?"];
+  }
+}
+class z extends l {
+  constructor(t) {
+    super(), this.filesToCommit = [], this.filesToExcludeFromCommit = [], this.shouldStageAllChanges = !1, this.filesToCommitWithStatus = [], this.filesToExcludeFromCommitWithStatus = [], n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new z().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new z().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new z().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(z, t, r);
+  }
+  static $() {
+    return ["SelectedAgenticGitActionCommitParams|1 files_to_commit 9*|2 files_to_exclude_from_commit 9*|3 should_stage_all_changes 8|4 create_pr_draft 8?|5 files_to_commit_with_status #0*|6 files_to_exclude_from_commit_with_status #0*", H];
+  }
+}
+class W extends l {
+  constructor(t) {
+    super(), n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new W().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new W().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new W().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(W, t, r);
+  }
+  static $() {
+    return ["SelectedAgenticGitActionCreateBranchParams"];
+  }
+}
+class H extends l {
+  constructor(t) {
+    super(), this.path = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new H().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new H().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new H().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(H, t, r);
+  }
+  static $() {
+    return ["SelectedAgenticGitFileWithStatus|1 path 9|2 status 9?"];
+  }
+}
+class V extends l {
+  constructor(t) {
+    super(), this.filesToPush = [], n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new V().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new V().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new V().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(V, t, r);
+  }
+  static $() {
+    return ["SelectedAgenticGitActionPushParams|1 files_to_push 9*|2 create_pr_draft 8?"];
+  }
+}
+class Q extends l {
+  constructor(t) {
+    super(), n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new Q().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new Q().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new Q().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(Q, t, r);
+  }
+  static $() {
+    return ["SelectedAgenticGitActionFixMergeConflictsParams|1 base_branch 9?|2 pr_url 9?"];
+  }
+}
+class X extends l {
+  constructor(t) {
+    super(), n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new X().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new X().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new X().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(X, t, r);
+  }
+  static $() {
+    return ["SelectedAgenticGitActionBabysitPrInCloudParams|1 base_branch 9?"];
+  }
+}
+class Y extends l {
+  constructor(t) {
+    super(), n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new Y().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new Y().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new Y().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(Y, t, r);
+  }
+  static $() {
+    return ["SelectedAgenticGitActionUpdateBranchParams|1 base_branch 9?"];
+  }
+}
+class Z extends l {
+  constructor(t) {
+    super(), this.remoteBranch = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new Z().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new Z().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new Z().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(Z, t, r);
+  }
+  static $() {
+    return ["SelectedAgenticGitActionPullLocallyParams|1 remote_branch 9"];
+  }
+}
+class tt extends l {
+  constructor(t) {
+    super(), this.params = {
+      case: void 0
+    }, n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new tt().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new tt().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new tt().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(tt, t, r);
+  }
+  static $() {
+    return ["SelectedAgenticGitAction|2 commit_params #0 params|6 commit_and_push_params #0 params|3 push_params #1 params|7 create_pr_params #1 params|8 create_pr_with_changes_params #0 params|4 fix_merge_conflicts_params #2 params|11 babysit_pr_in_cloud_params #3 params|14 apply_locally_params #4 params|15 checkout_branch_params #4 params|12 create_branch_and_commit_params #0 params|13 create_branch_commit_and_push_params #0 params|16 update_branch_params #5 params|17 create_branch_params #6 params|5 branch_context #7?|9 path_to_template_file 9?|10 path_to_template_dir 9?", z, V, Q, X, Z, Y, W, rt];
+  }
+}
+class rt extends l {
+  constructor(t) {
+    super(), n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new rt().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new rt().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new rt().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(rt, t, r);
+  }
+  static $() {
+    return ["SelectedGitBranchContext|1 current_branch 9?|2 base_branch 9?|3 agent_branch_prefix 9?"];
+  }
+}
+class et extends l {
+  constructor(t) {
+    super(), this.selectedImages = [], this.extraContext = [], this.extraContextEntries = [], this.files = [], this.codeSelections = [], this.terminals = [], this.terminalSelections = [], this.folders = [], this.externalLinks = [], this.cursorRules = [], this.cursorCommands = [], this.documentations = [], this.uiElements = [], this.consoleLogs = [], this.gitCommits = [], this.pastChats = [], this.gitPrDiffSelections = [], this.selectedPullRequests = [], this.selectedSubagents = [], this.selectedVideos = [], this.selectedBrowsers = [], this.selectedDocuments = [], this.selectedSkills = [], n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new et().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new et().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new et().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(et, t, r);
+  }
+  static $() {
+    return ["SelectedContext|1 selected_images #0*|2 invocation_context #1?|3 extra_context 9*|16 extra_context_entries #2*|4 files #3*|5 code_selections #4*|6 terminals #5*|7 terminal_selections #6*|8 folders #7*|9 external_links #8*|10 cursor_rules #9*|18 git_diff #10?|11 git_diff_from_branch_to_main #11?|12 cursor_commands #12*|13 documentations #13*|14 ui_elements #14*|15 console_logs #15*|17 git_commits #16*|19 past_chats #17*|20 git_pr_diff_selections #18*|21 selected_pull_requests #19*|22 selected_subagents #20*|23 selected_videos #21*|24 selected_browsers #22*|25 selected_documents #23*|26 selected_skills #24*|27 recent_agents_context #25?|34 selected_agentic_git_action #26?", d, nt, S, q, B, b, P, I, x, v, R, E, A, $, L, G, k, O, C, T, F, w, K, g, a.N, M, tt];
+  }
+}
+class nt extends l {
+  constructor(t) {
+    super(), this.data = {
+      case: void 0
+    }, n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new nt().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new nt().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new nt().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(nt, t, r);
+  }
+  static $() {
+    return ["InvocationContext|1 slack_thread #0 data|2 github_pr #1 data|3 ide_state #2 data|4 microsoft_teams_thread #3 data|10 blob_id 12 data", st, ot, ut, it];
+  }
+}
+class st extends l {
+  constructor(t) {
+    super(), this.thread = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new st().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new st().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new st().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(st, t, r);
+  }
+  static $() {
+    return ["InvocationContext.SlackThread|1 thread 9|2 channel_name 9?|3 channel_purpose 9?|4 channel_topic 9?|5 sender_name 9?|6 sender_id 9?|7 sender_type 9?|8 is_directly_addressed 8?|9 message_permalink 9?"];
+  }
+}
+class it extends l {
+  constructor(t) {
+    super(), this.thread = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new it().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new it().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new it().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(it, t, r);
+  }
+  static $() {
+    return ["InvocationContext.MicrosoftTeamsThread|1 thread 9|2 channel_name 9?|3 team_name 9?|4 channel_description 9?|5 team_description 9?"];
+  }
+}
+class ot extends l {
+  constructor(t) {
+    super(), this.title = "", this.description = "", this.comments = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new ot().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new ot().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new ot().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(ot, t, r);
+  }
+  static $() {
+    return ["InvocationContext.GithubPR|1 title 9|2 description 9|3 comments 9|4 ci_failures 9?|5 code_tour_view #0?", at];
+  }
+}
+class at extends l {
+  constructor(t) {
+    super(), this.headSha = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new at().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new at().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new at().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(at, t, r);
+  }
+  static $() {
+    return ["InvocationContext.GithubPR.CodeTourView|1 head_sha 9|2 current_revision_id 9?|3 visible_section_id 9?|4 visible_step_id 9?|5 path_scope_prefix 9?"];
+  }
+}
+class ut extends l {
+  constructor(t) {
+    super(), this.visibleFiles = [], this.recentlyViewedFiles = [], this.currentlyViewedPrs = [], n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new ut().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new ut().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new ut().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(ut, t, r);
+  }
+  static $() {
+    return ["InvocationContext.IdeState|1 visible_files #0*|2 recently_viewed_files #0*|3 currently_viewed_prs #1*", ct, mt];
+  }
+}
+class ct extends l {
+  constructor(t) {
+    super(), this.path = "", this.totalLines = 0, n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new ct().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new ct().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new ct().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(ct, t, r);
+  }
+  static $() {
+    return ["InvocationContext.IdeState.File|1 path 9|2 relative_path 9?|3 cursor_position #0?|4 total_lines 5|5 active_command 9?", lt];
+  }
+}
+class lt extends l {
+  constructor(t) {
+    super(), this.line = 0, this.text = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new lt().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new lt().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new lt().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(lt, t, r);
+  }
+  static $() {
+    return ["InvocationContext.IdeState.File.CursorPosition|1 line 5|2 text 9"];
+  }
+}
+class mt extends l {
+  constructor(t) {
+    super(), this.number = 0, this.url = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new mt().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new mt().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new mt().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(mt, t, r);
+  }
+  static $() {
+    return ["InvocationContext.IdeState.ViewedPullRequest|1 number 5|2 url 9|3 title 9?|4 folder_path 9?|5 summary_json 9?|6 description 9?"];
+  }
+}
+export { O as AW, A as Ps, d, et as xv };

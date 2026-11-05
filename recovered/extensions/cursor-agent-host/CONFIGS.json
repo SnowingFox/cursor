@@ -1,0 +1,35 @@
+{
+ "generatedAt": "2026-11-05T10:09:31.841Z",
+ "run": "ext-p0",
+ "extension": "cursor-agent-host",
+ "adopted": [
+  {
+   "path": "package.json",
+   "artifact": "app/extensions/cursor-agent-host/package.json",
+   "sha256": "7fbbb17ed479ed7a70a8c6cb4c6bdfc92066ce351399b0336238759bb14cb15d",
+   "bytes": 1876,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  },
+  {
+   "path": "scripts/ensure-agent-host-daemon-dist.cjs",
+   "artifact": "app/extensions/cursor-agent-host/scripts/ensure-agent-host-daemon-dist.cjs",
+   "sha256": "ad8b03cc30314e70513f41bf535e7e485ef7d23c0a8f2640f020ed98bba67b63",
+   "bytes": 6194,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "scripts/tsc-some-files.sh",
+   "artifact": "app/extensions/cursor-agent-host/scripts/tsc-some-files.sh",
+   "sha256": "f0a6b5e30c04b50bfb3665c027b9d0dbab655b51f4a7393deb5e3f5410497964",
+   "bytes": 560,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  }
+ ],
+ "note": "JSON files are byte-identical to the artifact; text files carry a provenance header. Verify sha256 against app/extensions/<extension>/<path> after stripping the header."
+}

@@ -1,0 +1,153 @@
+{
+ "extension": "cursor-always-local",
+ "generatedAt": "2026-11-05T10:17:16.559Z",
+ "sourceDir": "app/extensions/cursor-always-local",
+ "package": {
+  "name": "cursor-always-local",
+  "version": "0.0.1",
+  "main": "./dist/main",
+  "activationEvents": [
+   "onStartupFinished",
+   "onResolveRemoteAuthority:background-composer"
+  ],
+  "enabledApiProposals": [
+   "cursor",
+   "control",
+   "externalUriOpener",
+   "contribSourceControlInputBoxMenu",
+   "textDocumentTextLength"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {
+   "@vscode/windows-ca-certs": "^0.3.3"
+  },
+  "contributes": {
+   "commands": 0,
+   "keybindings": 0,
+   "menus": "object",
+   "jsonValidation": 2,
+   "jsonValidationIds": [
+    "./schemas/environment.schema.json",
+    "./schemas/permissions.schema.json"
+   ],
+   "configuration": "object"
+  },
+  "scripts": {}
+ },
+ "distArtifacts": [
+  {
+   "path": "app/extensions/cursor-always-local/dist/915.js",
+   "bytes": 57737,
+   "sha256": "a047de6a109482b317cdb9ce470b0c1903b3caa8ebca06fe5218a9e9c369a526",
+   "webpack": true,
+   "modules": 6,
+   "keyTypes": {
+    "number": 6,
+    "string": 0
+   },
+   "chunkId": 915,
+   "entry": false
+  },
+  {
+   "path": "app/extensions/cursor-always-local/dist/gitWorker.js",
+   "bytes": 5622,
+   "sha256": "47e4af92fd88e470df01610c5a00f135b9ff61b2780374408ae8ff918be7edc7",
+   "webpack": false,
+   "modules": 0,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "chunkId": null,
+   "entry": false
+  },
+  {
+   "path": "app/extensions/cursor-always-local/dist/main.js",
+   "bytes": 6924432,
+   "sha256": "14fb2d0e360d81a024b4ec605f417e030e19b30b2df99bc45648aa227060534e",
+   "webpack": true,
+   "modules": 379,
+   "keyTypes": {
+    "number": 379,
+    "string": 0
+   },
+   "chunkId": null,
+   "entry": true
+  }
+ ],
+ "shippedFiles": [
+  {
+   "path": "app/extensions/cursor-always-local/dist/main.js.LICENSE.txt",
+   "bytes": 1735,
+   "sha256": "43ed35388839d2ba79010636ee2543b772d026dcadd7d501536aa632afc099cd",
+   "category": "license",
+   "copy": false
+  },
+  {
+   "path": "app/extensions/cursor-always-local/eslint.config.cjs",
+   "bytes": 399,
+   "sha256": "842f9f80283f33d83bbfbe0f1d67f14ef957b678c4a3bd1f9ec5bc4711a08a6f",
+   "category": "config",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-always-local/media/main.css",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "category": "media",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-always-local/package.json",
+   "bytes": 1127,
+   "sha256": "e6f7827311ec5e9ba560332f15384fcec6ca9b5076de5d9f8e7e8d079a520f68",
+   "category": "manifest",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-always-local/package.nls.json",
+   "bytes": 81,
+   "sha256": "dca8e3c7f4e29756605a885da1f6393b9e0328b899040dd3471a5a6586f07e0c",
+   "category": "nls",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-always-local/schemas/environment.schema.json",
+   "bytes": 5951,
+   "sha256": "8e81be8b36c9bea044b5546c65afc43ac4f9c3617238c0f43ecbf702d479143a",
+   "category": "schema",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-always-local/schemas/permissions.schema.json",
+   "bytes": 1839,
+   "sha256": "852aa108fe5add547ce205f4282a6a447a49b1756b4c88100c556f28866f005e",
+   "category": "schema",
+   "copy": true
+  }
+ ],
+ "thirdPartyAssets": [
+  {
+   "path": "app/extensions/cursor-always-local/dist/commands/cppUtils/BUILD.bazel",
+   "bytes": 613,
+   "sha256": "774a0ee6a87dda3d3b0613898a7ad52fc65d52b14a1e499a7e002eb4858e02a9",
+   "note": "dist-asset"
+  }
+ ],
+ "unresolved": [
+  {
+   "path": "app/extensions/cursor-always-local/dist/gitWorker.js",
+   "reason": "no webpack module map (worker/esbuild/asset script)",
+   "bytes": 5622
+  }
+ ],
+ "totals": {
+  "bytes": 6999536,
+  "distBytes": 6987791,
+  "distArtifacts": 3,
+  "webpackArtifacts": 2,
+  "webpackModules": 385,
+  "shippedFiles": 7
+ }
+}

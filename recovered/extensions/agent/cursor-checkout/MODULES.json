@@ -1,0 +1,52 @@
+{
+ "extension": "cursor-checkout",
+ "generatedAt": "2026-11-05T10:20:08.356Z",
+ "sourceDir": "app/extensions/cursor-checkout",
+ "artifacts": [
+  {
+   "artifact": "app/extensions/cursor-checkout/dist/main.js",
+   "sha256": "ccd8cb947c666c766f3f8588674d7351e81475ac871ccc90c095ed7e035e9e7b",
+   "bytes": 17592,
+   "format": "esbuild-single-entry",
+   "chunk": "main",
+   "chunkId": null,
+   "entry": true,
+   "moduleCount": 1,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "preludeBytes": 0,
+   "footerBytes": 0,
+   "reassembly": "ok",
+   "reassembledSha256": "ccd8cb947c666c766f3f8588674d7351e81475ac871ccc90c095ed7e035e9e7b",
+   "notes": [],
+   "modules": [
+    {
+     "key": "(whole)",
+     "keyType": "number",
+     "file": "whole.js",
+     "start": 0,
+     "end": 17592,
+     "separator": "",
+     "basis": "esbuild-wrapper",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": [
+      "activate",
+      "deactivate"
+     ]
+    }
+   ]
+  }
+ ],
+ "skipped": [],
+ "totals": {
+  "artifacts": 1,
+  "modules": 1,
+  "confidence": {
+   "C": 1
+  },
+  "reassembly": "ok"
+ }
+}

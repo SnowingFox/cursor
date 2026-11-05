@@ -1,0 +1,21 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7732",
+  "basename": "ComposerWIPSection.js",
+  "source": "recovered/app/glass/composer/ComposerWIPSection.js",
+  "renames": {
+    "vaC": "ConversationDensityPreviewGallery"
+  },
+  "evidence": [
+    {
+      "from": "vaC",
+      "to": "ConversationDensityPreviewGallery",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "ConversationDensityPreviewGallery.react.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

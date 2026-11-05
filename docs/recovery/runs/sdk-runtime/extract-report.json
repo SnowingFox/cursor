@@ -1,0 +1,7296 @@
+{
+  "generatedAt": "2026-11-05T10:06:18.348Z",
+  "dist": ".vendor/cursor-sdk-1.3.1/dist",
+  "moduleCount": 98,
+  "byPackage": {
+    "cursor-sdk-local-runtime": {
+      "modules": 14,
+      "files": [
+        "packages/cursor-sdk-local-runtime/src/run-store/agent-checkpoint-store.ts",
+        "packages/cursor-sdk-local-runtime/src/run-store/default-local-agent-stores.ts",
+        "packages/cursor-sdk-local-runtime/src/run-store/id.ts",
+        "packages/cursor-sdk-local-runtime/src/run-store/in-memory-run-event-notifier.ts",
+        "packages/cursor-sdk-local-runtime/src/run-store/index.ts",
+        "packages/cursor-sdk-local-runtime/src/run-store/private-directory.ts",
+        "packages/cursor-sdk-local-runtime/src/run-store/sqlite-agent-run-store.ts",
+        "packages/cursor-sdk-local-runtime/src/run-store/sqlite-blob-store.ts",
+        "packages/cursor-sdk-local-runtime/src/run-store/sqlite-run-event-store.ts",
+        "packages/cursor-sdk-local-runtime/src/run-store/sqlite/bun-sqlite-driver.ts",
+        "packages/cursor-sdk-local-runtime/src/run-store/sqlite/node-sqlite-driver.ts",
+        "packages/cursor-sdk-local-runtime/src/run-store/sqlite/open-sqlite-driver.ts",
+        "packages/cursor-sdk-local-runtime/src/run-store/status.ts",
+        "packages/cursor-sdk-local-runtime/src/utils/logger.ts"
+      ]
+    },
+    "cursor-sdk-shared": {
+      "modules": 2,
+      "files": [
+        "packages/cursor-sdk-shared/src/message-schemas.ts",
+        "packages/cursor-sdk-shared/src/tool-call-types.ts"
+      ]
+    },
+    "proto": {
+      "modules": 64,
+      "files": [
+        "packages/proto/src/generated/agent/v1/agent_pb.ts",
+        "packages/proto/src/generated/agent/v1/agent_service_connect.ts",
+        "packages/proto/src/generated/agent/v1/agent_service_pb.ts",
+        "packages/proto/src/generated/agent/v1/agent_skills_pb.ts",
+        "packages/proto/src/generated/agent/v1/agent_store_conflict_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/ai_attribution_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/apply_agent_diff_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/ask_question_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/background_shell_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/canvas_diagnostics_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/computer_use_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/connect_scm_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/conversation_search_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/create_plan_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/cursor_rules_pb.ts",
+        "packages/proto/src/generated/agent/v1/delete_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/diagnostics_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/fetch_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/generate_image_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/grep_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/hook_additional_context_pb.ts",
+        "packages/proto/src/generated/agent/v1/hooks_pb.ts",
+        "packages/proto/src/generated/agent/v1/kv_pb.ts",
+        "packages/proto/src/generated/agent/v1/ls_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/mcp_allowlist_precheck_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/mcp_auth_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/mcp_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/mcp_pb.ts",
+        "packages/proto/src/generated/agent/v1/pr_management_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/read_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/record_screen_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/replace_env_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/report_bugfix_results_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/request_context_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/requested_model_pb.ts",
+        "packages/proto/src/generated/agent/v1/sandbox_pb.ts",
+        "packages/proto/src/generated/agent/v1/selected_context_pb.ts",
+        "packages/proto/src/generated/agent/v1/setup_vm_environment_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/shell_allowlist_precheck_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/shell_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/smart_mode_classifier_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/subagent_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/subagents_pb.ts",
+        "packages/proto/src/generated/agent/v1/switch_mode_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/system_prompt_pb.ts",
+        "packages/proto/src/generated/agent/v1/todo_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/utils_pb.ts",
+        "packages/proto/src/generated/agent/v1/web_fetch_allowlist_precheck_exec_pb.ts",
+        "packages/proto/src/generated/agent/v1/web_fetch_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/web_search_tool_pb.ts",
+        "packages/proto/src/generated/agent/v1/write_exec_pb.ts",
+        "packages/proto/src/generated/aiserver/v1/bidi_pb.ts",
+        "packages/proto/src/generated/aiserver/v1/chat_pb.ts",
+        "packages/proto/src/generated/aiserver/v1/dashboard_connect.ts",
+        "packages/proto/src/generated/aiserver/v1/dashboard_pb.ts",
+        "packages/proto/src/generated/aiserver/v1/docs_pb.ts",
+        "packages/proto/src/generated/aiserver/v1/privacy_mode_pb.ts",
+        "packages/proto/src/generated/aiserver/v1/repository_pb.ts",
+        "packages/proto/src/generated/aiserver/v1/tools_pb.ts",
+        "packages/proto/src/generated/aiserver/v1/unify_eligibility_pb.ts",
+        "packages/proto/src/generated/aiserver/v1/usage_pb.ts",
+        "packages/proto/src/generated/aiserver/v1/utils_pb.ts",
+        "packages/proto/src/runtime/compact.ts"
+      ]
+    },
+    "utils": {
+      "modules": 10,
+      "files": [
+        "packages/utils/src/disposable.ts",
+        "packages/utils/src/fresh-uuid.ts",
+        "packages/utils/src/lru-cache.ts",
+        "packages/utils/src/path-utils.ts",
+        "packages/utils/src/promise-extras.ts",
+        "packages/utils/src/safe-spawn-cwd.ts",
+        "packages/utils/src/test-resets.ts",
+        "packages/utils/src/workload-spawn.ts",
+        "packages/utils/src/workspace-paths.ts",
+        "packages/utils/src/writable-iterable.ts"
+      ]
+    },
+    "context": {
+      "modules": 3,
+      "files": [
+        "packages/context/src/core.ts",
+        "packages/context/src/logger.ts",
+        "packages/context/src/otel.ts"
+      ]
+    },
+    "metrics": {
+      "modules": 1,
+      "files": [
+        "packages/metrics/src/index.ts"
+      ]
+    },
+    "shell-exec": {
+      "modules": 1,
+      "files": [
+        "packages/shell-exec/src/api/index.ts"
+      ]
+    },
+    "mcp-core": {
+      "modules": 1,
+      "files": [
+        "packages/mcp-core/src/transport/mcp-url-utils.ts"
+      ]
+    },
+    "mcp-agent-exec": {
+      "modules": 1,
+      "files": [
+        "packages/mcp-agent-exec/src/mcp-sandbox-policy.ts"
+      ]
+    },
+    "agent-kv": {
+      "modules": 1,
+      "files": [
+        "packages/agent-kv/src/index.ts"
+      ]
+    }
+  },
+  "warnings": [
+    {
+      "file": "packages/cursor-sdk-local-runtime/src/run-store/sqlite/bun-sqlite-driver.ts",
+      "warning": "async-module-wrapper:unwrapped+dropped-catch"
+    },
+    {
+      "file": "packages/cursor-sdk-local-runtime/src/run-store/sqlite/node-sqlite-driver.ts",
+      "warning": "async-module-wrapper:unwrapped+dropped-catch"
+    }
+  ],
+  "duplicates": [
+    {
+      "key": "../agent-kv/dist/index.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "hC",
+          "ve",
+          "We",
+          "y_",
+          "Bk",
+          "TU",
+          "Vn"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../context/dist/core.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "uk"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../context/dist/logger.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "_O"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/default-local-agent-stores.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/19.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/400.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/19.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/id.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/856.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/856.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/in-memory-run-event-notifier.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/19.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/19.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/private-directory.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/730.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/856.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/730.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite-blob-store.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/18.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/18.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite/open-sqlite-driver.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/18.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/656.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/856.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/18.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite/open-sqlite-driver.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/18.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/656.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/856.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/18.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite/open-sqlite-driver.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/18.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/656.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/856.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/18.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/status.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/856.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/856.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/utils/logger.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/18.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/18.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../metrics/dist/index.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "wt"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/agent_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "PSN",
+          "xyI",
+          "Mpn",
+          "zT",
+          "KFq",
+          "Kwc",
+          "aZc",
+          "uHL",
+          "TTG",
+          "Ibo",
+          "QFf",
+          "Anz",
+          "o7L",
+          "QVp",
+          "nnk",
+          "apn",
+          "Mzv",
+          "ih1",
+          "hGJ",
+          "Pd7",
+          "Y5",
+          "nh0",
+          "Uq",
+          "D$r",
+          "c2D",
+          "Gmx",
+          "fxF",
+          "onr",
+          "d2k",
+          "HXb",
+          "qKo",
+          "Nn_",
+          "c_h",
+          "Lrv",
+          "dwJ",
+          "Bjv",
+          "gan",
+          "vns",
+          "Scs",
+          "ZM9",
+          "lWT",
+          "ECk",
+          "aon",
+          "PtE",
+          "tr3",
+          "cHB",
+          "Y$k",
+          "Fyz",
+          "Dm_",
+          "LLS",
+          "V1v",
+          "I0n",
+          "xuG",
+          "BU$",
+          "iHX",
+          "lJj",
+          "oW$",
+          "Vtf",
+          "v$T"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/agent_skills_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/ai_attribution_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "Zc"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/apply_agent_diff_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "y$"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/ask_question_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "ox"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/background_shell_exec_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "$P",
+          "Gv",
+          "Lt",
+          "Of",
+          "Po",
+          "tR"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/computer_use_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "Dh",
+          "EB",
+          "Jb",
+          "K5",
+          "Wd",
+          "Z8",
+          "ho",
+          "ks",
+          "qA",
+          "w3",
+          "xp"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/connect_scm_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "O9",
+          "ik",
+          "lB"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/conversation_search_exec_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/create_plan_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "Jo",
+          "bK",
+          "iY"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/cursor_rules_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "Xo",
+          "_u",
+          "f5",
+          "gv",
+          "i9",
+          "uT"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/delete_exec_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "GU",
+          "LX",
+          "QG",
+          "fl",
+          "iq",
+          "n0",
+          "vX"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/diagnostics_exec_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "Ek",
+          "Ho",
+          "J6",
+          "Mu",
+          "RP",
+          "_B",
+          "a1",
+          "oQ"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/fetch_exec_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "Uk",
+          "fk"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/generate_image_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "Uq",
+          "k4",
+          "l3"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/grep_exec_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "T7",
+          "Zp",
+          "_0",
+          "dx",
+          "sS",
+          "ts",
+          "uI",
+          "vD",
+          "xA"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/hook_additional_context_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/ls_exec_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "PC",
+          "Y$",
+          "k2",
+          "uj",
+          "ur",
+          "ze"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/mcp_auth_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "D5",
+          "OI"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/mcp_exec_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "Dh",
+          "JL",
+          "Jx",
+          "KZ",
+          "Ke",
+          "Km",
+          "Nh",
+          "T2",
+          "WV",
+          "X2",
+          "XE",
+          "_W",
+          "_Z",
+          "do",
+          "ew",
+          "iz",
+          "ov",
+          "pv",
+          "w2",
+          "zN"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/mcp_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "E$",
+          "UC"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/pr_management_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "K$"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/record_screen_exec_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "$u",
+          "N8",
+          "T4",
+          "ol",
+          "y",
+          "yH"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/replace_env_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "uq"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/report_bugfix_results_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "RH",
+          "Y6",
+          "q3"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/request_context_exec_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "TT",
+          "DS",
+          "Jy",
+          "_K",
+          "GE",
+          "nf",
+          "vB",
+          "_G",
+          "T3",
+          "CB",
+          "yb",
+          "yW"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/requested_model_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/sandbox_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "Qq",
+          "RB",
+          "Sz",
+          "h1",
+          "vc"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/selected_context_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "AW",
+          "Ps",
+          "d"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/setup_vm_environment_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "JH"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/shell_exec_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "FI",
+          "Hu",
+          "Jg",
+          "Lv",
+          "Ng",
+          "Pv",
+          "QR",
+          "Y9",
+          "_d",
+          "b",
+          "eG",
+          "iA",
+          "jK",
+          "mJ",
+          "r6",
+          "xC"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/subagents_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "b$"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/switch_mode_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "q5",
+          "rA"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/system_prompt_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/todo_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "Vj"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/utils_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/web_fetch_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "Hs",
+          "m$"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/web_search_tool_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "XJ",
+          "yc"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/repository_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "yX",
+          "bq",
+          "xq",
+          "bn",
+          "se",
+          "bD"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/utils_pb.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "Az",
+          "Bo",
+          "CX",
+          "DX",
+          "EZ",
+          "Ei",
+          "FY",
+          "LI",
+          "M6",
+          "MT",
+          "O2",
+          "Q9",
+          "QP",
+          "Se",
+          "U$",
+          "U1",
+          "UR",
+          "Uf",
+          "Us",
+          "Vq",
+          "Wf",
+          "Wj",
+          "Xr",
+          "Y1",
+          "Yd",
+          "bO",
+          "bV",
+          "c5",
+          "df",
+          "e$",
+          "ej",
+          "ek",
+          "fL",
+          "gO",
+          "l2",
+          "lo",
+          "n6",
+          "o$",
+          "oQ",
+          "ot",
+          "qW",
+          "qv",
+          "sr",
+          "vj",
+          "wZ",
+          "x$",
+          "yM",
+          "zH"
+        ]
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../proto/dist/runtime/compact.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../utils/dist/disposable.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../utils/dist/fresh-uuid.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/856.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/856.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": []
+      },
+      "codeEqual": false
+    },
+    {
+      "key": "../utils/dist/promise-extras.js",
+      "files": [
+        ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+        ".vendor/cursor-sdk-1.3.1/dist/esm/sqlite.js"
+      ],
+      "chosen": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "exportDiff": {
+        "extraInOthers": [],
+        "missingInOthers": [
+          "MU",
+          "O$",
+          "TJ",
+          "cb",
+          "st",
+          "wj",
+          "xb"
+        ]
+      },
+      "codeEqual": false
+    }
+  ],
+  "modules": [
+    {
+      "key": "../agent-kv/dist/index.js",
+      "pkg": "agent-kv",
+      "sub": "index",
+      "outFile": "packages/agent-kv/src/index.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "352762..372170",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@anysphere/proto/generated/agent/v1/agent_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/agent_pb.js"
+        },
+        {
+          "spec": "@anysphere/proto/generated/agent/v1/todo_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/todo_tool_pb.js"
+        },
+        {
+          "spec": "@anysphere/utils/disposable",
+          "kind": "internal",
+          "key": "../utils/dist/disposable.js"
+        },
+        {
+          "spec": "zod/v4",
+          "kind": "external",
+          "key": "zod/v4"
+        },
+        {
+          "spec": "@anysphere/metrics/index",
+          "kind": "internal",
+          "key": "../metrics/dist/index.js"
+        },
+        {
+          "spec": "@anysphere/context/logger",
+          "kind": "internal",
+          "key": "../context/dist/logger.js"
+        },
+        {
+          "spec": "@anysphere/utils/promise-extras",
+          "kind": "internal",
+          "key": "../utils/dist/promise-extras.js"
+        },
+        {
+          "spec": "@anysphere/context/core",
+          "kind": "internal",
+          "key": "../context/dist/core.js"
+        },
+        {
+          "spec": "@anysphere/context/otel",
+          "kind": "internal",
+          "key": "../context/dist/otel.js"
+        },
+        {
+          "spec": "@anysphere/proto/generated/agent/v1/kv_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/kv_pb.js"
+        }
+      ],
+      "exports": [
+        "aY",
+        "pH",
+        "hC",
+        "ve",
+        "We",
+        "y_",
+        "aD",
+        "Bk",
+        "sh",
+        "TU",
+        "Vn",
+        "nj"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../context/dist/core.js",
+      "pkg": "context",
+      "sub": "core",
+      "outFile": "packages/context/src/core.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "372203..374050",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [],
+      "exports": [
+        "cF",
+        "q6",
+        "uk"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../context/dist/logger.js",
+      "pkg": "context",
+      "sub": "logger",
+      "outFile": "packages/context/src/logger.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "374085..380212",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "./core",
+          "kind": "internal",
+          "key": "../context/dist/core.js"
+        }
+      ],
+      "exports": [
+        "_O",
+        "h"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../context/dist/otel.js",
+      "pkg": "context",
+      "sub": "otel",
+      "outFile": "packages/context/src/otel.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "380245..393624",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@opentelemetry/api",
+          "kind": "external",
+          "key": "../../node_modules/.pnpm/@opentelemetry+api@1.9.0/node_modules/@opentelemetry/api/build/esm/trace/span_kind.js"
+        },
+        {
+          "spec": "./core",
+          "kind": "internal",
+          "key": "../context/dist/core.js"
+        }
+      ],
+      "exports": [
+        "r2",
+        "F",
+        "V5",
+        "VI",
+        "fU",
+        "mJ",
+        "xd",
+        "HF",
+        "MG",
+        "Mf",
+        "fR",
+        "OA"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/agent-checkpoint-store.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "run-store/agent-checkpoint-store",
+      "outFile": "packages/cursor-sdk-local-runtime/src/run-store/agent-checkpoint-store.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/730.js",
+      "kind": "esm",
+      "range": "190..2429",
+      "sha256": "8fa1b87cee2239edd9d4d7d2c9bb6c0db69d84f688b355f33bee61bab50b557f",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "node:crypto",
+          "kind": "external",
+          "key": "node:crypto?8af2"
+        },
+        {
+          "spec": "node:fs/promises",
+          "kind": "external",
+          "key": "node:fs/promises"
+        },
+        {
+          "spec": "node:path",
+          "kind": "external",
+          "key": "node:path"
+        },
+        {
+          "spec": "@anysphere/agent-kv/index",
+          "kind": "internal",
+          "key": "../agent-kv/dist/index.js"
+        },
+        {
+          "spec": "@anysphere/context/core",
+          "kind": "internal",
+          "key": "../context/dist/core.js"
+        },
+        {
+          "spec": "./private-directory",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/private-directory.js"
+        },
+        {
+          "spec": "./sqlite-blob-store",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite-blob-store.js"
+        }
+      ],
+      "exports": [
+        "LocalAgentCheckpointStore"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/default-local-agent-stores.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "run-store/default-local-agent-stores",
+      "outFile": "packages/cursor-sdk-local-runtime/src/run-store/default-local-agent-stores.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/19.js",
+      "kind": "esm",
+      "range": "196..1163",
+      "sha256": "08f41fe4f6eaae7113148c036c67c95086444c8a1a5aafcfb598c2260e6021bb",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "./in-memory-run-event-notifier",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/in-memory-run-event-notifier.js"
+        },
+        {
+          "spec": "./agent-checkpoint-store",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/agent-checkpoint-store.js"
+        },
+        {
+          "spec": "./sqlite-agent-run-store",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite-agent-run-store.js"
+        },
+        {
+          "spec": "./sqlite-run-event-store",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite-run-event-store.js"
+        }
+      ],
+      "exports": [
+        "createDefaultLocalAgentCheckpointStore",
+        "createDefaultLocalAgentRunStore",
+        "createDefaultLocalAgentStores",
+        "createDefaultLocalRunEventNotifier",
+        "createDefaultLocalRunEventStore"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/id.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "run-store/id",
+      "outFile": "packages/cursor-sdk-local-runtime/src/run-store/id.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/856.js",
+      "kind": "esm",
+      "range": "170..362",
+      "sha256": "4a6c73b759eb6a699b18b7e494fa9c2e6190ad828d01e708a56886d2a67055c2",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@anysphere/utils/fresh-uuid",
+          "kind": "internal",
+          "key": "../utils/dist/fresh-uuid.js"
+        }
+      ],
+      "exports": [
+        "M2",
+        "WQ",
+        "nq"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/in-memory-run-event-notifier.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "run-store/in-memory-run-event-notifier",
+      "outFile": "packages/cursor-sdk-local-runtime/src/run-store/in-memory-run-event-notifier.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/19.js",
+      "kind": "esm",
+      "range": "1247..2203",
+      "sha256": "08f41fe4f6eaae7113148c036c67c95086444c8a1a5aafcfb598c2260e6021bb",
+      "warnings": [],
+      "imports": [],
+      "exports": [
+        "U",
+        "y"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/index.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "run-store/index",
+      "outFile": "packages/cursor-sdk-local-runtime/src/run-store/index.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "394975..401079",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "./id",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/id.js"
+        },
+        {
+          "spec": "@anysphere/agent-kv/index",
+          "kind": "internal",
+          "key": "../agent-kv/dist/index.js"
+        },
+        {
+          "spec": "./status",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/status.js"
+        },
+        {
+          "spec": "./in-memory-run-event-notifier",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/in-memory-run-event-notifier.js"
+        },
+        {
+          "spec": "node:fs",
+          "kind": "external",
+          "key": "node:fs"
+        },
+        {
+          "spec": "node:net",
+          "kind": "external",
+          "key": "node:net"
+        },
+        {
+          "spec": "node:path",
+          "kind": "external",
+          "key": "node:path"
+        }
+      ],
+      "exports": [
+        "U1",
+        "tY",
+        "w",
+        "M2",
+        "WQ"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/private-directory.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "run-store/private-directory",
+      "outFile": "packages/cursor-sdk-local-runtime/src/run-store/private-directory.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/730.js",
+      "kind": "esm",
+      "range": "2502..2653",
+      "sha256": "8fa1b87cee2239edd9d4d7d2c9bb6c0db69d84f688b355f33bee61bab50b557f",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "node:fs",
+          "kind": "external",
+          "key": "node:fs"
+        }
+      ],
+      "exports": [
+        "V"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite-agent-run-store.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "run-store/sqlite-agent-run-store",
+      "outFile": "packages/cursor-sdk-local-runtime/src/run-store/sqlite-agent-run-store.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/856.js",
+      "kind": "esm",
+      "range": "664..15058",
+      "sha256": "4a6c73b759eb6a699b18b7e494fa9c2e6190ad828d01e708a56886d2a67055c2",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "node:path",
+          "kind": "external",
+          "key": "node:path"
+        },
+        {
+          "spec": "./id",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/id.js"
+        },
+        {
+          "spec": "./private-directory",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/private-directory.js"
+        },
+        {
+          "spec": "./sqlite/open-sqlite-driver",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite/open-sqlite-driver.js"
+        },
+        {
+          "spec": "./status",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/status.js"
+        }
+      ],
+      "exports": [
+        "SqliteAgentRunStore"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite-blob-store.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "run-store/sqlite-blob-store",
+      "outFile": "packages/cursor-sdk-local-runtime/src/run-store/sqlite-blob-store.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/18.js",
+      "kind": "esm",
+      "range": "183..6717",
+      "sha256": "86cee3320431e02f4c1bc3d7e72db7daffcef204b79bf1b91e78216d8f2f654e",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "node:fs",
+          "kind": "external",
+          "key": "node:fs"
+        },
+        {
+          "spec": "node:path",
+          "kind": "external",
+          "key": "node:path"
+        },
+        {
+          "spec": "@anysphere/agent-kv/index",
+          "kind": "internal",
+          "key": "../agent-kv/dist/index.js"
+        },
+        {
+          "spec": "@anysphere/utils/disposable",
+          "kind": "internal",
+          "key": "../utils/dist/disposable.js"
+        },
+        {
+          "spec": "../utils/logger",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/utils/logger.js"
+        },
+        {
+          "spec": "./sqlite/open-sqlite-driver",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite/open-sqlite-driver.js"
+        }
+      ],
+      "exports": [
+        "B_",
+        "SQLiteBlobStoreWithMetadata",
+        "hI",
+        "rZ"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite-run-event-store.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "run-store/sqlite-run-event-store",
+      "outFile": "packages/cursor-sdk-local-runtime/src/run-store/sqlite-run-event-store.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/656.js",
+      "kind": "esm",
+      "range": "190..3741",
+      "sha256": "4293e5c525b1bdc74992b398a4163c333d16a2d76c20911fb11f2b2c1adaa26f",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "node:fs",
+          "kind": "external",
+          "key": "node:fs"
+        },
+        {
+          "spec": "node:path",
+          "kind": "external",
+          "key": "node:path"
+        },
+        {
+          "spec": "./sqlite/open-sqlite-driver",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite/open-sqlite-driver.js"
+        }
+      ],
+      "exports": [
+        "SqliteRunEventStore"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite/bun-sqlite-driver.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "run-store/sqlite/bun-sqlite-driver",
+      "outFile": "packages/cursor-sdk-local-runtime/src/run-store/sqlite/bun-sqlite-driver.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/914.js",
+      "kind": "esm",
+      "range": "192..793",
+      "sha256": "897966a30a3ef0cd66decf9d89961f7d471a55a1332fb17dfffd31a1abfedc7e",
+      "warnings": [
+        "async-module-wrapper:unwrapped+dropped-catch"
+      ],
+      "imports": [
+        {
+          "spec": "bun:sqlite",
+          "kind": "external",
+          "key": "bun:sqlite"
+        }
+      ],
+      "exports": [
+        "openBunSqliteDriver"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite/node-sqlite-driver.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "run-store/sqlite/node-sqlite-driver",
+      "outFile": "packages/cursor-sdk-local-runtime/src/run-store/sqlite/node-sqlite-driver.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/343.js",
+      "kind": "esm",
+      "range": "193..795",
+      "sha256": "0a6ac0e8fc20e5070a9076b34d58d9578eb93f8f991bcd30e34c542936946968",
+      "warnings": [
+        "async-module-wrapper:unwrapped+dropped-catch"
+      ],
+      "imports": [
+        {
+          "spec": "node:sqlite",
+          "kind": "external",
+          "key": "node:sqlite"
+        }
+      ],
+      "exports": [
+        "openNodeSqliteDriver"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite/open-sqlite-driver.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "run-store/sqlite/open-sqlite-driver",
+      "outFile": "packages/cursor-sdk-local-runtime/src/run-store/sqlite/open-sqlite-driver.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/18.js",
+      "kind": "esm",
+      "range": "6798..7875",
+      "sha256": "86cee3320431e02f4c1bc3d7e72db7daffcef204b79bf1b91e78216d8f2f654e",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "node:path",
+          "kind": "external",
+          "key": "node:path"
+        },
+        {
+          "spec": "./bun-sqlite-driver",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite/bun-sqlite-driver.js"
+        },
+        {
+          "spec": "./node-sqlite-driver",
+          "kind": "internal",
+          "key": "../cursor-sdk-local-runtime/dist/run-store/sqlite/node-sqlite-driver.js"
+        }
+      ],
+      "exports": [
+        "d"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/run-store/status.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "run-store/status",
+      "outFile": "packages/cursor-sdk-local-runtime/src/run-store/status.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/856.js",
+      "kind": "esm",
+      "range": "16278..16388",
+      "sha256": "4a6c73b759eb6a699b18b7e494fa9c2e6190ad828d01e708a56886d2a67055c2",
+      "warnings": [],
+      "imports": [],
+      "exports": [
+        "Qb"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-local-runtime/dist/utils/logger.js",
+      "pkg": "cursor-sdk-local-runtime",
+      "sub": "utils/logger",
+      "outFile": "packages/cursor-sdk-local-runtime/src/utils/logger.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/18.js",
+      "kind": "esm",
+      "range": "7933..8231",
+      "sha256": "86cee3320431e02f4c1bc3d7e72db7daffcef204b79bf1b91e78216d8f2f654e",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "node:async_hooks",
+          "kind": "external",
+          "key": "node:async_hooks"
+        }
+      ],
+      "exports": [
+        "Jz",
+        "ni"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-shared/dist/message-schemas.js",
+      "pkg": "cursor-sdk-shared",
+      "sub": "message-schemas",
+      "outFile": "packages/cursor-sdk-shared/src/message-schemas.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "409426..409946",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "zod/v3",
+          "kind": "external",
+          "key": "zod/v3"
+        }
+      ],
+      "exports": [
+        "JY",
+        "K8",
+        "Kx",
+        "RB",
+        "d0",
+        "lK",
+        "mj"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../cursor-sdk-shared/dist/tool-call-types.js",
+      "pkg": "cursor-sdk-shared",
+      "sub": "tool-call-types",
+      "outFile": "packages/cursor-sdk-shared/src/tool-call-types.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "410000..417807",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "zod/v3",
+          "kind": "external",
+          "key": "zod/v3"
+        }
+      ],
+      "exports": [
+        "C6"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../mcp-agent-exec/dist/mcp-sandbox-policy.js",
+      "pkg": "mcp-agent-exec",
+      "sub": "mcp-sandbox-policy",
+      "outFile": "packages/mcp-agent-exec/src/mcp-sandbox-policy.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/449.js",
+      "kind": "esm",
+      "range": "166..1402",
+      "sha256": "ab30492df8ef76be495caae7276830e86edd729413b0236cb9612710027d7667",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@anysphere/mcp-core/transport/mcp-url-utils",
+          "kind": "internal",
+          "key": "../mcp-core/dist/transport/mcp-url-utils.js"
+        },
+        {
+          "spec": "@anysphere/shell-exec/api/index",
+          "kind": "internal",
+          "key": "../shell-exec/dist/api/index.js"
+        }
+      ],
+      "exports": [
+        "buildMcpSandboxPolicy"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../mcp-core/dist/transport/mcp-url-utils.js",
+      "pkg": "mcp-core",
+      "sub": "transport/mcp-url-utils",
+      "outFile": "packages/mcp-core/src/transport/mcp-url-utils.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+      "kind": "esm",
+      "range": "1128516..1139372",
+      "sha256": "54d5fa4cf215825eafb00493b51c809c66436b8598c487bd6b63e2be18968ff2",
+      "warnings": [],
+      "imports": [],
+      "exports": [
+        "$H",
+        "ME",
+        "_N",
+        "b6",
+        "bi",
+        "mD",
+        "vc"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../metrics/dist/index.js",
+      "pkg": "metrics",
+      "sub": "index",
+      "outFile": "packages/metrics/src/index.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "417841..418613",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@anysphere/context/core",
+          "kind": "internal",
+          "key": "../context/dist/core.js"
+        }
+      ],
+      "exports": [
+        "Pu",
+        "v5",
+        "wt"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/agent_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/agent_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/agent_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "418667..619187",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./subagents_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/subagents_pb.js"
+        },
+        {
+          "spec": "./shell_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/shell_exec_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        },
+        {
+          "spec": "./delete_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/delete_exec_pb.js"
+        },
+        {
+          "spec": "./grep_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/grep_exec_pb.js"
+        },
+        {
+          "spec": "./cursor_rules_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/cursor_rules_pb.js"
+        },
+        {
+          "spec": "./todo_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/todo_tool_pb.js"
+        },
+        {
+          "spec": "./ls_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/ls_exec_pb.js"
+        },
+        {
+          "spec": "./diagnostics_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/diagnostics_exec_pb.js"
+        },
+        {
+          "spec": "./utils_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/utils_pb.js"
+        },
+        {
+          "spec": "./mcp_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/mcp_exec_pb.js"
+        },
+        {
+          "spec": "../../aiserver/v1/repository_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/repository_pb.js"
+        },
+        {
+          "spec": "./create_plan_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/create_plan_tool_pb.js"
+        },
+        {
+          "spec": "./web_search_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/web_search_tool_pb.js"
+        },
+        {
+          "spec": "./apply_agent_diff_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/apply_agent_diff_tool_pb.js"
+        },
+        {
+          "spec": "./ask_question_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/ask_question_tool_pb.js"
+        },
+        {
+          "spec": "./fetch_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/fetch_exec_pb.js"
+        },
+        {
+          "spec": "./switch_mode_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/switch_mode_tool_pb.js"
+        },
+        {
+          "spec": "./generate_image_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/generate_image_tool_pb.js"
+        },
+        {
+          "spec": "./record_screen_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/record_screen_exec_pb.js"
+        },
+        {
+          "spec": "./computer_use_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/computer_use_tool_pb.js"
+        },
+        {
+          "spec": "./background_shell_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/background_shell_exec_pb.js"
+        },
+        {
+          "spec": "./setup_vm_environment_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/setup_vm_environment_tool_pb.js"
+        },
+        {
+          "spec": "./web_fetch_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/web_fetch_tool_pb.js"
+        },
+        {
+          "spec": "./report_bugfix_results_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/report_bugfix_results_tool_pb.js"
+        },
+        {
+          "spec": "./ai_attribution_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/ai_attribution_tool_pb.js"
+        },
+        {
+          "spec": "./pr_management_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/pr_management_tool_pb.js"
+        },
+        {
+          "spec": "./mcp_auth_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/mcp_auth_tool_pb.js"
+        },
+        {
+          "spec": "./replace_env_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/replace_env_tool_pb.js"
+        },
+        {
+          "spec": "./connect_scm_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/connect_scm_tool_pb.js"
+        },
+        {
+          "spec": "./conversation_search_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/conversation_search_exec_pb.js"
+        },
+        {
+          "spec": "./hook_additional_context_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/hook_additional_context_pb.js"
+        },
+        {
+          "spec": "./request_context_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/request_context_exec_pb.js"
+        },
+        {
+          "spec": "./selected_context_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/selected_context_pb.js"
+        },
+        {
+          "spec": "./requested_model_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/requested_model_pb.js"
+        },
+        {
+          "spec": "./mcp_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/mcp_pb.js"
+        },
+        {
+          "spec": "./system_prompt_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/system_prompt_pb.js"
+        }
+      ],
+      "exports": [
+        "PSN",
+        "i9c",
+        "xyI",
+        "Mpn",
+        "zT",
+        "KFq",
+        "Kwc",
+        "aZc",
+        "uHL",
+        "TTG",
+        "Ibo",
+        "QFf",
+        "ljj",
+        "Y9z",
+        "kJk",
+        "KRq",
+        "Anz",
+        "j97",
+        "cmU",
+        "o7L",
+        "QVp",
+        "nnk",
+        "apn",
+        "Mzv",
+        "ih1",
+        "hGJ",
+        "Pd7",
+        "Y5",
+        "nh0",
+        "Uq",
+        "D$r",
+        "c2D",
+        "Gmx",
+        "fxF",
+        "onr",
+        "d2k",
+        "HXb",
+        "qKo",
+        "oIR",
+        "tms",
+        "qKL",
+        "Nn_",
+        "c_h",
+        "Lrv",
+        "dwJ",
+        "Bjv",
+        "aK_",
+        "gan",
+        "vns",
+        "Scs",
+        "ZM9",
+        "lWT",
+        "ECk",
+        "aon",
+        "PtE",
+        "tr3",
+        "cHB",
+        "Y$k",
+        "Fyz",
+        "Dm_",
+        "LLS",
+        "V1v",
+        "I0n",
+        "xuG",
+        "BU$",
+        "iHX",
+        "lJj",
+        "oW$",
+        "RGk",
+        "Vtf",
+        "v$T"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/agent_service_connect.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/agent_service_connect",
+      "outFile": "packages/proto/src/generated/agent/v1/agent_service_connect.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "619254..621313",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "./agent_service_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/agent_service_pb.js"
+        },
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../aiserver/v1/bidi_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/bidi_pb.js"
+        }
+      ],
+      "exports": [
+        "N"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/agent_service_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/agent_service_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/agent_service_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "621375..647711",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./agent_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/agent_pb.js"
+        },
+        {
+          "spec": "./requested_model_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/requested_model_pb.js"
+        },
+        {
+          "spec": "./mcp_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/mcp_pb.js"
+        },
+        {
+          "spec": "./exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/exec_pb.js"
+        },
+        {
+          "spec": "./kv_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/kv_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "BU",
+        "EC",
+        "HJ",
+        "Hi",
+        "Il",
+        "JF",
+        "JH",
+        "KD",
+        "KE",
+        "KS",
+        "M2",
+        "Ov",
+        "Oy",
+        "Pg",
+        "TW",
+        "Tu",
+        "W$",
+        "W3",
+        "Y3",
+        "dw",
+        "eE",
+        "hs",
+        "ic",
+        "k4",
+        "k5",
+        "kA",
+        "mw",
+        "pe",
+        "sY",
+        "uK",
+        "uu",
+        "uw",
+        "vw",
+        "wq",
+        "xk",
+        "yD",
+        "zP"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/agent_skills_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/agent_skills_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/agent_skills_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "647772..648814",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "N"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/agent_store_conflict_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/agent_store_conflict_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/agent_store_conflict_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "648888..651857",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Ev",
+        "LK",
+        "RZ",
+        "Uz",
+        "h6",
+        "iS"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/ai_attribution_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/ai_attribution_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/ai_attribution_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "651925..654213",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./utils_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/utils_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Zc",
+        "ex"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/apply_agent_diff_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/apply_agent_diff_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/apply_agent_diff_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "654283..657023",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "JU",
+        "y$"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/ask_question_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/ask_question_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/ask_question_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "657089..661395",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "OU",
+        "ju",
+        "ox",
+        "tz"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/background_shell_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/background_shell_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/background_shell_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "661465..665905",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./shell_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/shell_exec_pb.js"
+        },
+        {
+          "spec": "./sandbox_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/sandbox_pb.js"
+        },
+        {
+          "spec": "./utils_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/utils_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "$P",
+        "Gv",
+        "LL",
+        "Lt",
+        "Of",
+        "Po",
+        "nt",
+        "tR"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/canvas_diagnostics_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/canvas_diagnostics_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/canvas_diagnostics_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "665977..667916",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./diagnostics_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/diagnostics_exec_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "GL",
+        "HW",
+        "uX",
+        "yN"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/computer_use_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/computer_use_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/computer_use_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "667982..677708",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Dh",
+        "EB",
+        "Jb",
+        "K5",
+        "Wd",
+        "Z8",
+        "ho",
+        "ks",
+        "qA",
+        "t8",
+        "w3",
+        "xp"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/connect_scm_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/connect_scm_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/connect_scm_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "677773..684102",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "$1",
+        "O9",
+        "iO",
+        "ik",
+        "lB",
+        "qG"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/conversation_search_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/conversation_search_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/conversation_search_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "684175..686650",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "$m",
+        "pT"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/create_plan_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/create_plan_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/create_plan_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "686715..690101",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./todo_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/todo_tool_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Ih",
+        "Jo",
+        "bK",
+        "gz",
+        "iY",
+        "vR"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/cursor_rules_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/cursor_rules_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/cursor_rules_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "690162..693170",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "DX",
+        "Xo",
+        "_u",
+        "f5",
+        "gv",
+        "i9",
+        "uT"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/delete_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/delete_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/delete_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "693230..697170",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "GU",
+        "LX",
+        "Pi",
+        "QG",
+        "dn",
+        "fl",
+        "iq",
+        "n0",
+        "vX"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/diagnostics_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/diagnostics_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/diagnostics_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "697235..700984",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./utils_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/utils_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Ek",
+        "Ho",
+        "J6",
+        "Mu",
+        "RP",
+        "_B",
+        "a1",
+        "h_",
+        "oQ"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "701037..711279",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./shell_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/shell_exec_pb.js"
+        },
+        {
+          "spec": "./write_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/write_exec_pb.js"
+        },
+        {
+          "spec": "./delete_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/delete_exec_pb.js"
+        },
+        {
+          "spec": "./grep_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/grep_exec_pb.js"
+        },
+        {
+          "spec": "./read_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/read_exec_pb.js"
+        },
+        {
+          "spec": "./ls_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/ls_exec_pb.js"
+        },
+        {
+          "spec": "./diagnostics_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/diagnostics_exec_pb.js"
+        },
+        {
+          "spec": "./request_context_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/request_context_exec_pb.js"
+        },
+        {
+          "spec": "./mcp_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/mcp_exec_pb.js"
+        },
+        {
+          "spec": "./background_shell_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/background_shell_exec_pb.js"
+        },
+        {
+          "spec": "./fetch_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/fetch_exec_pb.js"
+        },
+        {
+          "spec": "./record_screen_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/record_screen_exec_pb.js"
+        },
+        {
+          "spec": "./computer_use_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/computer_use_tool_pb.js"
+        },
+        {
+          "spec": "./subagent_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/subagent_exec_pb.js"
+        },
+        {
+          "spec": "./smart_mode_classifier_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/smart_mode_classifier_exec_pb.js"
+        },
+        {
+          "spec": "./canvas_diagnostics_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/canvas_diagnostics_exec_pb.js"
+        },
+        {
+          "spec": "./shell_allowlist_precheck_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/shell_allowlist_precheck_exec_pb.js"
+        },
+        {
+          "spec": "./mcp_allowlist_precheck_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/mcp_allowlist_precheck_exec_pb.js"
+        },
+        {
+          "spec": "./web_fetch_allowlist_precheck_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/web_fetch_allowlist_precheck_exec_pb.js"
+        },
+        {
+          "spec": "../../aiserver/v1/utils_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/utils_pb.js"
+        },
+        {
+          "spec": "./conversation_search_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/conversation_search_exec_pb.js"
+        },
+        {
+          "spec": "./agent_store_conflict_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/agent_store_conflict_exec_pb.js"
+        },
+        {
+          "spec": "./hook_additional_context_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/hook_additional_context_pb.js"
+        },
+        {
+          "spec": "./hooks_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/hooks_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "$Y",
+        "D9",
+        "Fu",
+        "Kg",
+        "Nv",
+        "S1",
+        "VA",
+        "Ye",
+        "w5",
+        "yT"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/fetch_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/fetch_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/fetch_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "711338..713157",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "UM",
+        "Uk",
+        "fk",
+        "uN"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/generate_image_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/generate_image_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/generate_image_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "713225..717018",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Uj",
+        "Uq",
+        "k4",
+        "l3",
+        "r9",
+        "vW"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/grep_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/grep_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/grep_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "717076..722599",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./sandbox_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/sandbox_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Qj",
+        "T7",
+        "Ud",
+        "Zp",
+        "_0",
+        "dx",
+        "sS",
+        "ts",
+        "uI",
+        "vD",
+        "xA"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/hook_additional_context_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/hook_additional_context_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/hook_additional_context_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "722671..723279",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "C"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/hooks_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/hooks_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/hooks_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "723333..734496",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./requested_model_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/requested_model_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "$_",
+        "AH",
+        "AL",
+        "CI",
+        "D2",
+        "FW",
+        "H",
+        "Ks",
+        "Od",
+        "U1",
+        "W0",
+        "Wn",
+        "b3",
+        "hy",
+        "mL",
+        "rT",
+        "rY",
+        "ty",
+        "u1",
+        "uB"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/kv_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/kv_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/kv_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "734547..737537",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/exec_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "gm",
+        "km"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/ls_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/ls_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/ls_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "737593..742091",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./sandbox_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/sandbox_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "PC",
+        "Y$",
+        "fv",
+        "k2",
+        "uj",
+        "ur",
+        "vq",
+        "xe",
+        "ze"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/mcp_allowlist_precheck_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/mcp_allowlist_precheck_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/mcp_allowlist_precheck_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "742167..743215",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "M",
+        "c"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/mcp_auth_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/mcp_auth_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/mcp_auth_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "743277..747255",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "D5",
+        "NX",
+        "OI",
+        "h",
+        "uL"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/mcp_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/mcp_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/mcp_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "747312..762295",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./utils_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/utils_pb.js"
+        },
+        {
+          "spec": "./mcp_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/mcp_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "DI",
+        "Dh",
+        "E_",
+        "HQ",
+        "JL",
+        "Jx",
+        "KZ",
+        "Ke",
+        "Km",
+        "Kp",
+        "Nh",
+        "QW",
+        "T2",
+        "WV",
+        "X2",
+        "XE",
+        "ZD",
+        "_W",
+        "_Z",
+        "do",
+        "ew",
+        "iz",
+        "kP",
+        "kj",
+        "ov",
+        "pv",
+        "w2",
+        "xo",
+        "zN"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/mcp_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/mcp_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/mcp_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "762347..765911",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "E$",
+        "I0",
+        "Is",
+        "Or",
+        "UC",
+        "U_",
+        "gd"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/pr_management_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/pr_management_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/pr_management_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "765978..774908",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "AU",
+        "DY",
+        "HL",
+        "K$"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/read_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/read_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/read_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "774966..778637",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "F_",
+        "Ko",
+        "a2",
+        "cW",
+        "f4",
+        "lW",
+        "mE",
+        "sV"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/record_screen_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/record_screen_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/record_screen_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "778704..781754",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "$u",
+        "N8",
+        "T4",
+        "Tj",
+        "ol",
+        "y",
+        "yH",
+        "zH"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/replace_env_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/replace_env_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/replace_env_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "781819..785392",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "TO",
+        "dV",
+        "km",
+        "uq",
+        "us"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/report_bugfix_results_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/report_bugfix_results_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/report_bugfix_results_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "785467..788243",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "RH",
+        "U_",
+        "Y6",
+        "q3"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/request_context_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/request_context_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/request_context_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "788312..804880",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        },
+        {
+          "spec": "./cursor_rules_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/cursor_rules_pb.js"
+        },
+        {
+          "spec": "./mcp_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/mcp_pb.js"
+        },
+        {
+          "spec": "./ls_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/ls_exec_pb.js"
+        },
+        {
+          "spec": "./subagents_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/subagents_pb.js"
+        },
+        {
+          "spec": "./agent_skills_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/agent_skills_pb.js"
+        },
+        {
+          "spec": "./system_prompt_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/system_prompt_pb.js"
+        }
+      ],
+      "exports": [
+        "TT",
+        "DS",
+        "Jy",
+        "bb",
+        "_K",
+        "GE",
+        "nf",
+        "vB",
+        "sG",
+        "_G",
+        "T3",
+        "CB",
+        "yb",
+        "yW",
+        "uw"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/requested_model_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/requested_model_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/requested_model_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "804944..807423",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "G0",
+        "G4",
+        "R4",
+        "SR",
+        "ih"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/sandbox_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/sandbox_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/sandbox_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "807479..809757",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Mw",
+        "Qq",
+        "RB",
+        "Sz",
+        "h1",
+        "vc"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/selected_context_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/selected_context_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/selected_context_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "809822..835963",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./utils_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/utils_pb.js"
+        },
+        {
+          "spec": "./ls_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/ls_exec_pb.js"
+        },
+        {
+          "spec": "./cursor_rules_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/cursor_rules_pb.js"
+        },
+        {
+          "spec": "./agent_skills_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/agent_skills_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "AW",
+        "Ps",
+        "d",
+        "xv"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/setup_vm_environment_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/setup_vm_environment_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/setup_vm_environment_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "836037..837831",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "BI",
+        "JH",
+        "MU",
+        "r$"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/shell_allowlist_precheck_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/shell_allowlist_precheck_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/shell_allowlist_precheck_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "837909..839043",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./shell_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/shell_exec_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "C",
+        "e"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/shell_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/shell_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/shell_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "839102..854133",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./sandbox_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/sandbox_pb.js"
+        },
+        {
+          "spec": "./utils_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/utils_pb.js"
+        },
+        {
+          "spec": "./hook_additional_context_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/hook_additional_context_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "$F",
+        "Db",
+        "E4",
+        "FI",
+        "HO",
+        "Hu",
+        "In",
+        "Jg",
+        "Lv",
+        "Ng",
+        "Pv",
+        "QR",
+        "W4",
+        "Y9",
+        "_d",
+        "a",
+        "b",
+        "eG",
+        "iA",
+        "jK",
+        "jn",
+        "mJ",
+        "o0",
+        "pZ",
+        "r6",
+        "rI",
+        "tD",
+        "vb",
+        "xC"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/smart_mode_classifier_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/smart_mode_classifier_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/smart_mode_classifier_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "854208..858308",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Th",
+        "bN"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/subagent_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/subagent_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/subagent_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "858370..865243",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./requested_model_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/requested_model_pb.js"
+        },
+        {
+          "spec": "./subagents_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/subagents_pb.js"
+        },
+        {
+          "spec": "./selected_context_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/selected_context_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "HJ",
+        "Hq",
+        "L5",
+        "Pw",
+        "S3",
+        "TN",
+        "Y",
+        "a3",
+        "bE",
+        "jh",
+        "od",
+        "vS",
+        "zJ"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/subagents_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/subagents_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/subagents_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "865301..872022",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "FL",
+        "OT",
+        "U6",
+        "_L",
+        "b$",
+        "dU",
+        "qL",
+        "zz"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/switch_mode_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/switch_mode_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/switch_mode_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "872087..876127",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Cs",
+        "Nc",
+        "q5",
+        "rA",
+        "w$"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/system_prompt_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/system_prompt_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/system_prompt_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "876189..876779",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "$"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/todo_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/todo_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/todo_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "876837..881576",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "AJ",
+        "Vj",
+        "bk",
+        "kW"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/utils_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/utils_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/utils_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "881630..883420",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Q6",
+        "UC",
+        "pV",
+        "yX"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/web_fetch_allowlist_precheck_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/web_fetch_allowlist_precheck_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/web_fetch_allowlist_precheck_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "883502..884476",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "K",
+        "M"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/web_fetch_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/web_fetch_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/web_fetch_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "884539..888672",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./utils_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/utils_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Hs",
+        "Un",
+        "fS",
+        "fd",
+        "m$"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/web_search_tool_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/web_search_tool_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/web_search_tool_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "888736..893115",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "KL",
+        "XJ",
+        "lI",
+        "pn",
+        "yc"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/agent/v1/write_exec_pb.js",
+      "pkg": "proto",
+      "sub": "generated/agent/v1/write_exec_pb",
+      "outFile": "packages/proto/src/generated/agent/v1/write_exec_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "893174..896480",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "QM",
+        "U7",
+        "bM",
+        "en",
+        "hY",
+        "j6",
+        "v3"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/bidi_pb.js",
+      "pkg": "proto",
+      "sub": "generated/aiserver/v1/bidi_pb",
+      "outFile": "packages/proto/src/generated/aiserver/v1/bidi_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "896536..898715",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "$r",
+        "Qd",
+        "hD",
+        "xy",
+        "yq"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/chat_pb.js",
+      "pkg": "proto",
+      "sub": "generated/aiserver/v1/chat_pb",
+      "outFile": "packages/proto/src/generated/aiserver/v1/chat_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "898771..954301",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./tools_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/tools_pb.js"
+        },
+        {
+          "spec": "./utils_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/utils_pb.js"
+        },
+        {
+          "spec": "./docs_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/docs_pb.js"
+        },
+        {
+          "spec": "./repository_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/repository_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        },
+        {
+          "spec": "../../agent/v1/agent_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/agent_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/request_context_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/request_context_exec_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/selected_context_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/selected_context_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/diagnostics_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/diagnostics_exec_pb.js"
+        }
+      ],
+      "exports": [
+        "O9",
+        "gn",
+        "yf",
+        "An",
+        "hS",
+        "jF",
+        "KR",
+        "TS",
+        "cf",
+        "Bh",
+        "jp",
+        "D8",
+        "XE",
+        "Bo",
+        "O0"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/dashboard_connect.js",
+      "pkg": "proto",
+      "sub": "generated/aiserver/v1/dashboard_connect",
+      "outFile": "packages/proto/src/generated/aiserver/v1/dashboard_connect.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "954367..1072455",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "./dashboard_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/dashboard_pb.js"
+        },
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./unify_eligibility_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/unify_eligibility_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "I"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/dashboard_pb.js",
+      "pkg": "proto",
+      "sub": "generated/aiserver/v1/dashboard_pb",
+      "outFile": "packages/proto/src/generated/aiserver/v1/dashboard_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "1072516..2276732",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./unify_eligibility_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/unify_eligibility_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/mcp_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/mcp_pb.js"
+        },
+        {
+          "spec": "./privacy_mode_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/privacy_mode_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        },
+        {
+          "spec": "../../agent/v1/smart_mode_classifier_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/smart_mode_classifier_exec_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/mcp_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/mcp_exec_pb.js"
+        },
+        {
+          "spec": "./usage_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/usage_pb.js"
+        },
+        {
+          "spec": "./utils_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/utils_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/requested_model_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/requested_model_pb.js"
+        },
+        {
+          "spec": "./chat_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/chat_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/agent_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/agent_pb.js"
+        }
+      ],
+      "exports": [
+        "LRJ",
+        "bCe",
+        "MSh",
+        "Hdf",
+        "uHx",
+        "yDS",
+        "bo5",
+        "xWW",
+        "fdV",
+        "VVb",
+        "gMg",
+        "yD7",
+        "Hcr",
+        "he9",
+        "Y9_",
+        "CeW",
+        "awl",
+        "GG3",
+        "U8V",
+        "mf3",
+        "ggo",
+        "aHm",
+        "$n5",
+        "pji",
+        "D3c",
+        "yqO",
+        "Gc8",
+        "Ipj",
+        "a0c",
+        "Tnz",
+        "lVO",
+        "GJd",
+        "LmS",
+        "mi9",
+        "Izq",
+        "flJ",
+        "SZm",
+        "c2n",
+        "ISv",
+        "X2v",
+        "B6m",
+        "aFD",
+        "W5r",
+        "XRL",
+        "Jxy",
+        "t3S",
+        "PXK",
+        "VN4",
+        "nPy",
+        "v_r",
+        "$n",
+        "qu8",
+        "of0",
+        "f3h",
+        "Ftj",
+        "pX4",
+        "j9U",
+        "pAq",
+        "LOM",
+        "_1N",
+        "yPU",
+        "HZm",
+        "lRG",
+        "oOo",
+        "MIx",
+        "IV$",
+        "yW5",
+        "LYD",
+        "jt6",
+        "esH",
+        "A3J",
+        "yD0",
+        "MEI",
+        "ukN",
+        "cRU",
+        "MRM",
+        "wb2",
+        "QKN",
+        "wmq",
+        "yLo",
+        "KzH",
+        "iOH",
+        "g5C",
+        "jaI",
+        "lSE",
+        "uBx",
+        "_rf",
+        "H5i",
+        "zah",
+        "x$b",
+        "N_h",
+        "baZ",
+        "OjU",
+        "Ohd",
+        "Ag",
+        "qdS",
+        "vJq",
+        "PaT",
+        "obd",
+        "O78",
+        "azJ",
+        "ZP$",
+        "VE0",
+        "hbz",
+        "UmB",
+        "Ie5",
+        "lWf",
+        "Tm1",
+        "wm7",
+        "O$A",
+        "tI8",
+        "xpT",
+        "RqP",
+        "X2R",
+        "bWR",
+        "FQR",
+        "SH9",
+        "_$M",
+        "X38",
+        "tZA",
+        "wlK",
+        "Adp",
+        "ecT",
+        "YdR",
+        "ign",
+        "WSJ",
+        "bZ3",
+        "z2Y",
+        "vaB",
+        "rzz",
+        "nL6",
+        "rEt",
+        "S3E",
+        "o6Z",
+        "sJl",
+        "ukh",
+        "_do",
+        "EAb",
+        "Bdx",
+        "Zk6",
+        "CHh",
+        "GL9",
+        "ZN0",
+        "DdV",
+        "byf",
+        "vXf",
+        "m5V",
+        "MSw",
+        "lqG",
+        "Ps6",
+        "p8r",
+        "Dsz",
+        "OoP",
+        "gZI",
+        "KFb",
+        "WRW",
+        "C1F",
+        "wqi",
+        "ed4",
+        "urU",
+        "iQx",
+        "uYE",
+        "bhY",
+        "XEQ",
+        "PTe",
+        "pF3",
+        "hzU",
+        "rfl",
+        "XAW",
+        "bTQ",
+        "IW3",
+        "wmn",
+        "BwS",
+        "dnd",
+        "PwZ",
+        "vFW",
+        "C10",
+        "e7b",
+        "EMn",
+        "QEY",
+        "Cbz",
+        "Gf$",
+        "_C2",
+        "Mdl",
+        "Ctq",
+        "CXw",
+        "BEg",
+        "Rz7",
+        "qxp",
+        "uts",
+        "eW$",
+        "eQk",
+        "Qx5",
+        "M3e",
+        "oJv",
+        "UPX",
+        "cbD",
+        "CiW",
+        "WxI",
+        "AkX",
+        "lW",
+        "$a1",
+        "wT7",
+        "a4I",
+        "J4c",
+        "fCO",
+        "nxO",
+        "vgA",
+        "J7F",
+        "vZv",
+        "HYO",
+        "loJ",
+        "LAq",
+        "x2A",
+        "BlC",
+        "Dd7",
+        "cj_",
+        "SyP",
+        "Q1P",
+        "kJb",
+        "cEg",
+        "Aa9",
+        "uDD",
+        "EO4",
+        "azC",
+        "cSQ",
+        "rhR",
+        "RVM",
+        "ndP",
+        "FRR",
+        "gqj",
+        "wER",
+        "o0f",
+        "mTO",
+        "opt",
+        "ABq",
+        "hnR",
+        "Ld4",
+        "ONG",
+        "YYN",
+        "pj7",
+        "rP9",
+        "J5_",
+        "xQH",
+        "Yiy",
+        "YY6",
+        "mZ$",
+        "WBx",
+        "iVu",
+        "wuD",
+        "nc6",
+        "Hdd",
+        "aW7",
+        "_yh",
+        "nG3",
+        "T78",
+        "SBx",
+        "uDb",
+        "XeB",
+        "zNr",
+        "Bg_",
+        "nEl",
+        "f8d",
+        "pO3",
+        "pe4",
+        "Huq",
+        "tE7",
+        "R1c",
+        "gwk",
+        "CN_",
+        "gFI",
+        "c7s",
+        "shm",
+        "_Md",
+        "FUz",
+        "Z36",
+        "CGB",
+        "sHT",
+        "Bz7",
+        "Tfn",
+        "xo6",
+        "atP",
+        "t1u",
+        "rFi",
+        "p9b",
+        "VyS",
+        "lIO",
+        "jqE",
+        "mA",
+        "U1k",
+        "x4u",
+        "FNs",
+        "m0x",
+        "Cw0",
+        "Ch8",
+        "uzD",
+        "IaO",
+        "WLQ",
+        "LME",
+        "rJY",
+        "hSg",
+        "rGX",
+        "dv2",
+        "dSk",
+        "tm2",
+        "prK",
+        "I5D",
+        "e0h",
+        "ru_",
+        "dyp",
+        "jzf",
+        "zu1",
+        "D57",
+        "llV",
+        "KQv",
+        "S0I",
+        "Xqi",
+        "vXd",
+        "dBq",
+        "VS",
+        "sg4",
+        "a3K",
+        "Yms",
+        "C$e",
+        "toG",
+        "V$m",
+        "Cul",
+        "Y9v",
+        "_nC",
+        "kgP",
+        "BCh",
+        "xPw",
+        "DI3",
+        "zhf",
+        "dMQ",
+        "$gS",
+        "m0D",
+        "wpF",
+        "UfC",
+        "gJO",
+        "mpn",
+        "UsM",
+        "hih",
+        "bCj",
+        "jiB",
+        "Z48",
+        "DSj",
+        "LZR",
+        "RwL",
+        "oNu",
+        "hWx",
+        "dr7",
+        "pg$",
+        "fSY",
+        "gJU",
+        "mib",
+        "P1T",
+        "VxL",
+        "CQB",
+        "WQf",
+        "l4W",
+        "JZY",
+        "Mq$",
+        "mTp",
+        "J$f",
+        "Bw0",
+        "T1q",
+        "RNi",
+        "Nbg",
+        "xel",
+        "Qrr",
+        "y90",
+        "YmN",
+        "DrQ",
+        "ZhM",
+        "Jns",
+        "Fkp",
+        "meH",
+        "ym8",
+        "I6A",
+        "aBI",
+        "JWI",
+        "NXG",
+        "Nux",
+        "hxv",
+        "hp9",
+        "z7W",
+        "qF$",
+        "azW",
+        "wS2",
+        "sWv",
+        "sVJ",
+        "YHh",
+        "lvI",
+        "RK5",
+        "TOm",
+        "tkD",
+        "Ioc",
+        "GNy",
+        "nTs",
+        "ZJ6",
+        "N8K",
+        "RP_",
+        "BHX",
+        "DLm",
+        "zyT",
+        "hcJ",
+        "SNZ",
+        "wEJ",
+        "gDx",
+        "K6f",
+        "dAQ",
+        "$sY",
+        "Xhp",
+        "JRd",
+        "u_0",
+        "gHM",
+        "V8e",
+        "Pqo",
+        "G24",
+        "gNl",
+        "Hdt",
+        "F9z",
+        "mPq",
+        "i5j",
+        "MjR",
+        "CkD",
+        "yI7",
+        "cTj",
+        "Dl4",
+        "bO3",
+        "EBP",
+        "m85",
+        "pmk",
+        "LwP",
+        "kYK",
+        "y4P",
+        "WY9",
+        "irI",
+        "GlZ",
+        "hst",
+        "zUO",
+        "aPV",
+        "w_Q",
+        "LYo",
+        "PJy",
+        "r$m",
+        "ZB$",
+        "Upy",
+        "AlS",
+        "trz",
+        "J43",
+        "hVj",
+        "b$E",
+        "EwF",
+        "KhO",
+        "i6G",
+        "i0P",
+        "OyF",
+        "igd",
+        "RiQ",
+        "XUY",
+        "iSm",
+        "aUJ",
+        "FHO",
+        "TpA",
+        "i20",
+        "M7A",
+        "y$W",
+        "Ik0",
+        "Owv",
+        "yq_",
+        "kcC",
+        "UYU",
+        "XT3",
+        "HyV",
+        "jp5",
+        "dpH",
+        "Ryr",
+        "FPs",
+        "YSR",
+        "rL_",
+        "A9x",
+        "u01",
+        "$7Y",
+        "LoC",
+        "wcH",
+        "cQ7",
+        "ovf",
+        "_oI",
+        "_NS",
+        "eTm",
+        "nxD",
+        "Hux",
+        "lxC",
+        "nxh",
+        "SuU",
+        "yms",
+        "Muw",
+        "OFG",
+        "yED",
+        "_2X",
+        "eNQ",
+        "efP",
+        "i$e",
+        "StO",
+        "CY$",
+        "WsC",
+        "g6R",
+        "oyU",
+        "XB2",
+        "FTr",
+        "toQ",
+        "P4d",
+        "L$Y",
+        "ljc",
+        "E8o",
+        "C17",
+        "m8H",
+        "G4o",
+        "k0s",
+        "EGh",
+        "XUt",
+        "ZU4",
+        "CJ0",
+        "qZs",
+        "WCk",
+        "CyC",
+        "ND4",
+        "Rkv",
+        "_9N",
+        "wet",
+        "PG$",
+        "bBu",
+        "a3w",
+        "eZU",
+        "MFi",
+        "C0g",
+        "xGO",
+        "zOq",
+        "v5z",
+        "HMD",
+        "X8g",
+        "p_E",
+        "fZH",
+        "hBo",
+        "pUz",
+        "hHr",
+        "$aF",
+        "$ZH",
+        "glW",
+        "o9t",
+        "RSA",
+        "veH",
+        "h3R",
+        "bhd",
+        "YVG",
+        "czg",
+        "Ewt",
+        "S7I",
+        "BF8",
+        "t__",
+        "_GX",
+        "Q50",
+        "JOC",
+        "DOt",
+        "vDB",
+        "bIf",
+        "iaP",
+        "KuC",
+        "yO3",
+        "Si_",
+        "Udp",
+        "_am",
+        "q$3",
+        "mht",
+        "GCT",
+        "CG1",
+        "ubJ",
+        "DXb",
+        "D42",
+        "BHf",
+        "lqZ",
+        "dIX",
+        "fIK",
+        "jIe",
+        "JEj",
+        "Yeg",
+        "eBq",
+        "iS1",
+        "_ax",
+        "QOh",
+        "qbQ",
+        "ZKL",
+        "f43",
+        "z1R",
+        "Jrb",
+        "nQH",
+        "rd8",
+        "M89",
+        "qlA",
+        "wH4",
+        "uwp",
+        "bPz",
+        "H0j",
+        "H8G",
+        "rt0",
+        "f5k",
+        "ZJV",
+        "UvC",
+        "SkP",
+        "lN3",
+        "vBH",
+        "cF_",
+        "SY0",
+        "bXT",
+        "TQ7",
+        "Twg",
+        "$H2",
+        "Vie",
+        "vsf",
+        "Ok7",
+        "Ajm",
+        "ZPB",
+        "vfT",
+        "C61",
+        "Exr",
+        "aYg",
+        "pPB",
+        "DxY",
+        "kxz",
+        "wFu",
+        "_v$",
+        "yj0",
+        "rgp",
+        "xa_",
+        "q9G",
+        "MQS",
+        "EcQ",
+        "nd7",
+        "pGh",
+        "XWY",
+        "Ig_",
+        "Esv",
+        "bo4",
+        "twU",
+        "JmO",
+        "bUD",
+        "qWG",
+        "YJY",
+        "jWS",
+        "J41",
+        "V4G",
+        "noV",
+        "RTM",
+        "v90",
+        "vVx",
+        "fAb",
+        "t4U",
+        "nyq",
+        "Akd",
+        "i7t",
+        "kSp",
+        "O5b",
+        "TXH",
+        "P_k",
+        "dwF",
+        "t5n",
+        "aE$",
+        "OCF",
+        "ROu",
+        "xfP",
+        "Xoe",
+        "ZoZ",
+        "Vqj",
+        "pty",
+        "KN6",
+        "sWp",
+        "xGV",
+        "$EH",
+        "bT6",
+        "D2n",
+        "Gch",
+        "gBX",
+        "Xdv",
+        "hzd",
+        "LM4",
+        "hcQ",
+        "qc8",
+        "Mtj",
+        "o0l",
+        "Wxf",
+        "cnC",
+        "cJ_",
+        "M2r",
+        "Grk",
+        "i0h",
+        "_OB",
+        "rAv",
+        "Pb2",
+        "n$I",
+        "fMg",
+        "l9M",
+        "nPZ",
+        "Lys",
+        "VS9",
+        "tJ9",
+        "lIF",
+        "ZPw",
+        "ZOX",
+        "f_r",
+        "bJx",
+        "JF",
+        "B2G",
+        "MyJ",
+        "mvz",
+        "u_Q",
+        "WsA",
+        "BaG",
+        "zYR",
+        "eOv",
+        "gpX",
+        "St",
+        "QKj",
+        "aew",
+        "gjm",
+        "lym",
+        "ddf",
+        "hE5",
+        "LGY",
+        "tcG",
+        "no",
+        "YAE",
+        "YyD",
+        "e0r",
+        "ewI",
+        "zEV",
+        "pig",
+        "_$o",
+        "Opj",
+        "I2q",
+        "YeL",
+        "ody",
+        "AhZ",
+        "Byz",
+        "V5U",
+        "FFq",
+        "LLA",
+        "TdK",
+        "v6H",
+        "CNw",
+        "iR7",
+        "kfB",
+        "iwy",
+        "OmT",
+        "GoT",
+        "fQ",
+        "bNb",
+        "LRN",
+        "Lg7",
+        "Cbg",
+        "StK",
+        "XDt",
+        "lzR",
+        "qjo",
+        "M_",
+        "LWe",
+        "F8Y",
+        "mD_",
+        "wGo",
+        "n$w",
+        "R9K",
+        "ZvO",
+        "bhm",
+        "yk8",
+        "ecN",
+        "yFZ",
+        "g0E",
+        "R$Q",
+        "LRw",
+        "aKS",
+        "e8",
+        "w0A",
+        "i3T",
+        "ve",
+        "HDB",
+        "Mx4",
+        "gDX",
+        "bK1",
+        "bJ",
+        "gsc",
+        "Eyr",
+        "P6l",
+        "zL5",
+        "J67",
+        "VBR",
+        "s$M",
+        "MJ",
+        "UQh",
+        "cUB",
+        "vdM",
+        "Xu9",
+        "pfR",
+        "rDR",
+        "DWT",
+        "hSD",
+        "hu7",
+        "BPt",
+        "JbB",
+        "nrv",
+        "MrA",
+        "gJp",
+        "$kg",
+        "PtB",
+        "_CN",
+        "Kww",
+        "TB_",
+        "nE8",
+        "lax",
+        "rM7",
+        "Y44",
+        "kE_",
+        "qJm",
+        "IIg",
+        "C4p",
+        "gRj",
+        "h1G",
+        "doQ",
+        "Pxo",
+        "RR2",
+        "v8R",
+        "dsv",
+        "dXJ",
+        "D5E",
+        "Obu",
+        "S5H",
+        "jcw",
+        "X5_",
+        "Imd",
+        "QI7",
+        "XRZ",
+        "pv1",
+        "NES",
+        "Fj9",
+        "ax8",
+        "_lt",
+        "LGu",
+        "PnF",
+        "i9d",
+        "sev",
+        "FcH",
+        "$qn",
+        "lKh",
+        "rsP",
+        "VNQ",
+        "NYc",
+        "aJE",
+        "SRO",
+        "H1L",
+        "P8_",
+        "K$9",
+        "yVw",
+        "hUh",
+        "dZ5",
+        "DVl",
+        "V$7",
+        "aYW",
+        "k1F",
+        "EwB",
+        "Eav",
+        "yds",
+        "KZ$",
+        "TIU",
+        "p_t",
+        "W2U",
+        "iSU",
+        "pfH",
+        "rDT",
+        "oTS",
+        "eU6",
+        "Goo",
+        "yut",
+        "CKW",
+        "m2K",
+        "Uto",
+        "EHd",
+        "e6P",
+        "SuY",
+        "Y$T",
+        "o35",
+        "LWu",
+        "fZU",
+        "_b6",
+        "yTb",
+        "FO$",
+        "hFv",
+        "WjG",
+        "OBF",
+        "$Sc",
+        "R2E",
+        "WsN",
+        "Afl",
+        "YZZ",
+        "GyS",
+        "ScF",
+        "rcf",
+        "Jcx",
+        "EZo",
+        "m0q",
+        "SK5",
+        "I9h",
+        "yIy",
+        "C2K",
+        "jiH",
+        "fTn",
+        "BLW",
+        "jpO",
+        "P0R",
+        "ZSQ",
+        "bfP",
+        "Jvy",
+        "VUw",
+        "tFR",
+        "A4e",
+        "K78",
+        "nDb",
+        "n8L",
+        "qhH",
+        "I_D",
+        "S9t",
+        "_ty",
+        "_V",
+        "KLX",
+        "dcL",
+        "n24",
+        "V2d",
+        "NjL",
+        "b4u",
+        "$H_",
+        "KoG",
+        "mWk",
+        "mH6",
+        "CZF",
+        "Mq",
+        "M2w",
+        "Jjk",
+        "$DS",
+        "c$y",
+        "cHR",
+        "hsE",
+        "vuk",
+        "hD2",
+        "ZoF",
+        "yq2",
+        "R0Z",
+        "JNH",
+        "IPQ",
+        "Ood",
+        "AQb",
+        "aNf",
+        "GhV",
+        "XLd",
+        "SCd",
+        "YDS",
+        "$TS",
+        "$0p",
+        "jq0",
+        "f1t",
+        "djX",
+        "pww",
+        "WAE",
+        "qSX",
+        "DLp",
+        "R$$",
+        "i24",
+        "Pt$",
+        "Tmx",
+        "hvD",
+        "p84",
+        "Y1$",
+        "WEh",
+        "YJq",
+        "WWg",
+        "sMu",
+        "osZ",
+        "fVs",
+        "xxr",
+        "NNb",
+        "Zm8",
+        "B5B",
+        "bh8",
+        "Jjf",
+        "hsS",
+        "Bi3",
+        "jsr",
+        "WCl",
+        "GYE",
+        "p$r",
+        "Jag",
+        "wfW",
+        "q4z",
+        "vfb",
+        "$8m",
+        "HxK",
+        "jAL",
+        "E2N",
+        "iX6",
+        "I6O",
+        "ipl",
+        "Uao",
+        "Gdv",
+        "DWb",
+        "Fi2",
+        "PuH",
+        "n1r",
+        "pVr",
+        "jNM",
+        "upR",
+        "U2t",
+        "$F$",
+        "dnq",
+        "Q3t",
+        "Oef",
+        "hHX",
+        "D7O",
+        "FXL",
+        "hiE",
+        "jlg",
+        "xL7",
+        "Ezc",
+        "cDB",
+        "gNW",
+        "SuV",
+        "SFZ",
+        "CCH",
+        "EdW",
+        "bHh",
+        "jWD",
+        "mbE",
+        "y5v",
+        "KHx",
+        "GPC",
+        "LdP",
+        "l1H",
+        "Hrn",
+        "pxf",
+        "CXL",
+        "ybH",
+        "k6E",
+        "a$2",
+        "gvC",
+        "WaG",
+        "OOr",
+        "iwb",
+        "cl3",
+        "cf9",
+        "yeW",
+        "ANW",
+        "V5S",
+        "lc$",
+        "AB7",
+        "g7m",
+        "yMo",
+        "G8V",
+        "WXZ",
+        "YeS",
+        "LuE",
+        "VG3",
+        "KaV",
+        "ySt",
+        "ZMX",
+        "vEP",
+        "iPX",
+        "A8F",
+        "Cl5",
+        "UEj",
+        "NsN",
+        "wLf",
+        "Sot",
+        "bC9",
+        "Xtv",
+        "UTl",
+        "i4X",
+        "rq6",
+        "dSe",
+        "AUt",
+        "Y1Y",
+        "G2s",
+        "quH",
+        "eK8",
+        "YNI",
+        "yaP",
+        "Z_i",
+        "jiy",
+        "_YH",
+        "_i_",
+        "nMU",
+        "lqq",
+        "pE6",
+        "pfj",
+        "yXx",
+        "k0O",
+        "Hrg",
+        "ZbR",
+        "Dxu",
+        "LM8",
+        "lmw",
+        "na4",
+        "OWn",
+        "c3u",
+        "A_u",
+        "IWi",
+        "v0n",
+        "X1$",
+        "xos",
+        "xTz",
+        "R28",
+        "nMz",
+        "vV7",
+        "vcR",
+        "iHk",
+        "gsv",
+        "N8I",
+        "pZm",
+        "W22",
+        "SwX",
+        "dMs",
+        "Tsf",
+        "l2q",
+        "Lsm",
+        "pbO",
+        "xim",
+        "$_i",
+        "B0l",
+        "CAc",
+        "GYk",
+        "qC3",
+        "wHV",
+        "tI0",
+        "dnO",
+        "gDB",
+        "sL8",
+        "Kbt",
+        "kAL",
+        "fSk",
+        "dkb",
+        "S8L",
+        "ayS",
+        "lxN",
+        "FST",
+        "DEE",
+        "xUt",
+        "nsd",
+        "xYI",
+        "QE",
+        "gsU",
+        "$WS",
+        "Rc0",
+        "Ifk",
+        "E7o",
+        "MLT",
+        "SMM",
+        "AhK",
+        "kCx",
+        "izO",
+        "sAj",
+        "eD4",
+        "esR",
+        "eiD",
+        "QBt",
+        "SQ3",
+        "dUM",
+        "UB9",
+        "juR",
+        "ZCs",
+        "P_7",
+        "H1r",
+        "OHt",
+        "UgB",
+        "R_i",
+        "hN$",
+        "_Br",
+        "ylO",
+        "ruw",
+        "xAe",
+        "K28",
+        "Not",
+        "T0x",
+        "HOD",
+        "pQL",
+        "ptC",
+        "$bK",
+        "UGG",
+        "caw",
+        "umz",
+        "Mdf",
+        "mNt",
+        "mnS",
+        "yoJ",
+        "mIz",
+        "iCJ",
+        "sZ0",
+        "SAH",
+        "mOD",
+        "E3$",
+        "MPB",
+        "LIs",
+        "lW1",
+        "dLd",
+        "lWb",
+        "kiI",
+        "gqE",
+        "Jfv",
+        "FcC",
+        "WWi",
+        "U5k",
+        "_mX",
+        "anf",
+        "WJW",
+        "P4",
+        "HdK",
+        "oZm",
+        "CKQ",
+        "ziZ",
+        "TjJ",
+        "ggh",
+        "nXe",
+        "VWM",
+        "HiH",
+        "$MF",
+        "Z4D",
+        "vwy",
+        "FMO",
+        "PUH",
+        "uif",
+        "EJq",
+        "jPV",
+        "lP",
+        "Ybi",
+        "kBz",
+        "OeX",
+        "Wow",
+        "Q66",
+        "b48",
+        "CrG",
+        "YQr",
+        "dOz",
+        "smL",
+        "xwV",
+        "X_4",
+        "ObP",
+        "qdL",
+        "wCe",
+        "Q87",
+        "due",
+        "BpA",
+        "I7k",
+        "O8p",
+        "qkO",
+        "YPJ",
+        "cOC",
+        "wu6",
+        "sDp",
+        "Uj4",
+        "b7M",
+        "J$G",
+        "VF8",
+        "Djf",
+        "ziV",
+        "lme",
+        "J_n",
+        "BLE",
+        "TGZ",
+        "d6S",
+        "YDo",
+        "cBR",
+        "H1p",
+        "DUo",
+        "Dxc",
+        "ZHm",
+        "aQT",
+        "sHN",
+        "BRM",
+        "loc",
+        "WZo",
+        "oGE",
+        "RJA",
+        "$ph",
+        "im6",
+        "SSe",
+        "Bqo",
+        "PQd",
+        "mig",
+        "sX9",
+        "xQP",
+        "TGX",
+        "dSX",
+        "nS1",
+        "SFI",
+        "sw6",
+        "qVu",
+        "rLu",
+        "Puo",
+        "MEU",
+        "U0s",
+        "hEd",
+        "VbN",
+        "rA4",
+        "lER",
+        "X6C",
+        "$Fl",
+        "k5b",
+        "icQ",
+        "kX",
+        "qon",
+        "Bwq",
+        "nUL",
+        "JrS",
+        "HJo",
+        "Y6P",
+        "QeE",
+        "rF_",
+        "DmQ",
+        "W_K",
+        "EJm",
+        "y_T",
+        "yGu",
+        "be7",
+        "THz",
+        "Y53",
+        "Ip9",
+        "ePV",
+        "EuD",
+        "BXh",
+        "nnW",
+        "L2q",
+        "Jiu",
+        "I3c",
+        "Qnc",
+        "_dj",
+        "Mob",
+        "lpG",
+        "LlT",
+        "WvV",
+        "UgI",
+        "OaX",
+        "MX_",
+        "nQN",
+        "tWf",
+        "Eg0",
+        "c6S",
+        "R8r",
+        "pnU",
+        "ovZ",
+        "gdR",
+        "HCf",
+        "x6X",
+        "AU3",
+        "keR",
+        "H5R",
+        "Tcn",
+        "A8S",
+        "j8g",
+        "Rig",
+        "neC",
+        "Gci",
+        "K_N",
+        "ElN",
+        "W6d",
+        "G0c",
+        "fOQ",
+        "yYY",
+        "w$r",
+        "_Rg",
+        "ubM",
+        "yKm",
+        "mmN",
+        "vDi",
+        "BaU",
+        "tRU",
+        "GOY",
+        "yQR",
+        "Z$K",
+        "FOE",
+        "eor",
+        "oTi",
+        "pTw",
+        "DZc",
+        "OCy",
+        "sJP",
+        "Rbl",
+        "t8U",
+        "B8P",
+        "HQR",
+        "Ebu",
+        "E7l",
+        "rb7",
+        "DkK",
+        "h0i",
+        "faf",
+        "XRd",
+        "joE",
+        "PBS",
+        "JZ6",
+        "TTI",
+        "pPp",
+        "gpr",
+        "QV4",
+        "EiN",
+        "e0Y",
+        "e5r",
+        "C3d",
+        "ZKX",
+        "tZb",
+        "cn",
+        "YBJ",
+        "u$0",
+        "CrU",
+        "F$O",
+        "T59",
+        "SAF",
+        "Ix8",
+        "uKx",
+        "_w7",
+        "V6X",
+        "tJA",
+        "YBO",
+        "Soi",
+        "Rns",
+        "PFp",
+        "AB3",
+        "IXm",
+        "dhe",
+        "PjD",
+        "RDD",
+        "lmF",
+        "$ZN",
+        "NtP",
+        "yL5",
+        "se9",
+        "B$8",
+        "JgL",
+        "xHb",
+        "fxk",
+        "mK6",
+        "EZs",
+        "Ldy",
+        "BDC",
+        "ak0",
+        "YrR",
+        "yWy",
+        "as5",
+        "v_8",
+        "VgQ",
+        "bpP",
+        "xBJ",
+        "jFq",
+        "NW8",
+        "tP0",
+        "xO$",
+        "b07",
+        "zYy",
+        "dwD",
+        "yjV",
+        "c4k",
+        "CLT",
+        "q5s",
+        "rhB",
+        "p5Q",
+        "ejY",
+        "E0R",
+        "eI8",
+        "_qO",
+        "bkm",
+        "Vau",
+        "gNG",
+        "QNN",
+        "WKP",
+        "mys",
+        "GLj",
+        "deZ",
+        "dn0",
+        "P7l",
+        "LMY",
+        "LLB",
+        "Emz",
+        "yR0",
+        "GP0",
+        "qN3",
+        "UwA",
+        "skD",
+        "JQv",
+        "LQe",
+        "rJW",
+        "RZJ",
+        "sst",
+        "Kfp",
+        "kMn",
+        "YOY",
+        "npU",
+        "PGd",
+        "HOq",
+        "xEn",
+        "$ty",
+        "VN6",
+        "HeY",
+        "V_5",
+        "kau",
+        "YMP",
+        "O8H",
+        "wDw",
+        "WUm",
+        "IHq",
+        "qks",
+        "ZU_",
+        "X8H",
+        "tol",
+        "b0C",
+        "H16",
+        "Tw9",
+        "lEN",
+        "Z1Y",
+        "hk4",
+        "ZpC",
+        "h3x",
+        "D9s",
+        "eWf",
+        "Wig",
+        "w9j",
+        "c1o",
+        "MS0",
+        "k09",
+        "tE3",
+        "lL7",
+        "kHo",
+        "QhI",
+        "wDH",
+        "qq8",
+        "jOB",
+        "dGI",
+        "Dyp",
+        "V4V",
+        "NS4",
+        "xx6",
+        "piC",
+        "T_o",
+        "kQE",
+        "G$Z",
+        "o9R",
+        "Kot",
+        "CHM",
+        "kgd",
+        "uRp",
+        "Cf7",
+        "tVV",
+        "zHj",
+        "IFS",
+        "UpX",
+        "Go7",
+        "yuQ",
+        "QzW",
+        "clf",
+        "gR6",
+        "aIw",
+        "ToG",
+        "Hx0",
+        "Ptb",
+        "tdj",
+        "VMe",
+        "BRO",
+        "GMY",
+        "eQV",
+        "vRE",
+        "N7y",
+        "hoi",
+        "lhf",
+        "ptw",
+        "zlM",
+        "wQY",
+        "M8c",
+        "_tH",
+        "IeM",
+        "vg1",
+        "dWE",
+        "h5c",
+        "b9h",
+        "vCC",
+        "D7h",
+        "zuj",
+        "NMG",
+        "SmK",
+        "kjp",
+        "L7H",
+        "jGg",
+        "ZrD",
+        "ffl",
+        "bZb",
+        "ybE",
+        "YiF",
+        "bQB",
+        "Z6E",
+        "kX8",
+        "uOW",
+        "hDl",
+        "hWK",
+        "UHP",
+        "UBK",
+        "m",
+        "E3F",
+        "w66",
+        "Mmr",
+        "LHn",
+        "tR5",
+        "ceB",
+        "WXO",
+        "nun",
+        "bzo",
+        "h0F",
+        "dTt",
+        "GTA",
+        "ev7",
+        "xbn",
+        "jrF",
+        "VJo",
+        "ZuH",
+        "CNn",
+        "QOJ",
+        "zYv",
+        "FmW",
+        "KEO",
+        "qA0",
+        "fKS",
+        "tkR",
+        "dj5",
+        "PFI",
+        "hSh",
+        "P8G",
+        "BIT",
+        "Xmf",
+        "UBx",
+        "ead",
+        "NQP",
+        "LK4",
+        "rtb",
+        "v0c",
+        "QWx",
+        "Qsl",
+        "YG",
+        "uNt",
+        "kFu",
+        "Mpk",
+        "rjZ",
+        "FFm",
+        "DWR",
+        "pGw",
+        "zuZ",
+        "Dfi",
+        "DrI",
+        "BRX",
+        "J9i",
+        "T1W",
+        "hxG",
+        "Lre",
+        "NZ_",
+        "l8$",
+        "XKz",
+        "H7s",
+        "uuc",
+        "eo$",
+        "wOq",
+        "M2G",
+        "GKl",
+        "GIW",
+        "rCL",
+        "nbk",
+        "laE",
+        "TCm",
+        "$yS",
+        "XrM",
+        "Eh9",
+        "wrT",
+        "zFs",
+        "bQQ",
+        "Fuf",
+        "HCj",
+        "tJW",
+        "RYJ",
+        "$H8",
+        "XMd",
+        "UJO",
+        "Cel",
+        "b3B",
+        "vym",
+        "DtR",
+        "dDc",
+        "Cwp",
+        "_i8",
+        "qMG",
+        "AbB",
+        "rj1",
+        "jWT",
+        "$bH",
+        "nCl",
+        "Bhj",
+        "LBR",
+        "Yir",
+        "GDG",
+        "DqU",
+        "X99",
+        "BDH",
+        "XwO",
+        "vvr",
+        "J3N",
+        "Tjf",
+        "eWF",
+        "AL",
+        "EDv",
+        "SC0",
+        "kz1",
+        "aam",
+        "AF",
+        "pmc",
+        "PW",
+        "Dmk",
+        "RAD",
+        "oVF",
+        "GcM",
+        "$ht",
+        "BrS",
+        "wJL",
+        "IVI",
+        "s1d",
+        "eq0",
+        "dAp",
+        "nox",
+        "Spq",
+        "YCH",
+        "pNh",
+        "vTx",
+        "RZf",
+        "d6k",
+        "Fo6",
+        "rA8",
+        "NPW",
+        "JAL",
+        "xcI",
+        "hbx",
+        "HFD",
+        "Fr4",
+        "F5_",
+        "Lt9",
+        "jJ",
+        "L4Y",
+        "sCz",
+        "aP5",
+        "da6",
+        "zwl",
+        "QRZ",
+        "Iz5",
+        "sNl",
+        "Mlf",
+        "ZZ6",
+        "hiw",
+        "XQ_",
+        "DZr",
+        "UvX",
+        "G8P",
+        "LJ3",
+        "Hen",
+        "CoZ",
+        "YZV",
+        "bLK",
+        "YbK",
+        "gPk",
+        "wZY",
+        "yog",
+        "K_o",
+        "ybT",
+        "y$h",
+        "dXc",
+        "zF8",
+        "KTu",
+        "_$O",
+        "Nl7",
+        "lu1",
+        "uFn",
+        "mjT",
+        "jG",
+        "jFj",
+        "pbs",
+        "PD$",
+        "NS0",
+        "JL8",
+        "dpZ",
+        "Lxb",
+        "owH",
+        "KVq",
+        "Gor",
+        "WWO",
+        "TeW",
+        "$lk",
+        "Hdl",
+        "hHL",
+        "qJd",
+        "IIB",
+        "vq0",
+        "npe",
+        "Lr1",
+        "Bpu",
+        "i_X",
+        "wBS",
+        "moj",
+        "k3$",
+        "Vpq",
+        "vfz",
+        "WFw",
+        "gqu",
+        "eEB",
+        "yEd",
+        "tdz",
+        "N4Y",
+        "l5I",
+        "FsH",
+        "AKO",
+        "C7S",
+        "YgU",
+        "G3W",
+        "izj",
+        "Qul",
+        "hLv",
+        "VCH",
+        "iRP",
+        "y13",
+        "es2",
+        "CKk",
+        "Ozh",
+        "wcT",
+        "xvP",
+        "nhk",
+        "omy",
+        "wgB",
+        "VIg",
+        "lxh",
+        "ORt",
+        "yL9",
+        "gez",
+        "MYI",
+        "qEG",
+        "CMB",
+        "Q7C",
+        "knM",
+        "BMC",
+        "jK0",
+        "o_w",
+        "scB",
+        "NNm",
+        "pII",
+        "s9W",
+        "sZP",
+        "aQI",
+        "sHw",
+        "D$M",
+        "zGC",
+        "Bth",
+        "JYk",
+        "zul",
+        "L5U",
+        "Ca8",
+        "m6C",
+        "iXm",
+        "k8Q",
+        "TIw",
+        "rRJ",
+        "Xtc",
+        "bIg",
+        "YKB",
+        "GXt",
+        "oEX",
+        "K3G",
+        "pZT",
+        "Xhy",
+        "D3G",
+        "rew",
+        "Vry",
+        "nNe",
+        "osn",
+        "Acq",
+        "bjc",
+        "lLB",
+        "__V",
+        "c3q",
+        "hLX",
+        "lYk",
+        "LjR",
+        "Hoz",
+        "G6u",
+        "_E_",
+        "ZVF",
+        "zri",
+        "XJ2",
+        "HcF",
+        "dR6",
+        "P1K",
+        "bBp",
+        "rk2",
+        "fRF",
+        "TkS",
+        "Jt2",
+        "Fmo",
+        "DLo",
+        "zQx",
+        "J3_",
+        "jzZ",
+        "M4l",
+        "M_7",
+        "RMZ",
+        "rWQ",
+        "Z8m",
+        "mzW",
+        "jQX",
+        "ANG",
+        "Ll_",
+        "rKG",
+        "rG0",
+        "lWs",
+        "D24",
+        "sRz",
+        "mEf"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/docs_pb.js",
+      "pkg": "proto",
+      "sub": "generated/aiserver/v1/docs_pb",
+      "outFile": "packages/proto/src/generated/aiserver/v1/docs_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "2276788..2278051",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "KC",
+        "ci"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/privacy_mode_pb.js",
+      "pkg": "proto",
+      "sub": "generated/aiserver/v1/privacy_mode_pb",
+      "outFile": "packages/proto/src/generated/aiserver/v1/privacy_mode_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "2278115..2278378",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Y"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/repository_pb.js",
+      "pkg": "proto",
+      "sub": "generated/aiserver/v1/repository_pb",
+      "outFile": "packages/proto/src/generated/aiserver/v1/repository_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "2278440..2283742",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./utils_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/utils_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "PT",
+        "yX",
+        "bq",
+        "xq",
+        "bn",
+        "se",
+        "bD"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/tools_pb.js",
+      "pkg": "proto",
+      "sub": "generated/aiserver/v1/tools_pb",
+      "outFile": "packages/proto/src/generated/aiserver/v1/tools_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "2283799..2424324",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "./utils_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/utils_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/background_shell_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/background_shell_exec_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/record_screen_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/record_screen_exec_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/apply_agent_diff_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/apply_agent_diff_tool_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/generate_image_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/generate_image_tool_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/ai_attribution_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/ai_attribution_tool_pb.js"
+        },
+        {
+          "spec": "./repository_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/aiserver/v1/repository_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/sandbox_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/sandbox_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/shell_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/shell_exec_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/subagents_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/subagents_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/ls_exec_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/ls_exec_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/computer_use_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/computer_use_tool_pb.js"
+        },
+        {
+          "spec": "../../agent/v1/report_bugfix_results_tool_pb",
+          "kind": "internal",
+          "key": "../proto/dist/generated/agent/v1/report_bugfix_results_tool_pb.js"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "$PL",
+        "$rP",
+        "AUe",
+        "Dm_",
+        "Faf",
+        "I8K",
+        "KRm",
+        "MtQ",
+        "PfC",
+        "TE4",
+        "Ue3",
+        "XaY",
+        "bR2",
+        "kWq",
+        "q20"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/unify_eligibility_pb.js",
+      "pkg": "proto",
+      "sub": "generated/aiserver/v1/unify_eligibility_pb",
+      "outFile": "packages/proto/src/generated/aiserver/v1/unify_eligibility_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "2424393..2427539",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "EV",
+        "IN",
+        "j9",
+        "uS",
+        "uo"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/usage_pb.js",
+      "pkg": "proto",
+      "sub": "generated/aiserver/v1/usage_pb",
+      "outFile": "packages/proto/src/generated/aiserver/v1/usage_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "2427596..2439011",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "GF",
+        "aq",
+        "kK"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/generated/aiserver/v1/utils_pb.js",
+      "pkg": "proto",
+      "sub": "generated/aiserver/v1/utils_pb",
+      "outFile": "packages/proto/src/generated/aiserver/v1/utils_pb.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "2439068..2478345",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        },
+        {
+          "spec": "../../../runtime/compact",
+          "kind": "internal",
+          "key": "../proto/dist/runtime/compact.js"
+        }
+      ],
+      "exports": [
+        "Az",
+        "Bo",
+        "CX",
+        "DX",
+        "EZ",
+        "Ei",
+        "FY",
+        "Gm",
+        "LI",
+        "M6",
+        "MT",
+        "NG",
+        "Nj",
+        "O2",
+        "Q9",
+        "QP",
+        "Se",
+        "U$",
+        "U1",
+        "UR",
+        "Uf",
+        "Us",
+        "Vq",
+        "Wf",
+        "Wj",
+        "Xr",
+        "Y1",
+        "Yd",
+        "ZH",
+        "_u",
+        "bO",
+        "bV",
+        "c5",
+        "d7",
+        "df",
+        "e$",
+        "ej",
+        "ek",
+        "fL",
+        "gO",
+        "l2",
+        "lo",
+        "n6",
+        "o$",
+        "oQ",
+        "ot",
+        "qW",
+        "qv",
+        "sr",
+        "vj",
+        "wZ",
+        "x$",
+        "yM",
+        "zH"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../proto/dist/runtime/compact.js",
+      "pkg": "proto",
+      "sub": "runtime/compact",
+      "outFile": "packages/proto/src/runtime/compact.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "2478387..2480520",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "@bufbuild/protobuf",
+          "kind": "external",
+          "key": "@bufbuild/protobuf"
+        }
+      ],
+      "exports": [
+        "HL",
+        "QT",
+        "kU"
+      ],
+      "status": "duplicate-canonical",
+      "generated": true
+    },
+    {
+      "key": "../shell-exec/dist/api/index.js",
+      "pkg": "shell-exec",
+      "sub": "api/index",
+      "outFile": "packages/shell-exec/src/api/index.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+      "kind": "esm",
+      "range": "1139413..1292928",
+      "sha256": "54d5fa4cf215825eafb00493b51c809c66436b8598c487bd6b63e2be18968ff2",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "node:perf_hooks",
+          "kind": "external",
+          "key": "node:perf_hooks"
+        },
+        {
+          "spec": "node:path",
+          "kind": "external",
+          "key": "node:path"
+        },
+        {
+          "spec": "node:fs",
+          "kind": "external",
+          "key": "node:fs"
+        },
+        {
+          "spec": "@anysphere/utils/lru-cache",
+          "kind": "internal",
+          "key": "../utils/dist/lru-cache.js"
+        },
+        {
+          "spec": "node:crypto",
+          "kind": "external",
+          "key": "node:crypto?8af2"
+        },
+        {
+          "spec": "node:os",
+          "kind": "external",
+          "key": "node:os"
+        },
+        {
+          "spec": "@anysphere/utils/workspace-paths",
+          "kind": "internal",
+          "key": "../utils/dist/workspace-paths.js"
+        },
+        {
+          "spec": "@anysphere/utils/test-resets",
+          "kind": "internal",
+          "key": "../utils/dist/test-resets.js"
+        },
+        {
+          "spec": "node:fs/promises",
+          "kind": "external",
+          "key": "node:fs/promises"
+        },
+        {
+          "spec": "node:child_process",
+          "kind": "external",
+          "key": "node:child_process"
+        },
+        {
+          "spec": "node:string_decoder",
+          "kind": "external",
+          "key": "node:string_decoder"
+        },
+        {
+          "spec": "rxjs",
+          "kind": "external",
+          "key": "../../node_modules/.pnpm/rxjs@8.0.0-alpha.14/node_modules/rxjs/dist/cjs/index.js"
+        },
+        {
+          "spec": "ignore",
+          "kind": "external",
+          "key": "../../node_modules/.pnpm/ignore@7.0.5/node_modules/ignore/index.js"
+        },
+        {
+          "spec": "@anysphere/utils/path-utils",
+          "kind": "internal",
+          "key": "../utils/dist/path-utils.js"
+        },
+        {
+          "spec": "@anysphere/utils/safe-spawn-cwd",
+          "kind": "internal",
+          "key": "../utils/dist/safe-spawn-cwd.js"
+        },
+        {
+          "spec": "@anysphere/utils/workload-spawn",
+          "kind": "internal",
+          "key": "../utils/dist/workload-spawn.js"
+        },
+        {
+          "spec": "@anysphere/context/logger",
+          "kind": "internal",
+          "key": "../context/dist/logger.js"
+        },
+        {
+          "spec": "@anysphere/context/core",
+          "kind": "internal",
+          "key": "../context/dist/core.js"
+        },
+        {
+          "spec": "node:stream",
+          "kind": "external",
+          "key": "node:stream"
+        },
+        {
+          "spec": "@anysphere/context/otel",
+          "kind": "internal",
+          "key": "../context/dist/otel.js"
+        },
+        {
+          "spec": "@anysphere/utils/writable-iterable",
+          "kind": "internal",
+          "key": "../utils/dist/writable-iterable.js"
+        }
+      ],
+      "exports": [
+        "BM",
+        "Ls",
+        "SandboxUnsupportedError",
+        "J",
+        "St",
+        "Fn",
+        "ue",
+        "r5",
+        "oG",
+        "Ko",
+        "CG",
+        "W1",
+        "G6",
+        "_B",
+        "OK",
+        "$b",
+        "K3",
+        "tv",
+        "wG",
+        "fZ",
+        "s9",
+        "XX",
+        "T6",
+        "Po",
+        "$6",
+        "l7",
+        "xS",
+        "resolveSandboxPolicyForWorkspace",
+        "spawnInSandbox",
+        "Xw"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../utils/dist/disposable.js",
+      "pkg": "utils",
+      "sub": "disposable",
+      "outFile": "packages/utils/src/disposable.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "2480557..2480585",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [],
+      "exports": [
+        "j"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../utils/dist/fresh-uuid.js",
+      "pkg": "utils",
+      "sub": "fresh-uuid",
+      "outFile": "packages/utils/src/fresh-uuid.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/856.js",
+      "kind": "esm",
+      "range": "16425..17029",
+      "sha256": "4a6c73b759eb6a699b18b7e494fa9c2e6190ad828d01e708a56886d2a67055c2",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "node:crypto",
+          "kind": "external",
+          "key": "node:crypto?8af2"
+        },
+        {
+          "spec": "node:fs",
+          "kind": "external",
+          "key": "node:fs"
+        }
+      ],
+      "exports": [
+        "C"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../utils/dist/lru-cache.js",
+      "pkg": "utils",
+      "sub": "lru-cache",
+      "outFile": "packages/utils/src/lru-cache.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+      "kind": "esm",
+      "range": "1292964..1315266",
+      "sha256": "54d5fa4cf215825eafb00493b51c809c66436b8598c487bd6b63e2be18968ff2",
+      "warnings": [],
+      "imports": [],
+      "exports": [
+        "q"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../utils/dist/path-utils.js",
+      "pkg": "utils",
+      "sub": "path-utils",
+      "outFile": "packages/utils/src/path-utils.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+      "kind": "esm",
+      "range": "1315303..1317375",
+      "sha256": "54d5fa4cf215825eafb00493b51c809c66436b8598c487bd6b63e2be18968ff2",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "node:fs/promises",
+          "kind": "external",
+          "key": "node:fs/promises"
+        },
+        {
+          "spec": "node:os",
+          "kind": "external",
+          "key": "node:os"
+        },
+        {
+          "spec": "node:path",
+          "kind": "external",
+          "key": "node:path"
+        },
+        {
+          "spec": "node:url",
+          "kind": "external",
+          "key": "node:url"
+        }
+      ],
+      "exports": [
+        "BJ",
+        "DN",
+        "PS",
+        "ZU",
+        "fl",
+        "jl",
+        "o1",
+        "oL",
+        "yn"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../utils/dist/promise-extras.js",
+      "pkg": "utils",
+      "sub": "promise-extras",
+      "outFile": "packages/utils/src/promise-extras.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "2481267..2483516",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "rxjs",
+          "kind": "external",
+          "key": "../../node_modules/.pnpm/rxjs@8.0.0-alpha.14/node_modules/rxjs/dist/cjs/index.js"
+        }
+      ],
+      "exports": [
+        "MU",
+        "O$",
+        "PH",
+        "TJ",
+        "cb",
+        "st",
+        "wj",
+        "xb"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../utils/dist/safe-spawn-cwd.js",
+      "pkg": "utils",
+      "sub": "safe-spawn-cwd",
+      "outFile": "packages/utils/src/safe-spawn-cwd.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+      "kind": "esm",
+      "range": "1317416..1323176",
+      "sha256": "54d5fa4cf215825eafb00493b51c809c66436b8598c487bd6b63e2be18968ff2",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "node:crypto",
+          "kind": "external",
+          "key": "node:crypto?8af2"
+        },
+        {
+          "spec": "node:fs",
+          "kind": "external",
+          "key": "node:fs"
+        },
+        {
+          "spec": "node:os",
+          "kind": "external",
+          "key": "node:os"
+        },
+        {
+          "spec": "node:path",
+          "kind": "external",
+          "key": "node:path"
+        },
+        {
+          "spec": "node:stream",
+          "kind": "external",
+          "key": "node:stream"
+        }
+      ],
+      "exports": [
+        "$Y",
+        "$f",
+        "A",
+        "D1",
+        "Gq",
+        "Gw",
+        "KX",
+        "N6",
+        "Vn",
+        "Zv",
+        "fK",
+        "iA",
+        "mM",
+        "qr",
+        "wr",
+        "wz",
+        "yo"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../utils/dist/test-resets.js",
+      "pkg": "utils",
+      "sub": "test-resets",
+      "outFile": "packages/utils/src/test-resets.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+      "kind": "esm",
+      "range": "1323214..1323369",
+      "sha256": "54d5fa4cf215825eafb00493b51c809c66436b8598c487bd6b63e2be18968ff2",
+      "warnings": [],
+      "imports": [],
+      "exports": [
+        "J"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../utils/dist/workload-spawn.js",
+      "pkg": "utils",
+      "sub": "workload-spawn",
+      "outFile": "packages/utils/src/workload-spawn.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+      "kind": "esm",
+      "range": "1323410..1325176",
+      "sha256": "54d5fa4cf215825eafb00493b51c809c66436b8598c487bd6b63e2be18968ff2",
+      "warnings": [],
+      "imports": [
+        {
+          "spec": "node:fs",
+          "kind": "external",
+          "key": "node:fs"
+        },
+        {
+          "spec": "./safe-spawn-cwd",
+          "kind": "internal",
+          "key": "../utils/dist/safe-spawn-cwd.js"
+        }
+      ],
+      "exports": [
+        "D9"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../utils/dist/workspace-paths.js",
+      "pkg": "utils",
+      "sub": "workspace-paths",
+      "outFile": "packages/utils/src/workspace-paths.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/index.js",
+      "kind": "esm",
+      "range": "2483558..2484190",
+      "sha256": "86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87",
+      "warnings": [],
+      "imports": [],
+      "exports": [
+        "O2",
+        "Rv",
+        "r_",
+        "sh"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    },
+    {
+      "key": "../utils/dist/writable-iterable.js",
+      "pkg": "utils",
+      "sub": "writable-iterable",
+      "outFile": "packages/utils/src/writable-iterable.ts",
+      "sourceFile": ".vendor/cursor-sdk-1.3.1/dist/esm/305.js",
+      "kind": "esm",
+      "range": "1325220..1326738",
+      "sha256": "54d5fa4cf215825eafb00493b51c809c66436b8598c487bd6b63e2be18968ff2",
+      "warnings": [],
+      "imports": [],
+      "exports": [
+        "F8",
+        "Jt",
+        "W2"
+      ],
+      "status": "duplicate-canonical",
+      "generated": false
+    }
+  ]
+}

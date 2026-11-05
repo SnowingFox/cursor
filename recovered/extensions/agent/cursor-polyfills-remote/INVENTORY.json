@@ -1,0 +1,60 @@
+{
+ "extension": "cursor-polyfills-remote",
+ "generatedAt": "2026-11-05T10:17:16.559Z",
+ "sourceDir": "app/extensions/cursor-polyfills-remote",
+ "package": {
+  "name": "cursor-polyfills-remote",
+  "version": "0.0.1",
+  "main": "./dist/main",
+  "activationEvents": [
+   "*"
+  ],
+  "enabledApiProposals": [],
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "contributes": {},
+  "scripts": {}
+ },
+ "distArtifacts": [
+  {
+   "path": "app/extensions/cursor-polyfills-remote/dist/main.js",
+   "bytes": 174212,
+   "sha256": "0999cf8a13fa3160958b9d4467b71182f1d8936a0d2a6ca1a790aa269a98a611",
+   "webpack": true,
+   "modules": 369,
+   "keyTypes": {
+    "number": 369,
+    "string": 0
+   },
+   "chunkId": null,
+   "entry": true
+  }
+ ],
+ "shippedFiles": [
+  {
+   "path": "app/extensions/cursor-polyfills-remote/eslint.config.cjs",
+   "bytes": 399,
+   "sha256": "842f9f80283f33d83bbfbe0f1d67f14ef957b678c4a3bd1f9ec5bc4711a08a6f",
+   "category": "config",
+   "copy": true
+  },
+  {
+   "path": "app/extensions/cursor-polyfills-remote/package.json",
+   "bytes": 445,
+   "sha256": "3cdb77b5389f7ccdd918b2685b3a8c603a026a078004d648be82a27d894cbf37",
+   "category": "manifest",
+   "copy": true
+  }
+ ],
+ "thirdPartyAssets": [],
+ "unresolved": [],
+ "totals": {
+  "bytes": 175056,
+  "distBytes": 174212,
+  "distArtifacts": 1,
+  "webpackArtifacts": 1,
+  "webpackModules": 369,
+  "shippedFiles": 2
+ }
+}

@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3049",
+  "basename": "MicrosoftTeamsIcon.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "declared esbuild wrapper init for module \"MicrosoftTeamsIcon.js\"; synthetic module-scope name derived from basename (wrapper key is exact)",
+  "renames": {
+    "uv1": "MicrosoftTeamsIconModule"
+  },
+  "file": "recovered/app/glass/platform/MicrosoftTeamsIcon.js"
+}

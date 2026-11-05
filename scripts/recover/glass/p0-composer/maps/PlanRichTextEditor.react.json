@@ -1,0 +1,20 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6023",
+  "basename": "PlanRichTextEditor.react.js",
+  "source": "recovered/app/glass/composer/PlanRichTextEditor.react.js",
+  "renames": {
+    "hEw": "planRichTextEditorModuleInit"
+  },
+  "evidence": [
+    {
+      "from": "hEw",
+      "to": "planRichTextEditorModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

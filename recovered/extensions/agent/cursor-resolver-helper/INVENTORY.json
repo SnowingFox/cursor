@@ -1,0 +1,57 @@
+{
+ "extension": "cursor-resolver-helper",
+ "generatedAt": "2026-11-05T10:17:16.559Z",
+ "sourceDir": "app/extensions/cursor-resolver-helper",
+ "package": {
+  "name": "cursor-resolver-helper",
+  "version": "0.0.1",
+  "main": "./dist/main",
+  "activationEvents": [
+   "onResolveRemoteAuthority:background-composer",
+   "onStartupFinished"
+  ],
+  "enabledApiProposals": [
+   "cursor",
+   "cursorNoDeps"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "contributes": {},
+  "scripts": {}
+ },
+ "distArtifacts": [
+  {
+   "path": "app/extensions/cursor-resolver-helper/dist/main.js",
+   "bytes": 1071166,
+   "sha256": "0eb6078f0829c93d9374e39385fef22eabf7657a05c3cdf5bf316d9dbcf5ad0e",
+   "webpack": true,
+   "modules": 49,
+   "keyTypes": {
+    "number": 49,
+    "string": 0
+   },
+   "chunkId": null,
+   "entry": true
+  }
+ ],
+ "shippedFiles": [
+  {
+   "path": "app/extensions/cursor-resolver-helper/package.json",
+   "bytes": 486,
+   "sha256": "39f5be4c41f75f85f301b845a6ce47a3535d67b50ecd2a12dd7c64b69549651d",
+   "category": "manifest",
+   "copy": true
+  }
+ ],
+ "thirdPartyAssets": [],
+ "unresolved": [],
+ "totals": {
+  "bytes": 1071652,
+  "distBytes": 1071166,
+  "distArtifacts": 1,
+  "webpackArtifacts": 1,
+  "webpackModules": 49,
+  "shippedFiles": 1
+ }
+}

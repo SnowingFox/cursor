@@ -1,0 +1,21 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2314",
+  "basename": "TranscriptCardHeaderIcon.js",
+  "source": "recovered/app/glass/composer/TranscriptCardHeaderIcon.js",
+  "renames": {
+    "dAS": "TranscriptCardHeaderLeading"
+  },
+  "evidence": [
+    {
+      "from": "dAS",
+      "to": "TranscriptCardHeaderLeading",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "TranscriptCardHeaderLeading.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

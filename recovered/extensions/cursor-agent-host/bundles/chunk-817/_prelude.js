@@ -1,0 +1,8 @@
+// @recovered-by cursor-re
+// artifact: app/extensions/cursor-agent-host/dist/817.js sha256:1d2f97f93e224ff09bc1494538cfac8b3b55c429bf1d9ac24508a9e46a79572d
+// module: (prelude) range:0..73
+// basis: webpack-container confidence: C
+// method: split
+// run: ext-p0 2026-11-05T10:07:22.069Z
+"use strict";
+exports.id = 817, exports.ids = [817], exports.modules = { 

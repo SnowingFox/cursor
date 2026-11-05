@@ -1,0 +1,13 @@
+{
+ "extension": "cursor-worktree-textmate",
+ "generatedAt": "2026-11-05T10:20:08.356Z",
+ "sourceDir": "app/extensions/cursor-worktree-textmate",
+ "artifacts": [],
+ "skipped": [],
+ "totals": {
+  "artifacts": 0,
+  "modules": 0,
+  "confidence": {},
+  "reassembly": "ok"
+ }
+}

@@ -1,0 +1,28 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2413",
+  "basename": "GlobToolCallView.js",
+  "source": "recovered/app/glass/composer/GlobToolCallView.js",
+  "renames": {
+    "TNS": "globToolCallViewModuleInit",
+    "INS": "GrepToolCallView"
+  },
+  "evidence": [
+    {
+      "from": "TNS",
+      "to": "globToolCallViewModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    },
+    {
+      "from": "INS",
+      "to": "GrepToolCallView",
+      "kind": "component",
+      "basis": "segment adjacency (hoisted decl precedes next wrapper) + JSX render + next basename",
+      "hoistedOwner": "GrepToolCallView.js"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

@@ -1,0 +1,1 @@
+{"name":"cursor-checkout","description":"Checkout provider for branch migration operations","author":"Anysphere, Inc.","publisher":"anysphere","version":"0.0.1","private":true,"engines":{"vscode":"^1.43.0","yarn":"please-use-npm"},"main":"./dist/main","activationEvents":["*"],"enabledApiProposals":["cursor"]}

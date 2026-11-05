@@ -1,0 +1,17 @@
+{
+ "generatedAt": "2026-11-05T10:09:31.841Z",
+ "run": "ext-p0",
+ "extension": "cursor-local-agent-runtime",
+ "adopted": [
+  {
+   "path": "package.json",
+   "artifact": "app/extensions/cursor-local-agent-runtime/package.json",
+   "sha256": "a243b0abd8bafb24efef9216562bb859b919be75fb2301122627cb8642d98250",
+   "bytes": 325,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  }
+ ],
+ "note": "JSON files are byte-identical to the artifact; text files carry a provenance header. Verify sha256 against app/extensions/<extension>/<path> after stripping the header."
+}

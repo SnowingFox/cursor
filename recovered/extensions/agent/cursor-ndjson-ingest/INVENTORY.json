@@ -1,0 +1,68 @@
+{
+ "extension": "cursor-ndjson-ingest",
+ "generatedAt": "2026-11-05T10:17:16.559Z",
+ "sourceDir": "app/extensions/cursor-ndjson-ingest",
+ "package": {
+  "name": "cursor-ndjson-ingest",
+  "version": "0.0.1",
+  "main": "./dist/main",
+  "activationEvents": [
+   "onCommand:cursor.ndjsonIngest.start",
+   "onCommand:cursor.ndjsonIngest.reassignPort"
+  ],
+  "enabledApiProposals": [],
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "contributes": {
+   "commands": 5,
+   "commandsIds": [
+    "cursor.ndjsonIngest.start",
+    "cursor.ndjsonIngest.stop",
+    "cursor.ndjsonIngest.copyCurl",
+    "cursor.ndjsonIngest.reassignPort",
+    "cursor.ndjsonIngest.showStatus"
+   ],
+   "configuration": 2,
+   "configurationKeys": [
+    "ndjson.port",
+    "ndjson.bindAddress"
+   ]
+  },
+  "scripts": {}
+ },
+ "distArtifacts": [
+  {
+   "path": "app/extensions/cursor-ndjson-ingest/dist/main.js",
+   "bytes": 21435,
+   "sha256": "c20522000288197a1017b7169f8d5c503fe24f6cafe518222b9f24bea4fea3dc",
+   "webpack": true,
+   "modules": 7,
+   "keyTypes": {
+    "number": 7,
+    "string": 0
+   },
+   "chunkId": null,
+   "entry": true
+  }
+ ],
+ "shippedFiles": [
+  {
+   "path": "app/extensions/cursor-ndjson-ingest/package.json",
+   "bytes": 1564,
+   "sha256": "3884bf40eed7fb8ded86bd0f18df575d23d990fba47a78c3221ab9535b946325",
+   "category": "manifest",
+   "copy": true
+  }
+ ],
+ "thirdPartyAssets": [],
+ "unresolved": [],
+ "totals": {
+  "bytes": 22999,
+  "distBytes": 21435,
+  "distArtifacts": 1,
+  "webpackArtifacts": 1,
+  "webpackModules": 7,
+  "shippedFiles": 1
+ }
+}

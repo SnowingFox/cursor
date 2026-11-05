@@ -1,0 +1,11 @@
+// @recovered-by cursor-re
+// artifact: app/extensions/cursor-agent-host/dist/613.js sha256:3017f51377845a64c3fc427ffb8a975c2b8989063b347c1bb0f27a1e27e28141
+// module: 99354 range:506031..507930
+// basis: webpack-id confidence: C
+// method: split
+// run: ext-p0 2026-11-05T10:07:22.069Z
+99354: (A) => {
+  "use strict";
+  const e = ["GET", "HEAD", "POST"], t = new Set(e), r = [301, 302, 303, 307, 308], s = new Set(r), o = ["1", "7", "9", "11", "13", "15", "17", "19", "20", "21", "22", "23", "25", "37", "42", "43", "53", "69", "77", "79", "87", "95", "101", "102", "103", "104", "109", "110", "111", "113", "115", "117", "119", "123", "135", "137", "139", "143", "161", "179", "389", "427", "465", "512", "513", "514", "515", "526", "530", "531", "532", "540", "548", "554", "556", "563", "587", "601", "636", "989", "990", "993", "995", "1719", "1720", "1723", "2049", "3659", "4045", "4190", "5060", "5061", "6000", "6566", "6665", "6666", "6667", "6668", "6669", "6679", "6697", "10080"], n = new Set(o), i = ["", "no-referrer", "no-referrer-when-downgrade", "same-origin", "origin", "strict-origin", "origin-when-cross-origin", "strict-origin-when-cross-origin", "unsafe-url"], a = new Set(i), Q = ["GET", "HEAD", "OPTIONS", "TRACE"], g = new Set(Q), E = ["CONNECT", "TRACE", "TRACK"], B = new Set(E), c = ["audio", "audioworklet", "font", "image", "manifest", "paintworklet", "script", "style", "track", "video", "xslt", ""], I = new Set(c);
+  A.exports = { subresource: c, forbiddenMethods: E, requestBodyHeader: ["content-encoding", "content-language", "content-location", "content-type", "content-length"], referrerPolicy: i, requestRedirect: ["follow", "manual", "error"], requestMode: ["navigate", "same-origin", "no-cors", "cors"], requestCredentials: ["omit", "same-origin", "include"], requestCache: ["default", "no-store", "reload", "no-cache", "force-cache", "only-if-cached"], redirectStatus: r, corsSafeListedMethods: e, nullBodyStatus: [101, 204, 205, 304], safeMethods: Q, badPorts: o, requestDuplex: ["half"], subresourceSet: I, badPortsSet: n, redirectStatusSet: s, corsSafeListedMethodsSet: t, safeMethodsSet: g, forbiddenMethodsSet: B, referrerPolicySet: a };
+}

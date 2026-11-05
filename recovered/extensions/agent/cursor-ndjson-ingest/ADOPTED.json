@@ -1,0 +1,28 @@
+{
+ "extension": "cursor-ndjson-ingest",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-ndjson-ingest",
+ "files": [
+  {
+   "source": "app/extensions/cursor-ndjson-ingest/package.json",
+   "dest": "recovered/extensions/agent/cursor-ndjson-ingest/shipped/package.json",
+   "bytes": 1564,
+   "sha256": "3884bf40eed7fb8ded86bd0f18df575d23d990fba47a78c3221ab9535b946325",
+   "emittedSha256": "3884bf40eed7fb8ded86bd0f18df575d23d990fba47a78c3221ab9535b946325",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [],
+ "totals": {
+  "files": 1,
+  "bytes": 1564,
+  "byteIdentical": 1,
+  "headed": 0,
+  "skipped": 0
+ }
+}

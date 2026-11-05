@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3941",
+  "basename": "MarketplaceSectionEndCol.js",
+  "basis": "esbuild-wrapper + inferred",
+  "confidence": "C",
+  "evidence": "declared esbuild wrapper init for module \"MarketplaceSectionEndCol.js\"; synthetic module-scope name derived from basename (wrapper key is exact)",
+  "renames": {
+    "wQ1": "MarketplaceSectionEndColModule"
+  },
+  "file": "recovered/app/glass/platform/MarketplaceSectionEndCol.js"
+}

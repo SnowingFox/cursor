@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2400",
+  "basename": "MCPIcon.js",
+  "file": "recovered/app/glass/agent/MCPIcon.js",
+  "renames": {
+    "uya": "MCPIconModule"
+  },
+  "notes": [
+    "uya -> MCPIconModule: declared wrapper binding, evidence: esbuild init key \"MCPIcon.js\""
+  ]
+}

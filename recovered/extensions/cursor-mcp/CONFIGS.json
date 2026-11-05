@@ -1,0 +1,26 @@
+{
+ "generatedAt": "2026-11-05T10:09:31.841Z",
+ "run": "ext-p0",
+ "extension": "cursor-mcp",
+ "adopted": [
+  {
+   "path": "package.json",
+   "artifact": "app/extensions/cursor-mcp/package.json",
+   "sha256": "a906de6ad9a2e7be0aa7babef7a0b92c73f7571b4b5990dc1207ae71404c9922",
+   "bytes": 634,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  },
+  {
+   "path": "eslint.config.cjs",
+   "artifact": "app/extensions/cursor-mcp/eslint.config.cjs",
+   "sha256": "842f9f80283f33d83bbfbe0f1d67f14ef957b678c4a3bd1f9ec5bc4711a08a6f",
+   "bytes": 399,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  }
+ ],
+ "note": "JSON files are byte-identical to the artifact; text files carry a provenance header. Verify sha256 against app/extensions/<extension>/<path> after stripping the header."
+}

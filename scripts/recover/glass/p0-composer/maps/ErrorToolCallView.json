@@ -1,0 +1,20 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2429",
+  "basename": "ErrorToolCallView.js",
+  "source": "recovered/app/glass/composer/ErrorToolCallView.js",
+  "renames": {
+    "ALS": "errorToolCallViewModuleInit"
+  },
+  "evidence": [
+    {
+      "from": "ALS",
+      "to": "errorToolCallViewModuleInit",
+      "kind": "wrapper-init",
+      "basis": "esbuild wrapper key basename"
+    }
+  ],
+  "notes": [
+    "renames only identifiers; statements/literals untouched",
+    "apply via scripts/recover/rename/apply-map.ts (AST equivalence enforced)"
+  ]
+}

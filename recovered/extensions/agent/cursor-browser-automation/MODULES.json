@@ -1,0 +1,966 @@
+{
+ "extension": "cursor-browser-automation",
+ "generatedAt": "2026-11-05T10:20:08.356Z",
+ "sourceDir": "app/extensions/cursor-browser-automation",
+ "artifacts": [
+  {
+   "artifact": "app/extensions/cursor-browser-automation/dist/273.js",
+   "sha256": "ab64b3e34dc97e1e5c85ecdaec9168b4137705ddedfa3c341bca35d6a42d36bc",
+   "bytes": 96804,
+   "format": "webpack",
+   "chunk": "chunk-273",
+   "chunkId": 273,
+   "entry": false,
+   "moduleCount": 26,
+   "keyTypes": {
+    "number": 26,
+    "string": 0
+   },
+   "preludeBytes": 120,
+   "footerBytes": 3,
+   "reassembly": "ok",
+   "reassembledSha256": "ab64b3e34dc97e1e5c85ecdaec9168b4137705ddedfa3c341bca35d6a42d36bc",
+   "notes": [],
+   "modules": [
+    {
+     "key": "512",
+     "keyType": "number",
+     "file": "512.js",
+     "start": 120,
+     "end": 3708,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "690",
+     "keyType": "number",
+     "file": "690.js",
+     "start": 3710,
+     "end": 4130,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "1060",
+     "keyType": "number",
+     "file": "1060.js",
+     "start": 4132,
+     "end": 4219,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "1524",
+     "keyType": "number",
+     "file": "1524.js",
+     "start": 4221,
+     "end": 4515,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "2421",
+     "keyType": "number",
+     "file": "2421.js",
+     "start": 4517,
+     "end": 5736,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "2457",
+     "keyType": "number",
+     "file": "2457.js",
+     "start": 5738,
+     "end": 6783,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "2665",
+     "keyType": "number",
+     "file": "2665.js",
+     "start": 6785,
+     "end": 8625,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "2774",
+     "keyType": "number",
+     "file": "2774.js",
+     "start": 8627,
+     "end": 11159,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "4015",
+     "keyType": "number",
+     "file": "4015.js",
+     "start": 11161,
+     "end": 22242,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "4321",
+     "keyType": "number",
+     "file": "4321.js",
+     "start": 22244,
+     "end": 24622,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "4333",
+     "keyType": "number",
+     "file": "4333.js",
+     "start": 24624,
+     "end": 27608,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "4651",
+     "keyType": "number",
+     "file": "4651.js",
+     "start": 27610,
+     "end": 31542,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "4939",
+     "keyType": "number",
+     "file": "4939.js",
+     "start": 31544,
+     "end": 33897,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "5273",
+     "keyType": "number",
+     "file": "5273.js",
+     "start": 33899,
+     "end": 49272,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": [
+      "BlendMode",
+      "HorizontalAlign",
+      "VerticalAlign",
+      "composite",
+      "createJimp",
+      "getExifOrientation",
+      "add",
+      "darken",
+      "difference",
+      "dstOver",
+      "exclusion",
+      "hardLight",
+      "lighten",
+      "multiply",
+      "names",
+      "overlay"
+     ]
+    },
+    {
+     "key": "5983",
+     "keyType": "number",
+     "file": "5983.js",
+     "start": 49274,
+     "end": 49590,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "6311",
+     "keyType": "number",
+     "file": "6311.js",
+     "start": 49592,
+     "end": 50105,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "7626",
+     "keyType": "number",
+     "file": "7626.js",
+     "start": 50107,
+     "end": 71816,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "7676",
+     "keyType": "number",
+     "file": "7676.js",
+     "start": 71818,
+     "end": 73035,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "8087",
+     "keyType": "number",
+     "file": "8087.js",
+     "start": 73037,
+     "end": 83296,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "8231",
+     "keyType": "number",
+     "file": "8231.js",
+     "start": 83298,
+     "end": 84205,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "8467",
+     "keyType": "number",
+     "file": "8467.js",
+     "start": 84207,
+     "end": 84531,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "8563",
+     "keyType": "number",
+     "file": "8563.js",
+     "start": 84533,
+     "end": 86579,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "8565",
+     "keyType": "number",
+     "file": "8565.js",
+     "start": 86581,
+     "end": 87131,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "8742",
+     "keyType": "number",
+     "file": "8742.js",
+     "start": 87133,
+     "end": 93857,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "8821",
+     "keyType": "number",
+     "file": "8821.js",
+     "start": 93859,
+     "end": 95271,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "9968",
+     "keyType": "number",
+     "file": "9968.js",
+     "start": 95273,
+     "end": 96800,
+     "separator": " ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    }
+   ]
+  },
+  {
+   "artifact": "app/extensions/cursor-browser-automation/dist/46.js",
+   "sha256": "fc05f1652974ecd3fede58b9a6df92a390fecabe8af377b8fa1b79343228160a",
+   "bytes": 95335,
+   "format": "esbuild-single-entry",
+   "chunk": "chunk-46",
+   "chunkId": 46,
+   "entry": false,
+   "moduleCount": 1,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "preludeBytes": 0,
+   "footerBytes": 0,
+   "reassembly": "ok",
+   "reassembledSha256": "fc05f1652974ecd3fede58b9a6df92a390fecabe8af377b8fa1b79343228160a",
+   "notes": [],
+   "modules": [
+    {
+     "key": "(whole)",
+     "keyType": "number",
+     "file": "whole.js",
+     "start": 0,
+     "end": 95335,
+     "separator": "",
+     "basis": "esbuild-wrapper",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": [
+      "default",
+      "applyPalette",
+      "applyPaletteSync",
+      "buildPalette",
+      "buildPaletteSync",
+      "constants",
+      "conversion",
+      "distance",
+      "image",
+      "palette",
+      "quality",
+      "utils"
+     ]
+    }
+   ]
+  },
+  {
+   "artifact": "app/extensions/cursor-browser-automation/dist/502.js",
+   "sha256": "c28372b4fe3243bd806f91851857b61a3514cba956e2181fd3b34cdcf2e08f40",
+   "bytes": 32560,
+   "format": "esbuild-single-entry",
+   "chunk": "chunk-502",
+   "chunkId": 502,
+   "entry": false,
+   "moduleCount": 1,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "preludeBytes": 0,
+   "footerBytes": 0,
+   "reassembly": "ok",
+   "reassembledSha256": "c28372b4fe3243bd806f91851857b61a3514cba956e2181fd3b34cdcf2e08f40",
+   "notes": [],
+   "modules": [
+    {
+     "key": "(whole)",
+     "keyType": "number",
+     "file": "whole.js",
+     "start": 0,
+     "end": 32560,
+     "separator": "",
+     "basis": "esbuild-wrapper",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": [
+      "default"
+     ]
+    }
+   ]
+  },
+  {
+   "artifact": "app/extensions/cursor-browser-automation/dist/621.js",
+   "sha256": "e9bb25f91552aa3941ca867b7b4cdab4bd66cafb53676ea785ebd99f7ae01a99",
+   "bytes": 40994,
+   "format": "esbuild-single-entry",
+   "chunk": "chunk-621",
+   "chunkId": 621,
+   "entry": false,
+   "moduleCount": 1,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "preludeBytes": 0,
+   "footerBytes": 0,
+   "reassembly": "ok",
+   "reassembledSha256": "e9bb25f91552aa3941ca867b7b4cdab4bd66cafb53676ea785ebd99f7ae01a99",
+   "notes": [],
+   "modules": [
+    {
+     "key": "(whole)",
+     "keyType": "number",
+     "file": "whole.js",
+     "start": 0,
+     "end": 40994,
+     "separator": "",
+     "basis": "esbuild-wrapper",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": [
+      "PNGColorType",
+      "PNGFilterType",
+      "default"
+     ]
+    }
+   ]
+  },
+  {
+   "artifact": "app/extensions/cursor-browser-automation/dist/691.js",
+   "sha256": "8055a883079f749d8473db81ef3a6f55f61961d8d578d425ad0e60812eb086f5",
+   "bytes": 17637,
+   "format": "webpack",
+   "chunk": "chunk-691",
+   "chunkId": 691,
+   "entry": false,
+   "moduleCount": 1,
+   "keyTypes": {
+    "number": 1,
+    "string": 0
+   },
+   "preludeBytes": 73,
+   "footerBytes": 3,
+   "reassembly": "ok",
+   "reassembledSha256": "8055a883079f749d8473db81ef3a6f55f61961d8d578d425ad0e60812eb086f5",
+   "notes": [],
+   "modules": [
+    {
+     "key": "3691",
+     "keyType": "number",
+     "file": "3691.js",
+     "start": 73,
+     "end": 17633,
+     "separator": " ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": [
+      "BmpCompression",
+      "default",
+      "msBmp"
+     ]
+    }
+   ]
+  },
+  {
+   "artifact": "app/extensions/cursor-browser-automation/dist/716.js",
+   "sha256": "96d288223926354946d5f96ab226d901d776ba8204642a2bc887977837880e89",
+   "bytes": 22268,
+   "format": "webpack",
+   "chunk": "chunk-716",
+   "chunkId": 716,
+   "entry": false,
+   "moduleCount": 1,
+   "keyTypes": {
+    "number": 1,
+    "string": 0
+   },
+   "preludeBytes": 73,
+   "footerBytes": 8234,
+   "reassembly": "ok",
+   "reassembledSha256": "96d288223926354946d5f96ab226d901d776ba8204642a2bc887977837880e89",
+   "notes": [],
+   "modules": [
+    {
+     "key": "2716",
+     "keyType": "number",
+     "file": "2716.js",
+     "start": 73,
+     "end": 14033,
+     "separator": " ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": [
+      "by",
+      "QH",
+      "SQ",
+      "QQ"
+     ]
+    }
+   ]
+  },
+  {
+   "artifact": "app/extensions/cursor-browser-automation/dist/746.js",
+   "sha256": "cd76df42c575a3b1450a5f2711bab85d4f036cf9dbeaa8179fdc26a785e55817",
+   "bytes": 72421,
+   "format": "esbuild-single-entry",
+   "chunk": "chunk-746",
+   "chunkId": 746,
+   "entry": false,
+   "moduleCount": 1,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "preludeBytes": 0,
+   "footerBytes": 0,
+   "reassembly": "ok",
+   "reassembledSha256": "cd76df42c575a3b1450a5f2711bab85d4f036cf9dbeaa8179fdc26a785e55817",
+   "notes": [],
+   "modules": [
+    {
+     "key": "(whole)",
+     "keyType": "number",
+     "file": "whole.js",
+     "start": 0,
+     "end": 72421,
+     "separator": "",
+     "basis": "esbuild-wrapper",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": [
+      "Nl",
+      "fc",
+      "ai",
+      "Ik",
+      "KC"
+     ]
+    }
+   ]
+  },
+  {
+   "artifact": "app/extensions/cursor-browser-automation/dist/853.js",
+   "sha256": "1119ddb33768801f5f2bcce7edebbdccc3a5aa6e9616a4262a7fd132f755f2d4",
+   "bytes": 15412,
+   "format": "esbuild-single-entry",
+   "chunk": "chunk-853",
+   "chunkId": 853,
+   "entry": false,
+   "moduleCount": 1,
+   "keyTypes": {
+    "number": 0,
+    "string": 0
+   },
+   "preludeBytes": 0,
+   "footerBytes": 0,
+   "reassembly": "ok",
+   "reassembledSha256": "1119ddb33768801f5f2bcce7edebbdccc3a5aa6e9616a4262a7fd132f755f2d4",
+   "notes": [],
+   "modules": [
+    {
+     "key": "(whole)",
+     "keyType": "number",
+     "file": "whole.js",
+     "start": 0,
+     "end": 15412,
+     "separator": "",
+     "basis": "esbuild-wrapper",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": [
+      "ResizeStrategy",
+      "methods"
+     ]
+    }
+   ]
+  },
+  {
+   "artifact": "app/extensions/cursor-browser-automation/dist/928.js",
+   "sha256": "e04ed350b40bd579ab3a39967750106d673508f05e9f3a77bfeb2f4eca08d90f",
+   "bytes": 172902,
+   "format": "webpack",
+   "chunk": "chunk-928",
+   "chunkId": 928,
+   "entry": false,
+   "moduleCount": 18,
+   "keyTypes": {
+    "number": 18,
+    "string": 0
+   },
+   "preludeBytes": 59,
+   "footerBytes": 3,
+   "reassembly": "ok",
+   "reassembledSha256": "e04ed350b40bd579ab3a39967750106d673508f05e9f3a77bfeb2f4eca08d90f",
+   "notes": [],
+   "modules": [
+    {
+     "key": "1182",
+     "keyType": "number",
+     "file": "1182.js",
+     "start": 59,
+     "end": 104491,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "2589",
+     "keyType": "number",
+     "file": "2589.js",
+     "start": 104493,
+     "end": 114438,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "3376",
+     "keyType": "number",
+     "file": "3376.js",
+     "start": 114440,
+     "end": 117019,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "3638",
+     "keyType": "number",
+     "file": "3638.js",
+     "start": 117021,
+     "end": 117313,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "4803",
+     "keyType": "number",
+     "file": "4803.js",
+     "start": 117315,
+     "end": 120127,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "4975",
+     "keyType": "number",
+     "file": "4975.js",
+     "start": 120129,
+     "end": 123574,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "5534",
+     "keyType": "number",
+     "file": "5534.js",
+     "start": 123576,
+     "end": 123815,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "6095",
+     "keyType": "number",
+     "file": "6095.js",
+     "start": 123817,
+     "end": 143526,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "6417",
+     "keyType": "number",
+     "file": "6417.js",
+     "start": 143528,
+     "end": 147235,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "6818",
+     "keyType": "number",
+     "file": "6818.js",
+     "start": 147237,
+     "end": 149709,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "6930",
+     "keyType": "number",
+     "file": "6930.js",
+     "start": 149711,
+     "end": 149947,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "7101",
+     "keyType": "number",
+     "file": "7101.js",
+     "start": 149949,
+     "end": 150435,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "7353",
+     "keyType": "number",
+     "file": "7353.js",
+     "start": 150437,
+     "end": 152009,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "7515",
+     "keyType": "number",
+     "file": "7515.js",
+     "start": 152011,
+     "end": 152432,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "8440",
+     "keyType": "number",
+     "file": "8440.js",
+     "start": 152434,
+     "end": 152554,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "9761",
+     "keyType": "number",
+     "file": "9761.js",
+     "start": 152556,
+     "end": 152871,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "9763",
+     "keyType": "number",
+     "file": "9763.js",
+     "start": 152873,
+     "end": 172033,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "9928",
+     "keyType": "number",
+     "file": "9928.js",
+     "start": 172035,
+     "end": 172898,
+     "separator": " ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": [
+      "default"
+     ]
+    }
+   ]
+  },
+  {
+   "artifact": "app/extensions/cursor-browser-automation/dist/extension.js",
+   "sha256": "0a3202863659a069dfa60ac7cf5aa5e2ce58efc5f5c37049b70028c987815a54",
+   "bytes": 228737,
+   "format": "webpack",
+   "chunk": "main",
+   "chunkId": null,
+   "entry": true,
+   "moduleCount": 6,
+   "keyTypes": {
+    "number": 6,
+    "string": 0
+   },
+   "preludeBytes": 40,
+   "footerBytes": 228365,
+   "reassembly": "ok",
+   "reassembledSha256": "0a3202863659a069dfa60ac7cf5aa5e2ce58efc5f5c37049b70028c987815a54",
+   "notes": [],
+   "modules": [
+    {
+     "key": "181",
+     "keyType": "number",
+     "file": "181.js",
+     "start": 40,
+     "end": 94,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "2203",
+     "keyType": "number",
+     "file": "2203.js",
+     "start": 96,
+     "end": 151,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "2613",
+     "keyType": "number",
+     "file": "2613.js",
+     "start": 153,
+     "end": 208,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "3106",
+     "keyType": "number",
+     "file": "3106.js",
+     "start": 210,
+     "end": 263,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "9023",
+     "keyType": "number",
+     "file": "9023.js",
+     "start": 265,
+     "end": 318,
+     "separator": ", ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    },
+    {
+     "key": "9896",
+     "keyType": "number",
+     "file": "9896.js",
+     "start": 320,
+     "end": 371,
+     "separator": " ",
+     "basis": "webpack-id",
+     "confidence": "C",
+     "cursorIds": [],
+     "exportsHint": []
+    }
+   ]
+  }
+ ],
+ "skipped": [],
+ "totals": {
+  "artifacts": 10,
+  "modules": 57,
+  "confidence": {
+   "C": 57
+  },
+  "reassembly": "ok"
+ }
+}

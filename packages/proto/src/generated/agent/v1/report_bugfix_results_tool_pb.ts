@@ -1,0 +1,146 @@
+// @ts-nocheck - TODO(recovered): recovered minified artifact; type-level signatures unavailable offline (documented exception, see REPORT.md)
+// @recovered-by cursor-re
+// artifact: .vendor/cursor-sdk-1.3.1/dist/esm/index.js sha256:86cacbdcba6cefe8315ceac7b60f0915500dbe94175aebe3d62f2abf4f716a87
+// module: "../proto/dist/generated/agent/v1/report_bugfix_results_tool_pb.js" range:785467..788243
+// basis: webpack-key
+// confidence: B
+// method: split+rewire+generated
+// run: w1-sdk-runtime 2026-11-05T10:06:18.348Z
+// status: generated (do not hand-edit descriptors)
+import * as __dep0 from "@bufbuild/protobuf";
+import * as __dep1 from "../../../runtime/compact";
+var n = __dep0,
+  s = __dep1;
+const i = "agent.v1.";
+class o extends s.HL {
+  static get runtime() {
+    return (0, s.kU)(this, "runtime", n.proto3);
+  }
+  static $p() {
+    return i;
+  }
+}
+var a = (0, s.QT)(n.proto3, i, "BugfixVerdict", [[0, "UNSPECIFIED"], [1, "FIXED"], [2, "FALSE_POSITIVE"], [3, "COULD_NOT_FIX"], [4, "RESOLVED_BY_OTHER_FIX"]], 1);
+class u extends o {
+  constructor(t) {
+    super(), this.bugId = "", this.bugTitle = "", this.verdict = a.UNSPECIFIED, this.explanation = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new u().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new u().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new u().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(u, t, r);
+  }
+  static $() {
+    return ["BugfixResultItem|1 bug_id 9|2 bug_title 9|3 verdict #0|4 explanation 9|5 severity 9?", a];
+  }
+}
+class c extends o {
+  constructor(t) {
+    super(), this.summary = "", this.results = [], n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new c().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new c().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new c().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(c, t, r);
+  }
+  static $() {
+    return ["ReportBugfixResultsArgs|1 summary 9|2 results #0*", u];
+  }
+}
+class l extends o {
+  constructor(t) {
+    super(), this.results = [], n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new l().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new l().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new l().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(l, t, r);
+  }
+  static $() {
+    return ["ReportBugfixResultsSuccess|1 results #0*", u];
+  }
+}
+class m extends o {
+  constructor(t) {
+    super(), this.error = "", n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new m().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new m().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new m().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(m, t, r);
+  }
+  static $() {
+    return ["ReportBugfixResultsError|1 error 9"];
+  }
+}
+class d extends o {
+  constructor(t) {
+    super(), this.result = {
+      case: void 0
+    }, n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new d().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new d().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new d().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(d, t, r);
+  }
+  static $() {
+    return ["ReportBugfixResultsResult|1 success #0 result|2 error #1 result", l, m];
+  }
+}
+class p extends o {
+  constructor(t) {
+    super(), n.proto3.util.initPartial(t, this);
+  }
+  static fromBinary(t, r) {
+    return new p().fromBinary(t, r);
+  }
+  static fromJson(t, r) {
+    return new p().fromJson(t, r);
+  }
+  static fromJsonString(t, r) {
+    return new p().fromJsonString(t, r);
+  }
+  static equals(t, r) {
+    return n.proto3.util.equals(p, t, r);
+  }
+  static $() {
+    return ["ReportBugfixResultsToolCall|1 args #0|2 result #1", c, d];
+  }
+}
+export { l as RH, p as U_, u as Y6, m as q3 };

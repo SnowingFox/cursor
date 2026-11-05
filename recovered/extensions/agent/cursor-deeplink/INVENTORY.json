@@ -1,0 +1,70 @@
+{
+ "extension": "cursor-deeplink",
+ "generatedAt": "2026-11-05T10:17:16.559Z",
+ "sourceDir": "app/extensions/cursor-deeplink",
+ "package": {
+  "name": "cursor-deeplink",
+  "version": "0.0.1",
+  "main": "./dist/main",
+  "activationEvents": [
+   "onStartupFinished",
+   "onUri"
+  ],
+  "enabledApiProposals": [
+   "cursor",
+   "control",
+   "externalUriOpener"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "contributes": {
+   "commands": 1,
+   "commandsIds": [
+    "cursor-deeplink.debug.triggerDeeplink"
+   ]
+  },
+  "scripts": {}
+ },
+ "distArtifacts": [
+  {
+   "path": "app/extensions/cursor-deeplink/dist/main.js",
+   "bytes": 1107679,
+   "sha256": "2b0091d260814e411af8319789fee5fe8b4b75d7c27c85b905f80c4d53d995f3",
+   "webpack": true,
+   "modules": 202,
+   "keyTypes": {
+    "number": 202,
+    "string": 0
+   },
+   "chunkId": null,
+   "entry": true
+  }
+ ],
+ "shippedFiles": [
+  {
+   "path": "app/extensions/cursor-deeplink/dist/main.js.LICENSE.txt",
+   "bytes": 243,
+   "sha256": "66b58a409ca76d770bb3160ca5a17ee4fb164612f112a5ec5460d179a346ab46",
+   "category": "license",
+   "copy": false
+  },
+  {
+   "path": "app/extensions/cursor-deeplink/package.json",
+   "bytes": 642,
+   "sha256": "e54ce97f33178c20e4847cbc502ffa0b20f1eb67a827ddb73cf372305edddf1f",
+   "category": "manifest",
+   "copy": true
+  }
+ ],
+ "thirdPartyAssets": [],
+ "unresolved": [],
+ "totals": {
+  "bytes": 1108564,
+  "distBytes": 1107679,
+  "distArtifacts": 1,
+  "webpackArtifacts": 1,
+  "webpackModules": 202,
+  "shippedFiles": 2
+ }
+}

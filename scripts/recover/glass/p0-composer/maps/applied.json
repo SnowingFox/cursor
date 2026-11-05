@@ -1,0 +1,661 @@
+{
+  "appliedAt": "2026-11-05T10:19:29.715Z",
+  "total": 53,
+  "ok": 53,
+  "failed": 0,
+  "results": [
+    {
+      "file": "AgentTranscriptActivityGroup.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2453",
+      "basename": "AgentTranscriptActivityGroup.js",
+      "renames": {
+        "sXh": "AgentTranscriptApprovalStack"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "AgentTranscriptApprovalStack.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2454",
+      "basename": "AgentTranscriptApprovalStack.js",
+      "renames": {
+        "G5S": "agentTranscriptApprovalStackModuleInit",
+        "i4r": "AgentTranscriptEnter"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "AgentTranscriptConnectScmCard.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2442",
+      "basename": "AgentTranscriptConnectScmCard.js",
+      "renames": {
+        "k1n": "CollapsibleContent"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "AgentTranscriptEnter.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2455",
+      "basename": "AgentTranscriptEnter.js",
+      "renames": {
+        "X5S": "agentTranscriptEnterModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "AgentTranscriptHumanAttachmentStrip.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2456",
+      "basename": "AgentTranscriptHumanAttachmentStrip.js",
+      "renames": {
+        "cXh": "agentTranscriptHumanAttachmentStripModuleInit",
+        "rSa": "AgentTranscriptHumanSenderLabel"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "AgentTranscriptNotification.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2462",
+      "basename": "AgentTranscriptNotification.js",
+      "renames": {
+        "AXh": "AgentTranscriptPlacementDecisionCard"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "AgentTranscriptSentMessageActions.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2557",
+      "basename": "AgentTranscriptSentMessageActions.js",
+      "renames": {
+        "P9r": "CursorIcon"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "AgentTranscriptToolCallView.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2448",
+      "basename": "AgentTranscriptToolCallView.js",
+      "renames": {
+        "qya": "agentTranscriptToolCallViewModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ArtifactImage.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5523",
+      "basename": "ArtifactImage.react.js",
+      "renames": {
+        "Abf": "ArtifactTextReference"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ArtifactTextReference.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5524",
+      "basename": "ArtifactTextReference.react.js",
+      "renames": {
+        "dew": "artifactTextReferenceModuleInit",
+        "gew": "ArtifactVideo"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "BackgroundComposerInstanceHeaderForComposerPane.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6136",
+      "basename": "BackgroundComposerInstanceHeaderForComposerPane.js",
+      "renames": {
+        "lPw": "backgroundComposerInstanceHeaderForComposerPaneModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerAssistantResponseComparison.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5528",
+      "basename": "ComposerAssistantResponseComparison.react.js",
+      "renames": {
+        "Dew": "composerAssistantResponseComparisonModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerComputerUseTranscriptCard.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6013",
+      "basename": "ComposerComputerUseTranscriptCard.react.js",
+      "renames": {
+        "ATw": "composerComputerUseTranscriptCardModuleInit",
+        "LTw": "ComposerConnectScmTranscriptCard"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerEndOfTurnSummary.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6051",
+      "basename": "ComposerEndOfTurnSummary.react.js",
+      "renames": {
+        "exw": "composerEndOfTurnSummaryModuleInit",
+        "sxw": "ComposerTranscriptCodeBlock"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerFindWidgetHost.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6153",
+      "basename": "ComposerFindWidgetHost.js",
+      "renames": {
+        "HPw": "composerFindWidgetHostModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerHumanRowEditInput.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5899",
+      "basename": "ComposerHumanRowEditInput.react.js",
+      "renames": {
+        "Cyw": "composerHumanRowEditInputModuleInit",
+        "$3f": "GlassHumanMessageStopButton"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerLocalWorktreeSetupRow.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5610",
+      "basename": "ComposerLocalWorktreeSetupRow.react.js",
+      "renames": {
+        "Caw": "composerLocalWorktreeSetupRowModuleInit",
+        "Eaw": "ComposerOptimisticPlanningRow"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerMcpAuthTranscriptCard.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6041",
+      "basename": "ComposerMcpAuthTranscriptCard.react.js",
+      "renames": {
+        "sIw": "composerMcpAuthTranscriptCardModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerMcpElicitationForm.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6042",
+      "basename": "ComposerMcpElicitationForm.react.js",
+      "renames": {
+        "dIw": "composerMcpElicitationFormModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerOptimisticPlanningRow.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5611",
+      "basename": "ComposerOptimisticPlanningRow.react.js",
+      "renames": {
+        "Iaw": "composerOptimisticPlanningRowModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerPlanExecutionRow.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5901",
+      "basename": "ComposerPlanExecutionRow.react.js",
+      "renames": {
+        "q3f": "composerPlanExecutionRowModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerQuestionnaireToolbar.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5331",
+      "basename": "ComposerQuestionnaireToolbar.js",
+      "renames": {
+        "m$k": "ComposerTipTapReadOnlyHost"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerReactTranscriptRoot.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5589",
+      "basename": "ComposerReactTranscriptRoot.react.js",
+      "renames": {
+        "xow": "composerReactTranscriptRootModuleInit",
+        "Zkf": "ComposerReactTranscriptHost"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerSwitchModeTranscriptCard.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6044",
+      "basename": "ComposerSwitchModeTranscriptCard.react.js",
+      "renames": {
+        "yIw": "composerSwitchModeTranscriptCardModuleInit",
+        "f4l": "AgentEnvironmentIcon"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerTaskTranscriptCard.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6048",
+      "basename": "ComposerTaskTranscriptCard.react.js",
+      "renames": {
+        "jIw": "composerTaskTranscriptCardModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerToolbarFileList.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5344",
+      "basename": "ComposerToolbarFileList.js",
+      "renames": {
+        "qcf": "SteerQueueNuxNotice"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComposerWIPSection.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:7732",
+      "basename": "ComposerWIPSection.js",
+      "renames": {
+        "vaC": "ConversationDensityPreviewGallery"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ComputerUseToolCallView.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2428",
+      "basename": "ComputerUseToolCallView.js",
+      "renames": {
+        "xLS": "ErrorToolCallView"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ErrorToolCallView.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2429",
+      "basename": "ErrorToolCallView.js",
+      "renames": {
+        "ALS": "errorToolCallViewModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "GlassHumanMessageStopButton.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5900",
+      "basename": "GlassHumanMessageStopButton.react.js",
+      "renames": {
+        "H3f": "glassHumanMessageStopButtonModuleInit",
+        "G3f": "ComposerPlanExecutionRow"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "GlobToolCallView.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2413",
+      "basename": "GlobToolCallView.js",
+      "renames": {
+        "TNS": "globToolCallViewModuleInit",
+        "INS": "GrepToolCallView"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "GrepToolCallView.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2414",
+      "basename": "GrepToolCallView.js",
+      "renames": {
+        "xNS": "grepToolCallViewModuleInit",
+        "RNS": "LsToolCallView"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "LexicalHorizontalRulePlugin.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4728",
+      "basename": "LexicalHorizontalRulePlugin.js",
+      "renames": {
+        "EEg": "lexicalHorizontalRulePluginModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "LexicalOnChangePlugin.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:4703",
+      "basename": "LexicalOnChangePlugin.js",
+      "renames": {
+        "NTg": "lexicalOnChangePluginModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "LsToolCallView.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2415",
+      "basename": "LsToolCallView.js",
+      "renames": {
+        "PNS": "lsToolCallViewModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "MarkdownPreview.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2886",
+      "basename": "MarkdownPreview.js",
+      "renames": {
+        "_gp": "markdownPreviewModuleInit",
+        "Qr1": "GalleryThumbnail"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "McpToolCallCodeSurface.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2398",
+      "basename": "McpToolCallCodeSurface.js",
+      "renames": {
+        "iKh": "McpToolCallDetails"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "McpToolCallDetails.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2399",
+      "basename": "McpToolCallDetails.js",
+      "renames": {
+        "rKh": "mcpToolCallDetailsModuleInit",
+        "cya": "MCPIcon"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "McpToolCallIcon.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2406",
+      "basename": "McpToolCallIcon.js",
+      "renames": {
+        "kKh": "PendingFileChangeApprovalLine"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "PlanRichTextEditor.react.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6023",
+      "basename": "PlanRichTextEditor.react.js",
+      "renames": {
+        "hEw": "planRichTextEditorModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "PlaywrightToolCallView.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2416",
+      "basename": "PlaywrightToolCallView.js",
+      "renames": {
+        "bya": "playwrightToolCallViewModuleInit",
+        "ONS": "ReadLintsToolCallView"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "PromptInputModelPicker.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2950",
+      "basename": "PromptInputModelPicker.js",
+      "renames": {
+        "F_p": "SubmitArrowIcon"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ReadLintsToolCallView.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2417",
+      "basename": "ReadLintsToolCallView.js",
+      "renames": {
+        "FNS": "readLintsToolCallViewModuleInit",
+        "UNS": "SemSearchToolCallView"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "RichTextEditor.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3187",
+      "basename": "RichTextEditor.js",
+      "renames": {
+        "bC1": "richTextEditorModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "ShellToolCallView.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2375",
+      "basename": "ShellToolCallView.js",
+      "renames": {
+        "N4": "ModelPickerMarkdown"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "TranscriptCardHeader.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2310",
+      "basename": "TranscriptCardHeader.js",
+      "renames": {
+        "YxS": "TranscriptCardHeaderContent"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "TranscriptCardHeaderIcon.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2314",
+      "basename": "TranscriptCardHeaderIcon.js",
+      "renames": {
+        "dAS": "TranscriptCardHeaderLeading"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "TranscriptCardHeaderTitle.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2316",
+      "basename": "TranscriptCardHeaderTitle.js",
+      "renames": {
+        "_AS": "TranscriptCardHeaderTrailing"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "TranscriptCardRows.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2322",
+      "basename": "TranscriptCardRows.js",
+      "renames": {
+        "BAS": "TranscriptCardTimeout"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "VirtualizedComposerMessages.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:6108",
+      "basename": "VirtualizedComposerMessages.js",
+      "renames": {
+        "_2w": "virtualizedComposerMessagesModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "VirtualizedComposerProviders.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:5595",
+      "basename": "VirtualizedComposerProviders.js",
+      "renames": {
+        "Bow": "virtualizedComposerProvidersModuleInit"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "VoiceCallTranscriptUnavailable.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:3028",
+      "basename": "VoiceCallTranscriptUnavailable.js",
+      "renames": {
+        "Zg1": "voiceCallTranscriptUnavailableModuleInit",
+        "aRa": "WarningConfirmTray"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 2 identifiers; AST equivalent: true",
+      "stderr": ""
+    },
+    {
+      "file": "WebFetchToolCallView.json",
+      "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2419",
+      "basename": "WebFetchToolCallView.js",
+      "renames": {
+        "KNS": "WebSearchToolCallView"
+      },
+      "ok": true,
+      "astEquivalent": true,
+      "stdout": "[recover] renamed 1 identifiers; AST equivalent: true",
+      "stderr": ""
+    }
+  ]
+}

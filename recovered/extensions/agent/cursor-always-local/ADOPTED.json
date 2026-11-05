@@ -1,0 +1,112 @@
+{
+ "extension": "cursor-always-local",
+ "generatedAt": "2026-11-05T10:20:51.157Z",
+ "sourceDir": "app/extensions/cursor-always-local",
+ "files": [
+  {
+   "source": "app/extensions/cursor-always-local/dist/commands/cppUtils/BUILD.bazel",
+   "dest": "recovered/extensions/agent/cursor-always-local/shipped/dist/commands/cppUtils/BUILD.bazel",
+   "bytes": 613,
+   "sha256": "774a0ee6a87dda3d3b0613898a7ad52fc65d52b14a1e499a7e002eb4858e02a9",
+   "emittedSha256": "774a0ee6a87dda3d3b0613898a7ad52fc65d52b14a1e499a7e002eb4858e02a9",
+   "byteIdentical": true,
+   "category": "build-extra",
+   "basis": "shipped-source",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-always-local/eslint.config.cjs",
+   "dest": "recovered/extensions/agent/cursor-always-local/shipped/eslint.config.cjs",
+   "bytes": 399,
+   "sha256": "842f9f80283f33d83bbfbe0f1d67f14ef957b678c4a3bd1f9ec5bc4711a08a6f",
+   "emittedSha256": "7e9459d40a803c08139e5f4c76ed1fc706510f31bd81dfbf81d91a28c587958f",
+   "byteIdentical": false,
+   "category": "config",
+   "basis": "shipped-source",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "provenance header added; body proven lossless by sha256"
+  },
+  {
+   "source": "app/extensions/cursor-always-local/media/main.css",
+   "dest": "recovered/extensions/agent/cursor-always-local/shipped/media/main.css",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "emittedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "byteIdentical": true,
+   "category": "media",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-always-local/package.json",
+   "dest": "recovered/extensions/agent/cursor-always-local/shipped/package.json",
+   "bytes": 1127,
+   "sha256": "e6f7827311ec5e9ba560332f15384fcec6ca9b5076de5d9f8e7e8d079a520f68",
+   "emittedSha256": "e6f7827311ec5e9ba560332f15384fcec6ca9b5076de5d9f8e7e8d079a520f68",
+   "byteIdentical": true,
+   "category": "manifest",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-always-local/package.nls.json",
+   "dest": "recovered/extensions/agent/cursor-always-local/shipped/package.nls.json",
+   "bytes": 81,
+   "sha256": "dca8e3c7f4e29756605a885da1f6393b9e0328b899040dd3471a5a6586f07e0c",
+   "emittedSha256": "dca8e3c7f4e29756605a885da1f6393b9e0328b899040dd3471a5a6586f07e0c",
+   "byteIdentical": true,
+   "category": "nls",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-always-local/schemas/environment.schema.json",
+   "dest": "recovered/extensions/agent/cursor-always-local/shipped/schemas/environment.schema.json",
+   "bytes": 5951,
+   "sha256": "8e81be8b36c9bea044b5546c65afc43ac4f9c3617238c0f43ecbf702d479143a",
+   "emittedSha256": "8e81be8b36c9bea044b5546c65afc43ac4f9c3617238c0f43ecbf702d479143a",
+   "byteIdentical": true,
+   "category": "schema",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  },
+  {
+   "source": "app/extensions/cursor-always-local/schemas/permissions.schema.json",
+   "dest": "recovered/extensions/agent/cursor-always-local/shipped/schemas/permissions.schema.json",
+   "bytes": 1839,
+   "sha256": "852aa108fe5add547ce205f4282a6a447a49b1756b4c88100c556f28866f005e",
+   "emittedSha256": "852aa108fe5add547ce205f4282a6a447a49b1756b4c88100c556f28866f005e",
+   "byteIdentical": true,
+   "category": "schema",
+   "basis": "shipped-config",
+   "method": "shipped-config",
+   "confidence": "A",
+   "note": "byte-identical copy; provenance in this manifest"
+  }
+ ],
+ "skipped": [
+  {
+   "source": "app/extensions/cursor-always-local/dist/main.js.LICENSE.txt",
+   "reason": "license bundle recorded in INVENTORY.json, not copied",
+   "bytes": 1735
+  }
+ ],
+ "totals": {
+  "files": 7,
+  "bytes": 10010,
+  "byteIdentical": 6,
+  "headed": 1,
+  "skipped": 1
+ }
+}

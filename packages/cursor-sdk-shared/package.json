@@ -1,0 +1,21 @@
+{
+  "name": "@anysphere/cursor-sdk-shared",
+  "version": "1.0.0-re",
+  "private": true,
+  "type": "module",
+  "description": "Recovered workspace package for @cursor/sdk 1.3.1 (see per-file provenance headers).",
+  "license": "UNLICENSED",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*.js": "./src/*.ts",
+    "./*": "./src/*.ts"
+  },
+  "types": "./src/index.ts",
+  "files": [
+    "src"
+  ],
+  "sideEffects": false,
+  "dependencies": {
+    "zod": "^3.25.0 || ^4.0.0"
+  }
+}

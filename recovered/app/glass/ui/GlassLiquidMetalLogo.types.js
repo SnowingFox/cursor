@@ -1,0 +1,11 @@
+// @recovered-by cursor-re
+// artifact: app/out/vs/workbench/workbench.glass.main.js sha256:6eb88cb60fce5bf5df2ee401f797d5e160b0bcb5d85c25e57d2576b467edce81
+// module: GlassLiquidMetalLogo.types.js range:16412064..16413066
+// basis: inferred
+// confidence: C
+// method: split
+// run: main 2026-11-05T10:03:45.706Z
+Zsp = L({ "GlassLiquidMetalLogo.types.js"() {
+  "use strict";
+  E(), Ysp = `data:image/svg+xml;charset=utf-8,${encodeURIComponent('<svg width="100" height="114" viewBox="0 0 100 114" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M98.0053 26.9829L52.3674 0.634708C50.9019 -0.211569 49.0937 -0.211569 47.6282 0.634708L1.99248 26.9829C0.760534 27.6942 -6.10352e-05 29.0096 -6.10352e-05 30.4344V83.5656C-6.10352e-05 84.9882 0.760534 86.3058 1.99248 87.0171L47.6303 113.365C49.0958 114.212 50.9041 114.212 52.3696 113.365L98.0074 87.0171C99.2393 86.3058 99.9999 84.9904 99.9999 83.5656V30.4344C99.9999 29.0118 99.2372 27.6942 98.0053 26.9829ZM95.1386 32.564L51.0819 108.87C50.7841 109.385 49.9978 109.175 49.9978 108.579V58.6144C49.9978 57.616 49.4643 56.6926 48.5987 56.1912L5.32839 31.21C4.81418 30.9122 5.02415 30.1259 5.61977 30.1259H93.7331C94.9843 30.1259 95.7642 31.4799 95.1386 32.564Z" fill="white" fill-opacity="0.2"/></svg>')}`, Xsp = "#00000000", i8r = 260, v0a = f0a(i8r);
+} }), Qsp, 

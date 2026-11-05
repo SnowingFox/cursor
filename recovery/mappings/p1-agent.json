@@ -1,0 +1,3493 @@
+{
+  "generatedAt": "2026-11-05T10:18:46.146Z",
+  "cluster": "p1-agent",
+  "bundle": "app/out/vs/workbench/workbench.glass.main.js",
+  "counts": {
+    "modules": 87,
+    "emitted": 87,
+    "nlsExact": 0,
+    "nlsAmbiguous": 0,
+    "inferred": 87,
+    "basenameUniqueCandidates": 0,
+    "renameFiles": 15,
+    "renames": 19,
+    "depResolvedModules": 87,
+    "emittedFiles": 87,
+    "annotated": 87,
+    "renamedFiles": 9,
+    "blockedRenames": 6,
+    "missing": 0,
+    "totalRenames": 12,
+    "pathBasisCounts": {
+      "inferred": 87
+    },
+    "depsResolved": 87,
+    "modulesWithJsxComponent": 33
+  },
+  "note": "path=null means no exact nls candidate; candidates[] records basename-index evidence only, not a path claim. renames applied only via scripts/recover/rename/apply-map.ts with AST equivalence.",
+  "records": [
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5940",
+      "basename": "AgentContextTabDirtyIndicator.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        31668012,
+        31668644
+      ],
+      "sliceChars": 632,
+      "wrapperBodyChars": 104,
+      "declaredInTail": [
+        "z1w"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "web.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/AgentContextTabDirtyIndicator.js",
+      "sha256": "4a483e1c95639c0c35016bcfde48b5504ab047ad0869c5951ca3cbd9a152a742",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2284",
+      "basename": "AgentConversationContext.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15018970,
+        15019751
+      ],
+      "sliceChars": 781,
+      "wrapperBodyChars": 150,
+      "declaredInTail": [
+        "j_e"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "LinkNavigationContext.js",
+        "MarkdownDefaultsContext.js",
+        "conversation-density.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/AgentConversationContext.js",
+      "sha256": "95eef4eb88f3fa2312fc98a4db802f8dd1447dc7a13620d8ba3fc49a2dc909cd",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6045",
+      "basename": "AgentEnvironmentIcon.react.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        32137802,
+        32137902
+      ],
+      "sliceChars": 100,
+      "wrapperBodyChars": 70,
+      "declaredInTail": [],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/AgentEnvironmentIcon.react.js",
+      "sha256": "0bc071b98335ef2968625270ade8eb1b034d950fa73300db142d2884781349a7",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3905",
+      "basename": "AgentHostAutoRoutingRow.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22609230,
+        22627044
+      ],
+      "sliceChars": 17814,
+      "wrapperBodyChars": 67,
+      "declaredInTail": [
+        "xqt",
+        "K0i",
+        "WXa",
+        "FK1",
+        "BK1",
+        "wes",
+        "UK1",
+        "jK1",
+        "$K1",
+        "HK1",
+        "WK1",
+        "GK1"
+      ],
+      "jsxFunctions": [
+        "K0i",
+        "WXa",
+        "FK1",
+        "BK1",
+        "wes",
+        "UK1",
+        "$K1",
+        "HK1",
+        "GK1"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/AgentHostAutoRoutingRow.js",
+      "sha256": "b05513941d9fd903abb6a900a8b5ab54e606f4bd13d5afe6bcba882c0593db5c",
+      "renames": {
+        "LK1": "AgentHostAutoRoutingRowModule"
+      },
+      "renameStatus": "already-applied"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3906",
+      "basename": "AgentHostEnvironmentStatusRow.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22627044,
+        22627955
+      ],
+      "sliceChars": 911,
+      "wrapperBodyChars": 73,
+      "declaredInTail": [
+        "VK1"
+      ],
+      "jsxFunctions": [
+        "VK1"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/AgentHostEnvironmentStatusRow.js",
+      "sha256": "12935c5fb7bc628fc867ca98333798f63cebd97f4682fdaf15a06290e03c953b",
+      "renames": {
+        "qK1": "AgentHostEnvironmentStatusRowModule",
+        "VK1": "AgentHostEnvironmentStatusRow"
+      },
+      "renameStatus": "already-applied"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3907",
+      "basename": "AgentHostOptimisticPlanningRow.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22627955,
+        22633960
+      ],
+      "sliceChars": 6005,
+      "wrapperBodyChars": 74,
+      "declaredInTail": [
+        "XK1",
+        "ZK1",
+        "b$m"
+      ],
+      "jsxFunctions": [
+        "XK1",
+        "ZK1",
+        "b$m"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/AgentHostOptimisticPlanningRow.js",
+      "sha256": "e05b15674262cb2c02abb18e16b6981384d49d5b06f3869e3021c5d0600cdca5",
+      "renames": {
+        "KK1": "AgentHostOptimisticPlanningRowModule"
+      },
+      "renameStatus": "already-applied"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3908",
+      "basename": "AgentHostStreamErrorRow.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22633960,
+        22634241
+      ],
+      "sliceChars": 281,
+      "wrapperBodyChars": 67,
+      "declaredInTail": [
+        "qXa",
+        "Ces"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/AgentHostStreamErrorRow.js",
+      "sha256": "ad8957549f1e7017678f8c6b49b880da8ae30e52e43dd0af67c17db2b4821fef",
+      "renames": {},
+      "renameStatus": "blocked-parse",
+      "renameBlockedReason": "fragment is not a standalone program (starts mid var-chain); apply-map parser rejects it"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2646",
+      "basename": "AgentRowContent.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        16299560,
+        16300781
+      ],
+      "sliceChars": 1221,
+      "wrapperBodyChars": 85,
+      "declaredInTail": [
+        "zrp"
+      ],
+      "jsxFunctions": [
+        "zrp"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "cn.js",
+        "Tray.stylex.js",
+        "TextRoll.js",
+        "Text.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/AgentRowContent.js",
+      "sha256": "32702a8814eac9383c514b80df718874bcbdee78ebb0421c3cba37145dc54603",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2279",
+      "basename": "AgentStatusDot.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15006787,
+        15012778
+      ],
+      "sliceChars": 5991,
+      "wrapperBodyChars": 952,
+      "declaredInTail": [
+        "$IS",
+        "w$h",
+        "HIS",
+        "WIS",
+        "GIS",
+        "qIS",
+        "zIS"
+      ],
+      "jsxFunctions": [
+        "w$h",
+        "HIS",
+        "WIS",
+        "GIS",
+        "qIS",
+        "zIS"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "attach.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/AgentStatusDot.js",
+      "sha256": "cc394901aec9c5bab1b2233eaa79e01becfdddcdd5aa1bf28492cfe0c78e2b10",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2280",
+      "basename": "AgentStatusIcon.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15012778,
+        15012889
+      ],
+      "sliceChars": 111,
+      "wrapperBodyChars": 92,
+      "declaredInTail": [],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "cn.js",
+        "AgentStatusDot.js",
+        "Sidebar.stylex.js",
+        "icon.js",
+        "ProgressRing.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/AgentStatusIcon.js",
+      "sha256": "57b5c1a64489403742bdd6607dfa1a09346b41835a8838925110bdf407f69248",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6110",
+      "basename": "AgentTabBase.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        32712558,
+        32717868
+      ],
+      "sliceChars": 5310,
+      "wrapperBodyChars": 824,
+      "declaredInTail": [
+        "_9l",
+        "V3n"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "codicons.js",
+        "themables.js",
+        "ComposerDiffStatusDisplay.js",
+        "iconButton.js",
+        "spinningLoader.js",
+        "AgentViewTab.css"
+      ],
+      "anchors": {
+        "classNames": [
+          "agent-tab-dot-indicator"
+        ],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/AgentTabBase.js",
+      "sha256": "ba850be9dda251c8a2d1c51cb38c6e2dec97023454101559f208ea4a021c615a",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7714",
+      "basename": "AgentTabsSection.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        38867246,
+        38869883
+      ],
+      "sliceChars": 2637,
+      "wrapperBodyChars": 1098,
+      "declaredInTail": [
+        "CoC"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "AgentTabBase.js",
+        "gallerySection.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/AgentTabsSection.js",
+      "sha256": "17d00f3390c12f8d126eda78a9c0c9d1f353704e826d437955c648fa24f2ed8b",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7713",
+      "basename": "AnyrunSetupUISection.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        38860120,
+        38867246
+      ],
+      "sliceChars": 7126,
+      "wrapperBodyChars": 517,
+      "declaredInTail": [
+        "koC"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "backgroundComposerConstants.js",
+        "solidContext.js",
+        "button.js",
+        "gallerySection.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/AnyrunSetupUISection.js",
+      "sha256": "bc8a02cb1a81c9860c183553e0faedef5ce98a840a0e07cf18e5b342473241e2",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4629",
+      "basename": "BrowserEditorContent.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        26977843,
+        26986143
+      ],
+      "sliceChars": 8300,
+      "wrapperBodyChars": 8035,
+      "declaredInTail": [
+        "PIk"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "index.js",
+        "solid.js",
+        "lexical.js",
+        "hoverWidget.js",
+        "window.js",
+        "actions.js",
+        "codicons.js",
+        "lifecycle.js",
+        "themables.js",
+        "uuid.js",
+        "react-bridge.js",
+        "solidContext.js",
+        "MentionNode.js",
+        "types.js",
+        "ImageUtil.js",
+        "checkbox.js",
+        "useMenuHover.js",
+        "scrollableDiv.js",
+        "browserInjection.js",
+        "browserOverlay.js",
+        "browserPlaceholderPages.js",
+        "browserZoomSteps.js",
+        "utils.js",
+        "BrowserEditorContent.css",
+        "browserBookmarkNaming.js",
+        "BrowserMoreMenu.react.js",
+        "OmniboxDropdown.js",
+        "browserNavigation.js",
+        "browserPageBackdrop.js"
+      ],
+      "anchors": {
+        "classNames": [
+          "browser-cert-info-value",
+          "browser-cert-fingerprint",
+          "browser-cert-button",
+          "browser-cert-reject",
+          "browser-cert-trust"
+        ],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/BrowserEditorContent.js",
+      "sha256": "148b2b7ac702982d3b0d5da52207b76489c79bae22b4c4d0d3b7af5a9e94d783",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4624",
+      "basename": "BrowserMoreMenu.react.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        26905936,
+        26908910
+      ],
+      "sliceChars": 2974,
+      "wrapperBodyChars": 1310,
+      "declaredInTail": [
+        "Awg",
+        "TIk",
+        "zpl"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/BrowserMoreMenu.react.js",
+      "sha256": "4b67b7248581be5414d2e69361e260814a2a7ac776833dde29c362e69954d212",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7723",
+      "basename": "BrowserToolsSection.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        38926540,
+        38939754
+      ],
+      "sliceChars": 13214,
+      "wrapperBodyChars": 6336,
+      "declaredInTail": [
+        "qoC"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "uuid.js",
+        "solidContext.js",
+        "gallerySection.js",
+        "BrowserToolsSection.css"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/BrowserToolsSection.js",
+      "sha256": "c8340b234fb89a9b9ba5b47d56dd3cba8b033a48132891a8a6d321c34d796b5b",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5912",
+      "basename": "CloudAgentTurnTimings.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        31565786,
+        31566285
+      ],
+      "sliceChars": 499,
+      "wrapperBodyChars": 59,
+      "declaredInTail": [
+        "vNf"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/CloudAgentTurnTimings.js",
+      "sha256": "e015c4c4499af91a230562123d54fb9cdcaead6762f59d95377de52cdf90f798",
+      "renames": {
+        "DSw": "CloudAgentTurnTimingsModule"
+      },
+      "renameStatus": "already-applied"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2539",
+      "basename": "CommandChipNodeView.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15878500,
+        15887878
+      ],
+      "sliceChars": 9378,
+      "wrapperBodyChars": 3443,
+      "declaredInTail": [
+        "eBS",
+        "QJh"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "index.js",
+        "prompt-chip.stylex.js",
+        "cn.js",
+        "prompt-input-command-chip-tooltip.js",
+        "SkillCommandBadge.js",
+        "command-chip-shared.js",
+        "tiptap-storage.js",
+        "IconColorPickerPanel.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/CommandChipNodeView.js",
+      "sha256": "641bbc2f1d9eb503b925e58dab91b23159e14c4ecdfeef392f6944d4ce61c81f",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2545",
+      "basename": "CommandChipPlugin.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15918651,
+        15923414
+      ],
+      "sliceChars": 4763,
+      "wrapperBodyChars": 4412,
+      "declaredInTail": [
+        "Cep"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "index.js",
+        "prompt-chip.stylex.js",
+        "insertPlainTextIntoEditor.js",
+        "CommandChipNodeView.js",
+        "command-chip-shared.js",
+        "MentionChipPlugin.js",
+        "tiptap-storage.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/CommandChipPlugin.js",
+      "sha256": "701eda93d21e2ac8c4ea7b8073ebb11b9d0cc6e84e3b4f3f6cb89321d220cdc4",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6142",
+      "basename": "CompactAgentHistoryHoverMenu.react.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        32885729,
+        32894720
+      ],
+      "sliceChars": 8991,
+      "wrapperBodyChars": 110,
+      "declaredInTail": [
+        "bPw"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "codicons.js",
+        "themables.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/CompactAgentHistoryHoverMenu.react.js",
+      "sha256": "bcebb53738ac9dc1541b53c1a336a91c47197140c24b048fd03a178b2cfe6bf2",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6143",
+      "basename": "CompactAgentHistoryHoverPane.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        32894720,
+        32897079
+      ],
+      "sliceChars": 2359,
+      "wrapperBodyChars": 197,
+      "declaredInTail": [
+        "e7f"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "background_composer_pb.js",
+        "chat_pb.js",
+        "dom.js",
+        "actions.js",
+        "codicons.js",
+        "solidApplicationSetting.js",
+        "react-bridge.js",
+        "solidContext.js",
+        "usePersistentState.js",
+        "agentEnvironmentFilter.js",
+        "agentFilteringUtils.js",
+        "agentIconUtils.js",
+        "backgroundComposerFiltering.js",
+        "pinnedAgentsStorage.js",
+        "agentLayoutPaneConstants.js",
+        "CompactAgentHistoryHoverMenu.react.js",
+        "CompactAgentHistoryHoverPane.css",
+        "composerMenuActions.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/CompactAgentHistoryHoverPane.js",
+      "sha256": "b4bfb57b1e12daa8395851f3fb5ea26ffb4cd0154121746987fe81a08221617a",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7734",
+      "basename": "ControlledTerminalSection.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        39081863,
+        39082350
+      ],
+      "sliceChars": 487,
+      "wrapperBodyChars": 204,
+      "declaredInTail": [
+        "yaC"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "gallerySection.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/ControlledTerminalSection.js",
+      "sha256": "246a44ba5c8fd02948eeec739a0494c254471f42b364f02927174c4cd2106c10",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2893",
+      "basename": "CustomizeAgentRow.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        17209032,
+        17211715
+      ],
+      "sliceChars": 2683,
+      "wrapperBodyChars": 433,
+      "declaredInTail": [
+        "Is1",
+        "xs1",
+        "As1"
+      ],
+      "jsxFunctions": [
+        "Is1"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "ProjectAgentStatusGlyph.js",
+        "ProjectTone.js",
+        "projectAgentRole.js",
+        "icon.js",
+        "Text.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/CustomizeAgentRow.js",
+      "sha256": "4dd88e70c82cd76d66b55f310ebf1cfbd4d0bc465a4df6992296d3839455ca8c",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3928",
+      "basename": "CustomizeManageGroupShell.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22739937,
+        22761775
+      ],
+      "sliceChars": 21838,
+      "wrapperBodyChars": 89,
+      "declaredInTail": [
+        "YX1",
+        "MZa",
+        "XX1",
+        "OHm",
+        "FHm",
+        "ZX1",
+        "BHm",
+        "QX1",
+        "JX1",
+        "eZ1",
+        "tZ1",
+        "nZ1"
+      ],
+      "jsxFunctions": [
+        "YX1",
+        "MZa",
+        "XX1",
+        "OHm",
+        "BHm",
+        "JX1",
+        "tZ1",
+        "nZ1"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "stylex.js",
+        "CustomizeManage.stylex.js",
+        "CustomizeManage.utils.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/CustomizeManageGroupShell.js",
+      "sha256": "b8d397db28ed96cdc524f34d0c4363d105bb98f77db05cb178b89a7dc11b649b",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3933",
+      "basename": "CustomizeManageMcp.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22785747,
+        22793362
+      ],
+      "sliceChars": 7615,
+      "wrapperBodyChars": 2064,
+      "declaredInTail": [
+        "QHm",
+        "TZ1",
+        "EZ1",
+        "IZ1",
+        "xZ1"
+      ],
+      "jsxFunctions": [
+        "QHm",
+        "TZ1",
+        "EZ1",
+        "IZ1",
+        "xZ1"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "stylex.js",
+        "CustomizeManage.stylex.js",
+        "CustomizeManage.utils.js",
+        "CustomizeManageEmptyState.js",
+        "CustomizeManageGroupShell.js",
+        "CustomizeManageGroups.js",
+        "googleFaviconFallback.js",
+        "McpCreateDestinationMenu.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/CustomizeManageMcp.js",
+      "sha256": "72369cc3739350c71a6bc0e1a1f564a81488f146a1338183a93dfaee027e3711",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2894",
+      "basename": "CustomizeToolRow.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        17211715,
+        17214266
+      ],
+      "sliceChars": 2551,
+      "wrapperBodyChars": 73,
+      "declaredInTail": [
+        "Ps1",
+        "Ms1",
+        "Ds1",
+        "Ngp"
+      ],
+      "jsxFunctions": [
+        "Ps1",
+        "Ms1",
+        "Ds1",
+        "Ngp"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "icon.js",
+        "Text.js",
+        "Switch.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/CustomizeToolRow.js",
+      "sha256": "ce97a1cb191b27f6376894eafff59958b252c0a46e0e0bb812ad5e87999c5065",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3952",
+      "basename": "EnvironmentSetupBlockedAgentTray.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22978744,
+        22980722
+      ],
+      "sliceChars": 1978,
+      "wrapperBodyChars": 172,
+      "declaredInTail": [
+        "gek",
+        "fek"
+      ],
+      "jsxFunctions": [
+        "fek"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/EnvironmentSetupBlockedAgentTray.js",
+      "sha256": "269315fb1b0cfa75b5f83db56e56c95f774b7055e5a2e64c150888e8e53f7938",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3953",
+      "basename": "EnvironmentSetupExternalActionTray.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22980722,
+        22990357
+      ],
+      "sliceChars": 9635,
+      "wrapperBodyChars": 346,
+      "declaredInTail": [
+        "bGm"
+      ],
+      "jsxFunctions": [
+        "bGm"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/EnvironmentSetupExternalActionTray.js",
+      "sha256": "7c2409b505ab9067d52c517d12906357e3746a1edac4a4d8a03c9b683c4696f7",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3954",
+      "basename": "EnvironmentSetupNetworkSection.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22990357,
+        22992458
+      ],
+      "sliceChars": 2101,
+      "wrapperBodyChars": 222,
+      "declaredInTail": [
+        "wek"
+      ],
+      "jsxFunctions": [
+        "wek"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "env-egress-policy.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/EnvironmentSetupNetworkSection.js",
+      "sha256": "c0e130d636461ab1951305f0100bf57fab096855051c63a67f94f1d695b43559",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3955",
+      "basename": "EnvironmentSetupNetworkTray.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22992458,
+        22995663
+      ],
+      "sliceChars": 3205,
+      "wrapperBodyChars": 78,
+      "declaredInTail": [
+        "CGm",
+        "Tek",
+        "Eek",
+        "TGm",
+        "Iek"
+      ],
+      "jsxFunctions": [
+        "CGm",
+        "Tek",
+        "Eek",
+        "TGm",
+        "Iek"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "EnvironmentSetupNetworkSection.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/EnvironmentSetupNetworkTray.js",
+      "sha256": "1f2449e7a922c08be8a328f1e911299a747e79d26a95fb0a52b8c5a4dbb060a3",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3951",
+      "basename": "EnvironmentSetupRepoScopeDropdown.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22974469,
+        22978744
+      ],
+      "sliceChars": 4275,
+      "wrapperBodyChars": 107,
+      "declaredInTail": [
+        "dek",
+        "hek"
+      ],
+      "jsxFunctions": [
+        "dek",
+        "hek"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "env-setup-secret.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/EnvironmentSetupRepoScopeDropdown.js",
+      "sha256": "af2e1422a472650d3513a23690450459ce827d08d8bf688e45b611e0bf72ce19",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3956",
+      "basename": "EnvironmentSetupSecretLevelSelect.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22995663,
+        23009342
+      ],
+      "sliceChars": 13679,
+      "wrapperBodyChars": 159,
+      "declaredInTail": [
+        "xGm",
+        "xek",
+        "Aek"
+      ],
+      "jsxFunctions": [
+        "xGm",
+        "xek",
+        "Aek"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "env-setup-secret.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/EnvironmentSetupSecretLevelSelect.js",
+      "sha256": "a04b0715b98915f3ad20d27ab81e2210bc5f89fd09d81cb77293b5e874201112",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3957",
+      "basename": "EnvironmentSetupSecretsEditorModal.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        23009342,
+        23013186
+      ],
+      "sliceChars": 3844,
+      "wrapperBodyChars": 99,
+      "declaredInTail": [
+        "bQa",
+        "Pek",
+        "Mek",
+        "Dek",
+        "Nek",
+        "Lek",
+        "Oek",
+        "Fek",
+        "Bek",
+        "Uek"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "EnvironmentSetupRepoScopeDropdown.js",
+        "EnvironmentSetupSecretLevelSelect.js",
+        "env-setup-secret.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/EnvironmentSetupSecretsEditorModal.js",
+      "sha256": "8babc2077f4ddbcf11ee8db1e931bc50fb2de8d3484265420762520505422210",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1215",
+      "basename": "FromCursorAgentsCards.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        5365957,
+        5369433
+      ],
+      "sliceChars": 3476,
+      "wrapperBodyChars": 482,
+      "declaredInTail": [
+        "tQd",
+        "a6y",
+        "nQd",
+        "i_n",
+        "iQd",
+        "AKo",
+        "hSt",
+        "l6y",
+        "rQd",
+        "c6y",
+        "sQd",
+        "oQd",
+        "aQd",
+        "lQd"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "tokens.stylex.js",
+        "GlassIcon.js",
+        "ManagedAgentsGetStartedBanner.js",
+        "attach.js",
+        "Button.js",
+        "useRender.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/FromCursorAgentsCards.js",
+      "sha256": "03433f12f6a0180938189045ce6911eca96b83c8cf8027c5d46777313e517159",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6156",
+      "basename": "GlassSubagentBreadcrumb.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        32927130,
+        32930696
+      ],
+      "sliceChars": 3566,
+      "wrapperBodyChars": 195,
+      "declaredInTail": [
+        "dBl"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "index.js",
+        "solid.js",
+        "react-bridge.js",
+        "solidContext.js",
+        "GlassSubagentBreadcrumb.css"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/GlassSubagentBreadcrumb.js",
+      "sha256": "9999d81aee187614c1ba32eb68bd4a736355900ca449aff56906d6d87de3586d",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6157",
+      "basename": "InlineAgentTabs.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        32930696,
+        32935339
+      ],
+      "sliceChars": 4643,
+      "wrapperBodyChars": 4355,
+      "declaredInTail": [
+        "JPw"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "InlineAgentTabs.css"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/InlineAgentTabs.js",
+      "sha256": "35ff7f7ed37c1632d3b32aaa549ed75aa71a5c4be94f725498e575f136168944",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:4777",
+      "basename": "InputBoxBrowserChanges.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        27429101,
+        27433087
+      ],
+      "sliceChars": 3986,
+      "wrapperBodyChars": 638,
+      "declaredInTail": [
+        "kxg"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "solid.js",
+        "InputBoxElementSelection.css"
+      ],
+      "anchors": {
+        "classNames": [
+          "browser-change-value"
+        ],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/InputBoxBrowserChanges.js",
+      "sha256": "bd3cd283bda379da8d3707caf37b01d35453b747944724882c80b51dc6298e30",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1214",
+      "basename": "ManagedAgentsGetStartedBanner.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        5354130,
+        5365957
+      ],
+      "sliceChars": 11827,
+      "wrapperBodyChars": 1036,
+      "declaredInTail": [
+        "YZd",
+        "e6y",
+        "t6y",
+        "XZd",
+        "n6y",
+        "i6y",
+        "r6y",
+        "s6y",
+        "ZZd",
+        "QZd"
+      ],
+      "jsxFunctions": [
+        "e6y",
+        "t6y",
+        "n6y",
+        "i6y",
+        "r6y",
+        "s6y",
+        "ZZd",
+        "QZd"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "typography.stylex.js",
+        "tokens.stylex.js",
+        "GlassIcon.js",
+        "icon.js",
+        "Button.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/ManagedAgentsGetStartedBanner.js",
+      "sha256": "c0d013c266183387c4fde15ce91d8de97bc33b83b9112320e983eaedbfbefc76",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2847",
+      "basename": "ManageTeamMarketplaceMcpFormMenu.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        17021691,
+        17026942
+      ],
+      "sliceChars": 5251,
+      "wrapperBodyChars": 273,
+      "declaredInTail": [
+        "kn1",
+        "wn1"
+      ],
+      "jsxFunctions": [
+        "kn1"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "manage-marketplace-modal.stylex.js",
+        "mcpInputToPluginConfig.js",
+        "SpinningLoader.js",
+        "InputGroup.js",
+        "Button.js",
+        "Popover.js",
+        "PortalContext.js",
+        "Dialog.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/ManageTeamMarketplaceMcpFormMenu.js",
+      "sha256": "5437b896c559a15e3b41629542e1eb56b26c9790ea2cfdf81d86f311c10faacd",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3942",
+      "basename": "McpConfigureDialog.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22847174,
+        22848465
+      ],
+      "sliceChars": 1291,
+      "wrapperBodyChars": 63,
+      "declaredInTail": [
+        "AQ1",
+        "CWm"
+      ],
+      "jsxFunctions": [
+        "CWm"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "McpServerConfigMenu.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/McpConfigureDialog.js",
+      "sha256": "6d79716e0342d6124af6552ae99140edac8311710be576afa47e00dcee6b00c7",
+      "renames": {
+        "EQ1": "McpConfigureDialogModule",
+        "CWm": "McpConfigureDialog"
+      },
+      "renameStatus": "already-applied"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3932",
+      "basename": "McpCreateDestinationMenu.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22775346,
+        22785747
+      ],
+      "sliceChars": 10401,
+      "wrapperBodyChars": 75,
+      "declaredInTail": [
+        "yZ1",
+        "SZ1",
+        "kZ1",
+        "YHm",
+        "XHm",
+        "ZHm"
+      ],
+      "jsxFunctions": [
+        "yZ1",
+        "SZ1",
+        "kZ1",
+        "YHm",
+        "XHm",
+        "ZHm"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "CustomizeManage.utils.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/McpCreateDestinationMenu.js",
+      "sha256": "266012a025fcf5c9aa9983a1762543f683fee5796ae731af453790586b995986",
+      "renames": {},
+      "renameStatus": "blocked-parse",
+      "renameBlockedReason": "fragment is not a standalone program (starts mid var-chain); apply-map parser rejects it"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2400",
+      "basename": "MCPIcon.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15448051,
+        15448639
+      ],
+      "sliceChars": 588,
+      "wrapperBodyChars": 45,
+      "declaredInTail": [
+        "$3S",
+        "Emi"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/MCPIcon.js",
+      "sha256": "121014a0bf11b2cb6190f9ab8611f39e4bf285ad212ad4db9fb8f38d5dd5fe58",
+      "renames": {},
+      "renameStatus": "blocked-parse",
+      "renameBlockedReason": "fragment is not a standalone program (starts mid var-chain); apply-map parser rejects it"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2857",
+      "basename": "McpImpactConfirmDialog.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        17079037,
+        17081009
+      ],
+      "sliceChars": 1972,
+      "wrapperBodyChars": 78,
+      "declaredInTail": [
+        "oi1"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "PortalContext.js",
+        "Dialog.js",
+        "Button.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/McpImpactConfirmDialog.js",
+      "sha256": "de70c7bbe0bb78140768a26c2b51445998d1456db8f154b1ba7aed1c88068636",
+      "renames": {
+        "ri1": "McpImpactConfirmDialogModule"
+      },
+      "renameStatus": "already-applied"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3903",
+      "basename": "McpServerConfigForm.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22551985,
+        22606260
+      ],
+      "sliceChars": 54275,
+      "wrapperBodyChars": 4925,
+      "declaredInTail": [
+        "sK1",
+        "oK1",
+        "aK1",
+        "lK1",
+        "cK1",
+        "uK1",
+        "dK1",
+        "pIn",
+        "hK1",
+        "pK1",
+        "mK1",
+        "gK1",
+        "fK1",
+        "vK1",
+        "_K1",
+        "bK1",
+        "r$m",
+        "yK1",
+        "SK1",
+        "kK1",
+        "wK1",
+        "CK1",
+        "TK1",
+        "EK1",
+        "IK1",
+        "xK1",
+        "s$m",
+        "o$m",
+        "AK1",
+        "RK1",
+        "PK1"
+      ],
+      "jsxFunctions": [
+        "aK1",
+        "uK1",
+        "dK1",
+        "pIn",
+        "pK1",
+        "mK1",
+        "CK1",
+        "TK1",
+        "s$m",
+        "o$m",
+        "AK1",
+        "PK1"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "stylex.js",
+        "mcp.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/McpServerConfigForm.js",
+      "sha256": "05e03017774a5ba831be2d325e27a9f9310d4ea9eafe1dcfe73bfd195200d5ec",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3904",
+      "basename": "McpServerConfigMenu.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        22606260,
+        22609230
+      ],
+      "sliceChars": 2970,
+      "wrapperBodyChars": 1685,
+      "declaredInTail": [
+        "NK1"
+      ],
+      "jsxFunctions": [
+        "NK1"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "stylex.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/McpServerConfigMenu.js",
+      "sha256": "61e29a4d8f42e3a711e49e978edb92fdbdbd9916f27dd275a5a588a999590f79",
+      "renames": {
+        "NK1": "McpServerConfigMenu"
+      },
+      "renameStatus": "already-applied"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2404",
+      "basename": "McpServerIcon.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15451413,
+        15452398
+      ],
+      "sliceChars": 985,
+      "wrapperBodyChars": 72,
+      "declaredInTail": [
+        "gKh"
+      ],
+      "jsxFunctions": [
+        "gKh"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "MCPIcon.js",
+        "McpServerIconImage.js",
+        "use-mcp-server-icon.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/McpServerIcon.js",
+      "sha256": "9a0d7c16e59b7e7b6123b54ac4fe1698123bc2e73bfad22905ee9284836118ee",
+      "renames": {},
+      "renameStatus": "blocked-parse",
+      "renameBlockedReason": "fragment is not a standalone program (starts mid var-chain); apply-map parser rejects it"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2405",
+      "basename": "McpServerIconChip.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15452398,
+        15452945
+      ],
+      "sliceChars": 547,
+      "wrapperBodyChars": 64,
+      "declaredInTail": [
+        "pya"
+      ],
+      "jsxFunctions": [
+        "pya"
+      ],
+      "deps": [
+        "tslib.es6.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/McpServerIconChip.js",
+      "sha256": "62fd7e77417cf496d2fba881d157e69efdffeae00ecca8259200b2c3cd975d37",
+      "renames": {},
+      "renameStatus": "blocked-parse",
+      "renameBlockedReason": "fragment is not a standalone program (starts mid var-chain); apply-map parser rejects it"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2402",
+      "basename": "McpServerIconImage.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15450105,
+        15450729
+      ],
+      "sliceChars": 624,
+      "wrapperBodyChars": 70,
+      "declaredInTail": [
+        "cKh"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "MCPIcon.js",
+        "google-favicon-fallback.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/McpServerIconImage.js",
+      "sha256": "6aabf840516f58f21a292ab22dda365fafd5d10051151a4abadc45a1765d2bf6",
+      "renames": {},
+      "renameStatus": "blocked-parse",
+      "renameBlockedReason": "fragment is not a standalone program (starts mid var-chain); apply-map parser rejects it"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2432",
+      "basename": "McpServerIconStack.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15524863,
+        15532014
+      ],
+      "sliceChars": 7151,
+      "wrapperBodyChars": 143,
+      "declaredInTail": [
+        "VLS",
+        "KLS",
+        "YLS",
+        "XLS",
+        "ZLS",
+        "QLS",
+        "JLS"
+      ],
+      "jsxFunctions": [
+        "YLS",
+        "ZLS"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "McpServerIcon.js",
+        "McpServerIconChip.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/McpServerIconStack.js",
+      "sha256": "64036fef301a7d6e4803863e71ae6555b2160d2abfe3ac43f4fccf94ca1b2321",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2474",
+      "basename": "MentionChipTooltip.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15684018,
+        15684108
+      ],
+      "sliceChars": 90,
+      "wrapperBodyChars": 75,
+      "declaredInTail": [],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "prompt-chip.stylex.js",
+        "tooltip.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/MentionChipTooltip.js",
+      "sha256": "33db49fc04178a20bf44f6cad858b6bf530314b5de41ac5aa873a8d1531b2dda",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2180",
+      "basename": "NewTaskSlot.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        14779595,
+        14783695
+      ],
+      "sliceChars": 4100,
+      "wrapperBodyChars": 61,
+      "declaredInTail": [
+        "Wga",
+        "i0S",
+        "a2e"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "icon.js",
+        "Text.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/NewTaskSlot.js",
+      "sha256": "7ad1a2effdb66983200a67cb7f4a4ee4fe516802d3a07f93db3509d000e87807",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2898",
+      "basename": "OrchestrationAgentChecklist.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        17217288,
+        17219751
+      ],
+      "sliceChars": 2463,
+      "wrapperBodyChars": 98,
+      "declaredInTail": [
+        "Gs1"
+      ],
+      "jsxFunctions": [
+        "Gs1"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "ProjectAgentStatusGlyph.js",
+        "ProjectTone.js",
+        "projectAgentRole.js",
+        "Text.js",
+        "Markdown.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/OrchestrationAgentChecklist.js",
+      "sha256": "dc8ef17ed48521d100cd6c0b1b6523a9b333238c489478f1db0e183343a8bf02",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6025",
+      "basename": "PlanEditorView.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        32067936,
+        32068334
+      ],
+      "sliceChars": 398,
+      "wrapperBodyChars": 382,
+      "declaredInTail": [],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "index.js",
+        "plan-references-section.react.js",
+        "plan-todos-section.react.js",
+        "vanilla.mjs",
+        "solid.js",
+        "keyboardEvent.js",
+        "constants.js",
+        "network.js",
+        "aiConfigHelper.js",
+        "vscodeCodeLineTokenizer.js",
+        "react-bridge.js",
+        "solidContext.js",
+        "jotaiSolidBridge.js",
+        "citationLinkUtils.js",
+        "scrollableDiv.js",
+        "PlanEditorView.css",
+        "PlanRichTextEditor.react.js",
+        "usePlanEditorState.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/PlanEditorView.js",
+      "sha256": "6db9ef6eae827f378172fb3be531b6689710c6efc27e35ccb0d109483d99793a",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3962",
+      "basename": "PlanExecutionCard.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        23033537,
+        23039466
+      ],
+      "sliceChars": 5929,
+      "wrapperBodyChars": 5893,
+      "declaredInTail": [],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "tokens.stylex.js",
+        "stylex.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/PlanExecutionCard.js",
+      "sha256": "60701dfb650409ae62f37eadf96b4ac411c75dd0247bf430274194ef3b10351d",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2869",
+      "basename": "PluginCommandSearchMenu.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        17152386,
+        17154021
+      ],
+      "sliceChars": 1635,
+      "wrapperBodyChars": 88,
+      "declaredInTail": [
+        "Ji1"
+      ],
+      "jsxFunctions": [
+        "Ji1"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "promptInputMenuNavigation.js",
+        "AddPluginSearch.js",
+        "Plugins.search.js",
+        "menu.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/PluginCommandSearchMenu.js",
+      "sha256": "35696d017920393f2a2c365fd1b6b03bbca10f06ed26f6e658ae5df431c54ef0",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2891",
+      "basename": "ProjectAgentStatusGlyph.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        17205364,
+        17205797
+      ],
+      "sliceChars": 433,
+      "wrapperBodyChars": 225,
+      "declaredInTail": [
+        "Egp"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "icon.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/ProjectAgentStatusGlyph.js",
+      "sha256": "030174d20cd84891681713f18070c37ef49c666171dce0fc8f262fb3e09f5fdb",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3177",
+      "basename": "SelectionTooltip.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        18206243,
+        18207963
+      ],
+      "sliceChars": 1720,
+      "wrapperBodyChars": 269,
+      "declaredInTail": [
+        "UPa",
+        "PIp",
+        "w01",
+        "C01"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "use-latest-ref.js",
+        "codicon.js",
+        "RichTextEditorContext.js",
+        "selection-utils.js",
+        "tooltip.js",
+        "PriorityToggleIconButton.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/SelectionTooltip.js",
+      "sha256": "ab490859d2b3a3b1f5a31d3f4727b86308e6cbaa8e2fe87041b834eeabe1a283",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2506",
+      "basename": "SkillCommandBadge.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15758758,
+        15760035
+      ],
+      "sliceChars": 1277,
+      "wrapperBodyChars": 193,
+      "declaredInTail": [
+        "mQh",
+        "P4S",
+        "gQh",
+        "t1a",
+        "M4S"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "IconColorPickerPanel.js",
+        "icon.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/SkillCommandBadge.js",
+      "sha256": "9bf5599eb40050dd49731c12543f9bc2c94cb4b479f2b8fd592e4616d6535396",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3055",
+      "basename": "SkillIcon.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        17826241,
+        17829078
+      ],
+      "sliceChars": 2837,
+      "wrapperBodyChars": 47,
+      "declaredInTail": [
+        "Rv1"
+      ],
+      "jsxFunctions": [
+        "Rv1"
+      ],
+      "deps": [
+        "tslib.es6.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/SkillIcon.js",
+      "sha256": "61e509e3b31f9185c383521d5a3c2367fd5edfe3a069a88ed87c0e363e5b6af6",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:6282",
+      "basename": "SkillIconColorHeader.react.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        33692529,
+        33706080
+      ],
+      "sliceChars": 13551,
+      "wrapperBodyChars": 254,
+      "declaredInTail": [
+        "a9w",
+        "l9w",
+        "c9w",
+        "u9w",
+        "d9w",
+        "h9w",
+        "p9w",
+        "m9w",
+        "g9w",
+        "f9w",
+        "v9w",
+        "_9w",
+        "b9w",
+        "y9w"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "SkillIconColorHeader.css"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/SkillIconColorHeader.react.js",
+      "sha256": "3e22941cafc088292a9295ad93cb8c2d441f7f0af7e1c84d5de09a535a8bb98b",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3056",
+      "basename": "SubagentIcon.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        17829078,
+        17829973
+      ],
+      "sliceChars": 895,
+      "wrapperBodyChars": 50,
+      "declaredInTail": [
+        "dwp"
+      ],
+      "jsxFunctions": [
+        "dwp"
+      ],
+      "deps": [
+        "tslib.es6.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/SubagentIcon.js",
+      "sha256": "de6a9e24b3802a9a9669e5cd550e2479beb20aaa9f81c6cf32724120f2bf88ef",
+      "renames": {
+        "Pv1": "SubagentIconModule",
+        "dwp": "SubagentIcon"
+      },
+      "renameStatus": "already-applied"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5494",
+      "basename": "SubagentLinkHoverCard.react.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        30598786,
+        30601993
+      ],
+      "sliceChars": 3207,
+      "wrapperBodyChars": 430,
+      "declaredInTail": [
+        "QRl",
+        "YZk",
+        "XZk",
+        "p_f",
+        "m_f",
+        "ZZk",
+        "g_f",
+        "QZk",
+        "JZk",
+        "eQk",
+        "tQk"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "errors.js",
+        "markdownPlaintext.js",
+        "uri.js",
+        "use-cloud-subagent-header-revision.react.js",
+        "use-glass-agent-metadata-tooltip-rows.react.js",
+        "glass-agent-metadata-tooltip-body.react.js",
+        "agent-pr-status-icon.react.js",
+        "pullRequestIdentity.js",
+        "use-pr-lifecycle.react.js",
+        "use-reactive.react.js",
+        "use-service-event-state.react.js",
+        "use-service.react.js",
+        "opener.js",
+        "bubbleComposerDataHandle.js",
+        "composerDataServiceTypes.js",
+        "chatLinkDragSource.react.js",
+        "agentLinks.js",
+        "agentRepositoryServiceTypes.js",
+        "agentRepositoryService.js",
+        "subagentCanonicalIds.js",
+        "modelConfigServiceTypes.js",
+        "modelNameDisplayLookup.js",
+        "reactNodeToPlainText.react.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/SubagentLinkHoverCard.react.js",
+      "sha256": "ec946b70de7f66dd55a70ac6128f566edefe7ea88d38fc5ffcbc0983a07186fb",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7563",
+      "basename": "SubagentStatusIndicator.react.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        37609337,
+        37616474
+      ],
+      "sliceChars": 7137,
+      "wrapperBodyChars": 80,
+      "declaredInTail": [
+        "pV0",
+        "rBv",
+        "mV0",
+        "gV0",
+        "fV0"
+      ],
+      "jsxFunctions": [
+        "pV0",
+        "rBv",
+        "fV0"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "SubagentStatusIndicator.css"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/SubagentStatusIndicator.react.js",
+      "sha256": "43fbf3545b3b37edd17cb18aa090ec8574e7d50254f5919bc0fc1c7c006d0c77",
+      "renames": {
+        "KDs": "SubagentStatusIndicatorModule"
+      },
+      "renameStatus": "already-applied"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2378",
+      "basename": "SubagentTaskCard.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15419100,
+        15420161
+      ],
+      "sliceChars": 1061,
+      "wrapperBodyChars": 1045,
+      "declaredInTail": [],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "ModelPickerMarkdown.js",
+        "TextRoll.js",
+        "PreviewCard.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/SubagentTaskCard.js",
+      "sha256": "78877684d0630ca97fca5b396e4637c50ceb36e0bf9b3a25a62c41c40d6890a9",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:3185",
+      "basename": "TaskItemNodeView.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        18293452,
+        18299945
+      ],
+      "sliceChars": 6493,
+      "wrapperBodyChars": 216,
+      "declaredInTail": [
+        "$xp",
+        "hC1",
+        "Hxp",
+        "cMa",
+        "pC1",
+        "rHr",
+        "Wxp"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "index.js",
+        "cn.js",
+        "taskCheckboxAccessibility.js",
+        "RichTextEditorContext.js",
+        "Checkbox.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TaskItemNodeView.js",
+      "sha256": "5c25908f94925e527af384bdaa78609a43761032d454fa47bcbd3726aae648aa",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2204",
+      "basename": "TaskSectionView.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        14912872,
+        14913169
+      ],
+      "sliceChars": 297,
+      "wrapperBodyChars": 246,
+      "declaredInTail": [],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "projectTaskSections.js",
+        "ProjectTone.js",
+        "KanbanCard.js",
+        "ProjectList.js",
+        "ProjectListOverflowToggle.js",
+        "Text.js",
+        "scroll-area.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TaskSectionView.js",
+      "sha256": "bd9af7a5c97e02183266a78af4faad70da7597c2cd59968984bbb076b311b52a",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2366",
+      "basename": "ToolApprovalContext.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15315598,
+        15315928
+      ],
+      "sliceChars": 330,
+      "wrapperBodyChars": 76,
+      "declaredInTail": [
+        "ZMS",
+        "QMS",
+        "JMS",
+        "eDS",
+        "tDS"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/ToolApprovalContext.js",
+      "sha256": "e86100bfeb696ca7b52e722be011c973ff43dca33d4cc925346939f0feeba507",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2396",
+      "basename": "ToolApprovalGate.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15438145,
+        15440135
+      ],
+      "sliceChars": 1990,
+      "wrapperBodyChars": 99,
+      "declaredInTail": [
+        "XVh",
+        "ZVh"
+      ],
+      "jsxFunctions": [
+        "ZVh"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "useElementWidth.js",
+        "Button.js",
+        "ToolApprovalReasonStack.js",
+        "TranscriptCard.js",
+        "useToolApproval.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/ToolApprovalGate.js",
+      "sha256": "27cbffbc11df75e69818afe2f2200aef27d3ea8aad1e2badfedf37ee6e68fc99",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2368",
+      "basename": "ToolApprovalReasonStack.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15319198,
+        15321653
+      ],
+      "sliceChars": 2455,
+      "wrapperBodyChars": 160,
+      "declaredInTail": [
+        "u6r",
+        "rzh",
+        "szh",
+        "rDS",
+        "d6r",
+        "sDS",
+        "oDS",
+        "aDS",
+        "lDS",
+        "cDS"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "stylex.js",
+        "ToolApprovalContext.js",
+        "ToolApprovalReasonStack.stylex.js",
+        "tool-approval-types.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/ToolApprovalReasonStack.js",
+      "sha256": "475ba86df2765d46a15a712030d05be367b4a3b9a744bb7765c696c99e899ad8",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2367",
+      "basename": "ToolApprovalReasonStack.stylex.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15315928,
+        15319198
+      ],
+      "sliceChars": 3270,
+      "wrapperBodyChars": 1004,
+      "declaredInTail": [
+        "tzh",
+        "dba",
+        "c6r"
+      ],
+      "jsxFunctions": [
+        "c6r"
+      ],
+      "deps": [
+        "tslib.es6.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/ToolApprovalReasonStack.stylex.js",
+      "sha256": "1b2013d7c69d303797b418ba1f5de35d0a5712832717401e2d8e0c9780e750f3",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1447",
+      "basename": "ToolbarRootContext.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6139441,
+        6141952
+      ],
+      "sliceChars": 2511,
+      "wrapperBodyChars": 162,
+      "declaredInTail": [
+        "Qjy",
+        "Ulh",
+        "jlh",
+        "$lh",
+        "I2r"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": [
+          "ToolbarRootContext"
+        ]
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/ToolbarRootContext.js",
+      "sha256": "75abde3363be537df5095d7ecdf71601f2d79d20800c788a7d3d99aac869968b",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:5808",
+      "basename": "ToolbarRootContext.mjs",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        31335869,
+        31336638
+      ],
+      "sliceChars": 769,
+      "wrapperBodyChars": 180,
+      "declaredInTail": [
+        "Lgw",
+        "Ogw",
+        "Fgw"
+      ],
+      "jsxFunctions": [
+        "Ogw"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.mjs"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": [
+          "ToolbarRootContext"
+        ]
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/ToolbarRootContext.mjs",
+      "sha256": "6e94d854d74aee8c7f2db077bd9ad47bc894da181af1f9aa2065b27613115fc6",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:2450",
+      "basename": "ToolPlaceholder.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        15609998,
+        15616062
+      ],
+      "sliceChars": 6064,
+      "wrapperBodyChars": 263,
+      "declaredInTail": [
+        "v0e",
+        "X6r",
+        "Hhe",
+        "_0e",
+        "Umi",
+        "d5S",
+        "Z6r",
+        "h5S",
+        "jmi",
+        "Q6r",
+        "Kya",
+        "p5S",
+        "qYh",
+        "m5S",
+        "Yya",
+        "Xya",
+        "E1n",
+        "J6r",
+        "zYh",
+        "g5S",
+        "VYh",
+        "KYh",
+        "Zya",
+        "YYh",
+        "Qya",
+        "XYh",
+        "f5S",
+        "e4r"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "ToolCallLine.js",
+        "transcript-types.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/ToolPlaceholder.js",
+      "sha256": "7df31a5bed0e9da68697a76e87fa25c0ff054df6297557a4e1d8c9134be02fa5",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1517",
+      "basename": "TooltipHandle.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6352137,
+        6353642
+      ],
+      "sliceChars": 1505,
+      "wrapperBodyChars": 579,
+      "declaredInTail": [
+        "$oe"
+      ],
+      "jsxFunctions": [
+        "$oe"
+      ],
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.js",
+        "TooltipStore.js",
+        "createBaseUIEventDetails.js",
+        "reason-parts.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipHandle.js",
+      "sha256": "a7ec156d47b59cd79c8aae254507b9c807970ee063fc768e805c8dd19dfb23b2",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1515",
+      "basename": "TooltipPopup.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6350513,
+        6351629
+      ],
+      "sliceChars": 1116,
+      "wrapperBodyChars": 944,
+      "declaredInTail": [],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "TooltipRootContext.js",
+        "TooltipPositionerContext.js",
+        "popupStateMapping.js",
+        "stateAttributesMapping.js",
+        "useOpenChangeComplete.js",
+        "useRenderElement.js",
+        "getDisabledMountTransitionStyles.js",
+        "useHoverFloatingInteraction.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": [
+          "TooltipPopup"
+        ]
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipPopup.js",
+      "sha256": "533f89e69fa5a6a9acb65eae577a996068cb021e06391d4a2a320af0dee2c96a",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1512",
+      "basename": "TooltipPortal.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6347798,
+        6348503
+      ],
+      "sliceChars": 705,
+      "wrapperBodyChars": 348,
+      "declaredInTail": [
+        "dGy"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "TooltipRootContext.js",
+        "TooltipPortalContext.js",
+        "FloatingPortalLite.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": [
+          "TooltipPortal"
+        ]
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipPortal.js",
+      "sha256": "49241887aa3f8eb08d9d66f250ed8ae8ebd1e8c22d120309932e78559f64c1a1",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1511",
+      "basename": "TooltipPortalContext.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6347460,
+        6347798
+      ],
+      "sliceChars": 338,
+      "wrapperBodyChars": 166,
+      "declaredInTail": [],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": [
+          "TooltipPortalContext"
+        ]
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipPortalContext.js",
+      "sha256": "1607ecc30f716f83389382f2586c8f16066425b1d294c2fd0aee089b4bc50de6",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1514",
+      "basename": "TooltipPositioner.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6348849,
+        6350513
+      ],
+      "sliceChars": 1664,
+      "wrapperBodyChars": 1569,
+      "declaredInTail": [],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "TooltipRootContext.js",
+        "TooltipPositionerContext.js",
+        "useAnchorPositioning.js",
+        "TooltipPortalContext.js",
+        "constants.js",
+        "adaptiveOriginMiddleware.js",
+        "usePositioner.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": [
+          "TooltipPositioner"
+        ]
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipPositioner.js",
+      "sha256": "31a5375a537e1162f365b418f45f95ed113277facf34a36092d9d0af351a38b9",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1513",
+      "basename": "TooltipPositionerContext.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6348503,
+        6348849
+      ],
+      "sliceChars": 346,
+      "wrapperBodyChars": 174,
+      "declaredInTail": [],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": [
+          "TooltipPositionerContext"
+        ]
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipPositionerContext.js",
+      "sha256": "3b41c1525d97404fe2f1360b5bb69d611549cf6d88c4af509198cdfe7370a40f",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1516",
+      "basename": "TooltipProvider.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6351629,
+        6352137
+      ],
+      "sliceChars": 508,
+      "wrapperBodyChars": 449,
+      "declaredInTail": [
+        "gGy"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "TooltipProviderContext.js",
+        "FloatingDelayGroup.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": [
+          "TooltipProvider"
+        ]
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipProvider.js",
+      "sha256": "47026caacbebeeea64272b6c99c9a067d24826b32d3b26e59eddb32509f71688",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1507",
+      "basename": "TooltipProviderContext.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6342452,
+        6342632
+      ],
+      "sliceChars": 180,
+      "wrapperBodyChars": 164,
+      "declaredInTail": [],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": [
+          "TooltipProviderContext"
+        ]
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipProviderContext.js",
+      "sha256": "a5ce6ec8ebecc64912e0170cd11e9b4d0931e940f79caf3ed37d1c9079c7d84e",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1506",
+      "basename": "TooltipRoot.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6340328,
+        6342452
+      ],
+      "sliceChars": 2124,
+      "wrapperBodyChars": 1985,
+      "declaredInTail": [
+        "sGy"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "fastHooks.js",
+        "useIsoLayoutEffect.js",
+        "TooltipRootContext.js",
+        "createBaseUIEventDetails.js",
+        "TooltipStore.js",
+        "popupStoreUtils.js",
+        "reason-parts.js",
+        "useDismiss.js",
+        "useClientPoint.js",
+        "mergeProps.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": [
+          "TooltipRoot"
+        ]
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipRoot.js",
+      "sha256": "265ed425b1ba9c55c6b645951957d20fd77089fd69ad7456cf3d645fac513860",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1504",
+      "basename": "TooltipRootContext.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6337736,
+        6338245
+      ],
+      "sliceChars": 509,
+      "wrapperBodyChars": 162,
+      "declaredInTail": [
+        "tGy"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": [
+          "TooltipRootContext"
+        ]
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipRootContext.js",
+      "sha256": "3d30d5913f272d8b8c9f1453b074a78191dcbe93175b5550196d6aabe3aa0bac",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:7798",
+      "basename": "TooltipsSection.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        39340921,
+        39348595
+      ],
+      "sliceChars": 7674,
+      "wrapperBodyChars": 2930,
+      "declaredInTail": [
+        "tuC"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "web.js",
+        "vanilla.mjs",
+        "solid.js",
+        "hoverWidget.js",
+        "codicons.js",
+        "themables.js",
+        "useLargeHoverTooltip.js",
+        "useVSHoverTooltip.js",
+        "gallerySection.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipsSection.js",
+      "sha256": "06e0e704f5347913a84e944d33a9f7865aec64524ec95e6e74e6b3473332d443",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1505",
+      "basename": "TooltipStore.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6338245,
+        6340328
+      ],
+      "sliceChars": 2083,
+      "wrapperBodyChars": 1306,
+      "declaredInTail": [
+        "rGy"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "createBaseUIEventDetails.js",
+        "createSelector.js",
+        "store.js",
+        "ReactStore.js",
+        "popupTriggerMap.js",
+        "popupStoreUtils.js",
+        "reason-parts.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipStore.js",
+      "sha256": "89ede28e58ba0661640de776ebc71ac2644bcb03a37df0e9e5509eb4ce092bec",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1510",
+      "basename": "TooltipTrigger.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6343478,
+        6347460
+      ],
+      "sliceChars": 3982,
+      "wrapperBodyChars": 3701,
+      "declaredInTail": [
+        "cGy"
+      ],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "formatErrorMessage.js",
+        "floating-ui.utils.dom.js",
+        "fastHooks.js",
+        "useTimeout.js",
+        "useValueAsRef.js",
+        "TooltipRootContext.js",
+        "popupStateMapping.js",
+        "useRenderElement.js",
+        "useBaseUiId.js",
+        "TooltipProviderContext.js",
+        "event.js",
+        "createBaseUIEventDetails.js",
+        "TooltipTriggerDataAttributes.js",
+        "useHoverInteractionSharedState.js",
+        "constants.js",
+        "popupStoreUtils.js",
+        "FloatingDelayGroup.js",
+        "shadowDom.js",
+        "useHoverReferenceInteraction.js",
+        "safePolygon.js",
+        "useFocus.js",
+        "reason-parts.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": [
+          "TooltipTrigger"
+        ]
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipTrigger.js",
+      "sha256": "b7e3584987332a1cd2a6e4eddf941c96c0a017a135b93984cdb1cbbd32a13300",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    },
+    {
+      "id": "app-out-vs-workbench-workbench-glass-main-js:1508",
+      "basename": "TooltipTriggerDataAttributes.js",
+      "path": null,
+      "pathBasis": "inferred",
+      "confidence": "C",
+      "candidates": [],
+      "charRange": [
+        6342632,
+        6342840
+      ],
+      "sliceChars": 208,
+      "wrapperBodyChars": 192,
+      "declaredInTail": [],
+      "jsxFunctions": [],
+      "deps": [
+        "tslib.es6.js",
+        "popupStateMapping.js"
+      ],
+      "anchors": {
+        "classNames": [],
+        "ids": [],
+        "displayNames": []
+      },
+      "notes": "esbuild wrapper; slice = wrapper body + hoisted tail until next wrapper. Path inferred unless pathBasis=nls-exact.",
+      "emittedFile": "recovered/app/glass/agent/TooltipTriggerDataAttributes.js",
+      "sha256": "c991c6bf8362276eb19a5b0a63b151668b68061f2809ccdc0d0947285bf71b4c",
+      "renames": {},
+      "renameStatus": "no-proposals"
+    }
+  ]
+}

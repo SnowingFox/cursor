@@ -1,0 +1,15 @@
+// @recovered-by cursor-re
+// artifact: app/extensions/cursor-agent-exec/dist/709.js sha256:178b16cc9cd8c06565bc9aac7b10691bae0eb6d67807efc2887d6c205e5f61c7
+// module: 41845 range:2001..4771
+// basis: webpack-id confidence: C
+// method: split
+// run: ext-p0 2026-11-05T10:07:22.069Z
+41845: (e, t, n) => {
+  Object.defineProperty(t, "__esModule", { value: true }), t.CreateOAuth2Token$ = t.CreateOAuth2TokenResponseBody$ = t.CreateOAuth2TokenResponse$ = t.CreateOAuth2TokenRequestBody$ = t.CreateOAuth2TokenRequest$ = t.AccessToken$ = t.errorTypeRegistries = t.ValidationException$ = t.TooManyRequestsError$ = t.InternalServerException$ = t.AccessDeniedException$ = t.SigninServiceException$ = void 0;
+  const o = "accessKeyId", r = "accessToken", i = "client", s = "clientId", a = "codeVerifier", c = "error", u = "expiresIn", d = "grantType", p = "http", l = "httpError", g = "idToken", h = "jsonName", E = "message", S = "refreshToken", f = "redirectUri", m = "smithy.ts.sdk.synthetic.com.amazonaws.signin", v = "secretAccessKey", P = "sessionToken", O = "tokenType", _ = "com.amazonaws.signin", A = n(93353), C = n(36425), y = n(7540), R = A.TypeRegistry.for(m);
+  t.SigninServiceException$ = [-3, m, "SigninServiceException", 0, [], []], R.registerError(t.SigninServiceException$, y.SigninServiceException);
+  const I = A.TypeRegistry.for(_);
+  t.AccessDeniedException$ = [-3, _, "AccessDeniedException", { [c]: i }, [c, E], [0, 0], 2], I.registerError(t.AccessDeniedException$, C.AccessDeniedException), t.InternalServerException$ = [-3, _, "InternalServerException", { [c]: "server", [l]: 500 }, [c, E], [0, 0], 2], I.registerError(t.InternalServerException$, C.InternalServerException), t.TooManyRequestsError$ = [-3, _, "TooManyRequestsError", { [c]: i, [l]: 429 }, [c, E], [0, 0], 2], I.registerError(t.TooManyRequestsError$, C.TooManyRequestsError), t.ValidationException$ = [-3, _, "ValidationException", { [c]: i, [l]: 400 }, [c, E], [0, 0], 2], I.registerError(t.ValidationException$, C.ValidationException), t.errorTypeRegistries = [R, I];
+  var T = [0, _, "RefreshToken", 8, 0];
+  t.AccessToken$ = [3, _, "AccessToken", 8, [o, v, P], [[0, { [h]: o }], [0, { [h]: v }], [0, { [h]: P }]], 3], t.CreateOAuth2TokenRequest$ = [3, _, "CreateOAuth2TokenRequest", 0, ["tokenInput"], [[() => t.CreateOAuth2TokenRequestBody$, 16]], 1], t.CreateOAuth2TokenRequestBody$ = [3, _, "CreateOAuth2TokenRequestBody", 0, [s, d, "code", f, a, S], [[0, { [h]: s }], [0, { [h]: d }], 0, [0, { [h]: f }], [0, { [h]: a }], [() => T, { [h]: S }]], 2], t.CreateOAuth2TokenResponse$ = [3, _, "CreateOAuth2TokenResponse", 0, ["tokenOutput"], [[() => t.CreateOAuth2TokenResponseBody$, 16]], 1], t.CreateOAuth2TokenResponseBody$ = [3, _, "CreateOAuth2TokenResponseBody", 0, [r, O, u, S, g], [[() => t.AccessToken$, { [h]: r }], [0, { [h]: O }], [1, { [h]: u }], [() => T, { [h]: S }], [0, { [h]: g }]], 4], t.CreateOAuth2Token$ = [9, _, "CreateOAuth2Token", { [p]: ["POST", "/v1/token", 200] }, () => t.CreateOAuth2TokenRequest$, () => t.CreateOAuth2TokenResponse$];
+}

@@ -1,0 +1,314 @@
+{
+ "generatedAt": "2026-11-05T10:20:51.817Z",
+ "run": "ext-agent",
+ "totals": {
+  "extensions": 16,
+  "artifacts": 25,
+  "modules": 1836,
+  "adopted": 76,
+  "idsFound": 13,
+  "idsTotal": 13,
+  "idsLiteral": 10,
+  "idsComposed": 1,
+  "schemaFiles": 2
+ },
+ "results": [
+  {
+   "extension": "cursor-always-local",
+   "artifacts": 3,
+   "modules": 386,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 7,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 2,
+    "found": 2,
+    "literal": 0,
+    "composed": 0,
+    "schemaFiles": 2,
+    "byLocation": {
+     "adopted-file": 2
+    },
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-retrieval",
+   "artifacts": 1,
+   "modules": 196,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 9,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 3,
+    "found": 3,
+    "literal": 2,
+    "composed": 1,
+    "schemaFiles": 0,
+    "byLocation": {
+     "footer(entry module)": 2,
+     "composed-at-runtime": 1
+    },
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-commits",
+   "artifacts": 1,
+   "modules": 167,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 5,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 0,
+    "found": 0,
+    "literal": 0,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {},
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-socket",
+   "artifacts": 1,
+   "modules": 1,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 2,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 0,
+    "found": 0,
+    "literal": 0,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {},
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-checkout",
+   "artifacts": 1,
+   "modules": 1,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 3,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 0,
+    "found": 0,
+    "literal": 0,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {},
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-explorer",
+   "artifacts": 1,
+   "modules": 1,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 1,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 0,
+    "found": 0,
+    "literal": 0,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {},
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-deeplink",
+   "artifacts": 1,
+   "modules": 202,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 1,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 1,
+    "found": 1,
+    "literal": 1,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {
+     "footer(entry module)": 1
+    },
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-file-service",
+   "artifacts": 1,
+   "modules": 1,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 1,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 0,
+    "found": 0,
+    "literal": 0,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {},
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-shadow-workspace",
+   "artifacts": 1,
+   "modules": 166,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 3,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 0,
+    "found": 0,
+    "literal": 0,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {},
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-polyfills-remote",
+   "artifacts": 1,
+   "modules": 369,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 2,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 0,
+    "found": 0,
+    "literal": 0,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {},
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-worktree-textmate",
+   "artifacts": 0,
+   "modules": 0,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 28,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 0,
+    "found": 0,
+    "literal": 0,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {},
+    "missing": []
+   }
+  },
+  {
+   "extension": "theme-cursor",
+   "artifacts": 0,
+   "modules": 0,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 10,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 0,
+    "found": 0,
+    "literal": 0,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {},
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-agent-worker",
+   "artifacts": 1,
+   "modules": 233,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 1,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 0,
+    "found": 0,
+    "literal": 0,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {},
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-browser-automation",
+   "artifacts": 10,
+   "modules": 57,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 1,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 0,
+    "found": 0,
+    "literal": 0,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {},
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-ndjson-ingest",
+   "artifacts": 1,
+   "modules": 7,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 1,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 7,
+    "found": 7,
+    "literal": 7,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {
+     "module": 7
+    },
+    "missing": []
+   }
+  },
+  {
+   "extension": "cursor-resolver-helper",
+   "artifacts": 1,
+   "modules": 49,
+   "reassembly": "ok",
+   "reassemblyErrors": [],
+   "adopted": 1,
+   "adoptErrors": [],
+   "spotcheck": {
+    "total": 0,
+    "found": 0,
+    "literal": 0,
+    "composed": 0,
+    "schemaFiles": 0,
+    "byLocation": {},
+    "missing": []
+   }
+  }
+ ]
+}

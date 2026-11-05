@@ -1,0 +1,11 @@
+// @recovered-by cursor-re
+// artifact: app/out/vs/workbench/workbench.glass.main.js sha256:6eb88cb60fce5bf5df2ee401f797d5e160b0bcb5d85c25e57d2576b467edce81
+// module: Fieldset.js range:17973087..17974800
+// basis: inferred
+// confidence: C
+// method: split
+// run: main 2026-11-05T10:03:45.670Z
+Ly1 = L({ "Fieldset.js"() {
+  "use strict";
+  E(), Va(), X0p(), mf(), e5r(), Iy1(), Ay1(), P_i = { base: { kVAEAm: "ui-1n2onr6", k1xSpc: "ui-78zum5", kXwgrk: "ui-1q0g3np ui-q9anqm ui-1a992vl", kwnvtZ: "ui-1a02dak", kOIVth: "ui-1qqbgdy ui-1c4yd7b ui-1b4wul2", kmVPX3: "ui-15wvsb0", kSGwAc: "ui-kh2ocl", $$css: true }, alignCenter: { kGNEyG: "ui-6s0dn4", $$css: true }, alignTop: { kGNEyG: "ui-1cy8zhl", $$css: true }, row: { kXwgrk: "ui-1q0g3np ui-izasmx ui-uva3ol", kOIVth: "ui-1qqbgdy ui-rwgm8p ui-74nuyq", $$css: true } }, Z0p = { base: { k1xSpc: "ui-78zum5", kGNEyG: "ui-6s0dn4", kwnvtZ: "ui-1a02dak", kOIVth: "ui-11twubx", keoZOQ: "ui-dj266r", km5ZXQ: "ui-1yf7rl7", k1K539: "ui-at24cr", koQZXg: "ui-j3b58b", kGuDYH: "ui-11wthnw", kLWn49: "ui-1ja60sm", k63SB2: "ui-20ajya", kMwMTN: "ui-1wd3ewq", kVQacm: "ui-b3r6kr", kg5iWk: "ui-lyipyv", $$css: true } }, k2a = { base: { k1xSpc: "ui-78zum5", kGNEyG: "ui-6s0dn4", kOIVth: "ui-ehausa", kXwgrk: "ui-1q0g3np", kjj79g: "ui-13a6bvl ui-1khlpw ui-nijaqt", kUk6DE: "ui-3psx0u ui-yo0tda ui-1x0gr53", kzqmXN: "ui-1ifrov1 ui-15934ca", ks0D6T: "ui-1s8ub08 ui-zhcxso ui-szer9x", kSGwAc: "ui-kh2ocl", kKzgqk: "ui-7x7zpb", $$css: true }, row: { kjj79g: "ui-13a6bvl ui-iehvah ui-1mc8uqw", kUk6DE: "ui-3psx0u ui-18i7x6g ui-sqxlxn", kzqmXN: "ui-14atkfc ui-zhp38u ui-16wfzk1", ks0D6T: "ui-1s8ub08 ui-13cilym ui-1cft9am", $$css: true } }, w2a = { inset: { kgeoSG: "ui-1cpjm7i", kEoFBp: "ui-1hmns74", k96MEf: "ui-1y3wzot", k75S9Q: "ui-fwd2i3", kLBHJ3: "ui-mha93p", kgzTxl: "ui-y80zi5", kLkRvE: "ui-rbyuox", k8OcCd: "ui-1oo1iut", $$css: true }, entryAfterPreview: { kxvNuh: "ui-wnzw61", kD6WQy: "ui-12l0p4g", $$css: true } }, Hs = { Root: My1, Entry: Dy1, Preview: Ny1 };
+} }), C2a, 

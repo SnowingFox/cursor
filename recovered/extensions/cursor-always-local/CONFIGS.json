@@ -1,0 +1,53 @@
+{
+ "generatedAt": "2026-11-05T10:09:31.841Z",
+ "run": "ext-p0",
+ "extension": "cursor-always-local",
+ "adopted": [
+  {
+   "path": "package.json",
+   "artifact": "app/extensions/cursor-always-local/package.json",
+   "sha256": "e6f7827311ec5e9ba560332f15384fcec6ca9b5076de5d9f8e7e8d079a520f68",
+   "bytes": 1127,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  },
+  {
+   "path": "package.nls.json",
+   "artifact": "app/extensions/cursor-always-local/package.nls.json",
+   "sha256": "dca8e3c7f4e29756605a885da1f6393b9e0328b899040dd3471a5a6586f07e0c",
+   "bytes": 81,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  },
+  {
+   "path": "eslint.config.cjs",
+   "artifact": "app/extensions/cursor-always-local/eslint.config.cjs",
+   "sha256": "842f9f80283f33d83bbfbe0f1d67f14ef957b678c4a3bd1f9ec5bc4711a08a6f",
+   "bytes": 399,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": true
+  },
+  {
+   "path": "schemas/environment.schema.json",
+   "artifact": "app/extensions/cursor-always-local/schemas/environment.schema.json",
+   "sha256": "8e81be8b36c9bea044b5546c65afc43ac4f9c3617238c0f43ecbf702d479143a",
+   "bytes": 5951,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  },
+  {
+   "path": "schemas/permissions.schema.json",
+   "artifact": "app/extensions/cursor-always-local/schemas/permissions.schema.json",
+   "sha256": "852aa108fe5add547ce205f4282a6a447a49b1756b4c88100c556f28866f005e",
+   "bytes": 1839,
+   "method": "adopted-source",
+   "confidence": "A",
+   "header": false
+  }
+ ],
+ "note": "JSON files are byte-identical to the artifact; text files carry a provenance header. Verify sha256 against app/extensions/<extension>/<path> after stripping the header."
+}

@@ -1,0 +1,296 @@
+{
+  "generatedAt": "2026-11-05T10:08:22.685Z",
+  "run": "w1-sdk-runtime",
+  "status": "report-only: root manifests are main-owned; nothing here was applied",
+  "root": {
+    "currentWorkspaces": [
+      "packages/*"
+    ],
+    "changeRequired": false,
+    "note": "root package.json already declares workspaces: [\"packages/*\"]; do NOT add @anysphere/* there. bun install is main-owned and offline-blocked."
+  },
+  "recoveredPackages": {
+    "cursor-sdk-local-runtime": {
+      "name": "@anysphere/cursor-sdk-local-runtime",
+      "version": "1.0.0-re",
+      "modules": 14,
+      "generated": 0,
+      "dependencies": {
+        "@anysphere/agent-kv": "workspace:*",
+        "@anysphere/context": "workspace:*",
+        "@anysphere/utils": "workspace:*"
+      },
+      "tsconfigPaths": {
+        "@anysphere/cursor-sdk-local-runtime": [
+          "../cursor-sdk-local-runtime/src/index.ts"
+        ],
+        "@anysphere/cursor-sdk-local-runtime/*": [
+          "../cursor-sdk-local-runtime/src/*"
+        ]
+      }
+    },
+    "cursor-sdk-shared": {
+      "name": "@anysphere/cursor-sdk-shared",
+      "version": "1.0.0-re",
+      "modules": 2,
+      "generated": 0,
+      "dependencies": {
+        "zod": "^3.25.0 || ^4.0.0"
+      },
+      "tsconfigPaths": {
+        "@anysphere/cursor-sdk-shared": [
+          "../cursor-sdk-shared/src/index.ts"
+        ],
+        "@anysphere/cursor-sdk-shared/*": [
+          "../cursor-sdk-shared/src/*"
+        ]
+      }
+    },
+    "proto": {
+      "name": "@anysphere/proto",
+      "version": "1.0.0-re",
+      "modules": 64,
+      "generated": 64,
+      "dependencies": {
+        "@bufbuild/protobuf": "1.10.0"
+      },
+      "tsconfigPaths": {
+        "@anysphere/proto": [
+          "../proto/src/index.ts"
+        ],
+        "@anysphere/proto/*": [
+          "../proto/src/*"
+        ]
+      }
+    },
+    "utils": {
+      "name": "@anysphere/utils",
+      "version": "1.0.0-re",
+      "modules": 10,
+      "generated": 0,
+      "dependencies": {
+        "rxjs": "8.0.0-alpha.14"
+      },
+      "tsconfigPaths": {
+        "@anysphere/utils": [
+          "../utils/src/index.ts"
+        ],
+        "@anysphere/utils/*": [
+          "../utils/src/*"
+        ]
+      }
+    },
+    "context": {
+      "name": "@anysphere/context",
+      "version": "1.0.0-re",
+      "modules": 3,
+      "generated": 0,
+      "dependencies": {
+        "@opentelemetry/api": "1.9.0"
+      },
+      "tsconfigPaths": {
+        "@anysphere/context": [
+          "../context/src/index.ts"
+        ],
+        "@anysphere/context/*": [
+          "../context/src/*"
+        ]
+      }
+    },
+    "metrics": {
+      "name": "@anysphere/metrics",
+      "version": "1.0.0-re",
+      "modules": 1,
+      "generated": 0,
+      "dependencies": {
+        "@anysphere/context": "workspace:*"
+      },
+      "tsconfigPaths": {
+        "@anysphere/metrics": [
+          "../metrics/src/index.ts"
+        ],
+        "@anysphere/metrics/*": [
+          "../metrics/src/*"
+        ]
+      }
+    },
+    "shell-exec": {
+      "name": "@anysphere/shell-exec",
+      "version": "1.0.0-re",
+      "modules": 1,
+      "generated": 0,
+      "dependencies": {
+        "@anysphere/context": "workspace:*",
+        "@anysphere/utils": "workspace:*",
+        "ignore": "7.0.5",
+        "rxjs": "8.0.0-alpha.14"
+      },
+      "tsconfigPaths": {
+        "@anysphere/shell-exec": [
+          "../shell-exec/src/index.ts"
+        ],
+        "@anysphere/shell-exec/*": [
+          "../shell-exec/src/*"
+        ]
+      }
+    },
+    "mcp-core": {
+      "name": "@anysphere/mcp-core",
+      "version": "1.0.0-re",
+      "modules": 1,
+      "generated": 0,
+      "dependencies": {},
+      "tsconfigPaths": {
+        "@anysphere/mcp-core": [
+          "../mcp-core/src/index.ts"
+        ],
+        "@anysphere/mcp-core/*": [
+          "../mcp-core/src/*"
+        ]
+      }
+    },
+    "mcp-agent-exec": {
+      "name": "@anysphere/mcp-agent-exec",
+      "version": "1.0.0-re",
+      "modules": 1,
+      "generated": 0,
+      "dependencies": {
+        "@anysphere/mcp-core": "workspace:*",
+        "@anysphere/shell-exec": "workspace:*"
+      },
+      "tsconfigPaths": {
+        "@anysphere/mcp-agent-exec": [
+          "../mcp-agent-exec/src/index.ts"
+        ],
+        "@anysphere/mcp-agent-exec/*": [
+          "../mcp-agent-exec/src/*"
+        ]
+      }
+    },
+    "agent-kv": {
+      "name": "@anysphere/agent-kv",
+      "version": "1.0.0-re",
+      "modules": 1,
+      "generated": 0,
+      "dependencies": {
+        "@anysphere/context": "workspace:*",
+        "@anysphere/metrics": "workspace:*",
+        "@anysphere/proto": "workspace:*",
+        "@anysphere/utils": "workspace:*",
+        "zod": "^3.25.0 || ^4.0.0"
+      },
+      "tsconfigPaths": {
+        "@anysphere/agent-kv": [
+          "../agent-kv/src/index.ts"
+        ],
+        "@anysphere/agent-kv/*": [
+          "../agent-kv/src/*"
+        ]
+      }
+    }
+  },
+  "cursorSdk": {
+    "dependencies": {
+      "@anysphere/agent-kv": "workspace:*",
+      "@anysphere/context": "workspace:*",
+      "@anysphere/cursor-sdk-local-runtime": "workspace:*",
+      "@anysphere/cursor-sdk-shared": "workspace:*",
+      "@anysphere/mcp-agent-exec": "workspace:*",
+      "@anysphere/mcp-core": "workspace:*",
+      "@anysphere/metrics": "workspace:*",
+      "@anysphere/proto": "workspace:*",
+      "@anysphere/shell-exec": "workspace:*",
+      "@anysphere/utils": "workspace:*",
+      "@bufbuild/protobuf": "1.10.0",
+      "@connectrpc/connect": "^1.6.1",
+      "@connectrpc/connect-web": "^1.6.1",
+      "@statsig/js-client": "3.31.0",
+      "zod": "^3.25.0 || ^4.0.0"
+    },
+    "tsconfigPaths": {
+      "@anysphere/cursor-sdk-local-runtime": [
+        "../cursor-sdk-local-runtime/src/index.ts"
+      ],
+      "@anysphere/cursor-sdk-local-runtime/*": [
+        "../cursor-sdk-local-runtime/src/*"
+      ],
+      "@anysphere/cursor-sdk-shared": [
+        "../cursor-sdk-shared/src/index.ts"
+      ],
+      "@anysphere/cursor-sdk-shared/*": [
+        "../cursor-sdk-shared/src/*"
+      ],
+      "@anysphere/proto": [
+        "../proto/src/index.ts"
+      ],
+      "@anysphere/proto/*": [
+        "../proto/src/*"
+      ],
+      "@anysphere/utils": [
+        "../utils/src/index.ts"
+      ],
+      "@anysphere/utils/*": [
+        "../utils/src/*"
+      ],
+      "@anysphere/context": [
+        "../context/src/index.ts"
+      ],
+      "@anysphere/context/*": [
+        "../context/src/*"
+      ],
+      "@anysphere/metrics": [
+        "../metrics/src/index.ts"
+      ],
+      "@anysphere/metrics/*": [
+        "../metrics/src/*"
+      ],
+      "@anysphere/shell-exec": [
+        "../shell-exec/src/index.ts"
+      ],
+      "@anysphere/shell-exec/*": [
+        "../shell-exec/src/*"
+      ],
+      "@anysphere/mcp-core": [
+        "../mcp-core/src/index.ts"
+      ],
+      "@anysphere/mcp-core/*": [
+        "../mcp-core/src/*"
+      ],
+      "@anysphere/mcp-agent-exec": [
+        "../mcp-agent-exec/src/index.ts"
+      ],
+      "@anysphere/mcp-agent-exec/*": [
+        "../mcp-agent-exec/src/*"
+      ],
+      "@anysphere/agent-kv": [
+        "../agent-kv/src/index.ts"
+      ],
+      "@anysphere/agent-kv/*": [
+        "../agent-kv/src/*"
+      ]
+    },
+    "note": "packages/cursor-sdk is sdk-core owned. Its tsconfig needs these paths (or node_modules links after bun install) to resolve workspace sources instead of vendor dist."
+  },
+  "external": {
+    "importedByRecoveredCode": [
+      "@bufbuild/protobuf",
+      "@opentelemetry/api",
+      "ignore",
+      "rxjs",
+      "zod"
+    ],
+    "evidenceVersions": {
+      "@bufbuild/protobuf": "1.10.0 (SDK dependency; externalized, not present in bundle)",
+      "zod": "^3.25.0 || ^4.0.0 (SDK peer; imported as zod/v3 and zod/v4)",
+      "rxjs": "8.0.0-alpha.14 (pnpm key evidence)",
+      "ignore": "7.0.5 (pnpm key evidence)",
+      "@opentelemetry/api": "1.9.0 (pnpm key evidence)",
+      "@connectrpc/connect": "1.6.1 (pnpm key evidence; used by generated *_connect modules)",
+      "@connectrpc/connect-web": "unknown (not imported by recovered modules)",
+      "@statsig/js-client": "3.31.0 (SDK dependency; not imported by recovered modules)"
+    },
+    "installedNow": false,
+    "mitigation": "packages/*/src/externals.d.ts declares shorthand ambient modules for missing externals so tsc is green offline; runtime requires a real bun install.",
+    "blocked": "network disabled for this run; main thread must run bun install after adding dependencies."
+  }
+}

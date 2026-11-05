@@ -1,0 +1,11 @@
+{
+  "moduleId": "app-out-vs-workbench-workbench-glass-main-js:2402",
+  "basename": "McpServerIconImage.js",
+  "file": "recovered/app/glass/agent/McpServerIconImage.js",
+  "renames": {
+    "G3S": "McpServerIconImageModule"
+  },
+  "notes": [
+    "G3S -> McpServerIconImageModule: declared wrapper binding, evidence: esbuild init key \"McpServerIconImage.js\""
+  ]
+}

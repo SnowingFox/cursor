@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-11-05T10:07:48.061Z",
+  "packages": {
+    "cursor-sdk-local-runtime": {
+      "pass": true,
+      "rounds": [],
+      "remainingErrors": 0,
+      "remainingFiles": [],
+      "errorSample": []
+    },
+    "cursor-sdk-shared": {
+      "pass": true,
+      "rounds": [],
+      "remainingErrors": 0,
+      "remainingFiles": [],
+      "errorSample": []
+    },
+    "proto": {
+      "pass": true,
+      "rounds": [],
+      "remainingErrors": 0,
+      "remainingFiles": [],
+      "errorSample": []
+    },
+    "utils": {
+      "pass": true,
+      "rounds": [],
+      "remainingErrors": 0,
+      "remainingFiles": [],
+      "errorSample": []
+    },
+    "context": {
+      "pass": true,
+      "rounds": [],
+      "remainingErrors": 0,
+      "remainingFiles": [],
+      "errorSample": []
+    },
+    "metrics": {
+      "pass": true,
+      "rounds": [],
+      "remainingErrors": 0,
+      "remainingFiles": [],
+      "errorSample": []
+    },
+    "shell-exec": {
+      "pass": true,
+      "rounds": [],
+      "remainingErrors": 0,
+      "remainingFiles": [],
+      "errorSample": []
+    },
+    "mcp-core": {
+      "pass": true,
+      "rounds": [],
+      "remainingErrors": 0,
+      "remainingFiles": [],
+      "errorSample": []
+    },
+    "mcp-agent-exec": {
+      "pass": true,
+      "rounds": [],
+      "remainingErrors": 0,
+      "remainingFiles": [],
+      "errorSample": []
+    },
+    "agent-kv": {
+      "pass": true,
+      "rounds": [],
+      "remainingErrors": 0,
+      "remainingFiles": [],
+      "errorSample": []
+    }
+  }
+}
